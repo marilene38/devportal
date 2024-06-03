@@ -1,0 +1,50 @@
+---
+title: Welcome to Starlight
+description: Get started building your docs site with Starlight.
+template: splash
+hero:
+  tagline: Congrats on setting up a new Starlight project!
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Example Guide
+      link: /build/example/
+      icon: right-arrow
+      variant: primary
+    - text: Read the Starlight docs
+      link: https://starlight.astro.build
+      icon: external
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+## Next steps
+
+<CardGrid stagger>
+	<LinkCard title="Build" icon="pencil" href="/build/overview">
+		Edit `src/content/docs/index.mdx` to see this page change.
+	</LinkCard>
+	<LinkCard
+		title="Protocol"
+		icon="add-document"
+		href="/protocol/consensus/configurations"
+	>
+		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	</LinkCard>
+	<LinkCard title="Node Running" icon="setting" href="/node_running/archival/">
+		Edit your `sidebar` and other config in `astro.config.mjs`.
+	</LinkCard>
+	<LinkCard title="Reference" icon="open-book" href="/reference/overview">
+		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	</LinkCard>
+	<LinkCard
+		title="Security Practices"
+		icon="open-book"
+		href="/security_practices"
+	>
+		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	</LinkCard>
+	<LinkCard title="Tools" icon="open-book" href="/tools/overview">
+		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	</LinkCard>
+</CardGrid>
