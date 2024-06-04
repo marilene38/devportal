@@ -1,18 +1,29 @@
-# Starlight Starter Kit: Basics
+# Developer Portal
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+This repo holds the code for the new developer portal, at the moment it's in a rudimentary state
 
-```
-npm create astro@latest -- --template starlight
-```
+## Project setup
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
+- run `git clone` in your terminal to clone this repo
+- run `npm install` in your terminal to install all dependencies
+- run `npm run dev` in your terminal to start a local developer environment
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Information Architecture
 
-## 🚀 Project Structure
+All the documentation is stored under `./src/docs/` with the following subsections:
+
+- `build`
+- `node_running`
+- `protocol`
+- `reference`
+- `security_practices`
+- `tools`
+
+The sidebar menu configuration can be found at `./astro.config.mjs`
+
+## Stack related stuff (Astro + Starlight)
+
+### 🚀 Project Structure
 
 Inside of your Astro + Starlight project, you'll see the following folders and files:
 
@@ -36,7 +47,7 @@ Images can be added to `src/assets/` and embedded in Markdown with a relative li
 
 Static assets, like favicons, can be placed in the `public/` directory.
 
-## 🧞 Commands
+### 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -49,6 +60,7 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+### Useful Links
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+- [Starlight’s docs](https://starlight.astro.build/)
+- [Astro documentation](https://docs.astro.build)
