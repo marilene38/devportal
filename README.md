@@ -12,10 +12,10 @@ This repo holds the code for the new developer portal, at the moment it's in a r
 
 All the documentation is stored under `./src/docs/` with the following subsections:
 
-- `build`
-- `node_running`
-- `protocol`
-- `reference`
+- `build` -> how to interact and use the chain
+- `node_running` -> how to run a node and stuff
+- `protocol` -> core algorand protocol documentation
+- `reference` -> collection of reference docs of all tools (sdk's, programming languages, cli's)
 - `security_practices`
 - `tools`
 

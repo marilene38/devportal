@@ -534,6 +534,9 @@ export default defineConfig({
 					],
 				},
 			],
+			expressiveCode: {
+				themes: ["dracula", "rose-pine-dawn"],
+			},
 		}),
 	],
 });
