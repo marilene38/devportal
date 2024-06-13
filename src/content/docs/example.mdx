@@ -7,6 +7,7 @@ import { Code } from "@astrojs/starlight/components";
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 import helloTs from "/src/content/examples/hello.ts?raw";
 import helloPy from "/src/content/examples/hello.py?raw";
+import helloSh from "/src/content/examples/hello.sh?raw";
 
 ## Dealing with code
 
@@ -113,6 +114,15 @@ the two following are synced
 		<Code code={helloTs} lang="ts" frame="none" />
 	</TabItem>
 </Tabs>
+
+### Terminal commands
+
+```sh
+echo "Hello, world! "
+```
+
+<Code code={helloSh} lang="sh" frame="none" />
+
 ### Asides
 
 :::note
