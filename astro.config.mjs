@@ -15,6 +15,10 @@ export default defineConfig({
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{
+							label: "Quick Start Guide",
+							autogenerate: { directory: "build/getting-started" },
+						},
+						{
 							label: "Accounts",
 							collapsed: true,
 							items: [
