@@ -7,6 +7,11 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Algorand Developer Portal",
+      logo: {
+        src: "/src/assets/images/portal-logo.svg",
+        alt: "Algorand Developer Portal",
+        replacesTitle: true,
+      },
       social: {
         github: "https://github.com/withastro/starlight",
       },
