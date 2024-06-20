@@ -17,7 +17,7 @@ export default defineConfig({
           items: [
             {
               label: "AlgoKit",
-              collapsed: false,
+              collapsed: true,
               autogenerate: {
                 directory: "build/algokit",
               },
@@ -54,6 +54,7 @@ export default defineConfig({
         },
         {
           label: "Algorand Protocol",
+          collapsed: true,
           badge: {
             text: "todo",
             variant: "danger",
@@ -61,36 +62,60 @@ export default defineConfig({
           items: [
             {
               label: "Consensus",
+              badge: {
+                text: "todo",
+                variant: "danger",
+              },
               autogenerate: {
                 directory: "protocol/consensus",
               },
             },
             {
               label: "Node",
+              badge: {
+                text: "todo",
+                variant: "danger",
+              },
               autogenerate: {
                 directory: "protocol/node",
               },
             },
             {
               label: "APIs",
+              badge: {
+                text: "todo",
+                variant: "danger",
+              },
               autogenerate: {
                 directory: "protocol/api",
               },
             },
             {
-              label: "State proofs",
+              label: "State Proofs",
+              badge: {
+                text: "todo",
+                variant: "danger",
+              },
               autogenerate: {
                 directory: "protocol/state-proofs",
               },
             },
             {
               label: "Features",
+              badge: {
+                text: "todo",
+                variant: "danger",
+              },
               autogenerate: {
                 directory: "protocol/features",
               },
             },
             {
               label: "AVM",
+              badge: {
+                text: "todo",
+                variant: "danger",
+              },
               autogenerate: {
                 directory: "protocol/avm",
               },
@@ -99,12 +124,18 @@ export default defineConfig({
         },
         {
           label: "Reference",
+          collapsed: true,
+          badge: {
+            text: "todo",
+            variant: "danger",
+          },
           autogenerate: {
             directory: "reference",
           },
         },
         {
-          label: "Running a node",
+          label: "Running a Node",
+          collapsed: true,
           badge: {
             text: "todo",
             variant: "danger",
@@ -114,12 +145,13 @@ export default defineConfig({
           },
         },
         {
-          label: "Security and best practices",
-		  badge: {
+          label: "Security & Best Practices",
+          collapsed: true,
+          badge: {
             text: "todo",
             variant: "danger",
           },
-		  autogenerate: {
+          autogenerate: {
             directory: "security",
           },
         },
