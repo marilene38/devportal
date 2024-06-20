@@ -6,6 +6,9 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Aeonik", "sans-serif"], // Set Aeonik as the default sans font
+      },
       colors: {
         primary: {
           50: "#edf2ff",
