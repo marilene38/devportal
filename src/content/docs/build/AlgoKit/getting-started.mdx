@@ -22,28 +22,20 @@ import algokitInit10 from '../../../../assets/algokit-init-10.png';
 import algokitBuildDeploy from '../../../../assets/algokit-build-deploy.png';
 
 
-Hello developer! Welcome to Algorand!
+**Welcome to Algorand!**
 
+This quick start guide will help you set up your development environment, create your first Algorand project with AlgoKit, and deploy your first Algorand smart contract. By the end of this guide, you’ll be ready to build your own decentralized application on the Algorand blockchain.
 
-This quick start guide will walk you through setting up your development environment,
-creating your first Algorand project with AlgoKit, and deploying your first Algorand smart contract.
-By the end of this guide, you will be ready to start building your own decentralized application on the
-Algorand blockchain.
-
-
-AlgoKit is a simple, comprehensive toolkit for developers to quickly and easily build and launch secure, automated,
-production-ready decentralized applications on the Algorand protocol. With AlgoKit 2.0, it also features native Python support
-for writing smart contracts! This empowers developers to write Algorand smart contracts in regular Python, one of the world's
-most popular programming languages.
+AlgoKit is a comprehensive toolkit that allows developers to quickly and easily build and launch secure, automated, production-ready decentralized applications on the Algorand protocol. With AlgoKit 2.0, you can now write Algorand smart contracts using Python, one of the world’s most popular programming languages.
 
 
 In addition, AlgoKit features:
 
 
-- A library of smart contract templates to kickstart your build
-- All necessary application infrastructure running locally
-- Toolchain integrations for languages you love, like Python and TypeScript
-- A simplified frontend design experience
+- A library of smart contract templates to kickstart your project.
+- Local application infrastructure setup.
+- Toolchain integrations for popular languages like Python and TypeScript.
+- A simplified frontend design experience.
 
 
 Let's get started!
@@ -71,21 +63,21 @@ all of the prerequisites and AlgoKit.
 
 <Tabs syncKey="lang">
  <TabItem label="OS Agnostic">
-   To install AlgoKit, run the following command from a terminal.
+   <Steps>
+      1. To install AlgoKit, run the following command from a terminal.
 
 
-   ```shell
-   pipx install algokit
-   ```
+         ```shell
+         pipx install algokit
+         ```
 
+      2. If you used AlgoKit before, update it with pipx: 
+         ```shell
+         pipx upgrade algokit
+         ```
 
-   If you used AlgoKit before, update it with pipx: 
-   ```shell
-   pipx upgrade algokit
-   ```
-
-
-   After the installation completes, **restart the terminal**.
+      3. After the installation completes, **restart the terminal**.
+   </Steps>
  </TabItem>
  <TabItem label="Windows" icon="seti:windows">
 :::note
@@ -94,99 +86,90 @@ If you already have Python 3.12+ installed, you may prefer to use `pipx install 
 so you can control the Python version used.
 :::
 
-
-   - Ensure prerequisites are installed
-       - [Git](https://github.com/git-guides/install-git#install-git-on-windows) (or `winget install git.git`)
-       - [Docker](https://docs.docker.com/desktop/install/windows-install/) (or `winget install docker.dockerdesktop`)
-
-
-       :::tip
-       See [our LocalNet documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/localnet.md#prerequisites) for more tips on installing Docker on Windows
-       :::
+   <Steps>
+      1. Ensure prerequisites are installed
+         - [Git](https://github.com/git-guides/install-git#install-git-on-windows) (or `winget install git.git`)
+         - [Docker](https://docs.docker.com/desktop/install/windows-install/) (or `winget install docker.dockerdesktop`)
 
 
-   - Install Python3 using WinGet
-       - Install python 3.12:
-       ```shell
-       winget install python.python.3.12
-       ```
-       - Restart the terminal to ensure Python and pip are available on the path
+         :::tip
+         See [our LocalNet documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/localnet.md#prerequisites) for more tips on installing Docker on Windows
+         :::
 
+      2. Install Python3 using WinGet
+         - Install python 3.12:
+         ```shell
+         winget install python.python.3.12
+         ```
+      3. Restart the terminal to ensure Python and pip are available on the path
 
-:::note
-Windows has a feature called **App Execution Aliases** that provides redirects for the Python command that guides users to the Windows Store. unfortunately, these aliases can prevent normal execution of Python if Python is installed via other means, to disable them search for **Manage app execution aliases** from the start menu, and then turn off entries listed as **App Installer python.exe** or **App Installer python3.exe**.
-:::
+         :::note
+         Windows has a feature called **App Execution Aliases** that provides redirects for the Python command that guides users to the Windows Store. unfortunately, these aliases can prevent normal execution of Python if Python is installed via other means, to disable them search for **Manage app execution aliases** from the start menu, and then turn off entries listed as **App Installer python.exe** or **App Installer python3.exe**.
+         :::
 
-
-   - Install pipx:
-   ```shell
-  pip install --user pipx
-  python -m pipx ensurepath
-  ```
-   - Restart the terminal to ensure pipx is available on the path
-   - Install AlgoKit via pipx:
-   ```shell
-   pipx install algokit
-   ```
-   - If you used AlgoKit before, update it with pipx:
-   ```shell
-   pipx upgrade algokit
-   ```
-   - Restart the terminal to ensure AlgoKit is available on the path
+      4. Install pipx:
+         ```shell
+         pip install --user pipx
+         python -m pipx ensurepath
+         ```
+      5. Restart the terminal to ensure pipx is available on the path
+      6. Install AlgoKit via pipx:
+         ```shell
+         pipx install algokit
+         ```
+      7. If you used AlgoKit before, update it with pipx:
+         ```shell
+         pipx upgrade algokit
+         ```
+      8. Restart the terminal to ensure AlgoKit is available on the path
+   </Steps>
  </TabItem>
  <TabItem label="macOS" icon="apple">
-:::note
-This method will install the latest Python3 release as a dependency via Homebrew. If you already have Python 3.10+ installed, you may prefer to use `pipx install algokit` as explained within the OS agnostic tab so you can control the Python version used.
-:::
+   :::note
+   This method will install the latest Python3 release as a dependency via Homebrew. If you already have Python 3.10+ installed, you may prefer to use `pipx install algokit` as explained within the OS agnostic tab so you can control the Python version used.
+   :::
 
+   <Steps>
+      1. Ensure prerequisites are installed
 
-   - Ensure prerequisites are installed
+         - [Homebrew](https://docs.brew.sh/Installation)
+         - [Git](https://github.com/git-guides/install-git#install-git-on-mac) (should already be available if `brew` is installed)
+         - [Docker](https://docs.docker.com/desktop/install/mac-install/), (or `brew install --cask docker`)
 
+         :::tip
+         Docker requires MacOS 11+
+         :::
 
-       - [Homebrew](https://docs.brew.sh/Installation)
-       - [Git](https://github.com/git-guides/install-git#install-git-on-mac) (should already be available if `brew` is installed)
-       - [Docker](https://docs.docker.com/desktop/install/mac-install/), (or `brew install --cask docker`)
-
-
-:::tip
-Docker requires MacOS 11+
-:::
-
-
-   - Install using Homebrew
-   ```shell
-  brew install algorandfoundation/tap/algokit
-  ```
-   - Restart the terminal to ensure AlgoKit is available on the path
+      2. Install using Homebrew
+         ```shell
+         brew install algorandfoundation/tap/algokit
+         ```
+      3. Restart the terminal to ensure AlgoKit is available on the path
+   </Steps>
  </TabItem>
  <TabItem label="Linux" icon="linux">
-   - Ensure prerequisites are installed
-   - [Python 3.12+](https://www.python.org/downloads/)
-:::tip
-There is probably a better way to install Python than to download it directly, e.g. your local Linux package manager
-:::
+   <Steps>
+      1. Ensure prerequisites are installed
+            - [Python 3.12+](https://www.python.org/downloads/)
+            - [pipx](https://pypa.github.io/pipx/#on-linux-install-via-pip-requires-pip-190-or-later)
+            - [Git](https://github.com/git-guides/install-git#install-git-on-linux)
+            - [Docker](https://docs.docker.com/desktop/install/linux-install/)
 
 
-   - [pipx](https://pypa.github.io/pipx/#on-linux-install-via-pip-requires-pip-190-or-later)
-   - [Git](https://github.com/git-guides/install-git#install-git-on-linux)
-   - [Docker](https://docs.docker.com/desktop/install/linux-install/)
+      2. Install AlgoKit, with `pipx` by running the following command from a terminal.
+
+         ```shell
+         pipx install algokit
+         ```
+
+      3. If you used AlgoKit before, update it with pipx: 
+         ```shell
+         pipx upgrade algokit
+         ```
 
 
-   Install AlgoKit, with `pipx` by running the following command from a terminal.
-
-
-   ```shell
-   pipx install algokit
-   ```
-
-
-   If you used AlgoKit before, update it with pipx: 
-   ```shell
-   pipx upgrade algokit
-   ```
-
-
-   After the installation completes, **restart the terminal**.
+      4. After the installation completes, **restart the terminal**.
+   </Steps>
  </TabItem>
 </Tabs>
 
@@ -306,25 +289,26 @@ to the `contract.py` smart contract on the LocalNet instance started earlier.
 Now there are two ways to run the `deploy-config.ts` file to deploy and call the smart contract:
 
 <Steps>
-1. By hitting F5 it will:
-   - Start LocalNet
-   - Build the smart contract
-   - Deploy and call the smart contract (`contract.py`) by running the `deploy-config.ts` file.
-
-   The output should look similar to the following:
-   ```shell
-   === Deploying HelloWorld ===
-   Idempotently deploying app "HelloWorld" from creator 3TKAAPLBGRDCFF2M35X7TCZFMSSEAKV6WHJWOVO6C7LTFG2OAMJ5AA72AM using 85 bytes of teal code and 4 bytes of teal code
-   App HelloWorld not found in apps created by 3TKAAPLBGRDCFF2M35X7TCZFMSSEAKV6WHJWOVO6C7LTFG2OAMJ5AA72AM; deploying app with version 1.0.
-   Created app 1002 from creator 3TKAAPLBGRDCFF2M35X7TCZFMSSEAKV6WHJWOVO6C7LTFG2OAMJ5AA72AM
-   Called hello on HelloWorld (1002) with name = world, received: Hello, world
-   ```
-2. Alternatively, you can run the following commands from the terminal to build and run the `deploy-config.ts` file:
-   ```shell
-   algokit project run build
-   algokit project deploy localnet
-   ```
-   The output should look similar to the following:<Image src={algokitBuildDeploy} alt="AlgoKit Build and Deploy with CLI" />
+   1. By hitting F5 it will:
+     
+         - Start LocalNet
+         - Build the smart contract
+         - Deploy and call the smart contract (`contract.py`) by running the `deploy-config.ts` file.
+         
+      The output should look similar to the following:
+         ```shell
+         === Deploying HelloWorld ===
+         Idempotently deploying app "HelloWorld" from creator 3TKAAPLBGRDCFF2M35X7TCZFMSSEAKV6WHJWOVO6C7LTFG2OAMJ5AA72AM using 85 bytes of teal code and 4 bytes of teal code
+         App HelloWorld not found in apps created by 3TKAAPLBGRDCFF2M35X7TCZFMSSEAKV6WHJWOVO6C7LTFG2OAMJ5AA72AM; deploying app with version 1.0.
+         Created app 1002 from creator 3TKAAPLBGRDCFF2M35X7TCZFMSSEAKV6WHJWOVO6C7LTFG2OAMJ5AA72AM
+         Called hello on HelloWorld (1002) with name = world, received: Hello, world
+         ```
+   2. Alternatively, you can run the following commands from the terminal to build and run the `deploy-config.ts` file:
+         ```shell
+         algokit project run build
+         algokit project deploy localnet
+         ```
+      The output should look similar to the following:<Image src={algokitBuildDeploy} alt="AlgoKit Build and Deploy with CLI" />
 </Steps>
 
 The App ID of of the deployed contract and its Algorand address is displayed, followed by the message returned from the smart contract call (`Hello, world`).

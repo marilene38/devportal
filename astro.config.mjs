@@ -12,7 +12,8 @@ export default defineConfig({
 				dark: "/src/assets/images/portal-logo-dark-mode.svg",
 				alt: "Algorand Developer Portal",
 				replacesTitle: true,
-			},
+			}, 
+			favicon: "/favicon.png",
 			social: {
 				github: "https://github.com/withastro/starlight",
 			},
