@@ -199,11 +199,7 @@ algokit, version 2.1.2
 ## 2. Start a LocalNet
 
 
-When building smart contracts, it is recommended to first start building and testing on a local Algorand blockchain that runs
-only on your computer. Deploying and calling smart contracts on mainnet (the live public blockchain used for production) would
-cost real money, and testing on testnet (a replica of mainnet used for testing) can be cumbersome if you want to quickly test your code.
-This is why it is recommended to first test on the local blockchain. Once everything works, move on to testnet for a final test,
-and then migrate to mainnet to launch your application.
+When building smart contracts, start by testing on a local Algorand blockchain running on your computer. Deploying and calling smart contracts on mainnet (the live public blockchain for production) costs real money. Deploying on testnet (a replica of mainnet for testing) can be cumbersome. Therefore, it is recommended to first test on the local blockchain. Once everything works, move to testnet for final testing, and then deploy to mainnet to launch your application.
 
 
 AlgoKit supports using a [local version of the Algorand blockchain](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/localnet.md). To start an instance of this LocalNet
@@ -222,7 +218,7 @@ This should start an instance of the LocalNet within docker. If you go to the Do
 ## 3. Create an AlgoKit Project
 
 
-Now, let's create an Algorand project with AlgoKit. We call projects created with AlgoKit "AlgoKit projects."
+Now, let's create an Algorand project with AlgoKit. We will refer to these projects as "AlgoKit projects."
 AlgoKit provides a series of templates for you to use depending on the type of project you want to create.
 
 <Steps>
