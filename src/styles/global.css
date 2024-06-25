@@ -4,13 +4,13 @@
 
 /* The below sl-steps rules fix a bug in the built-in Steps component (incorrectly counts nested list items) */
 .sl-steps {
-    counter-reset: step-counter !important; /* Initialize custom counter */
+    counter-reset: step-counter !important; 
 }
 
 .sl-steps > li {
-    counter-increment: step-counter !important; /* Increment custom counter */
+    counter-increment: step-counter !important; 
 }
 
 .sl-steps > li::before {
-    content: counter(step-counter) !important; /* Use custom counter */
+    content: counter(step-counter) !important; 
 }
