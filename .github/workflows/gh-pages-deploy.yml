@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to Staging (GH Pages)
 
 on:
   # Trigger the workflow every time you push to the `main` branch
@@ -31,9 +31,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: github-pages
+      name: staging-gh-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy to Staging (GH Pages)
         id: deployment
         uses: actions/deploy-pages@v4
