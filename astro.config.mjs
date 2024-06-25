@@ -17,7 +17,7 @@ export default defineConfig({
 			social: {
 				github: "https://github.com/withastro/starlight",
 			},
-			customCss: ["./src/styles/global.css"],
+			customCss: ["/src/styles/global.css"],
 			sidebar: [
 				{
 					label: "Build",
