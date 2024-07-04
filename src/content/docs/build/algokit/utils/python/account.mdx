@@ -29,7 +29,7 @@ There are various methods of obtaining an `Account` instance:
   TestNet/MainNet will automatically resolve from environment variables
  
 - **`Account.new_account`**: Returns a new `Account` instance using `algosdk.account.generate_account()`
-- **`Account(private_key)`**: Load an existing account from a private key
+- **`Account(private_key)`**: Load an existing account from a private key:
     <Code code={accountFromPKExample} lang="py" frame="none" mark={highlights} />
 - **`Account(private_key, address)`**: Load an existing account from a private key and address, useful for re-keyed accounts
 - **`get_account_from_mnemonic`**: Load an existing account from a mnemonic

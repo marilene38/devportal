@@ -12,6 +12,8 @@ sidebar:
 
 import { Code } from "@astrojs/starlight/components";
 import { LinkCard, Card, CardGrid } from '@astrojs/starlight/components';
+import LinkInfoCard from '/src/components/LinkInfoCard.astro';
+import LinkInfoCardGrid from '/src/components/LinkInfoCardGrid.astro';
 
 # Overview
 A set of core Algorand utilities written in Python and released via PyPi that make it easier to build solutions on Algorand.
@@ -26,20 +28,32 @@ If you prefer TypeScript there's an equivalent [TypeScript utility library](/bui
 
 ## Features
 
-<CardGrid>
-  <LinkCard title="Account Management" href="/build/algokit/utils/python/account/" />
-  <LinkCard title="Client Management" href="/build/algokit/utils/python/client/" />
-  <LinkCard title="App Client" href="/build/algokit/utils/python/app-client/" />
-  <LinkCard title="App Deployment" href="/build/algokit/utils/python/app-deploy/" />
-  <LinkCard title="Algo Transfer" href="/build/algokit/utils/python/transfer/" />
-  <LinkCard title="Testnet Dispenser Client" href="/build/algokit/utils/python/dispenser/" />
-  <LinkCard title="Reference" href="/build/algokit/utils/python/reference/" />
-  <Card title="Client Management" icon="seti:python">
-    - [Client management](/build/algokit/utils/python/client#overview)
-    - [Network Configuration](/build/algokit/utils/python/client#network-configuration)
-    - [Clients](/build/algokit/utils/python/client#clients)
-  </Card>
-</CardGrid>
+<LinkInfoCardGrid>
+  <LinkInfoCard title="Account Management" icon="seti:python" url="/build/algokit/utils/python/account">
+    Create mnemonic, idempotent, KMD and environment variable injected accounts
+  </LinkInfoCard>
+  <LinkInfoCard title="Client Management" icon="seti:python" url="/build/algokit/utils/python/client">
+    Create algod, indexer, and kmd clients against various networks resolved from environment or specified configuration
+  </LinkInfoCard>
+   <LinkInfoCard title="App Client" icon="seti:python" url="/build/algokit/utils/python/app-client">
+    Generate a high productivity application client that works with ARC-0032 application spec defined smart contracts
+  </LinkInfoCard>
+  <LinkInfoCard title="App Deployment" icon="external" url="/build/algokit/utils/python/app-deploy">
+    Idempotent (safely retryable) deployment of an app, including deploy-time immutability and permanence control and TEAL template substitution
+  </LinkInfoCard>
+  <LinkInfoCard title="Algo Transfer" icon="seti:python" url="/build/algokit/utils/python/transfer">
+    Easily initiate algo transfers between accounts, including dispenser management and idempotent account funding
+  </LinkInfoCard>
+   <LinkInfoCard title="Dispenser Client" icon="seti:python" url="/build/algokit/utils/python/dispenser">
+    Fund an account, register a refund for a transaction, and get the current limit for an account on testnet
+  </LinkInfoCard>
+  <LinkInfoCard title="Debugger" icon="seti:config" url="/build/algokit/utils/python/debugger">
+    Provides a set of debugging tools that can be used to simulate and trace transactions on the Algorand blockchain
+  </LinkInfoCard>
+   <LinkInfoCard title="Reference" icon="seti:notebook" url="/build/algokit/utils/python/reference">
+    View auto-generated reference documentation for the utils library
+  </LinkInfoCard>
+</LinkInfoCardGrid>
 
 ## Core Principles
 This library is designed with the following principles:
@@ -67,18 +81,6 @@ or you can refer to the [reference documentation](build/algokit/utils/python/ref
 
 ## Types
 The library contains extensive type hinting combined with a tool like MyPy this can help identify issues where incorrect types have been used, or used incorrectly.
-
-## Features
-The library provides the following features:
-
-- Core capabilities
-  - [**Client management**](/build/algokit/utils/python/client) - Creation of algod, indexer and kmd clients against various networks resolved from environment or specified configuration
-  - [**Account management**](/build/algokit/utils/account/) - Creation and use of accounts including mnemonic, multisig, transaction signer, idempotent KMD accounts and environment variable injected
-- Higher-order use cases
-  - [**ARC-0032 Application Spec client**](/build/algokit/utils/python/app-client) - Builds on top of the App management and App deployment capabilities to provide a high productivity application client that works with ARC-0032 application spec defined smart contracts (e.g. via Beaker)
-  - [**App deployment**](/build/algokit/utils/python/app-deploy) - Idempotent (safely retryable) deployment of an app, including deploy-time immutability and permanence control and TEAL template substitution
-  - [**Algo transfers**](/build/algokit/utils/python/transfer) - Ability to easily initiate algo transfers between accounts, including dispenser management and idempotent account funding
-  - [**Debugger**](/build/algokit/utils/python/debugger) - Provides a set of debugging tools that can be used to simulate and trace transactions on the Algorand blockchain. These tools and methods are optimized for developers who are building applications on Algorand and need to test and debug their smart contracts via [AVM Debugger extension](link).
 
 ## Reference documentation
 We have [auto-generated reference documentation for the code](build/algokit/utils/python/reference).
