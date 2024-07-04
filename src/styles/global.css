@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* START code block styles */
+pre,
+code {
+  background-color: theme('colors.code.bg');
+  color: theme('colors.code.text');
+}
+code {
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: theme('colors.primary.300');
+}
+/* END code block styles */
+
+/* START heading link styles */
+h1 .anchor,
+h2 .anchor,
+h3 .anchor,
+h4 .anchor,
+h5 .anchor,
+h6 .anchor {
+  margin-left: 0.5em;
+  text-decoration: none;
+  color: theme('colors.secondary.700');
+  font-weight: normal;
+}
+
+h1 .anchor:hover,
+h2 .anchor:hover,
+h3 .anchor:hover,
+h4 .anchor:hover,
+h5 .anchor:hover,
+h6 .anchor:hover {
+  text-decoration: underline;
+}
+/* END heading link styles */
