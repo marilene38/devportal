@@ -23,7 +23,7 @@ h3 .anchor,
 h4 .anchor,
 h5 .anchor,
 h6 .anchor {
-  margin-left: 0.5em;
+  margin-left: 0.25em;
   text-decoration: none;
   color: theme('colors.secondary.700');
   font-weight: normal;
