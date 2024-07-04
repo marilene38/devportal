@@ -153,7 +153,8 @@ export default defineConfig({
         },
       ],
       expressiveCode: {
-        themes: [flavors.latte, flavors.mocha],
+        // themes: [flavors.latte, flavors.mocha],
+        themes: ['material-theme'],
       },
     }),
     tailwind({ applyBaseStyles: false }),
