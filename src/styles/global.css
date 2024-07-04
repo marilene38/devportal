@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* START code block styles */
-pre,
+/* pre,
 code {
   background-color: theme('colors.code.bg');
   color: theme('colors.code.text');
@@ -13,7 +13,7 @@ code {
   border-radius: 0.2rem;
   border: 1px solid;
   border-color: theme('colors.primary.300');
-}
+} */
 /* END code block styles */
 
 /* START heading link styles */
