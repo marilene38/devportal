@@ -3,8 +3,8 @@ import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
 import remarkSlug from 'remark-slug';
 import remarkAutolinkHeadings from 'remark-autolink-headings';
+import { flavors } from '@catppuccin/palette';
 
-// https://astro.build/config
 export default defineConfig({
   integrations: [
     starlight({
@@ -152,6 +152,9 @@ export default defineConfig({
           },
         },
       ],
+      expressiveCode: {
+        themes: [flavors.latte, flavors.mocha],
+      },
     }),
     tailwind({ applyBaseStyles: false }),
   ],
