@@ -1,9 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
-import remarkSlug from 'remark-slug';
-import remarkAutolinkHeadings from 'remark-autolink-headings';
-import { flavors } from '@catppuccin/palette';
 
 export default defineConfig({
   integrations: [
@@ -16,9 +13,6 @@ export default defineConfig({
         replacesTitle: true,
       },
       favicon: '/favicon.png',
-      social: {
-        github: 'https://github.com/withastro/starlight',
-      },
       customCss: ['/src/styles/global.css'],
       sidebar: [
         {
@@ -152,29 +146,7 @@ export default defineConfig({
           },
         },
       ],
-      expressiveCode: {
-        // themes: [flavors.latte, flavors.mocha],
-        themes: ['material-theme'],
-      },
     }),
     tailwind({ applyBaseStyles: false }),
   ],
-  markdown: {
-    remarkPlugins: [
-      remarkSlug,
-      [
-        remarkAutolinkHeadings,
-        {
-          behavior: 'append',
-          linkProperties: {
-            className: ['anchor'],
-          },
-          content: {
-            type: 'text',
-            value: '#',
-          },
-        },
-      ],
-    ],
-  },
 });
