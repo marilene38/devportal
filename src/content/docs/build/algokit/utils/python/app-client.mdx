@@ -58,13 +58,15 @@ There are two key ways of instantiating an `ApplicationClient`:
     app spec
 
 Both approaches also allow specifying the following parameters that will be used as defaults for all
-application calls: - `signer`: `TransactionSigner` to sign transactions with - `sender`: Address to use for
-transaction signing, will be derived from the signer if not provided - `suggested_params`: Default
-`SuggestedParams` to use; will use the current network suggested params by default
+application calls: 
+    - `signer`: `TransactionSigner` to sign transactions with 
+    - `sender`: Address to use for transaction signing, will be derived from the signer if not provided 
+    - `suggested_params`: Default `SuggestedParams` to use; will use the current network suggested params by default
 
-Both approaches also allow specifying a mapping of template values via the `template_values` parameter. This
-will be used before compiling the application to replace any `TMPL_` variables that may be in the TEAL. The
-`TMPL_UPDATABLE` and `TMPL_DELETABLE` variables used in some AlgoKit templates are handled by the `deploy`
+The above approaches also allow specifying a mapping of template values via the `template_values` parameter. This
+will be used before compiling the application to replace any `TMPL_` variables that may be in the TEAL. 
+
+The `TMPL_UPDATABLE` and `TMPL_DELETABLE` variables used in some AlgoKit templates are handled by the `deploy`
 method, but should be included if using `create` or `update` directly.
 
 Example usage:
