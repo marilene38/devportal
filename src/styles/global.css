@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Default styles (apply to both light and dark modes) */
 pre,
 code {
   padding: 0.2rem 0.4rem;
@@ -10,45 +9,14 @@ code {
   border: 1px solid;
 }
 
-/* Styles for light mode */
-/* @media (prefers-color-scheme: light) {
-  pre,
-  code {
-    background-color: #f5f5f5; 
-    color: #333333; 
-    border-color: #9eb4ff; 
-  }
-} */
-
-/* Styles for dark mode */
-/* @media (prefers-color-scheme: dark) {
-  pre,
-  code {
-    background-color: theme('colors.code.dark.bg'); 
-    color: theme('colors.code.dark.text'); 
-    border-color: #9eb4ff; 
-  }
-} */
-
 /* START heading link styles */
-h1 .anchor,
-h2 .anchor,
-h3 .anchor,
-h4 .anchor,
-h5 .anchor,
-h6 .anchor {
-  margin-left: 0.25em;
+.heading-link {
   text-decoration: none;
-  color: theme('colors.secondary.700');
-  font-weight: normal;
+  color: inherit;
+  position: relative;
 }
 
-h1 .anchor:hover,
-h2 .anchor:hover,
-h3 .anchor:hover,
-h4 .anchor:hover,
-h5 .anchor:hover,
-h6 .anchor:hover {
-  text-decoration: underline;
+.heading-link:hover::before {
+  opacity: 1;
 }
 /* END heading link styles */

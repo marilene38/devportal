@@ -7,18 +7,20 @@
     "jsxSingleQuote": true,
     "proseWrap": "always",
     "quoteProps": "as-needed",
+    "markdownListMarker": "-",
     "requirePragma": false,
     "useTabs": false,
     "semi": true,
     "singleQuote": true,
     "trailingComma": "all",
-    "printWidth": 80,
+    "printWidth": 110,
     "tabWidth": 2,
     "overrides": [
       {
         "files": "*.md*",
         "options": {
-          "proseWrap": "always"
+          "proseWrap": "always",
+          "printWidth": 110
         }
       },
       {
