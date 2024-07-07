@@ -70,12 +70,12 @@ all of the prerequisites and AlgoKit.
       1. To install AlgoKit, run the following command from a terminal.
 
 
-         ```shell
+         ```shell showLineNumbers=false frame=terminal
          pipx install algokit
          ```
 
       2. If you used AlgoKit before, update it with pipx: 
-         ```shell
+         ```shell showLineNumbers=false frame=terminal
          pipx upgrade algokit
          ```
 
@@ -101,23 +101,23 @@ so you can control the Python version used.
 
       2. Install Python3 using WinGet
          - Install python 3.12:
-         ```shell
+         ```shell showLineNumbers=false frame=terminal
          winget install python.python.3.12
          ```
       3. Restart the terminal to ensure Python and pip are available on the path
 
       4. Install pipx:
-         ```shell
+         ```shell showLineNumbers=false frame=terminal
          pip install --user pipx
          python -m pipx ensurepath
          ```
       5. Restart the terminal to ensure pipx is available on the path
       6. Install AlgoKit via pipx:
-         ```shell
+         ```shell showLineNumbers=false frame=terminal
          pipx install algokit
          ```
       7. If you used AlgoKit before, update it with pipx:
-         ```shell
+         ```shell showLineNumbers=false frame=terminal
          pipx upgrade algokit
          ```
       8. Restart the terminal to ensure AlgoKit is available on the path
@@ -140,7 +140,7 @@ so you can control the Python version used.
          :::
 
       2. Install using Homebrew
-         ```shell
+         ```shell showLineNumbers=false frame=terminal
          brew install algorandfoundation/tap/algokit
          ```
       3. Restart the terminal to ensure AlgoKit is available on the path
@@ -157,12 +157,12 @@ so you can control the Python version used.
 
       2. Install AlgoKit, with `pipx` by running the following command from a terminal.
 
-         ```shell
+         ```shell showLineNumbers=false frame=terminal
          pipx install algokit
          ```
 
       3. If you used AlgoKit before, update it with pipx: 
-         ```shell
+         ```shell showLineNumbers=false frame=terminal
          pipx upgrade algokit
          ```
 
@@ -182,7 +182,7 @@ If you want to learn about AlgoKit features, AlgoKit videos are available on the
 To verify AlgoKit installed correctly run the following.
 
 
-```shell
+```shell showLineNumbers=false frame=terminal
 algokit --version
 ```
 
@@ -190,7 +190,7 @@ algokit --version
 Output similar to the following should be displayed:
 
 
-```shell
+```shell showLineNumbers=false frame=terminal
 algokit, version 2.1.2
 ```
 
@@ -205,7 +205,7 @@ AlgoKit supports using a [local version of the Algorand blockchain](https://gith
 first open Docker Desktop on your computer and then run the following command from the terminal:
 
 
-```shell
+```shell showLineNumbers=false frame=terminal
 algokit localnet start
 ```
 
@@ -291,7 +291,7 @@ Now there are two ways to run the `deploy-config.ts` file to deploy and call the
          - Deploy and call the smart contract `contract.py` by running the `deploy-config.ts` file.
          
       The output should look similar to the following:
-         ```shell
+         ```shell showLineNumbers=false frame=terminal
          === Deploying HelloWorld ===
          Idempotently deploying app "HelloWorld" from creator 3TKAAPLBGRDCFF2M35X7TCZFMSSEAKV6WHJWOVO6C7LTFG2OAMJ5AA72AM using 85 bytes of teal code and 4 bytes of teal code
          App HelloWorld not found in apps created by 3TKAAPLBGRDCFF2M35X7TCZFMSSEAKV6WHJWOVO6C7LTFG2OAMJ5AA72AM; deploying app with version 1.0.
@@ -299,7 +299,7 @@ Now there are two ways to run the `deploy-config.ts` file to deploy and call the
          Called hello on HelloWorld (1002) with name = world, received: Hello, world
          ```
    2. Alternatively, you can run the following commands from the terminal to build and run the `deploy-config.ts` file:
-         ```shell
+         ```shell showLineNumbers=false frame=none
          algokit project run build
          algokit project deploy localnet
          ```
