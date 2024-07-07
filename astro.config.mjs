@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
+import icon from "astro-icon";
 
 export default defineConfig({
   integrations: [
@@ -21,7 +22,24 @@ export default defineConfig({
             {
               label: 'AlgoKit',
               collapsed: true,
-              autogenerate: { directory: 'build/algokit' },
+              items: [
+                { label: 'What is AlgoKit?', link: '/build/algokit/overview' },
+                { label: 'Getting Started', link: '/build/algokit/getting-started' },
+                {
+                  label: 'Utils',
+                  collapsed: true,
+                  items: [
+                    {
+                      label: 'Python',
+                      autogenerate: { directory: 'build/algokit/utils/python' },
+                    },
+                    {
+                      label: 'Typescript',
+                      autogenerate: { directory: 'build/algokit/utils/ts' },
+                    },
+                  ],
+                },
+              ],
             },
             {
               label: 'Accounts',
@@ -148,5 +166,6 @@ export default defineConfig({
       ],
     }),
     tailwind({ applyBaseStyles: false }),
+    icon(),
   ],
 });

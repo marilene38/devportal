@@ -1,20 +1,20 @@
 ---
-import { Icon } from '@astrojs/starlight/components';
+import { Icon } from 'astro-icon/components';
 import type { Icons } from './Icons';
 
 interface Props {
-  icon?: keyof typeof Icons;
+  icon: string;
   title: string;
-  url: string;
+  href: string;
 }
 
-const { icon, title, url } = Astro.props;
+const { icon, title, href } = Astro.props;
 ---
 
-<a href={url} class='card-link'>
+<a href={href} class='card-link'>
   <article class='card sl-flex'>
     <p class='title sl-flex'>
-      {icon && <Icon name={icon} class='icon' size='1.333em' />}
+      {icon && <Icon name={icon} class='icon' size={32} />}
       <span set:html={title} />
     </p>
     <div class='body'><slot /></div>

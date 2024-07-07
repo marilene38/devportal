@@ -13,12 +13,20 @@ hero:
       variant: primary
 ---
 
-import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+import LinkInfoCard from '/src/components/LinkInfoCard.astro';
+import LinkInfoCardGrid from '/src/components/LinkInfoCardGrid.astro';
 
-<CardGrid stagger>
-	<LinkCard title="Build" icon="pencil" href="/build/overview" />
-	<LinkCard title="Protocol" href="/protocol/overview" />
-	<LinkCard title="Running a node" href="/node_running/overview/" />
-	<LinkCard title="Reference" href="/reference/" />
-	<LinkCard title="Tools" href="/tools/overview" />
-</CardGrid>
+<LinkInfoCardGrid stagger>
+	<LinkInfoCard title="Build" icon="build-icon" href="/build/overview">
+    Build applications on Algorand using SDKs, APIs, and tools.
+  </LinkInfoCard>
+	<LinkInfoCard title="Protocol" icon="protocol-icon" href="/protocol/overview">
+    Learn about the Algorand protocol and its features.
+  </LinkInfoCard>
+  <LinkInfoCard title="Reference" icon="reference-icon" href="/reference/">
+    Explore the Algorand API and SDK reference documentation.
+  </LinkInfoCard>
+	<LinkInfoCard title="Running a node" icon="node-icon" href="/node_running/overview/">
+    Run an Algorand node to participate in the network.
+  </LinkInfoCard>
+</LinkInfoCardGrid>
