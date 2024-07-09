@@ -25,6 +25,7 @@ export default defineConfig({
               items: [
                 { label: 'What is AlgoKit?', link: '/build/algokit/overview' },
                 { label: 'Getting Started', link: '/build/algokit/getting-started' },
+                { label: 'AlgoKit Project Structure', link: '/build/algokit/project_structure' },
                 {
                   label: 'Utils',
                   collapsed: true,
