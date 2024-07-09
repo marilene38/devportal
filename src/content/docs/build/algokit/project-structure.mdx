@@ -43,13 +43,12 @@ them from a single root directory:
 
 ### Creating an AlgoKit Monorepo Workspace
 To create an AlgoKit monorepo workspace, run the following command:
-```bash
-algokit init
+```bash showLineNumbers=false frame=none
+algokit init # Creates a workspace by default
+# or
+algokit init --workspace
 ```
-or 
-```bash
-algokit init –-workspace
-```
+
 :::note
 The `–-workspace` flag is enabled by default, so running `algokit init` will create an AlgoKit workspace.
 :::
@@ -59,7 +58,7 @@ Once established, new projects can be added to the workspace, allowing centraliz
 
 To add another sub-project within a workspace, run the following command at the root directory of the 
 related AlgoKit workspace:
-```bash
+```bash showLineNumbers=false frame=none
 algokit init
 ```
 
@@ -106,7 +105,7 @@ sure they will not need to add more sub-projects in the future.
 
 ### Creating a Standalone Project
 To create a standalone project, use the `--no-workspace` flag during initialization. 
-```bash
+```bash showLineNumbers=false frame=none
 algokit init -–no-workspace
 ```
 
@@ -129,19 +128,5 @@ please refer to [init](https://github.com/algorandfoundation/algokit-cli/blob/ma
 
 Both workspaces and standalone projects are fully supported by AlgoKit's suite of tools, ensuring developers 
 can choose the structure that best fits their workflow without compromising on functionality.
-
-## AlgoKit CLI Project Commands
-AlgoKit CLI also provides a collection of commands under algokit project that are useful for managing algokit 
-projects.
-
-- bootstrap - Bootstrap your project with AlgoKit.
-- deploy - Deploy your smart contracts effortlessly to various networks.
-- link - Powerful feature designed to streamline the integration between frontend and contract projects
-- list - Enumerate all projects within an AlgoKit workspace.
-- run - Define custom commands and manage their execution via algokit cli.
-
-Learn more about algokit project command groups [here](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/project.md#features)
-
-
 
 
