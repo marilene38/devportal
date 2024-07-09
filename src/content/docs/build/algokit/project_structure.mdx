@@ -5,6 +5,7 @@ sidebar:
    label: Algokit Project Structure
 ---
 
+import { FileTree } from '@astrojs/starlight/components';
 
 AlgoKit streamlines configuring components for development, testing, and deploying smart contracts to the 
 blockchain and effortlessly sets up a project with all the necessary components. In this guide, we'll explore what an AlgoKit project
@@ -31,14 +32,14 @@ making managing dependencies and shared configurations easier.
 Simply put, workspaces contain multiple AlgoKit standalone project folders within the `projects` folder and manage
 them from a single root directory:
     
-```bash
-├── .algokit.toml # Configuration for AlgoKit projects in the workspace.
-├── README.md # Quick start guide for the AlgoKit Workspace.
-├── {your_workspace/project_name}.code-workspace
-└── projects
-        └── standalone project #1
-        └── standalone project #2
-```
+<FileTree>
+- .algokit.toml
+- README.md
+- \{your_workspace/project_name\}.code-workspace
+- projects
+    - Standalone Project #1
+    - Standalone Project #2
+</FileTree>
 
 ### Creating an AlgoKit Monorepo Workspace
 To create an AlgoKit monorepo workspace, run the following command:
