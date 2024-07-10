@@ -67,7 +67,7 @@ export default defineConfig({
               label: 'Smart Contracts',
               collapsed: true,
               autogenerate: {
-                directory: 'build/smart-contracts',
+                directory: 'build/smart_contracts',
               },
             },
           ],
