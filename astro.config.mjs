@@ -25,7 +25,7 @@ export default defineConfig({
               items: [
                 { label: 'What is AlgoKit?', link: '/build/algokit/overview' },
                 { label: 'Getting Started', link: '/build/algokit/getting-started' },
-                { label: 'AlgoKit Project Structure', link: '/build/algokit/project_structure' },
+                { label: 'Project Structure', link: '/build/algokit/project-structure' },
                 {
                   label: 'Utils',
                   collapsed: true,
@@ -67,7 +67,7 @@ export default defineConfig({
               label: 'Smart Contracts',
               collapsed: true,
               autogenerate: {
-                directory: 'build/smart-contracts',
+                jdirectory: 'build/smart-contracts',
               },
             },
           ],
