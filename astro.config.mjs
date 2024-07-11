@@ -61,7 +61,7 @@ export default defineConfig({
               label: 'Accounts',
               collapsed: true,
               autogenerate: {
-                directory: 'build/assets',
+                directory: 'build/accounts',
               },
             },
             {
@@ -186,6 +186,9 @@ export default defineConfig({
     }),
     icon(),
     // https://astro-d2.vercel.app/configuration
-    d2({ sketch: true }),
+    d2({
+      sketch: true,
+      layout: 'dagre',
+    }),
   ],
 });
