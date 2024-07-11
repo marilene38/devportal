@@ -1,1 +1,1 @@
-# TODO - USAGE EXAMPLE
+# TODO - USAGE EXAMPLE (Use HelloWorldClient)

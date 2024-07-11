@@ -1,8 +1,10 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
-import icon from "astro-icon";
+import icon from 'astro-icon';
+import d2 from 'astro-d2';
 
+// https://astro.build/config
 export default defineConfig({
   integrations: [
     starlight({
@@ -23,20 +25,33 @@ export default defineConfig({
               label: 'AlgoKit',
               collapsed: true,
               items: [
-                { label: 'What is AlgoKit?', link: '/build/algokit/overview' },
-                { label: 'Getting Started', link: '/build/algokit/getting-started' },
-                { label: 'AlgoKit Project Structure', link: '/build/algokit/project-structure' },
+                {
+                  label: 'What is AlgoKit?',
+                  link: '/build/algokit/overview',
+                },
+                {
+                  label: 'Getting Started',
+                  link: '/build/algokit/getting-started',
+                },
+                {
+                  label: 'Project Structure',
+                  link: '/build/algokit/project-structure',
+                },
                 {
                   label: 'Utils',
                   collapsed: true,
                   items: [
                     {
                       label: 'Python',
-                      autogenerate: { directory: 'build/algokit/utils/python' },
+                      autogenerate: {
+                        directory: 'build/algokit/utils/python',
+                      },
                     },
                     {
                       label: 'Typescript',
-                      autogenerate: { directory: 'build/algokit/utils/ts' },
+                      autogenerate: {
+                        directory: 'build/algokit/utils/ts',
+                      },
                     },
                   ],
                 },
@@ -46,7 +61,7 @@ export default defineConfig({
               label: 'Accounts',
               collapsed: true,
               autogenerate: {
-                directory: 'build/assets',
+                directory: 'build/accounts',
               },
             },
             {
@@ -67,7 +82,7 @@ export default defineConfig({
               label: 'Smart Contracts',
               collapsed: true,
               autogenerate: {
-                directory: 'build/smart-contracts',
+                directory: 'build/smart_contracts',
               },
             },
           ],
@@ -166,7 +181,14 @@ export default defineConfig({
         },
       ],
     }),
-    tailwind({ applyBaseStyles: false }),
+    tailwind({
+      applyBaseStyles: false,
+    }),
     icon(),
+    // https://astro-d2.vercel.app/configuration
+    d2({
+      sketch: true,
+      layout: 'dagre',
+    }),
   ],
 });
