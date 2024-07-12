@@ -3,6 +3,7 @@ import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import d2 from 'astro-d2';
+import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
@@ -191,4 +192,8 @@ export default defineConfig({
       layout: 'dagre',
     }),
   ],
+  markdown: {
+    // Rehype plugin to add target="_blank" and rel="noopener noreferrer" to external links
+    rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }]],
+  },
 });
