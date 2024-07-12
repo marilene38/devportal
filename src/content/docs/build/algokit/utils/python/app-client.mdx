@@ -18,7 +18,7 @@ Application client that works with
 [ARC-0032](https://arc.algorand.foundation/ARCs/arc-0032) application spec defined
 smart contracts (e.g. via Beaker).
 
-By generating an app client, you are provided with a high productivity application client that enables 
+By generating an app client, you are provided with a high productivity application client that enables
 you to easily and safely create, update, delete, deploy, and call a smart contract and access state data for it.
 
 ### Design
@@ -35,29 +35,31 @@ Follow the steps below to generate an app client:
 <Steps>
 1. **Prerequisites**
 
-    To be able to consume the generated file you need to include it in a Python project that has, at a minimum, the `algokit-utils` package installed.
-    ```shell showLineNumbers=false
-    poetry add algokit-utils@^2.2.0
-    ```
+      To be able to consume the generated file you need to include it in a Python project that has, at a minimum, the `algokit-utils` package installed.
+      ```shell showLineNumbers=false
+      poetry add algokit-utils@^2.2.0
+      ```
 
-2. **Installation**
+2.  **Installation**
 
     ```shell showLineNumbers=false
     pipx install algokit-client-generator
     ```
-3. **Client Generation**
 
-    ```shell showLineNumbers=false
-    algokit generate client path/to/application.json --output path/to/output/client_generated.py
-    ```
+3.  **Client Generation**
 
-    For example, and assuming that you used the AlgoKit CLI to bootstrap your python smart contract project and you named your app "hello_world", you
-    would run the following command:
+          ```shell showLineNumbers=false
+          algokit generate client path/to/application.json --output path/to/output/client_generated.py
+          ```
 
-    ```shell showLineNumbers=false
-    algokit generate client smart_contracts/artifacts/hello_world/HelloWorld.arc32.json 
-      --output smart_contracts/artifacts/hello_world/HelloWorld_generated.py
-    ```
+          For example, and assuming that you used the AlgoKit CLI to bootstrap your python smart contract project and you named your app "hello_world", you
+          would run the following command:
+
+          ```shell showLineNumbers=false
+          algokit generate client smart_contracts/artifacts/hello_world/HelloWorld.arc32.json
+            --output smart_contracts/artifacts/hello_world/HelloWorld_generated.py
+          ```
+
 </Steps>
 
 :::note
@@ -88,13 +90,10 @@ There are two key ways of instantiating an `ApplicationClient`:
     app spec
 
 Both approaches also allow specifying the following parameters that will be used as defaults for all
-application calls: 
-    - `signer`: `TransactionSigner` to sign transactions with 
-    - `sender`: Address to use for transaction signing, will be derived from the signer if not provided 
-    - `suggested_params`: Default `SuggestedParams` to use; will use the current network suggested params by default
+application calls: - `signer`: `TransactionSigner` to sign transactions with - `sender`: Address to use for transaction signing, will be derived from the signer if not provided - `suggested_params`: Default `SuggestedParams` to use; will use the current network suggested params by default
 
 The above approaches also allow specifying a mapping of template values via the `template_values` parameter. This
-will be used before compiling the application to replace any `TMPL_` variables that may be in the TEAL. 
+will be used before compiling the application to replace any `TMPL_` variables that may be in the TEAL.
 
 The `TMPL_UPDATABLE` and `TMPL_DELETABLE` variables used in some AlgoKit templates are handled by the `deploy`
 method, but should be included if using `create` or `update` directly.
@@ -196,7 +195,12 @@ to the [Atomic Transaction Composer (ATC)](/build/transactions/composer), it can
 
 Example usage:
 
-<Code code={composingExample} lang='py' frame='none' mark='AtomicTransactionComposer' />
+<Code
+  code={composingExample}
+  lang='py'
+  frame='none'
+  mark='AtomicTransactionComposer'
+/>
 
 ## Reading State
 
@@ -252,5 +256,6 @@ crucial for diagnosing complex issues and are automatically included in all appl
 debug mode is active.
 
 <Aside type='caution' title='Enabling debug mode'>
-Remember to enable debug mode (`config.debug = True`) to include raw simulate execution traces in the `LogicError`.
+  Remember to enable debug mode (`config.debug = True`) to include raw simulate
+  execution traces in the `LogicError`.
 </Aside>
