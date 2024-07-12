@@ -5,7 +5,6 @@ import icon from 'astro-icon';
 import d2 from 'astro-d2';
 import rehypeExternalLinks from 'rehype-external-links';
 
-// https://astro.build/config
 export default defineConfig({
   integrations: [
     starlight({
