@@ -3,10 +3,10 @@ title: Scratch Storage
 draft: true
 ---
 
-import { Code } from "@astrojs/starlight/components";
-import { Tabs, TabItem } from "@astrojs/starlight/components";
-import scratchPy from "/src/content/examples/scratch.py?raw";
-import scratchTeal from "/src/content/examples/scratch.teal?raw";
+import { Code } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import scratchPy from '/src/examples/scratch.py?raw';
+import scratchTeal from '/src/examples/scratch.teal?raw';
 
 A scratch space is a temporary storage area used to store values for later use in your program. It consists of 256 scratch slots.
 Scratch spaces may be uint64 or byte-array and are initialized as uint64(0).
@@ -22,10 +22,10 @@ In TEAL, you can use the `store`/`stores` and `load`/`loads` opcodes to read and
 In Algorand Python, you can directly use these opcodes through the `op.Scratch` class. The accessed scratch slot indices or index ranges need to be declared using the `scratch_slots` variable during contract declaration.
 
 <Tabs>
-	<TabItem label="Algorand Python" icon="seti:python">
-		<Code code={scratchPy} lang="python" frame="none" />
-	</TabItem>
-    <TabItem label="TEAL" icon="seti:teal">
-        <Code code={scratchTeal} lang="teal" frame="none" />
-    </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
+    <Code code={scratchPy} lang='python' frame='none' />
+  </TabItem>
+  <TabItem label='TEAL' icon='seti:teal'>
+    <Code code={scratchTeal} lang='teal' frame='none' />
+  </TabItem>
 </Tabs>
