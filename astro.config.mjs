@@ -57,27 +57,27 @@ export default defineConfig({
                 },
               ],
             },
-            {
-              label: 'Accounts',
-              collapsed: true,
-              autogenerate: {
-                directory: 'build/accounts',
-              },
-            },
-            {
-              label: 'Assets',
-              collapsed: true,
-              autogenerate: {
-                directory: 'build/assets',
-              },
-            },
-            {
-              label: 'Transactions',
-              collapsed: true,
-              autogenerate: {
-                directory: 'build/transactions',
-              },
-            },
+            // {
+            //   label: 'Accounts',
+            //   collapsed: true,
+            //   autogenerate: {
+            //     directory: 'build/accounts',
+            //   },
+            // },
+            // {
+            //   label: 'Assets',
+            //   collapsed: true,
+            //   autogenerate: {
+            //     directory: 'build/assets',
+            //   },
+            // },
+            // {
+            //   label: 'Transactions',
+            //   collapsed: true,
+            //   autogenerate: {
+            //     directory: 'build/transactions',
+            //   },
+            // },
             {
               label: 'Smart Contracts',
               collapsed: true,
@@ -87,98 +87,98 @@ export default defineConfig({
             },
           ],
         },
-        {
-          label: 'Protocol',
-          collapsed: true,
-          badge: {
-            text: 'todo',
-            variant: 'danger',
-          },
-          items: [
-            {
-              label: 'Consensus',
-              badge: {
-                text: 'todo',
-                variant: 'danger',
-              },
-              autogenerate: {
-                directory: 'protocol/consensus',
-              },
-            },
-            {
-              label: 'Node',
-              badge: {
-                text: 'todo',
-                variant: 'danger',
-              },
-              autogenerate: {
-                directory: 'protocol/node',
-              },
-            },
-            {
-              label: 'APIs',
-              badge: {
-                text: 'todo',
-                variant: 'danger',
-              },
-              autogenerate: {
-                directory: 'protocol/api',
-              },
-            },
-            {
-              label: 'State Proofs',
-              badge: {
-                text: 'todo',
-                variant: 'danger',
-              },
-              autogenerate: {
-                directory: 'protocol/state-proofs',
-              },
-            },
-            {
-              label: 'Features',
-              badge: {
-                text: 'todo',
-                variant: 'danger',
-              },
-              autogenerate: {
-                directory: 'protocol/features',
-              },
-            },
-            {
-              label: 'AVM',
-              badge: {
-                text: 'todo',
-                variant: 'danger',
-              },
-              autogenerate: {
-                directory: 'protocol/avm',
-              },
-            },
-          ],
-        },
-        {
-          label: 'Reference',
-          collapsed: true,
-          badge: {
-            text: 'todo',
-            variant: 'danger',
-          },
-          autogenerate: {
-            directory: 'reference',
-          },
-        },
-        {
-          label: 'Node Running',
-          collapsed: true,
-          badge: {
-            text: 'todo',
-            variant: 'danger',
-          },
-          autogenerate: {
-            directory: 'node_running',
-          },
-        },
+        // {
+        //   label: 'Protocol',
+        //   collapsed: true,
+        //   badge: {
+        //     text: 'todo',
+        //     variant: 'danger',
+        //   },
+        //   items: [
+        //     {
+        //       label: 'Consensus',
+        //       badge: {
+        //         text: 'todo',
+        //         variant: 'danger',
+        //       },
+        //       autogenerate: {
+        //         directory: 'protocol/consensus',
+        //       },
+        //     },
+        //     {
+        //       label: 'Node',
+        //       badge: {
+        //         text: 'todo',
+        //         variant: 'danger',
+        //       },
+        //       autogenerate: {
+        //         directory: 'protocol/node',
+        //       },
+        //     },
+        //     {
+        //       label: 'APIs',
+        //       badge: {
+        //         text: 'todo',
+        //         variant: 'danger',
+        //       },
+        //       autogenerate: {
+        //         directory: 'protocol/api',
+        //       },
+        //     },
+        //     {
+        //       label: 'State Proofs',
+        //       badge: {
+        //         text: 'todo',
+        //         variant: 'danger',
+        //       },
+        //       autogenerate: {
+        //         directory: 'protocol/state-proofs',
+        //       },
+        //     },
+        //     {
+        //       label: 'Features',
+        //       badge: {
+        //         text: 'todo',
+        //         variant: 'danger',
+        //       },
+        //       autogenerate: {
+        //         directory: 'protocol/features',
+        //       },
+        //     },
+        //     {
+        //       label: 'AVM',
+        //       badge: {
+        //         text: 'todo',
+        //         variant: 'danger',
+        //       },
+        //       autogenerate: {
+        //         directory: 'protocol/avm',
+        //       },
+        //     },
+        //   ],
+        // },
+        // {
+        //   label: 'Reference',
+        //   collapsed: true,
+        //   badge: {
+        //     text: 'todo',
+        //     variant: 'danger',
+        //   },
+        //   autogenerate: {
+        //     directory: 'reference',
+        //   },
+        // },
+        // {
+        //   label: 'Node Running',
+        //   collapsed: true,
+        //   badge: {
+        //     text: 'todo',
+        //     variant: 'danger',
+        //   },
+        //   autogenerate: {
+        //     directory: 'node_running',
+        //   },
+        // },
       ],
     }),
     tailwind({
