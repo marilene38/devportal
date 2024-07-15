@@ -42,6 +42,10 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     {
+                      label: 'AlgoKit Utils Clients',
+                      link: 'build/algokit/utils/algokit-utils-clients',
+                    },
+                    {
                       label: 'Python',
                       autogenerate: {
                         directory: 'build/algokit/utils/python',
