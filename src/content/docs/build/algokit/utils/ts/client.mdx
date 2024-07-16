@@ -17,9 +17,7 @@ Any AlgoKit Utils function that needs one of these clients will take the underly
 
 So inline with the [Modularity](/build/algokit/utils/ts/overview#core-principles) principle you can use existing logic to get instances of these clients without needing to use the Client management capability if you prefer, including use of libraries like [useWallet](https://github.com/TxnLab/use-wallet) that have their own configuration mechanism.
 
-To see some usage examples check out the [automated tests](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/src/types/client-manager.spec.ts).
-
-## `ClientManager`
+## Client Manager
 
 The [`ClientManager`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_client_manager.ClientManager.md) is a class that is used to manage client instances.
 
@@ -34,7 +32,7 @@ const clientManager = new ClientManager({ algodConfig }) // Algod config only
 const clientManager = new ClientManager({ algodConfig, indexerConfig, kmdConfig }) // All client configs
 ```
 
-## Network configuration
+## Network Configuration
 
 The network configuration is specified using the [`AlgoClientConfig`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_network_client.AlgoClientConfig.md) interface. This same interface is used to specify the config for [algod](https://algorand.github.io/js-algorand-sdk/classes/Algodv2.html), [indexer](https://algorand.github.io/js-algorand-sdk/classes/Indexer.html) and [kmd](https://algorand.github.io/js-algorand-sdk/classes/Kmd.html) SDK clients.
 
@@ -60,7 +58,7 @@ There are a number of ways to produce one of these configuration objects:
 
 ## Clients
 
-### Creating an SDK client instance
+### Creating an SDK Client Instance
 
 Once you have the configuration for a client, to get a new client you can use the following functions:
 
@@ -74,7 +72,7 @@ You can also shortcut needing to write the likes of `ClientManager.getAlgoClient
 - [`ClientManager.getIndexerClientFromEnvironment(config)`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_client_manager.ClientManager.md#getindexerclientfromenvironment) - Returns an indexer client by loading the config from environment variables
 - [`ClientManager.getKmdClientFromEnvironment(config)`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_client_manager.ClientManager.md#getkmdclientfromenvironment) - Returns a kmd client by loading the config from environment variables
 
-### Accessing SDK clients via ClientManager instance
+### Accessing SDK Clients via ClientManager Instance
 
 Once you have a `ClientManager` instance, you can access the SDK clients for the various Algorand APIs from it (expressed here as `algorand.client` to denote the syntax via an AlgorandClient):
 
@@ -96,19 +94,19 @@ algorand.client.indexer // Throws error
 algorand.client.kmd // Throws error
 ```
 
-### Creating an app client instance
+### Creating an App Client Instance
 
 See [how to create app clients via ClientManager via AlgorandClient](/build/algokit/utils/ts/app-client#via-algorandclient).
 
-### Creating a TestNet dispenser API client instance
+### Creating a TestNet Dispenser API Client Instance
 
 You can also create a [TestNet dispenser API client instance](/build/algokit/utils/ts/dispenser#creating-a-dispenser-client) from `ClientManager` too.
 
-## Automatic retry
+## Automatic Retry
 
 When receiving an Algod or Indexer client from AlgoKit Utils, it will be a special wrapper client that handles retrying transient failures. This is done via the [`AlgoHttpClientWithRetry`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_algo_http_client_with_retry.AlgoHttpClientWithRetry.md) class.
 
-## Network information
+## Network Information
 
 To get information about the current network you are connected to, you can use the [`network()`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_client_manager.ClientManager.md#network) method on `ClientManager` or the `is{Network}()` methods (which in turn call `network()`) as shown below (expressed here as `algorand.client` to denote the syntax via an AlgorandClient):
 
