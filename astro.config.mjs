@@ -29,10 +29,10 @@ export default defineConfig({
               label: 'AlgoKit',
               collapsed: true,
               items: [
-                {
-                  label: 'What is AlgoKit?',
-                  link: '/build/algokit/overview',
-                },
+                // {
+                //   label: 'What is AlgoKit?',
+                //   link: '/build/algokit/overview',
+                // },
                 {
                   label: 'Getting Started',
                   link: '/build/algokit/getting-started',
