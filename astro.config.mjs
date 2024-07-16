@@ -42,6 +42,23 @@ export default defineConfig({
                   link: '/build/algokit/project-structure',
                 },
                 {
+                  label: 'AlgoKit CLI',
+                  collapsed: true,
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: '/build/algokit/cli/overview',
+                    },
+                    {
+                      label: 'Features',
+                      collapsed: true,
+                      autogenerate: {
+                        directory: 'build/algokit/cli/features',
+                      },
+                    },
+                  ],
+                },
+                {
                   label: 'Utils',
                   collapsed: true,
                   items: [
