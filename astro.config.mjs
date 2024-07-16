@@ -4,6 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import d2 from 'astro-d2';
 import rehypeExternalLinks from 'rehype-external-links';
+import { resolve } from 'path';
 
 export default defineConfig({
   integrations: [
@@ -198,5 +199,12 @@ export default defineConfig({
   markdown: {
     // Rehype plugin that adds target="_blank" and rel="noopener noreferrer" to external links
     rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }]],
+  },
+  vite: {
+    resolve: {
+      alias: {
+        '@assets': resolve('./src/assets'),
+      },
+    },
   },
 });
