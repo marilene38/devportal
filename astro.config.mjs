@@ -10,6 +10,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Algorand Developer Portal',
+      components: {
+        ThemeProvider: './src/components/CustomThemeProvider.astro',
+      },
       logo: {
         light: '/src/assets/images/portal-logo-light-mode.svg',
         dark: '/src/assets/images/portal-logo-dark-mode.svg',
