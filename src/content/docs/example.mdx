@@ -5,9 +5,9 @@ description: Collection of example components to copy paste into various things
 
 import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
-import helloTs from '/src/examples/hello.ts?raw';
-import helloPy from '/src/examples/hello.py?raw';
-import helloSh from '/src/examples/hello.sh?raw';
+import helloTs from '/examples/hello.ts?raw';
+import helloPy from '/examples/hello.py?raw';
+import helloSh from '/examples/hello.sh?raw';
 
 ## Dealing with code
 
@@ -16,7 +16,7 @@ import helloSh from '/src/examples/hello.sh?raw';
 to import code you first need to import the code component
 just paste `import { Code } from "@astrojs/starlight/components";` in the first line after the front matter section
 
-afterwards you need to import the code snippet such as like `import helloPy from "/src/examples/hello.py?raw";`
+afterwards you need to import the code snippet such as like `import helloPy from "/examples/hello.py?raw";`
 
 you can then use the code component like this `<Code code={helloPy} lang="py" title="hello.py" />`
 

@@ -2,8 +2,9 @@
 title: Indexer
 description: A guide in my new Starlight docs site.
 ---
-import { Code } from "@astrojs/starlight/components";
-import pagination from '/src/examples/algokit/utils-ts/algokit-utils-ts-indexer.ts?raw';
+
+import { Code } from '@astrojs/starlight/components';
+import pagination from '/examples/algokit/utils-ts/algokit-utils-ts-indexer.ts?raw';
 
 Indexer lookups / searching is a higher-order use case capability provided by AlgoKit Utils that builds on top of the core capabilities. It provides type-safe indexer API wrappers (no more `Record<string, any>` pain), including automatic pagination control.
 
@@ -29,7 +30,9 @@ There is a subset of [indexer API calls](https://developer.algorand.org/docs/res
 To use the `algokit.searchTransaction` method, you can follow this example as a starting point:
 
 ```typescript
-const transactions = await algokit.searchTransactions(indexer, (s) => s.txType('pay').addressRole('sender').address(myAddress))
+const transactions = await algokit.searchTransactions(indexer, s =>
+  s.txType('pay').addressRole('sender').address(myAddress),
+);
 ```
 
 ### Automatic pagination example
