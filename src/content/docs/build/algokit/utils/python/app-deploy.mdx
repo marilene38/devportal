@@ -10,7 +10,7 @@ sidebar:
 
 import { Code, Aside, Steps } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
-import smartContractWorkflow from '@assets/smart-contract-workflow.png';
+import smartContractWorkflow from '@images/smart-contract-workflow.png';
 
 App deployment is a higher-order use case capability provided by AlgoKit Utils that builds on top of the core
 capabilities, particularly [App Management](/build/algokit/utils/python/app-client). It allows you to
@@ -28,11 +28,13 @@ Namely, it describes the concept of a smart contract development lifecycle:
 <Steps>
 
 1. **Development**
+
    1. **_Write_** smart contracts
    2. **_Transpile_** smart contracts with development-time parameters (code configuration) to TEAL Templates
    3. **_Verify_** that the TEAL Templates maintain [output stability](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/articles/output_stability.md) and any other static code quality checks
 
 2. **Deployment**
+
    1. **_Substitute_** deploy-time parameters into TEAL Templates to create final TEAL code
    2. **_Compile_** the TEAL to create byte code using algod
    3. **_Deploy_** the byte code to one or more Algorand networks (e.g. LocalNet, TestNet, MainNet) to create Deployed Application(s)
