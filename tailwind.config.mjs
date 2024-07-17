@@ -52,6 +52,10 @@ export default {
           900: '#134d4e',
           950: '#042c2f',
         },
+        icon: {
+          dark: '#FFFFFF',
+          light: '#000000',
+        },
         code: {
           light: {
             bg: '#f5f5f5',

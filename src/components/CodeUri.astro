@@ -20,7 +20,6 @@ const code = await fetch(uri).then(r => {
 const lines = code.split('\n');
 const startLine = start !== undefined ? start - 1 : 0;
 const endLine = end !== undefined ? end : lines.length;
-
 const selectedLines = lines.slice(startLine, endLine).join('\n');
 ---
 
