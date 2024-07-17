@@ -1,7 +1,27 @@
 ---
 import { Code } from '@astrojs/starlight/components';
-const { uri, lang, title, highlights } = Astro.props;
-const code = await fetch(uri).then(r => r.text());
+const { uri, start, end, lang, title, highlights, frame } = Astro.props;
+
+if (start !== undefined && start < 1) {
+  throw new Error('CodeUri: Start line cannot be less than 1.');
+}
+
+if (start !== undefined && end !== undefined && start >= end) {
+  throw new Error('CodeUri: Start line cannot be greater than or equal to end line.');
+}
+
+const code = await fetch(uri).then(r => {
+  if (!r.ok) {
+    throw new Error(`CodeUri: Failed to fetch code from ${uri}: ${r.statusText}`);
+  }
+  return r.text();
+});
+
+const lines = code.split('\n');
+const startLine = start !== undefined ? start - 1 : 0;
+const endLine = end !== undefined ? end : lines.length;
+
+const selectedLines = lines.slice(startLine, endLine).join('\n');
 ---
 
-<Code code={code} lang={lang} title={title} frame="none" mark={highlights} />
+<Code code={selectedLines} lang={lang} title={title} frame={frame} mark={highlights} />
