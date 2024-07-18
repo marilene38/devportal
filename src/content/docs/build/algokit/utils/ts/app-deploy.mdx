@@ -8,7 +8,7 @@ next:
 
 import { Code, Aside, Steps } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
-import appDeploymentLifecycle from '../../../../../../assets/lifecycle.jpg';
+import smartContractWorkflow from '@images/smart-contract-workflow.png';
 
 Idempotent (safely retryable) deployment of an app, including deploy-time immutability and permanence control and TEAL template substitution
 
@@ -36,7 +36,7 @@ Namely, it described the concept of a smart contract development lifecycle:
    2. **Call** deployed smart contract with runtime parameters to utilise it
 </Steps>
 
-<Image src={appDeploymentLifecycle} alt='App deployment lifecycle' />
+<Image src={smartContractWorkflow} alt='App deployment lifecycle' />
 
 The App deployment capability provided by AlgoKit Utils helps implement **Deployment** phase of this lifecycle.
 
