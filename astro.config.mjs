@@ -27,7 +27,6 @@ export default defineConfig({
           items: [
             {
               label: 'AlgoKit',
-              collapsed: true,
               items: [
                 // {
                 //   label: 'What is AlgoKit?',
@@ -42,8 +41,7 @@ export default defineConfig({
                   link: '/build/algokit/project-structure',
                 },
                 {
-                  label: 'AlgoKit CLI',
-                  collapsed: true,
+                  label: 'CLI',
                   items: [
                     {
                       label: 'Overview',
@@ -60,7 +58,6 @@ export default defineConfig({
                 },
                 {
                   label: 'Utils',
-                  collapsed: true,
                   items: [
                     {
                       label: 'AlgoKit Utils Clients',
@@ -68,12 +65,14 @@ export default defineConfig({
                     },
                     {
                       label: 'Python',
+                      collapsed: true,
                       autogenerate: {
                         directory: 'build/algokit/utils/python',
                       },
                     },
                     {
                       label: 'Typescript',
+                      collapsed: true,
                       autogenerate: {
                         directory: 'build/algokit/utils/ts',
                       },

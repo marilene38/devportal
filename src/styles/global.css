@@ -13,3 +13,19 @@ table.reference-table code {
   @apply text-xs;
   white-space: nowrap;
 }
+
+:root[data-theme='dark'] {
+  [data-icon] {
+    color: theme('colors.icon.dark');
+  }
+}
+:root[data-theme='light'] {
+  [data-icon] {
+    color: theme('colors.icon.light');
+  }
+}
+
+/* Sidebar - remove vertical lines */
+ul.top-level li {
+  border-inline-start: none;
+}
