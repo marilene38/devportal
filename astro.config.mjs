@@ -102,13 +102,13 @@ export default defineConfig({
             //     directory: 'build/transactions',
             //   },
             // },
-            // {
-            //   label: 'Smart Contracts',
-            //   collapsed: true,
-            //   autogenerate: {
-            //     directory: 'build/smart_contracts',
-            //   },
-            // },
+            {
+              label: 'Smart Contracts',
+              collapsed: true,
+              autogenerate: {
+                directory: 'build/smart_contracts',
+              },
+            },
           ],
         },
         // {
