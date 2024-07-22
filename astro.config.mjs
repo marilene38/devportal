@@ -192,17 +192,17 @@ export default defineConfig({
         //     directory: 'reference',
         //   },
         // },
-        // {
-        //   label: 'Node Running',
-        //   collapsed: true,
-        //   badge: {
-        //     text: 'todo',
-        //     variant: 'danger',
-        //   },
-        //   autogenerate: {
-        //     directory: 'node_running',
-        //   },
-        // },
+        {
+          label: 'Node Running',
+          collapsed: true,
+          badge: {
+            text: 'todo',
+            variant: 'danger',
+          },
+          autogenerate: {
+            directory: 'node_running',
+          },
+        },
       ],
     }),
     tailwind({

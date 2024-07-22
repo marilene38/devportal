@@ -1,0 +1,48 @@
+---
+title: FNet
+description: How to connect a node to FNet for special testing and development purposes.
+draft: true
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+To participate in FNet, a special non-production network run by the Algorand Foundation for testing and development purposes, follow these steps:
+
+<Steps>
+1. **Install the Node**
+
+    Install a node via the normal instructions for your platform at https://developer.algorand.org/docs/run-a-node/setup/install/. When the node begins to sync with Mainnet, stop the node. We will restart it after making two changes so that the node will connect to and sync with FNet.
+
+2. **Get the FNet Genesis File**
+
+   A special `genesis.json` file has been prepared to initialize FNet. The file can be downloaded from http://relay-us-no-2.algorand.green:8184/genesis. An easy way to retrieve and install the file is to use `curl` and output directly to a file:
+
+   ```bash showLineNumbers=false
+   curl http://relay-us-no-2.algorand.green:8184/genesis --output $ALGORAND_DATA/genesis.json
+   ```
+
+3. **Configure the DNS Bootstrapping**
+
+   In the node's data directory, copy `config.json.example` to `config.json` to create a fresh configuration file. Edit the `config.json` file, change the setting for DNS Bootstrap ID to be `"DNSBootstrapID": "<network>.algorand.green"` and save the file.
+
+4. **Restart the Node**
+
+   With the FNet `genesis.json` file in place and the modified `config.json` file, start the node. The node will now connect to FNet and begin syncing with the network. If the node has started successfully, use `goal node status` to confirm that the node is running and and connected to FNet by checking the Genesis ID and Genesis hash in the response:
+
+   ```bash showLineNumbers=false
+   $ goal node status
+   Last committed block: 11433
+   Time since last block: 0.3s
+   Sync Time: 0.0s
+   Last consensus protocol: future
+   Next consensus protocol: future
+   Round for next consensus protocol: 11434
+   Next consensus protocol supported: true
+   Last Catchpoint:
+   Genesis ID: fnet-v1                                        # <-- FNet ID
+   Genesis hash: u4Z+obkOEPog2v7a85CGchwkZnw3h7ZcYnDp0e3/jnY= # <-- FNet hash
+   ```
+
+</Steps>
+
+You are now running an Algorand node on FNet. Remember that FNet will be reset periodically, so you may need to repeat Step 2 and restart your node when the network is restarted from a new genesis file.
