@@ -1,14 +1,18 @@
 ---
 title: Indexer
-description: A guide in my new Starlight docs site.
+prev: 
+    link: /build/algokit/utils/ts/transaction/
+next:
+    link: /build/algokit/utils/ts/dispenser/
+sidebar:
+  order: 8
 ---
 
 import { Code } from '@astrojs/starlight/components';
 import pagination from '/examples/algokit/ts/algokit-utils-ts-indexer.ts?raw';
 
-Indexer lookups / searching is a higher-order use case capability provided by AlgoKit Utils that builds on top of the core capabilities. It provides type-safe indexer API wrappers (no more `Record<string, any>` pain), including automatic pagination control.
-
-To see some usage examples check out the [automated tests](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/src/indexer-lookup.spec.ts).
+Indexer lookups / searching is a higher-order use case capability provided by AlgoKit Utils that builds on top of the core capabilities.
+It provides type-safe indexer API wrappers - no more `Record<string, any>` pain including automatic pagination control.
 
 :::note
 The methods on this page require the [legacy AlgoKit Utils import method to access them](/build/algokit/utils/ts/overview#usage).

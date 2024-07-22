@@ -4,36 +4,35 @@ prev:
     link: /build/algokit/utils/ts/app-client/
 next:
     link: /build/algokit/utils/ts/transfer/
+sidebar:
+    order: 5
+
 ---
 
 import { Code, Aside, Steps } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 import smartContractWorkflow from '@images/smart-contract-workflow.png';
 
-Idempotent (safely retryable) deployment of an app, including deploy-time immutability and permanence control and TEAL template substitution
-
 App deployment is a higher-order use case capability provided by AlgoKit Utils that builds on top of the core capabilities, particularly [App management](/build/algokit/utils/ts/app-client). It allows you to idempotently (with safe retryability) deploy an app, including deploy-time immutability and permanence control and TEAL template substitution.
-
-To see some usage examples check out the [automated tests](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/src/app-deploy.spec.ts).
 
 ## Design
 
-The architecture design behind app deployment is articulated in an [Architecture Decision Record(ADR)](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/architecture-decisions/2023-01-12_smart-contract-deployment.md). While the implementation will naturally evolve over time and diverge from this record, the principles and design goals behind the design are comprehensively explained.
+The architecture design behind app deployment is articulated in an [Architecture Decision Record (ADR)](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/architecture-decisions/2023-01-12_smart-contract-deployment.md). While the implementation will naturally evolve over time and diverge from this ADR, the principles and goals behind the design are comprehensively explained.
 
 Namely, it described the concept of a smart contract development lifecycle:
 
 <Steps>
 1. **Development**
-   1. **Write** smart contracts
-   2. **Transpile** smart contracts with development-time parameters (code configuration) to TEAL Templates
-   3. **Verify** the TEAL Templates maintain [output stability](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/articles/output_stability.md) and any other static code quality checks
+   1. **_Write_** smart contracts
+   2. **_Transpile_** smart contracts with development-time parameters (code configuration) to TEAL Templates
+   3. **_Verify_** the TEAL Templates maintain [output stability](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/articles/output_stability.md) and any other static code quality checks
 2. **Deployment**
-   1. **Substitute** deploy-time parameters into TEAL Templates to create final TEAL code
-   2. **Compile** the TEAL to create byte code using algod
-   3. **Deploy** the byte code to one or more Algorand networks (e.g. LocalNet, TestNet, MainNet) to create Deployed Application(s)
+   1. **_Substitute_** deploy-time parameters into TEAL Templates to create final TEAL code
+   2. **_Compile_** the TEAL to create byte code using algod
+   3. **_Deploy_** the byte code to one or more Algorand networks (e.g. LocalNet, TestNet, MainNet) to create Deployed Application(s)
 3. **Runtime**
-   1. **Validate** the deployed app via automated testing of the smart contracts to provide confidence in their correctness
-   2. **Call** deployed smart contract with runtime parameters to utilise it
+   1. **_Validate_** the deployed app via automated testing of the smart contracts to provide confidence in their correctness
+   2. **_Call_** deployed smart contract with runtime parameters to utilise it
 </Steps>
 
 <Image src={smartContractWorkflow} alt='App deployment lifecycle' />
@@ -44,7 +43,7 @@ Furthermore, the implementation contains the following implementation characteri
 
 - Deploy-time parameters can be provided and substituted into a TEAL Template by convention (by replacing `TMPL_{KEY}`)
 - Contracts can be built by any smart contract framework that supports [ARC-0032](https://github.com/algorandfoundation/ARCs/pull/150) and [ARC-0004](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0004.md) ([Beaker](https://beaker.algo.xyz/) or otherwise), which also means the deployment language can be different to the development language e.g. you can deploy a Python smart contract with TypeScript for instance
-- There is explicit control of the immutability (updatability / upgradeability) and permanence (deletability) of the smart contract, which can be varied per environment to allow for easier development and testing in non-MainNet environments (by replacing `TMPL_UPDATABLE` and `TMPL_DELETABLE` at deploy-time by convention, if present)
+- There is explicit control of the immutability (updatability / upgradeability) and permanence (deletability) of the smart contract, which can be varied per environment to allow for easier development and testing in non-MainNet environments by replacing `TMPL_UPDATABLE` and `TMPL_DELETABLE` at deploy-time by convention, if present
 - Contracts are resolvable by a string "name" for a given creator to allow automated determination of whether that contract had been deployed previously or not, but can also be resolved by ID instead
 
 ## Finding Apps by Creator
@@ -154,7 +153,7 @@ In order for a smart contract to be able to use this functionality, it must have
 - `TMPL_UPDATABLE` - Which will be replaced with a `1` if an app should be updatable and `0` if it shouldn't (immutable)
 - `TMPL_DELETABLE` - Which will be replaced with a `1` if an app should be deletable and `0` if it shouldn't (permanent)
 
-If you are building a smart contract using the [beaker_production AlgoKit template](https://github.com/algorandfoundation/algokit-beaker-default-template) if provides a reference implementation out of the box for the deploy-time immutability and permanence control.
+If you are building a smart contract using the [beaker_production AlgoKit template](https://github.com/algorandfoundation/algokit-beaker-default-template), it provides a reference implementation out of the box for the deploy-time immutability and permanence control.
 
 If you passed in a TEAL template for the approvalProgram or clearProgram (i.e. a `string` rather than a `Uint8Array`) then `deployApp` will return the [compilation result](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_app.CompiledTeal.md) of substituting then compiling the TEAL template(s) in the following properties of the return value:
 
