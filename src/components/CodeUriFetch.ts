@@ -1,7 +1,10 @@
+// Retrieves the raw code file from the provided URI and optionally
+// extracts specified lines from the file.
 export async function fetchAndExtract(
   uri: string,
   lines: string | undefined,
 ): Promise<string> {
+  lines = lines ? lines.replace(/\s+/g, '') : lines;
   const linesRegex = /^(\d+(-\d+)?)(,\d+(-\d+)?)*$/;
   if (lines && !linesRegex.test(lines)) {
     throw new Error('CodeUri: Invalid lines format.');

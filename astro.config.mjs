@@ -12,6 +12,7 @@ export default defineConfig({
       title: 'Algorand Developer Portal',
       components: {
         ThemeProvider: './src/components/CustomThemeProvider.astro',
+        ThemeSelect: './src/components/ThemeSelect.astro',
       },
       logo: {
         light: '/src/assets/images/portal-logo-light-mode.svg',
@@ -28,10 +29,10 @@ export default defineConfig({
             {
               label: 'AlgoKit',
               items: [
-                // {
-                //   label: 'What is AlgoKit?',
-                //   link: '/build/algokit/overview',
-                // },
+                {
+                  label: 'What is AlgoKit?',
+                  link: '/build/algokit/overview',
+                },
                 {
                   label: 'Getting Started',
                   link: '/build/algokit/getting-started',
