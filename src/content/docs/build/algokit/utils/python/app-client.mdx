@@ -16,19 +16,20 @@ import composingExample from '/examples/algokit/py/algokit-utils-py-app-client-c
 
 Application client that works with
 [ARC-0032](https://arc.algorand.foundation/ARCs/arc-0032) application spec defined
-smart contracts (e.g. via Beaker).
+smart contracts. ARC-0032 is a standard for defining smart contracts on Algorand that provides
+descriptive metadata about the smart contract to clients, including state docsSchema, default method arguments,
+and custom data types.
 
-By generating an app client, you are provided with a high productivity application client that enables
+By generating an app client, you are provided with a high-productivity client that enables
 you to easily and safely create, update, delete, deploy, and call a smart contract and access state data for it.
 
 ### Design
 
-The design for the app client is based on a wrapper for parsing an
-[ARC-0032](https://arc.algorand.foundation/ARCs/arc-0032) application spec and
+The design for the app client is based on a wrapper for parsing an ARC-0032 application spec and
 wrapping the [App deployment](/build/algokit/utils/python/app-deploy) functionality and corresponding
 [design](/build/algokit/utils/python/app-deploy#design).
 
-## Generating an App Client
+## App Client Generation
 
 Follow the steps below to generate an app client:
 
@@ -66,7 +67,7 @@ Follow the steps below to generate an app client:
 If you are using the [AlgoKit CLI](/build/algokit/getting-started) to bootstrap and manage your project, the included build scripts will generate your app client for you. The generated client will be placed in the `smart_contracts/artifacts/{app_name}` directory.
 :::
 
-## Using the Generated App Client
+## Usage
 
 There are two key ways of instantiating an `ApplicationClient`:
 
@@ -102,7 +103,7 @@ Example usage:
 
 <Code code={createExample} lang='py' frame='none' />
 
-## Calling App Methods
+## App Method Calls
 
 There are various methods available on `ApplicationClient` that can be used to call an app:
 
@@ -120,7 +121,7 @@ Example usage:
 
 <Code code={callAppMethodsExample} lang='py' frame='none' />
 
-### Specifying ABI Method to Call
+### ABI Method Calls
 
 All methods for calling an app that support ABI methods (everything except `clear_state`) take a parameter
 `call_abi_method` which can be used to specify which method to call. The method selected can be specified
@@ -187,7 +188,7 @@ Alternatively, parameters can be passed as a dictionary e.g.
 client.call("hello", transaction_parameters={"signer":...})
 ```
 
-## Composing Calls
+## Transaction Composition
 
 If multiple calls need to be made in a single transaction, the `compose_` method variants can be used. All
 these methods take an `AtomicTransactionComposer` as their first argument. Once all the calls have been added
@@ -202,14 +203,14 @@ Example usage:
   mark='AtomicTransactionComposer'
 />
 
-## Reading State
+## State Reading
 
 There are various methods defined that let you read state from the smart contract app:
 
 - `get_global_state` - Gets the current global state of the app
 - `get_local_state` - Gets the current local state for the given account address
 
-## Handling Errors
+## Error Handling
 
 Often when calling a smart contract during development you will get logic errors that cause an exception to
 throw. This may be because of a failing assertion, a lack of fees, exhaustion of opcode budget, or any number
@@ -238,15 +239,14 @@ following fields:
 
 The function `trace()` will provide a formatted output of the surrounding TEAL where the error occurred.
 
-<Aside>
-    The extended information will only show if the Application Client has a source map. This will occur if:
+### Extended Error Information
 
-    - The `ApplicationClient` instance has already called (`create`, `update`, or `deploy`)
-    - `template_values` are provided when creating the `ApplicationClient`, so a SourceMap can be obtained automatically
-    - `approval_source_map` on `ApplicationClient` has been set from a previously compiled approval program
-    - A source map has been exported/imported using `export_source_map` / `import_source_map`
+The extended information will only show if the Application Client has a source map. This will occur if:
 
-</Aside>
+- The `ApplicationClient` instance has already called (`create`, `update`, or `deploy`)
+- `template_values` are provided when creating the `ApplicationClient`, so a SourceMap can be obtained automatically
+- `approval_source_map` on `ApplicationClient` has been set from a previously compiled approval program
+- A source map has been exported/imported using `export_source_map` / `import_source_map`
 
 ### Debug Mode and Traces Field
 
