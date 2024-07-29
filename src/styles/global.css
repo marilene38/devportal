@@ -35,3 +35,22 @@ table.reference-table code {
 ul.top-level li {
   border-inline-start: none;
 }
+
+/* Font Overrides */
+:root {
+  --sl-text-2xs: 0.75rem;
+  --sl-text-xs: 0.825rem;
+  --sl-text-sm: 0.85rem;
+  --sl-text-base: 0.875rem;
+  --sl-text-lg: 1.125rem;
+  --sl-text-xl: 1.25rem;
+  --sl-text-2xl: 1.5rem;
+  --sl-text-3xl: 1.8125rem;
+  --sl-text-4xl: 2.1875rem;
+  --sl-text-5xl: 2.625rem;
+  --sl-text-6xl: 4rem;
+  --sl-text-body: var(--sl-text-base);
+  --sl-text-body-sm: var(--sl-text-xs);
+  --sl-text-code: var(--sl-text-sm);
+  --sl-text-code-sm: var(--sl-text-xs);
+}

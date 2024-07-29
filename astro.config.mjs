@@ -204,6 +204,23 @@ export default defineConfig({
             directory: 'node_running',
           },
         },
+        {
+          label: 'Standards and Practices',
+          collapsed: true,
+          badge: {
+            text: 'todo',
+            variant: 'danger',
+          },
+          items: [
+            {
+              label: 'ARCs',
+              collapsed: true,
+              autogenerate: {
+                directory: 'standards_practices/arcs',
+              },
+            },
+          ],
+        },
       ],
     }),
     tailwind({
