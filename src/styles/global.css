@@ -18,10 +18,16 @@ table.reference-table code {
   [data-icon] {
     color: theme('colors.icon.dark');
   }
+  article.card {
+    background-color: theme('colors.gray.800');
+  }
 }
 :root[data-theme='light'] {
   [data-icon] {
     color: theme('colors.icon.light');
+  }
+  article.card {
+    background-color: theme('colors.primary.50');
   }
 }
 
