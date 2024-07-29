@@ -216,7 +216,7 @@ export default defineConfig({
               label: 'ARCs',
               collapsed: true,
               autogenerate: {
-                directory: 'standards_practices/arcs',
+                directory: 'standards/arcs',
               },
             },
           ],
