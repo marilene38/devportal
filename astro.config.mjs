@@ -5,11 +5,13 @@ import icon from 'astro-icon';
 import d2 from 'astro-d2';
 import rehypeExternalLinks from 'rehype-external-links';
 import { resolve } from 'path';
+import starlightImageZoom from 'starlight-image-zoom';
 
 export default defineConfig({
   integrations: [
     starlight({
       title: 'Algorand Developer Portal',
+      plugins: [starlightImageZoom()],
       components: {
         ThemeProvider: './src/components/CustomThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro',
