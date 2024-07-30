@@ -28,13 +28,6 @@ Any AlgoKit Utils function that needs one of these clients will take the underly
 - `algosdk.v2client.indexer.IndexerClient`
 - `algosdk.kmd.KMDClient`
 
-So, inline with the [Modularity](overview#core-principles) principle you can use existing logic to get instances of these clients without needing to use the
-client management capability if you prefer.
-
-Here are some usage examples:
-
-<Code code={example} lang='py' frame='none' mark={highlights} />
-
 ## Network Configuration
 
 The network configuration is specified using the `AlgoClientConfig` class. This same interface is used to specify the config for algod, indexer and kmd clients.
