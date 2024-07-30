@@ -11,6 +11,9 @@ sidebar:
 import { Code, Aside, Steps } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 import smartContractWorkflow from '@images/smart-contract-workflow.png';
+import findAppByCreatorExample from '/examples/algokit/py/algokit-utils-py-app-deploy-find-by-creator.py?raw';
+import deployExample from '/examples/algokit/py/algokit-utils-py-app-deploy-deploy.py?raw';
+import returnExample from '/examples/algokit/py/algokit-utils-py-app-deploy-return.py?raw';
 
 App deployment is a higher-order use case capability provided by AlgoKit Utils that builds on top of the core
 capabilities, particularly [App Management](/build/algokit/utils/python/app-client). It allows you to
@@ -83,6 +86,10 @@ recommended that for the duration you are performing a single deployment you hol
 recalculating it. Most AlgoKit Utils functions that need it will also take an optional value of it that will
 be used in preference to retrieving a fresh version.
 
+The following example demonstrates how to use this method:
+
+<Code code={findAppByCreatorExample} lang='py' frame='none' />
+
 ## Deploying an Application
 
 The method that performs the deployment logic is the instance method `ApplicationClient.deploy`. It performs
@@ -121,6 +128,10 @@ The following inputs are used when deploying an App
 - `delete_args`: Args to use if a delete operation is performed
 - `template_values`: Values to use for automatic substitution of [deploy-time parameter values](#design) is
   mapping of `key: value` that will result in `TMPL_{key}` being replaced with `value`
+
+  The following example demonstrates how to deploy an app:
+
+  <Code code={deployExample} lang='py' frame='none' />
 
 ### Idempotency
 
@@ -164,3 +175,7 @@ provides a reference implementation out of the box for the deploy-time immutabil
 - `delete_response`: If action taken was `Replace`, the result of the delete transaction. Can be a
   `TransactionResponse` or `ABITransactionResponse` depending on the method used
 - `app`: An `AppMetaData` object, describing the final app state
+
+The following example illustrates the use of the `DeployResponse` object:
+
+<Code code={returnExample} lang='py' frame='none' />
