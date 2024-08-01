@@ -1,0 +1,32 @@
+---
+// Props for the component
+interface Props {
+  title: string; // Title of the section (e.g., "Living Arcs")
+  data: any[]; // Array of ARC data
+}
+
+const { title, data } = Astro.props as Props;
+---
+
+<section>
+  <h2>{title}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        data.map(arc => (
+          <tr key={arc.arc}>
+            <td>{arc.arc}</td>
+            <td>{arc.title}</td>
+            <td>{arc.description}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</section>
