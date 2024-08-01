@@ -243,7 +243,7 @@ export default defineConfig({
     resolve: {
       alias: {
         '@assets': resolve('./src/assets'),
-        '@images': resolve('./src/content/images'),
+        '@images': resolve('./src/assets/images'),
       },
     },
   },
