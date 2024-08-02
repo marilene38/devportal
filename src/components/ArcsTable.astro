@@ -22,9 +22,30 @@ const { title, data } = Astro.props as Props;
       {
         data.map(arc => (
           <tr key={arc.arc}>
-            <td>{arc.arc}</td>
-            <td>{arc.title}</td>
-            <td>{arc.description}</td>
+            <td>
+              <a
+                href={`/standards/arcs/${arc.sidebar.label}`}
+                style='display: block; text-decoration: none; color: inherit;'
+              >
+                {arc.arc}
+              </a>
+            </td>
+            <td>
+              <a
+                href={`/standards/arcs/${arc.sidebar.label}`}
+                style='display: block; text-decoration: none; color: inherit;'
+              >
+                {arc.title}
+              </a>
+            </td>
+            <td>
+              <a
+                href={`/standards/arcs/${arc.sidebar.label}`}
+                style='display: block; text-decoration: none; color: inherit;'
+              >
+                {arc.description}
+              </a>
+            </td>
           </tr>
         ))
       }
