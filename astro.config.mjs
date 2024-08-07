@@ -33,7 +33,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'What is AlgoKit?',
-                  link: '/build/algokit/overview',
+                  link: '/build/algokit/what-is-algokit',
                 },
                 {
                   label: 'Getting Started',
