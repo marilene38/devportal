@@ -6,11 +6,17 @@ draft: true
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
 
 import helloWorldPython from '/examples/smart_contracts/py/hello-world.py?raw';
 import helloWorldTs from '/examples/smart_contracts/ts/hello-world.algo.ts?raw';
 
-import algokitDevUniverse from '@images/algokit-developer-universe.png';
+import algokitLogo from '@images/algokit-blue.png';
+
+<Image
+  src={algokitLogo}
+  alt='AlgoKit logo'
+/>
 
 AlgoKit is a comprehensive software development kit designed to streamline and accelerate the process of building decentralized 
 applications on the Algorand blockchain. At its core, AlgoKit features a powerful command-line interface (CLI) tool that provides 
