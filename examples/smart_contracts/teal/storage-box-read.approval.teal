@@ -1,0 +1,13 @@
+#pragma version 10
+
+txn NumAppArgs
+!
+assert 
+txn OnCompletion
+!
+assert 
+txn ApplicationID
+!
+assert
+int 1
+return
