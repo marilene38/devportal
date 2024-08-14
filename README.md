@@ -1,5 +1,11 @@
 # Developer Portal
 
+## Prerequisites
+
+- [node.js](https://nodejs.org/en)
+- [d2lang](https://github.com/terrastruct/d2/blob/master/docs/INSTALL.md)
+- [pnpm](https://pnpm.io)
+
 ## Project setup
 
 - run `git clone` in your terminal to clone this repo
