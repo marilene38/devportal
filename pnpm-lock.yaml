@@ -23,6 +23,9 @@ importers:
       '@catppuccin/palette':
         specifier: ^1.2.0
         version: 1.2.0
+      '@catppuccin/vscode':
+        specifier: ^3.15.1
+        version: 3.15.1
       '@expressive-code/plugin-line-numbers':
         specifier: ^0.35.3
         version: 0.35.3
@@ -254,6 +257,9 @@ packages:
 
   '@catppuccin/palette@1.2.0':
     resolution: {integrity: sha512-R5fxLcU47mRcsdQkXZBNfxt7SdEqLGWb1qhEKBrnYfEB4ZWOQRBEow4e78PKxaFUECBNOs6uEkwvwxFL9FmQqQ==}
+
+  '@catppuccin/vscode@3.15.1':
+    resolution: {integrity: sha512-2y5LpSom0SytZTy/Jyu02qK+V1Uyzk9xlCVwDmmm08CI4nPCuVnOccQmaq83vUpZ/r3sdhWF6Aa3XF+ahfz00g==}
 
   '@ctrl/tinycolor@4.1.0':
     resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
@@ -3122,6 +3128,10 @@ snapshots:
       to-fast-properties: 2.0.0
 
   '@catppuccin/palette@1.2.0': {}
+
+  '@catppuccin/vscode@3.15.1':
+    dependencies:
+      '@catppuccin/palette': 1.2.0
 
   '@ctrl/tinycolor@4.1.0': {}
 
