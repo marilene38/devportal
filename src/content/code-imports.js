@@ -12,7 +12,7 @@ import readBoxDataTEAL from '/examples/smart_contracts/teal/storage-box-read.app
 import extractBoxDataTEAL from '/examples/smart_contracts/teal/storage-box-read.approval.teal?raw';
 import lenBoxDataTEAL from '/examples/smart_contracts/teal/storage-box-read.approval.teal?raw';
 import deleteBoxDataTEAL from '/examples/smart_contracts/teal/storage-box-delete.approval.teal?raw';
-import existsBoxDataTEAL from '/examples/smart_contracts/teal/storage-box-exists.approval.teal?raw';
+import boxRefTestTEAL from '/examples/smart_contracts/teal/storage-box-ref-test.approval.teal?raw';
 export {
   createGlobalStateTEAL,
   getGlobalStorageTEAL,
@@ -27,5 +27,5 @@ export {
   extractBoxDataTEAL,
   lenBoxDataTEAL,
   deleteBoxDataTEAL,
-  existsBoxDataTEAL,
+  boxRefTestTEAL,
 };

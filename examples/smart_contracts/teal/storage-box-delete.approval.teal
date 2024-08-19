@@ -33,18 +33,15 @@ box_map_del:
 
 delete_box_ref:
     proto 0 0
-    byte "blob"
-    int 8000
+    byte "box_ref"
+    int 32
     box_create
+    pop
+    byte "box_ref"
+    box_len
+    bury 1
     assert
-    byte "blob"
+    byte "box_ref"
     box_del
     pop
-    int 0
-    assert
-    byte "blob"
-    box_get
-    bury 1
-    !
-    assert
     retsub

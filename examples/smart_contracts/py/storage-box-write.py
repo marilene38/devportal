@@ -30,4 +30,3 @@ class BoxContract(arc4.ARC4Contract):
         box_ref.put(sender_bytes + app_address)
         assert box_ref, "Blob exists"
         assert box_ref.length == 64
-        assert get_box_ref_length(box_ref) == 64

@@ -21,11 +21,6 @@ class KitchenSink(ARC4Contract):
 
     @arc4.abimethod
     def delete_box_ref(self) -> None:
-        box_blob = BoxRef(key="blob")
-        assert box_blob.create(size=8000)
-
-        box_blob.delete() 
-        assert self.box_ref.key == b"blob"
-
-        value, exists = box_blob.maybe()
-        assert not exists
+        self.box_ref.create(size=UInt64(32))
+        assert self.box_ref, "has data"
+        self.box_ref.delete()
