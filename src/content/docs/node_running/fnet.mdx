@@ -6,6 +6,8 @@ draft: true
 
 import { Steps } from '@astrojs/starlight/components';
 
+## Setting up an FNet Node
+
 To participate in FNet, a special non-production network run by the Algorand Foundation for testing and development purposes, follow these steps:
 
 <Steps>
@@ -46,3 +48,41 @@ To participate in FNet, a special non-production network run by the Algorand Fou
 </Steps>
 
 You are now running an Algorand node on FNet. Remember that FNet will be reset periodically, so you may need to repeat Step 2 and restart your node when the network is restarted from a new genesis file.
+
+## Participating in Consensus Incentives
+
+In order to participate in consensus and be eligible for incentives, you have have at least 30,000 ALGO in your account and register the participation keys for that account as online with a transaction fee of at least 2 ALGO (2,000,000uA).
+
+```bash
+curl $(cat $ALGORAND_DATA/algod.net)/v2/accounts/ZH5RDHCR6FQ46DZXCTMDZZBWPQ4JVFMCZCRLV6QK4EMC5LEJ6NKLU6XR24 -H "X-Algo-API-Token: $ALGOD_TOKEN" | jq
+```
+
+From within the fnet-v1 directory (you may need to `sudo su` to cd into this directory) you can query the SQLite database to get more clientInformation.
+
+```bash
+sqlite3 -noheader ledger.block.sqlite "SELECT hex(hdrdata) FROM blocks;" | tr -d '\n' | xxd -p -r | msgpacktool -d -strict | jq -r '."prp:b64" // empty' | sort | uniq -c | sort -nr | while read num addr; do printf "%5d %s\n" "$num" "$(echo $addr | base64 -d | base32)"; done
+```
+
+## New fields on the block header related to incentives
+
+From go-algorand/data/bookkeeping/block.go:
+
+    	// Proposer is the proposer of this block. Like the Seed, agreement adds
+    	// this after the block is assembled by the transaction pool, so that the same block can be prepared
+    	// for multiple participating accounts in the same node. Therefore, it can not be used
+    	// to influence block evaluation. Populated if proto.Payouts.Enabled
+    	Proposer basics.Address `codec:"prp"`
+
+    	// FeesCollected is the sum of all fees paid by transactions in this
+    	// block. Populated if proto.Payouts.Enabled
+    	FeesCollected basics.MicroAlgos `codec:"fc"`
+
+    	// Bonus is the bonus incentive to be paid for proposing this block.  It
+    	// begins as a consensus parameter value, and decays periodically.
+    	Bonus basics.MicroAlgos `codec:"bi"`
+
+    	// ProposerPayout is the amount that should be moved from the FeeSink to
+    	// the Proposer at the start of the next block.  It is basically the
+    	// bonus + the payouts percent of FeesCollected, but may be zero'd by
+    	// proposer ineligibility.
+    	ProposerPayout basics.MicroAlgos `codec:"pp"`

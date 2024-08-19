@@ -33,7 +33,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'What is AlgoKit?',
-                  link: '/build/algokit/overview',
+                  link: '/build/algokit/what-is-algokit',
                 },
                 {
                   label: 'Getting Started',
@@ -243,7 +243,7 @@ export default defineConfig({
     resolve: {
       alias: {
         '@assets': resolve('./src/assets'),
-        '@images': resolve('./src/content/images'),
+        '@images': resolve('./src/assets/images'),
       },
     },
   },

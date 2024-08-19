@@ -1,23 +1,20 @@
 # Developer Portal
 
-This repo holds the code for the new developer portal, at the moment it's in a rudimentary state
+## Prerequisites
+
+- [node.js](https://nodejs.org/en)
+- [d2lang](https://github.com/terrastruct/d2/blob/master/docs/INSTALL.md)
+- [pnpm](https://pnpm.io)
 
 ## Project setup
 
 - run `git clone` in your terminal to clone this repo
-- run `npm install` in your terminal to install all dependencies
-- run `npm run dev` in your terminal to start a local developer environment
+- run `pnpm install` in your terminal to install all dependencies
+- run `pnpm run dev` in your terminal to start a local developer environment
 
 ## Information Architecture
 
-All the documentation is stored under `./src/docs/` with the following subsections:
-
-- `build` -> how to interact and use the chain
-- `node_running` -> how to run a node and stuff
-- `protocol` -> core algorand protocol documentation
-- `reference` -> collection of reference docs of all tools (sdk's, programming languages, cli's)
-- `security_practices`
-- `tools`
+All the documentation is stored under `./src/content/docs/`:
 
 The sidebar menu configuration can be found at `./astro.config.mjs`
 
@@ -43,22 +40,34 @@ Inside of your Astro + Starlight project, you'll see the following folders and f
 
 Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+### Images/Assets
+
+Images can be added to `src/assets/images` and embedded in Markdown with a relative link.
+
+You can use the alias `@images` to simplify the image paths, e.g., `@images/smart-contract-workflow.png`
+
+SVG icons must go into `src/icons` to be used with the `astro-icon` component. The built-in Starlight icon component does not support custom local icons. You can also specify the ID of any icon in the Iconify collection. [See usage guide here](https://github.com/natemoo-re/astro-icon?tab=readme-ov-file#iconify-icons).
 
 Static assets, like favicons, can be placed in the `public/` directory.
+
+### CSS
+
+We are using the Tailwind CSS plugin for Starlight. You can define custom variables in the `./tailwind.config.mjs` file.
+
+To add/modify custom CSS styles, see the `./src/styles/global.css` file.
 
 ### 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                    | Action                                           |
+| :------------------------- | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm run build`           | Build your production site to `./dist/`          |
+| `pnpm run preview`         | Preview your build locally, before deploying     |
+| `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm run astro -- --help` | Get help using the Astro CLI                     |
 
 ### Useful Links
 
