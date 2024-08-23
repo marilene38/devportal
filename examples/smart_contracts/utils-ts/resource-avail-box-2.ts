@@ -1,23 +1,19 @@
-//Calculate box MBR of box_counter (key: address, value: UInt64)
-const BoxKeyLength = 32
-const boxValueLength = 8
-const boxSize = BoxKeyLength + boxValueLength
-const boxMBR = 2_500 + boxSize * 400
+const payMbr2 = await algorand.transactions.payment({
+  amount: algokit.microAlgos(boxMBR),
+  sender: alice.addr,
+  receiver: counterAppAddress,
+})
 
-// Configurate automatic resource population per app call
-const response = await appClient.incrementBoxCounter(
-  {},
-  { sendParams: { populateAppCallResources: true, fee: algokit.microAlgos(boxMBR) } }
+const response = await AliceCounterClient.incrementBoxCounter(
+  { payMbr: payMbr2 },
+  { sendParams: { populateAppCallResources: true } },
 )
 console.log('Method #2 Box Counter', response.return)
 
-//or
+// OR
 
 // Set the default value for populateAppCallResources to true once and apply to all contract invocations
-algokit.Config.configure({ populateAppCallResources: true })
+algokit.Config.configure({ populateAppCallResources: true }) 
 
-const response = await appClient.incrementBoxCounter(
-  {},
-  { sendParams: { fee: algokit.microAlgos(boxMBR) } }
-)
+const response = await AliceCounterClient.incrementBoxCounter({ payMbr: payMbr2 })
 console.log('Method #2 Box Counter', response.return)
