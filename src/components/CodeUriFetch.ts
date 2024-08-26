@@ -1,5 +1,11 @@
 // Retrieves the raw code file from the provided URI and optionally
 // extracts specified lines from the file.
+//
+// 'lines' can optionally be specified in the following formats:
+// - '1-3' (inclusive range)
+// - '5' (single line)
+// - '1-10,15-20' (multiple ranges)
+// - '1-3,5,7-9' (mixed)
 export async function fetchAndExtract(
   uri: string,
   lines: string | undefined,
