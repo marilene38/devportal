@@ -1,4 +1,13 @@
-from algopy import ARC4Contract, UInt64, Account, Application, op, Txn, LocalState
+from algopy import (
+    ARC4Contract,
+    UInt64,
+    Account,
+    Application,
+    op,
+    Txn,
+    LocalState,
+    Global,
+)
 from algopy.arc4 import abimethod
 
 
@@ -13,8 +22,9 @@ class Counter(ARC4Contract):
 
     @abimethod
     def increment_my_counter(self) -> UInt64:
-        if Txn.sender in self.box_counter:
-            self.my_counter[Txn.sender] += 1
+        assert Txn.sender.is_opted_in(Global.current_application_id)
+
+        self.my_counter[Txn.sender] += 1
         return self.my_counter[Txn.sender]
 
 
@@ -22,8 +32,10 @@ class AccountAndAppReference(ARC4Contract):
 
     @abimethod
     def get_my_counter(self) -> UInt64:
-        acct = Account("WMHF4FLJNKY2BPFK7YPV5ID6OZ7LVDB2B66ZTXEAMLL2NX4WJZRJFVX66M")
-        app = Application(1717)
+        acct = Account(
+            "WMHF4FLJNKY2BPFK7YPV5ID6OZ7LVDB2B66ZTXEAMLL2NX4WJZRJFVX66M"
+        )  # Replace with your account address
+        app = Application(1717)  # Replace with your application id
         my_count, exist = op.AppLocal.get_ex_uint64(acct, app, b"my_counter")
         if exist:
             return my_count

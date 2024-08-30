@@ -105,17 +105,17 @@ If any application or asset is created within a group of transactions, it is an 
 
 ## Different ways to provide references
 There are different ways you can provide resource references when calling smart contract methods:
-1. **Manually Input**: Manually input resource references in the reference(foreign) arrays
 
-2. **Automatic Resource Population**: Automatically input resource references in the reference(foreign) arrays with automatic resource population using the AlgoKit Utils library ([TypeScript](https://github.com/algorandfoundation/algokit-utils-ts/blob/40be39f672be19dc244b8e8fb4f5bcbc446d4f50/docs/code/modules/index.md#populateappcallresources) and Python)
+1. **Automatic Resource Population**: Automatically input resource references in the reference(foreign) arrays with automatic resource population using the AlgoKit Utils library ([TypeScript](https://github.com/algorandfoundation/algokit-utils-ts/blob/40be39f672be19dc244b8e8fb4f5bcbc446d4f50/docs/code/modules/index.md#populateappcallresources) and Python)
 :::note
 Automatic resource population first sends a dry-run transaction to the Algorand node to determine the necessary resources. Then it 
 populates the reference arrays with the required resources and sends the actual transaction. Therefore, it sends two requests to algod 
-for each transaction.
+for each transaction. Developers should consider the impact on their app if they require sending a large number of transactions. 
 :::
 
-3. **Reference Types**: Pass reference types as arguments to contract methods. (You can only do this for Accounts, Assets, and Applications and not Boxes.) 
+2. **Reference Types**: Pass reference types as arguments to contract methods. (You can only do this for Accounts, Assets, and Applications and not Boxes.) 
 
+3. **Manually Input**: Manually input resource references in the reference(foreign) arrays
 
 ## Account reference example
 
@@ -129,24 +129,24 @@ reference to be provided during invocation.
 
 Here are three different ways you can provide the account reference when calling a contract method using the AlgoKit Utils library.
 
-### Method #1: Manually Input
-<Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountUtilEx1} lang='ts' frame='none' />
-  </TabItem>
-</Tabs>
-
-### Method #2: Automatic Resource Population
+### Method #1: Automatic Resource Population
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={accountUtilEx2} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 
-### Method #3: Using Reference Types
+### Method #2: Using Reference Types
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={accountUtilEx3} lang='ts' frame='none' />
+  </TabItem>
+</Tabs>
+
+### Method #3: Manually Input
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <Code code={accountUtilEx1} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 
@@ -162,24 +162,24 @@ reference to be provided during invocation.
 
 Here are three different ways you can provide the asset reference when calling a contract method using the AlgoKit Utils library.
 
-### Method #1: Manually Input
-<Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={assetUtilEx1} lang='ts' frame='none' />
-  </TabItem>
-</Tabs>
-
-### Method #2: Automatic Resource Population
+### Method #1: Automatic Resource Population
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={assetUtilEx2} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 
-### Method #3: Using Reference Types
+### Method #2: Using Reference Types
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={assetUtilEx3} lang='ts' frame='none' />
+  </TabItem>
+</Tabs>
+
+### Method #3: Manually Input
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <Code code={assetUtilEx1} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 
@@ -195,24 +195,24 @@ The `ApplicationReference` smart contract requires the `Counter` application ref
 
 Here are three different ways you can provide the app reference when calling a contract method using the AlgoKit Utils library.
 
-### Method #1: Manually Input
-<Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={appUtilEx1} lang='ts' frame='none' />
-  </TabItem>
-</Tabs>
-
-### Method #2: Automatic Resource Population
+### Method #1: Automatic Resource Population
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={appUtilEx2} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 
-### Method #3: Using Reference Types
+### Method #2: Using Reference Types
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={appUtilEx3} lang='ts' frame='none' />
+  </TabItem>
+</Tabs>
+
+### Method #3: Manually Input
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <Code code={appUtilEx1} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 
@@ -228,24 +228,24 @@ reference and the account reference to be provided during invocation.
 
 Here are three different ways you can provide both the account reference and the asset reference when calling a contract method using the AlgoKit Utils library.
 
-### Method #1: Manually Input
-<Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountAssetUtilEx1} lang='ts' frame='none' />
-  </TabItem>
-</Tabs>
-
-### Method #2: Automatic Resource Population
+### Method #1: Automatic Resource Population
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={accountAssetUtilEx2} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 
-### Method #3: Using Reference Types
+### Method #2: Using Reference Types
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={accountAssetUtilEx3} lang='ts' frame='none' />
+  </TabItem>
+</Tabs>
+
+### Method #3: Manually Input
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <Code code={accountAssetUtilEx1} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 
@@ -261,24 +261,24 @@ The `AccountAndAppReference` smart contract requires both the `Counter` applicat
 
 Here are three different ways you can provide both the account reference and the application reference when calling a contract method using the AlgoKit Utils library.
 
-### Method #1: Manually Input
-<Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountAppUtilEx1} lang='ts' frame='none' />
-  </TabItem>
-</Tabs>
-
-### Method #2: Automatic Resource Population
+### Method #1: Automatic Resource Population
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={accountAppUtilEx2} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 
-### Method #3: Using Reference Types
+### Method #2: Using Reference Types
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={accountAppUtilEx3} lang='ts' frame='none' />
+  </TabItem>
+</Tabs>
+
+### Method #3: Manually Input
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <Code code={accountAppUtilEx1} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 
@@ -295,17 +295,17 @@ This smart contract requires the box reference to be provided during invocation.
 
 Here are two different ways you can provide the box reference when calling a contract method using the AlgoKit Utils library.
 
-### Method #1: Manually Input
-<Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={boxUtilEx1} lang='ts' frame='none' />
-  </TabItem>
-</Tabs>
-
-### Method #2: Automatic Resource Population
+### Method #1: Automatic Resource Population
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <Code code={boxUtilEx2} lang='ts' frame='none' />
+  </TabItem>
+</Tabs>
+
+### Method #2: Manually Input
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <Code code={boxUtilEx1} lang='ts' frame='none' />
   </TabItem>
 </Tabs>
 

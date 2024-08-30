@@ -6,8 +6,10 @@ class AccountAndAssetReference(ARC4Contract):
 
     @abimethod
     def get_asset_balance(self) -> UInt64:
-        acct = Account("WMHF4FLJNKY2BPFK7YPV5ID6OZ7LVDB2B66ZTXEAMLL2NX4WJZRJFVX66M")
-        asset = Asset(1185)
+        acct = Account(
+            "WMHF4FLJNKY2BPFK7YPV5ID6OZ7LVDB2B66ZTXEAMLL2NX4WJZRJFVX66M"
+        )  # Replace with your account address
+        asset = Asset(1185)  # Replace with your asset id
         balance, has_value = op.AssetHoldingGet.asset_balance(acct, asset)
 
         if has_value:

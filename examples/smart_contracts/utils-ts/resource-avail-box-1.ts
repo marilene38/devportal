@@ -1,4 +1,4 @@
-const boxPrefix = 'box_counter' // box identifier prefix
+const boxPrefix = 'account_box_counter' // box identifier prefix
 const encoder = new TextEncoder()
 const boxPrefixBytes = encoder.encode(boxPrefix) //UInt8Array of boxPrefix
 const publicKey = decodeAddress(alice.addr).publicKey

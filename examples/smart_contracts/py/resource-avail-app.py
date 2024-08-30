@@ -17,7 +17,7 @@ class ApplicationReference(ARC4Contract):
 
     @abimethod
     def increment_via_inner(self) -> UInt64:
-        app = Application(1717)  # 1717 is the counter app id
+        app = Application(1717)  # Replace with your application id
 
         counter_result, call_txn = arc4.abi_call(
             Counter.increment,
