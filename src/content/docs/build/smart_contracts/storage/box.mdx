@@ -25,19 +25,28 @@ import {
 } from '/src/content/code-imports.js';
 
 
-Boxes are keyed storage segments associated with the apps itself. An app can create multiple boxes on-demand, each capable of storing up to 32kb of data. Both the box key and data are stored as byte arrays.
-Since the AVM stack supports byte arrays and unsigned integers (uint64), any uint64 variables must be converted to byte arrays before storage in a box.
+Box storage in Algorand is a feature that provides additional on-chain storage options for smart contracts, allowing them to store and manage larger amounts of data beyond the limitations of global and local state. Unlike the fixed sizes of global and local state storages, box storage offers dynamic flexibility for creating, resizing, and deleting storage units 
+
+These storage units, called boxes, are key-value storage segments associated with individual applications, each capable of storing upto  32KB (32768 bytes) of data as byte arrays. Boxes are only visible and accessible to the application that created them, ensuring data integrity and security. 
+
+Both the box key and data are stored as byte arrays, requiring any uint64 variables to be converted before storage. While box storage expands the capabilities of Algorand smart contracts, it does incur additional costs in terms of minimum balance requirements (MBR) to cover the network storage space. The maximum number of box references is currently set to 8, allowing an app to create and reference up to 8 boxes simultaneously. Each box is a fixed-length structure but can be resized using the App.box_resize method or by deleting and recreating the box. Boxes over 1024 bytes require additional references, as each reference has a 1024-byte operational budget. The app account's MBR increases with each additional box and byte in the box's name and allocated size. If an application with outstanding boxes is deleted, the MBR is not recoverable, so it's recommended to delete all box storage and withdraw funds before app deletion. 
+
+
+:::note:
+The app account (the smart contract) is responsible for funding the box storage, and only the creating app can read, write, or delete its boxes on-chain. 
+:::
+
 
 ## Usage of Boxes
 Boxes are helpful in many scenarios:
 - Applications that need more extensive or unbound contract storage.
-- Applications that want to store data per user but do not wish to require users to opt in to the contract or need the account data to persist even after the user closes or clears out of the application.
+- Applications that want to store data per user but do not wish to require users to [opt in](/build/accounts/overview) to the contract or need the account data to persist even after the user closes or clears out of the application.
 - Applications that have dynamic storage requirements.
 - Applications requiring larger storage blocks that can not fit the existing global state key-value pairs.
 - Applications that require storing arbitrary maps or hash tables.
 
 ## Box Array¶
-When interacting with apps via app call transactions, developers need a way to specify which boxes an application will access during execution. The box array is part of the smart contract reference arrays alongside the apps, accounts, and assets arrays. These arrays define the objects the app call will interact with (read, write, or send transactions to).
+When interacting with apps via [app call transactions](/build/transactions/overview), developers need a way to specify which boxes an application will access during execution. The box array is part of the [smart contract reference arrays](/build/smart_contracts/reference_arrays) alongside the apps, accounts, and assets arrays. These arrays define the objects the app call will interact with (read, write, or send transactions to).
 
 The box array is an array of pairs: the first element of each pair is an integer specifying the index into the foreign application array, and the second element is the key name of the box to be accessed.
 
