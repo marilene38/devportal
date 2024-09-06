@@ -5,6 +5,8 @@ draft: true
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+import CodeUri from '/src/components/CodeUri.astro';
 
 
 ## What is Inner Transaction?
@@ -48,6 +50,7 @@ To illustrate this concept, let's examine a payment Inner Transaction example th
 ## Payment
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+    <CodeUri uri="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" lines='6-13' lang='py' title='Payment Inner Transaction' frame='none'/>
   </TabItem>
   <TabItem label='TEAL'>
   </TabItem>
