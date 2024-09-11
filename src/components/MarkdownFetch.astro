@@ -1,0 +1,13 @@
+---
+import { fetchMarkdownSection } from './MarkdownFetch';
+import Markdown from '@astrojs/markdown-remark';
+
+const { url, section } = Astro.props;
+const markdownContent = await fetchMarkdownSection(url, section);
+---
+
+{markdownContent ? (
+  <Markdown content={markdownContent} />
+) : (
+  <p>Section "{section}" not found in the markdown file.</p>
+)}
