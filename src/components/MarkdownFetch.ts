@@ -1,44 +1,50 @@
-// Fetch markdown content from a given URL and extract a section based on the heading
-export async function fetchMarkdownSection(url, sectionName) {
+// Fetch markdown content from a given URL and optionally extract a specific section based on the heading
+export async function fetchRemoteMarkdown(url, sectionName) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Failed to fetch markdown from ${url}`);
   }
 
-  const markdownText = await response.text();
-  return extractSection(markdownText, sectionName);
+  const markdownContent = await response.text();
+
+  // If no section is provided, return the entire markdown content
+  if (!sectionName || sectionName.trim() === '') {
+    return markdownContent;
+  }
+
+  return extractSection(markdownContent, sectionName);
 }
 
 // Function to extract a markdown section based on any heading level (e.g., #, ##, ###)
-function extractSection(markdownText, sectionName) {
-  const lines = markdownText.split('\n');
+function extractSection(markdownContent, sectionName) {
+  const lines = markdownContent.split('\n');
   let isInSection = false;
-  let extractedLines: string[] = [];
+  let extractedLines = [];
   let sectionHeadingLevel = 0;
 
-  const headingRegex = /^(#+)\s+(.*)/; // Regex to match headings (e.g., # Section, ## Section)
+  const headingRegex = /^(#+)\s+(.*?)\s*$/; // Updated regex for exact match
 
   for (const line of lines) {
     const headingMatch = line.match(headingRegex);
 
     if (headingMatch) {
-      const currentHeadingLevel = headingMatch[1].length;
-      const currentHeadingText = headingMatch[2].trim();
+      const currentHeadingLevel = headingMatch[1].length; // The number of '#' characters determines the heading level
+      const currentHeadingText = headingMatch[2].trim(); // The text of the heading
 
-      // Check if this is the section we're looking for
+      // Check if this is the exact section we're looking for
       if (!isInSection && currentHeadingText === sectionName) {
         isInSection = true;
         sectionHeadingLevel = currentHeadingLevel;
         continue;
       }
 
-      // If we're in the section and we encounter another heading of the same or higher level, stop
+      // Stop when we encounter another heading of the same or higher level
       if (isInSection && currentHeadingLevel <= sectionHeadingLevel) {
         break;
       }
     }
 
-    // If we're in the section, collect lines
+    // Collect lines if we're inside the section
     if (isInSection) {
       extractedLines.push(line);
     }
