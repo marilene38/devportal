@@ -14,7 +14,7 @@ import SidebarSublist from "@astrojs/starlight/components/SidebarSublist.astro";
             </svg>
         </button>
     </div>
-    <div id={menuId} class="absolute opacity-0 right-0 z-10 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+    <div id={menuId} class="hidden absolute opacity-0 right-0 z-10 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
         <div class="py-1 bg-[var(--sl-color-black)]" role="none">
             <SidebarSublist data-astro-prefetch="tap" sublist={items}/>
         </div>
@@ -31,6 +31,9 @@ import SidebarSublist from "@astrojs/starlight/components/SidebarSublist.astro";
         if (!menu.contains(event.target) && event.target !== button) {
             button.setAttribute("aria-expanded", "false");
             menu.classList.replace("opacity-100", "opacity-0");
+            if(!menu.classList.contains("hidden")){
+                menu.classList.add("hidden")
+            }
         }
     })
 
@@ -38,5 +41,6 @@ import SidebarSublist from "@astrojs/starlight/components/SidebarSublist.astro";
         const expanded = button.getAttribute("aria-expanded") === "true";
         button.setAttribute("aria-expanded", String(!expanded));
         menu.classList.replace(expanded ? "opacity-100" : "opacity-0", expanded ? "opacity-0" : "opacity-100");
+        menu.classList.toggle("hidden", expanded)
     };
 </script>
