@@ -1,5 +1,8 @@
 // Fetch markdown content from a given URL and optionally extract a specific section based on the heading
-export async function fetchRemoteMarkdown(url, sectionName) {
+export async function fetchRemoteMarkdown(
+  url: string | URL,
+  sectionName: string,
+) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Failed to fetch markdown from ${url}`);
@@ -16,10 +19,10 @@ export async function fetchRemoteMarkdown(url, sectionName) {
 }
 
 // Function to extract a markdown section based on any heading level (e.g., #, ##, ###)
-function extractSection(markdownContent, sectionName) {
+function extractSection(markdownContent: string, sectionName: string) {
   const lines = markdownContent.split('\n');
   let isInSection = false;
-  let extractedLines = [];
+  let extractedLines: string[] = [];
   let sectionHeadingLevel = 0;
 
   const headingRegex = /^(#+)\s+(.*?)\s*$/; // Updated regex for exact match
