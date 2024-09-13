@@ -24,7 +24,7 @@ To import the AlgoAmount class you can access it via:
 import { AlgoAmount } from '@algorandfoundation/algokit-utils/types/amount'
 ```
 
-You may not need to import this type to use it though since there are also special methods that are exposed from `algokit.` and extend the `number` protoype per below.
+You may not need to import this type to use it though since there are also special methods that are exposed from `algokit.` and extend the `number` prototype per below.
 
 ### Creating an `AlgoAmount`
 
@@ -34,12 +34,12 @@ There are a few ways to create an `AlgoAmount`:
   - Constructor: `new AlgoAmount({algos: 10})`
   - Static helper: `AlgoAmount.algos(10)`
   - AlgoKit Helper: `algokit.algos(10)`
-  - Number coersion: `(10).algos()` (note: you have to wrap the number in brackets or have it in a variable or function return, a raw number value can't have a method called on it)
+  - Number coercion: `(10).algos()` (note: you have to wrap the number in brackets or have it in a variable or function return, a raw number value can't have a method called on it)
 - microAlgos
   - Constructor: `new AlgoAmount({microAlgos: 10_000})`
   - Static helper: `AlgoAmount.algos(10)`
   - AlgoKit Helper: `algokit.microAlgos(10_000)`
-  - Number coersion: `(10_000).microAlgos()` (note: you have to wrap the number in brackets or have it in a variable or function return, a raw number value can't have a method called on it)
+  - Number coercion: `(10_000).microAlgos()` (note: you have to wrap the number in brackets or have it in a variable or function return, a raw number value can't have a method called on it)
 
 Note: per above, to use any of the versions that reference `AlgoAmount` type itself you need to import it:
 
