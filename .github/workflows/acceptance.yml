@@ -31,7 +31,7 @@ jobs:
         run: pnpm run lint
   build:
     runs-on: ubuntu-latest
-    requires:
+    needs:
       - lint
     strategy:
       matrix:
