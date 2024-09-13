@@ -16,6 +16,7 @@ jobs:
         uses: crate-ci/typos@master
         with:
           files: ./src/*
+          config: ./typos.toml
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
