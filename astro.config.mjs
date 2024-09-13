@@ -15,6 +15,7 @@ export default defineConfig({
       components: {
         ThemeProvider: './src/components/CustomThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro',
+        Header: './src/components/Header.astro',
       },
       logo: {
         light: '/src/assets/images/portal-logo-light-mode.svg',
@@ -42,6 +43,10 @@ export default defineConfig({
                 {
                   label: 'Project Structure',
                   link: '/build/algokit/project-structure',
+                },
+                {
+                  label: 'AlgoKit Templates',
+                  link: '/build/algokit/algokit-templates',
                 },
                 {
                   label: 'CLI',
