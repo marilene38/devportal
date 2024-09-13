@@ -49,6 +49,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+      - name: Install D2
+        run: curl -fsSL https://d2lang.com/install.sh | sh -s --
       - name: Install Dependencies
         run: pnpm install
       - name: Run Build
