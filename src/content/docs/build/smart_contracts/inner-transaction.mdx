@@ -6,11 +6,11 @@ draft: true
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
-import CodeUri from '/src/components/CodeUri.astro';
+import CodeMarker from '/src/components/CodeMarker.astro';
 
 
 ## What is Inner Transaction?
-When a smart contract is deployed to the Algorand blockchain, it is assigned a unique identifier called the app ID. Additionally, every smart contract has an associated unique Algorand account generated from this specific ID.
+When a smart contract is deployed to the Algorand blockchain, it is assigned a unique identifier called the App ID. Additionally, every smart contract has an associated unique Algorand account.
 
 We call these accounts application accounts, and their unique identifier is a 58-character long public key known as the application address. The account allows the smart contract to function as an escrow account, which can hold and manage assets (ASA) and send transactions just like any other Algorand account.
 
@@ -43,14 +43,14 @@ Clear state programs do not support creating inner transactions. However, clear 
 ## Paying Inner Transaction Fees
 By default, fees for Inner Transactions are paid by the smart contract (app) account (NOT the smart contract method caller) and are set automatically to the minimum transaction fee.
 
-However, for many smart contracts (apps), this presents an attack vector in which the application account could be drained through repeated calls to send Inner Transactions that incur fee costs. The recommended pattern is to hard-code Inner Transaction fees to zero. This forces the app call sender to cover those fees through increased fees on the outer transaction through fee pooling. Fee pooling allows the application call to the smart contract method with Inner Transactions or any other transaction in an atomic group of transactions to pay the fee for Inner Transactions.
+However, for many smart contracts (apps), this presents an attack vector in which the application account could be drained through repeated calls to send Inner Transactions that incur fee costs. The recommended pattern is to hard-code Inner Transaction fees to zero. This forces the app call sender to cover those fees through increased fees on the outer transaction through fee pooling. Fee pooling enables the application call to a smart contract method to cover the fees for inner transactions or any other transaction within an atomic transaction group. 
 
 To illustrate this concept, let's examine a payment Inner Transaction example that utilizes fee pooling to force the app call sender to cover Inner Transaction fees:
 
 ## Payment
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <CodeUri uri="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" lines='6-13' lang='py' title='Payment Inner Transaction' frame='none'/>
+    <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="payment" lang='py' title='Payment Inner Transaction' frame='none'/>
   </TabItem>
   <TabItem label='TEAL'>
   </TabItem>
