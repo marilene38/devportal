@@ -50,9 +50,9 @@ To illustrate this concept, let's examine a payment Inner Transaction example th
 ## Payment
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="payment" lang='py' title='Payment Inner Transaction' frame='none'/>
+    <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="PAYMENT" lang='py' title='Payment Inner Transaction' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
@@ -61,8 +61,9 @@ To illustrate this concept, let's examine a payment Inner Transaction example th
 Assets can be created by a smart contract. Use the following contract code to create an asset with an inner transaction.
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+    <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="ASSET_CREATE" lang='py' title='Asset Create Inner Transaction' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
@@ -70,8 +71,9 @@ Assets can be created by a smart contract. Use the following contract code to cr
 If a smart contract wishes to transfer an asset it holds or needs to opt into an asset, this can be done with an asset transfer inner transaction. If the smart contract created the asset (ASA) via an inner transaction, it does not need to opt into the asset. 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+      <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="ASSET_OPT_IN" lang='py' title='Asset Opt-In Inner Transaction' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
@@ -79,8 +81,9 @@ If a smart contract wishes to transfer an asset it holds or needs to opt into an
 If a smart contract is opted into the asset (ASA), it can transfer the asset with an asset transfer transaction.
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+      <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="ASSET_TRANSFER" lang='py' title='Asset Transfer Inner Transaction' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
@@ -88,8 +91,9 @@ If a smart contract is opted into the asset (ASA), it can transfer the asset wit
 A smart contract can freeze any asset, where the smart contract is set as the freeze address.
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+      <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="ASSET_FREEZE" lang='py' title='Asset Freeze Inner Transaction' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
@@ -97,8 +101,9 @@ A smart contract can freeze any asset, where the smart contract is set as the fr
 A smart contract can revoke or clawback any asset where the smart contract address is specified as the asset clawback address.
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+      <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="ASSET_REVOKE" lang='py' title='Asset Clawback Inner Transaction' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
@@ -106,8 +111,9 @@ A smart contract can revoke or clawback any asset where the smart contract addre
 As with all assets, the mutable addresses can be changed using contract code similar to the code below. Note these these addresses cannot be changed once set to an empty value. 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+      <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="ASSET_CONFIG" lang='py' title='Asset Config Inner Transaction' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
@@ -115,8 +121,9 @@ As with all assets, the mutable addresses can be changed using contract code sim
 Assets managed by the contract can also be deleted. This can be done with the following contract code. Note that the entire supply of the asset must be returned to the contract account before deleting the asset. 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+      <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="ASSET_DELETE" lang='py' title='Asset Delete Inner Transaction' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
@@ -124,8 +131,9 @@ Assets managed by the contract can also be deleted. This can be done with the fo
 A smart contract can make inner transactions consisting of multiple transactions grouped together atomically. The following example groups a payment transaction with a call to another smart contract.
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+      <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="GROUPED_INNER_TXNS" lang='py' title='Multiple Inner Transaction Atomically' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
@@ -141,16 +149,18 @@ A smart contract can call other smart contracts using any of the OnComplete type
 ### NoOp Application call
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+      <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="NOOP_APP_CALL" lang='py' title='NoOp App Call Inner Transaction' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
 ### Deploy smart contract via inner transaction
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
+      <CodeMarker src="https://raw.githubusercontent.com/algorand-devrel/new-devportal-code-examples/main/projects/devportal-code-examples/smart_contracts/inner_transactions/contract.py" marker="DEPLOY_APP" lang='py' title='Deploy App With Inner Transaction' frame='none'/>
   </TabItem>
-  <TabItem label='TEAL'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
   </TabItem>
 </Tabs>
 
