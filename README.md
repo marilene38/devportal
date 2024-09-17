@@ -1,5 +1,8 @@
 # Developer Portal
 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+
+
 ## Prerequisites
 
 - [node.js](https://nodejs.org/en)
@@ -11,6 +14,8 @@
 - run `git clone` in your terminal to clone this repo
 - run `pnpm install` in your terminal to install all dependencies
 - run `pnpm run dev` in your terminal to start a local developer environment
+
+See how to submit changes in the [CONTRIBUTING](./CONTRIBUTING.md) guide.
 
 ## Information Architecture
 
