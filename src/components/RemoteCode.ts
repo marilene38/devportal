@@ -3,15 +3,15 @@ import { URL } from 'url';
 
 export async function getSelectedCode(
   src: string,
-  marker: string | undefined,
+  snippet: string | undefined,
 ): Promise<string> {
   const code = await getCode(src);
 
-  if (!marker) {
+  if (!snippet) {
     return code;
   }
 
-  const pattern = `^ *(//|#) example: ${marker}$`;
+  const pattern = `^ *(//|#) example: ${snippet}$`;
   const regex = new RegExp(pattern, 'g');
   const codeLines = code.split('\n');
 
