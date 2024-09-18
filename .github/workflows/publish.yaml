@@ -1,0 +1,56 @@
+name: Deploy to Cloudflare Pages
+
+# Trigger on push to main branch and pull requests to main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js (used by Astro)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Specify the required Node.js version
+
+      # Step 3: Install pnpm
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
+
+      # Step 4: Install dependencies using pnpm
+      - name: Install dependencies
+        run: pnpm install
+
+      # Step 5: Build the Astro project
+      - name: Build the project
+        run: pnpm run build
+
+      # Step 6: Deploy to Cloudflare Pages
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: YOUR_PROJECT_NAME
+          directory: YOUR_BUILD_OUTPUT_DIRECTORY
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: Switch what branch you are publishing to.
+          # By default this will be the branch which triggered this workflow
+          branch: main
+          # Optional: Change the working directory
+          workingDirectory: my-site
+          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
+          wranglerVersion: '3'
