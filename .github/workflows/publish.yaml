@@ -41,11 +41,7 @@ jobs:
       - name: Build the project
         run: pnpm run build
 
-      # Step 7: Install jq
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
-
-      # Step 8: Deploy to Cloudflare Pages and capture the Preview URL
+      # Step 7: Deploy to Cloudflare Pages and capture the Preview URL
       - name: Deploy to Cloudflare Pages
         id: deploy
         env:
@@ -56,7 +52,7 @@ jobs:
           DEPLOYMENT_URL=$(grep -o 'https://[^"]*.pages.dev' deployment_output.txt | head -n 1)
           echo "::set-output name=preview_url::$DEPLOYMENT_URL"
 
-      # Step 9: Capture PR Information (PR ID and Title)
+      # Step 8: Capture PR Information (PR ID and Title)
       - name: Capture PR Information
         id: pr_info
         if: github.event_name == 'pull_request'
@@ -64,7 +60,7 @@ jobs:
           echo "::set-output name=pr_id::${{ github.event.pull_request.number }}"
           echo "::set-output name=pr_title::${{ github.event.pull_request.title }}"
 
-      # Step 10: Post the Preview URL, PR ID, and PR Title to Slack
+      # Step 9: Post the Preview URL, PR ID, and PR Title to Slack
       - name: Post to Slack
         id: slack
         uses: slackapi/slack-github-action@v1.27.0
