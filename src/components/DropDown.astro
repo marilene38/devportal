@@ -41,7 +41,7 @@ import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
     </div>
   </div>
 </div>
-<script define:vars={{ menuBtnId, menuId }}>
+<script is:inline define:vars={{ menuBtnId, menuId }}>
   const button = document.getElementById(menuBtnId);
   const menu = document.getElementById(menuId);
   if (!button || !menu) {

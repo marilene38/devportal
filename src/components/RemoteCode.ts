@@ -47,8 +47,11 @@ async function getCode(src: string): Promise<string> {
     if (error instanceof TypeError) {
       try {
         return await fs.readFile(src, 'utf-8');
-      } catch (fsError: any) {
-        throw new Error(`Error reading file: ${fsError.message}`);
+      } catch (fsError) {
+        if (fsError instanceof Error) {
+          throw new Error(`Error reading file: ${fsError.message}`);
+        }
+        throw new Error(`Unknown error reading file: ${fsError}`);
       }
     } else {
       throw error;

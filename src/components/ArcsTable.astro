@@ -1,8 +1,16 @@
 ---
-// Props for the component
+interface Arc {
+  arc: string;
+  title: string;
+  description: string;
+  sidebar: {
+    label: string;
+  };
+}
+
 interface Props {
   title: string; // Title of the section (e.g., "Living Arcs")
-  data: any[]; // Array of ARC data
+  data: Arc[]; // Array of ARC data
 }
 
 const { title, data } = Astro.props as Props;
