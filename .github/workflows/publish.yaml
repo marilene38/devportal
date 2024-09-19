@@ -54,7 +54,7 @@ jobs:
         run: |
           npx wrangler pages deploy ./dist --project-name ${{ secrets.CF_PROJECT_NAME }} --branch ${{ github.head_ref || github.ref_name }} --commit-hash ${{ github.sha }} > deployment_output.txt
           DEPLOYMENT_URL=$(grep -o 'https://[^"]*.pages.dev' deployment_output.txt | head -n 1)
-          echo "Deployment URL: $DEPLOYMENT_URL"
+          echo "::set-output name=preview_url::$DEPLOYMENT_URL"
 
       # Step 9: Capture PR Information (PR ID and Title)
       - name: Capture PR Information
