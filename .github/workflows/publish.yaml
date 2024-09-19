@@ -41,15 +41,40 @@ jobs:
       - name: Build the project
         run: pnpm run build
 
-      # Step 7: Deploy to Cloudflare Pages
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      # Step 7: Install jq
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      # Step 8: Deploy to Cloudflare Pages and capture the Preview URL
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: |
+          npx wrangler pages deploy ./dist --project-name ${{ secrets.CF_PROJECT_NAME }} --branch ${{ github.head_ref || github.ref_name }} --commit-hash ${{ github.sha }} --output json > deployment_output.json
+          DEPLOYMENT_URL=$(cat deployment_output.json | jq -r '.url')
+          echo "Deployment URL: $DEPLOYMENT_URL"
+          echo "::set-output name=preview_url::$DEPLOYMENT_URL"
+
+      # Step 9: Capture PR Information (PR ID and Title)
+      - name: Capture PR Information
+        id: pr_info
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "::set-output name=pr_id::${{ github.event.pull_request.number }}"
+          echo "::set-output name=pr_title::${{ github.event.pull_request.title }}"
+
+      # Step 10: Post the Preview URL, PR ID, and PR Title to Slack
+      - name: Post to Slack
+        id: slack
+        uses: slackapi/slack-github-action@v1.27.0
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: devportal
-          directory: dist
-          # Optional: Enable this if you want to have GitHub Deployments triggered
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
-          wranglerVersion: '3'
+          payload: |
+            {
+              "pr_id": "${{ steps.pr_info.outputs.pr_id }}",
+              "pr_title": "${{ steps.pr_info.outputs.pr_title }}",
+              "preview_url": "${{ steps.deploy.outputs.preview_url }}",
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_PR_WEBHOOK_URL }}
