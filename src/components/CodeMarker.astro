@@ -1,9 +1,0 @@
----
-import { Code } from '@astrojs/starlight/components';
-import { getSelectedCode } from './CodeMarker';
-
-const { src, marker, lang, title, mark, frame } = Astro.props;
-const selectedCode = await getSelectedCode(src, marker);
----
-
-<Code code={selectedCode} lang={lang} title={title} frame={frame} mark={mark} />
