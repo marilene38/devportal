@@ -73,7 +73,7 @@ jobs:
             {
               "pr_id": "${{ steps.pr_info.outputs.pr_id }}",
               "pr_title": "${{ steps.pr_info.outputs.pr_title }}",
-              "preview_url": "${{ steps.deploy.outputs.preview_url }}",
+              "preview_url": "${{ steps.deploy.outputs.preview_url }}"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_PR_WEBHOOK_URL }}
