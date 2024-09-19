@@ -12,13 +12,13 @@ import CodeMarker from '/src/components/CodeMarker.astro';
 
 When a smart contract is deployed to the Algorand blockchain, it is assigned a unique identifier called the App ID. Additionally, every smart contract has an associated unique Algorand account.
 
-We call these accounts application accounts, and their unique identifier is a 58-character long public key known as the application address. The account allows the smart contract to function as an escrow account, which can hold and manage assets (ASA) and send transactions just like any other Algorand account.
+We call these accounts _application accounts_, and their unique identifier is a 58-character long public key known as the _application address_. The account allows the smart contract to function as an escrow account, which can hold and manage assets (ASA) and send transactions just like any other Algorand account.
 
-The transactions sent by the smart contract (application) account are called Inner Transactions.
+The transactions sent by the smart contract (application) account are called _Inner Transactions_.
 
 ## Inner Transaction Details
 
-Since smart contract(application) accounts are Algorand accounts, just like any other account, they need Algos to cover transaction fees when sending inner transactions. To fund the smart contract(application) account, any other account in the Algorand network can send Algos to the specified account. For funds to leave the smart contract, the following conditions must be met:
+Since application accounts are Algorand accounts, just like any other account, they need Algos to cover transaction fees when sending inner transactions. To fund the application account, any other account in the Algorand network can send Algos to the specified account. For funds to leave the smart contract, the following conditions must be met:
 
 - The logic within the contract must submit an inner transaction.
 - The smart contract’s logic must return true.
@@ -35,7 +35,7 @@ Inner transactions support all the same transaction types as a regular account c
 - Application Call
 - State Proof
 
-You can also group multiple inner transactions and atomically execute them. Refer to [code examples](link to below) below for more details.
+You can also group multiple inner transactions and atomically execute them. Refer to the [code example](#grouped-inner-transactions) below for more details.
 
 Inner transactions are evaluated during AVM execution, allowing changes to be visible within the contract. For example, if the `balance` opcode is used before and after submitting a `pay` transaction, the balance change would be visible to the executing contract.
 
@@ -45,7 +45,7 @@ Clear state programs do not support creating inner transactions. However, clear 
 
 ## Paying Inner Transaction Fees
 
-By default, fees for Inner Transactions are paid by the smart contract (app) account (NOT the smart contract method caller) and are set automatically to the minimum transaction fee.
+By default, fees for Inner Transactions are paid by the application account (NOT the smart contract method caller) and are set automatically to the minimum transaction fee.
 
 However, for many smart contracts (apps), this presents an attack vector in which the application account could be drained through repeated calls to send Inner Transactions that incur fee costs. The recommended pattern is to hard-code Inner Transaction fees to zero. This forces the app call sender to cover those fees through increased fees on the outer transaction through fee pooling. Fee pooling enables the application call to a smart contract method to cover the fees for inner transactions or any other transaction within an atomic transaction group.
 
@@ -185,7 +185,7 @@ Assets managed by the contract can also be deleted. This can be done with the fo
   <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
-## Sending multiple inner transactions atomically
+## Grouped Inner Transactions
 
 A smart contract can make inner transactions consisting of multiple transactions grouped together atomically. The following example groups a payment transaction with a call to another smart contract.
 
