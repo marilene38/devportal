@@ -63,6 +63,7 @@ jobs:
       # Step 9: Post the Preview URL, PR ID, and PR Title to Slack
       - name: Post to Slack
         id: slack
+        if: github.event_name == 'pull_request'
         uses: slackapi/slack-github-action@v1.27.0
         with:
           payload: |
