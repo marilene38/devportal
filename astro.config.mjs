@@ -46,7 +46,16 @@ export default defineConfig({
                 },
                 {
                   label: 'AlgoKit Templates',
-                  link: '/build/algokit/algokit-templates',
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: '/build/algokit/official-algokit-templates',
+                    },
+                    {
+                      label: 'Custom Templates',
+                      link: '/build/algokit/custom-algokit-templates',
+                    },
+                  ],
                 },
                 {
                   label: 'CLI',
