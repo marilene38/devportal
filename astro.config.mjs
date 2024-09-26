@@ -81,6 +81,10 @@ export default defineConfig({
                       link: 'build/algokit/utils/algokit-utils-clients',
                     },
                     {
+                      label: 'TestNet Dispenser',
+                      link: 'build/algokit/utils/dispenser',
+                    },
+                    {
                       label: 'Python',
                       collapsed: true,
                       autogenerate: {
