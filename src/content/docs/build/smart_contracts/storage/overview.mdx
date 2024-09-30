@@ -29,9 +29,9 @@ When creating a voting application, the total number of votes for candidate A an
 
 ### Considerations
 
-When storing data in Global Storage, keep in mind that depending on the type and number of values you want to store, the Minimum Balance Requirement (MBR) of the application creator will be increased following the next formula:
+When storing data in Global Storage, keep in mind that depending on the type and number of values you want to store, the Minimum Balance Requirement (MBR) of the application creator will be increased according to the following formula:
 
-```
+```shell showLineNumbers=false frame=none
   100,000*(1+ExtraProgramPages) + (25,000+3,500)*schema.NumUint + (25,000+25,000)*schema.NumByteSlice
 ```
 
@@ -61,7 +61,7 @@ Again, when programming a voting application, storing each account’s vote may 
 For this storage type, the account must perform an opt-in transaction.
 When storing data in Local Storage, keep in mind that depending on the type and number of values you want to store, the Minimum Balance Requirement (MBR) of the account that opts-in to the application will increase according to the following formula:
 
-```
+```shell showLineNumbers=false frame=none
 100,000 + (25,000+3,500)*schema.NumUint + (25,000+25,000)*schema.NumByteSlice
 ```
 
@@ -89,13 +89,13 @@ For the previous example of the voting dapp, refactoring the application and mov
 - Boxes can be created by an application and only accessed by the application that created it. Keep in mind that the Minimum Balance Requirement (MBR) of the application will be increased depending on its size. This means that a contract that intends to use boxes, must be funded beforehand.
 - The MBR of the application will increase according to the following formula:
 
-```
+```shell showLineNumbers=false frame=none
 (2500 per box) + (400 * (box size + key size))
 ```
 
 - For example, if a box is created with the name “BoxA” (a 4 byte long key) and with a size of 1024 bytes, the MBR for the app account increases by 413,700 microAlgo:
 
-```
+```shell showLineNumbers=false frame=none
 (2500) + (400 * (1024+4)) = 413,700 microAlgos
 ```
 
