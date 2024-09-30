@@ -26,18 +26,18 @@ The following methods can be used:
 
 <Tabs syncKey="lang">
  <TabItem label="Python" icon="seti:python">
-      ```
+      ```python showLineNumbers=false frame=none
       algokit_utils.get_dispenser_account()
       ``` 
       Returns an Account based on DISPENSER_MNEMONIC environment variable or the default account on LocalNet
  </TabItem>
  <TabItem label="TypeScript" icon="seti:typescript">
-      ```
+      ```typescript showLineNumbers=false frame=none
       algorand.account.dispenserFromEnvironment()
       ``` 
       Returns an account (with private key loaded) that can act as a dispenser from environment variables, or against default LocalNet if no environment variables present
 
-      ```
+      ```typescript showLineNumbers=false frame=none
       algorand.account.localNetDispenser()
       ```
       Returns an account with private key loaded that can act as a dispenser for the default LocalNet dispenser account
@@ -72,10 +72,10 @@ Funds a user's wallet with a specified asset.
 
 - Response
 
-```
+```json showLineNumbers=false
 {
-    "txID": "string",
-    "amount": "number"
+  "txID": "string",
+  "amount": "number"
 }
 ```
 
@@ -93,9 +93,9 @@ Fetches the funding limit for a specified asset.
 
 - Response
 
-```
+```json showLineNumbers=false
 {
-    "amount": "number"
+  "amount": "number"
 }
 ```
 
@@ -113,10 +113,10 @@ Allows refunding a transaction. A status code `200` indicates a successful refun
 
 If an error occurs while interacting with the service, you will receive an error response with the following common format:
 
-```
+```json showLineNumbers=false
 {
-    "code": "string",
-    "message": "string"
+  "code": "string",
+  "message": "string"
 }
 ```
 
