@@ -179,5 +179,5 @@ As well as the `operationPerformed` parameter and the [optional compilation resu
 
 Based on the value of `operationPerformed` there will be other data available in the return value:
 
-- If `create`, `update` or `replace` then it will have [`ConfirmedTransactionResults`](/build/algokit/utils/ts/transaction#sendtransactionresult) and `{return?: ABIReturn}` (which will be populated if an ABI method was executed)
+- If `create`, `update` or `replace` then it will have [`ConfirmedTransactionResults`](/build/algokit/utils/ts/transaction#send-transaction-result) and `{return?: ABIReturn}` (which will be populated if an ABI method was executed)
 - If `replace` then it will also have `{deleteReturn?: ABIReturn, deleteResult: ConfirmedTransactionResult}` to capture the result of the deletion of the existing app

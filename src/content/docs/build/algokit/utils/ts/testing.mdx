@@ -140,7 +140,7 @@ The easiest way to use this functionality is via the [Algorand fixture](#algoran
 
 When testing, it's often useful to ephemerally generate random accounts, fund them with some number of ALGOs and then use that account to perform transactions. By creating an ephemeral, random account you naturally get isolation between tests and test runs and don't need to start from a specific blockchain network state. This makes test less flakey, and also means the same test can be run against LocalNet and (say) TestNet.
 
-The key when generating a test account is getting hold of a [dispenser](/build/algokit/utils/ts/transfer#dispenser) and then [ensuring the test account is funded](/build/algokit/utils/ts/transfer#ensurefunded).
+The key when generating a test account is getting hold of a [dispenser](/build/algokit/utils/ts/transfer#dispenser) and then [ensuring the test account is funded](/build/algokit/utils/ts/transfer#ensuring-minimum-algos).
 
 To make it easier to quickly get a test account the testing capability provides the following mechanisms:
 
