@@ -12,7 +12,12 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Algorand Developer Portal',
-      plugins: [starlightImageZoom(), starlightLinksValidator()],
+      plugins: [
+        starlightImageZoom(),
+        starlightLinksValidator({
+          exclude: ['FUTURELINK*'],
+        }),
+      ],
       components: {
         ThemeProvider: './src/components/CustomThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro',
@@ -118,18 +123,111 @@ export default defineConfig({
             //   },
             // },
             // {
-            //   label: 'Transactions',
-            //   collapsed: true,
-            //   autogenerate: {
-            //     directory: 'build/transactions',
-            //   },
-            // },
+            {
+              label: 'Transactions',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Overview',
+                  link: 'build/transactions/overview',
+                },
+                {
+                  label: 'Blocks',
+                  link: 'build/transactions/blocks',
+                },
+                {
+                  label: 'Networks',
+                  link: 'build/transactions/networks',
+                },
+                {
+                  label: 'Leases',
+                  link: 'build/transactions/leases',
+                },
+                {
+                  label: 'Signing',
+                  link: 'build/transactions/sign',
+                },
+                {
+                  label: 'Atomic Transaction Groups',
+                  link: 'build/transactions/atomic_txn_groups',
+                },
+                {
+                  label: 'Uri Scheme',
+                  link: 'build/transactions/uri_scheme',
+                },
+              ],
+            },
             {
               label: 'Smart Contracts',
               collapsed: true,
-              autogenerate: {
-                directory: 'build/smart_contracts',
-              },
+              items: [
+                {
+                  label: 'Overview',
+                  link: 'build/smart_contracts/overview',
+                },
+                {
+                  label: 'Lifecycle',
+                  link: 'build/smart_contracts/lifecycle',
+                },
+                {
+                  label: 'Applications',
+                  link: 'build/smart_contracts/apps',
+                },
+                {
+                  label: 'Constraints',
+                  link: 'build/smart_contracts/constraints',
+                },
+                {
+                  label: 'Control Flow',
+                  link: 'build/smart_contracts/control_flow',
+                },
+                {
+                  label: 'ABI',
+                  link: 'build/smart_contracts/abi',
+                },
+                {
+                  label: 'Inner Transactions',
+                  link: 'build/smart_contracts/inner_transactions',
+                },
+                {
+                  label: 'Resource Usage',
+                  link: 'build/smart_contracts/resource_usage',
+                },
+                {
+                  label: 'Logic Sigs',
+                  link: 'build/smart_contracts/logic_sigs',
+                },
+                {
+                  label: 'Algorand Python',
+                  collapsed: true,
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'build/smart_contracts/python/overview',
+                    },
+                  ],
+                },
+                {
+                  label: 'Algorand Typescript',
+                  collapsed: true,
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'build/smart_contracts/typescript/overview',
+                    },
+                  ],
+                },
+                {
+                  label: 'Algorand TEAL',
+                  collapsed: true,
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'build/smart_contracts/teal/overview',
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },
