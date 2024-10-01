@@ -8,7 +8,7 @@ AlgoKit LocalNet uses Docker images that are optimised for a great dev experienc
 
 The philosophy we take with AlgoKit LocalNet is that you should treat it as an ephemeral network. This means assume it could be reset at any time - don't store data on there that you can't recover / recreate. We have optimised the AlgoKit LocalNet experience to minimise situations where the network will get reset to improve the experience, but it can and will still happen in a number of situations.
 
-> For details on executing `algokit localnet` without `docker` or `podman` refer to the [codespaces](#codespaces) section.
+> For details on executing `algokit localnet` without `docker` or `podman` refer to the [codespaces](#github-codespaces-based-localnet) section.
 
 ## Prerequisites
 
@@ -103,11 +103,11 @@ To reset the LocalNet you can execute `algokit localnet reset`, which will tear 
 
 ### Viewing transactions in the LocalNet
 
-You can see a web-based user interface of the current state of your LocalNet including all transactions by using the [AlgoKit Explore](./explore.mdx) feature, e.g. by executing `algokit localnet explore`.
+You can see a web-based user interface of the current state of your LocalNet including all transactions by using the [AlgoKit Explore](/build/algokit/cli/features/explore) feature, e.g. by executing `algokit localnet explore`.
 
 ### Executing goal commands against AlgoKit LocalNet
 
-See the [AlgoKit Goal](./goal.mdx) feature. You can also execute `algokit localnet console` to open a [Bash shell which allows you to run the goal commandline](./goal.mdx#running-multiple-commands).
+See the [AlgoKit Goal](/build/algokit/cli/features/goal) feature. You can also execute `algokit localnet console` to open a [Bash shell which allows you to run the goal commandline](/build/algokit/cli/features/goal#running-multiple-commands).
 
 Note: if you want to copy files into the container so you can access them via goal then you can use the following:
 
