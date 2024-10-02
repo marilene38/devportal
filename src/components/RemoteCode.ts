@@ -54,7 +54,7 @@ async function getCode(src: string): Promise<string> {
         throw new Error(`Unknown error reading file: ${fsError}`);
       }
     } else {
-      throw error;
+      throw new Error(`RemoteCode retrieval failed: ${error}`);
     }
   }
 }

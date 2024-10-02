@@ -33,7 +33,7 @@ The core internal type that holds information about a signer/sender pair for a t
 
 Many methods in `AccountManager` expose a `TransactionSignerAccount`.
 
-### `SendTransactionFrom`
+### SendTransactionFrom
 
 :::note
 The [legacy functions](/build/algokit/utils/ts/overview#usage) within AlgoKit Utils make use of a [`SendTransactionFrom`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/types_transaction.md#sendtransactionfrom) union type that is slowly being phased out in favour of the simpler `TransactionSignerAccount`. This `SendTransactionFrom` type is still prevalent within the legacy functions though.
@@ -57,7 +57,7 @@ AlgoKit Utils provides a few helper methods to take one of these `SendTransactio
 
 ## Accounts
 
-In order to get/register accounts for signing operations you can use the following methods on [`AccountManager`](#accountmanager) (expressed here as `algorand.account` to denote the syntax via an [`AlgorandClient`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/algorand-client.md)):
+In order to get/register accounts for signing operations you can use the following methods on [`AccountManager`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_account_manager.AccountManager.md) (expressed here as `algorand.account` to denote the syntax via an [`AlgorandClient`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/algorand-client.md)):
 
 - [`algorand.account.fromEnvironment(name, fundWith)`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_account_manager.AccountManager.md#fromenvironment) - Registers and returns an account with private key loaded by convention based on the given name identifier - either by idempotently creating the account in KMD or from environment variable via `process.env['{NAME}_MNEMONIC']` and (optionally) `process.env['{NAME}_SENDER']` (if account is rekeyed)
   - This allows you to have powerful code that will automatically create and fund an account by name locally and when deployed against TestNet/MainNet will automatically resolve from environment variables, without having to have different code
@@ -133,7 +133,7 @@ The methods that are available are:
 
 <Code code={kmdAccount} lang='ts' />
 
-Some of this functionality is directly exposed from [`AccountManager`](#accountmanager), which has the added benefit of registering the account as a signer so they can be automatically used to sign transactions when using via [`AlgorandClient`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/algorand-client.md):
+Some of this functionality is directly exposed from [`AccountManager`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_account_manager.AccountManager.md), which has the added benefit of registering the account as a signer so they can be automatically used to sign transactions when using via [`AlgorandClient`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/algorand-client.md):
 
 ```typescript showLineNumbers=false
 const localNetDispenser = await algorand.account.localNetDispenser(); // Get and register LocalNet dispenser

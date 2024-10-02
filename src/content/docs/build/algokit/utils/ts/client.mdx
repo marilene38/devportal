@@ -93,7 +93,7 @@ const indexerClient = algorand.client.indexer;
 const kmdClient = algorand.client.kmd;
 ```
 
-If the method to create the `ClientManager` doesn't configure indexer or kmd ([both of which are optional](#client-management)), then accessing those clients will trigger an error to be thrown:
+If the method to create the `ClientManager` doesn't configure indexer or kmd ([both of which are optional](#client-manager)), then accessing those clients will trigger an error to be thrown:
 
 ```typescript showLineNumbers=false
 const algorand = AlgorandClient.fromClients({ algod });
@@ -105,7 +105,7 @@ algorand.client.kmd; // Throws error
 
 ### Creating an App Client Instance
 
-See [how to create app clients via ClientManager via AlgorandClient](/build/algokit/utils/ts/app-client#via-algorandclient).
+See [how to create app clients via ClientManager via AlgorandClient](FUTURELINK).
 
 ### Creating a TestNet Dispenser API Client Instance
 

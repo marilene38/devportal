@@ -52,7 +52,7 @@ Furthermore, the implementation contains the following implementation characteri
 This method requires the [legacy AlgoKit Utils import method to access it](/build/algokit/utils/ts/overview#usage).
 :::
 
-There is a method `algokit.getCreatorAppsByName(creatorAccount, indexer)`, which performs a series of indexer lookups that return all apps created by the given creator (as a [`SendTransactionFrom`](/build/algokit/utils/ts/account.md#sendtransactionfrom), or the encoded string representation of the public key of the account) indexed by the name it was deployed under if the creation transaction contained the following payload in the transaction note field:
+There is a method `algokit.getCreatorAppsByName(creatorAccount, indexer)`, which performs a series of indexer lookups that return all apps created by the given creator (as a [`SendTransactionFrom`](/build/algokit/utils/ts/account#sendtransactionfrom), or the encoded string representation of the public key of the account) indexed by the name it was deployed under if the creation transaction contained the following payload in the transaction note field:
 
 ```shell showLineNumbers=false frame=none
 ALGOKIT_DEPLOYER:j{name:string, version:string, updatable?:boolean, deletable?:boolean}
@@ -179,5 +179,5 @@ As well as the `operationPerformed` parameter and the [optional compilation resu
 
 Based on the value of `operationPerformed` there will be other data available in the return value:
 
-- If `create`, `update` or `replace` then it will have [`ConfirmedTransactionResults`](/build/algokit/utils/ts/transaction#sendtransactionresult) and `{return?: ABIReturn}` (which will be populated if an ABI method was executed)
+- If `create`, `update` or `replace` then it will have [`ConfirmedTransactionResults`](/build/algokit/utils/ts/transaction#send-transaction-result) and `{return?: ABIReturn}` (which will be populated if an ABI method was executed)
 - If `replace` then it will also have `{deleteReturn?: ABIReturn, deleteResult: ConfirmedTransactionResult}` to capture the result of the deletion of the existing app

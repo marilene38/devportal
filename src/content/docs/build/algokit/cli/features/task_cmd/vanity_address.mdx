@@ -1,6 +1,5 @@
 ---
 title: vanity-address
-draft: true
 ---
 
 The AlgoKit Vanity Address feature allows you to generate a vanity Algorand address. A vanity address is an address that contains a specific keyword in it. The keyword can only include uppercase letters A-Z and numbers 2-7. The longer the keyword, the longer it may take to generate a matching address.
@@ -48,7 +47,7 @@ Generate a vanity address with the keyword "ALGO" anywhere in the address with o
 > algokit task vanity-address ALGO -m anywhere -o file -f vanity-address.txt
 ```
 
-Generate a vanity address with the keyword "ALGO" at the start of the address and store into a [wallet alias](wallet.mdx):
+Generate a vanity address with the keyword "ALGO" at the start of the address and store into a [wallet alias](/build/algokit/cli/features/task_cmd/wallet):
 
 ```bash
 > algokit task vanity-address ALGO -o alias -a my-vanity-address
