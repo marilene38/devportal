@@ -105,7 +105,7 @@ The goal of this convention is to allow smart contract developers to distinguish
 The following document introduces a convention for appending information (stored in various files) to the compiled application's bytes.
 The goal of this convention is to standardize the process of verifying and adding this information.
 The encoded information byte string is `arc23` followed by the IPFS CID v1 of a folder containing the files with the information.
-The minimum required file is `contract.json` representing the contract metadata (as described in [ARC-4](arc-0004.md)), and as extended by future potential ARCs).
+The minimum required file is `contract.json` representing the contract metadata (as described in [ARC-4](/standards/arcs/arc-0004)), and as extended by future potential ARCs).
 
 ### ARC 28 - Algorand Event Log Spec
 
@@ -134,7 +134,7 @@ This interface allows smart contracts and indexers to detect whether a smart con
 
 ### ARC 74 - NFT Indexer API
 
-This specifies a REST interface that can be implemented by indexing services to provide data about NFTs conforming to the [ARC-72](arc-0072.md) standard.
+This specifies a REST interface that can be implemented by indexing services to provide data about NFTs conforming to the [ARC-72](/standards/arcs/arc-0072) standard.
 
 ### ARC 200 - Algorand Smart Contract Token Specification
 
