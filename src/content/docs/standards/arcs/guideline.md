@@ -35,11 +35,11 @@ The goal is to establish a standard for how traits are declared inside a non-fun
 ### ARC 19 - Templating of NFT ASA URLs for mutability
 
 This ARC describes a template substitution for URLs in ASAs, initially for ipfs:// scheme URLs allowing mutable CID replacement in rendered URLs.
-The proposed template-XXX scheme has substitions like:
+The proposed template-XXX scheme has substitutions like:
 ```
 template-ipfs://{ipfscid:<version>:<multicodec>:<field name containing 32-byte digest, ie reserve>:<hash type>}[/...]
 ```
-This will allow modifying the 32-byte 'Reserve address' in an ASA to represent a new IPFS content-id hash. Changing of the reserve address via an asset-config transaction will be all that is needed to point an ASA URL to new IPFS content. The client reading this URL, will compose a fully formed IPFS Content-ID based on the version, multicodec, and hash arguments provided in the ipfscid substitition.
+This will allow modifying the 32-byte 'Reserve address' in an ASA to represent a new IPFS content-id hash. Changing of the reserve address via an asset-config transaction will be all that is needed to point an ASA URL to new IPFS content. The client reading this URL, will compose a fully formed IPFS Content-ID based on the version, multicodec, and hash arguments provided in the ipfscid substitution.
 
 ### ARC 20 - Smart ASA
 

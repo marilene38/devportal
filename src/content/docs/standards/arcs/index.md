@@ -20,39 +20,39 @@ Welcome to the Algorand ARCs (Algorand Request for Comments) page. Here you'll f
     </thead>
     <tbody>
       <tr>
-    <td><a href="/standards/arcs/0" style='display: block; text-decoration: none; color: inherit;'>0</a></td>
-    <td><a href="/standards/arcs/0" style='display: block; text-decoration: none; color: inherit;'>ARC Purpose and Guidelines</a></td>
-    <td><a href="/standards/arcs/0" style='display: block; text-decoration: none; color: inherit;'>Guide explaning how to write a new ARC</a></td>
+    <td><a href="/standards/arcs/arc-0000/" style='display: block; text-decoration: none; color: inherit;'>0</a></td>
+    <td><a href="/standards/arcs/arc-0000/" style='display: block; text-decoration: none; color: inherit;'>ARC Purpose and Guidelines</a></td>
+    <td><a href="/standards/arcs/arc-0000/" style='display: block; text-decoration: none; color: inherit;'>Guide explaining how to write a new ARC</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/33" style='display: block; text-decoration: none; color: inherit;'>33</a></td>
-    <td><a href="/standards/arcs/33" style='display: block; text-decoration: none; color: inherit;'>Becoming an xGov</a></td>
-    <td><a href="/standards/arcs/33" style='display: block; text-decoration: none; color: inherit;'>Explanation on how to become Expert Governors.</a></td>
+    <td><a href="/standards/arcs/arc-0033/" style='display: block; text-decoration: none; color: inherit;'>33</a></td>
+    <td><a href="/standards/arcs/arc-0033/" style='display: block; text-decoration: none; color: inherit;'>Becoming an xGov</a></td>
+    <td><a href="/standards/arcs/arc-0033/" style='display: block; text-decoration: none; color: inherit;'>Explanation on how to become Expert Governors.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/34" style='display: block; text-decoration: none; color: inherit;'>34</a></td>
-    <td><a href="/standards/arcs/34" style='display: block; text-decoration: none; color: inherit;'>xGov Proposal Process</a></td>
-    <td><a href="/standards/arcs/34" style='display: block; text-decoration: none; color: inherit;'>Criteria for the creation of proposals.</a></td>
+    <td><a href="/standards/arcs/arc-0034/" style='display: block; text-decoration: none; color: inherit;'>34</a></td>
+    <td><a href="/standards/arcs/arc-0034/" style='display: block; text-decoration: none; color: inherit;'>xGov Proposal Process</a></td>
+    <td><a href="/standards/arcs/arc-0034/" style='display: block; text-decoration: none; color: inherit;'>Criteria for the creation of proposals.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/48" style='display: block; text-decoration: none; color: inherit;'>48</a></td>
-    <td><a href="/standards/arcs/48" style='display: block; text-decoration: none; color: inherit;'>Targeted DeFi Rewards</a></td>
-    <td><a href="/standards/arcs/48" style='display: block; text-decoration: none; color: inherit;'>Targeted DeFi Rewards, Terms and Conditions</a></td>
+    <td><a href="/standards/arcs/arc-0048/" style='display: block; text-decoration: none; color: inherit;'>48</a></td>
+    <td><a href="/standards/arcs/arc-0048/" style='display: block; text-decoration: none; color: inherit;'>Targeted DeFi Rewards</a></td>
+    <td><a href="/standards/arcs/arc-0048/" style='display: block; text-decoration: none; color: inherit;'>Targeted DeFi Rewards, Terms and Conditions</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/49" style='display: block; text-decoration: none; color: inherit;'>49</a></td>
-    <td><a href="/standards/arcs/49" style='display: block; text-decoration: none; color: inherit;'>NFT Rewards</a></td>
-    <td><a href="/standards/arcs/49" style='display: block; text-decoration: none; color: inherit;'>NFT Rewards, Terms and Conditions</a></td>
+    <td><a href="/standards/arcs/arc-0049/" style='display: block; text-decoration: none; color: inherit;'>49</a></td>
+    <td><a href="/standards/arcs/arc-0049/" style='display: block; text-decoration: none; color: inherit;'>NFT Rewards</a></td>
+    <td><a href="/standards/arcs/arc-0049/" style='display: block; text-decoration: none; color: inherit;'>NFT Rewards, Terms and Conditions</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/72" style='display: block; text-decoration: none; color: inherit;'>72</a></td>
-    <td><a href="/standards/arcs/72" style='display: block; text-decoration: none; color: inherit;'>Algorand Smart Contract NFT Specification</a></td>
-    <td><a href="/standards/arcs/72" style='display: block; text-decoration: none; color: inherit;'>Base specification for non-fungible tokens implemented as smart contracts.</a></td>
+    <td><a href="/standards/arcs/arc-0072/" style='display: block; text-decoration: none; color: inherit;'>72</a></td>
+    <td><a href="/standards/arcs/arc-0072/" style='display: block; text-decoration: none; color: inherit;'>Algorand Smart Contract NFT Specification</a></td>
+    <td><a href="/standards/arcs/arc-0072/" style='display: block; text-decoration: none; color: inherit;'>Base specification for non-fungible tokens implemented as smart contracts.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/200" style='display: block; text-decoration: none; color: inherit;'>200</a></td>
-    <td><a href="/standards/arcs/200" style='display: block; text-decoration: none; color: inherit;'>Algorand Smart Contract Token Specification</a></td>
-    <td><a href="/standards/arcs/200" style='display: block; text-decoration: none; color: inherit;'>Base specification for tokens implemented as smart contracts</a></td>
+    <td><a href="/standards/arcs/arc-0200/" style='display: block; text-decoration: none; color: inherit;'>200</a></td>
+    <td><a href="/standards/arcs/arc-0200/" style='display: block; text-decoration: none; color: inherit;'>Algorand Smart Contract Token Specification</a></td>
+    <td><a href="/standards/arcs/arc-0200/" style='display: block; text-decoration: none; color: inherit;'>Base specification for tokens implemented as smart contracts</a></td>
   </tr>
     </tbody>
   </table>
@@ -69,134 +69,134 @@ Welcome to the Algorand ARCs (Algorand Request for Comments) page. Here you'll f
     </thead>
     <tbody>
       <tr>
-    <td><a href="/standards/arcs/1" style='display: block; text-decoration: none; color: inherit;'>1</a></td>
-    <td><a href="/standards/arcs/1" style='display: block; text-decoration: none; color: inherit;'>Algorand Wallet Transaction Signing API</a></td>
-    <td><a href="/standards/arcs/1" style='display: block; text-decoration: none; color: inherit;'>An API for a function used to sign a list of transactions.</a></td>
+    <td><a href="/standards/arcs/arc-0001/" style='display: block; text-decoration: none; color: inherit;'>1</a></td>
+    <td><a href="/standards/arcs/arc-0001/" style='display: block; text-decoration: none; color: inherit;'>Algorand Wallet Transaction Signing API</a></td>
+    <td><a href="/standards/arcs/arc-0001/" style='display: block; text-decoration: none; color: inherit;'>An API for a function used to sign a list of transactions.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/2" style='display: block; text-decoration: none; color: inherit;'>2</a></td>
-    <td><a href="/standards/arcs/2" style='display: block; text-decoration: none; color: inherit;'>Algorand Transaction Note Field Conventions</a></td>
-    <td><a href="/standards/arcs/2" style='display: block; text-decoration: none; color: inherit;'>Conventions for encoding data in the note field at application-level</a></td>
+    <td><a href="/standards/arcs/arc-0002/" style='display: block; text-decoration: none; color: inherit;'>2</a></td>
+    <td><a href="/standards/arcs/arc-0002/" style='display: block; text-decoration: none; color: inherit;'>Algorand Transaction Note Field Conventions</a></td>
+    <td><a href="/standards/arcs/arc-0002/" style='display: block; text-decoration: none; color: inherit;'>Conventions for encoding data in the note field at application-level</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/3" style='display: block; text-decoration: none; color: inherit;'>3</a></td>
-    <td><a href="/standards/arcs/3" style='display: block; text-decoration: none; color: inherit;'>Conventions Fungible/Non-Fungible Tokens</a></td>
-    <td><a href="/standards/arcs/3" style='display: block; text-decoration: none; color: inherit;'>Parameters Conventions for Algorand Standard Assets (ASAs) for fungible tokens and non-fungible tokens (NFTs).</a></td>
+    <td><a href="/standards/arcs/arc-0003/" style='display: block; text-decoration: none; color: inherit;'>3</a></td>
+    <td><a href="/standards/arcs/arc-0003/" style='display: block; text-decoration: none; color: inherit;'>Conventions Fungible/Non-Fungible Tokens</a></td>
+    <td><a href="/standards/arcs/arc-0003/" style='display: block; text-decoration: none; color: inherit;'>Parameters Conventions for Algorand Standard Assets (ASAs) for fungible tokens and non-fungible tokens (NFTs).</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/4" style='display: block; text-decoration: none; color: inherit;'>4</a></td>
-    <td><a href="/standards/arcs/4" style='display: block; text-decoration: none; color: inherit;'>Application Binary Interface (ABI)</a></td>
-    <td><a href="/standards/arcs/4" style='display: block; text-decoration: none; color: inherit;'>Conventions for encoding method calls in Algorand Application</a></td>
+    <td><a href="/standards/arcs/arc-0004/" style='display: block; text-decoration: none; color: inherit;'>4</a></td>
+    <td><a href="/standards/arcs/arc-0004/" style='display: block; text-decoration: none; color: inherit;'>Application Binary Interface (ABI)</a></td>
+    <td><a href="/standards/arcs/arc-0004/" style='display: block; text-decoration: none; color: inherit;'>Conventions for encoding method calls in Algorand Application</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/5" style='display: block; text-decoration: none; color: inherit;'>5</a></td>
-    <td><a href="/standards/arcs/5" style='display: block; text-decoration: none; color: inherit;'>Wallet Transaction Signing API (Functional)</a></td>
-    <td><a href="/standards/arcs/5" style='display: block; text-decoration: none; color: inherit;'>An API for a function used to sign a list of transactions.</a></td>
+    <td><a href="/standards/arcs/arc-0005/" style='display: block; text-decoration: none; color: inherit;'>5</a></td>
+    <td><a href="/standards/arcs/arc-0005/" style='display: block; text-decoration: none; color: inherit;'>Wallet Transaction Signing API (Functional)</a></td>
+    <td><a href="/standards/arcs/arc-0005/" style='display: block; text-decoration: none; color: inherit;'>An API for a function used to sign a list of transactions.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/16" style='display: block; text-decoration: none; color: inherit;'>16</a></td>
-    <td><a href="/standards/arcs/16" style='display: block; text-decoration: none; color: inherit;'>Convention for declaring traits of an NFT's</a></td>
-    <td><a href="/standards/arcs/16" style='display: block; text-decoration: none; color: inherit;'>This is a convention for declaring traits in an NFT's metadata.</a></td>
+    <td><a href="/standards/arcs/arc-0016/" style='display: block; text-decoration: none; color: inherit;'>16</a></td>
+    <td><a href="/standards/arcs/arc-0016/" style='display: block; text-decoration: none; color: inherit;'>Convention for declaring traits of an NFT's</a></td>
+    <td><a href="/standards/arcs/arc-0016/" style='display: block; text-decoration: none; color: inherit;'>This is a convention for declaring traits in an NFT's metadata.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/18" style='display: block; text-decoration: none; color: inherit;'>18</a></td>
-    <td><a href="/standards/arcs/18" style='display: block; text-decoration: none; color: inherit;'>Royalty Enforcement Specification</a></td>
-    <td><a href="/standards/arcs/18" style='display: block; text-decoration: none; color: inherit;'>An ARC to specify the methods and mechanisms to enforce Royalty payments as part of ASA transfers</a></td>
+    <td><a href="/standards/arcs/arc-0018/" style='display: block; text-decoration: none; color: inherit;'>18</a></td>
+    <td><a href="/standards/arcs/arc-0018/" style='display: block; text-decoration: none; color: inherit;'>Royalty Enforcement Specification</a></td>
+    <td><a href="/standards/arcs/arc-0018/" style='display: block; text-decoration: none; color: inherit;'>An ARC to specify the methods and mechanisms to enforce Royalty payments as part of ASA transfers</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/19" style='display: block; text-decoration: none; color: inherit;'>19</a></td>
-    <td><a href="/standards/arcs/19" style='display: block; text-decoration: none; color: inherit;'>Templating of NFT ASA URLs for mutability</a></td>
-    <td><a href="/standards/arcs/19" style='display: block; text-decoration: none; color: inherit;'>Templating mechanism of the URL so that changeable data in an asset can be substituted by a client, providing a mutable URL.</a></td>
+    <td><a href="/standards/arcs/arc-0019/" style='display: block; text-decoration: none; color: inherit;'>19</a></td>
+    <td><a href="/standards/arcs/arc-0019/" style='display: block; text-decoration: none; color: inherit;'>Templating of NFT ASA URLs for mutability</a></td>
+    <td><a href="/standards/arcs/arc-0019/" style='display: block; text-decoration: none; color: inherit;'>Templating mechanism of the URL so that changeable data in an asset can be substituted by a client, providing a mutable URL.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/20" style='display: block; text-decoration: none; color: inherit;'>20</a></td>
-    <td><a href="/standards/arcs/20" style='display: block; text-decoration: none; color: inherit;'>Smart ASA</a></td>
-    <td><a href="/standards/arcs/20" style='display: block; text-decoration: none; color: inherit;'>An ARC for an ASA controlled by an Algorand Smart Contract</a></td>
+    <td><a href="/standards/arcs/arc-0020/" style='display: block; text-decoration: none; color: inherit;'>20</a></td>
+    <td><a href="/standards/arcs/arc-0020/" style='display: block; text-decoration: none; color: inherit;'>Smart ASA</a></td>
+    <td><a href="/standards/arcs/arc-0020/" style='display: block; text-decoration: none; color: inherit;'>An ARC for an ASA controlled by an Algorand Smart Contract</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/21" style='display: block; text-decoration: none; color: inherit;'>21</a></td>
-    <td><a href="/standards/arcs/21" style='display: block; text-decoration: none; color: inherit;'>Round based datafeed oracles on Algorand</a></td>
-    <td><a href="/standards/arcs/21" style='display: block; text-decoration: none; color: inherit;'>Conventions for building round based datafeed oracles on Algorand</a></td>
+    <td><a href="/standards/arcs/arc-0021/" style='display: block; text-decoration: none; color: inherit;'>21</a></td>
+    <td><a href="/standards/arcs/arc-0021/" style='display: block; text-decoration: none; color: inherit;'>Round based datafeed oracles on Algorand</a></td>
+    <td><a href="/standards/arcs/arc-0021/" style='display: block; text-decoration: none; color: inherit;'>Conventions for building round based datafeed oracles on Algorand</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/22" style='display: block; text-decoration: none; color: inherit;'>22</a></td>
-    <td><a href="/standards/arcs/22" style='display: block; text-decoration: none; color: inherit;'>Add `read-only` annotation to ABI methods</a></td>
-    <td><a href="/standards/arcs/22" style='display: block; text-decoration: none; color: inherit;'>Convention for creating methods which don't mutate state</a></td>
+    <td><a href="/standards/arcs/arc-0022/" style='display: block; text-decoration: none; color: inherit;'>22</a></td>
+    <td><a href="/standards/arcs/arc-0022/" style='display: block; text-decoration: none; color: inherit;'>Add `read-only` annotation to ABI methods</a></td>
+    <td><a href="/standards/arcs/arc-0022/" style='display: block; text-decoration: none; color: inherit;'>Convention for creating methods which don't mutate state</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/23" style='display: block; text-decoration: none; color: inherit;'>23</a></td>
-    <td><a href="/standards/arcs/23" style='display: block; text-decoration: none; color: inherit;'>Sharing Application Information</a></td>
-    <td><a href="/standards/arcs/23" style='display: block; text-decoration: none; color: inherit;'>Append application informations to compiled TEAL applications</a></td>
+    <td><a href="/standards/arcs/arc-0023/" style='display: block; text-decoration: none; color: inherit;'>23</a></td>
+    <td><a href="/standards/arcs/arc-0023/" style='display: block; text-decoration: none; color: inherit;'>Sharing Application Information</a></td>
+    <td><a href="/standards/arcs/arc-0023/" style='display: block; text-decoration: none; color: inherit;'>Append application information to compiled TEAL applications</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/25" style='display: block; text-decoration: none; color: inherit;'>25</a></td>
-    <td><a href="/standards/arcs/25" style='display: block; text-decoration: none; color: inherit;'>Algorand WalletConnect v1 API</a></td>
-    <td><a href="/standards/arcs/25" style='display: block; text-decoration: none; color: inherit;'>API for communication between Dapps and wallets using WalletConnect</a></td>
+    <td><a href="/standards/arcs/arc-0025/" style='display: block; text-decoration: none; color: inherit;'>25</a></td>
+    <td><a href="/standards/arcs/arc-0025/" style='display: block; text-decoration: none; color: inherit;'>Algorand WalletConnect v1 API</a></td>
+    <td><a href="/standards/arcs/arc-0025/" style='display: block; text-decoration: none; color: inherit;'>API for communication between Dapps and wallets using WalletConnect</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/26" style='display: block; text-decoration: none; color: inherit;'>26</a></td>
-    <td><a href="/standards/arcs/26" style='display: block; text-decoration: none; color: inherit;'>URI scheme</a></td>
-    <td><a href="/standards/arcs/26" style='display: block; text-decoration: none; color: inherit;'>A specification for encoding Transactions in a URI format.</a></td>
+    <td><a href="/standards/arcs/arc-0026/" style='display: block; text-decoration: none; color: inherit;'>26</a></td>
+    <td><a href="/standards/arcs/arc-0026/" style='display: block; text-decoration: none; color: inherit;'>URI scheme</a></td>
+    <td><a href="/standards/arcs/arc-0026/" style='display: block; text-decoration: none; color: inherit;'>A specification for encoding Transactions in a URI format.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/28" style='display: block; text-decoration: none; color: inherit;'>28</a></td>
-    <td><a href="/standards/arcs/28" style='display: block; text-decoration: none; color: inherit;'>Algorand Event Log Spec</a></td>
-    <td><a href="/standards/arcs/28" style='display: block; text-decoration: none; color: inherit;'>A methodology for structured logging by Algorand dapps.</a></td>
+    <td><a href="/standards/arcs/arc-0028/" style='display: block; text-decoration: none; color: inherit;'>28</a></td>
+    <td><a href="/standards/arcs/arc-0028/" style='display: block; text-decoration: none; color: inherit;'>Algorand Event Log Spec</a></td>
+    <td><a href="/standards/arcs/arc-0028/" style='display: block; text-decoration: none; color: inherit;'>A methodology for structured logging by Algorand dapps.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/32" style='display: block; text-decoration: none; color: inherit;'>32</a></td>
-    <td><a href="/standards/arcs/32" style='display: block; text-decoration: none; color: inherit;'>Application Specification</a></td>
-    <td><a href="/standards/arcs/32" style='display: block; text-decoration: none; color: inherit;'>A specification for fully describing an Application, useful for Application clients.</a></td>
+    <td><a href="/standards/arcs/arc-0032/" style='display: block; text-decoration: none; color: inherit;'>32</a></td>
+    <td><a href="/standards/arcs/arc-0032/" style='display: block; text-decoration: none; color: inherit;'>Application Specification</a></td>
+    <td><a href="/standards/arcs/arc-0032/" style='display: block; text-decoration: none; color: inherit;'>A specification for fully describing an Application, useful for Application clients.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/35" style='display: block; text-decoration: none; color: inherit;'>35</a></td>
-    <td><a href="/standards/arcs/35" style='display: block; text-decoration: none; color: inherit;'>Algorand Offline Wallet Backup Protocol</a></td>
-    <td><a href="/standards/arcs/35" style='display: block; text-decoration: none; color: inherit;'>Wallet-agnostic backup protocol for multiple accounts</a></td>
+    <td><a href="/standards/arcs/arc-0035/" style='display: block; text-decoration: none; color: inherit;'>35</a></td>
+    <td><a href="/standards/arcs/arc-0035/" style='display: block; text-decoration: none; color: inherit;'>Algorand Offline Wallet Backup Protocol</a></td>
+    <td><a href="/standards/arcs/arc-0035/" style='display: block; text-decoration: none; color: inherit;'>Wallet-agnostic backup protocol for multiple accounts</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/36" style='display: block; text-decoration: none; color: inherit;'>36</a></td>
-    <td><a href="/standards/arcs/36" style='display: block; text-decoration: none; color: inherit;'>Convention for declaring filters of an NFT</a></td>
-    <td><a href="/standards/arcs/36" style='display: block; text-decoration: none; color: inherit;'>This is a convention for declaring filters in an NFT metadata</a></td>
+    <td><a href="/standards/arcs/arc-0036/" style='display: block; text-decoration: none; color: inherit;'>36</a></td>
+    <td><a href="/standards/arcs/arc-0036/" style='display: block; text-decoration: none; color: inherit;'>Convention for declaring filters of an NFT</a></td>
+    <td><a href="/standards/arcs/arc-0036/" style='display: block; text-decoration: none; color: inherit;'>This is a convention for declaring filters in an NFT metadata</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/42" style='display: block; text-decoration: none; color: inherit;'>42</a></td>
-    <td><a href="/standards/arcs/42" style='display: block; text-decoration: none; color: inherit;'>Integration of xGov Process</a></td>
-    <td><a href="/standards/arcs/42" style='display: block; text-decoration: none; color: inherit;'>Integration of xGov Process</a></td>
+    <td><a href="/standards/arcs/arc-0042/" style='display: block; text-decoration: none; color: inherit;'>42</a></td>
+    <td><a href="/standards/arcs/arc-0042/" style='display: block; text-decoration: none; color: inherit;'>Integration of xGov Process</a></td>
+    <td><a href="/standards/arcs/arc-0042/" style='display: block; text-decoration: none; color: inherit;'>Integration of xGov Process</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/47" style='display: block; text-decoration: none; color: inherit;'>47</a></td>
-    <td><a href="/standards/arcs/47" style='display: block; text-decoration: none; color: inherit;'>Logic Signature Templates</a></td>
-    <td><a href="/standards/arcs/47" style='display: block; text-decoration: none; color: inherit;'>Defining templated logic signatures so wallets can safely sign them.</a></td>
+    <td><a href="/standards/arcs/arc-0047/" style='display: block; text-decoration: none; color: inherit;'>47</a></td>
+    <td><a href="/standards/arcs/arc-0047/" style='display: block; text-decoration: none; color: inherit;'>Logic Signature Templates</a></td>
+    <td><a href="/standards/arcs/arc-0047/" style='display: block; text-decoration: none; color: inherit;'>Defining templated logic signatures so wallets can safely sign them.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/54" style='display: block; text-decoration: none; color: inherit;'>54</a></td>
-    <td><a href="/standards/arcs/54" style='display: block; text-decoration: none; color: inherit;'>ASA Burning App</a></td>
-    <td><a href="/standards/arcs/54" style='display: block; text-decoration: none; color: inherit;'>Standardized Application for Burning ASAs</a></td>
+    <td><a href="/standards/arcs/arc-0054/" style='display: block; text-decoration: none; color: inherit;'>54</a></td>
+    <td><a href="/standards/arcs/arc-0054/" style='display: block; text-decoration: none; color: inherit;'>ASA Burning App</a></td>
+    <td><a href="/standards/arcs/arc-0054/" style='display: block; text-decoration: none; color: inherit;'>Standardized Application for Burning ASAs</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/55" style='display: block; text-decoration: none; color: inherit;'>55</a></td>
-    <td><a href="/standards/arcs/55" style='display: block; text-decoration: none; color: inherit;'>On-Chain storage/transfer for Multisig</a></td>
-    <td><a href="/standards/arcs/55" style='display: block; text-decoration: none; color: inherit;'>A smart contract that stores transactions and signatures for simplified multisignature use on Algorand.</a></td>
+    <td><a href="/standards/arcs/arc-0055/" style='display: block; text-decoration: none; color: inherit;'>55</a></td>
+    <td><a href="/standards/arcs/arc-0055/" style='display: block; text-decoration: none; color: inherit;'>On-Chain storage/transfer for Multisig</a></td>
+    <td><a href="/standards/arcs/arc-0055/" style='display: block; text-decoration: none; color: inherit;'>A smart contract that stores transactions and signatures for simplified multisignature use on Algorand.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/69" style='display: block; text-decoration: none; color: inherit;'>69</a></td>
-    <td><a href="/standards/arcs/69" style='display: block; text-decoration: none; color: inherit;'>ASA Parameters Conventions, Digital Media</a></td>
-    <td><a href="/standards/arcs/69" style='display: block; text-decoration: none; color: inherit;'>Alternatives conventions for ASAs containing digital media.</a></td>
+    <td><a href="/standards/arcs/arc-0069/" style='display: block; text-decoration: none; color: inherit;'>69</a></td>
+    <td><a href="/standards/arcs/arc-0069/" style='display: block; text-decoration: none; color: inherit;'>ASA Parameters Conventions, Digital Media</a></td>
+    <td><a href="/standards/arcs/arc-0069/" style='display: block; text-decoration: none; color: inherit;'>Alternatives conventions for ASAs containing digital media.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/73" style='display: block; text-decoration: none; color: inherit;'>73</a></td>
-    <td><a href="/standards/arcs/73" style='display: block; text-decoration: none; color: inherit;'>Algorand Interface Detection Spec</a></td>
-    <td><a href="/standards/arcs/73" style='display: block; text-decoration: none; color: inherit;'>A specification for smart contracts and indexers to detect interfaces of smart contracts.</a></td>
+    <td><a href="/standards/arcs/arc-0073/" style='display: block; text-decoration: none; color: inherit;'>73</a></td>
+    <td><a href="/standards/arcs/arc-0073/" style='display: block; text-decoration: none; color: inherit;'>Algorand Interface Detection Spec</a></td>
+    <td><a href="/standards/arcs/arc-0073/" style='display: block; text-decoration: none; color: inherit;'>A specification for smart contracts and indexers to detect interfaces of smart contracts.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/74" style='display: block; text-decoration: none; color: inherit;'>74</a></td>
-    <td><a href="/standards/arcs/74" style='display: block; text-decoration: none; color: inherit;'>NFT Indexer API</a></td>
-    <td><a href="/standards/arcs/74" style='display: block; text-decoration: none; color: inherit;'>REST API for reading data about Application's NFTs.</a></td>
+    <td><a href="/standards/arcs/arc-0074/" style='display: block; text-decoration: none; color: inherit;'>74</a></td>
+    <td><a href="/standards/arcs/arc-0074/" style='display: block; text-decoration: none; color: inherit;'>NFT Indexer API</a></td>
+    <td><a href="/standards/arcs/arc-0074/" style='display: block; text-decoration: none; color: inherit;'>REST API for reading data about Application's NFTs.</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/76" style='display: block; text-decoration: none; color: inherit;'>76</a></td>
-    <td><a href="/standards/arcs/76" style='display: block; text-decoration: none; color: inherit;'>Password Account</a></td>
-    <td><a href="/standards/arcs/76" style='display: block; text-decoration: none; color: inherit;'>Password account using PBKDF2</a></td>
+    <td><a href="/standards/arcs/arc-0076/" style='display: block; text-decoration: none; color: inherit;'>76</a></td>
+    <td><a href="/standards/arcs/arc-0076/" style='display: block; text-decoration: none; color: inherit;'>Password Account</a></td>
+    <td><a href="/standards/arcs/arc-0076/" style='display: block; text-decoration: none; color: inherit;'>Password account using PBKDF2</a></td>
   </tr>
     </tbody>
   </table>
@@ -213,14 +213,14 @@ Welcome to the Algorand ARCs (Algorand Request for Comments) page. Here you'll f
     </thead>
     <tbody>
       <tr>
-    <td><a href="/standards/arcs/59" style='display: block; text-decoration: none; color: inherit;'>59</a></td>
-    <td><a href="/standards/arcs/59" style='display: block; text-decoration: none; color: inherit;'>ASA Inbox Router</a></td>
-    <td><a href="/standards/arcs/59" style='display: block; text-decoration: none; color: inherit;'>An application that can route ASAs to users or hold them to later be claimed</a></td>
+    <td><a href="/standards/arcs/arc-0059/" style='display: block; text-decoration: none; color: inherit;'>59</a></td>
+    <td><a href="/standards/arcs/arc-0059/" style='display: block; text-decoration: none; color: inherit;'>ASA Inbox Router</a></td>
+    <td><a href="/standards/arcs/arc-0059/" style='display: block; text-decoration: none; color: inherit;'>An application that can route ASAs to users or hold them to later be claimed</a></td>
   </tr>
       <tr>
-    <td><a href="/standards/arcs/62" style='display: block; text-decoration: none; color: inherit;'>62</a></td>
-    <td><a href="/standards/arcs/62" style='display: block; text-decoration: none; color: inherit;'>ASA Circulating Supply</a></td>
-    <td><a href="/standards/arcs/62" style='display: block; text-decoration: none; color: inherit;'>Getter method for ASA circulating supply</a></td>
+    <td><a href="/standards/arcs/arc-0062/" style='display: block; text-decoration: none; color: inherit;'>62</a></td>
+    <td><a href="/standards/arcs/arc-0062/" style='display: block; text-decoration: none; color: inherit;'>ASA Circulating Supply</a></td>
+    <td><a href="/standards/arcs/arc-0062/" style='display: block; text-decoration: none; color: inherit;'>Getter method for ASA circulating supply</a></td>
   </tr>
     </tbody>
   </table>
@@ -237,9 +237,58 @@ Welcome to the Algorand ARCs (Algorand Request for Comments) page. Here you'll f
     </thead>
     <tbody>
       <tr>
-    <td><a href="/standards/arcs/12" style='display: block; text-decoration: none; color: inherit;'>12</a></td>
-    <td><a href="/standards/arcs/12" style='display: block; text-decoration: none; color: inherit;'>Claimable ASA from vault application</a></td>
-    <td><a href="/standards/arcs/12" style='display: block; text-decoration: none; color: inherit;'>A smart signature contract account that can receive & disburse claimable Algorand Smart Assets (ASA) to an intended receipient account.</a></td>
+    <td><a href="/standards/arcs/arc-0012/" style='display: block; text-decoration: none; color: inherit;'>12</a></td>
+    <td><a href="/standards/arcs/arc-0012/" style='display: block; text-decoration: none; color: inherit;'>Claimable ASA from vault application</a></td>
+    <td><a href="/standards/arcs/arc-0012/" style='display: block; text-decoration: none; color: inherit;'>A smart signature contract account that can receive & disburse claimable Algorand Smart Assets (ASA) to an intended recipient account.</a></td>
+  </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h2>Deprecated Arcs</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+    <td><a href="/standards/arcs/arc-0006/" style='display: block; text-decoration: none; color: inherit;'>6</a></td>
+    <td><a href="/standards/arcs/arc-0006/" style='display: block; text-decoration: none; color: inherit;'>Algorand Wallet Address Discovery API</a></td>
+    <td><a href="/standards/arcs/arc-0006/" style='display: block; text-decoration: none; color: inherit;'>API function, enable, which allows the discovery of accounts</a></td>
+  </tr>
+      <tr>
+    <td><a href="/standards/arcs/arc-0007/" style='display: block; text-decoration: none; color: inherit;'>7</a></td>
+    <td><a href="/standards/arcs/arc-0007/" style='display: block; text-decoration: none; color: inherit;'>Algorand Wallet Post Transactions API</a></td>
+    <td><a href="/standards/arcs/arc-0007/" style='display: block; text-decoration: none; color: inherit;'>API function to Post Signed Transactions to the network.</a></td>
+  </tr>
+      <tr>
+    <td><a href="/standards/arcs/arc-0008/" style='display: block; text-decoration: none; color: inherit;'>8</a></td>
+    <td><a href="/standards/arcs/arc-0008/" style='display: block; text-decoration: none; color: inherit;'>Algorand Wallet Sign and Post API</a></td>
+    <td><a href="/standards/arcs/arc-0008/" style='display: block; text-decoration: none; color: inherit;'>A function used to simultaneously sign and post transactions to the network.</a></td>
+  </tr>
+      <tr>
+    <td><a href="/standards/arcs/arc-0009/" style='display: block; text-decoration: none; color: inherit;'>9</a></td>
+    <td><a href="/standards/arcs/arc-0009/" style='display: block; text-decoration: none; color: inherit;'>Algorand Wallet Algodv2 and Indexer API</a></td>
+    <td><a href="/standards/arcs/arc-0009/" style='display: block; text-decoration: none; color: inherit;'>An API for accessing Algod and Indexer through a user's preferred connection.</a></td>
+  </tr>
+      <tr>
+    <td><a href="/standards/arcs/arc-0010/" style='display: block; text-decoration: none; color: inherit;'>10</a></td>
+    <td><a href="/standards/arcs/arc-0010/" style='display: block; text-decoration: none; color: inherit;'>Algorand Wallet Reach Minimum Requirements</a></td>
+    <td><a href="/standards/arcs/arc-0010/" style='display: block; text-decoration: none; color: inherit;'>Minimum requirements for Reach to function with a given wallet.</a></td>
+  </tr>
+      <tr>
+    <td><a href="/standards/arcs/arc-0011/" style='display: block; text-decoration: none; color: inherit;'>11</a></td>
+    <td><a href="/standards/arcs/arc-0011/" style='display: block; text-decoration: none; color: inherit;'>Algorand Wallet Reach Browser Spec</a></td>
+    <td><a href="/standards/arcs/arc-0011/" style='display: block; text-decoration: none; color: inherit;'>Convention for DApps to discover Algorand wallets in browser</a></td>
+  </tr>
+      <tr>
+    <td><a href="/standards/arcs/arc-0015/" style='display: block; text-decoration: none; color: inherit;'>15</a></td>
+    <td><a href="/standards/arcs/arc-0015/" style='display: block; text-decoration: none; color: inherit;'>Encrypted Short Messages</a></td>
+    <td><a href="/standards/arcs/arc-0015/" style='display: block; text-decoration: none; color: inherit;'>Scheme for encryption/decryption that allows for private messages.</a></td>
   </tr>
     </tbody>
   </table>
@@ -283,6 +332,10 @@ Welcome to the Algorand ARCs (Algorand Request for Comments) page. Here you'll f
     ARC. This state has finality and can no longer be resurrected using this ARC
     number. If the idea is pursued at a later date it is considered a new
     proposal.
+  </li>
+  <li>
+    <strong>Deprecated</strong> - This ARC has been deprecated.
+    It has been replaced by another one or is now obsolete.
   </li>
   <li>
     <strong>Living</strong> - A special status for ARCs that are designed to be
