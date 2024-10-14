@@ -1,0 +1,108 @@
+---
+title: AVM Debugger
+description: Tutorial on how to debug a smart contract using AVM Debugger
+sidebar:
+  label: AVM Debugger
+  order: 3
+---
+
+In this tutorial, we will walk through identifying and fixing a bug in an Algorand smart contract using the Algorand Virtual Machine (AVM) Debugger. We’ll start with a simple, smart contract containing a deliberate bug, and by using the AVM Debugger, we’ll pinpoint and correct the issue. This guide will walk you through setting up, debugging, and fixing a smart contract using this extension.
+
+## Prerequisites
+- Visual Studio Code (version 1.80.0 or higher)
+- Node.js (version 18.x or higher)
+- AlgoKit AVM VS Code Debugger extension installed (link: extension)
+- Basic understanding of Algorand smart contracts using Python (link: Algokit guide)
+
+:::note 
+The extension is designed to debug TEAL programs on the Algorand Virtual Machine. It provides a step-by-step debugging experience by utilizing transaction execution traces and compiled source maps of your smart contract. However, it’s crucial to understand that debugging a smart contract language like TEAL has unique aspects compared to general-purpose languages. 
+:::
+
+## Step 1: Set Up the Example Smart Contract
+We aim to debug TEAL code in a project generated via algokit init. Refer (link to algokit setup) to set up Algokit. Here’s the Algorand Python code for an auction smart contract. The bug is in the bid method, which incorrectly updates the claimable amount. It should overwrite the previous amount, not add to it.
+
+To be added : code
+
+## Step 2: Compile & Deploy the Smart Contract
+
+Compile the smart contract using AlgoKit: 
+```bash
+algokit project run build
+```
+This will generate the following files in artifacts: approval.teal, clear.teal, and arc32.json files. 
+
+Deploy the smart contract on localnet:
+```bash
+algokit project deploy testnet
+```
+This will automatically generate *.appln.trace.avm.json files in debug_traces folder
+
+### Expected Behavior
+The expected behavior is that each bid should replace the previous claimable amount for a bidder. 
+
+### Bug
+The bug will cause the claimable amount to accumulate incorrectly.
+
+## Step 3: Setup the Debugging Environment
+Install the AlgoKit AVM VS Code Debugger extension from the VS Code Marketplace. (Go to extensions in VScode -> Search for Algokit AVM Debugger). Once installed, it should look like this:
+ 
+Figure: Output of Algokit AVM debugger
+
+In your project’s entry point (e.g., main.py), add:
+```python
+from algokit_utils.config import config
+config.configure(debug=True, trace_all=True)
+```
+
+## Step 4: Create a Debugging Session
+Create a launch configuration in VS Code:
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Auction Contract",
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/simulate-response.trace.avm.json",
+      "stopOnEntry": true
+    }
+  ]
+}
+```
+
+## Step 5: Load the Smart Contract
+In the VSCode, go to run and debug on left side. This will load the compiled smart contract into the debugger. In the run and debug, select debug TEAL via Algokit AVM Debugger.
+
+To be added : Figure: Load Debugger in VSCode 
+
+## Step 6: Start debugging the Bug
+Let’s now debug the issue:
+Set a breakpoint in the bid method.
+Start the debugging session: Click on the Start Debugging button or F5
+Trigger a bid transaction.
+When the breakpoint is hit, step through the code.
+
+To be added : Figure: screenshots of each step
+
+## Step 7: Analyze the Output
+
+Observe the `claimable_amount` variable before and after the bid is processed. You'll notice it's increasing with each bid instead of being replaced.
+
+## Step 8: Fix the Bug
+Now that we've identified the bug, let's fix it in our original smart contract:
+To be added : code to fix
+
+## Step 9: Redeploy and Debugging Verification
+1. Recompile the contract using the following command:
+   ```bash
+   algokit project run build
+   ```
+
+2. Test the Transaction:
+   Run through steps 4 to 7 to verify that the `claimable_amount` now updates as expected, confirming the bug has been fixed.
+
+TBC: To check out other features
+
+## Conclusion/Summary
+In this tutorial, we walked through the process of using the AVM debugger from AlgoKit Python utils to debug an Algorand Smart Contract. We set up a debugging environment, loaded a smart contract with a planted bug, stepped through the execution, and identified the issue. This process can be invaluable when developing and testing smart contracts on the Algorand blockchain. It's highly recommended to thoroughly test your smart contracts to ensure they function as expected and prevent costly errors in production before deploying them to the main network.

@@ -51,6 +51,10 @@ export default defineConfig({
                   link: '/build/algokit/project-structure',
                 },
                 {
+                  label: 'AVM Debugger',
+                  link: '/build/algokit/avm-debugger',
+                },
+                {
                   label: 'AlgoKit Templates',
                   items: [
                     {
