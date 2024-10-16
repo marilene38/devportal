@@ -3,7 +3,13 @@ title: Logic Signatures
 description: A guide in my new Starlight docs site.
 ---
 
+import { Code } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import selfPaymentLogicSig from '/examples/smart_contracts/py/self-payment-logic-sig.py?raw';
+import subsidizedAppCallLogicSig from '/examples/smart_contracts/py/subsidized-app-call-logic-sig.py?raw';
+
 Logic Signatures (LogicSig), are a feature in Algorand that allows transactions to be authorized using a TEAL program. These signatures are used to sign transactions from either a ***Contract Account*** or a ***Delegated Account***. 
+
 Logic signatures contain logic used to sign transactions. When submitted with a transaction, the Algorand Virtual Machine (AVM) evaluates the logic to determine whether the transaction is authorized. If the logic fails, the transaction will not execute.
 Compiled logic signatures generate a corresponding Algorand account that can hold Algos or assets. Transactions from this account require successful logic execution. Alternatively, logic signatures can delegate signature authority, where another account signs the smart signature to authorize transactions from the original account.
 
@@ -84,150 +90,21 @@ While smart contracts are the preferred solution in most cases, logic signatures
 4. ***Escrow/Contract Accounts***: In cases requiring conditional spending based on specific logic. However, smart contracts are generally preferred when dealing with escrow scenarios.
 
 ## Code Example
-The below code is logic signature for a contract account that can pay for the application call of another user
+The following code checks if the transaction is a self-payment with zero amount and no rekey or close actions. It ensures the transaction happens within a specific round and prevents replay attacks by verifying the genesis hash and lease field.
 
-```showLineNumbers=false
-from algopy import (
-    Application,
-    Bytes,
-    Global,
-    TemplateVar,
-    TransactionType,
-    Txn,
-    UInt64,
-    logicsig,
-)
-from algopy.op import GTxn
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    <Code code={selfPaymentLogicSig} lang='py' frame='none' />
+  </TabItem>
+</Tabs>
 
+The following logic signature ensures the contract will cover the fee for a prior transaction in a group, which must be an application call to a known app. It confirms the fee for this app call is zero and ensures the conditions are met for the payment to proceed.
 
-@logicsig
-def subsidize_app_call_fees() -> bool:
-    """
-    This Contract Account will subsidize the fees for any AppCall transaction directed to a known application.
-    """
-    return (
-        # is it safe to pay for the fees of the previous transaction?
-        Txn.type_enum == TransactionType.Payment
-        and Txn.receiver == Txn.sender
-        and Txn.amount == 0
-        and Txn.rekey_to == Global.zero_address
-        and Txn.close_remainder_to == Global.zero_address
-        and Txn.fee == 2_000
-        and Txn.last_valid <= TemplateVar[UInt64]("EXPIRATION_ROUND")
-        and Global.genesis_hash == TemplateVar[Bytes]("TARGET_NETWORK_GENESIS")
-        # is the previous transaction in the group an application call to a known app?
-        and GTxn.type_enum(Txn.group_index - 1) == TransactionType.ApplicationCall
-        and GTxn.application_id(Txn.group_index - 1)
-        == TemplateVar[Application]("KNOWN_APP")
-        and GTxn.fee(Txn.group_index - 1) == 0
-    )
-```
-
-Once the contract code is written, the following is the test for it:
-```showLineNumbers=false
-import base64
-from copy import deepcopy
-
-import algokit_utils
-import pytest
-from algokit_utils import (
-    EnsureBalanceParameters,
-    TransactionParameters,
-    ensure_funded,
-    get_localnet_default_account,
-)
-from algosdk.atomic_transaction_composer import (
-    LogicSigTransactionSigner,
-    TransactionWithSigner,
-)
-from algosdk.constants import MIN_TXN_FEE
-from algosdk.transaction import LogicSigAccount, PaymentTxn
-from algosdk.util import algos_to_microalgos
-from algosdk.v2client.algod import AlgodClient
-
-from smart_contracts.artifacts.dummy_app.dummy_app_client import DummyAppClient
-
-
-@pytest.fixture(scope="session")
-def lsig_template() -> str:
-    with open(
-        "./smart_contracts/artifacts/hello_world/subsidize_app_call_fees.teal"
-    ) as f:
-        return f.read()
-
-
-@pytest.fixture(scope="session")
-def contract_account(lsig_template: str, algod_client: AlgodClient) -> LogicSigAccount:
-    rendered = algokit_utils.deploy.replace_template_variables(
-        lsig_template,
-        {
-            "EXPIRATION_ROUND": 1_000_000,
-            "TARGET_NETWORK_GENESIS": base64.b64decode(
-                "iPYbagLndUBNkttc5e7+rcmmFJzi4Gh18IYwbd/8Fl8="
-            ),
-            "KNOWN_APP": 1002,
-        },
-    )
-    lsig_account = LogicSigAccount(
-        base64.b64decode(algod_client.compile(rendered)["result"])
-    )
-    ensure_funded(
-        algod_client,
-        EnsureBalanceParameters(
-            account_to_fund=lsig_account.address(),
-            min_spending_balance_micro_algos=algos_to_microalgos(2),
-        ),
-    )
-
-    return lsig_account
-
-
-@pytest.fixture(scope="session")
-def contract_account_signer(
-    contract_account: LogicSigAccount,
-) -> LogicSigTransactionSigner:
-    return LogicSigTransactionSigner(contract_account)
-
-
-@pytest.fixture(scope="session")
-def dummy_app_client(algod_client: AlgodClient) -> DummyAppClient:
-    return DummyAppClient(
-        algod_client, app_id=1002, signer=get_localnet_default_account(algod_client)
-    )
-
-
-def test_subsidize_fee(
-    contract_account_signer: LogicSigTransactionSigner, dummy_app_client: DummyAppClient
-) -> None:
-    sp_call = dummy_app_client.algod_client.suggested_params()
-    sp_call.flat_fee = True
-    sp_call.fee = 0
-    atc = (
-        dummy_app_client.compose()
-        .hello(
-            name="Juan",
-            transaction_parameters=TransactionParameters(suggested_params=sp_call),
-        )
-        .atc
-    )
-    sp_lsig = deepcopy(sp_call)
-    sp_lsig.flat_fee = True
-    sp_lsig.fee = 2 * MIN_TXN_FEE
-    atc.add_transaction(
-        TransactionWithSigner(
-            txn=PaymentTxn(
-                sender=contract_account_signer.lsig.address(),
-                sp=sp_lsig,
-                receiver=contract_account_signer.lsig.address(),
-                amt=0,
-            ),
-            signer=contract_account_signer,
-        )
-    )
-    atc.execute(dummy_app_client.algod_client, wait_rounds=1)
-```
-
-
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    <Code code={subsidizedAppCallLogicSig} lang='py' frame='none' />
+  </TabItem>
+</Tabs>
 
 ## Limitations and Considerations
 - ***Security Considerations***: Logic signatures do not inherently define how frontends, particularly wallets, should consider them safe. It is recommended that only the signing of audited or otherwise trusted logic signatures be supported. The decision is made solely by the frontends as to which logic signatures they allow to be signed.
