@@ -4,6 +4,8 @@ import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import d2 from 'astro-d2';
 import rehypeExternalLinks from 'rehype-external-links';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { resolve } from 'path';
 import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
@@ -200,12 +202,9 @@ export default defineConfig({
                 {
                   label: 'Algorand Python',
                   collapsed: true,
-                  items: [
-                    {
-                      label: 'Overview',
-                      link: 'build/smart_contracts/python/overview',
-                    },
-                  ],
+                  autogenerate: {
+                    directory: 'build/smart_contracts/python',
+                  },
                 },
                 {
                   label: 'Algorand Typescript',
@@ -354,7 +353,19 @@ export default defineConfig({
   ],
   markdown: {
     // Rehype plugin that adds target="_blank" and rel="noopener noreferrer" to external links
-    rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }]],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'wrap',
+          properties: {
+            className: ['anchor-link'],
+          },
+        },
+      ],
+      [rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }],
+    ],
   },
   vite: {
     resolve: {
