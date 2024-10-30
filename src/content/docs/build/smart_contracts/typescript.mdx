@@ -82,7 +82,7 @@ log(z); // [4, 5, 3]
 
 When instantiating an array or object, a type MUST be defined. For example, `const x: uint64[] = [1, 2, 3]`. If you omit the type, the compiler will throw an error.
 
-4. Objects: Object can be defined much like in TypeScript. The same efficiencies of static vs dynamic types also applies to objects. Under the hood, Algorand Typescript objects are just tuples. For example [uint64, uint8] is the same byteslice as `{ foo: uint64, bar: uint8 }`. The order of elements in the tuple depends on the order they are defined in the type defintion. For example, the following definitions result in the same byteslice.
+4. Objects: Object can be defined much like in TypeScript. The same efficiencies of static vs dynamic types also applies to objects. Under the hood, Algorand Typescript objects are just tuples. For example [uint64, uint8] is the same byteslice as `{ foo: uint64, bar: uint8 }`. The order of elements in the tuple depends on the order they are defined in the type definition. For example, the following definitions result in the same byteslice.
 
 ```ts
 type MyType = { foo: uint64, bar: uint8 }
