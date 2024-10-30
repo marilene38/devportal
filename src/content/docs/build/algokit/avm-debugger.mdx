@@ -25,106 +25,140 @@ import avmDebuggerCorrectCode from '@images/algokit-py-avm-debugger-correct-code
 In this tutorial, we will walk through identifying and fixing a bug in an Algorand smart contract using the Algorand Virtual Machine (AVM) Debugger. We’ll start with a simple, smart contract containing a deliberate bug, and by using the AVM Debugger, we’ll pinpoint and correct the issue. This guide will walk you through setting up, debugging, and fixing a smart contract using this extension.
 
 ## Prerequisites
+
 - Visual Studio Code (version 1.80.0 or higher)
 - Node.js (version 18.x or higher)
 - [Algokit](/build/algokit/what-is-algokit) installed
-- [AlgoKit AVM VS Code Debugger](https://github.com/microsoft/vscode-mock-debug) extension installed 
+- [AlgoKit AVM VS Code Debugger](https://github.com/microsoft/vscode-mock-debug) extension installed
 - Basic understanding of [Algorand smart contracts using Python](/build/smart_contracts/python/overview)
 
-:::note 
-The extension is designed to debug Algorand Python smart contracts on the Algorand Virtual Machine. It provides a step-by-step debugging experience by utilizing transaction execution traces and compiled source maps of your smart contract. 
+:::note
+The extension is designed to debug Algorand Python smart contracts on the Algorand Virtual Machine. It provides a step-by-step debugging experience by utilizing transaction execution traces and compiled source maps of your smart contract.
 :::
 
-
 ## Step 1: Setup the Debugging Environment
+
 Install the AlgoKit AVM VS Code Debugger extension from the VS Code Marketplace by going to extensions in VScode, then search for Algokit AVM Debugger and click install. You should see the output like the following:
 
-<Image src={avmDebuggerExtension} alt="AVM Debugger Extension" />
+<Image src={avmDebuggerExtension} alt='AVM Debugger Extension' />
 
 ## Step 2: Set Up the Example Smart Contract
-We aim to debug smart contract code in a project generated via ```algokit init```. Refer to set up [Algokit](/build/algokit/what-is-algokit). Here’s the Algorand Python code for an ```tictactoe``` smart contract. The bug is in the ```move``` method, where ```games_played``` is updated by ```2``` for guest and ```1``` for host (which should be updated by 1 for both guest and host).
 
-Add the below tictactoe contract in ```contract.py``` file:
+We aim to debug smart contract code in a project generated via `algokit init`. Refer to set up [Algokit](/build/algokit/what-is-algokit). Here’s the Algorand Python code for an `tictactoe` smart contract. The bug is in the `move` method, where `games_played` is updated by `2` for guest and `1` for host (which should be updated by 1 for both guest and host).
+
+Add the below tictactoe contract in `contract.py` file:
+
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python' >
-    <Code code={avmDebuggerExample} lang='py' frame='none' showLineNumbers={false}/>
+  <TabItem label='Python' icon='seti:python'>
+    <Code
+      code={avmDebuggerExample}
+      lang='py'
+      frame='none'
+      showLineNumbers={false}
+    />
   </TabItem>
 </Tabs>
 
-Add the below deployment code in ```deploy.config``` file: 
+Add the below deployment code in `deploy.config` file:
+
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={avmDebuggerDeployConfig} lang='py' frame='none' showLineNumbers={false}/>
+    <Code
+      code={avmDebuggerDeployConfig}
+      lang='py'
+      frame='none'
+      showLineNumbers={false}
+    />
   </TabItem>
 </Tabs>
 
 ## Step 3: Compile & Deploy the Smart Contract
 
-To enable debugging mode and full tracing for each step in the execution, go to ```main.py``` file and add:
+To enable debugging mode and full tracing for each step in the execution, go to `main.py` file and add:
+
 ```python showLineNumbers=false
 from algokit_utils.config import config
 config.configure(debug=True, trace_all=True)
 ```
 
-Next compile the smart contract using AlgoKit: 
+Next compile the smart contract using AlgoKit:
+
 ```bash
 algokit project run build
 ```
-This will generate the following files in artifacts: ```approval.teal```, ```clear.teal```, ```clear.puya.map```, ```approval.puya.map``` and ```arc32.json``` files. 
+
+This will generate the following files in artifacts: `approval.teal`, `clear.teal`, `clear.puya.map`, `approval.puya.map` and `arc32.json` files.
 
 Deploy the smart contract on localnet:
+
 ```bash
 algokit project deploy localnet
 ```
-This will automatically generate ```*.appln.trace.avm.json``` files in ```debug_traces``` folder, ```.teal``` and ```.teal.map``` files in sources.
+
+This will automatically generate `*.appln.trace.avm.json` files in `debug_traces` folder, `.teal` and `.teal.map` files in sources.
 
 ### Expected Behavior
-The expected behavior is that 
-```games_played``` should be updated by ```1``` for both guest and host
+
+The expected behavior is that
+`games_played` should be updated by `1` for both guest and host
 
 ### Bug
-When ```move``` method is called, ```games_played``` will get updated incorrectly for guest player.
 
+When `move` method is called, `games_played` will get updated incorrectly for guest player.
 
 ## Step 4: Start the debugger
-In the VSCode, go to run and debug on left side. This will load the compiled smart contract into the debugger. In the run and debug, select debug TEAL via Algokit AVM Debugger. It will ask to select the appropriate ```debug_traces``` file. 
 
-<Image src={avmDebuggerDebugTraces} alt="AVM Debugger Debug Traces" /> 
-Figure: Load Debugger in VSCode 
+In the VSCode, go to run and debug on left side. This will load the compiled smart contract into the debugger. In the run and debug, select debug TEAL via Algokit AVM Debugger. It will ask to select the appropriate `debug_traces` file.
 
-Next it will ask you to select the source map file. Select the ```approval.puya.map``` file.
-<Image src={avmDebuggerMapFile} alt="AVM Debugger Map File" /> 
+<Image src={avmDebuggerDebugTraces} alt='AVM Debugger Debug Traces' />
+Figure: Load Debugger in VSCode{' '}
+
+Next it will ask you to select the source map file. Select the `approval.puya.map` file.
+
+<Image src={avmDebuggerMapFile} alt='AVM Debugger Map File' />{' '}
 
 ## Step 5: Debugging the smart contract
+
 Let’s now debug the issue:
-<Image src={avmDebuggerStarted} alt="AVM Debugger Started" /> 
 
-Enter into the ```app_id``` of the ```transaction_group.json``` file. This opens the contract. Set a breakpoint in the ```move``` method. You can also add additional breakpoints.
+<Image src={avmDebuggerStarted} alt='AVM Debugger Started' />{' '}
 
-<Image src={avmDebuggerSmartContract} alt="AVM Debugger Smart Contract" /> 
+Enter into the `app_id` of the `transaction_group.json` file. This opens the contract. Set a breakpoint in the `move` method. You can also add additional breakpoints.
 
-On left side, you can see ```Program State``` which includes ```program counter```, ```opcode```, ```stack```, ```scratch space```. In ```On-chain State``` you will be able to see ```global```, ```local``` and ```box``` storages for the application id deployed on localnet. Once you start step operations of debugging, it will get populated according to the contract. Now you can step-into the code.
+<Image src={avmDebuggerSmartContract} alt='AVM Debugger Smart Contract' />{' '}
+
+On left side, you can see `Program State` which includes `program counter`, `opcode`, `stack`, `scratch space`. In `On-chain State` you will be able to see `global`, `local` and `box` storages for the application id deployed on localnet. Once you start step operations of debugging, it will get populated according to the contract. Now you can step-into the code.
 
 ## Step 6: Analyze the Output
 
 Observe the `games_played` variable for guest is increased by 2 (incorrectly) whereas for host is increased correctly.
-<Image src={avmDebuggerIncorrectCode} alt="AVM Debugger Bug" />
+
+<Image src={avmDebuggerIncorrectCode} alt='AVM Debugger Bug' />
 
 ## Step 7: Fix the Bug
-Now that we've identified the bug, let's fix it in our original smart contract in ```move``` method:
+
+Now that we've identified the bug, let's fix it in our original smart contract in `move` method:
+
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={avmDebuggerFixed} lang='py' frame='none' showLineNumbers={false}/>
+    <Code
+      code={avmDebuggerFixed}
+      lang='py'
+      frame='none'
+      showLineNumbers={false}
+    />
   </TabItem>
 </Tabs>
 
 ## Step 8: Re-deploy and verify using Debugger
-1. Re-compile and re-deploy the contract using the ```step 3```.
+
+1. Re-compile and re-deploy the contract using the `step 3`.
 
 2. Test the Transaction:
-   Run through ```steps 4 to 6``` to verify that the `games_played` now updates as expected, confirming the bug has been fixed as seen below.
+   Run through `steps 4 to 6` to verify that the `games_played` now updates as expected, confirming the bug has been fixed as seen below.
 
-<Image src={avmDebuggerCorrectCode} alt="AVM Debugger Correct Code" />
+<Image src={avmDebuggerCorrectCode} alt='AVM Debugger Correct Code' />
 
 ## Summary
+
 In this tutorial, we walked through the process of using the AVM debugger from AlgoKit Python utils to debug an Algorand Smart Contract. We set up a debugging environment, loaded a smart contract with a planted bug, stepped through the execution, and identified the issue. This process can be invaluable when developing and testing smart contracts on the Algorand blockchain. It's highly recommended to thoroughly test your smart contracts to ensure they function as expected and prevent costly errors in production before deploying them to the main network.
