@@ -36,6 +36,15 @@ export default defineConfig({
           label: 'Build',
           items: [
             {
+              label: 'Blockchain 101',
+              items: [
+                {
+                  label: 'Use Cases',
+                  link: '/build/blockchain101/use-cases',
+                }
+              ]
+            },
+            {
               label: 'AlgoKit',
               items: [
                 {
