@@ -22,7 +22,6 @@ import avmDebuggerStarted from '@images/algokit-py-avm-debugger-started.png';
 import avmDebuggerIncorrectCode from '@images/algokit-py-avm-debugger-bug.png';
 import avmDebuggerCorrectCode from '@images/algokit-py-avm-debugger-correct-code.png';
 
-
 The AVM VSCode debugger enables inspection of blockchain logic through `Simulate Traces` - JSON files containing detailed transaction execution data without on-chain deployment. The extension requires both trace files and source maps that link original code (TEAL or Puya) to compiled instructions.
 While the extension works independently, projects created with algokit templates include utilities that automatically generate these debugging artifacts. For full list of available capabilities of debugger extension refer to this [documentation](https://github.com/microsoft/vscode-mock-debug).
 
@@ -87,7 +86,7 @@ from algokit_utils.config import config
 config.configure(debug=True, trace_all=True)
 ```
 
-For more details, refer to [Debugger](/build/algokit/utils/python/debugging/): 
+For more details, refer to [Debugger](/build/algokit/utils/python/debugging/):
 
 Next compile the smart contract using AlgoKit:
 
@@ -142,7 +141,7 @@ Enter into the `app_id` of the `transaction_group.json` file. This opens the con
 
 <Image src={avmDebuggerSmartContract} alt='AVM Debugger Smart Contract' />{' '}
 
-On left side, you can see `Program State` which includes `program counter`, `opcode`, `stack`, `scratch space`. In `On-chain State` you will be able to see `global`, `local` and `box` storages for the application id deployed on localnet. 
+On left side, you can see `Program State` which includes `program counter`, `opcode`, `stack`, `scratch space`. In `On-chain State` you will be able to see `global`, `local` and `box` storages for the application id deployed on localnet.
 
 :::note:
 We have used localnet but the contracts can be deployed on any other network. A trace file is in a sense agnostic of the network in which the trace file was generated in. As long as its a complete simulate trace that contains state, stack and scratch states in the execution trace - debugger will work just fine with those as well.
@@ -171,15 +170,16 @@ Now that we've identified the bug, let's fix it in our original smart contract i
   </TabItem>
 </Tabs>
 
-## Step 8: Re-deploy 
+## Step 8: Re-deploy
 
 Re-compile and re-deploy the contract using the `step 3`.
 
 ## Step 9: Verify again using Debugger
+
 Reset the `sources.avm.json` file, then restart the debugger selecting `approval.puya.source.map` file. Run through `steps 4 to 6` to verify that the `games_played` now updates as expected, confirming the bug has been fixed as seen below.
 
 :::note
-You can alternatively also use `approval.teal.map` file instead of puya source map - for a lower-level TEAL debugging session. Refer to [Algokit AVM VSCode Debugger commands ](https://github.com/algorandfoundation/algokit-avm-vscode-debugger#vscode-command) via the VSCode command palette to automate clearing or editing the registry file. 
+You can alternatively also use `approval.teal.map` file instead of puya source map - for a lower-level TEAL debugging session. Refer to [Algokit AVM VSCode Debugger commands ](https://github.com/algorandfoundation/algokit-avm-vscode-debugger#vscode-command) via the VSCode command palette to automate clearing or editing the registry file.
 :::
 
 <Image src={avmDebuggerCorrectCode} alt='AVM Debugger Correct Code' />
@@ -189,4 +189,5 @@ You can alternatively also use `approval.teal.map` file instead of puya source m
 In this tutorial, we walked through the process of using the AVM debugger from AlgoKit Python utils to debug an Algorand Smart Contract. We set up a debugging environment, loaded a smart contract with a planted bug, stepped through the execution, and identified the issue. This process can be invaluable when developing and testing smart contracts on the Algorand blockchain. It's highly recommended to thoroughly test your smart contracts to ensure they function as expected and prevent costly errors in production before deploying them to the main network.
 
 ## Next steps
+
 To learn more, refer to documentation of the [debugger extension](/build/algokit/utils/python/debugging/) to learn more about Debugging session.
