@@ -64,7 +64,7 @@ Follow the steps below to generate an app client:
 </Steps>
 
 :::note
-If you are using the [AlgoKit CLI](/build/algokit/getting-started) to bootstrap and manage your project, the included build scripts will generate your app client for you. The generated client will be placed in the `smart_contracts/artifacts/{app_name}` directory.
+If you are using the [AlgoKit CLI](/tutorials/getting-started) to bootstrap and manage your project, the included build scripts will generate your app client for you. The generated client will be placed in the `smart_contracts/artifacts/{app_name}` directory.
 :::
 
 ## Usage
@@ -192,7 +192,7 @@ client.call("hello", transaction_parameters={"signer":...})
 
 If multiple calls need to be made in a single transaction, the `compose_` method variants can be used. All
 these methods take an `AtomicTransactionComposer` as their first argument. Once all the calls have been added
-to the [Atomic Transaction Composer (ATC)](/build/transactions/atomic_txn_groups), it can then be executed.
+to the [Atomic Transaction Composer (ATC)](/concepts/transactions/atomic-txn-groups), it can then be executed.
 
 Example usage:
 
