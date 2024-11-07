@@ -26,16 +26,29 @@ const shouldRenderSearch =
     {shouldRenderSearch && <Search {...Astro.props} />}
     <nav class='sl-hidden lg:sl-flex'>
       <DropDown
-        label='Build'
+        label='Concepts'
         items={(Astro.props.sidebar[0] as Group).entries}
       />
-      <DropDown label='Protocol' items={[]} />
-      <DropDown label='Reference' items={[]} />
       <DropDown
-        label='Run a Node'
+        label='Protocol'
         items={(Astro.props.sidebar[1] as Group).entries}
       />
-      <DropDown label='Learning Paths' items={[]} />
+      <DropDown
+        label='Running a Node'
+        items={(Astro.props.sidebar[2] as Group).entries}
+      />
+      <DropDown
+        label='How-To'
+        items={(Astro.props.sidebar[3] as Group).entries}
+      />
+      <DropDown
+        label='Tutorial'
+        items={(Astro.props.sidebar[4] as Group).entries}
+      />
+      <DropDown
+        label='Reference'
+        items={(Astro.props.sidebar[5] as Group).entries}
+      />
     </nav>
   </div>
   <div class='sl-hidden md:sl-flex right-group'>

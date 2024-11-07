@@ -21,7 +21,7 @@ export default defineConfig({
       components: {
         ThemeProvider: './src/components/CustomThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro',
-        Header: './src/components/Header.astro',
+        //Header: './src/components/Header.astro',
       },
       logo: {
         light: '/src/assets/images/portal-logo-light-mode.svg',
