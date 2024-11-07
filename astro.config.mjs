@@ -33,127 +33,123 @@ export default defineConfig({
       customCss: ['/src/styles/global.css'],
       sidebar: [
         {
-          label: 'Build',
+          label: 'Concepts',
           items: [
             {
-              label: 'AlgoKit',
+              label: 'What is blockchain?',
+              link: 'concepts/what-is-blockchain',
+            },
+            {
+              label: 'Why Algorand?',
+              link: 'concepts/why-algorand',
+            },
+            {
+              label: 'Intro to AlgoKit',
+              link: 'concepts/algokit-intro',
+            },
+            {
+              label: 'Accounts',
+              collapsed: true,
               items: [
                 {
-                  label: 'What is AlgoKit?',
-                  link: '/build/algokit/what-is-algokit',
+                  label: 'Overview',
+                  link: 'concepts/accounts/overview',
                 },
                 {
-                  label: 'Getting Started',
-                  link: '/build/algokit/getting-started',
+                  label: 'Creating an account',
+                  link: 'concepts/accounts/create',
                 },
                 {
-                  label: 'Project Structure',
-                  link: '/build/algokit/project-structure',
+                  label: 'Funding accounts',
+                  link: 'concepts/accounts/funding',
                 },
                 {
-                  label: 'AlgoKit Templates',
-                  items: [
-                    {
-                      label: 'Overview',
-                      link: '/build/algokit/official-algokit-templates',
-                    },
-                    {
-                      label: 'Custom Templates',
-                      link: '/build/algokit/custom-algokit-templates',
-                    },
-                  ],
+                  label: 'Keys and Signing',
+                  link: 'concepts/accounts/keys-signing',
                 },
                 {
-                  label: 'CLI',
-                  items: [
-                    {
-                      label: 'Overview',
-                      link: '/build/algokit/cli/overview',
-                    },
-                    {
-                      label: 'Features',
-                      collapsed: true,
-                      autogenerate: {
-                        directory: 'build/algokit/cli/features',
-                      },
-                    },
-                  ],
-                },
-                {
-                  label: 'Utils',
-                  items: [
-                    {
-                      label: 'AlgoKit Utils Clients',
-                      link: 'build/algokit/utils/algokit-utils-clients',
-                    },
-                    {
-                      label: 'TestNet Dispenser',
-                      link: 'build/algokit/utils/dispenser',
-                    },
-                    {
-                      label: 'Python',
-                      collapsed: true,
-                      autogenerate: {
-                        directory: 'build/algokit/utils/python',
-                      },
-                    },
-                    {
-                      label: 'Typescript',
-                      collapsed: true,
-                      autogenerate: {
-                        directory: 'build/algokit/utils/ts',
-                      },
-                    },
-                  ],
+                  label: 'Rekeying accounts',
+                  link: 'concepts/accounts/rekeying',
                 },
               ],
             },
-            // {
-            //   label: 'Accounts',
-            //   collapsed: true,
-            //   autogenerate: {
-            //     directory: 'build/accounts',
-            //   },
-            // },
-            // {
-            //   label: 'Assets',
-            //   collapsed: true,
-            //   autogenerate: {
-            //     directory: 'build/assets',
-            //   },
-            // },
-            // {
+            {
+              label: 'Assets',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Overview',
+                  link: 'concepts/assets/overview',
+                },
+                {
+                  label: 'Creating assets',
+                  link: 'concepts/assets/create',
+                },
+                {
+                  label: 'Opt-in/out',
+                  link: 'concepts/assets/opt-in-out',
+                },
+                {
+                  label: 'Updating assets',
+                  link: 'concepts/assets/update',
+                },
+                {
+                  label: 'Transferring assets',
+                  link: 'concepts/assets/transfer',
+                },
+                {
+                  label: 'Deleting assets',
+                  link: 'concepts/assets/delete',
+                },
+                {
+                  label: 'Clawback',
+                  link: 'concepts/assets/clawback',
+                },
+                {
+                  label: 'Freeze',
+                  link: 'concepts/assets/freeze',
+                },
+                {
+                  label: 'Known assets',
+                  link: 'concepts/assets/known-assets',
+                },
+              ],
+            },
             {
               label: 'Transactions',
               collapsed: true,
               items: [
                 {
                   label: 'Overview',
-                  link: 'build/transactions/overview',
+                  link: 'concepts/transactions/overview',
                 },
                 {
-                  label: 'Blocks',
-                  link: 'build/transactions/blocks',
-                },
-                {
-                  label: 'Networks',
-                  link: 'build/transactions/networks',
-                },
-                {
-                  label: 'Leases',
-                  link: 'build/transactions/leases',
-                },
-                {
-                  label: 'Signing',
-                  link: 'build/transactions/sign',
+                  label: 'Transaction Types',
+                  link: 'concepts/transactions/types',
                 },
                 {
                   label: 'Atomic Transaction Groups',
-                  link: 'build/transactions/atomic_txn_groups',
+                  link: 'concepts/transactions/atomic-txn-groups',
                 },
                 {
-                  label: 'Uri Scheme',
-                  link: 'build/transactions/uri_scheme',
+                  label: 'Transaction Signing',
+                  link: 'concepts/transactions/signing',
+                },
+                {
+                  label: 'Blocks',
+                  link: 'concepts/transactions/blocks',
+                },
+                {
+                  label: 'Leases',
+                  link: 'concepts/transactions/leases',
+                },
+                {
+                  label: 'Networks',
+                  link: 'concepts/transactions/networks',
+                },
+                {
+                  label: 'URI Scheme',
+                  link: 'concepts/transactions/uri-scheme',
                 },
               ],
             },
@@ -163,180 +159,403 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: 'build/smart_contracts/overview',
+                  link: 'concepts/smart-contracts/overview',
                 },
                 {
-                  label: 'Lifecycle',
-                  link: 'build/smart_contracts/lifecycle',
+                  label: 'Languages',
+                  items: [
+                    {
+                      label: 'Python',
+                      link: 'concepts/smart-contracts/languages/python',
+                    },
+                    {
+                      label: 'Typescript',
+                      link: 'concepts/smart-contracts/languages/typescript',
+                    },
+                    {
+                      label: 'TEAL',
+                      link: 'concepts/smart-contracts/languages/teal',
+                    },
+                  ],
                 },
                 {
                   label: 'Applications',
-                  link: 'build/smart_contracts/apps',
-                },
-                {
-                  label: 'Constraints',
-                  link: 'build/smart_contracts/constraints',
-                },
-                {
-                  label: 'Control Flow',
-                  link: 'build/smart_contracts/control_flow',
+                  link: 'concepts/smart-contracts/apps',
                 },
                 {
                   label: 'ABI',
-                  link: 'build/smart_contracts/abi',
+                  link: 'concepts/smart-contracts/abi',
                 },
                 {
-                  label: 'Inner Transactions',
-                  link: 'build/smart_contracts/inner_transactions',
+                  label: 'Control Flow',
+                  link: 'concepts/smart-contracts/control-flow',
                 },
                 {
                   label: 'Resource Usage',
-                  link: 'build/smart_contracts/resource_usage',
+                  link: 'concepts/smart-contracts/resource-usage',
                 },
                 {
-                  label: 'Logic Sigs',
-                  link: 'build/smart_contracts/logic_sigs',
+                  label: 'Costs & Constraints',
+                  link: 'concepts/smart-contracts/costs-constraints',
                 },
                 {
-                  label: 'Algorand Python',
+                  label: 'Storage',
                   collapsed: true,
                   items: [
                     {
                       label: 'Overview',
-                      link: 'build/smart_contracts/python/overview',
+                      link: 'concepts/smart-contracts/storage/overview',
+                    },
+                    {
+                      label: 'Local',
+                      link: 'concepts/smart-contracts/storage/local',
+                    },
+                    {
+                      label: 'Global',
+                      link: 'concepts/smart-contracts/storage/global',
+                    },
+                    {
+                      label: 'Box',
+                      link: 'concepts/smart-contracts/storage/box',
+                    },
+                    {
+                      label: 'Scratch Space',
+                      link: 'concepts/smart-contracts/storage/scratch',
+                    },
+                    {
+                      label: 'Encoding/Decoding',
+                      link: 'concepts/smart-contracts/storage/encoding-decoding',
                     },
                   ],
                 },
                 {
-                  label: 'Algorand Typescript',
-                  collapsed: true,
-                  items: [
-                    {
-                      label: 'Overview',
-                      link: 'build/smart_contracts/typescript/overview',
-                    },
-                  ],
-                },
-                {
-                  label: 'Algorand TEAL',
-                  collapsed: true,
-                  items: [
-                    {
-                      label: 'Overview',
-                      link: 'build/smart_contracts/teal/overview',
-                    },
-                  ],
+                  label: 'Development Lifecycle',
+                  link: 'concepts/smart-contracts/lifecycle',
                 },
               ],
             },
           ],
         },
-        // {
-        //   label: 'Protocol',
-        //   collapsed: true,
-        //   badge: {
-        //     text: 'todo',
-        //     variant: 'danger',
-        //   },
-        //   items: [
-        //     {
-        //       label: 'Consensus',
-        //       badge: {
-        //         text: 'todo',
-        //         variant: 'danger',
-        //       },
-        //       autogenerate: {
-        //         directory: 'protocol/consensus',
-        //       },
-        //     },
-        //     {
-        //       label: 'Node',
-        //       badge: {
-        //         text: 'todo',
-        //         variant: 'danger',
-        //       },
-        //       autogenerate: {
-        //         directory: 'protocol/node',
-        //       },
-        //     },
-        //     {
-        //       label: 'APIs',
-        //       badge: {
-        //         text: 'todo',
-        //         variant: 'danger',
-        //       },
-        //       autogenerate: {
-        //         directory: 'protocol/api',
-        //       },
-        //     },
-        //     {
-        //       label: 'State Proofs',
-        //       badge: {
-        //         text: 'todo',
-        //         variant: 'danger',
-        //       },
-        //       autogenerate: {
-        //         directory: 'protocol/state-proofs',
-        //       },
-        //     },
-        //     {
-        //       label: 'Features',
-        //       badge: {
-        //         text: 'todo',
-        //         variant: 'danger',
-        //       },
-        //       autogenerate: {
-        //         directory: 'protocol/features',
-        //       },
-        //     },
-        //     {
-        //       label: 'AVM',
-        //       badge: {
-        //         text: 'todo',
-        //         variant: 'danger',
-        //       },
-        //       autogenerate: {
-        //         directory: 'protocol/avm',
-        //       },
-        //     },
-        //   ],
-        // },
-        // {
-        //   label: 'Reference',
-        //   collapsed: true,
-        //   badge: {
-        //     text: 'todo',
-        //     variant: 'danger',
-        //   },
-        //   autogenerate: {
-        //     directory: 'reference',
-        //   },
-        // },
         {
-          label: 'Node Running',
+          label: 'Protocol',
           collapsed: true,
-          badge: {
-            text: 'todo',
-            variant: 'danger',
-          },
-          autogenerate: {
-            directory: 'node_running',
-          },
-        },
-        {
-          label: 'Standards and Practices',
-          collapsed: true,
-          badge: {
-            text: 'todo',
-            variant: 'danger',
-          },
           items: [
             {
-              label: 'ARCs',
+              label: 'Overview',
+              link: 'protocol/overview',
+            },
+            {
+              label: 'Consensus',
+              link: 'protocol/consensus',
+            },
+            {
+              label: 'Staking Rewards',
+              link: 'protocol/staking-rewards',
+            },
+            {
+              label: 'AVM',
+              link: 'protocol/avm',
+            },
+            {
+              label: 'State Proofs',
+              link: 'protocol/state-proofs',
+            },
+            {
+              label: 'APIs',
+              link: 'protocol/api',
+            },
+          ],
+        },
+        {
+          label: 'Running a Node',
+          collapsed: true,
+          items: [
+            {
+              label: 'Overview',
+              link: 'nodes/overview',
+            },
+            {
+              label: 'Participating in Consensus',
+              link: 'nodes/consensus',
+            },
+            {
+              label: 'Staking Rewards',
+              link: 'nodes/staking-rewards',
+            },
+            {
+              label: 'Algorun',
+              link: 'nodes/algorun',
+            },
+            {
+              label: 'Node Types',
+              items: [
+                {
+                  label: 'Participation',
+                  link: 'nodes/types/participation',
+                },
+                {
+                  label: 'Archival',
+                  link: 'nodes/types/archival',
+                },
+                {
+                  label: 'Relay',
+                  link: 'nodes/nodes/relay',
+                },
+                {
+                  label: 'Follower',
+                  link: 'nodes/nodes/follower',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          label: 'How-To',
+          collapsed: true,
+          items: [],
+        },
+        {
+          label: 'Tutorials',
+          collapsed: true,
+          items: [
+            {
+              label: 'Getting started with AlgoKit',
+              link: 'tutorials/getting-started',
+            },
+          ],
+        },
+        {
+          label: 'Reference',
+          collapsed: true,
+          items: [
+            {
+              label: 'Algorand Python',
               collapsed: true,
-              autogenerate: {
-                directory: 'standards/arcs',
-              },
+              items: [],
+            },
+            {
+              label: 'Algorand Typescript',
+              collapsed: true,
+              items: [],
+            },
+            {
+              label: 'Algorand TEAL',
+              collapsed: true,
+              items: [],
+            },
+            {
+              label: 'AlgoKit Utils (Python)',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Fundamentals',
+                  items: [
+                    {
+                      label: 'Client',
+                      link: 'reference/algokit-utils-py/fundamentals/client',
+                    },
+                    {
+                      label: 'Transactions',
+                      link: 'reference/algokit-utils-py/fundamentals/transactions',
+                    },
+                    {
+                      label: 'Accounts',
+                      link: 'reference/algokit-utils-py/fundamentals/accounts',
+                    },
+                    {
+                      label: 'Assets',
+                      link: 'reference/algokit-utils-py/fundamentals/assets',
+                    },
+                    {
+                      label: 'Amount Handling',
+                      link: 'reference/algokit-utils-py/fundamentals/amount-handling',
+                    },
+                  ],
+                },
+                {
+                  label: 'Smart Contracts',
+                  items: [
+                    {
+                      label: 'App Clients',
+                      link: 'reference/algokit-utils-py/smart-contracts/app-clients',
+                    },
+                    {
+                      label: 'Interactions & State',
+                      link: 'reference/algokit-utils-py/smart-contracts/interactions-state',
+                    },
+                    {
+                      label: 'Deployment',
+                      link: 'reference/algokit-utils-py/smart-contracts/deployment',
+                    },
+                  ],
+                },
+                {
+                  label: 'Network',
+                  items: [
+                    {
+                      label: 'Environments',
+                      link: 'reference/algokit-utils-py/network/environments',
+                    },
+                    {
+                      label: 'Network Clients',
+                      link: 'reference/algokit-utils-py/network/clients',
+                    },
+                    {
+                      label: 'Testnet Dispenser',
+                      link: 'reference/algokit-utils-py/network/testnet-dispenser',
+                    },
+                    {
+                      label: 'Indexer Operations',
+                      link: 'reference/algokit-utils-py/network/indexer',
+                    },
+                  ],
+                },
+                {
+                  label: 'Development tools',
+                  items: [
+                    {
+                      label: 'Testing',
+                      link: 'reference/algokit-utils-py/dev-tools/testing',
+                    },
+                    {
+                      label: 'Debugging',
+                      link: 'reference/algokit-utils-py/dev-tools/debugging',
+                    },
+                    {
+                      label: 'Logging',
+                      link: 'reference/algokit-utils-py/dev-tools/logging',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: 'AlgoKit Utils (Typescript)',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Fundamentals',
+                  items: [
+                    {
+                      label: 'Client',
+                      link: 'reference/algokit-utils-ts/fundamentals/client',
+                    },
+                    {
+                      label: 'Transactions',
+                      link: 'reference/algokit-utils-ts/fundamentals/transactions',
+                    },
+                    {
+                      label: 'Accounts',
+                      link: 'reference/algokit-utils-ts/fundamentals/accounts',
+                    },
+                    {
+                      label: 'Assets',
+                      link: 'reference/algokit-utils-ts/fundamentals/assets',
+                    },
+                    {
+                      label: 'Amount Handling',
+                      link: 'reference/algokit-utils-ts/fundamentals/amount-handling',
+                    },
+                  ],
+                },
+                {
+                  label: 'Smart Contracts',
+                  items: [
+                    {
+                      label: 'App Clients',
+                      link: 'reference/algokit-utils-ts/smart-contracts/app-clients',
+                    },
+                    {
+                      label: 'Interactions & State',
+                      link: 'reference/algokit-utils-ts/smart-contracts/interactions-state',
+                    },
+                    {
+                      label: 'Deployment',
+                      link: 'reference/algokit-utils-ts/smart-contracts/deployment',
+                    },
+                  ],
+                },
+                {
+                  label: 'Network',
+                  items: [
+                    {
+                      label: 'Environments',
+                      link: 'reference/algokit-utils-ts/network/environments',
+                    },
+                    {
+                      label: 'Network Clients',
+                      link: 'reference/algokit-utils-ts/network/clients',
+                    },
+                    {
+                      label: 'Testnet Dispenser',
+                      link: 'reference/algokit-utils-ts/network/testnet-dispenser',
+                    },
+                    {
+                      label: 'Indexer Operations',
+                      link: 'reference/algokit-utils-ts/network/indexer',
+                    },
+                  ],
+                },
+                {
+                  label: 'Development tools',
+                  items: [
+                    {
+                      label: 'Testing',
+                      link: 'reference/algokit-utils-ts/dev-tools/testing',
+                    },
+                    {
+                      label: 'Debugging',
+                      link: 'reference/algokit-utils-ts/dev-tools/debugging',
+                    },
+                    {
+                      label: 'Logging',
+                      link: 'reference/algokit-utils-ts/dev-tools/logging',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: 'AlgoKit CLI',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Project Tools',
+                  link: 'reference/algokit-cli/project-tools',
+                },
+                {
+                  label: 'Configuration',
+                  link: 'reference/algokit-cli/config',
+                },
+                {
+                  label: 'App Compilation',
+                  link: 'reference/algokit-cli/compilation',
+                },
+                {
+                  label: 'Client Generation',
+                  link: 'reference/algokit-cli/client-generation',
+                },
+                {
+                  label: 'Testnet Funding',
+                  link: 'reference/algokit-cli/testnet-funding',
+                },
+                {
+                  label: 'Explorer',
+                  link: 'reference/algokit-cli/explorer',
+                },
+                {
+                  label: 'Node Operations',
+                  link: 'reference/algokit-cli/node-ops',
+                },
+                {
+                  label: 'Tasks',
+                  link: 'reference/algokit-cli/tasks',
+                },
+                {
+                  label: 'CLI Reference',
+                  link: 'reference/algokit-cli/reference',
+                },
+              ],
             },
           ],
         },
