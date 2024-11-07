@@ -36,8 +36,8 @@ export default defineConfig({
           label: 'Concepts',
           items: [
             {
-              label: 'What is blockchain?',
-              link: 'concepts/what-is-blockchain',
+              label: 'Blockchain 101',
+              link: 'concepts/blockchain-101',
             },
             {
               label: 'Why Algorand?',
