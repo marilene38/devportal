@@ -1,7 +1,223 @@
 ---
 title: "API Reference"
 ---
+<div set:html={`
+          <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-algopy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">algopy</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api-algopy.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.html#data">Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.html#api">API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.ARC4Contract"><code class="docutils literal notranslate"><span class="pre">ARC4Contract</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.Account"><code class="docutils literal notranslate"><span class="pre">Account</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.Application"><code class="docutils literal notranslate"><span class="pre">Application</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.Asset"><code class="docutils literal notranslate"><span class="pre">Asset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.BigUInt"><code class="docutils literal notranslate"><span class="pre">BigUInt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.Box"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.BoxMap"><code class="docutils literal notranslate"><span class="pre">BoxMap</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.BoxRef"><code class="docutils literal notranslate"><span class="pre">BoxRef</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.Bytes"><code class="docutils literal notranslate"><span class="pre">Bytes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.BytesBacked"><code class="docutils literal notranslate"><span class="pre">BytesBacked</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.CompiledContract"><code class="docutils literal notranslate"><span class="pre">CompiledContract</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.CompiledLogicSig"><code class="docutils literal notranslate"><span class="pre">CompiledLogicSig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.Contract"><code class="docutils literal notranslate"><span class="pre">Contract</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.Global"><code class="docutils literal notranslate"><span class="pre">Global</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.GlobalState"><code class="docutils literal notranslate"><span class="pre">GlobalState</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.LocalState"><code class="docutils literal notranslate"><span class="pre">LocalState</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.LogicSig"><code class="docutils literal notranslate"><span class="pre">LogicSig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.OnCompleteAction"><code class="docutils literal notranslate"><span class="pre">OnCompleteAction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.OpUpFeeSource"><code class="docutils literal notranslate"><span class="pre">OpUpFeeSource</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.StateTotals"><code class="docutils literal notranslate"><span class="pre">StateTotals</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.String"><code class="docutils literal notranslate"><span class="pre">String</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.TemplateVar"><code class="docutils literal notranslate"><span class="pre">TemplateVar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.TransactionType"><code class="docutils literal notranslate"><span class="pre">TransactionType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.Txn"><code class="docutils literal notranslate"><span class="pre">Txn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.UInt64"><code class="docutils literal notranslate"><span class="pre">UInt64</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.compile_contract"><code class="docutils literal notranslate"><span class="pre">compile_contract()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.compile_logicsig"><code class="docutils literal notranslate"><span class="pre">compile_logicsig()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.ensure_budget"><code class="docutils literal notranslate"><span class="pre">ensure_budget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.log"><code class="docutils literal notranslate"><span class="pre">log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.logicsig"><code class="docutils literal notranslate"><span class="pre">logicsig()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.subroutine"><code class="docutils literal notranslate"><span class="pre">subroutine()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.uenumerate"><code class="docutils literal notranslate"><span class="pre">uenumerate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.html#algopy.urange"><code class="docutils literal notranslate"><span class="pre">urange</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api-algopy.arc4.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">algopy.arc4</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api-algopy.arc4.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.arc4.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.arc4.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.arc4.html#data">Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.arc4.html#api">API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.ARC4Client"><code class="docutils literal notranslate"><span class="pre">ARC4Client</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.ARC4Contract"><code class="docutils literal notranslate"><span class="pre">ARC4Contract</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.Address"><code class="docutils literal notranslate"><span class="pre">Address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.BigUFixedNxM"><code class="docutils literal notranslate"><span class="pre">BigUFixedNxM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.BigUIntN"><code class="docutils literal notranslate"><span class="pre">BigUIntN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.Bool"><code class="docutils literal notranslate"><span class="pre">Bool</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.Byte"><code class="docutils literal notranslate"><span class="pre">Byte</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.DynamicArray"><code class="docutils literal notranslate"><span class="pre">DynamicArray</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.DynamicBytes"><code class="docutils literal notranslate"><span class="pre">DynamicBytes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.StaticArray"><code class="docutils literal notranslate"><span class="pre">StaticArray</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.String"><code class="docutils literal notranslate"><span class="pre">String</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.Struct"><code class="docutils literal notranslate"><span class="pre">Struct</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.Tuple"><code class="docutils literal notranslate"><span class="pre">Tuple</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.UFixedNxM"><code class="docutils literal notranslate"><span class="pre">UFixedNxM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.UInt128"><code class="docutils literal notranslate"><span class="pre">UInt128</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.UInt16"><code class="docutils literal notranslate"><span class="pre">UInt16</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.UInt256"><code class="docutils literal notranslate"><span class="pre">UInt256</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.UInt32"><code class="docutils literal notranslate"><span class="pre">UInt32</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.UInt512"><code class="docutils literal notranslate"><span class="pre">UInt512</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.UInt64"><code class="docutils literal notranslate"><span class="pre">UInt64</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.UInt8"><code class="docutils literal notranslate"><span class="pre">UInt8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.UIntN"><code class="docutils literal notranslate"><span class="pre">UIntN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.abi_call"><code class="docutils literal notranslate"><span class="pre">abi_call</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.abimethod"><code class="docutils literal notranslate"><span class="pre">abimethod()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.arc4_create"><code class="docutils literal notranslate"><span class="pre">arc4_create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.arc4_signature"><code class="docutils literal notranslate"><span class="pre">arc4_signature()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.arc4_update"><code class="docutils literal notranslate"><span class="pre">arc4_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.baremethod"><code class="docutils literal notranslate"><span class="pre">baremethod()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.emit"><code class="docutils literal notranslate"><span class="pre">emit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api-algopy.gtxn.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">algopy.gtxn</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api-algopy.gtxn.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.gtxn.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.gtxn.html#api">API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.gtxn.html#algopy.gtxn.ApplicationCallTransaction"><code class="docutils literal notranslate"><span class="pre">ApplicationCallTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.gtxn.html#algopy.gtxn.AssetConfigTransaction"><code class="docutils literal notranslate"><span class="pre">AssetConfigTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.gtxn.html#algopy.gtxn.AssetFreezeTransaction"><code class="docutils literal notranslate"><span class="pre">AssetFreezeTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.gtxn.html#algopy.gtxn.AssetTransferTransaction"><code class="docutils literal notranslate"><span class="pre">AssetTransferTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.gtxn.html#algopy.gtxn.KeyRegistrationTransaction"><code class="docutils literal notranslate"><span class="pre">KeyRegistrationTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.gtxn.html#algopy.gtxn.PaymentTransaction"><code class="docutils literal notranslate"><span class="pre">PaymentTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.gtxn.html#algopy.gtxn.Transaction"><code class="docutils literal notranslate"><span class="pre">Transaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.gtxn.html#algopy.gtxn.TransactionBase"><code class="docutils literal notranslate"><span class="pre">TransactionBase</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api-algopy.itxn.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">algopy.itxn</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api-algopy.itxn.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.itxn.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.itxn.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.itxn.html#api">API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.ApplicationCall"><code class="docutils literal notranslate"><span class="pre">ApplicationCall</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.ApplicationCallInnerTransaction"><code class="docutils literal notranslate"><span class="pre">ApplicationCallInnerTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.AssetConfig"><code class="docutils literal notranslate"><span class="pre">AssetConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.AssetConfigInnerTransaction"><code class="docutils literal notranslate"><span class="pre">AssetConfigInnerTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.AssetFreeze"><code class="docutils literal notranslate"><span class="pre">AssetFreeze</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.AssetFreezeInnerTransaction"><code class="docutils literal notranslate"><span class="pre">AssetFreezeInnerTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.AssetTransfer"><code class="docutils literal notranslate"><span class="pre">AssetTransfer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.AssetTransferInnerTransaction"><code class="docutils literal notranslate"><span class="pre">AssetTransferInnerTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.InnerTransaction"><code class="docutils literal notranslate"><span class="pre">InnerTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.InnerTransactionResult"><code class="docutils literal notranslate"><span class="pre">InnerTransactionResult</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.KeyRegistration"><code class="docutils literal notranslate"><span class="pre">KeyRegistration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.KeyRegistrationInnerTransaction"><code class="docutils literal notranslate"><span class="pre">KeyRegistrationInnerTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.Payment"><code class="docutils literal notranslate"><span class="pre">Payment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.PaymentInnerTransaction"><code class="docutils literal notranslate"><span class="pre">PaymentInnerTransaction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.submit_txns"><code class="docutils literal notranslate"><span class="pre">submit_txns()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api-algopy.op.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">algopy.op</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api-algopy.op.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.op.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.op.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-algopy.op.html#api">API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.AcctParamsGet"><code class="docutils literal notranslate"><span class="pre">AcctParamsGet</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.AppGlobal"><code class="docutils literal notranslate"><span class="pre">AppGlobal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.AppLocal"><code class="docutils literal notranslate"><span class="pre">AppLocal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.AppParamsGet"><code class="docutils literal notranslate"><span class="pre">AppParamsGet</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.AssetHoldingGet"><code class="docutils literal notranslate"><span class="pre">AssetHoldingGet</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.AssetParamsGet"><code class="docutils literal notranslate"><span class="pre">AssetParamsGet</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.Base64"><code class="docutils literal notranslate"><span class="pre">Base64</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.Block"><code class="docutils literal notranslate"><span class="pre">Block</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.Box"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.EC"><code class="docutils literal notranslate"><span class="pre">EC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.ECDSA"><code class="docutils literal notranslate"><span class="pre">ECDSA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.EllipticCurve"><code class="docutils literal notranslate"><span class="pre">EllipticCurve</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.GITxn"><code class="docutils literal notranslate"><span class="pre">GITxn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.GTxn"><code class="docutils literal notranslate"><span class="pre">GTxn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.Global"><code class="docutils literal notranslate"><span class="pre">Global</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.ITxn"><code class="docutils literal notranslate"><span class="pre">ITxn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.ITxnCreate"><code class="docutils literal notranslate"><span class="pre">ITxnCreate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.JsonRef"><code class="docutils literal notranslate"><span class="pre">JsonRef</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.Scratch"><code class="docutils literal notranslate"><span class="pre">Scratch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.Txn"><code class="docutils literal notranslate"><span class="pre">Txn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.VrfVerify"><code class="docutils literal notranslate"><span class="pre">VrfVerify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.addw"><code class="docutils literal notranslate"><span class="pre">addw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.app_opted_in"><code class="docutils literal notranslate"><span class="pre">app_opted_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.arg"><code class="docutils literal notranslate"><span class="pre">arg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.balance"><code class="docutils literal notranslate"><span class="pre">balance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.base64_decode"><code class="docutils literal notranslate"><span class="pre">base64_decode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.bitlen"><code class="docutils literal notranslate"><span class="pre">bitlen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.bsqrt"><code class="docutils literal notranslate"><span class="pre">bsqrt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.btoi"><code class="docutils literal notranslate"><span class="pre">btoi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.bzero"><code class="docutils literal notranslate"><span class="pre">bzero()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.concat"><code class="docutils literal notranslate"><span class="pre">concat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.divmodw"><code class="docutils literal notranslate"><span class="pre">divmodw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.divw"><code class="docutils literal notranslate"><span class="pre">divw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.ecdsa_pk_decompress"><code class="docutils literal notranslate"><span class="pre">ecdsa_pk_decompress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.ecdsa_pk_recover"><code class="docutils literal notranslate"><span class="pre">ecdsa_pk_recover()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.ecdsa_verify"><code class="docutils literal notranslate"><span class="pre">ecdsa_verify()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.ed25519verify"><code class="docutils literal notranslate"><span class="pre">ed25519verify()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.ed25519verify_bare"><code class="docutils literal notranslate"><span class="pre">ed25519verify_bare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.err"><code class="docutils literal notranslate"><span class="pre">err()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.exit"><code class="docutils literal notranslate"><span class="pre">exit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.exp"><code class="docutils literal notranslate"><span class="pre">exp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.expw"><code class="docutils literal notranslate"><span class="pre">expw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.extract"><code class="docutils literal notranslate"><span class="pre">extract()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.extract_uint16"><code class="docutils literal notranslate"><span class="pre">extract_uint16()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.extract_uint32"><code class="docutils literal notranslate"><span class="pre">extract_uint32()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.extract_uint64"><code class="docutils literal notranslate"><span class="pre">extract_uint64()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.gaid"><code class="docutils literal notranslate"><span class="pre">gaid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.getbit"><code class="docutils literal notranslate"><span class="pre">getbit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.getbyte"><code class="docutils literal notranslate"><span class="pre">getbyte()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.gload_bytes"><code class="docutils literal notranslate"><span class="pre">gload_bytes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.gload_uint64"><code class="docutils literal notranslate"><span class="pre">gload_uint64()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.itob"><code class="docutils literal notranslate"><span class="pre">itob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.keccak256"><code class="docutils literal notranslate"><span class="pre">keccak256()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.min_balance"><code class="docutils literal notranslate"><span class="pre">min_balance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.mulw"><code class="docutils literal notranslate"><span class="pre">mulw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.replace"><code class="docutils literal notranslate"><span class="pre">replace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.select_bytes"><code class="docutils literal notranslate"><span class="pre">select_bytes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.select_uint64"><code class="docutils literal notranslate"><span class="pre">select_uint64()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.setbit_bytes"><code class="docutils literal notranslate"><span class="pre">setbit_bytes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.setbit_uint64"><code class="docutils literal notranslate"><span class="pre">setbit_uint64()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.setbyte"><code class="docutils literal notranslate"><span class="pre">setbyte()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.sha256"><code class="docutils literal notranslate"><span class="pre">sha256()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.sha3_256"><code class="docutils literal notranslate"><span class="pre">sha3_256()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.sha512_256"><code class="docutils literal notranslate"><span class="pre">sha512_256()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.shl"><code class="docutils literal notranslate"><span class="pre">shl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.shr"><code class="docutils literal notranslate"><span class="pre">shr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.sqrt"><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.substring"><code class="docutils literal notranslate"><span class="pre">substring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api-algopy.op.html#algopy.op.vrf_verify"><code class="docutils literal notranslate"><span class="pre">vrf_verify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
 
-import HTMLContent from './html/api.html'
-
-<HTMLContent />
+        `} />

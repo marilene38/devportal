@@ -1,7 +1,54 @@
 ---
 title: "Unsupported Python features"
 ---
+<div set:html={`
+          <section id="unsupported-python-features">
+<h1>Unsupported Python features<a class="headerlink" href="#unsupported-python-features" title="Link to this heading">¶</a></h1>
+<section id="raise-try-except-finally">
+<h2>raise, try/except/finally<a class="headerlink" href="#raise-try-except-finally" title="Link to this heading">¶</a></h2>
+<p>Exception raising and exception handling constructs are not supported.</p>
+<p>Supporting user exceptions would be costly to implement in terms of op codes.</p>
+<p>Furthermore, AVM errors and exceptions are not “catch-able”, they immediately terminate the
+program.</p>
+<p>Therefore, there is very little to no benefit of supporting exceptions and exception handling.</p>
+<p>The preferred method of raising an error that terminates is through the use of
+<a class="reference internal" href="../lg-errors.html"><span class="std std-doc">assert statements</span></a>.</p>
+</section>
+<section id="with">
+<h2>with<a class="headerlink" href="#with" title="Link to this heading">¶</a></h2>
+<p>Context managers are redundant without exception handling support.</p>
+</section>
+<section id="async">
+<h2>async<a class="headerlink" href="#async" title="Link to this heading">¶</a></h2>
+<p>The AVM is not just single threaded, but all operations are effectively “blocking”, rendering
+asynchronous programming effectively useless.</p>
+</section>
+<section id="closures-lambdas">
+<h2>closures &amp; lambdas<a class="headerlink" href="#closures-lambdas" title="Link to this heading">¶</a></h2>
+<p>Without the support of function pointers, or other methods of invoking an arbitrary function,
+it’s not possible to return a function as a closure.</p>
+<p>Nested functions/lambdas as a means of repeating common operations within a given function may be
+supported in the future.</p>
+</section>
+<section id="global-keyword">
+<h2>global keyword<a class="headerlink" href="#global-keyword" title="Link to this heading">¶</a></h2>
+<p>Module level values are only allowed to be <a class="reference internal" href="../lg-modules.html#module-constants"><span class="std std-ref">constants</span></a>. No
+rebinding of module constants is allowed. It’s not clear what the meaning here would be, since
+there’s no real arbitrary means of storing state without associating it with a particular contract.
+If you do have need of such a thing, take a look at <a class="reference internal" href="../api-algopy.op.html#algopy.op.gload_bytes" title="algopy.op.gload_bytes"><span class="xref myst py py-func">gload_bytes</span></a>
+or <a class="reference internal" href="../api-algopy.op.html#algopy.op.gload_uint64" title="algopy.op.gload_uint64"><span class="xref myst py py-func">gload_uint64</span></a> if the contracts are within the same transaction,
+otherwise <a class="reference internal" href="../api-algopy.op.html#algopy.op.AppGlobal.get_ex_bytes" title="algopy.op.AppGlobal.get_ex_bytes"><span class="xref myst py py-meth">AppGlobal.get_ex_bytes</span></a>
+and <a class="reference internal" href="../api-algopy.op.html#algopy.op.AppGlobal.get_ex_uint64" title="algopy.op.AppGlobal.get_ex_uint64"><span class="xref myst py py-meth">AppGlobal.get_ex_uint64</span></a>.</p>
+</section>
+<section id="inheritance-outside-of-contract-classes">
+<h2>Inheritance (outside of contract classes)<a class="headerlink" href="#inheritance-outside-of-contract-classes" title="Link to this heading">¶</a></h2>
+<p>Polymorphism is also impossible to support without function pointers, so data classes (such as
+<a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.Struct" title="algopy.arc4.Struct"><span class="xref myst py py-class">arc4.Struct</span></a>) don’t currently allow for inheritance. Member functions there
+are not supported because we’re not sure yet whether it’s better to not have inheritance but allow
+functions on data classes, or to allow inheritance and disallow member functions.</p>
+<p>Contract inheritance is a special case, since each concrete contract is compiled separately, true
+polymorphism isn’t required as all references can be resolved at compile time.</p>
+</section>
+</section>
 
-import HTMLContent from './html/lg-unsupported-python-features.html'
-
-<HTMLContent />
+        `} />

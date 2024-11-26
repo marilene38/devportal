@@ -1,7 +1,38 @@
 ---
 title: "Error handling and assertions"
 ---
+<div set:html={`
+          <section id="error-handling-and-assertions">
+<h1>Error handling and assertions<a class="headerlink" href="#error-handling-and-assertions" title="Link to this heading">¶</a></h1>
+<p>In Algorand Python, error handling and assertions play a crucial role in ensuring the correctness and robustness of smart contracts.</p>
+<section id="assertions">
+<h2>Assertions<a class="headerlink" href="#assertions" title="Link to this heading">¶</a></h2>
+<p>Assertions allow you to immediately fail a smart contract if a <a class="reference internal" href="../lg-types.html#bool"><span class="std std-ref">Boolean statement or value</span></a> evaluates to <code class="docutils literal notranslate"><span class="pre">False</span></code>. If an assertion fails, it immediately stops the execution of the contract and marks the call as a failure.</p>
+<p>In Algorand Python, you can use the Python built-in <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement to make assertions in your code.</p>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@subroutine</span>
+<span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">UInt64</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"Value must be &gt; 4"</span>
+</pre></div>
+</div>
+<section id="assertion-error-handling">
+<h3>Assertion error handling<a class="headerlink" href="#assertion-error-handling" title="Link to this heading">¶</a></h3>
+<p>The (optional) string value provided with an assertion, if provided, will be added as a TEAL comment on the end of the assertion line. This works in concert with default AlgoKit Utils app client behaviour to show a TEAL stack trace of an error and thus show the error message to the caller (when source maps have been loaded).</p>
+</section>
+</section>
+<section id="explicit-failure">
+<h2>Explicit failure<a class="headerlink" href="#explicit-failure" title="Link to this heading">¶</a></h2>
+<p>For scenarios where you need to fail a contract explicitly, you can use
+the <a class="reference internal" href="../api-algopy.op.html#algopy.op.err" title="algopy.op.err"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">op.err()</span></code></span></a> operation. This operation causes the TEAL program to immediately
+and unconditionally fail.</p>
+<p>Alternatively <a class="reference internal" href="../api-algopy.op.html#algopy.op.exit" title="algopy.op.exit"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">op.exit(0)</span></code></span></a> will achieve the same result. A non-zero value will
+do the opposite and immediately succeed.</p>
+</section>
+<section id="exception-handling">
+<h2>Exception handling<a class="headerlink" href="#exception-handling" title="Link to this heading">¶</a></h2>
+<p>The AVM doesn’t provide error trapping semantics so it’s not possible to implement <code class="docutils literal notranslate"><span class="pre">raise</span></code> and <code class="docutils literal notranslate"><span class="pre">catch</span></code>.</p>
+<p>For more details see <a class="reference internal" href="../lg-unsupported-python-features.html#raise-tryexceptfinally"><span class="std std-ref">Unsupported Python features</span></a>.</p>
+</section>
+</section>
 
-import HTMLContent from './html/lg-errors.html'
-
-<HTMLContent />
+        `} />
