@@ -14,7 +14,7 @@ The standard python import rules apply, including
 requirements.</p>
 <p>A given module can contain zero, one, or many smart contracts and/or logic signatures.</p>
 <p>A module can contain <a class="reference internal" href="#contract-classes"><span class="xref myst">contracts</span></a>, <a class="reference internal" href="#subroutines"><span class="xref myst">subroutines</span></a>,
-<a class="reference internal" href="#logic-signatures"><span class="xref myst">logic signatures</span></a>, and <a class="reference internal" href="lg-modules.html"><span class="std std-doc">compile-time constant code and values</span></a>.</p>
+<a class="reference internal" href="#logic-signatures"><span class="xref myst">logic signatures</span></a>, and <a class="reference internal" href="../lg-modules.html"><span class="std std-doc">compile-time constant code and values</span></a>.</p>
 </section>
 <section id="typing">
 <h2>Typing<a class="headerlink" href="#typing" title="Link to this heading">¶</a></h2>
@@ -49,7 +49,7 @@ a future testing framework.</p></li>
 </ol>
 </div>
 <p>Argument and return types to a subroutine can be any Algorand Python variable type (except for<br>
-<a class="reference internal" href="lg-transactions.html#inner-transaction-objects-cannot-be-passed-to-or-returned-from-subroutines"><span class="std std-ref">some inner transaction types</span></a>
+<a class="reference internal" href="../lg-transactions.html#inner-transaction-objects-cannot-be-passed-to-or-returned-from-subroutines"><span class="std std-ref">some inner transaction types</span></a>
 ).</p>
 <p>Returning multiple values is allowed, this is annotated in the standard Python way with <code class="docutils literal notranslate"><span class="pre">tuple</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@algopy</span><span class="o">.</span><span class="n">subroutine</span>
@@ -87,7 +87,7 @@ different invocations (provided the transaction it was a part of succeeds, of co
 deploy the same contract class multiple times, each will become a distinct and isolated instance.</p>
 <p>Contract classes can optionally implement an <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, which will be executed exactly
 once, on first deployment. This method takes no arguments, but can contain arbitrary code,
-including reading directly from the transaction arguments via <a class="reference internal" href="api-algopy.op.html#algopy.op.Txn" title="algopy.op.Txn"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">Txn</span></code></span></a>. This makes
+including reading directly from the transaction arguments via <a class="reference internal" href="../api-algopy.op.html#algopy.op.Txn" title="algopy.op.Txn"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">Txn</span></code></span></a>. This makes
 it a good place to put common initialisation code, particularly in ARC-4 contracts with multiple
 methods that allow for creation.</p>
 <p>The contract class body should not contain any logic or variable initialisations, only method
@@ -113,7 +113,7 @@ in <a class="reference internal" href="#lg-code-reuse.md#inheritance"><span clas
 <section id="contract-class-configuration">
 <h3>Contract class configuration<a class="headerlink" href="#contract-class-configuration" title="Link to this heading">¶</a></h3>
 <p>When defining a contract subclass you can pass configuration options to the <code class="docutils literal notranslate"><span class="pre">algopy.Contract</span></code>
-base class <a class="reference internal" href="api-algopy.html#algopy.Contract"><span class="std std-ref">per the API documentation</span></a>.</p>
+base class <a class="reference internal" href="../api-algopy.html#algopy.Contract"><span class="std std-ref">per the API documentation</span></a>.</p>
 <p>Namely you can pass in:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> - Which will affect the output TEAL file name if there are multiple non-abstract contracts
@@ -180,7 +180,7 @@ been called (including on create).</p>
 </div>
 <p>Some things to note:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">self.counter</span></code> will be stored in the application’s <a class="reference internal" href="lg-storage.html#global-state"><span class="std std-ref">Global State</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.counter</span></code> will be stored in the application’s <a class="reference internal" href="../lg-storage.html#global-state"><span class="std std-ref">Global State</span></a>.</p></li>
 <li><p>The return type of <code class="docutils literal notranslate"><span class="pre">__init__</span></code> must be <code class="docutils literal notranslate"><span class="pre">None</span></code>, per standard typed Python.</p></li>
 <li><p>Any methods other than <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, <code class="docutils literal notranslate"><span class="pre">approval_program</span></code> or <code class="docutils literal notranslate"><span class="pre">clear_state_program</span></code> must be decorated
 with <code class="docutils literal notranslate"><span class="pre">@subroutine</span></code>.</p></li>
@@ -230,7 +230,7 @@ don’t need to check this manually.</p></li>
 methods must be decorated with one of <code class="docutils literal notranslate"><span class="pre">algopy.arc4.abimethod</span></code>, <code class="docutils literal notranslate"><span class="pre">alogpy.arc4.baremethod</span></code>, or
 <code class="docutils literal notranslate"><span class="pre">algopy.subroutine</span></code>. <code class="docutils literal notranslate"><span class="pre">subroutines</span></code> won’t be directly callable through the default router.</p></li>
 </ul>
-<p>See the <a class="reference internal" href="lg-arc4.html"><span class="std std-doc">ARC-4 section</span></a> of this language guide for more info on the above.</p>
+<p>See the <a class="reference internal" href="../lg-arc4.html"><span class="std std-doc">ARC-4 section</span></a> of this language guide for more info on the above.</p>
 </section>
 </section>
 <section id="logic-signatures">

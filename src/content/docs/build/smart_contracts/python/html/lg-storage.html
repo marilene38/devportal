@@ -10,15 +10,15 @@ across different invocations (provided the transaction it was a part of succeeds
 deploy the same contract class multiple times, each will become a distinct and isolated instance.</p>
 <p>During a single smart contract execution there is also the ability to use “temporary” storage
 either global to the contract execution via <a class="reference internal" href="#scratch-storage"><span class="xref myst">Scratch storage</span></a>, or local to
-the current method via <a class="reference internal" href="lg-structure.html#subroutines"><span class="std std-ref">local variables and subroutine params</span></a>.</p>
+the current method via <a class="reference internal" href="../lg-structure.html#subroutines"><span class="std std-ref">local variables and subroutine params</span></a>.</p>
 <section id="global-storage">
 <h2>Global storage<a class="headerlink" href="#global-storage" title="Link to this heading">¶</a></h2>
 <p>Global storage is state that is stored against the contract instance and can be retrieved
 by key. There are <a class="reference external" href="https://developer.algorand.org/docs/get-details/dapps/smart-contracts/apps/state/#global-storage">AVM limits to the amount of global storage that can be allocated to a contract</a>.</p>
 <p>This is represented in Algorand Python by either:</p>
 <ol class="arabic simple">
-<li><p>Assigning any <a class="reference internal" href="lg-types.html"><span class="std std-doc">Algorand Python typed</span></a> value to an instance variable (e.g. <code class="docutils literal notranslate"><span class="pre">self.value</span> <span class="pre">=</span> <span class="pre">UInt64(3)</span></code>)</p></li>
-<li><p>Using an instance of <code class="docutils literal notranslate"><span class="pre">GlobalState</span></code>, which gives <a class="reference internal" href="api-algopy.html#algopy.GlobalState"><span class="std std-ref">some extra features</span></a> to understand
+<li><p>Assigning any <a class="reference internal" href="../lg-types.html"><span class="std std-doc">Algorand Python typed</span></a> value to an instance variable (e.g. <code class="docutils literal notranslate"><span class="pre">self.value</span> <span class="pre">=</span> <span class="pre">UInt64(3)</span></code>)</p></li>
+<li><p>Using an instance of <code class="docutils literal notranslate"><span class="pre">GlobalState</span></code>, which gives <a class="reference internal" href="../api-algopy.html#algopy.GlobalState"><span class="std std-ref">some extra features</span></a> to understand
 and control the value and the metadata of it (which propagates to the ARC-32 app spec file)</p></li>
 </ol>
 <p>For example:</p>
@@ -44,7 +44,7 @@ any <a class="reference external" href="https://github.com/algorandfoundation/al
 <h2>Local storage<a class="headerlink" href="#local-storage" title="Link to this heading">¶</a></h2>
 <p>Local storage is state that is stored against the contract instance for a specific account and can be retrieved
 by key and account address. There are <a class="reference external" href="https://developer.algorand.org/docs/get-details/dapps/smart-contracts/apps/state/#local-storage">AVM limits to the amount of local storage that can be allocated to a contract</a>.</p>
-<p>This is represented in Algorand Python by using an instance of <a class="reference internal" href="api-algopy.html#algopy.LocalState"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LocalState</span></code></span></a>.</p>
+<p>This is represented in Algorand Python by using an instance of <a class="reference internal" href="../api-algopy.html#algopy.LocalState"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LocalState</span></code></span></a>.</p>
 <p>For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">local</span> <span class="o">=</span> <span class="n">LocalState</span><span class="p">(</span><span class="n">Bytes</span><span class="p">)</span>
@@ -79,7 +79,7 @@ any <a class="reference external" href="https://github.com/algorandfoundation/al
 </section>
 <section id="box-storage">
 <h2>Box storage<a class="headerlink" href="#box-storage" title="Link to this heading">¶</a></h2>
-<p>We provide 3 different types for accessing box storage: <a class="reference internal" href="api-algopy.html#algopy.Box"><span class="std std-ref">Box</span></a>, <a class="reference internal" href="api-algopy.html#algopy.BoxMap"><span class="std std-ref">BoxMap</span></a>, and <a class="reference internal" href="api-algopy.html#algopy.BoxBlob"><span class="std std-ref">BoxRef</span></a>. We also expose raw operations via the <a class="reference internal" href="lg-ops.html"><span class="std std-doc">AVM ops</span></a> module.</p>
+<p>We provide 3 different types for accessing box storage: <a class="reference internal" href="../api-algopy.html#algopy.Box"><span class="std std-ref">Box</span></a>, <a class="reference internal" href="../api-algopy.html#algopy.BoxMap"><span class="std std-ref">BoxMap</span></a>, and <a class="reference internal" href="../api-algopy.html#algopy.BoxBlob"><span class="std std-ref">BoxRef</span></a>. We also expose raw operations via the <a class="reference internal" href="../lg-ops.html"><span class="std std-doc">AVM ops</span></a> module.</p>
 <p>Before using box storage, be sure to familiarise yourself with the <a class="reference external" href="https://developer.algorand.org/articles/smart-contract-storage-boxes/">requirements and restrictions</a> of the underlying API.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Box</span></code> type provides an abstraction over storing a single value in a single box. A box can be declared against <code class="docutils literal notranslate"><span class="pre">self</span></code>
 in an <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method (in which case the key must be a compile time constant); or as a local variable within any
@@ -154,7 +154,7 @@ is useful for minimizing the amount of reads and writes required, but also allow
         <span class="k">return</span> <span class="kc">True</span>
 </pre></div>
 </div>
-<p>If none of these abstractions suit your needs, you can use the box storage <a class="reference internal" href="lg-ops.html"><span class="std std-doc">AVM ops</span></a> to interact with box storage. These ops match closely to the opcodes available on the AVM.</p>
+<p>If none of these abstractions suit your needs, you can use the box storage <a class="reference internal" href="../lg-ops.html"><span class="std std-doc">AVM ops</span></a> to interact with box storage. These ops match closely to the opcodes available on the AVM.</p>
 <p>For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">op</span><span class="o">.</span><span class="n">Box</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="sa">b</span><span class="s2">"key"</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 <span class="n">op</span><span class="o">.</span><span class="n">Box</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Txn</span><span class="o">.</span><span class="n">sender</span><span class="o">.</span><span class="n">bytes</span><span class="p">,</span> <span class="n">answer_ids</span><span class="o">.</span><span class="n">bytes</span><span class="p">)</span>
@@ -166,7 +166,7 @@ is useful for minimizing the amount of reads and writes required, but also allow
 </section>
 <section id="scratch-storage">
 <h2>Scratch storage<a class="headerlink" href="#scratch-storage" title="Link to this heading">¶</a></h2>
-<p>To use stratch storage you need to <a class="reference internal" href="lg-structure.html#contract-class-configuration"><span class="std std-ref">register the scratch storage that you want to use</span></a> and then you can use the scratch storage <a class="reference internal" href="lg-ops.html"><span class="std std-doc">AVM ops</span></a>.</p>
+<p>To use stratch storage you need to <a class="reference internal" href="../lg-structure.html#contract-class-configuration"><span class="std std-ref">register the scratch storage that you want to use</span></a> and then you can use the scratch storage <a class="reference internal" href="../lg-ops.html"><span class="std std-doc">AVM ops</span></a>.</p>
 <p>For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">Contract</span><span class="p">,</span> <span class="n">UInt64</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">urange</span>
 

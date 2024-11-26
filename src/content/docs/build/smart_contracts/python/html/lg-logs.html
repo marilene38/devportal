@@ -1,8 +1,8 @@
 
           <section id="logging">
 <h1>Logging<a class="headerlink" href="#logging" title="Link to this heading">¶</a></h1>
-<p>Algorand Python provides a <a class="reference internal" href="api-algopy.html#algopy.log"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">log</span></code> method</span></a> that allows you to emit debugging and event information as well as return values from your contracts to the caller.</p>
-<p>This <code class="docutils literal notranslate"><span class="pre">log</span></code> method is a superset of the <a class="reference internal" href="lg-ops.html"><span class="std std-doc">AVM <code class="docutils literal notranslate"><span class="pre">log</span></code> method</span></a> that adds extra functionality:</p>
+<p>Algorand Python provides a <a class="reference internal" href="../api-algopy.html#algopy.log"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">log</span></code> method</span></a> that allows you to emit debugging and event information as well as return values from your contracts to the caller.</p>
+<p>This <code class="docutils literal notranslate"><span class="pre">log</span></code> method is a superset of the <a class="reference internal" href="../lg-ops.html"><span class="std std-doc">AVM <code class="docutils literal notranslate"><span class="pre">log</span></code> method</span></a> that adds extra functionality:</p>
 <ul class="simple">
 <li><p>You can log multiple items rather than a single item</p></li>
 <li><p>Items are concatenated together with an optional separator (which defaults to: <code class="docutils literal notranslate"><span class="pre">""</span></code>)</p></li>
@@ -14,12 +14,12 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">str</span></code> literals / module variables (encoded as UTF-8)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bytes</span></code> literals / module variables (encoded as is)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Bytes</span></code> values (encoded as is)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BytesBacked</span></code> values, which includes <a class="reference internal" href="api-algopy.html#algopy.String"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">String</span></code></span></a>, <a class="reference internal" href="api-algopy.html#algopy.BigUInt"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">BigUInt</span></code></span></a>, <a class="reference internal" href="api-algopy.html#algopy.Account"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">Account</span></code></span></a> and all of the <a class="reference internal" href="api-algopy.arc4.html"><span class="std std-doc">ARC-4 types</span></a> (encoded as their underlying bytes values)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BytesBacked</span></code> values, which includes <a class="reference internal" href="../api-algopy.html#algopy.String"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">String</span></code></span></a>, <a class="reference internal" href="../api-algopy.html#algopy.BigUInt"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">BigUInt</span></code></span></a>, <a class="reference internal" href="../api-algopy.html#algopy.Account"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">Account</span></code></span></a> and all of the <a class="reference internal" href="../api-algopy.arc4.html"><span class="std std-doc">ARC-4 types</span></a> (encoded as their underlying bytes values)</p></li>
 </ul>
 </li>
 </ul>
 <p>Logged values are <a class="reference external" href="https://developer.algorand.org/docs/rest-apis/algod/#pendingtransactionresponse">available to the calling client</a> and attached to the transaction record stored on the blockchain ledger.</p>
-<p>If you want to emit ARC-28 events in the logs then there is a <a class="reference internal" href="lg-arc28.html"><span class="std std-doc">purpose-built function for that</span></a>.</p>
+<p>If you want to emit ARC-28 events in the logs then there is a <a class="reference internal" href="../lg-arc28.html"><span class="std std-doc">purpose-built function for that</span></a>.</p>
 <p>Here’s an example contract that uses the log method in various ways:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">BigUInt</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">Contract</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">op</span>
 

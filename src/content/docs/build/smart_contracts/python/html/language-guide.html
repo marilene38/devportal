@@ -36,176 +36,176 @@ into and break-point debug your code from those tests.</p>
 being statically typed, these interfaces are also statically typed, and require your code to be as
 well.</p>
 <p>The most basic types on the AVM are <code class="docutils literal notranslate"><span class="pre">uint64</span></code> and <code class="docutils literal notranslate"><span class="pre">bytes[]</span></code>, representing unsigned 64-bit integers
-and byte arrays respectively. These are represented by <a class="reference internal" href="api-algopy.html#algopy.UInt64" title="algopy.UInt64"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">UInt64</span></code></span></a> and
-<a class="reference internal" href="api-algopy.html#algopy.Bytes" title="algopy.Bytes"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">Bytes</span></code></span></a> in Algorand Python. There are further “bounded” types supported by the AVM
+and byte arrays respectively. These are represented by <a class="reference internal" href="../api-algopy.html#algopy.UInt64" title="algopy.UInt64"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">UInt64</span></code></span></a> and
+<a class="reference internal" href="../api-algopy.html#algopy.Bytes" title="algopy.Bytes"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">Bytes</span></code></span></a> in Algorand Python. There are further “bounded” types supported by the AVM
 which are backed by these two simple primitives. For example, <code class="docutils literal notranslate"><span class="pre">bigint</span></code> represents a variably sized
 (up to 512-bits), unsigned integer, but is actually backed by a <code class="docutils literal notranslate"><span class="pre">bytes[]</span></code>. This is represented by
-<a class="reference internal" href="api-algopy.html#algopy.BigUInt" title="algopy.BigUInt"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">BigUInt</span></code></span></a> in Algorand Python.</p>
+<a class="reference internal" href="../api-algopy.html#algopy.BigUInt" title="algopy.BigUInt"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">BigUInt</span></code></span></a> in Algorand Python.</p>
 <p>Unfortunately, none of these types map to standard Python primitives. In Python, an <code class="docutils literal notranslate"><span class="pre">int</span></code> is
 unsigned, and effectively unbounded. A <code class="docutils literal notranslate"><span class="pre">bytes</span></code> similarly is limited only by the memory available,
 whereas an AVM <code class="docutils literal notranslate"><span class="pre">bytes[]</span></code> has a maximum length of 4096. In order to both maintain semantic
 compatibility and allow for a framework implementation in plain Python that will fail under the
 same conditions as when deployed to the AVM, support for Python primitives is
-<a class="reference internal" href="lg-types.html#python-built-in-types"><span class="std std-ref">limited</span></a>.</p>
+<a class="reference internal" href="../lg-types.html#python-built-in-types"><span class="std std-ref">limited</span></a>.</p>
 <p>For more information on the philosophy and design of Algorand Python, please see
-<a class="reference internal" href="principles.html#principles"><span class="std std-ref">“Principles”</span></a>.</p>
+<a class="reference internal" href="../principles.html#principles"><span class="std std-ref">“Principles”</span></a>.</p>
 <p>If you aren’t familiar with Python, a good place to start before continuing below is with the
 <a class="reference external" href="https://docs.python.org/3/tutorial/index.html">official tutorial</a>. Just beware that as mentioned
-above, <a class="reference internal" href="lg-unsupported-python-features.html"><span class="std std-doc">not all features are supported</span></a>.</p>
+above, <a class="reference internal" href="../lg-unsupported-python-features.html"><span class="std std-doc">not all features are supported</span></a>.</p>
 <section id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="lg-structure.html">Program structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-structure.html#modules">Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-structure.html#typing">Typing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-structure.html#subroutines">Subroutines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-structure.html#contract-classes">Contract classes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lg-structure.html#contract-class-configuration">Contract class configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-structure.html#example-simplest-possible-algopy-contract-implementation">Example: Simplest possible <code class="docutils literal notranslate"><span class="pre">algopy.Contract</span></code> implementation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-structure.html#example-simple-call-counter">Example: Simple call counter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-structure.html#example-simplest-possible-algopy-arc4contract-implementation">Example: Simplest possible <code class="docutils literal notranslate"><span class="pre">algopy.ARC4Contract</span></code> implementation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-structure.html#example-an-arc4-call-counter">Example: An ARC4 call counter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-structure.html">Program structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-structure.html#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-structure.html#typing">Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-structure.html#subroutines">Subroutines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-structure.html#contract-classes">Contract classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lg-structure.html#contract-class-configuration">Contract class configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-structure.html#example-simplest-possible-algopy-contract-implementation">Example: Simplest possible <code class="docutils literal notranslate"><span class="pre">algopy.Contract</span></code> implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-structure.html#example-simple-call-counter">Example: Simple call counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-structure.html#example-simplest-possible-algopy-arc4contract-implementation">Example: Simplest possible <code class="docutils literal notranslate"><span class="pre">algopy.ARC4Contract</span></code> implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-structure.html#example-an-arc4-call-counter">Example: An ARC4 call counter</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="lg-structure.html#logic-signatures">Logic signatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-structure.html#logic-signatures">Logic signatures</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lg-types.html">Types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-types.html#avm-types">AVM types</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#uint64">UInt64</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#bytes">Bytes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#string">String</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#biguint">BigUInt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#bool">bool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#account">Account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#asset">Asset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#application">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-types.html">Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-types.html#avm-types">AVM types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#uint64">UInt64</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#bytes">Bytes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#string">String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#biguint">BigUInt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#bool">bool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#account">Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#asset">Asset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#application">Application</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="lg-types.html#python-built-in-types">Python built-in types</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#id2">bool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#tuple">tuple</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#none">None</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-types.html#int-str-bytes-float">int, str, bytes, float</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-types.html#python-built-in-types">Python built-in types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#id2">bool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#tuple">tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#none">None</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-types.html#int-str-bytes-float">int, str, bytes, float</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="lg-types.html#template-variables">Template variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-types.html#arc-4-types">ARC-4 types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-types.html#template-variables">Template variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-types.html#arc-4-types">ARC-4 types</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lg-control.html">Control flow structures</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-control.html#if-statements">If statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-control.html#ternary-conditions">Ternary conditions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-control.html#while-loops">While loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-control.html#for-loops">For Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-control.html#match-statements">Match Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-control.html">Control flow structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-control.html#if-statements">If statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-control.html#ternary-conditions">Ternary conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-control.html#while-loops">While loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-control.html#for-loops">For Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-control.html#match-statements">Match Statements</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lg-modules.html">Module level constructs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-modules.html#module-constants">Module constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-modules.html#if-statements">If statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-modules.html#integer-math">Integer math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-modules.html#strings">Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-modules.html#type-aliases">Type aliases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-modules.html">Module level constructs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-modules.html#module-constants">Module constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-modules.html#if-statements">If statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-modules.html#integer-math">Integer math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-modules.html#strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-modules.html#type-aliases">Type aliases</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lg-builtins.html">Python builtins</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-builtins.html#len">len</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-builtins.html#range">range</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-builtins.html#enumerate">enumerate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-builtins.html#reversed">reversed</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-builtins.html#types">types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-builtins.html">Python builtins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-builtins.html#len">len</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-builtins.html#range">range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-builtins.html#enumerate">enumerate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-builtins.html#reversed">reversed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-builtins.html#types">types</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lg-errors.html">Error handling and assertions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-errors.html#assertions">Assertions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lg-errors.html#assertion-error-handling">Assertion error handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-errors.html">Error handling and assertions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-errors.html#assertions">Assertions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lg-errors.html#assertion-error-handling">Assertion error handling</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="lg-errors.html#explicit-failure">Explicit failure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-errors.html#exception-handling">Exception handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-errors.html#explicit-failure">Explicit failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-errors.html#exception-handling">Exception handling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lg-storage.html">Storing data on-chain</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-storage.html#global-storage">Global storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-storage.html#local-storage">Local storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-storage.html#box-storage">Box storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-storage.html#scratch-storage">Scratch storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-storage.html">Storing data on-chain</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-storage.html#global-storage">Global storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-storage.html#local-storage">Local storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-storage.html#box-storage">Box storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-storage.html#scratch-storage">Scratch storage</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lg-logs.html">Logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lg-transactions.html">Transactions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-transactions.html#group-transactions">Group Transactions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lg-transactions.html#arc4-parameter">ARC4 parameter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-transactions.html#group-index">Group Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-logs.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-transactions.html">Transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-transactions.html#group-transactions">Group Transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lg-transactions.html#arc4-parameter">ARC4 parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-transactions.html#group-index">Group Index</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="lg-transactions.html#inner-transactions">Inner Transactions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lg-transactions.html#examples">Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-transactions.html#arc4-application-calls">ARC4 Application calls</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-transactions.html#limitations">Limitations</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="lg-ops.html">AVM operations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-ops.html#txn">Txn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-ops.html#global">Global</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="lg-opcode-budget.html">Opcode budgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lg-arc4.html">ARC-4: Application Binary Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-arc4.html#arc-32">ARC-32</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-arc4.html#methods">Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-arc4.html#router">Router</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-arc4.html#types">Types</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#booleans">Booleans</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#unsigned-ints">Unsigned ints</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#unsigned-fixed-point-decimals">Unsigned fixed point decimals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#bytes-and-strings">Bytes and strings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#static-arrays">Static arrays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#dynamic-arrays">Dynamic arrays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#tuples">Tuples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#structs">Structs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#arc4-container-packing">ARC4 Container Packing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#reference-types">Reference types</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="lg-arc4.html#typed-clients">Typed clients</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#arc4contract-method">ARC4Contract method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#arc4client-method">ARC4Client method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-arc4.html#method-signature-or-name">Method signature or name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-transactions.html#inner-transactions">Inner Transactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lg-transactions.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-transactions.html#arc4-application-calls">ARC4 Application calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-transactions.html#limitations">Limitations</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lg-arc28.html">ARC-28: Structured event logging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-arc28.html#emitting-events">Emitting Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-ops.html">AVM operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-ops.html#txn">Txn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-ops.html#global">Global</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lg-compile.html">Compiling to AVM bytecode</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-compile.html#outputting-avm-bytecode-from-cli">Outputting AVM bytecode from CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-compile.html#obtaining-bytecode-within-other-contracts">Obtaining bytecode within other contracts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-compile.html#arc4-contracts">ARC4 contracts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lg-compile.html#create">Create</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-compile.html#update">Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-opcode-budget.html">Opcode budgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-arc4.html">ARC-4: Application Binary Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-arc4.html#arc-32">ARC-32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-arc4.html#methods">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-arc4.html#router">Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-arc4.html#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#booleans">Booleans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#unsigned-ints">Unsigned ints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#unsigned-fixed-point-decimals">Unsigned fixed point decimals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#bytes-and-strings">Bytes and strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#static-arrays">Static arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#dynamic-arrays">Dynamic arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#tuples">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#structs">Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#arc4-container-packing">ARC4 Container Packing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#reference-types">Reference types</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="lg-compile.html#template-variables">Template variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lg-compile.html#cli">CLI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lg-compile.html#within-other-contracts">Within other contracts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-arc4.html#typed-clients">Typed clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#arc4contract-method">ARC4Contract method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#arc4client-method">ARC4Client method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-arc4.html#method-signature-or-name">Method signature or name</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lg-unsupported-python-features.html">Unsupported Python features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lg-unsupported-python-features.html#raise-try-except-finally">raise, try/except/finally</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-unsupported-python-features.html#with">with</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-unsupported-python-features.html#async">async</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-unsupported-python-features.html#closures-lambdas">closures &amp; lambdas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-unsupported-python-features.html#global-keyword">global keyword</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lg-unsupported-python-features.html#inheritance-outside-of-contract-classes">Inheritance (outside of contract classes)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-arc28.html">ARC-28: Structured event logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-arc28.html#emitting-events">Emitting Events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-compile.html">Compiling to AVM bytecode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-compile.html#outputting-avm-bytecode-from-cli">Outputting AVM bytecode from CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-compile.html#obtaining-bytecode-within-other-contracts">Obtaining bytecode within other contracts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-compile.html#arc4-contracts">ARC4 contracts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lg-compile.html#create">Create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-compile.html#update">Update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-compile.html#template-variables">Template variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lg-compile.html#cli">CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lg-compile.html#within-other-contracts">Within other contracts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lg-unsupported-python-features.html">Unsupported Python features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lg-unsupported-python-features.html#raise-try-except-finally">raise, try/except/finally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-unsupported-python-features.html#with">with</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-unsupported-python-features.html#async">async</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-unsupported-python-features.html#closures-lambdas">closures &amp; lambdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-unsupported-python-features.html#global-keyword">global keyword</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lg-unsupported-python-features.html#inheritance-outside-of-contract-classes">Inheritance (outside of contract classes)</a></li>
 </ul>
 </li>
 </ul>

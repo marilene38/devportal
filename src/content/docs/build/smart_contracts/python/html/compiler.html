@@ -162,8 +162,8 @@ also supply more than one path at a time to the compiler.</p>
 </section>
 <section id="defining-template-values">
 <h3>Defining template values<a class="headerlink" href="#defining-template-values" title="Link to this heading">¶</a></h3>
-<p><a class="reference internal" href="api-algopy.html#algopy.TemplateVar" title="algopy.TemplateVar"><span class="xref myst py py-data">Template Variables</span></a>, can be replaced with literal values during compilation to bytecode using the <code class="docutils literal notranslate"><span class="pre">--template-var</span></code> option.
-Additionally, Algorand Python functions that create AVM bytecode, such as <a class="reference internal" href="api-algopy.html#algopy.compile_contract" title="algopy.compile_contract"><span class="xref myst py py-func">compile_contract</span></a> and <a class="reference internal" href="api-algopy.html#algopy.compile_logicsig" title="algopy.compile_logicsig"><span class="xref myst py py-func">compile_logicsig</span></a>, can also provide the specified values.</p>
+<p><a class="reference internal" href="../api-algopy.html#algopy.TemplateVar" title="algopy.TemplateVar"><span class="xref myst py py-data">Template Variables</span></a>, can be replaced with literal values during compilation to bytecode using the <code class="docutils literal notranslate"><span class="pre">--template-var</span></code> option.
+Additionally, Algorand Python functions that create AVM bytecode, such as <a class="reference internal" href="../api-algopy.html#algopy.compile_contract" title="algopy.compile_contract"><span class="xref myst py py-func">compile_contract</span></a> and <a class="reference internal" href="../api-algopy.html#algopy.compile_logicsig" title="algopy.compile_logicsig"><span class="xref myst py py-func">compile_logicsig</span></a>, can also provide the specified values.</p>
 <section id="examples-of-variable-definitions">
 <h4>Examples of Variable Definitions<a class="headerlink" href="#examples-of-variable-definitions" title="Link to this heading">¶</a></h4>
 <p>The table below illustrates how different variables and values can be defined:</p>
@@ -176,15 +176,15 @@ Additionally, Algorand Python functions that create AVM bytecode, such as <a cla
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="api-algopy.html#algopy.UInt64" title="algopy.UInt64"><span class="xref myst py py-class">UInt64</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api-algopy.html#algopy.UInt64" title="algopy.UInt64"><span class="xref myst py py-class">UInt64</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">algopy.TemplateVar[UInt64]("SOME_INT")</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">SOME_INT=1234</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api-algopy.html#algopy.Bytes" title="algopy.Bytes"><span class="xref myst py py-class">Bytes</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api-algopy.html#algopy.Bytes" title="algopy.Bytes"><span class="xref myst py py-class">Bytes</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">algopy.TemplateVar[Bytes]("SOME_BYTES")</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">SOME_BYTES=0x1A2B</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api-algopy.html#algopy.String" title="algopy.String"><span class="xref myst py py-class">String</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api-algopy.html#algopy.String" title="algopy.String"><span class="xref myst py py-class">String</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">algopy.TemplateVar[String]("SOME_STR")</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">SOME_STR="hello"</span></code></p></td>
 </tr>

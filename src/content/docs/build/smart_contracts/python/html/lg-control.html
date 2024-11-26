@@ -4,7 +4,7 @@
 <p>Control flow in Algorand Python is similar to standard Python control flow, with support for if statements, while loops, for loops, and match statements.</p>
 <section id="if-statements">
 <h2>If statements<a class="headerlink" href="#if-statements" title="Link to this heading">¶</a></h2>
-<p>If statements work the same as Python. The conditions must be an expression that evaluates to bool, which can include a <a class="reference internal" href="lg-types.html"><span class="std std-doc">String or Uint64</span></a> among others.</p>
+<p>If statements work the same as Python. The conditions must be an expression that evaluates to bool, which can include a <a class="reference internal" href="../lg-types.html"><span class="std std-doc">String or Uint64</span></a> among others.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
     <span class="c1"># block of code to execute if condition is True</span>
 <span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
@@ -17,7 +17,7 @@
 </section>
 <section id="ternary-conditions">
 <h2>Ternary conditions<a class="headerlink" href="#ternary-conditions" title="Link to this heading">¶</a></h2>
-<p>Ternary conditions work the same as Python. The condition must be an expression that evaluates to bool, which can include a <a class="reference internal" href="lg-types.html"><span class="std std-doc">String or Uint64</span></a> among others.</p>
+<p>Ternary conditions work the same as Python. The condition must be an expression that evaluates to bool, which can include a <a class="reference internal" href="../lg-types.html"><span class="std std-doc">String or Uint64</span></a> among others.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value1</span> <span class="o">=</span> <span class="n">UInt64</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">value2</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s2">"&gt;6"</span><span class="p">)</span> <span class="k">if</span> <span class="n">value1</span> <span class="o">&gt;</span> <span class="mi">6</span> <span class="k">else</span> <span class="n">String</span><span class="p">(</span><span class="s2">"&lt;=6"</span><span class="p">)</span>
 </pre></div>
@@ -25,7 +25,7 @@
 </section>
 <section id="while-loops">
 <h2>While loops<a class="headerlink" href="#while-loops" title="Link to this heading">¶</a></h2>
-<p>While loops work the same as Python. The condition must be an expression that evaluates to bool, which can include a <a class="reference internal" href="lg-types.html"><span class="std std-doc">String or Uint64</span></a> among others.</p>
+<p>While loops work the same as Python. The condition must be an expression that evaluates to bool, which can include a <a class="reference internal" href="../lg-types.html"><span class="std std-doc">String or Uint64</span></a> among others.</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
     <span class="c1"># block of code to execute if condition is True</span>
@@ -36,7 +36,7 @@
 </section>
 <section id="for-loops">
 <h2>For Loops<a class="headerlink" href="#for-loops" title="Link to this heading">¶</a></h2>
-<p>For loops are used to iterate over sequences, ranges and <a class="reference internal" href="lg-arc4.html"><span class="std std-doc">ARC-4 arrays</span></a>. They work the same as Python.</p>
+<p>For loops are used to iterate over sequences, ranges and <a class="reference internal" href="../lg-arc4.html"><span class="std std-doc">ARC-4 arrays</span></a>. They work the same as Python.</p>
 <p>Algorand Python provides functions like <code class="docutils literal notranslate"><span class="pre">uenumerate</span></code> and <code class="docutils literal notranslate"><span class="pre">urange</span></code> to facilitate creating sequences and ranges; in-built Python <code class="docutils literal notranslate"><span class="pre">reversed</span></code> method works with these.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">uenumerate</span></code> is similar to Python’s built-in enumerate function, but for UInt64 numbers; it allows you to loop over a sequence and have an automatic counter.</p></li>
