@@ -275,16 +275,54 @@ export default defineConfig({
               link: 'nodes/overview',
             },
             {
+              label: 'Node Installation',
+              link: 'nodes/node-installation',
+            },
+            {
+              label: 'Indexer Installation',
+              link: 'nodes/indexer-installation',
+            },
+            {
               label: 'Participating in Consensus',
-              link: 'nodes/consensus',
+              items: [
+                {
+                  label: 'Overview',
+                  link: 'nodes/consensus/overview',
+                },
+                {
+                  label: 'Participation Key Management',
+                  link: 'nodes/consensus/partkey-management',
+                },
+                {
+                  label: 'Online/Offline Registration',
+                  link: 'nodes/consensus/online-offline-registration',
+                },
+                {
+                  label: 'Staking Rewards',
+                  link: 'nodes/consensus/staking-rewards',
+                },
+              ],
             },
             {
-              label: 'Staking Rewards',
-              link: 'nodes/staking-rewards',
-            },
-            {
-              label: 'Algorun',
-              link: 'nodes/algorun',
+              label: 'Node Management',
+              items: [
+                {
+                  label: 'TUI/Algorun',
+                  link: 'nodes/management/tui',
+                },
+                {
+                  label: 'Switch Network',
+                  link: 'nodes/management/switch-network',
+                },
+                {
+                  label: 'Catchup & Status',
+                  link: 'nodes/management/catchup-status',
+                },
+                {
+                  label: 'Node Troubleshooting',
+                  link: 'nodes/management/troubleshooting',
+                },
+              ],
             },
             {
               label: 'Node Types',
@@ -299,11 +337,32 @@ export default defineConfig({
                 },
                 {
                   label: 'Relay',
-                  link: 'nodes/nodes/relay',
+                  link: 'nodes/types/relay',
                 },
                 {
                   label: 'Follower',
-                  link: 'nodes/nodes/follower',
+                  link: 'nodes/types/follower',
+                },
+              ],
+            },
+            {
+              label: 'Node Reference',
+              items: [
+                {
+                  label: 'Node Artifacts',
+                  link: 'nodes/reference/artifacts',
+                },
+                {
+                  label: 'Configuration Settings',
+                  link: 'nodes/reference/configuration-settings',
+                },
+                {
+                  label: 'Relay Node Configuration',
+                  link: 'nodes/reference/relay-configuration',
+                },
+                {
+                  label: 'Telemetry Configuration',
+                  link: 'nodes/reference/telemetry-configuration',
                 },
               ],
             },
