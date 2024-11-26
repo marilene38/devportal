@@ -354,15 +354,15 @@ export default defineConfig({
                 },
                 {
                   label: 'Configuration Settings',
-                  link: 'nodes/reference/configuration-settings',
+                  link: 'nodes/reference/config-settings',
                 },
                 {
                   label: 'Relay Node Configuration',
-                  link: 'nodes/reference/relay-configuration',
+                  link: 'nodes/reference/relay-config',
                 },
                 {
                   label: 'Telemetry Configuration',
-                  link: 'nodes/reference/telemetry-configuration',
+                  link: 'nodes/reference/telemetry-config',
                 },
               ],
             },
