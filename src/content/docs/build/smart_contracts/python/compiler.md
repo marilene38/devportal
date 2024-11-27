@@ -111,7 +111,7 @@ puyapy [-h] [--version] [-O {0,1,2}]
     PATH [PATH ...]
 ```
 
-### Options
+## Options
 
 | Option                                                   | Description                                                                                                                                                           | Default                 |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
@@ -129,12 +129,12 @@ puyapy [-h] [--version] [-O {0,1,2}]
 | `--template-var`                                         | Allows specifying template values. Can be used multiple times, see below for examples                                                                                 | N/A                     |
 | `--template-vars-prefix`                                 | Prefix to use for template variables                                                                                                                                  | “TMPL\_”                 |
 
-### Defining template values
+## Defining template values
 
 [Template Variables](../../api-reference/api-algopy#algopy.TemplateVar), can be replaced with literal values during compilation to bytecode using the `--template-var` option.
 Additionally, Algorand Python functions that create AVM bytecode, such as [compile\_contract](../../api-reference/api-algopy#algopy.compile_contract) and [compile\_logicsig](../../api-reference/api-algopy#algopy.compile_logicsig), can also provide the specified values.
 
-#### Examples of Variable Definitions
+### Examples of Variable Definitions
 
 The table below illustrates how different variables and values can be defined:
 
@@ -147,7 +147,7 @@ The table below illustrates how different variables and values can be defined:
 All template values specified via the command line are prefixed with “TMPL\_” by default.
 The default prefix can be modified using the `--template-vars-prefix` option.
 
-### Advanced options
+## Advanced options
 
 There are additional compiler options that allow you to tweak the behaviour in more advanced ways or tweak the output to receive intermediate representations from the compiler pipeline. Most users won’t need to use these options unless exploring the inner workings of the compiler or performing more advanced optimisations.
 

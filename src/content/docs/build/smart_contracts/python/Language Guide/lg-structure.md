@@ -48,7 +48,7 @@ def bar() -> None:
     ...
 ```
 
-#### NOTE
+### NOTE
 
 Requiring this decorator serves two key purposes:
 
@@ -126,7 +126,7 @@ class MyContract(algopy.Contract):
 Only concrete (ie non-abstract) classes produce output artifacts for deployment. To mark a class
 as explicitly abstract, inherit from [`abc.ABC`](https://docs.python.org/3/library/abc.html#abc.ABC).
 
-#### NOTE
+### NOTE
 
 The compiler will produce a warning if a Contract class is implicitly abstract, i.e. if any
 abstract methods are unimplemented.
@@ -134,7 +134,7 @@ abstract methods are unimplemented.
 For more about inheritance and it’s role in code reuse, see the section
 in [Code reuse]()
 
-### Contract class configuration
+## Contract class configuration
 
 When defining a contract subclass you can pass configuration options to the `algopy.Contract`
 base class [per the API documentation](../../api-reference/api-algopy#algopy.Contract).
@@ -162,7 +162,7 @@ class MyContract(
     ...
 ```
 
-### Example: Simplest possible `algopy.Contract` implementation
+## Example: Simplest possible `algopy.Contract` implementation
 
 For a non-ARC4 contract, the contract class must implement an `approval_program` and
 a `clear_state_program` method.
@@ -182,7 +182,7 @@ The return value of these methods can be either a `bool` that indicates whether 
 should approve or not, or a `algopy.UInt64` value, where `UInt64(0)` indicates that the transaction
 should be rejected and any other value indicates that it should be approved.
 
-### Example: Simple call counter
+## Example: Simple call counter
 
 Here is a very simple example contract that maintains a counter of how many times it has
 been called (including on create).
@@ -216,7 +216,7 @@ Some things to note:
 * Any methods other than `__init__`, `approval_program` or `clear_state_program` must be decorated
   with `@subroutine`.
 
-### Example: Simplest possible `algopy.ARC4Contract` implementation
+## Example: Simplest possible `algopy.ARC4Contract` implementation
 
 And here is a valid ARC4 contract:
 
@@ -233,7 +233,7 @@ based on the transaction application args to the correct public method.
 
 A default `clear_state_program` is implemented which always approves, but this can be overridden.
 
-### Example: An ARC4 call counter
+## Example: An ARC4 call counter
 
 ```python
 import algopy

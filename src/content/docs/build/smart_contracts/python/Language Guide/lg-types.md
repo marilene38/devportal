@@ -34,7 +34,7 @@ There are further “bounded” types supported by the AVM, which are backed by 
 For example, `bigint` represents a variably sized (up to 512-bits), unsigned integer, but is actually
 backed by a `bytes[]`. This is represented by [`BigUInt`]() in Algorand Python.
 
-### UInt64
+## UInt64
 
 [`algopy.UInt64`](../../api-reference/api-algopy#algopy.UInt64) represents the underlying AVM `uint64` type.
 
@@ -61,7 +61,7 @@ num2 = num + 200 // 3
 
 [Further examples available here](https://github.com/algorandfoundation/puya/blob/main/test_cases/stubs/uint64.py).
 
-### Bytes
+## Bytes
 
 [`algopy.Bytes`](../../api-reference/api-algopy#algopy.Bytes) represents the underlying AVM `bytes[]` type. It is intended
 to represent binary data, for UTF-8 it might be preferable to use [String](https://docs.python.org/3/library/string.html#module-string).
@@ -105,13 +105,13 @@ data ^= ~((base32_seq & base64_seq) | hex_seq)
 assert abc.length == 3
 ```
 
-#### NOTE
+### NOTE
 
 See [Python builtins](../../language-guide/lg-builtins#len---length) for an explanation of why `len()` isn’t supported.
 
 [See a full example](https://github.com/algorandfoundation/puya/blob/main/test_cases/stubs/bytes.py).
 
-### String
+## String
 
 [`String`](../../api-reference/api-algopy#algopy.String) is a special Algorand Python type that represents a UTF8 encoded string.
 It’s backed by `Bytes`, which can be accessed through the `.bytes`.
@@ -147,7 +147,7 @@ assert abc.bytes == b"abc"
 
 [See a full example](https://github.com/algorandfoundation/puya/blob/main/test_cases/stubs/string.py).
 
-### BigUInt
+## BigUInt
 
 [`algopy.BigUInt`](../../api-reference/api-algopy#algopy.BigUInt) represents a variable length (max 512-bit) unsigned integer stored
 as `bytes[]` in the AVM.
@@ -183,7 +183,7 @@ num2 = num + 200 // 3
 
 [Further examples available here](https://github.com/algorandfoundation/puya/blob/main/test_cases/stubs/biguint.py).
 
-### bool
+## bool
 
 The semantics of the AVM `bool` bounded type exactly match the semantics of Python’s built-in `bool` type
 and thus Algorand Python uses the in-built `bool` type from Python.
@@ -215,17 +215,17 @@ if a:
 
 [Further examples available here](https://github.com/algorandfoundation/puya/blob/main/test_cases/stubs/uint64.py).
 
-### Account
+## Account
 
 [`Account`](../../api-reference/api-algopy#algopy.Account) represents a logical Account, backed by a `bytes[]` representing the
 public key. It has various account related methods that can be called from the type.
 
-### Asset
+## Asset
 
 [`Asset`](../../api-reference/api-algopy#algopy.Asset) represents a logical Asset, backed by a `uint64` ID.
 It has various asset related methods that can be called from the type.
 
-### Application
+## Application
 
 [`Application`](../../api-reference/api-algopy#algopy.Application) represents a logical Application, backed by a `uint64` ID.
 It has various application related methods that can be called from the type.
@@ -240,21 +240,21 @@ same conditions as when deployed to the AVM, support for Python primitives is li
 
 In saying that, there are many places where built-in Python types can be used and over time the places these types can be used are expected to increase.
 
-### bool
+## bool
 
 [Per above](https://docs.python.org/3/library/functions.html#bool) Algorand Python has full support for `bool`.
 
-### tuple
+## tuple
 
 Python tuples are supported as arguments to subroutines, local variables, return types. Nested tuples
 are *not* currently supported.
 
-### None
+## None
 
 `None` is not supported as a value, but is supported as a type annotation to indicate a function or subroutine
 returns no value.
 
-### int, str, bytes, float
+## int, str, bytes, float
 
 The `int`, `str` and `bytes` built-in types are currently only supported as [module-level constants](../../language-guide/lg-modules) or literals.
 

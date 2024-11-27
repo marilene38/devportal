@@ -66,7 +66,7 @@ JavaScript and TypeScript, a parallel initiative to build a TypeScript to TEAL c
 
 The principles listed here should form the basis of our decision-making, both in the design and implementation.
 
-### Least surprise
+## Least surprise
 
 Our primary objective is to assist developers in creating accurate smart contracts right from the
 start. The often immutable nature of these contracts - although not always the case - and the
@@ -82,12 +82,12 @@ smart contracts. Our commitment is to provide a user-friendly platform that alig
 developer’s intuition and experience, ultimately simplifying their work and minimizing the
 potential for mistakes.
 
-### Inherited from AlgoKit
+## Inherited from AlgoKit
 
 As a part of the AlgoKit project, the principles outlined [there](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/algokit.md#guiding-principles)
 also apply - to the extent that this project is just one component of AlgoKit.
 
-#### “Leverage existing ecosystem”
+### “Leverage existing ecosystem”
 
 > AlgoKit functionality gets into the hands of Algorand developers quickly by building on top of the
 > existing ecosystem wherever possible and aligned to these principles.
@@ -95,7 +95,7 @@ also apply - to the extent that this project is just one component of AlgoKit.
 In order to leverage as much existing Python tooling as possible, we should strive to maintain the highest level of
 compatibility with the Python language (and the reference implementation: CPython).
 
-#### “Meet developers where they are”
+### “Meet developers where they are”
 
 > Make Blockchain development mainstream by giving all developers an idiomatic development experience in the operating
 > system, IDE and language they are comfortable with so they can dive in quickly and have less they need to learn before
@@ -104,7 +104,7 @@ compatibility with the Python language (and the reference implementation: CPytho
 Python is a very idiomatic language. We should embrace accepted patterns and practices as much as possible,
 such as those listed in [PEP-20](https://peps.python.org/pep-0020/) (aka “The Zen of Python”).
 
-#### “Extensible”
+### “Extensible”
 
 > Be extensible for community contribution rather than stifling innovation, bottle-necking all changes through the
 > Algorand Foundation and preventing the opportunity for other ecosystems being represented (e.g. Go, Rust, etc.).
@@ -114,7 +114,7 @@ such as those listed in [PEP-20](https://peps.python.org/pep-0020/) (aka “The 
 One way to support this principle in the broader AlgoKit context is by building in a mechanism for reusing
 common code between smart contracts, to allow the community to build their own Python packages.
 
-#### “Sustainable”
+### “Sustainable”
 
 > AlgoKit should be built in a flexible fashion with long-term maintenance in mind. Updates to latest patches in
 > dependencies, Algorand protocol development updates, and community contributions and feedback will all feed in to the
@@ -128,7 +128,7 @@ Looking to the future, best practices for smart contract development are rapidly
 implementation too tightly to a current standard such as ARC-4 - although in that specific example, we would still
 aim for first class support, but it shouldn’t be assumed as the only way to write smart contracts.
 
-#### “Modular components”
+### “Modular components”
 
 > Solution components should be modular and loosely coupled to facilitate efficient parallel development by small,
 > effective teams, reduced architectural complexity and allowing developers to pick and choose the specific tools and
@@ -140,7 +140,7 @@ An example of a very useful feature, that is strongly related but could be imple
 is the ability to run the users code in a unit-testing context, without compilation+deployment first.
 This would require implementing in Python some level of simulation of Algorand Nodes / AVM behaviour.
 
-#### “Secure by default”
+### “Secure by default”
 
 > Include defaults, patterns and tooling that help developers write secure code and reduce the likelihood of security
 > incidents in the Algorand ecosystem. This solution should help Algorand be the most secure Blockchain ecosystem.
@@ -149,7 +149,7 @@ Enforcing security (which is multi-faceted) at a compiler level is difficult, an
 The best application of this principle here is to support auditing, which is important and nuanced enough to be
 listed below as a separate principle.
 
-#### “Cohesive developer tool suite” + “Seamless onramp”
+### “Cohesive developer tool suite” + “Seamless onramp”
 
 > Cohesive developer tool suite: Using AlgoKit should feel professional and cohesive, like it was designed to work
 > together, for the developer; not against them. Developers are guided towards delivering end-to-end, high quality
@@ -161,7 +161,7 @@ listed below as a separate principle.
 These principles relate more to AlgoKit as a whole, so we can respect them by considering the impacts of our decisions
 there more broadly.
 
-### Abstraction without obfuscation
+## Abstraction without obfuscation
 
 Algorand Python is a high level language, with support for things such as branching logic, operator precedence, etc.,
 and not a set of “macros” for generating TEAL. As such, developers will not be able to directly influence specific TEAL
@@ -173,7 +173,7 @@ cost-effective and unsurprising. Python mechanisms such as dynamic (runtime) dis
 functions on types such as `str` that are taken for granted, would require large amounts of ops compared to the
 Python code it represents.
 
-### Support auditing
+## Support auditing
 
 Auditing is a critical part of the security process for deploying smart contracts. We want to support this function,
 and can do so in two ways:
@@ -185,7 +185,7 @@ and can do so in two ways:
 2. Although auditing the TEAL code should be possible, being able to easily identify and relate it back to the higher level
    code can make auditing the contract logic simpler and easier.
 
-### Revolution, not evolution
+## Revolution, not evolution
 
 This is a new and groundbreaking way of developing for Algorand, and not a continuation of the PyTEAL/Beaker approach.
 By allowing developers to write procedural code, as opposed to constructing an expression tree,

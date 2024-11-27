@@ -55,7 +55,7 @@ Algorand Python exposes these through a number of types which can be imported fr
 
 Where supported, the native equivalent of an ARC4 type can be obtained via the `.native` property. It is possible to use native types in an ABI method and the router will automatically encode and decode these types to their ARC4 equivalent.
 
-### Booleans
+## Booleans
 
 **Type:** `algopy.arc4.Bool`<br />
 \\\\
@@ -63,7 +63,7 @@ Where supported, the native equivalent of an ARC4 type can be obtained via the `
 \\\\
 **Native equivalent:** `builtins.bool`
 
-### Unsigned ints
+## Unsigned ints
 
 **Types:** `algopy.arc4.UIntN` (<= 64 bits) `algopy.arc4.BigUIntN` (> 64 bits)<br />
 \\\\
@@ -80,7 +80,7 @@ from algopy import arc4
 UInt40: t.TypeAlias = arc4.UIntN[t.Literal[40]]
 ```
 
-### Unsigned fixed point decimals
+## Unsigned fixed point decimals
 
 **Types:** `algopy.arc4.UFixedNxM` (<= 64 bits) `algopy.arc4.BigUFixedNxM` (> 64 bits)<br />
 \\\\
@@ -95,7 +95,7 @@ from algopy import arc4
 Decimal: t.TypeAlias = arc4.UFixedNxM[t.Literal[64], t.Literal[10]]
 ```
 
-### Bytes and strings
+## Bytes and strings
 
 **Types:** `algopy.arc4.DynamicBytes` and `algopy.arc4.String`<br />
 \\\\
@@ -105,7 +105,7 @@ Decimal: t.TypeAlias = arc4.UFixedNxM[t.Literal[64], t.Literal[10]]
 
 Strings are assumed to be utf-8 encoded and the length of a string is the total number of bytes, *not the total number of characters*.
 
-### Static arrays
+## Static arrays
 
 **Type:** `algopy.arc4.StaticArray`<br />
 \\\\
@@ -122,7 +122,7 @@ from algopy import arc4
 FourBytes: t.TypeAlias = arc4.StaticArray[arc4.Byte, t.Literal[4]]
 ```
 
-### Dynamic arrays
+## Dynamic arrays
 
 **Type:** `algopy.arc4.DynamicArray`<br />
 \\\\
@@ -141,7 +141,7 @@ from algopy import arc4
 UInt64Array: t.TypeAlias = arc4.DynamicArray[arc4.UInt64]
 ```
 
-### Tuples
+## Tuples
 
 **Type:** `algopy.arc4.Tuple`<br />
 \\\\
@@ -151,7 +151,7 @@ UInt64Array: t.TypeAlias = arc4.DynamicArray[arc4.UInt64]
 
 ARC4 Tuples are immutable statically sized arrays of mixed item types. Item types can be specified via generic parameters or inferred from constructor parameters.
 
-### Structs
+## Structs
 
 **Type:** `algopy.arc4.Struct`<br />
 \\\\
@@ -173,7 +173,7 @@ class Vector(arc4.Struct, kw_only=True):
     y: Decimal
 ```
 
-### ARC4 Container Packing
+## ARC4 Container Packing
 
 ARC4 encoding rules are detailed explicitly in the [ARC](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0004.md#encoding-rules). A summary is included here.
 
@@ -184,7 +184,7 @@ Containers are composed of a head and tail portion.
 * Consecutive Bool items are compressed into the minimum number of whole bytes possible by using a single bit to represent each Bool
 * For variable sized items (eg. DynamicArray, String etc), a pointer is included to the head and the data is added to the tail. This pointer represents the offset from the start of the head to the start of the item data in the tail.
 
-### Reference types
+## Reference types
 
 **Types:** `algopy.Account`, `algopy.Application`, `algopy.Asset`, `algopy.gtxn.PaymentTransaction`, `algopy.gtxn.KeyRegistrationTransaction`, `algopy.gtxn.AssetConfigTransaction`, `algopy.gtxn.AssetTransferTransaction`, `algopy.gtxn.AssetFreezeTransaction`, `algopy.gtxn.ApplicationCallTransaction`
 
@@ -226,7 +226,7 @@ class Reference(ARC4Contract):
 [`arc4.abi_call`](../../api-reference/api-algopy.arc4#algopy.arc4.abi_call) can be used to do type safe calls to an ABI method of another contract, these
 calls can be expressed in a few ways.
 
-### ARC4Contract method
+## ARC4Contract method
 
 An ARC4Contract method written in Algorand Python can be referenced directly e.g.
 
@@ -243,7 +243,7 @@ def call_another_contract() -> None:
     assert result == "Hello, World"
 ```
 
-### ARC4Client method
+## ARC4Client method
 
 A ARC4Client client represents the ARC4 abimethods of a smart contract and can be used to call abimethods in a type safe way
 
@@ -267,7 +267,7 @@ def call_another_contract() -> None:
     assert result == "Hello, World"
 ```
 
-### Method signature or name
+## Method signature or name
 
 An ARC4 method selector can be used e.g. `"hello(string)string` along with a type index to specify the return type.
 Additionally just a name can be provided and the method signature will be inferred e.g.

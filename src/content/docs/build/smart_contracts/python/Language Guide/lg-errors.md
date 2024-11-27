@@ -19,7 +19,7 @@ def set_value(value: UInt64):
     assert value > 4, "Value must be > 4"
 ```
 
-### Assertion error handling
+## Assertion error handling
 
 The (optional) string value provided with an assertion, if provided, will be added as a TEAL comment on the end of the assertion line. This works in concert with default AlgoKit Utils app client behaviour to show a TEAL stack trace of an error and thus show the error message to the caller (when source maps have been loaded).
 

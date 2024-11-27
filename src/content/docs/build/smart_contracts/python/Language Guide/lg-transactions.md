@@ -22,7 +22,7 @@ The following types are available:
 
 Group transactions can be used as ARC4 parameters or instantiated from a group index.
 
-### ARC4 parameter
+## ARC4 parameter
 
 Group transactions can be used as parameters in ARC4 method
 
@@ -39,7 +39,7 @@ class MyContract(algopy.ARC4Contract):
         ...
 ```
 
-### Group Index
+## Group Index
 
 Group transactions can also be created using the group index of the transaction.
 If instantiating one of the type specific transactions they will be checked to ensure the transaction is of the expected type.
@@ -62,9 +62,9 @@ def process_payment(group_index: algopy.UInt64) -> None:
 Inner transactions are defined using the parameter types, and can then be submitted individually by calling the
 `.submit()` method, or as a group by calling [`submit_txns`](../../api-reference/api-algopy.itxn#algopy.itxn.submit_txns)
 
-### Examples
+## Examples
 
-#### Create and submit an inner transaction
+### Create and submit an inner transaction
 
 ```python
 from algopy import Account, UInt64, itxn, subroutine
@@ -79,7 +79,7 @@ def example(amount: UInt64, receiver: Account) -> None:
     ).submit()
 ```
 
-#### Accessing result of a submitted inner transaction
+### Accessing result of a submitted inner transaction
 
 ```python
 from algopy import Asset, itxn, subroutine
@@ -97,7 +97,7 @@ def example() -> Asset:
     return asset_txn.created_asset
 ```
 
-#### Submitting multiple transactions
+### Submitting multiple transactions
 
 ```python
 from algopy import Asset, Bytes, itxn, log, subroutine
@@ -125,7 +125,7 @@ def example() -> tuple[Asset, Bytes]:
     return asset1_txn.created_asset, app_txn.logs(1)
 ```
 
-#### Create an ARC4 application, and then call it
+### Create an ARC4 application, and then call it
 
 ```python
 from algopy import Bytes, arc4, itxn, subroutine
@@ -162,7 +162,7 @@ def example() -> None:
     )
 ```
 
-#### Create and submit transactions in a loop
+### Create and submit transactions in a loop
 
 ```python
 from algopy import Account, UInt64, itxn, subroutine
@@ -178,9 +178,9 @@ def example(receivers: tuple[Account, Account, Account]) -> None:
         ).submit()
 ```
 
-### ARC4 Application calls
+## ARC4 Application calls
 
-#### `algopy.arc4.abi_call`
+### `algopy.arc4.abi_call`
 
 [`algopy.arc4.abi_call`](../../api-reference/api-algopy.arc4#algopy.arc4.abi_call) can be used to call other ARC4 contracts, the first argument should refer to
 an ARC4 method either by referencing an Algorand Python [`algopy.arc4.ARC4Contract`](../../api-reference/api-algopy.arc4#algopy.arc4.ARC4Contract) method,
@@ -209,11 +209,11 @@ def call_existing_application(app: Application) -> None:
     assert greet_txn.app_id == 1234
 ```
 
-### Limitations
+## Limitations
 
 Inner transactions are powerful, but currently do have some restrictions in how they are used.
 
-#### Inner transaction objects cannot be passed to or returned from subroutines
+### Inner transaction objects cannot be passed to or returned from subroutines
 
 ```python
 from algopy import Application, Bytes, itxn, subroutine
@@ -243,7 +243,7 @@ def do_something(txn_id: Bytes):  # this is just a regular subroutine
     ...
 ```
 
-#### Inner transaction parameters cannot be reassigned without a `.copy()`
+### Inner transaction parameters cannot be reassigned without a `.copy()`
 
 ```python
 from algopy import itxn, subroutine
@@ -256,7 +256,7 @@ def example() -> None:
     copied_payment = payment.copy()  # this is ok
 ```
 
-#### Inner transactions cannot be reassigned
+### Inner transactions cannot be reassigned
 
 ```python
 from algopy import itxn, subroutine
@@ -269,7 +269,7 @@ def example() -> None:
     txn_id = payment_txn.txn_id  # this is ok
 ```
 
-#### Inner transactions methods cannot be called if there is a subsequent inner transaction submitted or another subroutine is called.
+### Inner transactions methods cannot be called if there is a subsequent inner transaction submitted or another subroutine is called.
 
 ```python
 from algopy import itxn, subroutine
