@@ -1,7 +1,9 @@
 ---
-title: "Program structure"
+title: ""
 ---
-<div set:html={`
+import { Code } from '@astrojs/starlight/components';
+
+<Fragment set:html={`
           <section id="program-structure">
 <h1>Program structure<a class="headerlink" href="#program-structure" title="Link to this heading">¶</a></h1>
 <p>An Algorand Python smart contract is defined within a single class. You can extend other
@@ -9,7 +11,10 @@ contracts (through inheritance), and also define standalone functions and refere
 works across different Python packages - in other words, you can have a Python library with common
 functions and re-use that library across multiple projects!</p>
 <section id="modules">
-<h2>Modules<a class="headerlink" href="#modules" title="Link to this heading">¶</a></h2>
+`} />
+## Modules
+
+<Fragment set:html={`
 <p>Algorand Python modules are files that end in <code class="docutils literal notranslate"><span class="pre">.py</span></code>, as with standard Python. Sub-modules are
 supported as well, so you’re free to organise your Algorand Python code however you see fit.
 The standard python import rules apply, including
@@ -20,27 +25,33 @@ requirements.</p>
 <a class="reference internal" href="#logic-signatures"><span class="xref myst">logic signatures</span></a>, and <a class="reference internal" href="../lg-modules.html"><span class="std std-doc">compile-time constant code and values</span></a>.</p>
 </section>
 <section id="typing">
-<h2>Typing<a class="headerlink" href="#typing" title="Link to this heading">¶</a></h2>
+`} />
+## Typing
+
+<Fragment set:html={`
 <p>Algorand Python code must be fully typed with
 <a class="reference external" href="https://docs.python.org/3/library/typing.html">type annotations</a>.</p>
 <p>In practice, this mostly means annotating the arguments and return types of all functions.</p>
 </section>
 <section id="subroutines">
-<h2>Subroutines<a class="headerlink" href="#subroutines" title="Link to this heading">¶</a></h2>
+`} />
+## Subroutines
+
+<Fragment set:html={`
 <p>Subroutines are “internal” or “private” methods to a contract. They can exist as part of a contract
 class, or at the module level so they can be used by multiple classes or even across multiple
 projects.</p>
 <p>You can pass parameters to subroutines and define local variables, both of which automatically get
 managed for you with semantics that match Python semantics.</p>
 <p>All subroutines must be decorated with <code class="docutils literal notranslate"><span class="pre">algopy.subroutine</span></code>, like so:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># compiler error: not decorated with subroutine</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># compiler error: not decorated with subroutine</span>
     <span class="o">...</span>
 
 <span class="nd">@algopy</span><span class="o">.</span><span class="n">subroutine</span>
 <span class="k">def</span> <span class="nf">bar</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="o">...</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Requiring this decorator serves two key purposes:</p>
@@ -55,17 +66,17 @@ a future testing framework.</p></li>
 <a class="reference internal" href="../lg-transactions.html#inner-transaction-objects-cannot-be-passed-to-or-returned-from-subroutines"><span class="std std-ref">some inner transaction types</span></a>
 ).</p>
 <p>Returning multiple values is allowed, this is annotated in the standard Python way with <code class="docutils literal notranslate"><span class="pre">tuple</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@algopy</span><span class="o">.</span><span class="n">subroutine</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@algopy</span><span class="o">.</span><span class="n">subroutine</span>
 <span class="k">def</span> <span class="nf">return_two_things</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">algopy</span><span class="o">.</span><span class="n">UInt64</span><span class="p">,</span> <span class="n">algopy</span><span class="o">.</span><span class="n">String</span><span class="p">]:</span>
     <span class="o">...</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p>Keyword only and positional only argument list modifiers are supported:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@algopy</span><span class="o">.</span><span class="n">subroutine</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@algopy</span><span class="o">.</span><span class="n">subroutine</span>
 <span class="k">def</span> <span class="nf">my_method</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">algopy</span><span class="o">.</span><span class="n">UInt64</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">algopy</span><span class="o">.</span><span class="n">UInt64</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="n">algopy</span><span class="o">.</span><span class="n">UInt64</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="o">...</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">a</span></code> can only be passed positionally, <code class="docutils literal notranslate"><span class="pre">b</span></code> can be passed either by position or by
 name, and <code class="docutils literal notranslate"><span class="pre">c</span></code> can only be passed by name.</p>
 <p>The following argument/return types are not currently supported:</p>
@@ -77,7 +88,10 @@ name, and <code class="docutils literal notranslate"><span class="pre">c</span><
 </ul>
 </section>
 <section id="contract-classes">
-<h2>Contract classes<a class="headerlink" href="#contract-classes" title="Link to this heading">¶</a></h2>
+`} />
+## Contract classes
+
+<Fragment set:html={`
 <p>An <a class="reference external" href="https://developer.algorand.org/docs/get-details/dapps/smart-contracts/apps/">Algorand smart contract</a>
 consists of two distinct “programs”; an approval program, and a
 clear-state program. These are tied together in Algorand Python as a single class.</p>
@@ -96,14 +110,14 @@ methods that allow for creation.</p>
 <p>The contract class body should not contain any logic or variable initialisations, only method
 definitions. Forward type declarations are allowed.</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyContract</span><span class="p">(</span><span class="n">algopy</span><span class="o">.</span><span class="n">Contract</span><span class="p">):</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyContract</span><span class="p">(</span><span class="n">algopy</span><span class="o">.</span><span class="n">Contract</span><span class="p">):</span>
     <span class="n">foo</span><span class="p">:</span> <span class="n">algopy</span><span class="o">.</span><span class="n">UInt64</span>  <span class="c1"># okay</span>
     <span class="n">bar</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">UInt64</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># not allowed</span>
 
     <span class="k">if</span> <span class="kc">True</span><span class="p">:</span> <span class="c1"># also not allowed</span>
         <span class="n">bar</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">UInt64</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p>Only concrete (ie non-abstract) classes produce output artifacts for deployment. To mark a class
 as explicitly abstract, inherit from <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC"><code class="docutils literal notranslate"><span class="pre">abc.ABC</span></code></a>.</p>
 <div class="admonition note">
@@ -114,7 +128,10 @@ abstract methods are unimplemented.</p>
 <p>For more about inheritance and it’s role in code reuse, see the section
 in <a class="reference internal" href="#lg-code-reuse.md#inheritance"><span class="xref myst">Code reuse</span></a></p>
 <section id="contract-class-configuration">
-<h3>Contract class configuration<a class="headerlink" href="#contract-class-configuration" title="Link to this heading">¶</a></h3>
+`} />
+### Contract class configuration
+
+<Fragment set:html={`
 <p>When defining a contract subclass you can pass configuration options to the <code class="docutils literal notranslate"><span class="pre">algopy.Contract</span></code>
 base class <a class="reference internal" href="../api-algopy.html#algopy.Contract"><span class="std std-ref">per the API documentation</span></a>.</p>
 <p>Namely you can pass in:</p>
@@ -127,7 +144,7 @@ so you can manually use them.</p></li>
 when creating a contract and will appear in ARC-32 app spec.</p></li>
 </ul>
 <p>Full example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GLOBAL_UINTS</span> <span class="o">=</span> <span class="mi">3</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GLOBAL_UINTS</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="k">class</span> <span class="nc">MyContract</span><span class="p">(</span>
     <span class="n">algopy</span><span class="o">.</span><span class="n">Contract</span><span class="p">,</span>
@@ -137,30 +154,36 @@ when creating a contract and will appear in ARC-32 app spec.</p></li>
 <span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 <section id="example-simplest-possible-algopy-contract-implementation">
-<h3>Example: Simplest possible <code class="docutils literal notranslate"><span class="pre">algopy.Contract</span></code> implementation<a class="headerlink" href="#example-simplest-possible-algopy-contract-implementation" title="Link to this heading">¶</a></h3>
+`} />
+### Example: Simplest possible algopy.Contract implementation
+
+<Fragment set:html={`
 <p>For a non-ARC4 contract, the contract class must implement an <code class="docutils literal notranslate"><span class="pre">approval_program</span></code> and
 a <code class="docutils literal notranslate"><span class="pre">clear_state_program</span></code> method.</p>
 <p>As an example, this is a valid contract that always approves:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Contract</span><span class="p">(</span><span class="n">algopy</span><span class="o">.</span><span class="n">Contract</span><span class="p">):</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Contract</span><span class="p">(</span><span class="n">algopy</span><span class="o">.</span><span class="n">Contract</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">approval_program</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">clear_state_program</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p>The return value of these methods can be either a <code class="docutils literal notranslate"><span class="pre">bool</span></code> that indicates whether the transaction
 should approve or not, or a <code class="docutils literal notranslate"><span class="pre">algopy.UInt64</span></code> value, where <code class="docutils literal notranslate"><span class="pre">UInt64(0)</span></code> indicates that the transaction
 should be rejected and any other value indicates that it should be approved.</p>
 </section>
 <section id="example-simple-call-counter">
-<h3>Example: Simple call counter<a class="headerlink" href="#example-simple-call-counter" title="Link to this heading">¶</a></h3>
+`} />
+### Example: Simple call counter
+
+<Fragment set:html={`
 <p>Here is a very simple example contract that maintains a counter of how many times it has
 been called (including on create).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Counter</span><span class="p">(</span><span class="n">algopy</span><span class="o">.</span><span class="n">Contract</span><span class="p">):</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Counter</span><span class="p">(</span><span class="n">algopy</span><span class="o">.</span><span class="n">Contract</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">UInt64</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
@@ -180,7 +203,7 @@ been called (including on create).</p>
     <span class="k">def</span> <span class="nf">increment_counter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p>Some things to note:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">self.counter</span></code> will be stored in the application’s <a class="reference internal" href="../lg-storage.html#global-state"><span class="std std-ref">Global State</span></a>.</p></li>
@@ -190,12 +213,15 @@ with <code class="docutils literal notranslate"><span class="pre">@subroutine</s
 </ul>
 </section>
 <section id="example-simplest-possible-algopy-arc4contract-implementation">
-<h3>Example: Simplest possible <code class="docutils literal notranslate"><span class="pre">algopy.ARC4Contract</span></code> implementation<a class="headerlink" href="#example-simplest-possible-algopy-arc4contract-implementation" title="Link to this heading">¶</a></h3>
+`} />
+### Example: Simplest possible algopy.ARC4Contract implementation
+
+<Fragment set:html={`
 <p>And here is a valid ARC4 contract:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ABIContract</span><span class="p">(</span><span class="n">algopy</span><span class="o">.</span><span class="n">ARC4Contract</span><span class="p">):</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ABIContract</span><span class="p">(</span><span class="n">algopy</span><span class="o">.</span><span class="n">ARC4Contract</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p>A default <code class="docutils literal notranslate"><span class="pre">@algopy.arc4.baremethod</span></code> that allows contract creation is automatically inserted if no
 other public method allows execution on create.</p>
 <p>The approval program is always automatically generated, and consists of a router which delegates
@@ -203,8 +229,11 @@ based on the transaction application args to the correct public method.</p>
 <p>A default <code class="docutils literal notranslate"><span class="pre">clear_state_program</span></code> is implemented which always approves, but this can be overridden.</p>
 </section>
 <section id="example-an-arc4-call-counter">
-<h3>Example: An ARC4 call counter<a class="headerlink" href="#example-an-arc4-call-counter" title="Link to this heading">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">algopy</span>
+`} />
+### Example: An ARC4 call counter
+
+<Fragment set:html={`
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">algopy</span>
 
 <span class="k">class</span> <span class="nc">ARC4Counter</span><span class="p">(</span><span class="n">algopy</span><span class="o">.</span><span class="n">ARC4Contract</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -219,7 +248,7 @@ based on the transaction application args to the correct public method.</p>
     <span class="k">def</span> <span class="nf">increment_counter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p>This functions very similarly to the <a class="reference internal" href="#example-simple-call-counter"><span class="xref myst">simple example</span></a>.</p>
 <p>Things to note here:</p>
 <ul class="simple">
@@ -237,20 +266,15 @@ methods must be decorated with one of <code class="docutils literal notranslate"
 </section>
 </section>
 <section id="logic-signatures">
-<h2>Logic signatures<a class="headerlink" href="#logic-signatures" title="Link to this heading">¶</a></h2>
+`} />
+## Logic signatures
+
+<Fragment set:html={`
 <p><a class="reference external" href="https://developer.algorand.org/docs/get-details/dapps/smart-contracts/smartsigs/">Logic signatures on Algorand</a>
 are stateless, and consist of a single program. As such, they are implemented as functions in Algorand Python
 rather than classes.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@algopy</span><span class="o">.</span><span class="n">logicsig</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@algopy</span><span class="o">.</span><span class="n">logicsig</span>
 <span class="k">def</span> <span class="nf">my_log_sig</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="o">...</span>
 </pre></div>
-</div>
-<p>Similar to <code class="docutils literal notranslate"><span class="pre">approval_program</span></code> or <code class="docutils literal notranslate"><span class="pre">clear_state_program</span></code> methods, the function must take no
-arguments, and return either <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">algopy.UInt64</span></code>. The meaning is the same: a <code class="docutils literal notranslate"><span class="pre">True</span></code>
-value or non-zero <code class="docutils literal notranslate"><span class="pre">UInt64</span></code> value indicates success, <code class="docutils literal notranslate"><span class="pre">False</span></code> or <code class="docutils literal notranslate"><span class="pre">UInt64(0)</span></code> indicates failure.</p>
-<p>Logic signatures can make use of subroutines that are not nested in contract classes.</p>
-</section>
-</section>
-
-        `} />
+</div>`} lang='py' frame='none' />

@@ -1,7 +1,9 @@
 ---
-title: "ARC-28: Structured event logging"
+title: ""
 ---
-<div set:html={`
+import { Code } from '@astrojs/starlight/components';
+
+<Fragment set:html={`
           <section id="arc-28-structured-event-logging">
 <h1>ARC-28: Structured event logging<a class="headerlink" href="#arc-28-structured-event-logging" title="Link to this heading">¶</a></h1>
 <p><a class="reference external" href="https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0028.md">ARC-28</a> provides a methodology for structured logging by Algorand smart contracts. It introduces the concept of Events, where data contained in logs may be categorized and structured.</p>
@@ -11,7 +13,10 @@ title: "ARC-28: Structured event logging"
 </div>
 <p>Events are emitting by including them in the <a class="reference internal" href="../lg-logs.html"><span class="std std-doc">log output</span></a>. The metadata that identifies the event should then be included in the ARC-4 contract output so that a calling client can parse the logs to parse the structured data out. This part of the ARC-28 spec isn’t yet implemented in Algorand Python, but it’s on the roadmap.</p>
 <section id="emitting-events">
-<h2>Emitting Events<a class="headerlink" href="#emitting-events" title="Link to this heading">¶</a></h2>
+`} />
+## Emitting Events
+
+<Fragment set:html={`
 <p>To emit an ARC-28 event in Algorand Python you can use the <code class="docutils literal notranslate"><span class="pre">emit</span></code> function, which appears in the <code class="docutils literal notranslate"><span class="pre">algopy.arc4</span></code> namespace for convenience since it heavily uses ARC-4 types and is essentially an extension of the ARC-4 specification. This function takes care of encoding the event payload to conform to the ARC-28 specification and there are 3 overloads:</p>
 <ul class="simple">
 <li><p>An <a class="reference internal" href="../lg-arc4.html"><span class="std std-doc">ARC-4 struct</span></a>, from what the name of the struct will be used as a the event name and the struct parameters will be used as the event fields - <code class="docutils literal notranslate"><span class="pre">arc4.emit(Swapped(a,</span> <span class="pre">b))</span></code></p></li>
@@ -19,7 +24,7 @@ title: "ARC-28: Structured event logging"
 <li><p>An event name as a <a class="reference internal" href="../lg-types.html"><span class="std std-doc">string literal (or module variable)</span></a>, followed by the values - <code class="docutils literal notranslate"><span class="pre">arc4.emit("Swapped",</span> <span class="pre">a,</span> <span class="pre">b)</span></code></p></li>
 </ul>
 <p>Here’s an example contract that emits events:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">ARC4Contract</span><span class="p">,</span> <span class="n">arc4</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">ARC4Contract</span><span class="p">,</span> <span class="n">arc4</span>
 
 <span class="k">class</span> <span class="nc">Swapped</span><span class="p">(</span><span class="n">arc4</span><span class="o">.</span><span class="n">Struct</span><span class="p">):</span>
     <span class="n">a</span><span class="p">:</span> <span class="n">arc4</span><span class="o">.</span><span class="n">UInt64</span>
@@ -32,10 +37,10 @@ title: "ARC-28: Structured event logging"
         <span class="n">arc4</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">"Swapped(uint64,uint64)"</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
         <span class="n">arc4</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">"Swapped"</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p>It’s worth noting that the ARC-28 event signature needs to be known at compile time so the event name can’t be a dynamic type and must be a static string literal or string module constant. If you want to emit dynamic events you can do so using the <a class="reference internal" href="../lg-logs.html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">log</span></code> method</span></a>, but you’d need to manually construct the correct series of bytes and the compiler won’t be able to emit the ARC-28 metadata so you’ll need to also manually parse the logs in your client.</p>
 <p>Examples of manually constructing an event:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is essentially what the `emit` method is doing, noting that a,b need to be encoded</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is essentially what the `emit` method is doing, noting that a,b need to be encoded</span>
 <span class="c1">#   as a tuple so below (simple concat) only works for static ARC-4 types</span>
 <span class="n">log</span><span class="p">(</span><span class="n">arc4</span><span class="o">.</span><span class="n">arc4_signature</span><span class="p">(</span><span class="s2">"Swapped(uint64,uint64)"</span><span class="p">),</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
@@ -46,8 +51,4 @@ title: "ARC-28: Structured event logging"
 <span class="n">event_selector</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">sha512_256</span><span class="p">((</span><span class="n">event_name</span> <span class="o">+</span> <span class="s2">"(uint64)"</span><span class="p">)</span><span class="o">.</span><span class="n">bytes</span><span class="p">)[:</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">log</span><span class="p">(</span><span class="n">event_selector</span><span class="p">,</span> <span class="n">UInt64</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
 </pre></div>
-</div>
-</section>
-</section>
-
-        `} />
+</div>`} lang='py' frame='none' />

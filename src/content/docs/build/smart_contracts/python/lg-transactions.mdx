@@ -1,7 +1,9 @@
 ---
-title: "Transactions"
+title: ""
 ---
-<div set:html={`
+import { Code } from '@astrojs/starlight/components';
+
+<Fragment set:html={`
           <section id="transactions">
 <h1>Transactions<a class="headerlink" href="#transactions" title="Link to this heading">¶</a></h1>
 <p>Algorand Python provides types for accessing fields of other transactions in a group, as well as
@@ -48,13 +50,19 @@ creating and submitting inner transactions from your smart contract.</p>
 </table>
 </div>
 <section id="group-transactions">
-<h2>Group Transactions<a class="headerlink" href="#group-transactions" title="Link to this heading">¶</a></h2>
+`} />
+## Group Transactions
+
+<Fragment set:html={`
 <p>Group transactions can be used as ARC4 parameters or instantiated from a group index.</p>
 <section id="arc4-parameter">
-<h3>ARC4 parameter<a class="headerlink" href="#arc4-parameter" title="Link to this heading">¶</a></h3>
+`} />
+### ARC4 parameter
+
+<Fragment set:html={`
 <p>Group transactions can be used as parameters in ARC4 method</p>
 <p>For example to require a payment transaction in an ARC4 ABI method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">algopy</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">algopy</span>
 
 
 <span class="k">class</span> <span class="nc">MyContract</span><span class="p">(</span><span class="n">algopy</span><span class="o">.</span><span class="n">ARC4Contract</span><span class="p">):</span>
@@ -63,15 +71,18 @@ creating and submitting inner transactions from your smart contract.</p>
     <span class="k">def</span> <span class="nf">process_payment</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">algopy</span><span class="o">.</span><span class="n">gtxn</span><span class="o">.</span><span class="n">PaymentTransaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="o">...</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 <section id="group-index">
-<h3>Group Index<a class="headerlink" href="#group-index" title="Link to this heading">¶</a></h3>
+`} />
+### Group Index
+
+<Fragment set:html={`
 <p>Group transactions can also be created using the group index of the transaction.
 If instantiating one of the type specific transactions they will be checked to ensure the transaction is of the expected type.
 <a class="reference internal" href="../api-algopy.gtxn.html#algopy.gtxn.Transaction" title="algopy.gtxn.Transaction"><span class="xref myst py py-class">Transaction</span></a> is not checked for a specific type and provides access to all transaction fields</p>
 <p>For example, to obtain a reference to a payment transaction:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">algopy</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">algopy</span>
 
 
 <span class="nd">@algopy</span><span class="o">.</span><span class="n">subroutine</span><span class="p">()</span>
@@ -79,18 +90,27 @@ If instantiating one of the type specific transactions they will be checked to e
     <span class="n">pay_txn</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">gtxn</span><span class="o">.</span><span class="n">PaymentTransaction</span><span class="p">(</span><span class="n">group_index</span><span class="p">)</span>
     <span class="o">...</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 </section>
 <section id="inner-transactions">
-<h2>Inner Transactions<a class="headerlink" href="#inner-transactions" title="Link to this heading">¶</a></h2>
+`} />
+## Inner Transactions
+
+<Fragment set:html={`
 <p>Inner transactions are defined using the parameter types, and can then be submitted individually by calling the
 <code class="docutils literal notranslate"><span class="pre">.submit()</span></code> method, or as a group by calling <a class="reference internal" href="../api-algopy.itxn.html#algopy.itxn.submit_txns" title="algopy.itxn.submit_txns"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">submit_txns</span></code></span></a></p>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h3>
+`} />
+### Examples
+
+<Fragment set:html={`
 <section id="create-and-submit-an-inner-transaction">
-<h4>Create and submit an inner transaction<a class="headerlink" href="#create-and-submit-an-inner-transaction" title="Link to this heading">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Account</span><span class="p">,</span> <span class="n">UInt64</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
+`} />
+#### Create and submit an inner transaction
+
+<Fragment set:html={`
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Account</span><span class="p">,</span> <span class="n">UInt64</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
 
 
 <span class="nd">@subroutine</span>
@@ -101,11 +121,14 @@ If instantiating one of the type specific transactions they will be checked to e
         <span class="n">fee</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="p">)</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 <section id="accessing-result-of-a-submitted-inner-transaction">
-<h4>Accessing result of a submitted inner transaction<a class="headerlink" href="#accessing-result-of-a-submitted-inner-transaction" title="Link to this heading">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Asset</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
+`} />
+#### Accessing result of a submitted inner transaction
+
+<Fragment set:html={`
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Asset</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
 
 
 <span class="nd">@subroutine</span>
@@ -119,11 +142,14 @@ If instantiating one of the type specific transactions they will be checked to e
     <span class="p">)</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">asset_txn</span><span class="o">.</span><span class="n">created_asset</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 <section id="submitting-multiple-transactions">
-<h4>Submitting multiple transactions<a class="headerlink" href="#submitting-multiple-transactions" title="Link to this heading">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Asset</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">subroutine</span>
+`} />
+#### Submitting multiple transactions
+
+<Fragment set:html={`
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Asset</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">subroutine</span>
 
 
 <span class="nd">@subroutine</span>
@@ -147,11 +173,14 @@ If instantiating one of the type specific transactions they will be checked to e
 
     <span class="k">return</span> <span class="n">asset1_txn</span><span class="o">.</span><span class="n">created_asset</span><span class="p">,</span> <span class="n">app_txn</span><span class="o">.</span><span class="n">logs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 <section id="create-an-arc4-application-and-then-call-it">
-<h4>Create an ARC4 application, and then call it<a class="headerlink" href="#create-an-arc4-application-and-then-call-it" title="Link to this heading">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">arc4</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
+`} />
+#### Create an ARC4 application, and then call it
+
+<Fragment set:html={`
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">arc4</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
 
 <span class="n">HELLO_WORLD_APPROVAL</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="o">...</span>
 <span class="n">HELLO_WORLD_CLEAR</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="o">...</span>
@@ -184,11 +213,14 @@ If instantiating one of the type specific transactions they will be checked to e
         <span class="n">app_id</span><span class="o">=</span><span class="n">app</span>
     <span class="p">)</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 <section id="create-and-submit-transactions-in-a-loop">
-<h4>Create and submit transactions in a loop<a class="headerlink" href="#create-and-submit-transactions-in-a-loop" title="Link to this heading">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Account</span><span class="p">,</span> <span class="n">UInt64</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
+`} />
+#### Create and submit transactions in a loop
+
+<Fragment set:html={`
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Account</span><span class="p">,</span> <span class="n">UInt64</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
 
 
 <span class="nd">@subroutine</span>
@@ -200,13 +232,19 @@ If instantiating one of the type specific transactions they will be checked to e
             <span class="n">fee</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 </section>
 <section id="arc4-application-calls">
-<h3>ARC4 Application calls<a class="headerlink" href="#arc4-application-calls" title="Link to this heading">¶</a></h3>
+`} />
+### ARC4 Application calls
+
+<Fragment set:html={`
 <section id="algopy-arc4-abi-call">
-<h4><code class="docutils literal notranslate"><span class="pre">algopy.arc4.abi_call</span></code><a class="headerlink" href="#algopy-arc4-abi-call" title="Link to this heading">¶</a></h4>
+`} />
+#### algopy.arc4.abi_call
+
+<Fragment set:html={`
 <p><a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.abi_call" title="algopy.arc4.abi_call"><span class="xref myst py py-data"><code class="docutils literal notranslate"><span class="pre">algopy.arc4.abi_call</span></code></span></a> can be used to call other ARC4 contracts, the first argument should refer to
 an ARC4 method either by referencing an Algorand Python <a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.ARC4Contract" title="algopy.arc4.ARC4Contract"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">algopy.arc4.ARC4Contract</span></code></span></a> method,
 an <a class="reference internal" href="../api-algopy.arc4.html#algopy.arc4.ARC4Client" title="algopy.arc4.ARC4Client"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">algopy.arc4.ARC4Client</span></code></span></a> method generated from an ARC-32 app spec, or a string representing
@@ -215,7 +253,7 @@ The following arguments should then be the arguments required for the call, thes
 Any other related transaction parameters such as <code class="docutils literal notranslate"><span class="pre">app_id</span></code>, <code class="docutils literal notranslate"><span class="pre">fee</span></code> etc. can also be provided as keyword arguments.</p>
 <p>If the ARC4 method returns an ARC4 result then the result will be a tuple of the ARC4 result and the inner transaction.
 If the ARC4 method does not return a result, or if the result type is not fully qualified then just the inner transaction is returned.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">ARC4Contract</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">arc4</span><span class="p">,</span> <span class="n">subroutine</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">ARC4Contract</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">arc4</span><span class="p">,</span> <span class="n">subroutine</span>
 
 <span class="k">class</span> <span class="nc">HelloWorld</span><span class="p">(</span><span class="n">ARC4Contract</span><span class="p">):</span>
     
@@ -230,15 +268,21 @@ If the ARC4 method does not return a result, or if the result type is not fully 
     <span class="k">assert</span> <span class="n">greeting</span> <span class="o">==</span> <span class="s2">"Hello there"</span>
     <span class="k">assert</span> <span class="n">greet_txn</span><span class="o">.</span><span class="n">app_id</span> <span class="o">==</span> <span class="mi">1234</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 </section>
 <section id="limitations">
-<h3>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">¶</a></h3>
+`} />
+### Limitations
+
+<Fragment set:html={`
 <p>Inner transactions are powerful, but currently do have some restrictions in how they are used.</p>
 <section id="inner-transaction-objects-cannot-be-passed-to-or-returned-from-subroutines">
-<h4>Inner transaction objects cannot be passed to or returned from subroutines<a class="headerlink" href="#inner-transaction-objects-cannot-be-passed-to-or-returned-from-subroutines" title="Link to this heading">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
+`} />
+#### Inner transaction objects cannot be passed to or returned from subroutines
+
+<Fragment set:html={`
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
 
 
 <span class="nd">@subroutine</span>
@@ -264,11 +308,14 @@ If the ARC4 method does not return a result, or if the result type is not fully 
 <span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">txn_id</span><span class="p">:</span> <span class="n">Bytes</span><span class="p">):</span>  <span class="c1"># this is just a regular subroutine</span>
     <span class="o">...</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 <section id="inner-transaction-parameters-cannot-be-reassigned-without-a-copy">
-<h4>Inner transaction parameters cannot be reassigned without a <code class="docutils literal notranslate"><span class="pre">.copy()</span></code><a class="headerlink" href="#inner-transaction-parameters-cannot-be-reassigned-without-a-copy" title="Link to this heading">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
+`} />
+#### Inner transaction parameters cannot be reassigned without a .copy()
+
+<Fragment set:html={`
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
 
 
 <span class="nd">@subroutine</span>
@@ -277,11 +324,14 @@ If the ARC4 method does not return a result, or if the result type is not fully 
     <span class="n">reassigned_payment</span> <span class="o">=</span> <span class="n">payment</span>  <span class="c1"># this is an error</span>
     <span class="n">copied_payment</span> <span class="o">=</span> <span class="n">payment</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># this is ok</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 <section id="inner-transactions-cannot-be-reassigned">
-<h4>Inner transactions cannot be reassigned<a class="headerlink" href="#inner-transactions-cannot-be-reassigned" title="Link to this heading">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
+`} />
+#### Inner transactions cannot be reassigned
+
+<Fragment set:html={`
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
 
 
 <span class="nd">@subroutine</span>
@@ -290,11 +340,14 @@ If the ARC4 method does not return a result, or if the result type is not fully 
     <span class="n">reassigned_payment_txn</span> <span class="o">=</span> <span class="n">payment_txn</span>  <span class="c1"># this is an error</span>
     <span class="n">txn_id</span> <span class="o">=</span> <span class="n">payment_txn</span><span class="o">.</span><span class="n">txn_id</span>  <span class="c1"># this is ok</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 </section>
 <section id="inner-transactions-methods-cannot-be-called-if-there-is-a-subsequent-inner-transaction-submitted-or-another-subroutine-is-called">
-<h4>Inner transactions methods cannot be called if there is a subsequent inner transaction submitted or another subroutine is called.<a class="headerlink" href="#inner-transactions-methods-cannot-be-called-if-there-is-a-subsequent-inner-transaction-submitted-or-another-subroutine-is-called" title="Link to this heading">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
+`} />
+#### Inner transactions methods cannot be called if there is a subsequent inner transaction submitted or another subroutine is called.
+
+<Fragment set:html={`
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">itxn</span><span class="p">,</span> <span class="n">subroutine</span>
 
 
 <span class="nd">@subroutine</span>
@@ -310,10 +363,4 @@ If the ARC4 method does not return a result, or if the result type is not fully 
     <span class="n">app1_txn_id</span> <span class="o">=</span> <span class="n">app_1</span><span class="o">.</span><span class="n">txn_id</span>  <span class="c1"># this is ok, properties are still available</span>
     <span class="n">another_log_from_call1</span> <span class="o">=</span> <span class="n">app_1</span><span class="o">.</span><span class="n">logs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># this is not allowed as the array results may no longer be available, instead assign to a variable before submitting another transaction</span>
 </pre></div>
-</div>
-</section>
-</section>
-</section>
-</section>
-
-        `} />
+</div>`} lang='py' frame='none' />

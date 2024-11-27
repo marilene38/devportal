@@ -1,13 +1,18 @@
 ---
-title: "PuyaPy compiler"
+title: ""
 ---
-<div set:html={`
+import { Code } from '@astrojs/starlight/components';
+
+<Fragment set:html={`
           <section id="puyapy-compiler">
 <h1>PuyaPy compiler<a class="headerlink" href="#puyapy-compiler" title="Link to this heading">¶</a></h1>
 <p>The PuyaPy compiler is a multi-stage, optimising compiler that takes Algorand Python and prepares it for execution on the AVM. PuyaPy ensures the resulting AVM bytecode execution semantics that match the given Python code. PuyaPy produces output that is directly compatible with <a class="reference external" href="https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/generate.md#1-typed-clients">AlgoKit typed clients</a> to make deployment and calling easy (among other formats).</p>
 <p>The PuyaPy compiler is based on the <a class="reference internal" href="#compiler-architecture"><span class="xref myst">Puya compiler architecture</span></a>, which allows for multiple frontend languages to leverage the majority of the compiler logic so adding new frontend languages for execution on Algorand is relatively easy.</p>
 <section id="compiler-installation">
-<h2>Compiler installation<a class="headerlink" href="#compiler-installation" title="Link to this heading">¶</a></h2>
+`} />
+## Compiler installation
+
+<Fragment set:html={`
 <p>The minimum supported Python version for running the PuyaPy compiler is 3.12.</p>
 <p>There are three ways of installing the PuyaPy compiler.</p>
 <ol class="arabic">
@@ -39,7 +44,10 @@ puyapy<span class="w"> </span>examples/hello_world
 </div>
 </section>
 <section id="using-the-compiler">
-<h2>Using the compiler<a class="headerlink" href="#using-the-compiler" title="Link to this heading">¶</a></h2>
+`} />
+## Using the compiler
+
+<Fragment set:html={`
 <p>To check that you can run the compiler successfully after installation, you can run the
 help command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">puyapy</span> <span class="o">-</span><span class="n">h</span>
@@ -54,7 +62,10 @@ also supply more than one path at a time to the compiler.</p>
 <p>e.g. either <code class="docutils literal notranslate"><span class="pre">puyapy</span> <span class="pre">my_project/</span></code> or <code class="docutils literal notranslate"><span class="pre">puyapy</span> <span class="pre">my_project/contract.py</span></code> will work to compile a single contract.</p>
 </section>
 <section id="compiler-architecture">
-<h2>Compiler architecture<a class="headerlink" href="#compiler-architecture" title="Link to this heading">¶</a></h2>
+`} />
+## Compiler architecture
+
+<Fragment set:html={`
 <p>The PuyaPy compiler is based on the Puya compiler architecture, which allows for multiple frontend languages to leverage the majority of the compiler logic so adding new frontend languages for execution on Algorand is relatively easy.</p>
 <p>The PuyaPy compiler takes Algorand Python through a series of transformations with each transformation serving a specific purpose:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Python code
@@ -76,14 +87,20 @@ also supply more than one path at a time to the compiler.</p>
 <p>While this may appear complex, splitting it in this manner allows for each step to be expressed in a simple form to do one thing (well) and allows us to make use of industry research into compiler algorithms and formats.</p>
 </section>
 <section id="type-checking">
-<h2>Type checking<a class="headerlink" href="#type-checking" title="Link to this heading">¶</a></h2>
+`} />
+## Type checking
+
+<Fragment set:html={`
 <p>The first and second steps of the <a class="reference internal" href="#compiler-architecture"><span class="xref myst">compiler pipeline</span></a> are significant to note, because it’s where we perform type checking. We leverage <a class="reference external" href="https://mypy-lang.org/">MyPy</a> to do this, so we recommend that you install and use the latest version of MyPy in your development environment to get the best typing information that aligns to what the PuyaPy compiler expects. This should work with standard Python tooling e.g. with Visual Studio Code, PyCharm, et. al.</p>
 <p>The easiest way to get a productive development environment with Algorand Python is to instantiate a template with AlgoKit via <code class="docutils literal notranslate"><span class="pre">algokit</span> <span class="pre">init</span> <span class="pre">-t</span> <span class="pre">python</span></code>. This will give you a full development environment with intellisense, linting, automatic formatting, breakpoint debugging, deployment and CI/CD.</p>
 <p>Alternatively, you can construct your own environment by configuring MyPy, Ruff, etc. with the same configuration files <a class="reference external" href="https://github.com/algorandfoundation/algokit-python-template">used by that template</a>.</p>
 <p>The MyPy config that PuyaPy uses is in <a class="reference external" href="https://github.com/algorandfoundation/puya/blob/main/src/puya/compile.py#L79">compile.py</a></p>
 </section>
 <section id="compiler-usage">
-<h2>Compiler usage<a class="headerlink" href="#compiler-usage" title="Link to this heading">¶</a></h2>
+`} />
+## Compiler usage
+
+<Fragment set:html={`
 <p>The options available for the compile can be seen by executing <code class="docutils literal notranslate"><span class="pre">puyapy</span> <span class="pre">-h</span></code> or <code class="docutils literal notranslate"><span class="pre">algokit</span> <span class="pre">compile</span> <span class="pre">py</span> <span class="pre">-h</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">puyapy</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">version</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">O</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">}]</span>
     <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">teal</span> <span class="o">|</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">output</span><span class="o">-</span><span class="n">teal</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">arc32</span> <span class="o">|</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">output</span><span class="o">-</span><span class="n">arc32</span><span class="p">]</span>
@@ -97,7 +114,10 @@ also supply more than one path at a time to the compiler.</p>
 </pre></div>
 </div>
 <section id="options">
-<h3>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h3>
+`} />
+### Options
+
+<Fragment set:html={`
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
@@ -164,11 +184,17 @@ also supply more than one path at a time to the compiler.</p>
 </div>
 </section>
 <section id="defining-template-values">
-<h3>Defining template values<a class="headerlink" href="#defining-template-values" title="Link to this heading">¶</a></h3>
+`} />
+### Defining template values
+
+<Fragment set:html={`
 <p><a class="reference internal" href="../api-algopy.html#algopy.TemplateVar" title="algopy.TemplateVar"><span class="xref myst py py-data">Template Variables</span></a>, can be replaced with literal values during compilation to bytecode using the <code class="docutils literal notranslate"><span class="pre">--template-var</span></code> option.
 Additionally, Algorand Python functions that create AVM bytecode, such as <a class="reference internal" href="../api-algopy.html#algopy.compile_contract" title="algopy.compile_contract"><span class="xref myst py py-func">compile_contract</span></a> and <a class="reference internal" href="../api-algopy.html#algopy.compile_logicsig" title="algopy.compile_logicsig"><span class="xref myst py py-func">compile_logicsig</span></a>, can also provide the specified values.</p>
 <section id="examples-of-variable-definitions">
-<h4>Examples of Variable Definitions<a class="headerlink" href="#examples-of-variable-definitions" title="Link to this heading">¶</a></h4>
+`} />
+#### Examples of Variable Definitions
+
+<Fragment set:html={`
 <p>The table below illustrates how different variables and values can be defined:</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
@@ -199,7 +225,10 @@ The default prefix can be modified using the <code class="docutils literal notra
 </section>
 </section>
 <section id="advanced-options">
-<h3>Advanced options<a class="headerlink" href="#advanced-options" title="Link to this heading">¶</a></h3>
+`} />
+### Advanced options
+
+<Fragment set:html={`
 <p>There are additional compiler options that allow you to tweak the behaviour in more advanced ways or tweak the output to receive intermediate representations from the compiler pipeline. Most users won’t need to use these options unless exploring the inner workings of the compiler or performing more advanced optimisations.</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
@@ -244,88 +273,6 @@ The default prefix can be modified using the <code class="docutils literal notra
 </section>
 </section>
 <section id="sample-pyproject-toml">
-<h2>Sample <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code><a class="headerlink" href="#sample-pyproject-toml" title="Link to this heading">¶</a></h2>
-<p>A sample <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file with known good configuration is:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.poetry]</span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"algorand_python_contract"</span>
-<span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"0.1.0"</span>
-<span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Algorand smart contracts"</span>
-<span class="na">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">["Name &lt;name@domain.tld&gt;"]</span>
-<span class="na">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"README.md"</span>
+`} />
+## Sample pyproject.toml
 
-<span class="k">[tool.poetry.dependencies]</span>
-<span class="na">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^3.12"</span>
-<span class="na">algokit-utils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^2.2.0"</span>
-<span class="na">python-dotenv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^1.0.0"</span>
-<span class="na">algorand-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^1.0.0"</span>
-
-<span class="k">[tool.poetry.group.dev.dependencies]</span>
-<span class="na">black</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{ extras = ["d"], version = "*" }</span>
-<span class="na">ruff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.1.6"</span>
-<span class="na">mypy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"*"</span>
-<span class="na">pytest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"*"</span>
-<span class="na">pytest-cov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"*"</span>
-<span class="na">pip-audit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"*"</span>
-<span class="na">pre-commit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"*"</span>
-<span class="na">puyapy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^1.0"</span>
-
-<span class="k">[build-system]</span>
-<span class="na">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">["poetry-core"]</span>
-<span class="na">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"poetry.core.masonry.api"</span>
-
-<span class="k">[tool.ruff]</span>
-<span class="na">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">120</span>
-<span class="na">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[</span>
-<span class="w">  </span><span class="na">"E",</span>
-<span class="w">  </span><span class="na">"F",</span>
-<span class="w">  </span><span class="na">"ANN",</span>
-<span class="w">  </span><span class="na">"UP",</span>
-<span class="w">  </span><span class="na">"N",</span>
-<span class="w">  </span><span class="na">"C4",</span>
-<span class="w">  </span><span class="na">"B",</span>
-<span class="w">  </span><span class="na">"A",</span>
-<span class="w">  </span><span class="na">"YTT",</span>
-<span class="w">  </span><span class="na">"W",</span>
-<span class="w">  </span><span class="na">"FBT",</span>
-<span class="w">  </span><span class="na">"Q",</span>
-<span class="w">  </span><span class="na">"RUF",</span>
-<span class="w">  </span><span class="na">"I",</span>
-<span class="na">]</span>
-<span class="na">ignore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[</span>
-<span class="w">  </span><span class="na">"ANN101", # no type for self</span>
-<span class="w">  </span><span class="na">"ANN102", # no type for cls</span>
-<span class="na">]</span>
-<span class="na">unfixable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">["B", "RUF"]</span>
-
-<span class="k">[tool.ruff.flake8-annotations]</span>
-<span class="na">allow-star-arg-any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">suppress-none-returning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-
-<span class="k">[tool.pytest.ini_options]</span>
-<span class="na">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">["smart_contracts", "tests"]</span>
-
-<span class="k">[tool.mypy]</span>
-<span class="na">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"smart_contracts/"</span>
-<span class="na">python_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"3.12"</span>
-<span class="na">disallow_any_generics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">disallow_subclassing_any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">disallow_untyped_calls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">disallow_untyped_defs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">disallow_incomplete_defs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">check_untyped_defs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">disallow_untyped_decorators</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">warn_redundant_casts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">warn_unused_ignores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">warn_return_any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">strict_equality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">strict_concatenate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">disallow_any_unimported</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">disallow_any_expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">disallow_any_decorated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-<span class="na">disallow_any_explicit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-</pre></div>
-</div>
-</section>
-</section>
-
-        `} />

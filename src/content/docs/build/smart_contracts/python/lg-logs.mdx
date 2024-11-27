@@ -1,7 +1,9 @@
 ---
-title: "Logging"
+title: ""
 ---
-<div set:html={`
+import { Code } from '@astrojs/starlight/components';
+
+<Fragment set:html={`
           <section id="logging">
 <h1>Logging<a class="headerlink" href="#logging" title="Link to this heading">¶</a></h1>
 <p>Algorand Python provides a <a class="reference internal" href="../api-algopy.html#algopy.log"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">log</span></code> method</span></a> that allows you to emit debugging and event information as well as return values from your contracts to the caller.</p>
@@ -24,7 +26,7 @@ title: "Logging"
 <p>Logged values are <a class="reference external" href="https://developer.algorand.org/docs/rest-apis/algod/#pendingtransactionresponse">available to the calling client</a> and attached to the transaction record stored on the blockchain ledger.</p>
 <p>If you want to emit ARC-28 events in the logs then there is a <a class="reference internal" href="../lg-arc28.html"><span class="std std-doc">purpose-built function for that</span></a>.</p>
 <p>Here’s an example contract that uses the log method in various ways:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">BigUInt</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">Contract</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">op</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">BigUInt</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">Contract</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">op</span>
 
 <span class="k">class</span> <span class="nc">MyContract</span><span class="p">(</span><span class="n">Contract</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">approval_program</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -46,7 +48,4 @@ title: "Logging"
     <span class="k">def</span> <span class="nf">clear_state_program</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
 </pre></div>
-</div>
-</section>
-
-        `} />
+</div>`} lang='py' frame='none' />

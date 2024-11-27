@@ -1,11 +1,16 @@
 ---
-title: "Principles & Background"
+title: ""
 ---
-<div set:html={`
+import { Code } from '@astrojs/starlight/components';
+
+<Fragment set:html={`
           <section id="principles-background">
 <h1>Principles &amp; Background<a class="headerlink" href="#principles-background" title="Link to this heading">¶</a></h1>
 <section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+`} />
+## Background
+
+<Fragment set:html={`
 <p><strong>Smart contracts</strong> on the Algorand blockchain run on the Algorand Virtual Machine (<a class="reference external" href="https://developer.algorand.org/docs/get-details/dapps/avm/">AVM</a>).
 This is a stack based virtual machine, which executes AVM bytecode as part of an <a class="reference external" href="https://developer.algorand.org/docs/get-details/transactions/#application-call-transaction">Application Call transaction</a>.
 The official mechanism for generating this bytecode is by submitting TEAL (Transaction Execution Approval Language) to
@@ -57,10 +62,16 @@ smart contracts. In line with the principle of meeting developers where they are
 JavaScript and TypeScript, a parallel initiative to build a TypeScript to TEAL compiler is <a class="reference external" href="https://tealscript.netlify.app">also underway</a>.</p>
 </section>
 <section id="principles">
-<h2>Principles<a class="headerlink" href="#principles" title="Link to this heading">¶</a></h2>
+`} />
+## Principles
+
+<Fragment set:html={`
 <p>The principles listed here should form the basis of our decision-making, both in the design and implementation.</p>
 <section id="least-surprise">
-<h3>Least surprise<a class="headerlink" href="#least-surprise" title="Link to this heading">¶</a></h3>
+`} />
+### Least surprise
+
+<Fragment set:html={`
 <p>Our primary objective is to assist developers in creating accurate smart contracts right from the
 start. The often immutable nature of these contracts - although not always the case - and the
 substantial financial value they frequently safeguard, underlines the importance of this goal.</p>
@@ -74,11 +85,17 @@ developer’s intuition and experience, ultimately simplifying their work and mi
 potential for mistakes.</p>
 </section>
 <section id="inherited-from-algokit">
-<h3>Inherited from AlgoKit<a class="headerlink" href="#inherited-from-algokit" title="Link to this heading">¶</a></h3>
+`} />
+### Inherited from AlgoKit
+
+<Fragment set:html={`
 <p>As a part of the AlgoKit project, the principles outlined <a class="reference external" href="https://github.com/algorandfoundation/algokit-cli/blob/main/docs/algokit.md#guiding-principles">there</a>
 also apply - to the extent that this project is just one component of AlgoKit.</p>
 <section id="leverage-existing-ecosystem">
-<h4>“Leverage existing ecosystem”<a class="headerlink" href="#leverage-existing-ecosystem" title="Link to this heading">¶</a></h4>
+`} />
+#### “Leverage existing ecosystem”
+
+<Fragment set:html={`
 <blockquote>
 <div><p>AlgoKit functionality gets into the hands of Algorand developers quickly by building on top of the
 existing ecosystem wherever possible and aligned to these principles.</p>
@@ -87,7 +104,10 @@ existing ecosystem wherever possible and aligned to these principles.</p>
 compatibility with the Python language (and the reference implementation: CPython).</p>
 </section>
 <section id="meet-developers-where-they-are">
-<h4>“Meet developers where they are”<a class="headerlink" href="#meet-developers-where-they-are" title="Link to this heading">¶</a></h4>
+`} />
+#### “Meet developers where they are”
+
+<Fragment set:html={`
 <blockquote>
 <div><p>Make Blockchain development mainstream by giving all developers an idiomatic development experience in the operating
 system, IDE and language they are comfortable with so they can dive in quickly and have less they need to learn before
@@ -97,7 +117,10 @@ being productive.</p>
 such as those listed in <a class="reference external" href="https://peps.python.org/pep-0020/">PEP-20</a> (aka “The Zen of Python”).</p>
 </section>
 <section id="extensible">
-<h4>“Extensible”<a class="headerlink" href="#extensible" title="Link to this heading">¶</a></h4>
+`} />
+#### “Extensible”
+
+<Fragment set:html={`
 <blockquote>
 <div><p>Be extensible for community contribution rather than stifling innovation, bottle-necking all changes through the
 Algorand Foundation and preventing the opportunity for other ecosystems being represented (e.g. Go, Rust, etc.).
@@ -108,7 +131,10 @@ features sustainably</p>
 common code between smart contracts, to allow the community to build their own Python packages.</p>
 </section>
 <section id="sustainable">
-<h4>“Sustainable”<a class="headerlink" href="#sustainable" title="Link to this heading">¶</a></h4>
+`} />
+#### “Sustainable”
+
+<Fragment set:html={`
 <blockquote>
 <div><p>AlgoKit should be built in a flexible fashion with long-term maintenance in mind. Updates to latest patches in
 dependencies, Algorand protocol development updates, and community contributions and feedback will all feed in to the
@@ -122,7 +148,10 @@ implementation too tightly to a current standard such as ARC-4 - although in tha
 aim for first class support, but it shouldn’t be assumed as the only way to write smart contracts.</p>
 </section>
 <section id="modular-components">
-<h4>“Modular components”<a class="headerlink" href="#modular-components" title="Link to this heading">¶</a></h4>
+`} />
+#### “Modular components”
+
+<Fragment set:html={`
 <blockquote>
 <div><p>Solution components should be modular and loosely coupled to facilitate efficient parallel development by small,
 effective teams, reduced architectural complexity and allowing developers to pick and choose the specific tools and
@@ -134,7 +163,10 @@ is the ability to run the users code in a unit-testing context, without compilat
 This would require implementing in Python some level of simulation of Algorand Nodes / AVM behaviour.</p>
 </section>
 <section id="secure-by-default">
-<h4>“Secure by default”<a class="headerlink" href="#secure-by-default" title="Link to this heading">¶</a></h4>
+`} />
+#### “Secure by default”
+
+<Fragment set:html={`
 <blockquote>
 <div><p>Include defaults, patterns and tooling that help developers write secure code and reduce the likelihood of security
 incidents in the Algorand ecosystem. This solution should help Algorand be the most secure Blockchain ecosystem.</p>
@@ -144,7 +176,10 @@ The best application of this principle here is to support auditing, which is imp
 listed below as a separate principle.</p>
 </section>
 <section id="cohesive-developer-tool-suite-seamless-onramp">
-<h4>“Cohesive developer tool suite” + “Seamless onramp”<a class="headerlink" href="#cohesive-developer-tool-suite-seamless-onramp" title="Link to this heading">¶</a></h4>
+`} />
+#### “Cohesive developer tool suite” + “Seamless onramp”
+
+<Fragment set:html={`
 <blockquote>
 <div><p>Cohesive developer tool suite: Using AlgoKit should feel professional and cohesive, like it was designed to work
 together, for the developer; not against them. Developers are guided towards delivering end-to-end, high quality
@@ -160,7 +195,10 @@ there more broadly.</p>
 </section>
 </section>
 <section id="abstraction-without-obfuscation">
-<h3>Abstraction without obfuscation<a class="headerlink" href="#abstraction-without-obfuscation" title="Link to this heading">¶</a></h3>
+`} />
+### Abstraction without obfuscation
+
+<Fragment set:html={`
 <p>Algorand Python is a high level language, with support for things such as branching logic, operator precedence, etc.,
 and not a set of “macros” for generating TEAL. As such, developers will not be able to directly influence specific TEAL
 output, if this is desirable a language such as <a class="reference external" href="https://tealish.tinyman.org">Tealish</a> is more appropriate.</p>
@@ -171,7 +209,10 @@ functions on types such as <code class="docutils literal notranslate"><span clas
 Python code it represents.</p>
 </section>
 <section id="support-auditing">
-<h3>Support auditing<a class="headerlink" href="#support-auditing" title="Link to this heading">¶</a></h3>
+`} />
+### Support auditing
+
+<Fragment set:html={`
 <p>Auditing is a critical part of the security process for deploying smart contracts. We want to support this function,
 and can do so in two ways:</p>
 <ol class="arabic simple">
@@ -184,16 +225,6 @@ code can make auditing the contract logic simpler and easier.</p></li>
 </ol>
 </section>
 <section id="revolution-not-evolution">
-<h3>Revolution, not evolution<a class="headerlink" href="#revolution-not-evolution" title="Link to this heading">¶</a></h3>
-<p>This is a new and groundbreaking way of developing for Algorand, and not a continuation of the PyTEAL/Beaker approach.
-By allowing developers to write procedural code, as opposed to constructing an expression tree,
-we can (among other things) significantly reduce the barrier to entry for developing smart contracts for the Algorand platform.</p>
-<p>Since the programming paradigm will be fundamentally different, providing a smooth migration experience from PyTEAL
-to this new world is not an intended goal, and shouldn’t be a factor in our decisions. For example, it is not a goal of
-this project to produce a step-by-step “migrating from PyTEAL” document, as it is not a requirement for users to
-switch to this new paradigm in the short to medium term - support for PyTEAL should continue in parallel.</p>
-</section>
-</section>
-</section>
+`} />
+### Revolution, not evolution
 
-        `} />

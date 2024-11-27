@@ -1,7 +1,9 @@
 ---
-title: "Types"
+title: ""
 ---
-<div set:html={`
+import { Code } from '@astrojs/starlight/components';
+
+<Fragment set:html={`
           <section id="types">
 <h1>Types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h1>
 <p>Algorand Python exposes a number of types that provide a statically typed representation of the behaviour that is possible on the Algorand Virtual Machine.</p>
@@ -33,7 +35,10 @@ title: "Types"
 </ul>
 </nav>
 <section id="avm-types">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">AVM types</a><a class="headerlink" href="#avm-types" title="Link to this heading">¶</a></h2>
+`} />
+## AVM types
+
+<Fragment set:html={`
 <p>The most basic <a class="reference external" href="https://developer.algorand.org/docs/get-details/dapps/avm/teal/specification/#stack-types">types on the AVM</a>
 are <code class="docutils literal notranslate"><span class="pre">uint64</span></code> and <code class="docutils literal notranslate"><span class="pre">bytes[]</span></code>, representing unsigned 64-bit integers and byte arrays respectively.
 These are represented by <a class="reference internal" href="#./#uint64"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">UInt64</span></code></span></a> and <a class="reference internal" href="#./#bytes"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Bytes</span></code></span></a> in Algorand Python.</p>
@@ -41,11 +46,14 @@ These are represented by <a class="reference internal" href="#./#uint64"><span c
 For example, <code class="docutils literal notranslate"><span class="pre">bigint</span></code> represents a variably sized (up to 512-bits), unsigned integer, but is actually
 backed by a <code class="docutils literal notranslate"><span class="pre">bytes[]</span></code>. This is represented by <a class="reference internal" href="#./#biguint"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">BigUInt</span></code></span></a> in Algorand Python.</p>
 <section id="uint64">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">UInt64</a><a class="headerlink" href="#uint64" title="Link to this heading">¶</a></h3>
+`} />
+### UInt64
+
+<Fragment set:html={`
 <p><a class="reference internal" href="../api-algopy.html#algopy.UInt64" title="algopy.UInt64"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">algopy.UInt64</span></code></span></a> represents the underlying AVM <code class="docutils literal notranslate"><span class="pre">uint64</span></code> type.</p>
 <p>It supports all the same operators as <code class="docutils literal notranslate"><span class="pre">int</span></code>, except for <code class="docutils literal notranslate"><span class="pre">/</span></code>, you must use <code class="docutils literal notranslate"><span class="pre">//</span></code> for truncating
 division instead.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can instantiate with an integer literal</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can instantiate with an integer literal</span>
 <span class="n">num</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">UInt64</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># no arguments default to the zero value</span>
 <span class="n">zero</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">UInt64</span><span class="p">()</span>
@@ -61,14 +69,17 @@ division instead.</p>
 <span class="c1"># derived from that or wrap int literals</span>
 <span class="n">num2</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">200</span> <span class="o">//</span> <span class="mi">3</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p><a class="reference external" href="https://github.com/algorandfoundation/puya/blob/main/test_cases/stubs/uint64.py">Further examples available here</a>.</p>
 </section>
 <section id="bytes">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Bytes</a><a class="headerlink" href="#bytes" title="Link to this heading">¶</a></h3>
+`} />
+### Bytes
+
+<Fragment set:html={`
 <p><a class="reference internal" href="../api-algopy.html#algopy.Bytes" title="algopy.Bytes"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">algopy.Bytes</span></code></span></a> represents the underlying AVM <code class="docutils literal notranslate"><span class="pre">bytes[]</span></code> type. It is intended
 to represent binary data, for UTF-8 it might be preferable to use <a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="Python 3.13"><span class="xref myst">String</span></a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can instantiate with a bytes literal</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can instantiate with a bytes literal</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">Bytes</span><span class="p">(</span><span class="sa">b</span><span class="s2">"abc"</span><span class="p">)</span>
 <span class="c1"># no arguments defaults to an empty value</span>
 <span class="n">empty</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">Bytes</span><span class="p">()</span>
@@ -86,13 +97,13 @@ to represent binary data, for UTF-8 it might be preferable to use <a class="refe
 <span class="c1"># check if a bytes sequence occurs within another</span>
 <span class="k">assert</span> <span class="n">abc</span> <span class="ow">in</span> <span class="n">data</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Indexing a <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> returning a <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> differs from the behaviour of Python’s bytes type, which
 returns an <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can iterate</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can iterate</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">abc</span><span class="p">:</span>
     <span class="o">...</span>
 <span class="c1"># construct from encoded values</span>
@@ -104,7 +115,7 @@ returns an <code class="docutils literal notranslate"><span class="pre">int</spa
 <span class="c1"># access the length via the .length property</span>
 <span class="k">assert</span> <span class="n">abc</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">3</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See <a class="reference internal" href="../lg-builtins.html#len---length"><span class="std std-ref">Python builtins</span></a> for an explanation of why <code class="docutils literal notranslate"><span class="pre">len()</span></code> isn’t supported.</p>
@@ -112,7 +123,10 @@ returns an <code class="docutils literal notranslate"><span class="pre">int</spa
 <p><a class="reference external" href="https://github.com/algorandfoundation/puya/blob/main/test_cases/stubs/bytes.py">See a full example</a>.</p>
 </section>
 <section id="string">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">String</a><a class="headerlink" href="#string" title="Link to this heading">¶</a></h3>
+`} />
+### String
+
+<Fragment set:html={`
 <p><a class="reference internal" href="../api-algopy.html#algopy.String" title="algopy.String"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">String</span></code></span></a> is a special Algorand Python type that represents a UTF8 encoded string.
 It’s backed by <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>, which can be accessed through the <code class="docutils literal notranslate"><span class="pre">.bytes</span></code>.</p>
 <p>It works similarly to <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>, except that it works with <code class="docutils literal notranslate"><span class="pre">str</span></code> literals rather than <code class="docutils literal notranslate"><span class="pre">bytes</span></code>
@@ -120,7 +134,7 @@ literals. Additionally, due to a lack of AVM support for unicode data, indexing 
 operations are not currently supported (simply getting the length of a UTF8 string is an <code class="docutils literal notranslate"><span class="pre">O(N)</span></code>
 operation, which would be quite costly in a smart contract). If you are happy using the length as
 the number of bytes, then you can call <code class="docutils literal notranslate"><span class="pre">.bytes.length</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can instantiate with a string literal</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can instantiate with a string literal</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
 <span class="c1"># no arguments defaults to an empty value</span>
 <span class="n">empty</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">String</span><span class="p">()</span>
@@ -141,11 +155,14 @@ the number of bytes, then you can call <code class="docutils literal notranslate
 <span class="c1"># access the underlying bytes</span>
 <span class="k">assert</span> <span class="n">abc</span><span class="o">.</span><span class="n">bytes</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">"abc"</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p><a class="reference external" href="https://github.com/algorandfoundation/puya/blob/main/test_cases/stubs/string.py">See a full example</a>.</p>
 </section>
 <section id="biguint">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">BigUInt</a><a class="headerlink" href="#biguint" title="Link to this heading">¶</a></h3>
+`} />
+### BigUInt
+
+<Fragment set:html={`
 <p><a class="reference internal" href="../api-algopy.html#algopy.BigUInt" title="algopy.BigUInt"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">algopy.BigUInt</span></code></span></a> represents a variable length (max 512-bit) unsigned integer stored
 as <code class="docutils literal notranslate"><span class="pre">bytes[]</span></code> in the AVM.</p>
 <p>It supports all the same operators as <code class="docutils literal notranslate"><span class="pre">int</span></code>, except for power (<code class="docutils literal notranslate"><span class="pre">**</span></code>), left and right shift (<code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>
@@ -156,7 +173,7 @@ and <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span>
 <p>Another contrast between <code class="docutils literal notranslate"><span class="pre">bigint</span></code> and <code class="docutils literal notranslate"><span class="pre">uint64</span></code> math is that <code class="docutils literal notranslate"><span class="pre">bigint</span></code> math ops don’t immediately
 error on overflow - if the result exceeds 512-bits, then you can still access the value via
 <code class="docutils literal notranslate"><span class="pre">.bytes</span></code>, but any further math operations will fail.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can instantiate with an integer literal</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can instantiate with an integer literal</span>
 <span class="n">num</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">BigUInt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># no arguments default to the zero value</span>
 <span class="n">zero</span> <span class="o">=</span> <span class="n">algopy</span><span class="o">.</span><span class="n">BigUInt</span><span class="p">()</span>
@@ -172,11 +189,14 @@ error on overflow - if the result exceeds 512-bits, then you can still access th
 <span class="c1"># derived from that or wrap int literals</span>
 <span class="n">num2</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">200</span> <span class="o">//</span> <span class="mi">3</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p><a class="reference external" href="https://github.com/algorandfoundation/puya/blob/main/test_cases/stubs/biguint.py">Further examples available here</a>.</p>
 </section>
 <section id="bool">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">bool</a><a class="headerlink" href="#bool" title="Link to this heading">¶</a></h3>
+`} />
+### bool
+
+<Fragment set:html={`
 <p>The semantics of the AVM <code class="docutils literal notranslate"><span class="pre">bool</span></code> bounded type exactly match the semantics of Python’s built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> type
 and thus Algorand Python uses the in-built <code class="docutils literal notranslate"><span class="pre">bool</span></code> type from Python.</p>
 <p>Per the behaviour in normal Python, Algorand Python automatically converts various types to <code class="docutils literal notranslate"><span class="pre">bool</span></code> when they
@@ -184,7 +204,7 @@ appear in statements that expect a <code class="docutils literal notranslate"><s
 (e.g. next to <code class="docutils literal notranslate"><span class="pre">and</span></code> or <code class="docutils literal notranslate"><span class="pre">or</span></code> keywords) or are explicitly casted to a bool.</p>
 <p>The semantics of <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> are special <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#boolean-operations">per how these keywords work in Python</a>
 (e.g. short circuiting).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">UInt64</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">UInt64</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">UInt64</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">or</span> <span class="n">b</span>
@@ -200,27 +220,39 @@ appear in statements that expect a <code class="docutils literal notranslate"><s
 <span class="k">if</span> <span class="n">a</span><span class="p">:</span>
     <span class="n">log</span><span class="p">(</span><span class="s2">"a is True"</span><span class="p">)</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p><a class="reference external" href="https://github.com/algorandfoundation/puya/blob/main/test_cases/stubs/uint64.py">Further examples available here</a>.</p>
 </section>
 <section id="account">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Account</a><a class="headerlink" href="#account" title="Link to this heading">¶</a></h3>
+`} />
+### Account
+
+<Fragment set:html={`
 <p><a class="reference internal" href="../api-algopy.html#algopy.Account" title="algopy.Account"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">Account</span></code></span></a> represents a logical Account, backed by a <code class="docutils literal notranslate"><span class="pre">bytes[]</span></code> representing the
 public key. It has various account related methods that can be called from the type.</p>
 </section>
 <section id="asset">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Asset</a><a class="headerlink" href="#asset" title="Link to this heading">¶</a></h3>
+`} />
+### Asset
+
+<Fragment set:html={`
 <p><a class="reference internal" href="../api-algopy.html#algopy.Asset" title="algopy.Asset"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">Asset</span></code></span></a> represents a logical Asset, backed by a <code class="docutils literal notranslate"><span class="pre">uint64</span></code> ID.
 It has various asset related methods that can be called from the type.</p>
 </section>
 <section id="application">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Application</a><a class="headerlink" href="#application" title="Link to this heading">¶</a></h3>
+`} />
+### Application
+
+<Fragment set:html={`
 <p><a class="reference internal" href="../api-algopy.html#algopy.Application" title="algopy.Application"><span class="xref myst py py-class"><code class="docutils literal notranslate"><span class="pre">Application</span></code></span></a> represents a logical Application, backed by a <code class="docutils literal notranslate"><span class="pre">uint64</span></code> ID.
 It has various application related methods that can be called from the type.</p>
 </section>
 </section>
 <section id="python-built-in-types">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Python built-in types</a><a class="headerlink" href="#python-built-in-types" title="Link to this heading">¶</a></h2>
+`} />
+## Python built-in types
+
+<Fragment set:html={`
 <p>Unfortunately, the <a class="reference internal" href="#avm-types"><span class="xref myst">AVM types</span></a> don’t map to standard Python primitives. For instance,
 in Python, an <code class="docutils literal notranslate"><span class="pre">int</span></code> is unsigned, and effectively unbounded. A <code class="docutils literal notranslate"><span class="pre">bytes</span></code> similarly is limited only by
 the memory available, whereas an AVM <code class="docutils literal notranslate"><span class="pre">bytes[]</span></code> has a maximum length of 4096. In order to both maintain
@@ -228,21 +260,33 @@ semantic compatibility and allow for a framework implementation in plain Python 
 same conditions as when deployed to the AVM, support for Python primitives is limited.</p>
 <p>In saying that, there are many places where built-in Python types can be used and over time the places these types can be used are expected to increase.</p>
 <section id="id2">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">bool</a><a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+`} />
+### bool
+
+<Fragment set:html={`
 <p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="Python 3.13"><span class="xref myst">Per above</span></a> Algorand Python has full support for <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
 </section>
 <section id="tuple">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">tuple</a><a class="headerlink" href="#tuple" title="Link to this heading">¶</a></h3>
+`} />
+### tuple
+
+<Fragment set:html={`
 <p>Python tuples are supported as arguments to subroutines, local variables, return types. Nested tuples
 are <em>not</em> currently supported.</p>
 </section>
 <section id="none">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">None</a><a class="headerlink" href="#none" title="Link to this heading">¶</a></h3>
+`} />
+### None
+
+<Fragment set:html={`
 <p><code class="docutils literal notranslate"><span class="pre">None</span></code> is not supported as a value, but is supported as a type annotation to indicate a function or subroutine
 returns no value.</p>
 </section>
 <section id="int-str-bytes-float">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">int, str, bytes, float</a><a class="headerlink" href="#int-str-bytes-float" title="Link to this heading">¶</a></h3>
+`} />
+### int, str, bytes, float
+
+<Fragment set:html={`
 <p>The <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> and <code class="docutils literal notranslate"><span class="pre">bytes</span></code> built-in types are currently only supported as <a class="reference internal" href="../lg-modules.html"><span class="std std-doc">module-level constants</span></a> or literals.</p>
 <p>They can be passed as arguments to various Algorand Python methods that support them or
 when interacting with certain <a class="reference internal" href="#avm-types"><span class="xref myst">AVM types</span></a> e.g. adding a number to a <code class="docutils literal notranslate"><span class="pre">UInt64</span></code>.</p>
@@ -250,11 +294,14 @@ when interacting with certain <a class="reference internal" href="#avm-types"><s
 </section>
 </section>
 <section id="template-variables">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Template variables</a><a class="headerlink" href="#template-variables" title="Link to this heading">¶</a></h2>
+`} />
+## Template variables
+
+<Fragment set:html={`
 <p>Template variables can be used to represent a placeholder for a deploy-time provided
 value. This can be declared using the <code class="docutils literal notranslate"><span class="pre">TemplateVar[TYPE]</span></code> type where <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> is the
 Algorand Python type that it will be interpreted as.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">BigUInt</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">TemplateVar</span><span class="p">,</span> <span class="n">UInt64</span><span class="p">,</span> <span class="n">arc4</span>
+`} /><Code code={`<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">algopy</span> <span class="kn">import</span> <span class="n">BigUInt</span><span class="p">,</span> <span class="n">Bytes</span><span class="p">,</span> <span class="n">TemplateVar</span><span class="p">,</span> <span class="n">UInt64</span><span class="p">,</span> <span class="n">arc4</span>
 <span class="kn">from</span> <span class="nn">algopy.arc4</span> <span class="kn">import</span> <span class="n">UInt512</span>
 
 
@@ -276,7 +323,7 @@ Algorand Python type that it will be interpreted as.</p>
     <span class="k">def</span> <span class="nf">on_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">assert</span> <span class="n">TemplateVar</span><span class="p">[</span><span class="n">UInt64</span><span class="p">](</span><span class="s2">"DELETABLE"</span><span class="p">)</span>
 </pre></div>
-</div>
+</div>`} lang='py' frame='none' /><Fragment set:html={`
 <p>The resulting TEAL code that PuyaPy emits has placeholders with <code class="docutils literal notranslate"><span class="pre">TMPL_{template</span> <span class="pre">variable</span> <span class="pre">name}</span></code>
 that expects either an integer value or an encoded bytes value. This behaviour exactly
 matches what
@@ -284,17 +331,6 @@ matches what
 <p>For more information look at the API reference for <a class="reference internal" href="../api-algopy.html#algopy.TemplateVar"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">TemplateVar</span></code></span></a>.</p>
 </section>
 <section id="arc-4-types">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">ARC-4 types</a><a class="headerlink" href="#arc-4-types" title="Link to this heading">¶</a></h2>
-<p>ARC-4 data types are a first class concept in Algorand Python. They can be passed into ARC-4
-methods (which will translate to the relevant ARC-4 method signature), passed into subroutines, or
-instantiated into local variables. A limited set of operations are exposed on some ARC-4 types, but
-often it may make sense to convert the ARC-4 value to a native AVM type, in which case you can use
-the <code class="docutils literal notranslate"><span class="pre">native</span></code> property to retrieve the value. Most of the ARC-4 types also allow for mutation e.g.
-you can edit values in arrays by index.</p>
-<p>Please see the <a class="reference internal" href="../api-algopy.arc4.html"><span class="std std-doc">reference documentation</span></a> for the different classes that can
-be used to represent ARC-4 values or the <a class="reference internal" href="../lg-arc4.html"><span class="std std-doc">ARC-4 documentation</span></a> for more information
-about ARC-4.</p>
-</section>
-</section>
+`} />
+## ARC-4 types
 
-        `} />
