@@ -1,2 +1,5 @@
 [files]
 extend-exclude = ["src/content/docs/standards/arcs/arc-*.md"]
+
+[default.extend-words]
+Allo = "Allo"
