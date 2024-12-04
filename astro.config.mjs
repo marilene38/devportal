@@ -9,6 +9,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { resolve } from 'path';
 import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
+import starlightTypeDoc from 'starlight-typedoc';
 
 export default defineConfig({
   integrations: [
@@ -18,6 +19,11 @@ export default defineConfig({
         starlightImageZoom(),
         starlightLinksValidator({
           exclude: ['FUTURELINK*'],
+        }),
+        starlightTypeDoc({
+          entryPoints: ['../algokit-utils-ts/src/index.ts'],
+          tsconfig: '../algokit-utils-ts/tsconfig.json',
+          output: 'build/algokit/utils/ts/API',
         }),
       ],
       components: {
