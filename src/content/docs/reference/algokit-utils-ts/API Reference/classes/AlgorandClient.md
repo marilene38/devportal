@@ -197,7 +197,7 @@ Start a new `TransactionComposer` transaction group
 
 ### setDefaultSigner()
 
-> **setDefaultSigner**(`signer`): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> **setDefaultSigner**(`signer`): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Sets the default signer to use if no other signer is specified.
 
@@ -211,7 +211,7 @@ The signer to use, either a `TransactionSigner` or a `TransactionSignerAccount`
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient` so method calls can be chained
 
@@ -223,7 +223,7 @@ The `AlgorandClient` so method calls can be chained
 
 ### setDefaultValidityWindow()
 
-> **setDefaultValidityWindow**(`validityWindow`): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> **setDefaultValidityWindow**(`validityWindow`): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Sets the default validity window for transactions.
 
@@ -237,7 +237,7 @@ The number of rounds between the first and last valid rounds
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient` so method calls can be chained
 
@@ -249,7 +249,7 @@ The `AlgorandClient` so method calls can be chained
 
 ### setSigner()
 
-> **setSigner**(`sender`, `signer`): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> **setSigner**(`sender`, `signer`): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Tracks the given signer against the given sender for later signing.
 
@@ -269,7 +269,7 @@ The signer to sign transactions with for the given sender
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient` so method calls can be chained
 
@@ -281,7 +281,7 @@ The `AlgorandClient` so method calls can be chained
 
 ### setSignerFromAccount()
 
-> **setSignerFromAccount**(`account`): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> **setSignerFromAccount**(`account`): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Tracks the given account (object that encapsulates an address and a signer) for later signing.
 
@@ -296,7 +296,7 @@ The account to register, which can be a `TransactionSignerAccount` or
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient` so method calls can be chained
 
@@ -319,7 +319,7 @@ const accountManager = AlgorandClient.mainnet()
 
 ### setSuggestedParamsCache()
 
-> **setSuggestedParamsCache**(`suggestedParams`, `until`?): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> **setSuggestedParamsCache**(`suggestedParams`, `until`?): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Sets a cache value to use for suggested transaction params.
 
@@ -339,7 +339,7 @@ A date until which to cache, or if not specified then the timeout is used
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient` so method calls can be chained
 
@@ -351,7 +351,7 @@ The `AlgorandClient` so method calls can be chained
 
 ### setSuggestedParamsCacheTimeout()
 
-> **setSuggestedParamsCacheTimeout**(`timeout`): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> **setSuggestedParamsCacheTimeout**(`timeout`): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Sets the timeout for caching suggested params.
 
@@ -365,7 +365,7 @@ The timeout in milliseconds
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient` so method calls can be chained
 
@@ -377,13 +377,13 @@ The `AlgorandClient` so method calls can be chained
 
 ### defaultLocalNet()
 
-> `static` **defaultLocalNet**(): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> `static` **defaultLocalNet**(): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Returns an `AlgorandClient` pointing at default LocalNet ports and API token.
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient`
 
@@ -395,7 +395,7 @@ The `AlgorandClient`
 
 ### fromClients()
 
-> `static` **fromClients**(`clients`): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> `static` **fromClients**(`clients`): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Returns an `AlgorandClient` pointing to the given client(s).
 
@@ -409,7 +409,7 @@ The clients to use
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient`
 
@@ -421,7 +421,7 @@ The `AlgorandClient`
 
 ### fromConfig()
 
-> `static` **fromConfig**(`config`): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> `static` **fromConfig**(`config`): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Returns an `AlgorandClient` from the given config.
 
@@ -435,7 +435,7 @@ The config to use
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient`
 
@@ -447,7 +447,7 @@ The `AlgorandClient`
 
 ### fromEnvironment()
 
-> `static` **fromEnvironment**(): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> `static` **fromEnvironment**(): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Returns an `AlgorandClient` loading the configuration from environment variables.
 
@@ -466,7 +466,7 @@ otherwise it will use the default LocalNet config unless it detects testnet or m
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient`
 
@@ -478,13 +478,13 @@ The `AlgorandClient`
 
 ### mainNet()
 
-> `static` **mainNet**(): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> `static` **mainNet**(): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Returns an `AlgorandClient` pointing at MainNet using AlgoNode.
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient`
 
@@ -496,13 +496,13 @@ The `AlgorandClient`
 
 ### testNet()
 
-> `static` **testNet**(): [`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+> `static` **testNet**(): [`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 Returns an `AlgorandClient` pointing at TestNet using AlgoNode.
 
 #### Returns
 
-[`AlgorandClient`](/build/algokit/utils/ts/API/classes/algorandclient/)
+[`AlgorandClient`](/reference/algokit-utils-ts/API Reference/classes/algorandclient/)
 
 The `AlgorandClient`
 

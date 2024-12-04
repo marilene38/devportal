@@ -15,11 +15,11 @@ title: "EventDataMap"
 
 ### AppCompiled
 
-> **AppCompiled**: [`TealSourcesDebugEventData`](/build/algokit/utils/ts/API/interfaces/tealsourcesdebugeventdata/)
+> **AppCompiled**: [`TealSourcesDebugEventData`](/reference/algokit-utils-ts/API Reference/interfaces/tealsourcesdebugeventdata/)
 
 ### TxnGroupSimulated
 
-> **TxnGroupSimulated**: [`AVMTracesEventData`](/build/algokit/utils/ts/API/interfaces/avmtraceseventdata/)
+> **TxnGroupSimulated**: [`AVMTracesEventData`](/reference/algokit-utils-ts/API Reference/interfaces/avmtraceseventdata/)
 
 ## Defined in
 

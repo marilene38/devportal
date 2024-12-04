@@ -5,7 +5,7 @@ prev: false
 title: "AccountInformation"
 ---
 
-> **AccountInformation**: `Omit`\<[`NumberConverter`](/build/algokit/utils/ts/API/type-aliases/numberconverter/)\<`AccountInformationModel`\>, `"get_obj_for_encoding"`\>
+> **AccountInformation**: `Omit`\<[`NumberConverter`](/reference/algokit-utils-ts/API Reference/type-aliases/numberconverter/)\<`AccountInformationModel`\>, `"get_obj_for_encoding"`\>
 
 :::caution[Deprecated]
 Account information at a given round.

@@ -23,7 +23,7 @@ export default defineConfig({
         starlightTypeDoc({
           entryPoints: ['../algokit-utils-ts/src/index.ts'],
           tsconfig: '../algokit-utils-ts/tsconfig.json',
-          output: 'build/algokit/utils/ts/API',
+          output: 'reference/algokit-utils-ts/API Reference',
         }),
       ],
       components: {
@@ -500,6 +500,13 @@ export default defineConfig({
               label: 'AlgoKit Utils (Typescript)',
               collapsed: true,
               items: [
+                {
+                  label: 'API Reference',
+                  autogenerate: {
+                    collapsed: true,
+                    directory: 'reference/algokit-utils-ts/API Reference',
+                  },
+                },
                 {
                   label: 'Fundamentals',
                   items: [

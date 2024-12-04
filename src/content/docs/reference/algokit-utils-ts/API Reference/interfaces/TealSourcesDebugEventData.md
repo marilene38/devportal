@@ -11,7 +11,7 @@ Represents the data for multiple TEAL sources debug events emitted whenever an a
 
 ### sources
 
-> **sources**: [`TealSourceDebugEventData`](/build/algokit/utils/ts/API/interfaces/tealsourcedebugeventdata/)[]
+> **sources**: [`TealSourceDebugEventData`](/reference/algokit-utils-ts/API Reference/interfaces/tealsourcedebugeventdata/)[]
 
 An array of TEAL source debug event data
 

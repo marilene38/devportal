@@ -5,7 +5,7 @@ prev: false
 title: "getAccountInformation"
 ---
 
-> **getAccountInformation**(`sender`, `algod`): `Promise`\<[`AccountInformation`](/build/algokit/utils/ts/API/type-aliases/accountinformation/)\>
+> **getAccountInformation**(`sender`, `algod`): `Promise`\<[`AccountInformation`](/reference/algokit-utils-ts/API Reference/type-aliases/accountinformation/)\>
 
 :::caution[Deprecated]
 Use `algorand.account.getInformation(sender)` or `new AccountManager(clientManager).getInformation(sender)` instead.
@@ -29,7 +29,7 @@ The algod instance
 
 ## Returns
 
-`Promise`\<[`AccountInformation`](/build/algokit/utils/ts/API/type-aliases/accountinformation/)\>
+`Promise`\<[`AccountInformation`](/reference/algokit-utils-ts/API Reference/type-aliases/accountinformation/)\>
 
 The account information
 
