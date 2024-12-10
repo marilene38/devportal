@@ -398,7 +398,15 @@ export default defineConfig({
             {
               label: 'Algorand Python',
               collapsed: true,
-              items: [],
+              items: [
+                {
+                  label: 'API Reference',
+                  autogenerate: {
+                    collapsed: true,
+                    directory: 'reference/algorand-python/API Reference',
+                  },
+                },
+              ],
             },
             {
               label: 'Algorand Typescript',
