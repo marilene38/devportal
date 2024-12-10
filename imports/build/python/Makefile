@@ -17,5 +17,5 @@ clean:
 puya: clean
 	export SPHINX_REPO=puya && \
 	$(FULL_SPHINX_COMMAND) && \
-	cp -r _build/starlight/apidocs/algopy/* "../../src/content/docs/reference/algorand-python/API Reference"
+	cp -r _build/starlight/apidocs/algopy/* "../../../src/content/docs/reference/algorand-python/API Reference"
 

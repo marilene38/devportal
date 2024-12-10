@@ -23,7 +23,7 @@ if repo == "puya":
     project = "Algorand Python"
     autodoc2_packages = [
         {
-            "path": "../../../puya/docs/algopy-stubs",
+            "path": "../../../../puya/docs/algopy-stubs",
             "module": "algopy",
             "auto_mode": True,
         },
