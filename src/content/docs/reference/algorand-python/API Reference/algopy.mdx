@@ -68,6 +68,8 @@ import { Aside } from '@astrojs/starlight/components';
 
 ## *class* algopy.ARC4Contract
 
+ARC4Contract
+
 A contract that conforms to the ARC4 ABI specification, functions decorated with
 `@abimethod` or `@baremethod` will form the public interface of the contract
 
@@ -78,7 +80,9 @@ The clear_state_program will by default return True, but can be overridden
 
 <a id="algopy.ARC4Contract.__init_subclass__"></a>
 
-### *classmethod* \_\_init_subclass_\_(\*, name: str = ..., scratch_slots: [algopy.urange](#algopy.urange) | tuple[int | [algopy.urange](#algopy.urange), ...] | list[int | [algopy.urange](#algopy.urange)] = ..., state_totals: [algopy.StateTotals](#algopy.StateTotals) = ..., avm_version: int = ...)
+### *classmethod* \_\_init_subclass_\_
+
+__init_subclass__(\*, name: str = ..., scratch_slots: [algopy.urange](#algopy.urange) | tuple[int | [algopy.urange](#algopy.urange), ...] | list[int | [algopy.urange](#algopy.urange)] = ..., state_totals: [algopy.StateTotals](#algopy.StateTotals) = ..., avm_version: int = ...)
 
 When declaring a Contract subclass, options and configuration are passed in
 the base class list:
@@ -126,20 +130,26 @@ Defaults to value provided supplied on command line (which defaults to current m
 
 <a id="algopy.ARC4Contract.approval_program"></a>
 
-### approval_program() → bool
+### approval_program
+
+approval_program() → bool
 
 Represents the program called for all transactions
 where `OnCompletion` != `ClearState`
 
 <a id="algopy.ARC4Contract.clear_state_program"></a>
 
-### clear_state_program() → [algopy.UInt64](#algopy.UInt64) | bool
+### clear_state_program
+
+clear_state_program() → [algopy.UInt64](#algopy.UInt64) | bool
 
 Represents the program called when `OnCompletion` == `ClearState`
 
 <a id="algopy.Account"></a>
 
-## *class* algopy.Account(value: str | [algopy.Bytes](#algopy.Bytes) = ..., /)
+## *class* algopy.Account
+
+Account(value: str | [algopy.Bytes](#algopy.Bytes) = ..., /)
 
 An Account on the Algorand network.
 
@@ -155,25 +165,33 @@ Defaults to the zero-address.
 
 <a id="algopy.Account.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 Returns `True` if not equal to the zero-address
 
 <a id="algopy.Account.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.Account](#algopy.Account) | str) → bool
+### \_\_eq_\_
+
+__eq__(other: [algopy.Account](#algopy.Account) | str) → bool
 
 Account equality is determined by the address of another `Account` or `str`
 
 <a id="algopy.Account.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.Account](#algopy.Account) | str) → bool
+### \_\_ne_\_
+
+__ne__(other: [algopy.Account](#algopy.Account) | str) → bool
 
 Account equality is determined by the address of another `Account` or `str`
 
 <a id="algopy.Account.auth_address"></a>
 
-### *property* auth_address *: [algopy.Account](#algopy.Account)*
+### *property* auth_address
+
+auth_address *: [algopy.Account](#algopy.Account)*
 
 Address the account is rekeyed to
 
@@ -181,7 +199,9 @@ Address the account is rekeyed to
 
 <a id="algopy.Account.balance"></a>
 
-### *property* balance *: [algopy.UInt64](#algopy.UInt64)*
+### *property* balance
+
+balance *: [algopy.UInt64](#algopy.UInt64)*
 
 Account balance in microalgos
 
@@ -189,19 +209,25 @@ Account balance in microalgos
 
 <a id="algopy.Account.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](#algopy.Bytes)*
+### *property* bytes
+
+bytes *: [algopy.Bytes](#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.Account.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes
+
+from_bytes(value: [algopy.Bytes](#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.Account.is_opted_in"></a>
 
-### is_opted_in(asset_or_app: [algopy.Asset](#algopy.Asset) | [algopy.Application](#algopy.Application), /) → bool
+### is_opted_in
+
+is_opted_in(asset_or_app: [algopy.Asset](#algopy.Asset) | [algopy.Application](#algopy.Application), /) → bool
 
 Returns true if this account is opted in to the specified Asset or Application.
 
@@ -209,7 +235,9 @@ Returns true if this account is opted in to the specified Asset or Application.
 
 <a id="algopy.Account.min_balance"></a>
 
-### *property* min_balance *: [algopy.UInt64](#algopy.UInt64)*
+### *property* min_balance
+
+min_balance *: [algopy.UInt64](#algopy.UInt64)*
 
 Minimum required balance for account, in microalgos
 
@@ -217,7 +245,9 @@ Minimum required balance for account, in microalgos
 
 <a id="algopy.Account.total_apps_created"></a>
 
-### *property* total_apps_created *: [algopy.UInt64](#algopy.UInt64)*
+### *property* total_apps_created
+
+total_apps_created *: [algopy.UInt64](#algopy.UInt64)*
 
 The number of existing apps created by this account.
 
@@ -225,7 +255,9 @@ The number of existing apps created by this account.
 
 <a id="algopy.Account.total_apps_opted_in"></a>
 
-### *property* total_apps_opted_in *: [algopy.UInt64](#algopy.UInt64)*
+### *property* total_apps_opted_in
+
+total_apps_opted_in *: [algopy.UInt64](#algopy.UInt64)*
 
 The number of apps this account is opted into.
 
@@ -233,7 +265,9 @@ The number of apps this account is opted into.
 
 <a id="algopy.Account.total_assets"></a>
 
-### *property* total_assets *: [algopy.UInt64](#algopy.UInt64)*
+### *property* total_assets
+
+total_assets *: [algopy.UInt64](#algopy.UInt64)*
 
 The numbers of ASAs held by this account (including ASAs this account created).
 
@@ -241,7 +275,9 @@ The numbers of ASAs held by this account (including ASAs this account created).
 
 <a id="algopy.Account.total_assets_created"></a>
 
-### *property* total_assets_created *: [algopy.UInt64](#algopy.UInt64)*
+### *property* total_assets_created
+
+total_assets_created *: [algopy.UInt64](#algopy.UInt64)*
 
 The number of existing ASAs created by this account.
 
@@ -249,7 +285,9 @@ The number of existing ASAs created by this account.
 
 <a id="algopy.Account.total_box_bytes"></a>
 
-### *property* total_box_bytes *: [algopy.UInt64](#algopy.UInt64)*
+### *property* total_box_bytes
+
+total_box_bytes *: [algopy.UInt64](#algopy.UInt64)*
 
 The total number of bytes used by this account’s app’s box keys and values.
 
@@ -257,7 +295,9 @@ The total number of bytes used by this account’s app’s box keys and values.
 
 <a id="algopy.Account.total_boxes"></a>
 
-### *property* total_boxes *: [algopy.UInt64](#algopy.UInt64)*
+### *property* total_boxes
+
+total_boxes *: [algopy.UInt64](#algopy.UInt64)*
 
 The number of existing boxes created by this account’s app.
 
@@ -265,7 +305,9 @@ The number of existing boxes created by this account’s app.
 
 <a id="algopy.Account.total_extra_app_pages"></a>
 
-### *property* total_extra_app_pages *: [algopy.UInt64](#algopy.UInt64)*
+### *property* total_extra_app_pages
+
+total_extra_app_pages *: [algopy.UInt64](#algopy.UInt64)*
 
 The number of extra app code pages used by this account.
 
@@ -273,7 +315,9 @@ The number of extra app code pages used by this account.
 
 <a id="algopy.Account.total_num_byte_slice"></a>
 
-### *property* total_num_byte_slice *: [algopy.UInt64](#algopy.UInt64)*
+### *property* total_num_byte_slice
+
+total_num_byte_slice *: [algopy.UInt64](#algopy.UInt64)*
 
 The total number of byte array values allocated by this account in Global and Local States.
 
@@ -281,7 +325,9 @@ The total number of byte array values allocated by this account in Global and Lo
 
 <a id="algopy.Account.total_num_uint"></a>
 
-### *property* total_num_uint *: [algopy.UInt64](#algopy.UInt64)*
+### *property* total_num_uint
+
+total_num_uint *: [algopy.UInt64](#algopy.UInt64)*
 
 The total number of uint64 values allocated by this account in Global and Local States.
 
@@ -289,7 +335,9 @@ The total number of uint64 values allocated by this account in Global and Local 
 
 <a id="algopy.Application"></a>
 
-## *class* algopy.Application(application_id: [algopy.UInt64](#algopy.UInt64) | int = 0, /)
+## *class* algopy.Application
+
+Application(application_id: [algopy.UInt64](#algopy.UInt64) | int = 0, /)
 
 An Application on the Algorand network.
 
@@ -299,25 +347,33 @@ Initialized with the id of an application. Defaults to zero (an invalid ID).
 
 <a id="algopy.Application.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 Returns `True` if `application_id` is not `0`
 
 <a id="algopy.Application.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.Application](#algopy.Application)) → bool
+### \_\_eq_\_
+
+__eq__(other: [algopy.Application](#algopy.Application)) → bool
 
 Application equality is determined by the equality of an Application’s id
 
 <a id="algopy.Application.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.Application](#algopy.Application)) → bool
+### \_\_ne_\_
+
+__ne__(other: [algopy.Application](#algopy.Application)) → bool
 
 Application equality is determined by the equality of an Application’s id
 
 <a id="algopy.Application.address"></a>
 
-### *property* address *: [algopy.Account](#algopy.Account)*
+### *property* address
+
+address *: [algopy.Account](#algopy.Account)*
 
 Address for which this application has authority
 
@@ -325,7 +381,9 @@ Address for which this application has authority
 
 <a id="algopy.Application.approval_program"></a>
 
-### *property* approval_program *: [algopy.Bytes](#algopy.Bytes)*
+### *property* approval_program
+
+approval_program *: [algopy.Bytes](#algopy.Bytes)*
 
 Bytecode of Approval Program
 
@@ -333,7 +391,9 @@ Bytecode of Approval Program
 
 <a id="algopy.Application.clear_state_program"></a>
 
-### *property* clear_state_program *: [algopy.Bytes](#algopy.Bytes)*
+### *property* clear_state_program
+
+clear_state_program *: [algopy.Bytes](#algopy.Bytes)*
 
 Bytecode of Clear State Program
 
@@ -341,7 +401,9 @@ Bytecode of Clear State Program
 
 <a id="algopy.Application.creator"></a>
 
-### *property* creator *: [algopy.Account](#algopy.Account)*
+### *property* creator
+
+creator *: [algopy.Account](#algopy.Account)*
 
 Creator address
 
@@ -349,7 +411,9 @@ Creator address
 
 <a id="algopy.Application.extra_program_pages"></a>
 
-### *property* extra_program_pages *: [algopy.UInt64](#algopy.UInt64)*
+### *property* extra_program_pages
+
+extra_program_pages *: [algopy.UInt64](#algopy.UInt64)*
 
 Number of Extra Program Pages of code space
 
@@ -357,7 +421,9 @@ Number of Extra Program Pages of code space
 
 <a id="algopy.Application.global_num_bytes"></a>
 
-### *property* global_num_bytes *: [algopy.UInt64](#algopy.UInt64)*
+### *property* global_num_bytes
+
+global_num_bytes *: [algopy.UInt64](#algopy.UInt64)*
 
 Number of byte array values allowed in Global State
 
@@ -365,7 +431,9 @@ Number of byte array values allowed in Global State
 
 <a id="algopy.Application.global_num_uint"></a>
 
-### *property* global_num_uint *: [algopy.UInt64](#algopy.UInt64)*
+### *property* global_num_uint
+
+global_num_uint *: [algopy.UInt64](#algopy.UInt64)*
 
 Number of uint64 values allowed in Global State
 
@@ -373,13 +441,17 @@ Number of uint64 values allowed in Global State
 
 <a id="algopy.Application.id"></a>
 
-### *property* id *: [algopy.UInt64](#algopy.UInt64)*
+### *property* id
+
+id *: [algopy.UInt64](#algopy.UInt64)*
 
 Returns the id of the application
 
 <a id="algopy.Application.local_num_bytes"></a>
 
-### *property* local_num_bytes *: [algopy.UInt64](#algopy.UInt64)*
+### *property* local_num_bytes
+
+local_num_bytes *: [algopy.UInt64](#algopy.UInt64)*
 
 Number of byte array values allowed in Local State
 
@@ -387,7 +459,9 @@ Number of byte array values allowed in Local State
 
 <a id="algopy.Application.local_num_uint"></a>
 
-### *property* local_num_uint *: [algopy.UInt64](#algopy.UInt64)*
+### *property* local_num_uint
+
+local_num_uint *: [algopy.UInt64](#algopy.UInt64)*
 
 Number of uint64 values allowed in Local State
 
@@ -395,7 +469,9 @@ Number of uint64 values allowed in Local State
 
 <a id="algopy.Asset"></a>
 
-## *class* algopy.Asset(asset_id: [algopy.UInt64](#algopy.UInt64) | int = 0, /)
+## *class* algopy.Asset
+
+Asset(asset_id: [algopy.UInt64](#algopy.UInt64) | int = 0, /)
 
 An Asset on the Algorand network.
 
@@ -405,25 +481,33 @@ Initialized with the id of an asset. Defaults to zero (an invalid ID).
 
 <a id="algopy.Asset.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 Returns `True` if `asset_id` is not `0`
 
 <a id="algopy.Asset.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.Asset](#algopy.Asset)) → bool
+### \_\_eq_\_
+
+__eq__(other: [algopy.Asset](#algopy.Asset)) → bool
 
 Asset equality is determined by the equality of an Asset’s id
 
 <a id="algopy.Asset.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.Asset](#algopy.Asset)) → bool
+### \_\_ne_\_
+
+__ne__(other: [algopy.Asset](#algopy.Asset)) → bool
 
 Asset equality is determined by the equality of an Asset’s id
 
 <a id="algopy.Asset.balance"></a>
 
-### balance(account: [algopy.Account](#algopy.Account), /) → [algopy.UInt64](#algopy.UInt64)
+### balance
+
+balance(account: [algopy.Account](#algopy.Account), /) → [algopy.UInt64](#algopy.UInt64)
 
 Amount of the asset unit held by this account. Fails if the account has not
 opted in to the asset.
@@ -432,7 +516,9 @@ opted in to the asset.
 
 <a id="algopy.Asset.clawback"></a>
 
-### *property* clawback *: [algopy.Account](#algopy.Account)*
+### *property* clawback
+
+clawback *: [algopy.Account](#algopy.Account)*
 
 Clawback address
 
@@ -440,7 +526,9 @@ Clawback address
 
 <a id="algopy.Asset.creator"></a>
 
-### *property* creator *: [algopy.Account](#algopy.Account)*
+### *property* creator
+
+creator *: [algopy.Account](#algopy.Account)*
 
 Creator address
 
@@ -448,7 +536,9 @@ Creator address
 
 <a id="algopy.Asset.decimals"></a>
 
-### *property* decimals *: [algopy.UInt64](#algopy.UInt64)*
+### *property* decimals
+
+decimals *: [algopy.UInt64](#algopy.UInt64)*
 
 See AssetParams.Decimals
 
@@ -456,7 +546,9 @@ See AssetParams.Decimals
 
 <a id="algopy.Asset.default_frozen"></a>
 
-### *property* default_frozen *: bool*
+### *property* default_frozen
+
+default_frozen *: bool*
 
 Frozen by default or not
 
@@ -464,7 +556,9 @@ Frozen by default or not
 
 <a id="algopy.Asset.freeze"></a>
 
-### *property* freeze *: [algopy.Account](#algopy.Account)*
+### *property* freeze
+
+freeze *: [algopy.Account](#algopy.Account)*
 
 Freeze address
 
@@ -472,7 +566,9 @@ Freeze address
 
 <a id="algopy.Asset.frozen"></a>
 
-### frozen(account: [algopy.Account](#algopy.Account), /) → bool
+### frozen
+
+frozen(account: [algopy.Account](#algopy.Account), /) → bool
 
 Is the asset frozen or not. Fails if the account has not
 opted in to the asset.
@@ -481,13 +577,17 @@ opted in to the asset.
 
 <a id="algopy.Asset.id"></a>
 
-### *property* id *: [algopy.UInt64](#algopy.UInt64)*
+### *property* id
+
+id *: [algopy.UInt64](#algopy.UInt64)*
 
 Returns the id of the Asset
 
 <a id="algopy.Asset.manager"></a>
 
-### *property* manager *: [algopy.Account](#algopy.Account)*
+### *property* manager
+
+manager *: [algopy.Account](#algopy.Account)*
 
 Manager address
 
@@ -495,7 +595,9 @@ Manager address
 
 <a id="algopy.Asset.metadata_hash"></a>
 
-### *property* metadata_hash *: [algopy.Bytes](#algopy.Bytes)*
+### *property* metadata_hash
+
+metadata_hash *: [algopy.Bytes](#algopy.Bytes)*
 
 Arbitrary commitment
 
@@ -503,7 +605,9 @@ Arbitrary commitment
 
 <a id="algopy.Asset.name"></a>
 
-### *property* name *: [algopy.Bytes](#algopy.Bytes)*
+### *property* name
+
+name *: [algopy.Bytes](#algopy.Bytes)*
 
 Asset name
 
@@ -511,7 +615,9 @@ Asset name
 
 <a id="algopy.Asset.reserve"></a>
 
-### *property* reserve *: [algopy.Account](#algopy.Account)*
+### *property* reserve
+
+reserve *: [algopy.Account](#algopy.Account)*
 
 Reserve address
 
@@ -519,7 +625,9 @@ Reserve address
 
 <a id="algopy.Asset.total"></a>
 
-### *property* total *: [algopy.UInt64](#algopy.UInt64)*
+### *property* total
+
+total *: [algopy.UInt64](#algopy.UInt64)*
 
 Total number of units of this asset
 
@@ -527,7 +635,9 @@ Total number of units of this asset
 
 <a id="algopy.Asset.unit_name"></a>
 
-### *property* unit_name *: [algopy.Bytes](#algopy.Bytes)*
+### *property* unit_name
+
+unit_name *: [algopy.Bytes](#algopy.Bytes)*
 
 Asset unit name
 
@@ -535,7 +645,9 @@ Asset unit name
 
 <a id="algopy.Asset.url"></a>
 
-### *property* url *: [algopy.Bytes](#algopy.Bytes)*
+### *property* url
+
+url *: [algopy.Bytes](#algopy.Bytes)*
 
 URL with additional info about the asset
 
@@ -543,7 +655,9 @@ URL with additional info about the asset
 
 <a id="algopy.BigUInt"></a>
 
-## *class* algopy.BigUInt(value: [algopy.UInt64](#algopy.UInt64) | int = 0, /)
+## *class* algopy.BigUInt
+
+BigUInt(value: [algopy.UInt64](#algopy.UInt64) | int = 0, /)
 
 A variable length (max 512-bit) unsigned integer
 
@@ -554,31 +668,41 @@ declared at the module level
 
 <a id="algopy.BigUInt.__add__"></a>
 
-### \_\_add_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_add_\_
+
+__add__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be added with another BigUInt, UInt64 or int e.g. `BigUInt(4) + 2`.
 
 <a id="algopy.BigUInt.__and__"></a>
 
-### \_\_and_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_and_\_
+
+__and__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can bitwise and with another BigUInt, UInt64 or int e.g. `BigUInt(4) & 2`
 
 <a id="algopy.BigUInt.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 A BigUInt will evaluate to `False` if zero, and `True` otherwise
 
 <a id="algopy.BigUInt.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_eq_\_
+
+__eq__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A BigUInt can use the `==` operator with another BigUInt, UInt64 or int
 
 <a id="algopy.BigUInt.__floordiv__"></a>
 
-### \_\_floordiv_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_floordiv_\_
+
+__floordiv__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be floor divided with another BigUInt, UInt64 or int e.g. `BigUInt(4) // 2`.
 
@@ -586,31 +710,41 @@ This will error on divide by zero
 
 <a id="algopy.BigUInt.__ge__"></a>
 
-### \_\_ge_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_ge_\_
+
+__ge__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A BigUInt can use the `>=` operator with another BigUInt, UInt64 or int
 
 <a id="algopy.BigUInt.__gt__"></a>
 
-### \_\_gt_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_gt_\_
+
+__gt__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A BigUInt can use the `>` operator with another BigUInt, UInt64 or int
 
 <a id="algopy.BigUInt.__iadd__"></a>
 
-### \_\_iadd_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_iadd_\_
+
+__iadd__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be incremented with another BigUInt, UInt64 or int e.g. `a += BigUInt(2)`.
 
 <a id="algopy.BigUInt.__iand__"></a>
 
-### \_\_iand_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_iand_\_
+
+__iand__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can bitwise and with another BigUInt, UInt64 or int e.g. `a &= BigUInt(2)`
 
 <a id="algopy.BigUInt.__ifloordiv__"></a>
 
-### \_\_ifloordiv_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_ifloordiv_\_
+
+__ifloordiv__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be floor divided with another BigUInt, UInt64 or int e.g. `a //= BigUInt(2)`.
 
@@ -618,7 +752,9 @@ This will error on divide by zero
 
 <a id="algopy.BigUInt.__imod__"></a>
 
-### \_\_imod_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_imod_\_
+
+__imod__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be modded with another BigUInt, UInt64 or int e.g. `a %= BigUInt(2)`.
 
@@ -626,19 +762,25 @@ This will error on mod by zero
 
 <a id="algopy.BigUInt.__imul__"></a>
 
-### \_\_imul_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_imul_\_
+
+__imul__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be multiplied with another BigUInt, UInt64 or int e.g. `a*= BigUInt(2)`.
 
 <a id="algopy.BigUInt.__ior__"></a>
 
-### \_\_ior_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_ior_\_
+
+__ior__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can bitwise or with another BigUInt, UInt64 or int e.g. `a |= BigUInt(2)`
 
 <a id="algopy.BigUInt.__isub__"></a>
 
-### \_\_isub_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_isub_\_
+
+__isub__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be subtracted with another BigUInt, UInt64 or int e.g. `a -= BigUInt(2)`.
 
@@ -646,25 +788,33 @@ This will error on underflow
 
 <a id="algopy.BigUInt.__ixor__"></a>
 
-### \_\_ixor_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_ixor_\_
+
+__ixor__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can bitwise xor with another BigUInt, UInt64 or int e.g. `a ^= BigUInt(2)`
 
 <a id="algopy.BigUInt.__le__"></a>
 
-### \_\_le_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_le_\_
+
+__le__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A BigUInt can use the `<=` operator with another BigUInt, UInt64 or int
 
 <a id="algopy.BigUInt.__lt__"></a>
 
-### \_\_lt_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_lt_\_
+
+__lt__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A BigUInt can use the `<` operator with another BigUInt, UInt64 or int
 
 <a id="algopy.BigUInt.__mod__"></a>
 
-### \_\_mod_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_mod_\_
+
+__mod__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be modded with another BigUInt, UInt64 or int e.g. `BigUInt(4) % 2`.
 
@@ -672,43 +822,57 @@ This will error on mod by zero
 
 <a id="algopy.BigUInt.__mul__"></a>
 
-### \_\_mul_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_mul_\_
+
+__mul__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be multiplied with another BigUInt, UInt64 or int e.g. `4 + BigUInt(2)`.
 
 <a id="algopy.BigUInt.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_ne_\_
+
+__ne__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A BigUInt can use the `!=` operator with another BigUInt, UInt64 or int
 
 <a id="algopy.BigUInt.__or__"></a>
 
-### \_\_or_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_or_\_
+
+__or__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can bitwise or with another BigUInt, UInt64 or int e.g. `BigUInt(4) | 2`
 
 <a id="algopy.BigUInt.__pos__"></a>
 
-### \_\_pos_\_() → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_pos_\_
+
+__pos__() → [algopy.BigUInt](#algopy.BigUInt)
 
 Supports unary + operator. Redundant given the type is unsigned
 
 <a id="algopy.BigUInt.__radd__"></a>
 
-### \_\_radd_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_radd_\_
+
+__radd__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be added with another BigUInt, UInt64 or int e.g. `4 + BigUInt(2)`.
 
 <a id="algopy.BigUInt.__rand__"></a>
 
-### \_\_rand_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_rand_\_
+
+__rand__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can bitwise and with another BigUInt, UInt64 or int e.g. `4 & BigUInt(2)`
 
 <a id="algopy.BigUInt.__rfloordiv__"></a>
 
-### \_\_rfloordiv_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_rfloordiv_\_
+
+__rfloordiv__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be floor divided with another BigUInt, UInt64 or int e.g. `4 // BigUInt(2)`.
 
@@ -716,7 +880,9 @@ This will error on divide by zero
 
 <a id="algopy.BigUInt.__rmod__"></a>
 
-### \_\_rmod_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_rmod_\_
+
+__rmod__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be modded with another BigUInt, UInt64 or int e.g. `4 % BigUInt(2)`.
 
@@ -724,19 +890,25 @@ This will error on mod by zero
 
 <a id="algopy.BigUInt.__rmul__"></a>
 
-### \_\_rmul_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_rmul_\_
+
+__rmul__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be multiplied with another BigUInt, UInt64 or int e.g. `BigUInt(4) + 2`.
 
 <a id="algopy.BigUInt.__ror__"></a>
 
-### \_\_ror_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_ror_\_
+
+__ror__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can bitwise or with another BigUInt, UInt64 or int e.g. `4 | BigUInt(2)`
 
 <a id="algopy.BigUInt.__rsub__"></a>
 
-### \_\_rsub_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_rsub_\_
+
+__rsub__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be subtracted with another BigUInt, UInt64 or int e.g. `4 - BigUInt(2)`.
 
@@ -744,13 +916,17 @@ This will error on underflow
 
 <a id="algopy.BigUInt.__rxor__"></a>
 
-### \_\_rxor_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_rxor_\_
+
+__rxor__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can bitwise xor with another BigUInt, UInt64 or int e.g. `4 ^ BigUInt(2)`
 
 <a id="algopy.BigUInt.__sub__"></a>
 
-### \_\_sub_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_sub_\_
+
+__sub__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can be subtracted with another BigUInt, UInt64 or int e.g. `BigUInt(4) - 2`.
 
@@ -758,25 +934,33 @@ This will error on underflow
 
 <a id="algopy.BigUInt.__xor__"></a>
 
-### \_\_xor_\_(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
+### \_\_xor_\_
+
+__xor__(other: [algopy.BigUInt](#algopy.BigUInt) | [algopy.UInt64](#algopy.UInt64) | int) → [algopy.BigUInt](#algopy.BigUInt)
 
 A BigUInt can bitwise xor with another BigUInt, UInt64 or int e.g. `BigUInt(4) ^ 2`
 
 <a id="algopy.BigUInt.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](#algopy.Bytes)*
+### *property* bytes
+
+bytes *: [algopy.Bytes](#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.BigUInt.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes
+
+from_bytes(value: [algopy.Bytes](#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.Box"></a>
 
-## *class* algopy.Box(type_: type[algopy._TValue], /, \*, key: bytes | str | [algopy.Bytes](#algopy.Bytes) | [algopy.String](#algopy.String) = ...)
+## *class* algopy.Box
+
+Box(type_: type[algopy._TValue], /, \*, key: bytes | str | [algopy.Bytes](#algopy.Bytes) | [algopy.String](#algopy.String) = ...)
 
 Box abstracts the reading and writing of a single value to a single box.
 The box size will be reconfigured dynamically to fit the size of the value being assigned to
@@ -786,14 +970,18 @@ it.
 
 <a id="algopy.Box.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 Returns True if the box exists, regardless of the truthiness of the contents
 of the box
 
 <a id="algopy.Box.get"></a>
 
-### get(\*, default: algopy._TValue) → algopy._TValue
+### get
+
+get(\*, default: algopy._TValue) → algopy._TValue
 
 Retrieve the contents of the box, or return the default value if the box has not been
 created.
@@ -802,32 +990,42 @@ created.
 
 <a id="algopy.Box.key"></a>
 
-### *property* key *: [algopy.Bytes](#algopy.Bytes)*
+### *property* key
+
+key *: [algopy.Bytes](#algopy.Bytes)*
 
 Provides access to the raw storage key
 
 <a id="algopy.Box.length"></a>
 
-### *property* length *: [algopy.UInt64](#algopy.UInt64)*
+### *property* length
+
+length *: [algopy.UInt64](#algopy.UInt64)*
 
 Get the length of this Box. Fails if the box does not exist
 
 <a id="algopy.Box.maybe"></a>
 
-### maybe() → tuple[algopy._TValue, bool]
+### maybe
+
+maybe() → tuple[algopy._TValue, bool]
 
 Retrieve the contents of the box if it exists, and return a boolean indicating if the box
 exists.
 
 <a id="algopy.Box.value"></a>
 
-### *property* value *: algopy._TValue*
+### *property* value
+
+value *: algopy._TValue*
 
 Retrieve the contents of the box. Fails if the box has not been created.
 
 <a id="algopy.BoxMap"></a>
 
-## *class* algopy.BoxMap(key_type: type[algopy._TKey], value_type: type[algopy._TValue], /, \*, key_prefix: bytes | str | [algopy.Bytes](#algopy.Bytes) | [algopy.String](#algopy.String) = ...)
+## *class* algopy.BoxMap
+
+BoxMap(key_type: type[algopy._TKey], value_type: type[algopy._TValue], /, \*, key_prefix: bytes | str | [algopy.Bytes](#algopy.Bytes) | [algopy.String](#algopy.String) = ...)
 
 BoxMap abstracts the reading and writing of a set of boxes using a common key and content type.
 Each composite key (prefix + key) still needs to be made available to the application via the
@@ -846,32 +1044,42 @@ and if a custom value is supplied it must be static.
 
 <a id="algopy.BoxMap.__contains__"></a>
 
-### \_\_contains_\_(key: algopy._TKey) → bool
+### \_\_contains_\_
+
+__contains__(key: algopy._TKey) → bool
 
 Returns True if a box with the specified key exists in the map, regardless of the
 truthiness of the contents of the box
 
 <a id="algopy.BoxMap.__delitem__"></a>
 
-### \_\_delitem_\_(key: algopy._TKey) → None
+### \_\_delitem_\_
+
+__delitem__(key: algopy._TKey) → None
 
 Deletes a keyed box
 
 <a id="algopy.BoxMap.__getitem__"></a>
 
-### \_\_getitem_\_(key: algopy._TKey) → algopy._TValue
+### \_\_getitem_\_
+
+__getitem__(key: algopy._TKey) → algopy._TValue
 
 Retrieve the contents of a keyed box. Fails if the box for the key has not been created.
 
 <a id="algopy.BoxMap.__setitem__"></a>
 
-### \_\_setitem_\_(key: algopy._TKey, value: algopy._TValue) → None
+### \_\_setitem_\_
+
+__setitem__(key: algopy._TKey, value: algopy._TValue) → None
 
 Write *value* to a keyed box. Creates the box if it does not exist
 
 <a id="algopy.BoxMap.get"></a>
 
-### get(key: algopy._TKey, \*, default: algopy._TValue) → algopy._TValue
+### get
+
+get(key: algopy._TKey, \*, default: algopy._TValue) → algopy._TValue
 
 Retrieve the contents of a keyed box, or return the default value if the box has not been
 created.
@@ -881,13 +1089,17 @@ created.
 
 <a id="algopy.BoxMap.key_prefix"></a>
 
-### *property* key_prefix *: [algopy.Bytes](#algopy.Bytes)*
+### *property* key_prefix
+
+key_prefix *: [algopy.Bytes](#algopy.Bytes)*
 
 Provides access to the raw storage key-prefix
 
 <a id="algopy.BoxMap.length"></a>
 
-### length(key: algopy._TKey) → [algopy.UInt64](#algopy.UInt64)
+### length
+
+length(key: algopy._TKey) → [algopy.UInt64](#algopy.UInt64)
 
 Get the length of an item in this BoxMap. Fails if the box does not exist
 
@@ -895,7 +1107,9 @@ Get the length of an item in this BoxMap. Fails if the box does not exist
 
 <a id="algopy.BoxMap.maybe"></a>
 
-### maybe(key: algopy._TKey) → tuple[algopy._TValue, bool]
+### maybe
+
+maybe(key: algopy._TKey) → tuple[algopy._TValue, bool]
 
 Retrieve the contents of a keyed box if it exists, and return a boolean indicating if the
 box exists.
@@ -904,7 +1118,9 @@ box exists.
 
 <a id="algopy.BoxRef"></a>
 
-## *class* algopy.BoxRef(/, \*, key: bytes | str | algopy.Bytes | algopy.String = ...)
+## *class* algopy.BoxRef
+
+BoxRef(/, \*, key: bytes | str | algopy.Bytes | algopy.String = ...)
 
 BoxRef abstracts the reading and writing of boxes containing raw binary data. The size is
 configured manually, and can be set to values larger than what the AVM can handle in a single
@@ -914,13 +1130,17 @@ value.
 
 <a id="algopy.BoxRef.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 Returns True if the box has a value set, regardless of the truthiness of that value
 
 <a id="algopy.BoxRef.create"></a>
 
-### create(\*, size: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### create
+
+create(\*, size: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 Creates a box with the specified size, setting all bits to zero. Fails if the box already
 exists with a different size. Fails if the specified size is greater than the max box size
@@ -930,13 +1150,17 @@ Returns True if the box was created, False if the box already existed
 
 <a id="algopy.BoxRef.delete"></a>
 
-### delete() → bool
+### delete
+
+delete() → bool
 
 Deletes the box if it exists and returns a value indicating if the box existed
 
 <a id="algopy.BoxRef.extract"></a>
 
-### extract(start_index: [algopy.UInt64](#algopy.UInt64) | int, length: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.Bytes](#algopy.Bytes)
+### extract
+
+extract(start_index: [algopy.UInt64](#algopy.UInt64) | int, length: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.Bytes](#algopy.Bytes)
 
 Extract a slice of bytes from the box.
 
@@ -947,7 +1171,9 @@ Fails if the box does not exist, or if `start_index + length > len(box)`
 
 <a id="algopy.BoxRef.get"></a>
 
-### get(\*, default: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
+### get
+
+get(\*, default: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
 
 Retrieve the contents of the box, or return the default value if the box has not been
 created.
@@ -956,26 +1182,34 @@ created.
 
 <a id="algopy.BoxRef.key"></a>
 
-### *property* key *: [algopy.Bytes](#algopy.Bytes)*
+### *property* key
+
+key *: [algopy.Bytes](#algopy.Bytes)*
 
 Provides access to the raw storage key
 
 <a id="algopy.BoxRef.length"></a>
 
-### *property* length *: [algopy.UInt64](#algopy.UInt64)*
+### *property* length
+
+length *: [algopy.UInt64](#algopy.UInt64)*
 
 Get the length of this Box. Fails if the box does not exist
 
 <a id="algopy.BoxRef.maybe"></a>
 
-### maybe() → tuple[[algopy.Bytes](#algopy.Bytes), bool]
+### maybe
+
+maybe() → tuple[[algopy.Bytes](#algopy.Bytes), bool]
 
 Retrieve the contents of the box if it exists, and return a boolean indicating if the box
 exists.
 
 <a id="algopy.BoxRef.put"></a>
 
-### put(value: [algopy.Bytes](#algopy.Bytes) | bytes) → None
+### put
+
+put(value: [algopy.Bytes](#algopy.Bytes) | bytes) → None
 
 Replaces the contents of box with value. Fails if box exists and len(box) != len(value).
 Creates box if it does not exist
@@ -984,7 +1218,9 @@ Creates box if it does not exist
 
 <a id="algopy.BoxRef.replace"></a>
 
-### replace(start_index: [algopy.UInt64](#algopy.UInt64) | int, value: [algopy.Bytes](#algopy.Bytes) | bytes) → None
+### replace
+
+replace(start_index: [algopy.UInt64](#algopy.UInt64) | int, value: [algopy.Bytes](#algopy.Bytes) | bytes) → None
 
 Write `value` to the box starting at `start_index`. Fails if the box does not exist,
 or if `start_index + len(value) > len(box)`
@@ -994,7 +1230,9 @@ or if `start_index + len(value) > len(box)`
 
 <a id="algopy.BoxRef.resize"></a>
 
-### resize(new_size: [algopy.UInt64](#algopy.UInt64) | int) → None
+### resize
+
+resize(new_size: [algopy.UInt64](#algopy.UInt64) | int) → None
 
 Resizes the box the specified `new_size`. Truncating existing data if the new value is
 shorter or padding with zero bytes if it is longer.
@@ -1003,7 +1241,9 @@ shorter or padding with zero bytes if it is longer.
 
 <a id="algopy.BoxRef.splice"></a>
 
-### splice(start_index: [algopy.UInt64](#algopy.UInt64) | int, length: [algopy.UInt64](#algopy.UInt64) | int, value: [algopy.Bytes](#algopy.Bytes) | bytes) → None
+### splice
+
+splice(start_index: [algopy.UInt64](#algopy.UInt64) | int, length: [algopy.UInt64](#algopy.UInt64) | int, value: [algopy.Bytes](#algopy.Bytes) | bytes) → None
 
 set box to contain its previous bytes up to index `start_index`, followed by `bytes`,
 followed by the original bytes of the box that began at index `start_index + length`
@@ -1018,7 +1258,9 @@ If the new value is shorter than the box size, it will be padded with zero bytes
 
 <a id="algopy.Bytes"></a>
 
-## *class* algopy.Bytes(value: bytes = b'', /)
+## *class* algopy.Bytes
+
+Bytes(value: bytes = b'', /)
 
 A byte sequence, with a maximum length of 4096 bytes, one of the primary data types on the AVM
 
@@ -1029,132 +1271,174 @@ declared at the module level
 
 <a id="algopy.Bytes.__add__"></a>
 
-### \_\_add_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
+### \_\_add_\_
+
+__add__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
 
 Concatenate Bytes with another Bytes or bytes literal
 e.g. `Bytes(b"Hello ") + b"World"`.
 
 <a id="algopy.Bytes.__and__"></a>
 
-### \_\_and_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
+### \_\_and_\_
+
+__and__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
 
 Bytes can bitwise and with another Bytes or bytes e.g. `Bytes(b"FF") & b"0F")`
 
 <a id="algopy.Bytes.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 Returns `True` if length of bytes is \>0
 
 <a id="algopy.Bytes.__contains__"></a>
 
-### \_\_contains_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → bool
+### \_\_contains_\_
+
+__contains__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → bool
 
 Test whether another Bytes is a substring of this one.
 Note this is expensive due to a lack of AVM support.
 
 <a id="algopy.Bytes.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → bool
+### \_\_eq_\_
+
+__eq__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → bool
 
 Bytes can be compared using the `==` operator with another Bytes or bytes
 
 <a id="algopy.Bytes.__getitem__"></a>
 
-### \_\_getitem_\_(index: [algopy.UInt64](#algopy.UInt64) | int | slice) → [algopy.Bytes](#algopy.Bytes)
+### \_\_getitem_\_
+
+__getitem__(index: [algopy.UInt64](#algopy.UInt64) | int | slice) → [algopy.Bytes](#algopy.Bytes)
 
 Returns a Bytes containing a single byte if indexed with UInt64 or int
 otherwise the substring o bytes described by the slice
 
 <a id="algopy.Bytes.__iadd__"></a>
 
-### \_\_iadd_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
+### \_\_iadd_\_
+
+__iadd__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
 
 Concatenate Bytes with another Bytes or bytes literal
 e.g. `a += Bytes(b"World")`.
 
 <a id="algopy.Bytes.__iand__"></a>
 
-### \_\_iand_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
+### \_\_iand_\_
+
+__iand__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
 
 Bytes can bitwise and with another Bytes or bytes e.g. `a &= Bytes(b"0F")`
 
 <a id="algopy.Bytes.__invert__"></a>
 
-### \_\_invert_\_() → [algopy.Bytes](#algopy.Bytes)
+### \_\_invert_\_
+
+__invert__() → [algopy.Bytes](#algopy.Bytes)
 
 Bytes can be bitwise inverted e.g. `~Bytes(b"FF)`
 
 <a id="algopy.Bytes.__ior__"></a>
 
-### \_\_ior_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
+### \_\_ior_\_
+
+__ior__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
 
 Bytes can bitwise or with another Bytes or bytes e.g. `a |= Bytes(b"0F")`
 
 <a id="algopy.Bytes.__iter__"></a>
 
-### \_\_iter_\_() → collections.abc.Iterator[[algopy.Bytes](#algopy.Bytes)]
+### \_\_iter_\_
+
+__iter__() → collections.abc.Iterator[[algopy.Bytes](#algopy.Bytes)]
 
 Bytes can be iterated, yielding each consecutive byte
 
 <a id="algopy.Bytes.__ixor__"></a>
 
-### \_\_ixor_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
+### \_\_ixor_\_
+
+__ixor__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
 
 Bytes can bitwise xor with another Bytes or bytes e.g. `a ^= Bytes(b"0F")`
 
 <a id="algopy.Bytes.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → bool
+### \_\_ne_\_
+
+__ne__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → bool
 
 Bytes can be compared using the `!=` operator with another Bytes or bytes
 
 <a id="algopy.Bytes.__or__"></a>
 
-### \_\_or_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
+### \_\_or_\_
+
+__or__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
 
 Bytes can bitwise or with another Bytes or bytes e.g. `Bytes(b"FF") | b"0F")`
 
 <a id="algopy.Bytes.__radd__"></a>
 
-### \_\_radd_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
+### \_\_radd_\_
+
+__radd__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
 
 Concatenate Bytes with another Bytes or bytes literal
 e.g. `b"Hello " + Bytes(b"World")`.
 
 <a id="algopy.Bytes.__reversed__"></a>
 
-### \_\_reversed_\_() → collections.abc.Iterator[[algopy.Bytes](#algopy.Bytes)]
+### \_\_reversed_\_
+
+__reversed__() → collections.abc.Iterator[[algopy.Bytes](#algopy.Bytes)]
 
 Bytes can be iterated in reverse, yield each preceding byte starting at the end
 
 <a id="algopy.Bytes.__xor__"></a>
 
-### \_\_xor_\_(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
+### \_\_xor_\_
+
+__xor__(other: [algopy.Bytes](#algopy.Bytes) | bytes) → [algopy.Bytes](#algopy.Bytes)
 
 Bytes can bitwise xor with another Bytes or bytes e.g. `Bytes(b"FF") ^ b"0F")`
 
 <a id="algopy.Bytes.from_base32"></a>
 
-### *static* from_base32(value: str, /) → [algopy.Bytes](#algopy.Bytes)
+### *static* from_base32
+
+from_base32(value: str, /) → [algopy.Bytes](#algopy.Bytes)
 
 Creates Bytes from a base32 encoded string e.g. `Bytes.from_base32("74======")`
 
 <a id="algopy.Bytes.from_base64"></a>
 
-### *static* from_base64(value: str, /) → [algopy.Bytes](#algopy.Bytes)
+### *static* from_base64
+
+from_base64(value: str, /) → [algopy.Bytes](#algopy.Bytes)
 
 Creates Bytes from a base64 encoded string e.g. `Bytes.from_base64("RkY=")`
 
 <a id="algopy.Bytes.from_hex"></a>
 
-### *static* from_hex(value: str, /) → [algopy.Bytes](#algopy.Bytes)
+### *static* from_hex
+
+from_hex(value: str, /) → [algopy.Bytes](#algopy.Bytes)
 
 Creates Bytes from a hex/octal encoded string e.g. `Bytes.from_hex("FF")`
 
 <a id="algopy.Bytes.length"></a>
 
-### *property* length *: [algopy.UInt64](#algopy.UInt64)*
+### *property* length
+
+length *: [algopy.UInt64](#algopy.UInt64)*
 
 Returns the length of the Bytes
 
@@ -1162,17 +1446,23 @@ Returns the length of the Bytes
 
 ## *class* algopy.BytesBacked
 
+BytesBacked
+
 Represents a type that is a single bytes value
 
 <a id="algopy.BytesBacked.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](#algopy.Bytes)*
+### *property* bytes
+
+bytes *: [algopy.Bytes](#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.BytesBacked.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes
+
+from_bytes(value: [algopy.Bytes](#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
@@ -1180,12 +1470,16 @@ Construct an instance from the underlying bytes (no validation)
 
 ## *class* algopy.CompiledContract
 
+CompiledContract
+
 Provides compiled programs and state allocation values for a Contract.
 Create by calling [`compile_contract`](#algopy.compile_contract).
 
 <a id="algopy.CompiledContract.approval_program"></a>
 
-### approval_program *: tuple[[algopy.Bytes](#algopy.Bytes), [algopy.Bytes](#algopy.Bytes)]*
+### approval_program
+
+approval_program *: tuple[[algopy.Bytes](#algopy.Bytes), [algopy.Bytes](#algopy.Bytes)]*
 
 None
 
@@ -1194,7 +1488,9 @@ and compiled to AVM bytecode
 
 <a id="algopy.CompiledContract.clear_state_program"></a>
 
-### clear_state_program *: tuple[[algopy.Bytes](#algopy.Bytes), [algopy.Bytes](#algopy.Bytes)]*
+### clear_state_program
+
+clear_state_program *: tuple[[algopy.Bytes](#algopy.Bytes), [algopy.Bytes](#algopy.Bytes)]*
 
 None
 
@@ -1203,7 +1499,9 @@ and compiled to AVM bytecode
 
 <a id="algopy.CompiledContract.extra_program_pages"></a>
 
-### extra_program_pages *: [algopy.UInt64](#algopy.UInt64)*
+### extra_program_pages
+
+extra_program_pages *: [algopy.UInt64](#algopy.UInt64)*
 
 None
 
@@ -1212,7 +1510,9 @@ size, can be overridden when calling compile_contract
 
 <a id="algopy.CompiledContract.global_bytes"></a>
 
-### global_bytes *: [algopy.UInt64](#algopy.UInt64)*
+### global_bytes
+
+global_bytes *: [algopy.UInt64](#algopy.UInt64)*
 
 None
 
@@ -1221,7 +1521,9 @@ when calling compile_contract
 
 <a id="algopy.CompiledContract.global_uints"></a>
 
-### global_uints *: [algopy.UInt64](#algopy.UInt64)*
+### global_uints
+
+global_uints *: [algopy.UInt64](#algopy.UInt64)*
 
 None
 
@@ -1230,7 +1532,9 @@ when calling compile_contract
 
 <a id="algopy.CompiledContract.local_bytes"></a>
 
-### local_bytes *: [algopy.UInt64](#algopy.UInt64)*
+### local_bytes
+
+local_bytes *: [algopy.UInt64](#algopy.UInt64)*
 
 None
 
@@ -1239,7 +1543,9 @@ when calling compile_contract
 
 <a id="algopy.CompiledContract.local_uints"></a>
 
-### local_uints *: [algopy.UInt64](#algopy.UInt64)*
+### local_uints
+
+local_uints *: [algopy.UInt64](#algopy.UInt64)*
 
 None
 
@@ -1250,12 +1556,16 @@ when calling compile_contract
 
 ## *class* algopy.CompiledLogicSig
 
+CompiledLogicSig
+
 Provides account for a Logic Signature.
 Create by calling [`compile_logicsig`](#algopy.compile_logicsig).
 
 <a id="algopy.CompiledLogicSig.account"></a>
 
-### account *: [algopy.Account](#algopy.Account)*
+### account
+
+account *: [algopy.Account](#algopy.Account)*
 
 None
 
@@ -1266,11 +1576,15 @@ to AVM bytecode
 
 ## *class* algopy.Contract
 
+Contract
+
 Base class for an Algorand Smart Contract
 
 <a id="algopy.Contract.__init_subclass__"></a>
 
-### *classmethod* \_\_init_subclass_\_(\*, name: str = ..., scratch_slots: [algopy.urange](#algopy.urange) | tuple[int | [algopy.urange](#algopy.urange), ...] | list[int | [algopy.urange](#algopy.urange)] = ..., state_totals: [algopy.StateTotals](#algopy.StateTotals) = ..., avm_version: int = ...)
+### *classmethod* \_\_init_subclass_\_
+
+__init_subclass__(\*, name: str = ..., scratch_slots: [algopy.urange](#algopy.urange) | tuple[int | [algopy.urange](#algopy.urange), ...] | list[int | [algopy.urange](#algopy.urange)] = ..., state_totals: [algopy.StateTotals](#algopy.StateTotals) = ..., avm_version: int = ...)
 
 When declaring a Contract subclass, options and configuration are passed in
 the base class list:
@@ -1318,14 +1632,18 @@ Defaults to value provided supplied on command line (which defaults to current m
 
 <a id="algopy.Contract.approval_program"></a>
 
-### *abstract* approval_program() → [algopy.UInt64](#algopy.UInt64) | bool
+### *abstract* approval_program
+
+approval_program() → [algopy.UInt64](#algopy.UInt64) | bool
 
 Represents the program called for all transactions
 where `OnCompletion` != `ClearState`
 
 <a id="algopy.Contract.clear_state_program"></a>
 
-### *abstract* clear_state_program() → [algopy.UInt64](#algopy.UInt64) | bool
+### *abstract* clear_state_program
+
+clear_state_program() → [algopy.UInt64](#algopy.UInt64) | bool
 
 Represents the program called when `OnCompletion` == `ClearState`
 
@@ -1333,12 +1651,16 @@ Represents the program called when `OnCompletion` == `ClearState`
 
 ## *class* algopy.Global
 
+Global
+
 Get Global values
 Native TEAL op: [`global`](https://developer.algorand.org/docs/get-details/dapps/avm/teal/opcodes/v10/#global)
 
 <a id="algopy.Global.asset_create_min_balance"></a>
 
-### asset_create_min_balance *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### asset_create_min_balance
+
+asset_create_min_balance *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1346,7 +1668,9 @@ The additional minimum balance required to create (and opt-in to) an asset.
 
 <a id="algopy.Global.asset_opt_in_min_balance"></a>
 
-### asset_opt_in_min_balance *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### asset_opt_in_min_balance
+
+asset_opt_in_min_balance *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1354,7 +1678,9 @@ The additional minimum balance required to opt-in to an asset.
 
 <a id="algopy.Global.caller_application_address"></a>
 
-### caller_application_address *: Final[[algopy.Account](#algopy.Account)]*
+### caller_application_address
+
+caller_application_address *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -1362,7 +1688,9 @@ The application address of the application that called this application. ZeroAdd
 
 <a id="algopy.Global.caller_application_id"></a>
 
-### caller_application_id *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### caller_application_id
+
+caller_application_id *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1370,7 +1698,9 @@ The application ID of the application that called this application. 0 if this ap
 
 <a id="algopy.Global.creator_address"></a>
 
-### creator_address *: Final[[algopy.Account](#algopy.Account)]*
+### creator_address
+
+creator_address *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -1378,7 +1708,9 @@ Address of the creator of the current application. Application mode only.
 
 <a id="algopy.Global.current_application_address"></a>
 
-### current_application_address *: Final[[algopy.Account](#algopy.Account)]*
+### current_application_address
+
+current_application_address *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -1386,7 +1718,9 @@ Address that the current application controls. Application mode only.
 
 <a id="algopy.Global.current_application_id"></a>
 
-### current_application_id *: Final[[algopy.Application](#algopy.Application)]*
+### current_application_id
+
+current_application_id *: Final[[algopy.Application](#algopy.Application)]*
 
 Ellipsis
 
@@ -1394,7 +1728,9 @@ ID of current application executing. Application mode only.
 
 <a id="algopy.Global.genesis_hash"></a>
 
-### genesis_hash *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### genesis_hash
+
+genesis_hash *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -1402,7 +1738,9 @@ The Genesis Hash for the network.
 
 <a id="algopy.Global.group_id"></a>
 
-### group_id *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### group_id
+
+group_id *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -1410,7 +1748,9 @@ ID of the transaction group. 32 zero bytes if the transaction is not part of a g
 
 <a id="algopy.Global.group_size"></a>
 
-### group_size *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### group_size
+
+group_size *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1418,7 +1758,9 @@ Number of transactions in this atomic transaction group. At least 1
 
 <a id="algopy.Global.latest_timestamp"></a>
 
-### latest_timestamp *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### latest_timestamp
+
+latest_timestamp *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1426,7 +1768,9 @@ Last confirmed block UNIX timestamp. Fails if negative. Application mode only.
 
 <a id="algopy.Global.logic_sig_version"></a>
 
-### logic_sig_version *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### logic_sig_version
+
+logic_sig_version *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1434,7 +1778,9 @@ Maximum supported version
 
 <a id="algopy.Global.max_txn_life"></a>
 
-### max_txn_life *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### max_txn_life
+
+max_txn_life *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1442,7 +1788,9 @@ rounds
 
 <a id="algopy.Global.min_balance"></a>
 
-### min_balance *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### min_balance
+
+min_balance *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1450,7 +1798,9 @@ microalgos
 
 <a id="algopy.Global.min_txn_fee"></a>
 
-### min_txn_fee *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### min_txn_fee
+
+min_txn_fee *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1458,7 +1808,9 @@ microalgos
 
 <a id="algopy.Global.opcode_budget"></a>
 
-### *static* opcode_budget() → [algopy.UInt64](#algopy.UInt64)
+### *static* opcode_budget
+
+opcode_budget() → [algopy.UInt64](#algopy.UInt64)
 
 The remaining cost that can be spent by opcodes in this program.
 
@@ -1466,7 +1818,9 @@ Native TEAL opcode: [`global`](https://developer.algorand.org/docs/get-details/d
 
 <a id="algopy.Global.payouts_enabled"></a>
 
-### payouts_enabled *: Final[bool]*
+### payouts_enabled
+
+payouts_enabled *: Final[bool]*
 
 Ellipsis
 
@@ -1475,7 +1829,9 @@ Min AVM version: 11
 
 <a id="algopy.Global.payouts_go_online_fee"></a>
 
-### payouts_go_online_fee *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### payouts_go_online_fee
+
+payouts_go_online_fee *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1484,7 +1840,9 @@ Min AVM version: 11
 
 <a id="algopy.Global.payouts_max_balance"></a>
 
-### payouts_max_balance *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### payouts_max_balance
+
+payouts_max_balance *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1493,7 +1851,9 @@ Min AVM version: 11
 
 <a id="algopy.Global.payouts_min_balance"></a>
 
-### payouts_min_balance *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### payouts_min_balance
+
+payouts_min_balance *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1502,7 +1862,9 @@ Min AVM version: 11
 
 <a id="algopy.Global.payouts_percent"></a>
 
-### payouts_percent *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### payouts_percent
+
+payouts_percent *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1511,7 +1873,9 @@ Min AVM version: 11
 
 <a id="algopy.Global.round"></a>
 
-### round *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### round
+
+round *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -1519,7 +1883,9 @@ Current round number. Application mode only.
 
 <a id="algopy.Global.zero_address"></a>
 
-### zero_address *: Final[[algopy.Account](#algopy.Account)]*
+### zero_address
+
+zero_address *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -1528,6 +1894,8 @@ Ellipsis
 <a id="algopy.GlobalState"></a>
 
 ## *class* algopy.GlobalState
+
+GlobalState
 
 Global state associated with the application, the key will be the name of the member, this
 is assigned to
@@ -1539,13 +1907,17 @@ e.g. `self.some_variable = UInt64(0)`</Aside>
 
 <a id="algopy.GlobalState.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 Returns `True` if the key has a value set, regardless of the truthiness of that value
 
 <a id="algopy.GlobalState.get"></a>
 
-### get(default: algopy._TState) → algopy._TState
+### get
+
+get(default: algopy._TState) → algopy._TState
 
 Returns the value or `default` if no value is set
 
@@ -1555,13 +1927,17 @@ name = self.name.get(Bytes(b"no name")
 
 <a id="algopy.GlobalState.key"></a>
 
-### *property* key *: [algopy.Bytes](#algopy.Bytes)*
+### *property* key
+
+key *: [algopy.Bytes](#algopy.Bytes)*
 
 Provides access to the raw storage key
 
 <a id="algopy.GlobalState.maybe"></a>
 
-### maybe() → tuple[algopy._TState, bool]
+### maybe
+
+maybe() → tuple[algopy._TState, bool]
 
 Returns the value, and a bool
 
@@ -1573,7 +1949,9 @@ if not name_exists:
 
 <a id="algopy.GlobalState.value"></a>
 
-### *property* value *: algopy._TState*
+### *property* value
+
+value *: algopy._TState*
 
 Returns the value or and error if the value is not set
 
@@ -1583,7 +1961,9 @@ name = self.name.value
 
 <a id="algopy.LocalState"></a>
 
-## *class* algopy.LocalState(type_: type[algopy._TState], /, \*, key: [algopy.String](#algopy.String) | [algopy.Bytes](#algopy.Bytes) | bytes | str = ..., description: str = '')
+## *class* algopy.LocalState
+
+LocalState(type_: type[algopy._TState], /, \*, key: [algopy.String](#algopy.String) | [algopy.Bytes](#algopy.Bytes) | bytes | str = ..., description: str = '')
 
 Local state associated with the application and an account
 
@@ -1597,7 +1977,9 @@ self.names = LocalState(algopy.Bytes)
 
 <a id="algopy.LocalState.__contains__"></a>
 
-### \_\_contains_\_(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_contains_\_
+
+__contains__(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 Can test if data exists by using an `Account` reference or foreign account index
 
@@ -1607,7 +1989,9 @@ assert account in self.names
 
 <a id="algopy.LocalState.__delitem__"></a>
 
-### \_\_delitem_\_(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int) → None
+### \_\_delitem_\_
+
+__delitem__(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int) → None
 
 Data can be removed by using an `Account` reference or foreign account index
 
@@ -1617,7 +2001,9 @@ del self.names[account]
 
 <a id="algopy.LocalState.__getitem__"></a>
 
-### \_\_getitem_\_(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int) → algopy._TState
+### \_\_getitem_\_
+
+__getitem__(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int) → algopy._TState
 
 Data can be accessed by an `Account` reference or foreign account index
 
@@ -1627,7 +2013,9 @@ account_name = self.names[account]
 
 <a id="algopy.LocalState.__setitem__"></a>
 
-### \_\_setitem_\_(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int, value: algopy._TState) → None
+### \_\_setitem_\_
+
+__setitem__(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int, value: algopy._TState) → None
 
 Data can be stored by using an `Account` reference or foreign account index
 
@@ -1637,7 +2025,9 @@ self.names[account] = account_name
 
 <a id="algopy.LocalState.get"></a>
 
-### get(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int, default: algopy._TState) → algopy._TState
+### get
+
+get(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int, default: algopy._TState) → algopy._TState
 
 Can retrieve value using an `Account` reference or foreign account index,
 and a fallback default value.
@@ -1648,13 +2038,17 @@ name = self.names.get(account, Bytes(b"no name")
 
 <a id="algopy.LocalState.key"></a>
 
-### *property* key *: [algopy.Bytes](#algopy.Bytes)*
+### *property* key
+
+key *: [algopy.Bytes](#algopy.Bytes)*
 
 Provides access to the raw storage key
 
 <a id="algopy.LocalState.maybe"></a>
 
-### maybe(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int) → tuple[algopy._TState, bool]
+### maybe
+
+maybe(account: [algopy.Account](#algopy.Account) | [algopy.UInt64](#algopy.UInt64) | int) → tuple[algopy._TState, bool]
 
 Can retrieve value, and a bool indicating if the value was present
 using an `Account` reference or foreign account index.
@@ -1669,11 +2063,15 @@ if not name_exists:
 
 ## *class* algopy.LogicSig
 
+LogicSig
+
 A logic signature
 
 <a id="algopy.OnCompleteAction"></a>
 
-## *class* algopy.OnCompleteAction(value: int = 0, /)
+## *class* algopy.OnCompleteAction
+
+OnCompleteAction(value: int = 0, /)
 
 On Completion actions available in an application call transaction
 
@@ -1684,7 +2082,9 @@ declared at the module level
 
 <a id="algopy.OnCompleteAction.ClearState"></a>
 
-### ClearState *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
+### ClearState
+
+ClearState *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
 
 Ellipsis
 
@@ -1694,7 +2094,9 @@ they no longer wish to opt in to.
 
 <a id="algopy.OnCompleteAction.CloseOut"></a>
 
-### CloseOut *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
+### CloseOut
+
+CloseOut *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
 
 Ellipsis
 
@@ -1703,7 +2105,9 @@ some LocalState for the application from the user’s account
 
 <a id="algopy.OnCompleteAction.DeleteApplication"></a>
 
-### DeleteApplication *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
+### DeleteApplication
+
+DeleteApplication *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
 
 Ellipsis
 
@@ -1713,7 +2117,9 @@ record
 
 <a id="algopy.OnCompleteAction.NoOp"></a>
 
-### NoOp *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
+### NoOp
+
+NoOp *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
 
 Ellipsis
 
@@ -1721,7 +2127,9 @@ NoOP indicates that no additional action is performed when the transaction compl
 
 <a id="algopy.OnCompleteAction.OptIn"></a>
 
-### OptIn *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
+### OptIn
+
+OptIn *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
 
 Ellipsis
 
@@ -1730,7 +2138,9 @@ LocalState for the application in the sender’s account
 
 <a id="algopy.OnCompleteAction.UpdateApplication"></a>
 
-### UpdateApplication *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
+### UpdateApplication
+
+UpdateApplication *: [algopy.OnCompleteAction](#algopy.OnCompleteAction)*
 
 Ellipsis
 
@@ -1739,7 +2149,9 @@ update the ApprovalProgram and ClearStateProgram for the application
 
 <a id="algopy.OnCompleteAction.__add__"></a>
 
-### \_\_add_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_add_\_
+
+__add__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be added with another UInt64 or int e.g. `UInt(4) + 2`.
 
@@ -1747,25 +2159,33 @@ This will error on overflow
 
 <a id="algopy.OnCompleteAction.__and__"></a>
 
-### \_\_and_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_and_\_
+
+__and__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `UInt64(4) & 2`
 
 <a id="algopy.OnCompleteAction.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 A UInt64 will evaluate to `False` if zero, and `True` otherwise
 
 <a id="algopy.OnCompleteAction.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_eq_\_
+
+__eq__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `==` operator with another UInt64 or int
 
 <a id="algopy.OnCompleteAction.__floordiv__"></a>
 
-### \_\_floordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_floordiv_\_
+
+__floordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `UInt64(4) // 2`.
 
@@ -1773,19 +2193,25 @@ This will error on divide by zero
 
 <a id="algopy.OnCompleteAction.__ge__"></a>
 
-### \_\_ge_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_ge_\_
+
+__ge__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `>=` operator with another UInt64 or int
 
 <a id="algopy.OnCompleteAction.__gt__"></a>
 
-### \_\_gt_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_gt_\_
+
+__gt__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `>` operator with another UInt64 or int
 
 <a id="algopy.OnCompleteAction.__iadd__"></a>
 
-### \_\_iadd_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_iadd_\_
+
+__iadd__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be incremented with another UInt64 or int e.g. `a += UInt(2)`.
 
@@ -1793,13 +2219,17 @@ This will error on overflow
 
 <a id="algopy.OnCompleteAction.__iand__"></a>
 
-### \_\_iand_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_iand_\_
+
+__iand__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `a &= UInt64(2)`
 
 <a id="algopy.OnCompleteAction.__ifloordiv__"></a>
 
-### \_\_ifloordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ifloordiv_\_
+
+__ifloordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `a //= UInt64(2)`.
 
@@ -1807,13 +2237,17 @@ This will error on divide by zero
 
 <a id="algopy.OnCompleteAction.__ilshift__"></a>
 
-### \_\_ilshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ilshift_\_
+
+__ilshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `a <<= UInt64(2)`
 
 <a id="algopy.OnCompleteAction.__imod__"></a>
 
-### \_\_imod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_imod_\_
+
+__imod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `a %= UInt64(2)`.
 
@@ -1821,7 +2255,9 @@ This will error on mod by zero
 
 <a id="algopy.OnCompleteAction.__imul__"></a>
 
-### \_\_imul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_imul_\_
+
+__imul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `a*= UInt64(2)`.
 
@@ -1829,25 +2265,33 @@ This will error on overflow
 
 <a id="algopy.OnCompleteAction.__index__"></a>
 
-### \_\_index_\_() → int
+### \_\_index_\_
+
+__index__() → int
 
 A UInt64 can be used in indexing/slice expressions
 
 <a id="algopy.OnCompleteAction.__invert__"></a>
 
-### \_\_invert_\_() → [algopy.UInt64](#algopy.UInt64)
+### \_\_invert_\_
+
+__invert__() → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be bitwise inverted e.g. `~UInt64(4)`
 
 <a id="algopy.OnCompleteAction.__ior__"></a>
 
-### \_\_ior_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ior_\_
+
+__ior__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `a |= UInt64(2)`
 
 <a id="algopy.OnCompleteAction.__ipow__"></a>
 
-### \_\_ipow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ipow_\_
+
+__ipow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `a **= UInt64(2)`.
 
@@ -1855,13 +2299,17 @@ This will error on overflow
 
 <a id="algopy.OnCompleteAction.__irshift__"></a>
 
-### \_\_irshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_irshift_\_
+
+__irshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `a >>= UInt64(2)`
 
 <a id="algopy.OnCompleteAction.__isub__"></a>
 
-### \_\_isub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_isub_\_
+
+__isub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `a -= UInt64(2)`.
 
@@ -1869,31 +2317,41 @@ This will error on underflow
 
 <a id="algopy.OnCompleteAction.__ixor__"></a>
 
-### \_\_ixor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ixor_\_
+
+__ixor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `a ^= UInt64(2)`
 
 <a id="algopy.OnCompleteAction.__le__"></a>
 
-### \_\_le_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_le_\_
+
+__le__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `<=` operator with another UInt64 or int
 
 <a id="algopy.OnCompleteAction.__lshift__"></a>
 
-### \_\_lshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_lshift_\_
+
+__lshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `UInt64(4) << 2`
 
 <a id="algopy.OnCompleteAction.__lt__"></a>
 
-### \_\_lt_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_lt_\_
+
+__lt__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `<` operator with another UInt64 or int
 
 <a id="algopy.OnCompleteAction.__mod__"></a>
 
-### \_\_mod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_mod_\_
+
+__mod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `UInt64(4) % 2`.
 
@@ -1901,7 +2359,9 @@ This will error on mod by zero
 
 <a id="algopy.OnCompleteAction.__mul__"></a>
 
-### \_\_mul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_mul_\_
+
+__mul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `4 + UInt64(2)`.
 
@@ -1909,25 +2369,33 @@ This will error on overflow
 
 <a id="algopy.OnCompleteAction.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_ne_\_
+
+__ne__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `!=` operator with another UInt64 or int
 
 <a id="algopy.OnCompleteAction.__or__"></a>
 
-### \_\_or_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_or_\_
+
+__or__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `UInt64(4) | 2`
 
 <a id="algopy.OnCompleteAction.__pos__"></a>
 
-### \_\_pos_\_() → [algopy.UInt64](#algopy.UInt64)
+### \_\_pos_\_
+
+__pos__() → [algopy.UInt64](#algopy.UInt64)
 
 Supports unary + operator. Redundant given the type is unsigned
 
 <a id="algopy.OnCompleteAction.__pow__"></a>
 
-### \_\_pow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_pow_\_
+
+__pow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `UInt64(4) ** 2`.
 
@@ -1935,7 +2403,9 @@ This will error on overflow
 
 <a id="algopy.OnCompleteAction.__radd__"></a>
 
-### \_\_radd_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_radd_\_
+
+__radd__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be added with another UInt64 or int e.g. `4 + UInt64(2)`.
 
@@ -1943,13 +2413,17 @@ This will error on overflow
 
 <a id="algopy.OnCompleteAction.__rand__"></a>
 
-### \_\_rand_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rand_\_
+
+__rand__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `4 & UInt64(2)`
 
 <a id="algopy.OnCompleteAction.__rfloordiv__"></a>
 
-### \_\_rfloordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rfloordiv_\_
+
+__rfloordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `4 // UInt64(2)`.
 
@@ -1957,13 +2431,17 @@ This will error on divide by zero
 
 <a id="algopy.OnCompleteAction.__rlshift__"></a>
 
-### \_\_rlshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rlshift_\_
+
+__rlshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `4 << UInt64(2)`
 
 <a id="algopy.OnCompleteAction.__rmod__"></a>
 
-### \_\_rmod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rmod_\_
+
+__rmod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `4 % UInt64(2)`.
 
@@ -1971,7 +2449,9 @@ This will error on mod by zero
 
 <a id="algopy.OnCompleteAction.__rmul__"></a>
 
-### \_\_rmul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rmul_\_
+
+__rmul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `UInt64(4) + 2`.
 
@@ -1979,13 +2459,17 @@ This will error on overflow
 
 <a id="algopy.OnCompleteAction.__ror__"></a>
 
-### \_\_ror_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ror_\_
+
+__ror__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `4 | UInt64(2)`
 
 <a id="algopy.OnCompleteAction.__rpow__"></a>
 
-### \_\_rpow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rpow_\_
+
+__rpow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `4 ** UInt64(2)`.
 
@@ -1993,19 +2477,25 @@ This will error on overflow
 
 <a id="algopy.OnCompleteAction.__rrshift__"></a>
 
-### \_\_rrshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rrshift_\_
+
+__rrshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `4 >> UInt64(2)`
 
 <a id="algopy.OnCompleteAction.__rshift__"></a>
 
-### \_\_rshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rshift_\_
+
+__rshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `UInt64(4) >> 2`
 
 <a id="algopy.OnCompleteAction.__rsub__"></a>
 
-### \_\_rsub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rsub_\_
+
+__rsub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `4 - UInt64(2)`.
 
@@ -2013,13 +2503,17 @@ This will error on underflow
 
 <a id="algopy.OnCompleteAction.__rxor__"></a>
 
-### \_\_rxor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rxor_\_
+
+__rxor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `4 ^ UInt64(2)`
 
 <a id="algopy.OnCompleteAction.__sub__"></a>
 
-### \_\_sub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_sub_\_
+
+__sub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `UInt(4) - 2`.
 
@@ -2027,13 +2521,17 @@ This will error on underflow
 
 <a id="algopy.OnCompleteAction.__xor__"></a>
 
-### \_\_xor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_xor_\_
+
+__xor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `UInt64(4) ^ 2`
 
 <a id="algopy.OpUpFeeSource"></a>
 
-## *class* algopy.OpUpFeeSource(value: int = 0, /)
+## *class* algopy.OpUpFeeSource
+
+OpUpFeeSource(value: int = 0, /)
 
 Defines the source of fees for the OpUp utility.
 
@@ -2044,7 +2542,9 @@ declared at the module level
 
 <a id="algopy.OpUpFeeSource.Any"></a>
 
-### Any *: [algopy.OpUpFeeSource](#algopy.OpUpFeeSource)*
+### Any
+
+Any *: [algopy.OpUpFeeSource](#algopy.OpUpFeeSource)*
 
 Ellipsis
 
@@ -2052,7 +2552,9 @@ First the excess will be used, remaining fees will be taken from the app account
 
 <a id="algopy.OpUpFeeSource.AppAccount"></a>
 
-### AppAccount *: [algopy.OpUpFeeSource](#algopy.OpUpFeeSource)*
+### AppAccount
+
+AppAccount *: [algopy.OpUpFeeSource](#algopy.OpUpFeeSource)*
 
 Ellipsis
 
@@ -2060,7 +2562,9 @@ The app’s account will cover all fees (set inner_tx.fee=Global.min_tx_fee())
 
 <a id="algopy.OpUpFeeSource.GroupCredit"></a>
 
-### GroupCredit *: [algopy.OpUpFeeSource](#algopy.OpUpFeeSource)*
+### GroupCredit
+
+GroupCredit *: [algopy.OpUpFeeSource](#algopy.OpUpFeeSource)*
 
 Ellipsis
 
@@ -2068,7 +2572,9 @@ Only the excess fee (credit) on the outer group should be used (set inner_tx.fee
 
 <a id="algopy.OpUpFeeSource.__add__"></a>
 
-### \_\_add_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_add_\_
+
+__add__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be added with another UInt64 or int e.g. `UInt(4) + 2`.
 
@@ -2076,25 +2582,33 @@ This will error on overflow
 
 <a id="algopy.OpUpFeeSource.__and__"></a>
 
-### \_\_and_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_and_\_
+
+__and__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `UInt64(4) & 2`
 
 <a id="algopy.OpUpFeeSource.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 A UInt64 will evaluate to `False` if zero, and `True` otherwise
 
 <a id="algopy.OpUpFeeSource.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_eq_\_
+
+__eq__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `==` operator with another UInt64 or int
 
 <a id="algopy.OpUpFeeSource.__floordiv__"></a>
 
-### \_\_floordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_floordiv_\_
+
+__floordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `UInt64(4) // 2`.
 
@@ -2102,19 +2616,25 @@ This will error on divide by zero
 
 <a id="algopy.OpUpFeeSource.__ge__"></a>
 
-### \_\_ge_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_ge_\_
+
+__ge__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `>=` operator with another UInt64 or int
 
 <a id="algopy.OpUpFeeSource.__gt__"></a>
 
-### \_\_gt_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_gt_\_
+
+__gt__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `>` operator with another UInt64 or int
 
 <a id="algopy.OpUpFeeSource.__iadd__"></a>
 
-### \_\_iadd_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_iadd_\_
+
+__iadd__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be incremented with another UInt64 or int e.g. `a += UInt(2)`.
 
@@ -2122,13 +2642,17 @@ This will error on overflow
 
 <a id="algopy.OpUpFeeSource.__iand__"></a>
 
-### \_\_iand_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_iand_\_
+
+__iand__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `a &= UInt64(2)`
 
 <a id="algopy.OpUpFeeSource.__ifloordiv__"></a>
 
-### \_\_ifloordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ifloordiv_\_
+
+__ifloordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `a //= UInt64(2)`.
 
@@ -2136,13 +2660,17 @@ This will error on divide by zero
 
 <a id="algopy.OpUpFeeSource.__ilshift__"></a>
 
-### \_\_ilshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ilshift_\_
+
+__ilshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `a <<= UInt64(2)`
 
 <a id="algopy.OpUpFeeSource.__imod__"></a>
 
-### \_\_imod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_imod_\_
+
+__imod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `a %= UInt64(2)`.
 
@@ -2150,7 +2678,9 @@ This will error on mod by zero
 
 <a id="algopy.OpUpFeeSource.__imul__"></a>
 
-### \_\_imul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_imul_\_
+
+__imul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `a*= UInt64(2)`.
 
@@ -2158,25 +2688,33 @@ This will error on overflow
 
 <a id="algopy.OpUpFeeSource.__index__"></a>
 
-### \_\_index_\_() → int
+### \_\_index_\_
+
+__index__() → int
 
 A UInt64 can be used in indexing/slice expressions
 
 <a id="algopy.OpUpFeeSource.__invert__"></a>
 
-### \_\_invert_\_() → [algopy.UInt64](#algopy.UInt64)
+### \_\_invert_\_
+
+__invert__() → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be bitwise inverted e.g. `~UInt64(4)`
 
 <a id="algopy.OpUpFeeSource.__ior__"></a>
 
-### \_\_ior_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ior_\_
+
+__ior__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `a |= UInt64(2)`
 
 <a id="algopy.OpUpFeeSource.__ipow__"></a>
 
-### \_\_ipow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ipow_\_
+
+__ipow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `a **= UInt64(2)`.
 
@@ -2184,13 +2722,17 @@ This will error on overflow
 
 <a id="algopy.OpUpFeeSource.__irshift__"></a>
 
-### \_\_irshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_irshift_\_
+
+__irshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `a >>= UInt64(2)`
 
 <a id="algopy.OpUpFeeSource.__isub__"></a>
 
-### \_\_isub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_isub_\_
+
+__isub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `a -= UInt64(2)`.
 
@@ -2198,31 +2740,41 @@ This will error on underflow
 
 <a id="algopy.OpUpFeeSource.__ixor__"></a>
 
-### \_\_ixor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ixor_\_
+
+__ixor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `a ^= UInt64(2)`
 
 <a id="algopy.OpUpFeeSource.__le__"></a>
 
-### \_\_le_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_le_\_
+
+__le__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `<=` operator with another UInt64 or int
 
 <a id="algopy.OpUpFeeSource.__lshift__"></a>
 
-### \_\_lshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_lshift_\_
+
+__lshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `UInt64(4) << 2`
 
 <a id="algopy.OpUpFeeSource.__lt__"></a>
 
-### \_\_lt_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_lt_\_
+
+__lt__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `<` operator with another UInt64 or int
 
 <a id="algopy.OpUpFeeSource.__mod__"></a>
 
-### \_\_mod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_mod_\_
+
+__mod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `UInt64(4) % 2`.
 
@@ -2230,7 +2782,9 @@ This will error on mod by zero
 
 <a id="algopy.OpUpFeeSource.__mul__"></a>
 
-### \_\_mul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_mul_\_
+
+__mul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `4 + UInt64(2)`.
 
@@ -2238,25 +2792,33 @@ This will error on overflow
 
 <a id="algopy.OpUpFeeSource.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_ne_\_
+
+__ne__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `!=` operator with another UInt64 or int
 
 <a id="algopy.OpUpFeeSource.__or__"></a>
 
-### \_\_or_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_or_\_
+
+__or__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `UInt64(4) | 2`
 
 <a id="algopy.OpUpFeeSource.__pos__"></a>
 
-### \_\_pos_\_() → [algopy.UInt64](#algopy.UInt64)
+### \_\_pos_\_
+
+__pos__() → [algopy.UInt64](#algopy.UInt64)
 
 Supports unary + operator. Redundant given the type is unsigned
 
 <a id="algopy.OpUpFeeSource.__pow__"></a>
 
-### \_\_pow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_pow_\_
+
+__pow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `UInt64(4) ** 2`.
 
@@ -2264,7 +2826,9 @@ This will error on overflow
 
 <a id="algopy.OpUpFeeSource.__radd__"></a>
 
-### \_\_radd_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_radd_\_
+
+__radd__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be added with another UInt64 or int e.g. `4 + UInt64(2)`.
 
@@ -2272,13 +2836,17 @@ This will error on overflow
 
 <a id="algopy.OpUpFeeSource.__rand__"></a>
 
-### \_\_rand_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rand_\_
+
+__rand__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `4 & UInt64(2)`
 
 <a id="algopy.OpUpFeeSource.__rfloordiv__"></a>
 
-### \_\_rfloordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rfloordiv_\_
+
+__rfloordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `4 // UInt64(2)`.
 
@@ -2286,13 +2854,17 @@ This will error on divide by zero
 
 <a id="algopy.OpUpFeeSource.__rlshift__"></a>
 
-### \_\_rlshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rlshift_\_
+
+__rlshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `4 << UInt64(2)`
 
 <a id="algopy.OpUpFeeSource.__rmod__"></a>
 
-### \_\_rmod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rmod_\_
+
+__rmod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `4 % UInt64(2)`.
 
@@ -2300,7 +2872,9 @@ This will error on mod by zero
 
 <a id="algopy.OpUpFeeSource.__rmul__"></a>
 
-### \_\_rmul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rmul_\_
+
+__rmul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `UInt64(4) + 2`.
 
@@ -2308,13 +2882,17 @@ This will error on overflow
 
 <a id="algopy.OpUpFeeSource.__ror__"></a>
 
-### \_\_ror_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ror_\_
+
+__ror__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `4 | UInt64(2)`
 
 <a id="algopy.OpUpFeeSource.__rpow__"></a>
 
-### \_\_rpow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rpow_\_
+
+__rpow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `4 ** UInt64(2)`.
 
@@ -2322,19 +2900,25 @@ This will error on overflow
 
 <a id="algopy.OpUpFeeSource.__rrshift__"></a>
 
-### \_\_rrshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rrshift_\_
+
+__rrshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `4 >> UInt64(2)`
 
 <a id="algopy.OpUpFeeSource.__rshift__"></a>
 
-### \_\_rshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rshift_\_
+
+__rshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `UInt64(4) >> 2`
 
 <a id="algopy.OpUpFeeSource.__rsub__"></a>
 
-### \_\_rsub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rsub_\_
+
+__rsub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `4 - UInt64(2)`.
 
@@ -2342,13 +2926,17 @@ This will error on underflow
 
 <a id="algopy.OpUpFeeSource.__rxor__"></a>
 
-### \_\_rxor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rxor_\_
+
+__rxor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `4 ^ UInt64(2)`
 
 <a id="algopy.OpUpFeeSource.__sub__"></a>
 
-### \_\_sub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_sub_\_
+
+__sub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `UInt(4) - 2`.
 
@@ -2356,13 +2944,17 @@ This will error on underflow
 
 <a id="algopy.OpUpFeeSource.__xor__"></a>
 
-### \_\_xor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_xor_\_
+
+__xor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `UInt64(4) ^ 2`
 
 <a id="algopy.StateTotals"></a>
 
-## *class* algopy.StateTotals(\*, global_uints: int = ..., global_bytes: int = ..., local_uints: int = ..., local_bytes: int = ...)
+## *class* algopy.StateTotals
+
+StateTotals(\*, global_uints: int = ..., global_bytes: int = ..., local_uints: int = ..., local_bytes: int = ...)
 
 Options class to manually define the total amount of global and local state contract will use,
 used by [`Contract.__init_subclass__`](#algopy.Contract.__init_subclass__).
@@ -2383,7 +2975,9 @@ at once.
 
 <a id="algopy.String"></a>
 
-## *class* algopy.String(value: str = '', /)
+## *class* algopy.String
+
+String(value: str = '', /)
 
 A UTF-8 encoded string.
 
@@ -2401,59 +2995,77 @@ declared at the module level
 
 <a id="algopy.String.__add__"></a>
 
-### \_\_add_\_(other: [algopy.String](#algopy.String) | str) → [algopy.String](#algopy.String)
+### \_\_add_\_
+
+__add__(other: [algopy.String](#algopy.String) | str) → [algopy.String](#algopy.String)
 
 Concatenate `String` with another `String` or `str` literal
 e.g. `String("Hello ") + "World"`.
 
 <a id="algopy.String.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 Returns `True` if the string is not empty
 
 <a id="algopy.String.__contains__"></a>
 
-### \_\_contains_\_(other: [algopy.String](#algopy.String) | str) → bool
+### \_\_contains_\_
+
+__contains__(other: [algopy.String](#algopy.String) | str) → bool
 
 Test whether another string is a substring of this one.
 Note this is expensive due to a lack of AVM support.
 
 <a id="algopy.String.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.String](#algopy.String) | str) → bool
+### \_\_eq_\_
+
+__eq__(other: [algopy.String](#algopy.String) | str) → bool
 
 Supports using the `==` operator with another `String` or literal `str`
 
 <a id="algopy.String.__iadd__"></a>
 
-### \_\_iadd_\_(other: [algopy.String](#algopy.String) | str) → [algopy.String](#algopy.String)
+### \_\_iadd_\_
+
+__iadd__(other: [algopy.String](#algopy.String) | str) → [algopy.String](#algopy.String)
 
 Concatenate `String` with another `String` or `str` literal
 e.g. `a = String("Hello"); a += "World"`.
 
 <a id="algopy.String.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.String](#algopy.String) | str) → bool
+### \_\_ne_\_
+
+__ne__(other: [algopy.String](#algopy.String) | str) → bool
 
 Supports using the `!=` operator with another `String` or literal `str`
 
 <a id="algopy.String.__radd__"></a>
 
-### \_\_radd_\_(other: [algopy.String](#algopy.String) | str) → [algopy.String](#algopy.String)
+### \_\_radd_\_
+
+__radd__(other: [algopy.String](#algopy.String) | str) → [algopy.String](#algopy.String)
 
 Concatenate String with another `String` or `str` literal
 e.g. `"Hello " + String("World")`.
 
 <a id="algopy.String.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](#algopy.Bytes)*
+### *property* bytes
+
+bytes *: [algopy.Bytes](#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.String.endswith"></a>
 
-### endswith(suffix: [algopy.String](#algopy.String) | str) → bool
+### endswith
+
+endswith(suffix: [algopy.String](#algopy.String) | str) → bool
 
 Check if this string ends with another string.
 
@@ -2464,13 +3076,17 @@ Only a single argument is currently supported.
 
 <a id="algopy.String.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes
+
+from_bytes(value: [algopy.Bytes](#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.String.join"></a>
 
-### join(others: tuple[[algopy.String](#algopy.String) | str, ...], /) → [algopy.String](#algopy.String)
+### join
+
+join(others: tuple[[algopy.String](#algopy.String) | str, ...], /) → [algopy.String](#algopy.String)
 
 Join a sequence of Strings with a common separator.
 
@@ -2478,7 +3094,9 @@ The behaviour should mirror `str.join`.
 
 <a id="algopy.String.startswith"></a>
 
-### startswith(prefix: [algopy.String](#algopy.String) | str) → bool
+### startswith
+
+startswith(prefix: [algopy.String](#algopy.String) | str) → bool
 
 Check if this string starts with another string.
 
@@ -2489,7 +3107,9 @@ Only a single argument is currently supported.
 
 <a id="algopy.TemplateVar"></a>
 
-## algopy.TemplateVar *: algopy._TemplateVarGeneric*
+## algopy.TemplateVar
+
+TemplateVar *: algopy._TemplateVarGeneric*
 
 Ellipsis
 
@@ -2497,7 +3117,9 @@ Template variables can be used to represent a placeholder for a deploy-time prov
 
 <a id="algopy.TransactionType"></a>
 
-## *class* algopy.TransactionType(value: int = 0, /)
+## *class* algopy.TransactionType
+
+TransactionType(value: int = 0, /)
 
 The different transaction types available in a transaction
 
@@ -2508,7 +3130,9 @@ declared at the module level
 
 <a id="algopy.TransactionType.ApplicationCall"></a>
 
-### ApplicationCall *: [algopy.TransactionType](#algopy.TransactionType)*
+### ApplicationCall
+
+ApplicationCall *: [algopy.TransactionType](#algopy.TransactionType)*
 
 Ellipsis
 
@@ -2516,7 +3140,9 @@ An Application Call transaction
 
 <a id="algopy.TransactionType.AssetConfig"></a>
 
-### AssetConfig *: [algopy.TransactionType](#algopy.TransactionType)*
+### AssetConfig
+
+AssetConfig *: [algopy.TransactionType](#algopy.TransactionType)*
 
 Ellipsis
 
@@ -2524,7 +3150,9 @@ An Asset Config transaction
 
 <a id="algopy.TransactionType.AssetFreeze"></a>
 
-### AssetFreeze *: [algopy.TransactionType](#algopy.TransactionType)*
+### AssetFreeze
+
+AssetFreeze *: [algopy.TransactionType](#algopy.TransactionType)*
 
 Ellipsis
 
@@ -2532,7 +3160,9 @@ An Asset Freeze transaction
 
 <a id="algopy.TransactionType.AssetTransfer"></a>
 
-### AssetTransfer *: [algopy.TransactionType](#algopy.TransactionType)*
+### AssetTransfer
+
+AssetTransfer *: [algopy.TransactionType](#algopy.TransactionType)*
 
 Ellipsis
 
@@ -2540,7 +3170,9 @@ An Asset Transfer transaction
 
 <a id="algopy.TransactionType.KeyRegistration"></a>
 
-### KeyRegistration *: [algopy.TransactionType](#algopy.TransactionType)*
+### KeyRegistration
+
+KeyRegistration *: [algopy.TransactionType](#algopy.TransactionType)*
 
 Ellipsis
 
@@ -2548,7 +3180,9 @@ A Key Registration transaction
 
 <a id="algopy.TransactionType.Payment"></a>
 
-### Payment *: [algopy.TransactionType](#algopy.TransactionType)*
+### Payment
+
+Payment *: [algopy.TransactionType](#algopy.TransactionType)*
 
 Ellipsis
 
@@ -2556,7 +3190,9 @@ A Payment transaction
 
 <a id="algopy.TransactionType.__add__"></a>
 
-### \_\_add_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_add_\_
+
+__add__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be added with another UInt64 or int e.g. `UInt(4) + 2`.
 
@@ -2564,25 +3200,33 @@ This will error on overflow
 
 <a id="algopy.TransactionType.__and__"></a>
 
-### \_\_and_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_and_\_
+
+__and__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `UInt64(4) & 2`
 
 <a id="algopy.TransactionType.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 A UInt64 will evaluate to `False` if zero, and `True` otherwise
 
 <a id="algopy.TransactionType.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_eq_\_
+
+__eq__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `==` operator with another UInt64 or int
 
 <a id="algopy.TransactionType.__floordiv__"></a>
 
-### \_\_floordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_floordiv_\_
+
+__floordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `UInt64(4) // 2`.
 
@@ -2590,19 +3234,25 @@ This will error on divide by zero
 
 <a id="algopy.TransactionType.__ge__"></a>
 
-### \_\_ge_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_ge_\_
+
+__ge__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `>=` operator with another UInt64 or int
 
 <a id="algopy.TransactionType.__gt__"></a>
 
-### \_\_gt_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_gt_\_
+
+__gt__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `>` operator with another UInt64 or int
 
 <a id="algopy.TransactionType.__iadd__"></a>
 
-### \_\_iadd_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_iadd_\_
+
+__iadd__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be incremented with another UInt64 or int e.g. `a += UInt(2)`.
 
@@ -2610,13 +3260,17 @@ This will error on overflow
 
 <a id="algopy.TransactionType.__iand__"></a>
 
-### \_\_iand_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_iand_\_
+
+__iand__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `a &= UInt64(2)`
 
 <a id="algopy.TransactionType.__ifloordiv__"></a>
 
-### \_\_ifloordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ifloordiv_\_
+
+__ifloordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `a //= UInt64(2)`.
 
@@ -2624,13 +3278,17 @@ This will error on divide by zero
 
 <a id="algopy.TransactionType.__ilshift__"></a>
 
-### \_\_ilshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ilshift_\_
+
+__ilshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `a <<= UInt64(2)`
 
 <a id="algopy.TransactionType.__imod__"></a>
 
-### \_\_imod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_imod_\_
+
+__imod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `a %= UInt64(2)`.
 
@@ -2638,7 +3296,9 @@ This will error on mod by zero
 
 <a id="algopy.TransactionType.__imul__"></a>
 
-### \_\_imul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_imul_\_
+
+__imul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `a*= UInt64(2)`.
 
@@ -2646,25 +3306,33 @@ This will error on overflow
 
 <a id="algopy.TransactionType.__index__"></a>
 
-### \_\_index_\_() → int
+### \_\_index_\_
+
+__index__() → int
 
 A UInt64 can be used in indexing/slice expressions
 
 <a id="algopy.TransactionType.__invert__"></a>
 
-### \_\_invert_\_() → [algopy.UInt64](#algopy.UInt64)
+### \_\_invert_\_
+
+__invert__() → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be bitwise inverted e.g. `~UInt64(4)`
 
 <a id="algopy.TransactionType.__ior__"></a>
 
-### \_\_ior_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ior_\_
+
+__ior__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `a |= UInt64(2)`
 
 <a id="algopy.TransactionType.__ipow__"></a>
 
-### \_\_ipow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ipow_\_
+
+__ipow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `a **= UInt64(2)`.
 
@@ -2672,13 +3340,17 @@ This will error on overflow
 
 <a id="algopy.TransactionType.__irshift__"></a>
 
-### \_\_irshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_irshift_\_
+
+__irshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `a >>= UInt64(2)`
 
 <a id="algopy.TransactionType.__isub__"></a>
 
-### \_\_isub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_isub_\_
+
+__isub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `a -= UInt64(2)`.
 
@@ -2686,31 +3358,41 @@ This will error on underflow
 
 <a id="algopy.TransactionType.__ixor__"></a>
 
-### \_\_ixor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ixor_\_
+
+__ixor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `a ^= UInt64(2)`
 
 <a id="algopy.TransactionType.__le__"></a>
 
-### \_\_le_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_le_\_
+
+__le__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `<=` operator with another UInt64 or int
 
 <a id="algopy.TransactionType.__lshift__"></a>
 
-### \_\_lshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_lshift_\_
+
+__lshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `UInt64(4) << 2`
 
 <a id="algopy.TransactionType.__lt__"></a>
 
-### \_\_lt_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_lt_\_
+
+__lt__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `<` operator with another UInt64 or int
 
 <a id="algopy.TransactionType.__mod__"></a>
 
-### \_\_mod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_mod_\_
+
+__mod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `UInt64(4) % 2`.
 
@@ -2718,7 +3400,9 @@ This will error on mod by zero
 
 <a id="algopy.TransactionType.__mul__"></a>
 
-### \_\_mul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_mul_\_
+
+__mul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `4 + UInt64(2)`.
 
@@ -2726,25 +3410,33 @@ This will error on overflow
 
 <a id="algopy.TransactionType.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_ne_\_
+
+__ne__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `!=` operator with another UInt64 or int
 
 <a id="algopy.TransactionType.__or__"></a>
 
-### \_\_or_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_or_\_
+
+__or__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `UInt64(4) | 2`
 
 <a id="algopy.TransactionType.__pos__"></a>
 
-### \_\_pos_\_() → [algopy.UInt64](#algopy.UInt64)
+### \_\_pos_\_
+
+__pos__() → [algopy.UInt64](#algopy.UInt64)
 
 Supports unary + operator. Redundant given the type is unsigned
 
 <a id="algopy.TransactionType.__pow__"></a>
 
-### \_\_pow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_pow_\_
+
+__pow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `UInt64(4) ** 2`.
 
@@ -2752,7 +3444,9 @@ This will error on overflow
 
 <a id="algopy.TransactionType.__radd__"></a>
 
-### \_\_radd_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_radd_\_
+
+__radd__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be added with another UInt64 or int e.g. `4 + UInt64(2)`.
 
@@ -2760,13 +3454,17 @@ This will error on overflow
 
 <a id="algopy.TransactionType.__rand__"></a>
 
-### \_\_rand_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rand_\_
+
+__rand__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `4 & UInt64(2)`
 
 <a id="algopy.TransactionType.__rfloordiv__"></a>
 
-### \_\_rfloordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rfloordiv_\_
+
+__rfloordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `4 // UInt64(2)`.
 
@@ -2774,13 +3472,17 @@ This will error on divide by zero
 
 <a id="algopy.TransactionType.__rlshift__"></a>
 
-### \_\_rlshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rlshift_\_
+
+__rlshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `4 << UInt64(2)`
 
 <a id="algopy.TransactionType.__rmod__"></a>
 
-### \_\_rmod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rmod_\_
+
+__rmod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `4 % UInt64(2)`.
 
@@ -2788,7 +3490,9 @@ This will error on mod by zero
 
 <a id="algopy.TransactionType.__rmul__"></a>
 
-### \_\_rmul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rmul_\_
+
+__rmul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `UInt64(4) + 2`.
 
@@ -2796,13 +3500,17 @@ This will error on overflow
 
 <a id="algopy.TransactionType.__ror__"></a>
 
-### \_\_ror_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ror_\_
+
+__ror__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `4 | UInt64(2)`
 
 <a id="algopy.TransactionType.__rpow__"></a>
 
-### \_\_rpow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rpow_\_
+
+__rpow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `4 ** UInt64(2)`.
 
@@ -2810,19 +3518,25 @@ This will error on overflow
 
 <a id="algopy.TransactionType.__rrshift__"></a>
 
-### \_\_rrshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rrshift_\_
+
+__rrshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `4 >> UInt64(2)`
 
 <a id="algopy.TransactionType.__rshift__"></a>
 
-### \_\_rshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rshift_\_
+
+__rshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `UInt64(4) >> 2`
 
 <a id="algopy.TransactionType.__rsub__"></a>
 
-### \_\_rsub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rsub_\_
+
+__rsub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `4 - UInt64(2)`.
 
@@ -2830,13 +3544,17 @@ This will error on underflow
 
 <a id="algopy.TransactionType.__rxor__"></a>
 
-### \_\_rxor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rxor_\_
+
+__rxor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `4 ^ UInt64(2)`
 
 <a id="algopy.TransactionType.__sub__"></a>
 
-### \_\_sub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_sub_\_
+
+__sub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `UInt(4) - 2`.
 
@@ -2844,7 +3562,9 @@ This will error on underflow
 
 <a id="algopy.TransactionType.__xor__"></a>
 
-### \_\_xor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_xor_\_
+
+__xor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `UInt64(4) ^ 2`
 
@@ -2852,12 +3572,16 @@ A UInt64 can bitwise xor with another UInt64 or int e.g. `UInt64(4) ^ 2`
 
 ## *class* algopy.Txn
 
+Txn
+
 Get values for the current executing transaction
 Native TEAL ops: [`txn`](https://developer.algorand.org/docs/get-details/dapps/avm/teal/opcodes/v10/#txn), [`txnas`](https://developer.algorand.org/docs/get-details/dapps/avm/teal/opcodes/v10/#txnas)
 
 <a id="algopy.Txn.accounts"></a>
 
-### *static* accounts(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Account](#algopy.Account)
+### *static* accounts
+
+accounts(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Account](#algopy.Account)
 
 Accounts listed in the ApplicationCall transaction
 
@@ -2865,7 +3589,9 @@ Native TEAL opcode: [`txna`](https://developer.algorand.org/docs/get-details/dap
 
 <a id="algopy.Txn.amount"></a>
 
-### amount *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### amount
+
+amount *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -2873,7 +3599,9 @@ microalgos
 
 <a id="algopy.Txn.application_args"></a>
 
-### *static* application_args(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Bytes](#algopy.Bytes)
+### *static* application_args
+
+application_args(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Bytes](#algopy.Bytes)
 
 Arguments passed to the application in the ApplicationCall transaction
 
@@ -2881,7 +3609,9 @@ Native TEAL opcode: [`txna`](https://developer.algorand.org/docs/get-details/dap
 
 <a id="algopy.Txn.application_id"></a>
 
-### application_id *: Final[[algopy.Application](#algopy.Application)]*
+### application_id
+
+application_id *: Final[[algopy.Application](#algopy.Application)]*
 
 Ellipsis
 
@@ -2889,7 +3619,9 @@ ApplicationID from ApplicationCall transaction
 
 <a id="algopy.Txn.applications"></a>
 
-### *static* applications(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Application](#algopy.Application)
+### *static* applications
+
+applications(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Application](#algopy.Application)
 
 Foreign Apps listed in the ApplicationCall transaction
 
@@ -2897,7 +3629,9 @@ Native TEAL opcode: [`txna`](https://developer.algorand.org/docs/get-details/dap
 
 <a id="algopy.Txn.approval_program"></a>
 
-### approval_program *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### approval_program
+
+approval_program *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -2905,7 +3639,9 @@ Approval program
 
 <a id="algopy.Txn.approval_program_pages"></a>
 
-### *static* approval_program_pages(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Bytes](#algopy.Bytes)
+### *static* approval_program_pages
+
+approval_program_pages(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Bytes](#algopy.Bytes)
 
 Approval Program as an array of pages
 
@@ -2913,7 +3649,9 @@ Native TEAL opcode: [`txna`](https://developer.algorand.org/docs/get-details/dap
 
 <a id="algopy.Txn.asset_amount"></a>
 
-### asset_amount *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### asset_amount
+
+asset_amount *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -2921,7 +3659,9 @@ value in Asset’s units
 
 <a id="algopy.Txn.asset_close_to"></a>
 
-### asset_close_to *: Final[[algopy.Account](#algopy.Account)]*
+### asset_close_to
+
+asset_close_to *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -2929,7 +3669,9 @@ Ellipsis
 
 <a id="algopy.Txn.asset_receiver"></a>
 
-### asset_receiver *: Final[[algopy.Account](#algopy.Account)]*
+### asset_receiver
+
+asset_receiver *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -2937,7 +3679,9 @@ Ellipsis
 
 <a id="algopy.Txn.asset_sender"></a>
 
-### asset_sender *: Final[[algopy.Account](#algopy.Account)]*
+### asset_sender
+
+asset_sender *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -2945,7 +3689,9 @@ Ellipsis
 
 <a id="algopy.Txn.assets"></a>
 
-### *static* assets(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Asset](#algopy.Asset)
+### *static* assets
+
+assets(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Asset](#algopy.Asset)
 
 Foreign Assets listed in the ApplicationCall transaction
 
@@ -2953,7 +3699,9 @@ Native TEAL opcode: [`txna`](https://developer.algorand.org/docs/get-details/dap
 
 <a id="algopy.Txn.clear_state_program"></a>
 
-### clear_state_program *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### clear_state_program
+
+clear_state_program *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -2961,7 +3709,9 @@ Clear state program
 
 <a id="algopy.Txn.clear_state_program_pages"></a>
 
-### *static* clear_state_program_pages(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Bytes](#algopy.Bytes)
+### *static* clear_state_program_pages
+
+clear_state_program_pages(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Bytes](#algopy.Bytes)
 
 ClearState Program as an array of pages
 
@@ -2969,7 +3719,9 @@ Native TEAL opcode: [`txna`](https://developer.algorand.org/docs/get-details/dap
 
 <a id="algopy.Txn.close_remainder_to"></a>
 
-### close_remainder_to *: Final[[algopy.Account](#algopy.Account)]*
+### close_remainder_to
+
+close_remainder_to *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -2977,7 +3729,9 @@ Ellipsis
 
 <a id="algopy.Txn.config_asset"></a>
 
-### config_asset *: Final[[algopy.Asset](#algopy.Asset)]*
+### config_asset
+
+config_asset *: Final[[algopy.Asset](#algopy.Asset)]*
 
 Ellipsis
 
@@ -2985,7 +3739,9 @@ Asset ID in asset config transaction
 
 <a id="algopy.Txn.config_asset_clawback"></a>
 
-### config_asset_clawback *: Final[[algopy.Account](#algopy.Account)]*
+### config_asset_clawback
+
+config_asset_clawback *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -2993,7 +3749,9 @@ Ellipsis
 
 <a id="algopy.Txn.config_asset_decimals"></a>
 
-### config_asset_decimals *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### config_asset_decimals
+
+config_asset_decimals *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3001,7 +3759,9 @@ Number of digits to display after the decimal place when displaying the asset
 
 <a id="algopy.Txn.config_asset_default_frozen"></a>
 
-### config_asset_default_frozen *: Final[bool]*
+### config_asset_default_frozen
+
+config_asset_default_frozen *: Final[bool]*
 
 Ellipsis
 
@@ -3009,7 +3769,9 @@ Whether the asset’s slots are frozen by default or not, 0 or 1
 
 <a id="algopy.Txn.config_asset_freeze"></a>
 
-### config_asset_freeze *: Final[[algopy.Account](#algopy.Account)]*
+### config_asset_freeze
+
+config_asset_freeze *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -3017,7 +3779,9 @@ Ellipsis
 
 <a id="algopy.Txn.config_asset_manager"></a>
 
-### config_asset_manager *: Final[[algopy.Account](#algopy.Account)]*
+### config_asset_manager
+
+config_asset_manager *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -3025,7 +3789,9 @@ Ellipsis
 
 <a id="algopy.Txn.config_asset_metadata_hash"></a>
 
-### config_asset_metadata_hash *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### config_asset_metadata_hash
+
+config_asset_metadata_hash *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3033,7 +3799,9 @@ Ellipsis
 
 <a id="algopy.Txn.config_asset_name"></a>
 
-### config_asset_name *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### config_asset_name
+
+config_asset_name *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3041,7 +3809,9 @@ The asset name
 
 <a id="algopy.Txn.config_asset_reserve"></a>
 
-### config_asset_reserve *: Final[[algopy.Account](#algopy.Account)]*
+### config_asset_reserve
+
+config_asset_reserve *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -3049,7 +3819,9 @@ Ellipsis
 
 <a id="algopy.Txn.config_asset_total"></a>
 
-### config_asset_total *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### config_asset_total
+
+config_asset_total *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3057,7 +3829,9 @@ Total number of units of this asset created
 
 <a id="algopy.Txn.config_asset_unit_name"></a>
 
-### config_asset_unit_name *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### config_asset_unit_name
+
+config_asset_unit_name *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3065,7 +3839,9 @@ Unit name of the asset
 
 <a id="algopy.Txn.config_asset_url"></a>
 
-### config_asset_url *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### config_asset_url
+
+config_asset_url *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3073,7 +3849,9 @@ URL
 
 <a id="algopy.Txn.created_application_id"></a>
 
-### created_application_id *: Final[[algopy.Application](#algopy.Application)]*
+### created_application_id
+
+created_application_id *: Final[[algopy.Application](#algopy.Application)]*
 
 Ellipsis
 
@@ -3081,7 +3859,9 @@ ApplicationID allocated by the creation of an application (only with `itxn` in v
 
 <a id="algopy.Txn.created_asset_id"></a>
 
-### created_asset_id *: Final[[algopy.Asset](#algopy.Asset)]*
+### created_asset_id
+
+created_asset_id *: Final[[algopy.Asset](#algopy.Asset)]*
 
 Ellipsis
 
@@ -3089,7 +3869,9 @@ Asset ID allocated by the creation of an ASA (only with `itxn` in v5). Applicati
 
 <a id="algopy.Txn.extra_program_pages"></a>
 
-### extra_program_pages *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### extra_program_pages
+
+extra_program_pages *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3097,7 +3879,9 @@ Number of additional pages for each of the application’s approval and clear st
 
 <a id="algopy.Txn.fee"></a>
 
-### fee *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### fee
+
+fee *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3105,7 +3889,9 @@ microalgos
 
 <a id="algopy.Txn.first_valid"></a>
 
-### first_valid *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### first_valid
+
+first_valid *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3113,7 +3899,9 @@ round number
 
 <a id="algopy.Txn.first_valid_time"></a>
 
-### first_valid_time *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### first_valid_time
+
+first_valid_time *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3121,7 +3909,9 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 <a id="algopy.Txn.freeze_asset"></a>
 
-### freeze_asset *: Final[[algopy.Asset](#algopy.Asset)]*
+### freeze_asset
+
+freeze_asset *: Final[[algopy.Asset](#algopy.Asset)]*
 
 Ellipsis
 
@@ -3129,7 +3919,9 @@ Asset ID being frozen or un-frozen
 
 <a id="algopy.Txn.freeze_asset_account"></a>
 
-### freeze_asset_account *: Final[[algopy.Account](#algopy.Account)]*
+### freeze_asset_account
+
+freeze_asset_account *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -3137,7 +3929,9 @@ Ellipsis
 
 <a id="algopy.Txn.freeze_asset_frozen"></a>
 
-### freeze_asset_frozen *: Final[bool]*
+### freeze_asset_frozen
+
+freeze_asset_frozen *: Final[bool]*
 
 Ellipsis
 
@@ -3145,7 +3939,9 @@ The new frozen value, 0 or 1
 
 <a id="algopy.Txn.global_num_byte_slice"></a>
 
-### global_num_byte_slice *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### global_num_byte_slice
+
+global_num_byte_slice *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3153,7 +3949,9 @@ Number of global state byteslices in ApplicationCall
 
 <a id="algopy.Txn.global_num_uint"></a>
 
-### global_num_uint *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### global_num_uint
+
+global_num_uint *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3161,7 +3959,9 @@ Number of global state integers in ApplicationCall
 
 <a id="algopy.Txn.group_index"></a>
 
-### group_index *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### group_index
+
+group_index *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3169,7 +3969,9 @@ Position of this transaction within an atomic transaction group. A stand-alone t
 
 <a id="algopy.Txn.last_log"></a>
 
-### last_log *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### last_log
+
+last_log *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3177,7 +3979,9 @@ The last message emitted. Empty bytes if none were emitted. Application mode onl
 
 <a id="algopy.Txn.last_valid"></a>
 
-### last_valid *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### last_valid
+
+last_valid *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3185,7 +3989,9 @@ round number
 
 <a id="algopy.Txn.lease"></a>
 
-### lease *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### lease
+
+lease *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3193,7 +3999,9 @@ Ellipsis
 
 <a id="algopy.Txn.local_num_byte_slice"></a>
 
-### local_num_byte_slice *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### local_num_byte_slice
+
+local_num_byte_slice *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3201,7 +4009,9 @@ Number of local state byteslices in ApplicationCall
 
 <a id="algopy.Txn.local_num_uint"></a>
 
-### local_num_uint *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### local_num_uint
+
+local_num_uint *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3209,7 +4019,9 @@ Number of local state integers in ApplicationCall
 
 <a id="algopy.Txn.logs"></a>
 
-### *static* logs(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Bytes](#algopy.Bytes)
+### *static* logs
+
+logs(a: [algopy.UInt64](#algopy.UInt64) | int, /) → [algopy.Bytes](#algopy.Bytes)
 
 Log messages emitted by an application call (only with `itxn` in v5). Application mode only
 
@@ -3217,7 +4029,9 @@ Native TEAL opcode: [`txna`](https://developer.algorand.org/docs/get-details/dap
 
 <a id="algopy.Txn.nonparticipation"></a>
 
-### nonparticipation *: Final[bool]*
+### nonparticipation
+
+nonparticipation *: Final[bool]*
 
 Ellipsis
 
@@ -3225,7 +4039,9 @@ Marks an account nonparticipating for rewards
 
 <a id="algopy.Txn.note"></a>
 
-### note *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### note
+
+note *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3233,7 +4049,9 @@ Any data up to 1024 bytes
 
 <a id="algopy.Txn.num_accounts"></a>
 
-### num_accounts *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### num_accounts
+
+num_accounts *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3241,7 +4059,9 @@ Number of Accounts
 
 <a id="algopy.Txn.num_app_args"></a>
 
-### num_app_args *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### num_app_args
+
+num_app_args *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3249,7 +4069,9 @@ Number of ApplicationArgs
 
 <a id="algopy.Txn.num_applications"></a>
 
-### num_applications *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### num_applications
+
+num_applications *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3257,7 +4079,9 @@ Number of Applications
 
 <a id="algopy.Txn.num_approval_program_pages"></a>
 
-### num_approval_program_pages *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### num_approval_program_pages
+
+num_approval_program_pages *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3265,7 +4089,9 @@ Number of Approval Program pages
 
 <a id="algopy.Txn.num_assets"></a>
 
-### num_assets *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### num_assets
+
+num_assets *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3273,7 +4099,9 @@ Number of Assets
 
 <a id="algopy.Txn.num_clear_state_program_pages"></a>
 
-### num_clear_state_program_pages *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### num_clear_state_program_pages
+
+num_clear_state_program_pages *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3281,7 +4109,9 @@ Number of ClearState Program pages
 
 <a id="algopy.Txn.num_logs"></a>
 
-### num_logs *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### num_logs
+
+num_logs *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3289,7 +4119,9 @@ Number of Logs (only with `itxn` in v5). Application mode only
 
 <a id="algopy.Txn.on_completion"></a>
 
-### on_completion *: Final[[algopy.OnCompleteAction](#algopy.OnCompleteAction)]*
+### on_completion
+
+on_completion *: Final[[algopy.OnCompleteAction](#algopy.OnCompleteAction)]*
 
 Ellipsis
 
@@ -3297,7 +4129,9 @@ ApplicationCall transaction on completion action
 
 <a id="algopy.Txn.receiver"></a>
 
-### receiver *: Final[[algopy.Account](#algopy.Account)]*
+### receiver
+
+receiver *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -3305,7 +4139,9 @@ Ellipsis
 
 <a id="algopy.Txn.rekey_to"></a>
 
-### rekey_to *: Final[[algopy.Account](#algopy.Account)]*
+### rekey_to
+
+rekey_to *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -3313,7 +4149,9 @@ Ellipsis
 
 <a id="algopy.Txn.selection_pk"></a>
 
-### selection_pk *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### selection_pk
+
+selection_pk *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3321,7 +4159,9 @@ Ellipsis
 
 <a id="algopy.Txn.sender"></a>
 
-### sender *: Final[[algopy.Account](#algopy.Account)]*
+### sender
+
+sender *: Final[[algopy.Account](#algopy.Account)]*
 
 Ellipsis
 
@@ -3329,7 +4169,9 @@ Ellipsis
 
 <a id="algopy.Txn.state_proof_pk"></a>
 
-### state_proof_pk *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### state_proof_pk
+
+state_proof_pk *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3337,7 +4179,9 @@ Ellipsis
 
 <a id="algopy.Txn.tx_id"></a>
 
-### tx_id *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### tx_id
+
+tx_id *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3345,7 +4189,9 @@ The computed ID for this transaction. 32 bytes.
 
 <a id="algopy.Txn.type"></a>
 
-### type *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### type
+
+type *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3353,7 +4199,9 @@ Transaction type as bytes
 
 <a id="algopy.Txn.type_enum"></a>
 
-### type_enum *: Final[[algopy.TransactionType](#algopy.TransactionType)]*
+### type_enum
+
+type_enum *: Final[[algopy.TransactionType](#algopy.TransactionType)]*
 
 Ellipsis
 
@@ -3361,7 +4209,9 @@ Transaction type as integer
 
 <a id="algopy.Txn.vote_first"></a>
 
-### vote_first *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### vote_first
+
+vote_first *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3369,7 +4219,9 @@ The first round that the participation key is valid.
 
 <a id="algopy.Txn.vote_key_dilution"></a>
 
-### vote_key_dilution *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### vote_key_dilution
+
+vote_key_dilution *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3377,7 +4229,9 @@ Dilution for the 2-level participation key
 
 <a id="algopy.Txn.vote_last"></a>
 
-### vote_last *: Final[[algopy.UInt64](#algopy.UInt64)]*
+### vote_last
+
+vote_last *: Final[[algopy.UInt64](#algopy.UInt64)]*
 
 Ellipsis
 
@@ -3385,7 +4239,9 @@ The last round that the participation key is valid.
 
 <a id="algopy.Txn.vote_pk"></a>
 
-### vote_pk *: Final[[algopy.Bytes](#algopy.Bytes)]*
+### vote_pk
+
+vote_pk *: Final[[algopy.Bytes](#algopy.Bytes)]*
 
 Ellipsis
 
@@ -3393,7 +4249,9 @@ Ellipsis
 
 <a id="algopy.Txn.xfer_asset"></a>
 
-### xfer_asset *: Final[[algopy.Asset](#algopy.Asset)]*
+### xfer_asset
+
+xfer_asset *: Final[[algopy.Asset](#algopy.Asset)]*
 
 Ellipsis
 
@@ -3401,7 +4259,9 @@ Asset ID
 
 <a id="algopy.UInt64"></a>
 
-## *class* algopy.UInt64(value: int = 0, /)
+## *class* algopy.UInt64
+
+UInt64(value: int = 0, /)
 
 A 64-bit unsigned integer, one of the primary data types on the AVM
 
@@ -3412,7 +4272,9 @@ declared at the module level
 
 <a id="algopy.UInt64.__add__"></a>
 
-### \_\_add_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_add_\_
+
+__add__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be added with another UInt64 or int e.g. `UInt(4) + 2`.
 
@@ -3420,25 +4282,33 @@ This will error on overflow
 
 <a id="algopy.UInt64.__and__"></a>
 
-### \_\_and_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_and_\_
+
+__and__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `UInt64(4) & 2`
 
 <a id="algopy.UInt64.__bool__"></a>
 
-### \_\_bool_\_() → bool
+### \_\_bool_\_
+
+__bool__() → bool
 
 A UInt64 will evaluate to `False` if zero, and `True` otherwise
 
 <a id="algopy.UInt64.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_eq_\_
+
+__eq__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `==` operator with another UInt64 or int
 
 <a id="algopy.UInt64.__floordiv__"></a>
 
-### \_\_floordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_floordiv_\_
+
+__floordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `UInt64(4) // 2`.
 
@@ -3446,19 +4316,25 @@ This will error on divide by zero
 
 <a id="algopy.UInt64.__ge__"></a>
 
-### \_\_ge_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_ge_\_
+
+__ge__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `>=` operator with another UInt64 or int
 
 <a id="algopy.UInt64.__gt__"></a>
 
-### \_\_gt_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_gt_\_
+
+__gt__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `>` operator with another UInt64 or int
 
 <a id="algopy.UInt64.__iadd__"></a>
 
-### \_\_iadd_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_iadd_\_
+
+__iadd__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be incremented with another UInt64 or int e.g. `a += UInt(2)`.
 
@@ -3466,13 +4342,17 @@ This will error on overflow
 
 <a id="algopy.UInt64.__iand__"></a>
 
-### \_\_iand_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_iand_\_
+
+__iand__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `a &= UInt64(2)`
 
 <a id="algopy.UInt64.__ifloordiv__"></a>
 
-### \_\_ifloordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ifloordiv_\_
+
+__ifloordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `a //= UInt64(2)`.
 
@@ -3480,13 +4360,17 @@ This will error on divide by zero
 
 <a id="algopy.UInt64.__ilshift__"></a>
 
-### \_\_ilshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ilshift_\_
+
+__ilshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `a <<= UInt64(2)`
 
 <a id="algopy.UInt64.__imod__"></a>
 
-### \_\_imod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_imod_\_
+
+__imod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `a %= UInt64(2)`.
 
@@ -3494,7 +4378,9 @@ This will error on mod by zero
 
 <a id="algopy.UInt64.__imul__"></a>
 
-### \_\_imul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_imul_\_
+
+__imul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `a*= UInt64(2)`.
 
@@ -3502,25 +4388,33 @@ This will error on overflow
 
 <a id="algopy.UInt64.__index__"></a>
 
-### \_\_index_\_() → int
+### \_\_index_\_
+
+__index__() → int
 
 A UInt64 can be used in indexing/slice expressions
 
 <a id="algopy.UInt64.__invert__"></a>
 
-### \_\_invert_\_() → [algopy.UInt64](#algopy.UInt64)
+### \_\_invert_\_
+
+__invert__() → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be bitwise inverted e.g. `~UInt64(4)`
 
 <a id="algopy.UInt64.__ior__"></a>
 
-### \_\_ior_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ior_\_
+
+__ior__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `a |= UInt64(2)`
 
 <a id="algopy.UInt64.__ipow__"></a>
 
-### \_\_ipow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ipow_\_
+
+__ipow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `a **= UInt64(2)`.
 
@@ -3528,13 +4422,17 @@ This will error on overflow
 
 <a id="algopy.UInt64.__irshift__"></a>
 
-### \_\_irshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_irshift_\_
+
+__irshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `a >>= UInt64(2)`
 
 <a id="algopy.UInt64.__isub__"></a>
 
-### \_\_isub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_isub_\_
+
+__isub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `a -= UInt64(2)`.
 
@@ -3542,31 +4440,41 @@ This will error on underflow
 
 <a id="algopy.UInt64.__ixor__"></a>
 
-### \_\_ixor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ixor_\_
+
+__ixor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `a ^= UInt64(2)`
 
 <a id="algopy.UInt64.__le__"></a>
 
-### \_\_le_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_le_\_
+
+__le__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `<=` operator with another UInt64 or int
 
 <a id="algopy.UInt64.__lshift__"></a>
 
-### \_\_lshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_lshift_\_
+
+__lshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `UInt64(4) << 2`
 
 <a id="algopy.UInt64.__lt__"></a>
 
-### \_\_lt_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_lt_\_
+
+__lt__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `<` operator with another UInt64 or int
 
 <a id="algopy.UInt64.__mod__"></a>
 
-### \_\_mod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_mod_\_
+
+__mod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `UInt64(4) % 2`.
 
@@ -3574,7 +4482,9 @@ This will error on mod by zero
 
 <a id="algopy.UInt64.__mul__"></a>
 
-### \_\_mul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_mul_\_
+
+__mul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `4 + UInt64(2)`.
 
@@ -3582,25 +4492,33 @@ This will error on overflow
 
 <a id="algopy.UInt64.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
+### \_\_ne_\_
+
+__ne__(other: [algopy.UInt64](#algopy.UInt64) | int) → bool
 
 A UInt64 can use the `!=` operator with another UInt64 or int
 
 <a id="algopy.UInt64.__or__"></a>
 
-### \_\_or_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_or_\_
+
+__or__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `UInt64(4) | 2`
 
 <a id="algopy.UInt64.__pos__"></a>
 
-### \_\_pos_\_() → [algopy.UInt64](#algopy.UInt64)
+### \_\_pos_\_
+
+__pos__() → [algopy.UInt64](#algopy.UInt64)
 
 Supports unary + operator. Redundant given the type is unsigned
 
 <a id="algopy.UInt64.__pow__"></a>
 
-### \_\_pow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_pow_\_
+
+__pow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `UInt64(4) ** 2`.
 
@@ -3608,7 +4526,9 @@ This will error on overflow
 
 <a id="algopy.UInt64.__radd__"></a>
 
-### \_\_radd_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_radd_\_
+
+__radd__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be added with another UInt64 or int e.g. `4 + UInt64(2)`.
 
@@ -3616,13 +4536,17 @@ This will error on overflow
 
 <a id="algopy.UInt64.__rand__"></a>
 
-### \_\_rand_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rand_\_
+
+__rand__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise and with another UInt64 or int e.g. `4 & UInt64(2)`
 
 <a id="algopy.UInt64.__rfloordiv__"></a>
 
-### \_\_rfloordiv_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rfloordiv_\_
+
+__rfloordiv__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be floor divided with another UInt64 or int e.g. `4 // UInt64(2)`.
 
@@ -3630,13 +4554,17 @@ This will error on divide by zero
 
 <a id="algopy.UInt64.__rlshift__"></a>
 
-### \_\_rlshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rlshift_\_
+
+__rlshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be left shifted by another UInt64 or int e.g. `4 << UInt64(2)`
 
 <a id="algopy.UInt64.__rmod__"></a>
 
-### \_\_rmod_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rmod_\_
+
+__rmod__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be modded with another UInt64 or int e.g. `4 % UInt64(2)`.
 
@@ -3644,7 +4572,9 @@ This will error on mod by zero
 
 <a id="algopy.UInt64.__rmul__"></a>
 
-### \_\_rmul_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rmul_\_
+
+__rmul__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be multiplied with another UInt64 or int e.g. `UInt64(4) + 2`.
 
@@ -3652,13 +4582,17 @@ This will error on overflow
 
 <a id="algopy.UInt64.__ror__"></a>
 
-### \_\_ror_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_ror_\_
+
+__ror__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise or with another UInt64 or int e.g. `4 | UInt64(2)`
 
 <a id="algopy.UInt64.__rpow__"></a>
 
-### \_\_rpow_\_(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rpow_\_
+
+__rpow__(power: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be raised to the power of another UInt64 or int e.g. `4 ** UInt64(2)`.
 
@@ -3666,19 +4600,25 @@ This will error on overflow
 
 <a id="algopy.UInt64.__rrshift__"></a>
 
-### \_\_rrshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rrshift_\_
+
+__rrshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `4 >> UInt64(2)`
 
 <a id="algopy.UInt64.__rshift__"></a>
 
-### \_\_rshift_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rshift_\_
+
+__rshift__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be right shifted by another UInt64 or int e.g. `UInt64(4) >> 2`
 
 <a id="algopy.UInt64.__rsub__"></a>
 
-### \_\_rsub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rsub_\_
+
+__rsub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `4 - UInt64(2)`.
 
@@ -3686,13 +4626,17 @@ This will error on underflow
 
 <a id="algopy.UInt64.__rxor__"></a>
 
-### \_\_rxor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_rxor_\_
+
+__rxor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `4 ^ UInt64(2)`
 
 <a id="algopy.UInt64.__sub__"></a>
 
-### \_\_sub_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_sub_\_
+
+__sub__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can be subtracted with another UInt64 or int e.g. `UInt(4) - 2`.
 
@@ -3700,13 +4644,17 @@ This will error on underflow
 
 <a id="algopy.UInt64.__xor__"></a>
 
-### \_\_xor_\_(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
+### \_\_xor_\_
+
+__xor__(other: [algopy.UInt64](#algopy.UInt64) | int) → [algopy.UInt64](#algopy.UInt64)
 
 A UInt64 can bitwise xor with another UInt64 or int e.g. `UInt64(4) ^ 2`
 
 <a id="algopy.compile_contract"></a>
 
-## algopy.compile_contract(contract: type[[Contract](#algopy.Contract)], /, \*, extra_program_pages: [algopy.UInt64](#algopy.UInt64) | int = ..., global_uints: [algopy.UInt64](#algopy.UInt64) | int = ..., global_bytes: [algopy.UInt64](#algopy.UInt64) | int = ..., local_uints: [algopy.UInt64](#algopy.UInt64) | int = ..., local_bytes: [algopy.UInt64](#algopy.UInt64) | int = ..., template_vars: collections.abc.Mapping[str, object] = ..., template_vars_prefix: str = ...) → [algopy.CompiledContract](#algopy.CompiledContract)
+## algopy.compile_contract
+
+compile_contract(contract: type[[Contract](#algopy.Contract)], /, \*, extra_program_pages: [algopy.UInt64](#algopy.UInt64) | int = ..., global_uints: [algopy.UInt64](#algopy.UInt64) | int = ..., global_bytes: [algopy.UInt64](#algopy.UInt64) | int = ..., local_uints: [algopy.UInt64](#algopy.UInt64) | int = ..., local_bytes: [algopy.UInt64](#algopy.UInt64) | int = ..., template_vars: collections.abc.Mapping[str, object] = ..., template_vars_prefix: str = ...) → [algopy.CompiledContract](#algopy.CompiledContract)
 
 Returns the compiled data for the specified contract
 
@@ -3724,7 +4672,9 @@ defaults to the prefix supplied on command line (which defaults to TMPL_)
 
 <a id="algopy.compile_logicsig"></a>
 
-## algopy.compile_logicsig(logicsig: [LogicSig](#algopy.LogicSig), /, \*, template_vars: collections.abc.Mapping[str, object] = ..., template_vars_prefix: str = ...) → [algopy.CompiledLogicSig](#algopy.CompiledLogicSig)
+## algopy.compile_logicsig
+
+compile_logicsig(logicsig: [LogicSig](#algopy.LogicSig), /, \*, template_vars: collections.abc.Mapping[str, object] = ..., template_vars_prefix: str = ...) → [algopy.CompiledLogicSig](#algopy.CompiledLogicSig)
 
 Returns the Account for the specified logic signature
 
@@ -3737,13 +4687,17 @@ defaults to the prefix supplied on command line (which defaults to TMPL_)
 
 <a id="algopy.ensure_budget"></a>
 
-## algopy.ensure_budget(required_budget: [algopy.UInt64](#algopy.UInt64) | int, fee_source: [algopy.OpUpFeeSource](#algopy.OpUpFeeSource) = ...) → None
+## algopy.ensure_budget
+
+ensure_budget(required_budget: [algopy.UInt64](#algopy.UInt64) | int, fee_source: [algopy.OpUpFeeSource](#algopy.OpUpFeeSource) = ...) → None
 
 Ensure the available op code budget is greater than or equal to required_budget
 
 <a id="algopy.log"></a>
 
-## algopy.log(\*args: [algopy.UInt64](#algopy.UInt64) | [algopy.Bytes](#algopy.Bytes) | [algopy.BytesBacked](#algopy.BytesBacked) | str | bytes | int, sep: [algopy.String](#algopy.String) | str | [algopy.Bytes](#algopy.Bytes) | bytes = '') → None
+## algopy.log
+
+log(\*args: [algopy.UInt64](#algopy.UInt64) | [algopy.Bytes](#algopy.Bytes) | [algopy.BytesBacked](#algopy.BytesBacked) | str | bytes | int, sep: [algopy.String](#algopy.String) | str | [algopy.Bytes](#algopy.Bytes) | bytes = '') → None
 
 Concatenates and logs supplied args as a single bytes value.
 
@@ -3752,19 +4706,25 @@ Literal `str` values will be encoded as UTF8.
 
 <a id="algopy.logicsig"></a>
 
-## algopy.logicsig(\*, name: str = ..., avm_version: int = ...) → collections.abc.Callable[[collections.abc.Callable[[], bool | [algopy.UInt64](#algopy.UInt64)]], [algopy.LogicSig](#algopy.LogicSig)]
+## algopy.logicsig
+
+logicsig(\*, name: str = ..., avm_version: int = ...) → collections.abc.Callable[[collections.abc.Callable[[], bool | [algopy.UInt64](#algopy.UInt64)]], [algopy.LogicSig](#algopy.LogicSig)]
 
 Decorator to indicate a function is a logic signature
 
 <a id="algopy.subroutine"></a>
 
-## algopy.subroutine(sub: collections.abc.Callable[algopy._P, algopy._R], /) → collections.abc.Callable[algopy._P, algopy._R]
+## algopy.subroutine
+
+subroutine(sub: collections.abc.Callable[algopy._P, algopy._R], /) → collections.abc.Callable[algopy._P, algopy._R]
 
 Decorator to indicate functions or methods that can be called by a Smart Contract
 
 <a id="algopy.uenumerate"></a>
 
-## *class* algopy.uenumerate(iterable: collections.abc.Iterable[algopy._T])
+## *class* algopy.uenumerate
+
+uenumerate(iterable: collections.abc.Iterable[algopy._T])
 
 Yields pairs containing a count (from zero) and a value yielded by the iterable argument.
 
@@ -3778,6 +4738,8 @@ enumerate((a, b, c)) produces (0, a), (1, b), (2, c)
 <a id="algopy.urange"></a>
 
 ## *class* algopy.urange
+
+urange
 
 Produces a sequence of UInt64 from start (inclusive) to stop (exclusive) by step.
 
