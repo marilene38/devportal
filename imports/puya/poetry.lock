@@ -550,13 +550,13 @@ sphinx = ["sphinx (>=4.0.0)"]
 testing = ["pytest", "pytest-cov", "pytest-regressions", "sphinx (>=4.0.0,<7)"]
 
 [[package]]
-name = "sphinx-markdown-builder"
+name = "sphinx-starlight-builder"
 version = "0.6.7"
-description = "A Sphinx extension to add markdown generation support."
+description = "A Sphinx extension to add starlight mdx generation support."
 optional = false
 python-versions = ">=3.7"
 files = []
-develop = true
+develop = false
 
 [package.dependencies]
 docutils = "*"
@@ -567,8 +567,10 @@ tabulate = "*"
 dev = ["black", "bumpver", "coveralls", "flake8", "isort", "pip-tools", "pylint", "pytest", "pytest-cov", "sphinx (>=5.3.0)", "sphinxcontrib-plantuml", "sphinxcontrib.httpdomain"]
 
 [package.source]
-type = "directory"
-url = "../../../../other/sphinx-markdown-builder"
+type = "git"
+url = "https://github.com/joe-p/sphinx-starlight-builder"
+reference = "main"
+resolved_reference = "7ce927f4d957cc9029efc9f3c9ef08f1cf4cc985"
 
 [[package]]
 name = "sphinxcontrib-applehelp"
@@ -709,4 +711,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "3f8f6352e18056660e7d0accf43f073681b615011a9e14382d9183ae568ae67e"
+content-hash = "3c7cd5417949772ff8eb207ba25ca640c724a30db792770dd760a135f46341b1"
