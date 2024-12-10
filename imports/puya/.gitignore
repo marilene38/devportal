@@ -1,5 +1,2 @@
 _build/*
 apidocs/
-
-!_build/markdown/
-!_build/markdown/**

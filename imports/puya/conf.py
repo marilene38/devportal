@@ -52,3 +52,5 @@ autodoc2_render_plugin = "myst"
 autodoc2_sort_names = True
 autodoc2_index_template = None
 autodoc2_docstrings = "all"
+markdown_anchor_sections = True
+markdown_anchor_signatures = True
