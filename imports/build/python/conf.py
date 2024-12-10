@@ -33,6 +33,11 @@ elif repo == "utils":
     project = "Algokit Utils"
     autodoc2_packages = [
         {
+            "path": "../../repos/py-algorand-sdk/algosdk",
+            "module": "algosdk",
+            "auto_mode": True,
+        },
+        {
             "path": "../../repos/algokit-utils-py/src/algokit_utils",
             "module": "algokit_utils",
             "auto_mode": True,
