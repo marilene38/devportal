@@ -1,0 +1,3 @@
+[submodule "imports/repos/puya"]
+	path = imports/repos/puya
+	url = https://github.com/algorandfoundation/puya

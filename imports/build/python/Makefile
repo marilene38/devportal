@@ -14,7 +14,11 @@ FULL_SPHINX_COMMAND = $(SPHINXBUILD) -M starlight "$(SOURCEDIR)" "$(BUILDDIR)" $
 clean: 
 	rm -rf _build || rm -rf apidocs
 
-puya: clean
+# Puya is a special case because we are not documenting the actual API and instead documenting generated stubs exposed via algopy
+puya-setup:
+	cd ../../repos/puya && poetry install && poetry run poe gen
+
+puya: clean puya-setup
 	export SPHINX_REPO=puya && \
 	$(FULL_SPHINX_COMMAND) && \
 	cp -r _build/starlight/apidocs/algopy/* "../../../src/content/docs/reference/algorand-python/API Reference"
