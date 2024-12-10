@@ -79,7 +79,7 @@ The clear_state_program will by default return True, but can be overridden
 
 <a id="algopy.arc4.ARC4Contract.__init_subclass__"></a>
 
-### *classmethod* \_\_init_subclass_\_(\*, name: str = ..., scratch_slots: [algopy.urange](algopy.md#algopy.urange) | tuple[int | [algopy.urange](algopy.md#algopy.urange), ...] | list[int | [algopy.urange](algopy.md#algopy.urange)] = ..., state_totals: [algopy.StateTotals](algopy.md#algopy.StateTotals) = ..., avm_version: int = ...)
+### *classmethod* \_\_init_subclass_\_(\*, name: str = ..., scratch_slots: [algopy.urange](algopy.mdx#algopy.urange) | tuple[int | [algopy.urange](algopy.mdx#algopy.urange), ...] | list[int | [algopy.urange](algopy.mdx#algopy.urange)] = ..., state_totals: [algopy.StateTotals](algopy.mdx#algopy.StateTotals) = ..., avm_version: int = ...)
 
 When declaring a Contract subclass, options and configuration are passed in
 the base class list:
@@ -134,13 +134,13 @@ where `OnCompletion` != `ClearState`
 
 <a id="algopy.arc4.ARC4Contract.clear_state_program"></a>
 
-### clear_state_program() → [algopy.UInt64](algopy.md#algopy.UInt64) | bool
+### clear_state_program() → [algopy.UInt64](algopy.mdx#algopy.UInt64) | bool
 
 Represents the program called when `OnCompletion` == `ClearState`
 
 <a id="algopy.arc4.Address"></a>
 
-## *class* algopy.arc4.Address(value: [algopy.Account](algopy.md#algopy.Account) | str | [algopy.Bytes](algopy.md#algopy.Bytes) = ..., /)
+## *class* algopy.arc4.Address(value: [algopy.Account](algopy.mdx#algopy.Account) | str | [algopy.Bytes](algopy.mdx#algopy.Bytes) = ..., /)
 
 An alias for an array containing 32 bytes representing an Algorand address
 
@@ -160,14 +160,14 @@ Returns `True` if not equal to the zero address
 
 <a id="algopy.arc4.Address.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.arc4.Address](#algopy.arc4.Address) | [algopy.Account](algopy.md#algopy.Account) | str) → bool
+### \_\_eq_\_(other: [algopy.arc4.Address](#algopy.arc4.Address) | [algopy.Account](algopy.mdx#algopy.Account) | str) → bool
 
 Address equality is determined by the address of another
 `arc4.Address`, `Account` or `str`
 
 <a id="algopy.arc4.Address.__getitem__"></a>
 
-### \_\_getitem_\_(index: [algopy.UInt64](algopy.md#algopy.UInt64) | int) → algopy.arc4._TArrayItem
+### \_\_getitem_\_(index: [algopy.UInt64](algopy.mdx#algopy.UInt64) | int) → algopy.arc4._TArrayItem
 
 Gets the item of the array at provided index
 
@@ -179,7 +179,7 @@ Returns an iterator for the items in the array
 
 <a id="algopy.arc4.Address.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.arc4.Address](#algopy.arc4.Address) | [algopy.Account](algopy.md#algopy.Account) | str) → bool
+### \_\_ne_\_(other: [algopy.arc4.Address](#algopy.arc4.Address) | [algopy.Account](algopy.mdx#algopy.Account) | str) → bool
 
 Address equality is determined by the address of another
 `arc4.Address`, `Account` or `str`
@@ -192,13 +192,13 @@ Returns an iterator for the items in the array, in reverse order
 
 <a id="algopy.arc4.Address.__setitem__"></a>
 
-### \_\_setitem_\_(index: [algopy.UInt64](algopy.md#algopy.UInt64) | int, value: algopy.arc4._TArrayItem) → algopy.arc4._TArrayItem
+### \_\_setitem_\_(index: [algopy.UInt64](algopy.mdx#algopy.UInt64) | int, value: algopy.arc4._TArrayItem) → algopy.arc4._TArrayItem
 
 Sets the item of the array at specified index to provided value
 
 <a id="algopy.arc4.Address.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
@@ -210,25 +210,25 @@ Create a copy of this array
 
 <a id="algopy.arc4.Address.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.Address.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
 <a id="algopy.arc4.Address.length"></a>
 
-### *property* length *: [algopy.UInt64](algopy.md#algopy.UInt64)*
+### *property* length *: [algopy.UInt64](algopy.mdx#algopy.UInt64)*
 
 Returns the current length of the array
 
 <a id="algopy.arc4.Address.native"></a>
 
-### *property* native *: [algopy.Account](algopy.md#algopy.Account)*
+### *property* native *: [algopy.Account](algopy.mdx#algopy.Account)*
 
 Return the Account representation of the address after ARC4 decoding
 
@@ -259,25 +259,25 @@ Compare for equality, note both operands must be the exact same type
 
 <a id="algopy.arc4.BigUFixedNxM.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.arc4.BigUFixedNxM.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.BigUFixedNxM.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
 <a id="algopy.arc4.BigUIntN"></a>
 
-## *class* algopy.arc4.BigUIntN(value: [algopy.BigUInt](algopy.md#algopy.BigUInt) | [algopy.UInt64](algopy.md#algopy.UInt64) | int = 0, /)
+## *class* algopy.arc4.BigUIntN(value: [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | [algopy.UInt64](algopy.mdx#algopy.UInt64) | int = 0, /)
 
 An ARC4 UInt consisting of the number of bits specified.
 
@@ -293,61 +293,61 @@ Returns `True` if not equal to zero
 
 <a id="algopy.arc4.BigUIntN.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_eq_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self==value.
 
 <a id="algopy.arc4.BigUIntN.__ge__"></a>
 
-### \_\_ge_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_ge_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self>=value.
 
 <a id="algopy.arc4.BigUIntN.__gt__"></a>
 
-### \_\_gt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_gt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self>value.
 
 <a id="algopy.arc4.BigUIntN.__le__"></a>
 
-### \_\_le_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_le_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self<=value.
 
 <a id="algopy.arc4.BigUIntN.__lt__"></a>
 
-### \_\_lt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_lt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self<value.
 
 <a id="algopy.arc4.BigUIntN.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_ne_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self!=value.
 
 <a id="algopy.arc4.BigUIntN.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.arc4.BigUIntN.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.BigUIntN.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
 <a id="algopy.arc4.BigUIntN.native"></a>
 
-### *property* native *: [algopy.BigUInt](algopy.md#algopy.BigUInt)*
+### *property* native *: [algopy.BigUInt](algopy.mdx#algopy.BigUInt)*
 
 Return the BigUInt representation of the value after ARC4 decoding
 
@@ -373,19 +373,19 @@ Return self!=value.
 
 <a id="algopy.arc4.Bool.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.arc4.Bool.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.Bool.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
@@ -397,7 +397,7 @@ Return the bool representation of the value after ARC4 decoding
 
 <a id="algopy.arc4.Byte"></a>
 
-## *class* algopy.arc4.Byte(value: [algopy.BigUInt](algopy.md#algopy.BigUInt) | [algopy.UInt64](algopy.md#algopy.UInt64) | int = 0, /)
+## *class* algopy.arc4.Byte(value: [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | [algopy.UInt64](algopy.mdx#algopy.UInt64) | int = 0, /)
 
 An ARC4 alias for a UInt8
 
@@ -411,61 +411,61 @@ Returns `True` if not equal to zero
 
 <a id="algopy.arc4.Byte.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_eq_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self==value.
 
 <a id="algopy.arc4.Byte.__ge__"></a>
 
-### \_\_ge_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_ge_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self>=value.
 
 <a id="algopy.arc4.Byte.__gt__"></a>
 
-### \_\_gt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_gt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self>value.
 
 <a id="algopy.arc4.Byte.__le__"></a>
 
-### \_\_le_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_le_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self<=value.
 
 <a id="algopy.arc4.Byte.__lt__"></a>
 
-### \_\_lt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_lt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self<value.
 
 <a id="algopy.arc4.Byte.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_ne_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self!=value.
 
 <a id="algopy.arc4.Byte.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.arc4.Byte.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.Byte.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
 <a id="algopy.arc4.Byte.native"></a>
 
-### *property* native *: [algopy.UInt64](algopy.md#algopy.UInt64)*
+### *property* native *: [algopy.UInt64](algopy.mdx#algopy.UInt64)*
 
 Return the UInt64 representation of the value after ARC4 decoding
 
@@ -493,7 +493,7 @@ Returns `True` if not an empty array
 
 <a id="algopy.arc4.DynamicArray.__getitem__"></a>
 
-### \_\_getitem_\_(index: [algopy.UInt64](algopy.md#algopy.UInt64) | int) → algopy.arc4._TArrayItem
+### \_\_getitem_\_(index: [algopy.UInt64](algopy.mdx#algopy.UInt64) | int) → algopy.arc4._TArrayItem
 
 Gets the item of the array at provided index
 
@@ -511,7 +511,7 @@ Returns an iterator for the items in the array, in reverse order
 
 <a id="algopy.arc4.DynamicArray.__setitem__"></a>
 
-### \_\_setitem_\_(index: [algopy.UInt64](algopy.md#algopy.UInt64) | int, value: algopy.arc4._TArrayItem) → algopy.arc4._TArrayItem
+### \_\_setitem_\_(index: [algopy.UInt64](algopy.mdx#algopy.UInt64) | int, value: algopy.arc4._TArrayItem) → algopy.arc4._TArrayItem
 
 Sets the item of the array at specified index to provided value
 
@@ -523,7 +523,7 @@ Append an item to this array
 
 <a id="algopy.arc4.DynamicArray.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
@@ -541,19 +541,19 @@ Extend this array with the contents of another array
 
 <a id="algopy.arc4.DynamicArray.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.DynamicArray.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
 <a id="algopy.arc4.DynamicArray.length"></a>
 
-### *property* length *: [algopy.UInt64](algopy.md#algopy.UInt64)*
+### *property* length *: [algopy.UInt64](algopy.mdx#algopy.UInt64)*
 
 Returns the current length of the array
 
@@ -583,7 +583,7 @@ Returns `True` if not an empty array
 
 <a id="algopy.arc4.DynamicBytes.__getitem__"></a>
 
-### \_\_getitem_\_(index: [algopy.UInt64](algopy.md#algopy.UInt64) | int) → algopy.arc4._TArrayItem
+### \_\_getitem_\_(index: [algopy.UInt64](algopy.mdx#algopy.UInt64) | int) → algopy.arc4._TArrayItem
 
 Gets the item of the array at provided index
 
@@ -601,7 +601,7 @@ Returns an iterator for the items in the array, in reverse order
 
 <a id="algopy.arc4.DynamicBytes.__setitem__"></a>
 
-### \_\_setitem_\_(index: [algopy.UInt64](algopy.md#algopy.UInt64) | int, value: algopy.arc4._TArrayItem) → algopy.arc4._TArrayItem
+### \_\_setitem_\_(index: [algopy.UInt64](algopy.mdx#algopy.UInt64) | int, value: algopy.arc4._TArrayItem) → algopy.arc4._TArrayItem
 
 Sets the item of the array at specified index to provided value
 
@@ -613,7 +613,7 @@ Append an item to this array
 
 <a id="algopy.arc4.DynamicBytes.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
@@ -631,25 +631,25 @@ Extend this array with the contents of another array
 
 <a id="algopy.arc4.DynamicBytes.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.DynamicBytes.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
 <a id="algopy.arc4.DynamicBytes.length"></a>
 
-### *property* length *: [algopy.UInt64](algopy.md#algopy.UInt64)*
+### *property* length *: [algopy.UInt64](algopy.mdx#algopy.UInt64)*
 
 Returns the current length of the array
 
 <a id="algopy.arc4.DynamicBytes.native"></a>
 
-### *property* native *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* native *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Return the Bytes representation of the address after ARC4 decoding
 
@@ -667,7 +667,7 @@ A fixed length ARC4 Array of the specified type and length
 
 <a id="algopy.arc4.StaticArray.__getitem__"></a>
 
-### \_\_getitem_\_(index: [algopy.UInt64](algopy.md#algopy.UInt64) | int) → algopy.arc4._TArrayItem
+### \_\_getitem_\_(index: [algopy.UInt64](algopy.mdx#algopy.UInt64) | int) → algopy.arc4._TArrayItem
 
 Gets the item of the array at provided index
 
@@ -685,13 +685,13 @@ Returns an iterator for the items in the array, in reverse order
 
 <a id="algopy.arc4.StaticArray.__setitem__"></a>
 
-### \_\_setitem_\_(index: [algopy.UInt64](algopy.md#algopy.UInt64) | int, value: algopy.arc4._TArrayItem) → algopy.arc4._TArrayItem
+### \_\_setitem_\_(index: [algopy.UInt64](algopy.mdx#algopy.UInt64) | int, value: algopy.arc4._TArrayItem) → algopy.arc4._TArrayItem
 
 Sets the item of the array at specified index to provided value
 
 <a id="algopy.arc4.StaticArray.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
@@ -703,25 +703,25 @@ Create a copy of this array
 
 <a id="algopy.arc4.StaticArray.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.StaticArray.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
 <a id="algopy.arc4.StaticArray.length"></a>
 
-### *property* length *: [algopy.UInt64](algopy.md#algopy.UInt64)*
+### *property* length *: [algopy.UInt64](algopy.mdx#algopy.UInt64)*
 
 Returns the current length of the array
 
 <a id="algopy.arc4.String"></a>
 
-## *class* algopy.arc4.String(value: [algopy.String](algopy.md#algopy.String) | str = '', /)
+## *class* algopy.arc4.String(value: [algopy.String](algopy.mdx#algopy.String) | str = '', /)
 
 An ARC4 sequence of bytes containing a UTF8 string
 
@@ -735,31 +735,31 @@ Returns `True` if length is not zero
 
 <a id="algopy.arc4.String.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.arc4.String](#algopy.arc4.String) | [algopy.String](algopy.md#algopy.String) | str) → bool
+### \_\_eq_\_(other: [algopy.arc4.String](#algopy.arc4.String) | [algopy.String](algopy.mdx#algopy.String) | str) → bool
 
 Return self==value.
 
 <a id="algopy.arc4.String.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.arc4.String.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.String.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
 <a id="algopy.arc4.String.native"></a>
 
-### *property* native *: [algopy.String](algopy.md#algopy.String)*
+### *property* native *: [algopy.String](algopy.mdx#algopy.String)*
 
 Return the String representation of the UTF8 string after ARC4 decoding
 
@@ -771,7 +771,7 @@ Base class for ARC4 Struct types
 
 <a id="algopy.arc4.Struct.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying bytes[]
 
@@ -783,13 +783,13 @@ Create a copy of this struct
 
 <a id="algopy.arc4.Struct.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes[] (no validation)
 
 <a id="algopy.arc4.Struct.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
@@ -963,7 +963,7 @@ Return str(self).
 
 <a id="algopy.arc4.Tuple.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
@@ -981,13 +981,13 @@ Return number of occurrences of value.
 
 <a id="algopy.arc4.Tuple.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.Tuple.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
@@ -1033,19 +1033,19 @@ Compare for equality, note both operands must be the exact same type
 
 <a id="algopy.arc4.UFixedNxM.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.arc4.UFixedNxM.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.UFixedNxM.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
@@ -1107,7 +1107,7 @@ An ARC4 UInt8
 
 <a id="algopy.arc4.UIntN"></a>
 
-## *class* algopy.arc4.UIntN(value: [algopy.BigUInt](algopy.md#algopy.BigUInt) | [algopy.UInt64](algopy.md#algopy.UInt64) | int = 0, /)
+## *class* algopy.arc4.UIntN(value: [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | [algopy.UInt64](algopy.mdx#algopy.UInt64) | int = 0, /)
 
 An ARC4 UInt consisting of the number of bits specified.
 
@@ -1123,61 +1123,61 @@ Returns `True` if not equal to zero
 
 <a id="algopy.arc4.UIntN.__eq__"></a>
 
-### \_\_eq_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_eq_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self==value.
 
 <a id="algopy.arc4.UIntN.__ge__"></a>
 
-### \_\_ge_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_ge_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self>=value.
 
 <a id="algopy.arc4.UIntN.__gt__"></a>
 
-### \_\_gt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_gt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self>value.
 
 <a id="algopy.arc4.UIntN.__le__"></a>
 
-### \_\_le_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_le_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self<=value.
 
 <a id="algopy.arc4.UIntN.__lt__"></a>
 
-### \_\_lt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_lt_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self<value.
 
 <a id="algopy.arc4.UIntN.__ne__"></a>
 
-### \_\_ne_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.md#algopy.UInt64) | [algopy.BigUInt](algopy.md#algopy.BigUInt) | int) → bool
+### \_\_ne_\_(other: [algopy.arc4.UIntN](#algopy.arc4.UIntN)[algopy.arc4._TBitSize] | [algopy.arc4.BigUIntN](#algopy.arc4.BigUIntN)[algopy.arc4._TBitSize] | [algopy.UInt64](algopy.mdx#algopy.UInt64) | [algopy.BigUInt](algopy.mdx#algopy.BigUInt) | int) → bool
 
 Return self!=value.
 
 <a id="algopy.arc4.UIntN.bytes"></a>
 
-### *property* bytes *: [algopy.Bytes](algopy.md#algopy.Bytes)*
+### *property* bytes *: [algopy.Bytes](algopy.mdx#algopy.Bytes)*
 
 Get the underlying Bytes
 
 <a id="algopy.arc4.UIntN.from_bytes"></a>
 
-### *classmethod* from_bytes(value: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes, /) → Self
+### *classmethod* from_bytes(value: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes, /) → Self
 
 Construct an instance from the underlying bytes (no validation)
 
 <a id="algopy.arc4.UIntN.from_log"></a>
 
-### *classmethod* from_log(log: [algopy.Bytes](algopy.md#algopy.Bytes), /) → Self
+### *classmethod* from_log(log: [algopy.Bytes](algopy.mdx#algopy.Bytes), /) → Self
 
 Load an ABI type from application logs, checking for the ABI return prefix `0x151f7c75`
 
 <a id="algopy.arc4.UIntN.native"></a>
 
-### *property* native *: [algopy.UInt64](algopy.md#algopy.UInt64)*
+### *property* native *: [algopy.UInt64](algopy.mdx#algopy.UInt64)*
 
 Return the UInt64 representation of the value after ARC4 decoding
 
@@ -1270,7 +1270,7 @@ txn = abi_call(HelloWorldContract.no_return, arc4.String("World"), app=...)
 
 <a id="algopy.arc4.abimethod"></a>
 
-## algopy.arc4.abimethod(\*, name: str = ..., create: Literal[allow, require, disallow] = 'disallow', allow_actions: collections.abc.Sequence[[algopy.OnCompleteAction](algopy.md#algopy.OnCompleteAction) | Literal[NoOp, OptIn, CloseOut, UpdateApplication, DeleteApplication]] = ('NoOp',), readonly: bool = False, default_args: collections.abc.Mapping[str, str | algopy.arc4._ReadOnlyNoArgsMethod] = ...) → collections.abc.Callable[[collections.abc.Callable[algopy.arc4._P, algopy.arc4._R]], collections.abc.Callable[algopy.arc4._P, algopy.arc4._R]]
+## algopy.arc4.abimethod(\*, name: str = ..., create: Literal[allow, require, disallow] = 'disallow', allow_actions: collections.abc.Sequence[[algopy.OnCompleteAction](algopy.mdx#algopy.OnCompleteAction) | Literal[NoOp, OptIn, CloseOut, UpdateApplication, DeleteApplication]] = ('NoOp',), readonly: bool = False, default_args: collections.abc.Mapping[str, str | algopy.arc4._ReadOnlyNoArgsMethod] = ...) → collections.abc.Callable[[collections.abc.Callable[algopy.arc4._P, algopy.arc4._R]], collections.abc.Callable[algopy.arc4._P, algopy.arc4._R]]
 
 Decorator that indicates a method is an ARC4 ABI method.
 
@@ -1283,7 +1283,7 @@ Decorator that indicates a method is an ARC4 ABI method.
 
 <a id="algopy.arc4.arc4_create"></a>
 
-## algopy.arc4.arc4_create(method: collections.abc.Callable[algopy.arc4._P, algopy.arc4._TABIResult_co], /, \*args: object, compiled: [algopy.CompiledContract](algopy.md#algopy.CompiledContract) = ..., on_completion: [algopy.OnCompleteAction](algopy.md#algopy.OnCompleteAction) = ..., fee: [algopy.UInt64](algopy.md#algopy.UInt64) | int = 0, sender: [algopy.Account](algopy.md#algopy.Account) | str = ..., note: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes | str = ..., rekey_to: [algopy.Account](algopy.md#algopy.Account) | str = ...) → tuple[algopy.arc4._TABIResult_co, [algopy.itxn.ApplicationCallInnerTransaction](algopy.itxn.md#algopy.itxn.ApplicationCallInnerTransaction)]
+## algopy.arc4.arc4_create(method: collections.abc.Callable[algopy.arc4._P, algopy.arc4._TABIResult_co], /, \*args: object, compiled: [algopy.CompiledContract](algopy.mdx#algopy.CompiledContract) = ..., on_completion: [algopy.OnCompleteAction](algopy.mdx#algopy.OnCompleteAction) = ..., fee: [algopy.UInt64](algopy.mdx#algopy.UInt64) | int = 0, sender: [algopy.Account](algopy.mdx#algopy.Account) | str = ..., note: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes | str = ..., rekey_to: [algopy.Account](algopy.mdx#algopy.Account) | str = ...) → tuple[algopy.arc4._TABIResult_co, [algopy.itxn.ApplicationCallInnerTransaction](algopy.itxn.mdx#algopy.itxn.ApplicationCallInnerTransaction)]
 
 Provides a typesafe and convenient way of creating an ARC4Contract via an inner transaction
 
@@ -1300,13 +1300,13 @@ If not specified will be inferred from Algorand Python method where possible
 
 <a id="algopy.arc4.arc4_signature"></a>
 
-## algopy.arc4.arc4_signature(signature: str, /) → [algopy.Bytes](algopy.md#algopy.Bytes)
+## algopy.arc4.arc4_signature(signature: str, /) → [algopy.Bytes](algopy.mdx#algopy.Bytes)
 
 Returns the ARC4 encoded method selector for the specified signature
 
 <a id="algopy.arc4.arc4_update"></a>
 
-## algopy.arc4.arc4_update(method: collections.abc.Callable[algopy.arc4._P, algopy.arc4._TABIResult_co], /, \*args: object, app_id: [algopy.Application](algopy.md#algopy.Application) | [algopy.UInt64](algopy.md#algopy.UInt64) | int, compiled: [algopy.CompiledContract](algopy.md#algopy.CompiledContract) = ..., fee: [algopy.UInt64](algopy.md#algopy.UInt64) | int = 0, sender: [algopy.Account](algopy.md#algopy.Account) | str = ..., note: [algopy.Bytes](algopy.md#algopy.Bytes) | bytes | str = ..., rekey_to: [algopy.Account](algopy.md#algopy.Account) | str = ...) → tuple[algopy.arc4._TABIResult_co, [algopy.itxn.ApplicationCallInnerTransaction](algopy.itxn.md#algopy.itxn.ApplicationCallInnerTransaction)]
+## algopy.arc4.arc4_update(method: collections.abc.Callable[algopy.arc4._P, algopy.arc4._TABIResult_co], /, \*args: object, app_id: [algopy.Application](algopy.mdx#algopy.Application) | [algopy.UInt64](algopy.mdx#algopy.UInt64) | int, compiled: [algopy.CompiledContract](algopy.mdx#algopy.CompiledContract) = ..., fee: [algopy.UInt64](algopy.mdx#algopy.UInt64) | int = 0, sender: [algopy.Account](algopy.mdx#algopy.Account) | str = ..., note: [algopy.Bytes](algopy.mdx#algopy.Bytes) | bytes | str = ..., rekey_to: [algopy.Account](algopy.mdx#algopy.Account) | str = ...) → tuple[algopy.arc4._TABIResult_co, [algopy.itxn.ApplicationCallInnerTransaction](algopy.itxn.mdx#algopy.itxn.ApplicationCallInnerTransaction)]
 
 Provides a typesafe and convenient way of updating an ARC4Contract via an inner transaction
 
@@ -1322,7 +1322,7 @@ can be omitted if template variables are not used
 
 <a id="algopy.arc4.baremethod"></a>
 
-## algopy.arc4.baremethod(\*, create: Literal[allow, require, disallow] = 'disallow', allow_actions: collections.abc.Sequence[[algopy.OnCompleteAction](algopy.md#algopy.OnCompleteAction) | Literal[NoOp, OptIn, CloseOut, UpdateApplication, DeleteApplication]] = ...) → collections.abc.Callable[[collections.abc.Callable[[algopy.arc4._TARC4Contract], None]], collections.abc.Callable[[algopy.arc4._TARC4Contract], None]]
+## algopy.arc4.baremethod(\*, create: Literal[allow, require, disallow] = 'disallow', allow_actions: collections.abc.Sequence[[algopy.OnCompleteAction](algopy.mdx#algopy.OnCompleteAction) | Literal[NoOp, OptIn, CloseOut, UpdateApplication, DeleteApplication]] = ...) → collections.abc.Callable[[collections.abc.Callable[[algopy.arc4._TARC4Contract], None]], collections.abc.Callable[[algopy.arc4._TARC4Contract], None]]
 
 Decorator that indicates a method is an ARC4 bare method.
 
