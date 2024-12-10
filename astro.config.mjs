@@ -10,6 +10,7 @@ import { resolve } from 'path';
 import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
 import starlightTypeDoc from 'starlight-typedoc';
+import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
 
 export default defineConfig({
   integrations: [
@@ -656,6 +657,7 @@ export default defineConfig({
   markdown: {
     // Rehype plugin that adds target="_blank" and rel="noopener noreferrer" to external links
     rehypePlugins: [
+      [rehypeAstroRelativeMarkdownLinks, { collectionBase: false }],
       rehypeSlug,
       [
         rehypeAutolinkHeadings,
