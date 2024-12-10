@@ -29,6 +29,16 @@ if repo == "puya":
         },
     ]
     autodoc2_module_all_regexes = [r"algopy.*"]
+elif repo == "utils":
+    project = "Algokit Utils"
+    autodoc2_packages = [
+        {
+            "path": "../../repos/algokit-utils-py/src/algokit_utils",
+            "module": "algokit_utils",
+            "auto_mode": True,
+        },
+    ]
+
 
 else:
     raise ValueError(

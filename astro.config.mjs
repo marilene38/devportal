@@ -424,6 +424,13 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
+                  label: 'API Reference',
+                  autogenerate: {
+                    collapsed: true,
+                    directory: 'reference/algokit-utils-py/API Reference',
+                  },
+                },
+                {
                   label: 'Fundamentals',
                   items: [
                     {

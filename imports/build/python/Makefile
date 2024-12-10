@@ -12,7 +12,7 @@ FULL_SPHINX_COMMAND = $(SPHINXBUILD) -M starlight "$(SOURCEDIR)" "$(BUILDDIR)" $
 .PHONY: help Makefile
 
 clean: 
-	rm -rf _build || rm -rf apidocs
+	rm -rf _build && rm -rf apidocs
 
 # Puya is a special case because we are not documenting the actual API and instead documenting generated stubs exposed via algopy
 puya-setup:
@@ -22,4 +22,9 @@ puya: clean puya-setup
 	export SPHINX_REPO=puya && \
 	$(FULL_SPHINX_COMMAND) && \
 	cp -r _build/starlight/apidocs/algopy/* "../../../src/content/docs/reference/algorand-python/API Reference"
+
+utils: clean
+	export SPHINX_REPO=utils && \
+	$(FULL_SPHINX_COMMAND) && \
+	cp -r _build/starlight/apidocs/algokit_utils/* "../../../src/content/docs/reference/algokit-utils-py/API Reference"
 
