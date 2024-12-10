@@ -7,14 +7,15 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= poetry run sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
-
-# Put it first so that "make" without argument is like "make help".
-help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+FULL_SPHINX_COMMAND = $(SPHINXBUILD) -M starlight "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
 .PHONY: help Makefile
 
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) && cp -r _build/starlight/apidocs/algopy/*  "../../src/content/docs/reference/algorand-python/API Reference"
+clean: 
+	rm -rf _build || rm -rf apidocs
+
+puya: clean
+	export SPHINX_REPO=puya && \
+	$(FULL_SPHINX_COMMAND) && \
+	cp -r _build/starlight/apidocs/algopy/* "../../src/content/docs/reference/algorand-python/API Reference"
+
