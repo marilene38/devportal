@@ -23,4 +23,4 @@ The of standard transaction fees to return the amount of Algo
 
 ## Defined in
 
-[src/amount.ts:90](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/amount.ts#L90)
+[src/amount.ts:89](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/amount.ts#L89)

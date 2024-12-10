@@ -22,8 +22,8 @@ export default defineConfig({
           exclude: ['FUTURELINK*'],
         }),
         starlightTypeDoc({
-          entryPoints: ['../algokit-utils-ts/src/index.ts'],
-          tsconfig: '../algokit-utils-ts/tsconfig.json',
+          entryPoints: ['./imports/repos/algokit-utils-ts/src/index.ts'],
+          tsconfig: './imports/repos/algokit-utils-ts/tsconfig.json',
           output: 'reference/algokit-utils-ts/API Reference',
         }),
       ],

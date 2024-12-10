@@ -29,4 +29,4 @@ The args ready to load into a `Transaction`
 
 ## Defined in
 
-[src/app.ts:352](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/app.ts#L352)
+[src/app.ts:356](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L356)

@@ -29,4 +29,4 @@ title: "executePaginatedRequest"
 
 ## Defined in
 
-[src/indexer-lookup.ts:152](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/indexer-lookup.ts#L152)
+[src/indexer-lookup.ts:145](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/indexer-lookup.ts#L145)

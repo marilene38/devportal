@@ -41,4 +41,4 @@ await algokit.assetOptOut({ account, assetId, assetCreatorAddress }, algod)
 
 ## Defined in
 
-[src/asset.ts:98](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/asset.ts#L98)
+[src/asset.ts:98](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/asset.ts#L98)

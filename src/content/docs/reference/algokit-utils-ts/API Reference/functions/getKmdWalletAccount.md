@@ -37,7 +37,7 @@ An algod client
 
 ### kmdClient?
 
-`Kmd`
+`KmdClient`
 
 A KMD client, if not specified then a default KMD client will be loaded from environment variables
 
@@ -56,4 +56,4 @@ const defaultDispenserAccount = await getKmdWalletAccount(algod,
 
 ## Defined in
 
-[src/localnet/get-kmd-wallet-account.ts:27](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/localnet/get-kmd-wallet-account.ts#L27)
+[src/localnet/get-kmd-wallet-account.ts:27](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/localnet/get-kmd-wallet-account.ts#L27)

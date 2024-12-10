@@ -17,7 +17,7 @@ The name of the application
 
 #### Defined in
 
-[src/types/debugging.ts:28](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/types/debugging.ts#L28)
+[src/types/debugging.ts:28](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/types/debugging.ts#L28)
 
 ***
 
@@ -29,7 +29,7 @@ The compiled TEAL code
 
 #### Defined in
 
-[src/types/debugging.ts:32](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/types/debugging.ts#L32)
+[src/types/debugging.ts:32](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/types/debugging.ts#L32)
 
 ***
 
@@ -41,4 +41,4 @@ The name of the file
 
 #### Defined in
 
-[src/types/debugging.ts:30](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/types/debugging.ts#L30)
+[src/types/debugging.ts:30](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/types/debugging.ts#L30)

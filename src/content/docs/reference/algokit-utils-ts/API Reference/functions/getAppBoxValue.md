@@ -40,4 +40,4 @@ The current box value as a byte array
 
 ## Defined in
 
-[src/app.ts:284](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/app.ts#L284)
+[src/app.ts:288](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L288)

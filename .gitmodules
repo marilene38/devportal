@@ -1,3 +1,6 @@
 [submodule "imports/repos/puya"]
 	path = imports/repos/puya
 	url = https://github.com/algorandfoundation/puya
+[submodule "imports/repos/algokit-utils-ts"]
+	path = imports/repos/algokit-utils-ts
+	url = https://github.com/algorandfoundation/algokit-utils-ts

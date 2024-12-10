@@ -30,4 +30,4 @@ An object keyeed by the UTF-8 representation of the key with various parsings of
 
 ## Defined in
 
-[src/app.ts:341](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/app.ts#L341)
+[src/app.ts:345](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L345)

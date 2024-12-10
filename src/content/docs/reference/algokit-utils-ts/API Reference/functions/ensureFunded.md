@@ -36,7 +36,7 @@ An instance of the Algodv2 client.
 
 ### kmd?
 
-`Kmd`
+`KmdClient`
 
 An optional instance of the Kmd client.
 
@@ -49,4 +49,4 @@ An optional instance of the Kmd client.
 
 ## Defined in
 
-[src/transfer/transfer.ts:26](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/transfer/transfer.ts#L26)
+[src/transfer/transfer.ts:26](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/transfer/transfer.ts#L26)

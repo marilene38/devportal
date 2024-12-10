@@ -5,7 +5,7 @@ prev: false
 title: "lookupAssetHoldings"
 ---
 
-> **lookupAssetHoldings**(`indexer`, `assetId`, `options`?, `paginationLimit`?): `Promise`\<`MiniAssetHolding`[]\>
+> **lookupAssetHoldings**(`indexer`, `assetId`, `options`?, `paginationLimit`?): `Promise`\<`algosdk.indexerModels.MiniAssetHolding`[]\>
 
 Looks up asset holdings for the given asset; will automatically paginate through all data.
 
@@ -37,10 +37,10 @@ The number of records to return per paginated request, default 1000
 
 ## Returns
 
-`Promise`\<`MiniAssetHolding`[]\>
+`Promise`\<`algosdk.indexerModels.MiniAssetHolding`[]\>
 
 The list of application results
 
 ## Defined in
 
-[src/indexer-lookup.ts:79](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/indexer-lookup.ts#L79)
+[src/indexer-lookup.ts:72](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/indexer-lookup.ts#L72)

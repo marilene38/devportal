@@ -5,17 +5,20 @@ prev: false
 title: "lookupAccountByAddress"
 ---
 
-> **lookupAccountByAddress**(`accountAddress`, `indexer`): `Promise`\<`AccountLookupResult`\>
+> **lookupAccountByAddress**(`accountAddress`, `indexer`): `Promise`\<`AccountResponse`\>
 
+:::caution[Deprecated]
+Use `indexer.lookupAccountByID(accountAddress).do()`.
 Looks up an account by address using Indexer.
+:::
 
 ## Parameters
 
 ### accountAddress
 
-`string`
-
 The address of the account to look up
+
+`string` | `Address`
 
 ### indexer
 
@@ -25,10 +28,10 @@ An indexer client
 
 ## Returns
 
-`Promise`\<`AccountLookupResult`\>
+`Promise`\<`AccountResponse`\>
 
 The result of the look-up
 
 ## Defined in
 
-[src/indexer-lookup.ts:33](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/indexer-lookup.ts#L33)
+[src/indexer-lookup.ts:26](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/indexer-lookup.ts#L26)

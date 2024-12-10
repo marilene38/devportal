@@ -5,7 +5,7 @@ prev: false
 title: "getTransactionParams"
 ---
 
-> **getTransactionParams**(`params`, `algod`): `Promise`\<`SuggestedParamsWithMinFee` \| \{`fee`: `number`;`firstRound`: `number`;`flatFee`: `boolean`;`genesisHash`: `string`;`genesisID`: `string`;`lastRound`: `number`; \}\>
+> **getTransactionParams**(`params`, `algod`): `Promise`\<`SuggestedParams`\>
 
 :::caution[Deprecated]
 Use `suggestedParams ? { ...suggestedParams } : await algod.getTransactionParams().do()` instead
@@ -29,10 +29,10 @@ Algod algod
 
 ## Returns
 
-`Promise`\<`SuggestedParamsWithMinFee` \| \{`fee`: `number`;`firstRound`: `number`;`flatFee`: `boolean`;`genesisHash`: `string`;`genesisID`: `string`;`lastRound`: `number`; \}\>
+`Promise`\<`SuggestedParams`\>
 
 The suggested transaction parameters
 
 ## Defined in
 
-[src/transaction/transaction.ts:912](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/transaction/transaction.ts#L912)
+[src/transaction/transaction.ts:928](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/transaction/transaction.ts#L928)

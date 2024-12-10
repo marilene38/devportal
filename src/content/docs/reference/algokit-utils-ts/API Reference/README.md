@@ -37,6 +37,12 @@ Re-exports [lookupTransactionById](/reference/algokit-utils-ts/API Reference/nam
 
 ***
 
+### SearchForTransactions
+
+Re-exports [SearchForTransactions](/reference/algokit-utils-ts/API Reference/namespaces/indexer/type-aliases/searchfortransactions/)
+
+***
+
 ### searchTransactions
 
 Re-exports [searchTransactions](/reference/algokit-utils-ts/API Reference/namespaces/indexer/functions/searchtransactions/)
@@ -68,6 +74,7 @@ Re-exports [searchTransactions](/reference/algokit-utils-ts/API Reference/namesp
 ## Variables
 
 - [ALGOKIT\_DIR](/reference/algokit-utils-ts/API Reference/variables/algokit_dir/)
+- [ALGORAND\_MIN\_TX\_FEE](/reference/algokit-utils-ts/API Reference/variables/algorand_min_tx_fee/)
 - [Config](/reference/algokit-utils-ts/API Reference/variables/config/)
 - [DEFAULT\_MAX\_SEARCH\_DEPTH](/reference/algokit-utils-ts/API Reference/variables/default_max_search_depth/)
 - [MAX\_APP\_CALL\_ACCOUNT\_REFERENCES](/reference/algokit-utils-ts/API Reference/variables/max_app_call_account_references/)
@@ -149,7 +156,6 @@ Re-exports [searchTransactions](/reference/algokit-utils-ts/API Reference/namesp
 - [mnemonicAccount](/reference/algokit-utils-ts/API Reference/functions/mnemonicaccount/)
 - [mnemonicAccountFromEnvironment](/reference/algokit-utils-ts/API Reference/functions/mnemonicaccountfromenvironment/)
 - [multisigAccount](/reference/algokit-utils-ts/API Reference/functions/multisigaccount/)
-- [performAtomicTransactionComposerDryrun](/reference/algokit-utils-ts/API Reference/functions/performatomictransactioncomposerdryrun/)
 - [performAtomicTransactionComposerSimulate](/reference/algokit-utils-ts/API Reference/functions/performatomictransactioncomposersimulate/)
 - [performTemplateSubstitution](/reference/algokit-utils-ts/API Reference/functions/performtemplatesubstitution/)
 - [performTemplateSubstitutionAndCompile](/reference/algokit-utils-ts/API Reference/functions/performtemplatesubstitutionandcompile/)

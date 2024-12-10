@@ -5,7 +5,7 @@ prev: false
 title: "getDispenserAccount"
 ---
 
-> **getDispenserAccount**(`algod`, `kmd`?): `Promise`\<`string`\>
+> **getDispenserAccount**(`algod`, `kmd`?): `Promise`\<`Address` & `TransactionSignerAccount` & `object`\>
 
 :::caution[Deprecated]
 Use `algorand.account.dispenserFromEnvironment()` or `new AccountManager(clientManager).dispenserFromEnvironment()` instead
@@ -26,14 +26,14 @@ An algod client
 
 ### kmd?
 
-`Kmd`
+`KmdClient`
 
 A KMD client, if not specified then a default KMD client will be loaded from environment variables
 
 ## Returns
 
-`Promise`\<`string`\>
+`Promise`\<`Address` & `TransactionSignerAccount` & `object`\>
 
 ## Defined in
 
-[src/account/get-dispenser-account.ts:19](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/account/get-dispenser-account.ts#L19)
+[src/account/get-dispenser-account.ts:19](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/get-dispenser-account.ts#L19)

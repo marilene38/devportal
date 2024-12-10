@@ -30,4 +30,4 @@ The mnemonic secret representing the private key of an account; **Note: Be caref
 
 ## Defined in
 
-[src/account/mnemonic-account.ts:14](https://github.com/algorandfoundation/algokit-utils-ts/blob/87156fe9637eca52c0bc9e840c5804088cb40974/src/account/mnemonic-account.ts#L14)
+[src/account/mnemonic-account.ts:14](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/mnemonic-account.ts#L14)
