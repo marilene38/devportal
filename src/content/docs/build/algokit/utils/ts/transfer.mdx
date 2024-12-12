@@ -16,9 +16,9 @@ The methods on this page require the [legacy AlgoKit Utils import method to acce
 
 ## Transferring Algos
 
-The key function to facilitate Algo transfers is `algokit.transferAlgos(transfer, algod)`, which returns a [`SendTransactionResult`](/build/algokit/utils/ts/transaction#sendtransactionresult) and takes a [`AlgoTransferParams`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_transfer.AlgoTransferParams.md):
+The key function to facilitate Algo transfers is `algokit.transferAlgos(transfer, algod)`, which returns a [`SendTransactionResult`](/build/algokit/utils/ts/transaction#send-transaction-result) and takes a [`AlgoTransferParams`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_transfer.AlgoTransferParams.md):
 
-- All properties in [`SendTransactionParams`](/build/algokit/utils/ts/transaction#sendtransactionparams)
+- All properties in [`SendTransactionParams`](/build/algokit/utils/ts/transaction#send-transaction-params)
 - `from: SendTransactionFrom` - The account that will send the ALGOs
 - `to: SendTransactionFrom | string` - The address of the account that will receive the ALGOs
 - `amount: AlgoAmount` - The [amount](/build/algokit/utils/ts/amount) of ALGOs to send
@@ -30,7 +30,7 @@ The key function to facilitate Algo transfers is `algokit.transferAlgos(transfer
 
 The `ensureFunded` function automatically funds an account to maintain a minimum amount of disposable ALGOs. This is particularly useful for automation and deployment scripts. The function is defined as `algokit.ensureFunded(funding, algod, kmd?)` and returns a [`EnsureFundedReturnType`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_transfer.EnsureFundedReturnType.md) if a transaction was needed, or `undefined` if no transaction was required. The function takes a [`EnsureFundedParams`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_transfer.EnsureFundedParams.md) object as an argument:
 
-- All properties in [`SendTransactionParams`](/build/algokit/utils/ts/transaction#sendtransactionparams)
+- All properties in [`SendTransactionParams`](/build/algokit/utils/ts/transaction#send-transaction-params)
 - `accountToFund: SendTransactionFrom | string` - The account that is to be funded
 - `fundingSource?: SendTransactionFrom | TestNetDispenserApiClient` - The account that is the source of funds or a dispenser API client. If not specified, it will use the [dispenser](/build/algokit/utils/ts/account#dispenser)
 - `minSpendingBalance: AlgoAmount` - The minimum balance of ALGOs that the account should have available to spend (i.e., on top of the minimum balance requirement)
@@ -43,9 +43,9 @@ The function calls Algod to find the current balance and minimum balance require
 
 ## Transferring Assets
 
-The key function to facilitate asset transfers is `transferAsset(transfer, algod)`, which returns a [`SendTransactionResult`](/build/algokit/utils/ts/transaction#sendtransactionresult) and takes a [`TransferAssetParams`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_transfer.TransferAssetParams.md):
+The key function to facilitate asset transfers is `transferAsset(transfer, algod)`, which returns a [`SendTransactionResult`](/build/algokit/utils/ts/transaction#send-transaction-result) and takes a [`TransferAssetParams`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_transfer.TransferAssetParams.md):
 
-- All properties in [`SendTransactionParams`](/build/algokit/utils/ts/transaction#sendtransactionparams)
+- All properties in [`SendTransactionParams`](/build/algokit/utils/ts/transaction#send-transaction-params)
 - `from: SendTransactionFrom` - The account that will send the asset
 - `to: SendTransactionFrom | string` - The account / account address that will receive the asset
 - `assetId: number` - The asset id that will be transferred

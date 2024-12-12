@@ -1,0 +1,79 @@
+name: Deploy to Cloudflare Pages
+
+# Trigger on push to main branch and pull requests to main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Install Dependencies
+      - name: Install D2
+        run: curl -fsSL https://d2lang.com/install.sh | sh -s --
+
+      # Step 3: Set up Node.js (used by Astro)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Specify the required Node.js version
+
+      # Step 4: Install pnpm
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
+
+      # Step 5: Install dependencies using pnpm
+      - name: Install dependencies
+        run: pnpm install
+
+      # Step 6: Build the Astro project
+      - name: Build the project
+        run: pnpm run build
+
+      # Step 7: Deploy to Cloudflare Pages and capture the Preview URL
+      - name: Publish to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: ${{ secrets.CF_PROJECT_NAME }}
+          directory: dist
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
+          wranglerVersion: '3'
+
+      # Step 8: Capture PR Information (PR ID and Title)
+      - name: Capture PR Information
+        id: pr_info
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "::set-output name=pr_id::${{ github.event.pull_request.number }}"
+          echo "::set-output name=pr_title::${{ github.event.pull_request.title }}"
+
+      # Step 9: Post the Preview URL, PR ID, and PR Title to Slack
+      - name: Post to Slack
+        id: slack
+        if: github.event_name == 'pull_request'
+        uses: slackapi/slack-github-action@v1.27.0
+        with:
+          payload: |
+            {
+              "pr_id": "${{ steps.pr_info.outputs.pr_id }}",
+              "pr_title": "${{ steps.pr_info.outputs.pr_title }}",
+              "preview_url": "${{ steps.deploy.outputs.url }}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_PR_WEBHOOK_URL }}

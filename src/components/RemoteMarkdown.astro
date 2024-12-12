@@ -1,0 +1,9 @@
+---
+import { fetchRemoteMarkdown } from './RemoteMarkdown';
+import { Markdown } from 'astro-remote';
+
+const { url, section } = Astro.props;
+const markdownContent = await fetchRemoteMarkdown(url, section);
+---
+
+<Markdown content={markdownContent ?? ''} />

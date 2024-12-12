@@ -85,7 +85,7 @@ As well as `AlgorandClient` and `Config`, you can use intellisense to auto-compl
 
 </Aside>
 
-The main entrypoint to the bulk of the functionality is the `AlgorandClient` class, most of the time you can get started by typing `algokit.AlgorandClient.` and choosing one of the static initialisation methods to create an [Algorand client](/build/algokit/utils/ts/algorand-client), e.g.:
+The main entrypoint to the bulk of the functionality is the `AlgorandClient` class, most of the time you can get started by typing `algokit.AlgorandClient.` and choosing one of the static initialisation methods to create an [Algorand client](FUTURELINK), e.g.:
 
 ```typescript
 // Point to the network configured through environment variables or
@@ -157,7 +157,7 @@ algokit.configure({ debug: true });
 
 To retrieve the current debug state you can use [`algokit.Config.debug`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_config.Config.md).
 
-This will turn on things like automatic tracing, more verbose logging and [advanced debugging](/build/algokit/utils/ts/debugging.md). It's likely this option will result in extra HTTP calls to algod so worth being careful when it's turned on.
+This will turn on things like automatic tracing, more verbose logging and [advanced debugging](/build/algokit/utils/ts/debugging). It's likely this option will result in extra HTTP calls to algod so worth being careful when it's turned on.
 
 If you want to temporarily turn it on you can use the [`withDebug`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_config.UpdatableConfig.md#withdebug) function:
 
@@ -189,14 +189,14 @@ To see how to use it consult the [testing capability page](/build/algokit/utils/
 
 The library provides the following features:
 
-- [**AlgorandClient**](/build/algokit/utils/ts/algorand-client) - The key entrypoint to the AlgoKit Utils functionality
+- [**AlgorandClient**](FUTURELINK) - The key entrypoint to the AlgoKit Utils functionality
 - Core capabilities
   - [**Client management**](/build/algokit/utils/ts/client) - Creation of (auto-retry) algod, indexer and kmd clients against various networks resolved from environment or specified configuration
   - [**Account management**](/build/algokit/utils/ts/account) - Creation and use of accounts including mnemonic, rekeyed, multisig, transaction signer ([useWallet](https://github.com/TxnLab/use-wallet) for dApps and Atomic Transaction Composer compatible signers), idempotent KMD accounts and environment variable injected
   - [**Algo amount handling**](/build/algokit/utils/ts/amount) - Reliable and terse specification of microAlgo and Algo amounts and conversion between them
   - [**Transaction management**](/build/algokit/utils/ts/transaction) - Ability to send single, grouped or Atomic Transaction Composer transactions with consistent and highly configurable semantics, including configurable control of transaction notes (including ARC-0002), logging, fees, multiple sender account types, and sending behaviour
 - Higher-order use cases
-  - [**App management**](/build/algokit/utils/ts/app) - Creation, updating, deleting, calling (ABI and otherwise) smart contract apps and the metadata associated with them (including state and boxes)
+  - [**App management**](/build/algokit/utils/ts/app-client) - Creation, updating, deleting, calling (ABI and otherwise) smart contract apps and the metadata associated with them (including state and boxes)
   - [**App deployment**](/build/algokit/utils/ts/app-deploy) - Idempotent (safely retryable) deployment of an app, including deploy-time immutability and permanence control and TEAL template substitution
   - [**ARC-0032 Application Spec client**](/build/algokit/utils/ts/app-client) - Builds on top of the App management and App deployment capabilities to provide a high productivity application client that works with ARC-0032 application spec defined smart contracts (e.g. via Beaker)
   - [**Algo transfers**](/build/algokit/utils/ts/transfer) - Ability to easily initiate algo transfers between accounts, including dispenser management and idempotent account funding
