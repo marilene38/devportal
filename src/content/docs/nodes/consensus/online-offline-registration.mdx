@@ -6,13 +6,14 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## Register your account online
 
-This section assumes that you have already generated a participation key for the account you plan to mark online.
+This section assumes that you have already [generated a participation key](FUTURELINK:generatePartKey) for the account you plan to mark online.
 
 For an account to participate in consensus, the account needs to be registered online by creating, signing, and sending a key registration transaction with details of the participation key that will vote on the account's behalf. Once the transaction is processed by the blockchain, the Verifiable Random Function public key (referred to as the VRF public key) is written into the account’s data, and the account will start participating in consensus with that key. This VRF public key is how the account is associated with the specific participation keys on the node.
 
 The moment a key registration transaction is confirmed by the network, the change takes `320 rounds` to take effect. In other words, if a key registration is confirmed in `round 1000`, the account will not start participating until `round 1320`.
 
 ### Create an online key registration transaction
+
 There are three main ways you can create an online key registration transaction.
 
 <Tabs>
@@ -50,6 +51,7 @@ There are three main ways you can create an online key registration transaction.
         }
     }
     ```
+
  </TabItem>
 </Tabs>
 
@@ -61,7 +63,7 @@ There are three main ways you can create an online key registration transaction.
     <TabItem label="LORA">
     </TabItem>
     <TabItem label="goal">
-        To sign the key registration transaction inside the `online.txn` file generated from the previous step with goal, you first need to have a funded account in a goal wallet. 
+        To sign the key registration transaction inside the `online.txn` file generated from the previous step with goal, you first need to have a funded account in a goal wallet.
 
         ```shell showLineNumbers=false frame=terminal
         # First create a goal wallet. Make sure to securely store the seedphrase!
@@ -71,7 +73,7 @@ There are three main ways you can create an online key registration transaction.
         goal account import -m [your account MNEMONIC]
 
         # Or create an account inside the created wallet. After creation, fund the acocunt with enough ALGO to cover the key registration transaction fee
-        goal account new 
+        goal account new
 
         # Check that your account was successfully created
         goal account list
@@ -122,16 +124,19 @@ There are three main ways you can create an online key registration transaction.
         goal clerk rawsend -f signed-online.txn
         ```
     </TabItem>
+
 </Tabs>
 
 ## Register your account offline
 
-To mark an account offline send a key registration transaction to the network authorized by the account to be marked offline. The signal to mark the sending account offline is the issuance of a "type": "keyreg" transaction that does not contain any participation key-related fields (i.e. they are all set to null values)
+To mark an account offline send a key registration transaction to the network authorized by the account to be marked offline. The signal to mark the sending account offline is the issuance of a `"type": "keyreg"` transaction that does not contain any participation key-related fields (i.e. they are all set to null values)
 
 Just like with online keyreg transactions. The moment a key registration transaction is confirmed by the network it takes `320 rounds` for the change to take effect. So, if a key registration is confirmed in `round 5000`, the account will stop participating at `round 5320`.
 
 ### Create an offline key registration transaction
+
 There are three main ways you can create an online key registration transaction.
+
 <Tabs>
     <TabItem label="TUI">
     </TabItem>
@@ -159,6 +164,7 @@ There are three main ways you can create an online key registration transaction.
         }
         ```
     </TabItem>
+
 </Tabs>
 
 ### Authorize and send the key registration transaction
@@ -179,7 +185,7 @@ There are three main ways you can create an online key registration transaction.
 
         If you are signing with an account different from the key registration transaction sender:
 
-        ```shell showLineNumbers=false frame=terminal   
+        ```shell showLineNumbers=false frame=terminal
         goal clerk sign -i offline.txn -o signed-offline.txn -S [address of the signer]
         ```
 
@@ -208,7 +214,5 @@ There are three main ways you can create an online key registration transaction.
         goal clerk rawsend -f signed-offline.txn
         ```
     </TabItem>
+
 </Tabs>
-
-
-
