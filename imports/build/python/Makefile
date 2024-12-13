@@ -15,8 +15,9 @@ clean:
 	rm -rf _build && rm -rf apidocs
 
 # Puya is a special case because we are not documenting the actual API and instead documenting generated stubs exposed via algopy
+# TODO: In puya create a seperate task just for copy stubs/ to docs/
 puya-setup:
-	cd ../../repos/puya && poetry install && poetry run poe gen
+	cd ../../repos/puya/ && poetry install --with=doc && poetry run poe gen && poetry run poe docs
 
 puya: clean puya-setup
 	export SPHINX_REPO=puya && \

@@ -13,7 +13,7 @@ import { Aside } from '@astrojs/starlight/components';
 
 ## Classes
 
-| [`ARC4Contract`](algopy.arc4.mdx#algopy.arc4.ARC4Contract)   | A contract that conforms to the ARC4 ABI specification, functions decorated with<br/>`@abimethod` or `@baremethod` will form the public interface of the contract                                                                                            |
+| [`ARC4Contract`](algopy.arc4.mdx#algopy.arc4.ARC4Contract)   | The base class for a contract that conforms to the [ARC4 ABI specification](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0004.md). Most contracts<br/>should inherit from this class or a superclass thereof.                               |
 |--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [`Account`](#algopy.Account)                                 | An Account on the Algorand network.                                                                                                                                                                                                                          |
 | [`Application`](#algopy.Application)                         | An Application on the Algorand network.                                                                                                                                                                                                                      |
@@ -70,13 +70,24 @@ import { Aside } from '@astrojs/starlight/components';
 
 ARC4Contract
 
-A contract that conforms to the ARC4 ABI specification, functions decorated with
-`@abimethod` or `@baremethod` will form the public interface of the contract
+The base class for a contract that conforms to the [ARC4 ABI specification](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0004.md). Most contracts
+should inherit from this class or a superclass thereof.
 
-The approval_program will be implemented by the compiler, and route application args
-according to the ARC4 ABI specification
+```python
+class HelloWorldContract(ARC4Contract):
+    # ...
+```
 
-The clear_state_program will by default return True, but can be overridden
+Functions decorated with [`algopy.arc4.abimethod()`](algopy.arc4.mdx#algopy.arc4.abimethod) or [`algopy.arc4.baremethod()`](algopy.arc4.mdx#algopy.arc4.baremethod) will form the public
+interface of the contract.
+
+The [`algopy.arc4.ARC4Contract.approval_program()`](algopy.arc4.mdx#algopy.arc4.ARC4Contract.approval_program) will be implemented by the compiler, and route application args
+according to the ARC4 ABI specification.
+
+The [`algopy.arc4.ARC4Contract.clear_state_program()`](algopy.arc4.mdx#algopy.arc4.ARC4Contract.clear_state_program) will by default return True, but can be overridden
+
+The Puya compiler will generate ARC32 and ARC56 application specifications for the contract
+automatically.
 
 <a id="algopy.ARC4Contract.__init_subclass__"></a>
 
@@ -134,8 +145,8 @@ Defaults to value provided supplied on command line (which defaults to current m
 
 approval_program() → bool
 
-Represents the program called for all transactions
-where `OnCompletion` != `ClearState`
+The approval program for the ARC4Contract is implemented by the compile in
+accordance with ARC4
 
 <a id="algopy.ARC4Contract.clear_state_program"></a>
 
@@ -143,7 +154,12 @@ where `OnCompletion` != `ClearState`
 
 clear_state_program() → [algopy.UInt64](#algopy.UInt64) | bool
 
-Represents the program called when `OnCompletion` == `ClearState`
+The clear_state_program contains the logic when the `OnCompletion` is `ClearState`.
+
+The default implementation simply returns True, but this can be overridden.
+
+ClearState transactions always clear local state of the sender. Documentation on
+`ClearState` behavior should be read before implementing this method: https://developer.algorand.org/docs/get-details/dapps/smart-contracts/frontend/apps/#clear-state
 
 <a id="algopy.Account"></a>
 

@@ -13,7 +13,12 @@ author = "Algorand Foundation"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["autodoc2", "myst_parser", "sphinx_starlight_builder"]
+extensions = [
+    "autodoc2",
+    "myst_parser",
+    "sphinx.ext.intersphinx",
+    "sphinx_starlight_builder",
+]
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
