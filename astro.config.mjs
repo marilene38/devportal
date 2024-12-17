@@ -328,6 +328,10 @@ export default defineConfig({
               label: 'Node Types',
               items: [
                 {
+                  label: 'Overview',
+                  link: 'nodes/types/overview',
+                },
+                {
                   label: 'Participation',
                   link: 'nodes/types/participation',
                 },
