@@ -24,14 +24,14 @@ The configuration file (`kmd_config.json`) for `kmd` is located in the nodes `da
 Archival nodes retain a full copy of the ledger (blockchain). Non-Archival nodes will delete old blocks and only retain what's needed to properly validate blockchain messages (currently the last 1000 blocks). Archival nodes can be used to populate indexer data. See chart below for more details.
 :::
 
-See [Node Types](FUTURELINK) for more information.
+See [Node Types](/nodes/types/overview) for more information.
 
 :::note
 All changes require the node to be restarted to take effect.
 :::
 
 :::caution[Warning]
-Changing some parameter values can have drastic negative impact on performance. In particular, never set `IsIndexerActive` to `true`. This activates the very slow deprecated V1 indexer. If indexer is required, use the [V2 indexer](FUTURELINK).
+Changing some parameter values can have drastic negative impact on performance. In particular, never set `IsIndexerActive` to `true`. This activates the very slow deprecated V1 indexer. If indexer is required, use the [V2 indexer](/nodes/indexer-installation).
 :::
 
 ## algod Configuration Settings
