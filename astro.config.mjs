@@ -19,7 +19,10 @@ export default defineConfig({
       plugins: [
         starlightImageZoom(),
         starlightLinksValidator({
-          exclude: ['FUTURELINK*', 'algopy*'],
+          // Auto-generated API docs contain relative links that cause false positives
+          // These links are handled by rehypeAstroRelativeMarkdownLinks
+          errorOnRelativeLinks: false,
+          exclude: ['FUTURELINK*'],
         }),
         starlightTypeDoc({
           entryPoints: ['./imports/repos/algokit-utils-ts/src/index.ts'],
