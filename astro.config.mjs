@@ -19,7 +19,7 @@ export default defineConfig({
       plugins: [
         starlightImageZoom(),
         starlightLinksValidator({
-          exclude: ['FUTURELINK*'],
+          exclude: ['FUTURELINK*', 'algopy*'],
         }),
         starlightTypeDoc({
           entryPoints: ['./imports/repos/algokit-utils-ts/src/index.ts'],
