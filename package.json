@@ -10,10 +10,11 @@
     "preview": "astro preview",
     "astro": "astro",
     "init:submodules": "git submodule update --init",
+    "init:poetry": "cd imports/build/python && poetry install",
     "import:utils-ts": "cd imports/repos/algokit-utils-ts && npm install",
     "import:algorand-python": "cd imports/build/python && make puya",
     "import:utils-py": "cd imports/build/python && make utils",
-    "import": "pnpm run init:submodules && pnpm run import:utils-ts && pnpm run import:algorand-python && pnpm run import:utils-py"
+    "import": "pnpm run init:poetry && pnpm run init:submodules && pnpm run import:utils-ts && pnpm run import:algorand-python && pnpm run import:utils-py"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
