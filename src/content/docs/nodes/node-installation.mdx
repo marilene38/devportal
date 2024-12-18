@@ -78,7 +78,7 @@ The package manager installs Algorand node software in the standard system locat
 - Data directory: `/var/lib/algorand`
 - KMD files: `${HOME}/.algorand/kmd-version`
 
-See [Node Artifacts](reference/artifacts) for a complete list of installed files.
+See [Node Artifacts](/nodes/reference/artifacts) for a complete list of installed files.
 
 > **Info**: The Key Manager Daemon (KMD) is Algorand's wallet process that manages keys and signing operations. It is used for wallet operations through the SDKs and REST API.
 
@@ -161,7 +161,7 @@ dnf install algorand
 
 ### Post-Installation Notes
 
-After installation, Algorand is configured as a system service and starts automatically on MainNet. See [switching networks](management/switch-network) for details on changing to another network.
+After installation, Algorand is configured as a system service and starts automatically on MainNet. See [switching networks](/nodes/management/switch-network) for details on changing to another network.
 
 All core binaries are installed in `/usr/bin`, so you can run `algod` and `goal` commands from any directory. Your node's data will be stored in `/var/lib/algorand`.
 
