@@ -1,5 +1,10 @@
 [files]
-extend-exclude = ["src/content/docs/standards/arcs/arc-*.md"]
+extend-exclude = [
+    "src/content/docs/standards/arcs/arc-*.md",
+    "src/content/docs/reference/algokit-utils-ts/API Reference/**/*",
+    "src/content/docs/reference/algorand-python/API Reference/**/*",
+    "src/content/docs/reference/algokit-utils-py/API Reference/**/*",
+]
 
 [default.extend-words]
 Allo = "Allo"
