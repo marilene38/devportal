@@ -1,0 +1,6 @@
+[files]
+extend-exclude = [
+    "src/content/docs/reference/algokit-utils-ts/API Reference/**/*", 
+    "src/content/docs/reference/algorand-python/API Reference/**/*", 
+    "src/content/docs/reference/algokit-utils-py/API Reference/**/*"
+]
