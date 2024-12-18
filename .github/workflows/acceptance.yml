@@ -26,6 +26,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+      - name: Setup Python for importing docs
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'poetry'
+      - run: pip install -r requirements.txt
       - name: Setup submodules
         run: git submodule update --init && pnpm run import:utils-ts
       - name: Install Dependencies
