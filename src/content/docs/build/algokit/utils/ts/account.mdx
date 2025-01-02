@@ -80,7 +80,7 @@ In order to get/register accounts for signing operations you can use the followi
 This method requires the [legacy AlgoKit Utils import method to access them](/build/algokit/utils/ts/overview#usage).
 :::
 
-One of the unique features of Algorand is the ability to change the private key that can authorise transactions for an account. This is called [rekeying](/build/accounts/rekey).
+One of the unique features of Algorand is the ability to change the private key that can authorise transactions for an account. This is called [rekeying](/concepts/accounts/rekeying).
 
 You can issue a transaction to rekey an account by using the `algokit.rekeyAccount(rekey, algod)` function. The `rekey` parameter is an [`AlgoRekeyParams`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_transfer.AlgoRekeyParams.md) object with the following properties:
 
