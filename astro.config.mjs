@@ -283,6 +283,10 @@ export default defineConfig({
               link: 'nodes/indexer-installation',
             },
             {
+              label: 'Node Types',
+              link: 'nodes/node-types',
+            },
+            {
               label: 'Participating in Consensus',
               items: [
                 {
@@ -321,31 +325,6 @@ export default defineConfig({
                 {
                   label: 'Node Troubleshooting',
                   link: 'nodes/management/troubleshooting',
-                },
-              ],
-            },
-            {
-              label: 'Node Types',
-              items: [
-                {
-                  label: 'Overview',
-                  link: 'nodes/types/overview',
-                },
-                {
-                  label: 'Participation',
-                  link: 'nodes/types/participation',
-                },
-                {
-                  label: 'Archival',
-                  link: 'nodes/types/archival',
-                },
-                {
-                  label: 'Relay',
-                  link: 'nodes/types/relay',
-                },
-                {
-                  label: 'Follower',
-                  link: 'nodes/types/follower',
                 },
               ],
             },
