@@ -1,14 +1,10 @@
 #pragma version 10
 
-manipulate_box_ref:
+extract_box_ref:
     proto 0 0
     byte "blob"
     int 32
     box_create
-    assert
-    byte "blob"
-    box_len
-    bury 1
     assert
     global CurrentApplicationAddress
     txn Sender
@@ -29,29 +25,10 @@ manipulate_box_ref:
     int 0
     int 69
     box_extract
-    dig 2
-    dig 2
+    cover 2
     concat
     byte 0x68656c6c6f
     concat
-    ==
-    assert
-    byte "blob"
-    box_del
-    assert
-    swap
-    concat
-    byte "blob"
-    swap
-    box_put
-    byte "blob"
-    box_len
-    bury 1
-    assert
-    byte "blob"
-    box_len
-    assert
-    int 64
     ==
     assert
     retsub

@@ -199,6 +199,10 @@ export default defineConfig({
                   link: 'concepts/smart-contracts/costs-constraints',
                 },
                 {
+                  label: 'Inner Transactions',
+                  link: 'concepts/smart-contracts/inner-txn',
+                },
+                {
                   label: 'Storage',
                   collapsed: true,
                   items: [

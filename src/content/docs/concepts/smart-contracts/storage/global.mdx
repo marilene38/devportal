@@ -6,17 +6,13 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
 import importedCode from '/src/env.d.ts?raw';
 import { Aside } from '@astrojs/starlight/components';
-
-import createGlobalStatePython from '/examples/smart-contracts/py/storage-global-init-py.py?raw';
-import getGlobalStoragePython from '/examples/smart-contracts/py/storage-global-get-py.py?raw';
-import deleteGlobalStoragePython from '/examples/smart-contracts/py/storage-global-delete-py.py?raw';
-import setGlobalStoragePython from '/examples/smart-contracts/py/storage-global-set-py.py?raw';
 import {
   createGlobalStateTEAL,
   getGlobalStorageTEAL,
   setGlobalStorageTEAL,
   deleteGlobalStorageTEAL,
 } from '/src/content/code-imports.js';
+import RemoteCode from '/src/components/RemoteCode.astro';
 
 Global state is associated with the app itself
 Global storage is a feature in Algorand that allows smart contracts to persistently store key-value pairs in a globally accessible state. This guide provides comprehensive information on how to allocate, read, write, and manipulate global storage within smart contracts.
@@ -34,14 +30,18 @@ Global storage can include between 0 and 64 key/value pairs and a total of 8K of
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={createGlobalStatePython} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-contract-examples/smart_contracts/global_storage/contract.py'
+      snippet='INIT_GLOBAL_STORAGE'
+      lang='py'
+      title='Init Global State'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='TEAL' icon='algorand-icon' icon='seti:TEAL'>
     <Code code={createGlobalStateTEAL} lang='TEAL' frame='none' />
   </TabItem>
 </Tabs>
-
-Refer [Sinppet Source](https://github.com/Asthay97/puya/blob/feature/kitchen-sink/examples/kitchen-sink/contract.py#L21-L38) to allocate global storage value for different data types
 
 ### Reading from Global State
 
@@ -57,14 +57,20 @@ Branching logic is typically used after calling the \_ex opcodes to handle cases
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={getGlobalStoragePython} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-contract-examples/smart_contracts/global_storage/contract.py'
+      snippet='READ_GLOBAL_STATE'
+      lang='py'
+      title='Read Global State'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='TEAL' icon='algorand-icon'>
     <Code code={getGlobalStorageTEAL} lang='TEAL' />
   </TabItem>
 </Tabs>
 Refer [Sinppet
-Source](https://github.com/Asthay97/puya/blob/feature/kitchen-sink/examples/kitchen-sink/contract.py#L178-L226)
+Source](https://github.com/algorandfoundation/devportal-code-examples/blob/main/projects/python-contract-examples/smart_contracts/global_storage/contract.py#L64-L93)
 to get global storage value for different data types
 
 In addition to using TEAL, the global state values of a smart contract can be read externally using SDKs and the goal CLI.
@@ -120,14 +126,20 @@ Can only be written by smart contract. To write to global state, use the `app_gl
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={setGlobalStoragePython} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-contract-examples/smart_contracts/global_storage/contract.py'
+      snippet='WRITE_GLOBAL_STATE'
+      lang='py'
+      title='Write Global State'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='TEAL' icon='algorand-icon'>
     <Code code={setGlobalStorageTEAL} lang='TEAL' />
   </TabItem>
 </Tabs>
 Refer [Sinppet
-Source](https://github.com/Asthay97/puya/blob/feature/kitchen-sink/examples/kitchen-sink/contract.py#L249-L252)
+Source](https://github.com/algorandfoundation/devportal-code-examples/blob/main/projects/python-contract-examples/smart_contracts/global_storage/contract.py#L123-L141)
 to set global storage value for different data types
 
 ### Deleting Global State
@@ -136,14 +148,20 @@ Global storage is deleted when the corresponding smart contract is deleted. Howe
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={deleteGlobalStoragePython} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-contract-examples/smart_contracts/global_storage/contract.py'
+      snippet='DELETE_GLOBAL_STATE'
+      lang='py'
+      title='Delete Global State'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='TEAL' icon='algorand-icon'>
     <Code code={deleteGlobalStorageTEAL} lang='TEAL' />
   </TabItem>
 </Tabs>
 Refer [Sinppet
-Source](https://github.com/Asthay97/puya/blob/feature/kitchen-sink/examples/kitchen-sink/contract.py#L253-L258)
+Source](https://github.com/algorandfoundation/devportal-code-examples/blob/main/projects/python-contract-examples/smart_contracts/global_storage/contract.py#L151-L159)
 to delete global storage value for different data types
 
 ## Summary of Global State Operations

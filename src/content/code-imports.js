@@ -7,10 +7,10 @@ import getLocalStorageTEAL from '/examples/smart-contracts/teal/storage-local-ge
 import setLocalStorageTEAL from '/examples/smart-contracts/teal/storage-local-set.approval.teal?raw';
 import deleteLocalStorageTEAL from '/examples/smart-contracts/teal/storage-local-delete.approval.teal?raw';
 import readBoxTEAL from '/examples/smart-contracts/teal/storage-box-read.approval.teal?raw';
-import writeBoxDataTEAL from '/examples/smart-contracts/teal/storage-box-read.approval.teal?raw';
+import writeBoxDataTEAL from '/examples/smart-contracts/teal/storage-box-write.approval.teal?raw';
 import readBoxDataTEAL from '/examples/smart-contracts/teal/storage-box-read.approval.teal?raw';
-import extractBoxDataTEAL from '/examples/smart-contracts/teal/storage-box-read.approval.teal?raw';
-import lenBoxDataTEAL from '/examples/smart-contracts/teal/storage-box-read.approval.teal?raw';
+import extractBoxDataTEAL from '/examples/smart-contracts/teal/storage-box-extract.approval.teal?raw';
+import lenBoxDataTEAL from '/examples/smart-contracts/teal/storage-box-length.approval.teal?raw';
 import deleteBoxDataTEAL from '/examples/smart-contracts/teal/storage-box-delete.approval.teal?raw';
 import boxRefTestTEAL from '/examples/smart-contracts/teal/storage-box-ref-test.approval.teal?raw';
 export {
