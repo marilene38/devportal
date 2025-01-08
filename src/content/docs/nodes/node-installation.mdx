@@ -391,3 +391,209 @@ To configure the service to start automatically when your system boots:
 ```bash
 sudo systemctl enable algorand@$(systemd-escape $ALGORAND_DATA)
 ```
+
+## Synchronizing Your Node
+
+After starting your node for the first time, it needs to synchronize with the network by downloading and validating the blockchain. There are two methods for this:
+
+### Standard Synchronization
+
+When using standard synchronization, your node downloads and validates every block since genesis. This process can take several hours or even days, depending on your hardware and network connection.
+
+To check your node's sync status:
+
+```bash
+goal node status
+```
+
+A fully synchronized node will show a "Sync Time" of 0.0s, like this:
+
+```bash
+Last committed block: 125064
+Time since last block: 3.1s
+Sync Time: 0.0s
+Last consensus protocol: https://github.com/algorandfoundation/specs/tree/5615adc36bad610c7f165fa2967f4ecfa75125f0
+Next consensus protocol: https://github.com/algorandfoundation/specs/tree/5615adc36bad610c7f165fa2967f4ecfa75125f0
+Round for next consensus protocol: 125065
+Next consensus protocol supported: true
+Genesis ID: testnet-v1.0
+Genesis hash: SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=
+```
+
+### Fast Catchup
+
+Fast catchup significantly accelerates the synchronization process by using catchpoint snapshots. Instead of processing every block, your node downloads a recent snapshot of the blockchain state and then synchronizes only the most recent blocks.
+
+However, keep in mind that fast catchup requires trusting the entity providing the catchpoint. For maximum security, either use a catchpoint from your own archival node or synchronize from genesis.
+
+Warning: Do not use fast catchup on archival or relay nodes. If you accidentally do so, you must reset your node and start from scratch.
+
+**Latest Catchpoints**
+
+Get the most recent catchpoint for your network:
+
+- [MainNet Catchpoint](https://algorand-catchpoints.s3.us-east-2.amazonaws.com/channel/mainnet/latest.catchpoint)
+- [TestNet Catchpoint](https://algorand-catchpoints.s3.us-east-2.amazonaws.com/channel/testnet/latest.catchpoint)
+- [BetaNet Catchpoint](https://algorand-catchpoints.s3.us-east-2.amazonaws.com/channel/betanet/latest.catchpoint)
+
+#### Fast Catchup Process
+
+1. Start your node if it isn't running:
+
+```bash
+goal node start
+```
+
+2. Use the catchup command with your network's current catchpoint from from the catchpoint URL:
+
+```bash
+goal node catchup 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
+```
+
+3. Check your node's sync status:
+
+```bash
+goal node status -w 1000
+```
+
+The `-w` flag updates the status every 1000 milliseconds (1 second). Press Ctrl/Cmd+C to stop monitoring.
+During catchup, you'll see additional status lines showing progress:
+
+```bash
+Catchpoint: 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
+Catchpoint total accounts: 1146
+Catchpoint accounts processed: 1146
+Catchpoint total blocks: 1000
+Catchpoint downloaded blocks: 81
+```
+
+Your node is fully synchronized when these catchpoint lines disappear and "Sync Time" shows 0.0s.
+
+#### Troubleshooting Fast Catchup
+
+If fast catchup fails, verify:
+
+- Your node is not configured as archival or relay
+- You're running the latest Algorand software (goal version -v)
+- The catchpoint matches your network's Genesis ID
+- Your hardware meets the requirements
+- Your system has sufficient memory
+- You're using an SSD (not HDD) for storage
+
+If you accidentally used fast catchup on an archival node:
+
+1. Stop the node
+2. Remove all files in the data directory except:
+
+- Configuration files (\*.json)
+- Genesis files (genesis\*)
+
+3. Restart the node
+
+```bash
+goal node start
+```
+
+_*Warning*_: This process will remove all keys stored in the node. Proceed with caution.
+
+## Telemetry Configuration
+
+Algorand nodes include telemetry instrumentation that can provide insights into the software's performance and usage. This data helps Algorand Inc. improve the software and identify issues. Telemetry is disabled by default - no data will be shared unless you explicitly enable it.
+
+### Managing Telemetry
+
+#### Enable Telemetry
+
+You can enable telemetry with or without a custom hostname. Using a custom hostname helps identify your node in telemetry data.
+
+To enable with a custom hostname:
+
+```bash
+# For updater script installations:
+diagcfg telemetry name -n <hostname>
+
+# For package manager installations:
+sudo -u algorand -H -E diagcfg telemetry name -n <hostname>
+```
+
+Replace `<hostname>` with your desired identifier (e.g., 'MainNetRelay1' or 'TestNetNode2').
+
+To enable without a custom hostname:
+
+```bash
+# For updater script installations:
+diagcfg telemetry enable
+
+# For package manager installations:
+sudo -u algorand -H -E diagcfg telemetry enable
+```
+
+> **Note**: After enabling or disabling telemetry, restart your node for changes to take effect.
+
+#### Disable Telemetry
+
+To disable telemetry:
+
+```bash
+# For updater script installations:
+diagcfg telemetry disable
+
+# For package manager installations:
+sudo -u algorand -H -E diagcfg telemetry disable
+```
+
+### Verifying Telemetry Status
+
+#### Check Configuration
+
+To verify your telemetry settings:
+
+```bash
+# For updater script installations:
+diagcfg telemetry
+
+# For package manager installations:
+sudo -u algorand -H -E diagcfg telemetry
+```
+
+#### Check Connection
+
+To verify if your node is connected to the telemetry server:
+
+```bash
+sudo netstat -an | grep :9243
+```
+
+If telemetry is enabled and working, you'll see output like:
+
+```text
+tcp        0      0 xxx.xxx.xxx.xxx:yyyyy        18.214.74.184:9243      ESTABLISHED
+```
+
+If telemetry is disabled or not working, this command will produce no output.
+
+### Technical Details
+
+- Telemetry configuration is stored in `~/.algorand/logging.config` (or `data/logging.config` if `-d data` was specified)
+- For package manager installations, always run telemetry commands as the `algorand` user with `-H -E` flags
+- Never run telemetry commands as root (don't use `sudo` directly with `diagcfg`)
+- The `-H` flag ensures the correct home directory is used for the `algorand` user
+
+> **Warning**: Running `diagcfg` as root will only affect nodes run as root, which is not recommended for security reasons.
+
+### Third-Party Telemetry Services
+
+#### Nodely Telemetry Service
+
+In addition to Algorand's default telemetry service, you can send your node's telemetry data to Nodely's free third-party service. Nodely provides additional features including:
+
+- Health scoring based on multiple metrics
+- Voting performance monitoring
+- Network performance analytics
+- Synchronization monitoring
+- Public leaderboards
+- Global node comparison dashboard
+
+> **Note**: Nodely's telemetry service is designed for MainNet nodes including validators, API nodes, and P2P nodes/relays. Do not use it for the Relay/Archiver Running Programme.
+
+For more details about Nodely's telemetry service, see their [telemetry documentation](https://nodely.io/docs/telemetry/quickstart/).
