@@ -195,6 +195,10 @@ export default defineConfig({
                   link: 'concepts/smart-contracts/resource-usage',
                 },
                 {
+                  label: 'Logic Signatures',
+                  link: 'concepts/smart-contracts/logic-sigs',
+                },
+                {
                   label: 'Costs & Constraints',
                   link: 'concepts/smart-contracts/costs-constraints',
                 },
