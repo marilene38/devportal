@@ -56,7 +56,8 @@ ul.top-level li {
 }
 
 /* Center column overrides for ContentPanel.astro */
-:root {
-  --sl-content-width: 60rem;
-  --sl-content-margin-inline: 0rem;
+:root .sl-container {
+  --sl-content-width: auto;
+  /* --sl-content-margin-inline: 0; */
+  margin-inline: 0;
 }
