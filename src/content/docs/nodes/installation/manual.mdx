@@ -1,6 +1,9 @@
 ---
-title: Node Installation Guide
+title: Manual Node Installation
+description: Install an Algorand node on your system
 ---
+
+import { Aside } from '@astrojs/starlight/components';
 
 This guide shows how to install and run an Algorand node on your system. It covers installation methods for both Linux distributions and MacOS, with Linux users having the option of package manager or updater script installation.
 
@@ -18,7 +21,11 @@ _Supported on Linux distributions and MacOS._
 
 Required for MacOS users and supported for all Linux distributions. This method allows customizable data directory location. However, it uses a manual update process. It works with MacOS and all Linux distributions, including openSUSE Leap, Manjaro, Mageia, Alpine, and Solus.
 
-> **Warning**: Choose one installation method and stick with it. Mixing methods can lead to complex troubleshooting issues. If the package manager method is available for your Linux system, it is strongly recommended over the updater script method.
+<Aside type='caution'>
+  Choose one installation method and stick with it. Mixing methods can lead to
+  complex troubleshooting issues. If the package manager method is available for
+  your Linux system, it is strongly recommended over the updater script method.
+</Aside>
 
 ## Alternative Options
 
@@ -49,10 +56,10 @@ Participation nodes are actively involved in the Algorand consensus protocol by 
 
 ### Non-Participation Nodes
 
-Non-participation nodes maintain a current copy of the blockchain but do not participate in consensus. They are useful for API endpoints and development environments.
+Non-participation nodes maintain a current copy of the blockchain but do not participate in consensus, so the hardware requirements are somewhat lower than for participation nodes. Non-participating nodes are useful for API endpoints and development environments.
 
 - 8 vCPU
-- 16 GB RAM
+- 8 GB RAM
 - 100 GB NVMe SSD or equivalent
 - 100Mbps connection with low latency (< 100ms)
 
@@ -175,7 +182,10 @@ sudo -u algorand -E goal account listpartkeys
 sudo -u algorand -E goal account listpartkeys -d /var/lib/algorand
 ```
 
-> **Warning**: Never run `goal` as root (using `sudo` directly). This can compromise file permissions in `/var/lib/algorand`.
+<Aside type='caution'>
+  Never run `goal` as root (using `sudo` directly). This can compromise file
+  permissions in `/var/lib/algorand`.
+</Aside>
 
 Additional tools are available through separate packages:
 
@@ -426,7 +436,10 @@ Fast catchup significantly accelerates the synchronization process by using catc
 
 However, keep in mind that fast catchup requires trusting the entity providing the catchpoint. For maximum security, either use a catchpoint from your own archival node or synchronize from genesis.
 
-Warning: Do not use fast catchup on archival or relay nodes. If you accidentally do so, you must reset your node and start from scratch.
+<Aside type='caution'>
+  Do not use fast catchup on archival or relay nodes. If you accidentally do so,
+  you must reset your node and start from scratch.
+</Aside>
 
 **Latest Catchpoints**
 
@@ -493,8 +506,6 @@ If you accidentally used fast catchup on an archival node:
 ```bash
 goal node start
 ```
-
-_*Warning*_: This process will remove all keys stored in the node. Proceed with caution.
 
 ## Telemetry Configuration
 
@@ -579,7 +590,10 @@ If telemetry is disabled or not working, this command will produce no output.
 - Never run telemetry commands as root (don't use `sudo` directly with `diagcfg`)
 - The `-H` flag ensures the correct home directory is used for the `algorand` user
 
-> **Warning**: Running `diagcfg` as root will only affect nodes run as root, which is not recommended for security reasons.
+<Aside type='caution'>
+  Running `diagcfg` as root will only affect nodes run as root, which is not
+  recommended for security reasons.
+</Aside>
 
 ### Third-Party Telemetry Services
 
@@ -594,6 +608,10 @@ In addition to Algorand's default telemetry service, you can send your node's te
 - Public leaderboards
 - Global node comparison dashboard
 
-> **Note**: Nodely's telemetry service is designed for MainNet nodes including validators, API nodes, and P2P nodes/relays. Do not use it for the Relay/Archiver Running Programme.
-
 For more details about Nodely's telemetry service, see their [telemetry documentation](https://nodely.io/docs/telemetry/quickstart/).
+
+<Aside type='note'>
+  Nodely's telemetry service is designed for MainNet nodes including validators,
+  API nodes, and P2P nodes/relays. Do not use it for the Relay/Archiver Running
+  Program.
+</Aside>

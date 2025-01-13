@@ -54,3 +54,9 @@ ul.top-level li {
   --sl-text-code: var(--sl-text-sm);
   --sl-text-code-sm: var(--sl-text-xs);
 }
+
+/* Center column overrides for ContentPanel.astro */
+:root {
+  --sl-content-width: 60rem;
+  --sl-content-margin-inline: 0rem;
+}
