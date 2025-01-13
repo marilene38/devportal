@@ -257,7 +257,7 @@ export default defineConfig({
               label: 'Direct Installation',
               items: [
                 {
-                  label: 'Manual Install',
+                  label: 'Manual Installation',
                   link: 'nodes/installation/manual',
                 },
                 {
