@@ -1,0 +1,14 @@
+---
+title: Software Updates
+---
+
+The Algorand node software is upgraded from time to time, and some of those updates contain a consensus protocol upgrade. When there is no protocol upgrade, it may not be necessary to upgrade your node software. However, when a new version of algod contains a protocol upgrade, an important process is kicked off in which participants in consensus effectively vote to upgrade the consensus protocol by way of upgrading their node to a different version of the algod software. Note that, while this is generally the next version with a higher version number, it may be desirable in the event of an issue with a version for node runners to downgrade their software and fall back to an earlier version of the protocol.
+
+Node software updates may be automated, but it is strongly encouraged that node runners be aware of . It is also important to note that node runners, especially those with large online stake, should avoid scheduling updates to run automatically at some common time, such as 00:00UTC or at the top of any hour. If a large enough amount of stake went offline because their nodes were running an automated update, it is possible that the network could briefly halt while waiting for enough stake to certify blocks.
+
+Linux - Package manager - Unattended upgrades
+The RPM or Debian packages in the package repository are updated automatically, but this does not mean that the node installation on your local machine is updated automatically.
+
+Linux - Update script - Cron job
+
+MacOS - Update script

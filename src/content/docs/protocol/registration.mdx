@@ -17,9 +17,13 @@ import keyregOffline3 from '@images/nodekit-keyreg-offline-3.png';
 import keyregOffline4 from '@images/nodekit-keyreg-offline-4.png';
 import keyregOffline5 from '@images/nodekit-keyreg-offline-5.png';
 
+An online account means that the account is available to participate in consensus. An account is marked online by registering a participation key with the network by sending an online key registration transaction to the network. An offline account means that the account is not available to participate in consensus. An account is marked offline by sending an offline key registration transaction to the network.
+
+It is important to mark your account offline if it is not participating for various reasons. Not doing so is bad network behavior and will decrease the honest/dishonest user ratio that underpins the liveness of the agreement protocol. Also in the event of node migration, hardware swap, or other similar events, it is recommended to have your account offline for a few rounds than to have it online on multiple nodes at the same time.
+
 ## Register your account online
 
-This section assumes that you have already [generated a participation key](FUTURELINK:generatePartKey) for the account you plan to mark online.
+This section assumes that you have already [generated a participation key](/nodes/consensus/partkey-management/) for the account you plan to mark online.
 
 For an account to participate in consensus, the account needs to be registered online by creating, signing, and sending a key registration transaction with details of the participation key that will vote on the account's behalf. Once the transaction is processed by the blockchain, the Verifiable Random Function public key (referred to as the VRF public key) is written into the account’s data, and the account will start participating in consensus with that key. This VRF public key is how the account is associated with the specific participation keys on the node.
 
