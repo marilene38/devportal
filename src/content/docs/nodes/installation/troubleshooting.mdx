@@ -47,8 +47,8 @@ If you see:
 
 The most common issues are that the node is on the wrong network, has the wrong `algod` version, or is not fully synced.
 
-- **Check that the node is synced/caught up** following [Catchup and Status](/nodes/management/catchup-status). See below if the node is not syncing.
-- **Check that the node is on the right network**: When running `goal node status`, `Genesis ID` must be `mainnet-v1.0` for MainNet, `testnet-v1.0` for TestNet, `betanet-v1.0` for BetaNet. See [Switch Networks](/nodes/management/switch-network) to resolve this issue.
+- **Check that the node is synced/caught up** following [Catchup and Status](/nodes/installation/catchup-status). See below if the node is not syncing.
+- **Check that the node is on the right network**: When running `goal node status`, `Genesis ID` must be `mainnet-v1.0` for MainNet, `testnet-v1.0` for TestNet, `betanet-v1.0` for BetaNet. See [Switch Networks](/nodes/management/switch-networks) to resolve this issue.
 - **Check the version**: The version reported by `algod -v` and `goal version -v` should be the latest stable release (for MainNet or TestNet) or the latest beta release (for BetaNet). See the [official repo](https://github.com/algorand/go-algorand/releases) for all releases. Beta releases are clearly marked.
 
 ### My node is not syncing/catching up at all (Last Committed Block is 0)
@@ -85,13 +85,13 @@ At least one command should return a relay list without errors or warnings. The 
 Less common reasons for failing to catch up:
 
 - Check for the correct `genesis.json` file in `$ALGORAND_DATA`. See [switch networks](https://developer.algorand.org/docs/run-a-node/operations/switch_networks/) documentation.
-- For BetaNet, verify `$ALGORAND_DATA/config.json` has the correct `DNSBootstrapID`. See [configuration for BetaNet](/nodes/management/catchup-status).
+- For BetaNet, verify `$ALGORAND_DATA/config.json` has the correct `DNSBootstrapID`. See [configuration for BetaNet](/nodes/installation/catchup-status).
 
 ### My node is syncing/catching up very slowly (without fast catchup)
 
 As of November 2022, syncing without fast catchup takes 2-4 weeks due to the blockchain's size. Syncing slows as rounds increase since newer blocks typically contain more transactions.
 
-_**Tip:** Non-archival nodes can sync faster using [fast catchup](/nodes/management/catchup-status). For archival nodes, nodely.io provides [snapshots](https://nodely.io/extras/). This is not an endorsement - using these snapshots requires careful risk assessment since `algod` cannot verify their validity or that they don't contain invalid data allowing double spending._
+_**Tip:** Non-archival nodes can sync faster using [fast catchup](/nodes/installation/catchup-status). For archival nodes, nodely.io provides [snapshots](https://nodely.io/extras/). This is not an endorsement - using these snapshots requires careful risk assessment since `algod` cannot verify their validity or that they don't contain invalid data allowing double spending._
 
 If syncing appears to need much longer than 4 weeks:
 

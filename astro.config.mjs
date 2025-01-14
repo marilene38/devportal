@@ -327,6 +327,10 @@ export default defineConfig({
               link: 'protocol/consensus',
             },
             {
+              label: 'Participation Key Management',
+              link: 'protocol/partkey-management',
+            },
+            {
               label: 'Account Registration',
               link: 'protocol/registration',
             },
