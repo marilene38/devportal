@@ -45,6 +45,7 @@ There are two main ways you can create an online key registration transaction.
 
     You will be taken to the Lora Transaction Wizard, where you should see the key information pre-filled:
     <Image src={keyregOnline3} alt='Keyreg Online 3' />
+
  </TabItem>
  <TabItem label="goal">
     Run the following code to create an online key registration transaction and dump the transaction object into the `online.txn` file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`.
