@@ -3,6 +3,19 @@ title: Online/Offline Registration
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+
+import keyregOnline1 from '@images/nodekit-keyreg-online-1.png';
+import keyregOnline2 from '@images/nodekit-keyreg-online-2.png';
+import keyregOnline3 from '@images/nodekit-keyreg-online-3.png';
+import keyregOnline4 from '@images/nodekit-keyreg-online-4.png';
+import keyregOnline5 from '@images/nodekit-keyreg-online-5.png';
+
+import keyregOffline1 from '@images/nodekit-keyreg-offline-1.png';
+import keyregOffline2 from '@images/nodekit-keyreg-offline-2.png';
+import keyregOffline3 from '@images/nodekit-keyreg-offline-3.png';
+import keyregOffline4 from '@images/nodekit-keyreg-offline-4.png';
+import keyregOffline5 from '@images/nodekit-keyreg-offline-5.png';
 
 ## Register your account online
 
@@ -14,12 +27,24 @@ The moment a key registration transaction is confirmed by the network, the chang
 
 ### Create an online key registration transaction
 
-There are three main ways you can create an online key registration transaction.
+There are two main ways you can create an online key registration transaction.
 
 <Tabs>
- <TabItem label="TUI">
- </TabItem>
- <TabItem label="LORA">
+ <TabItem label="NodeKit">
+    After generating a participation key, you can press `r` to start registering it online on the Algorand network.
+
+    You can also start this flow by pressing `r` on the [key information screen](https://nodekit.run/guides/navigating-accounts-and-keys/) shown below.
+    <Image src={keyregOnline1} alt='Keyreg Online 1' />
+
+    After you press `r`, you will see a link that you can follow to sign your key registration transaction:
+    <Image src={keyregOnline2} alt='Keyreg Online 2' />
+
+    On most terminals, you can hold down `Ctrl` and click the link, which will open it in your default browser.
+
+    If this does not work, copy the link and paste it into your browser.
+
+    You will be taken to the Lora Transaction Wizard, where you should see the key information pre-filled:
+    <Image src={keyregOnline3} alt='Keyreg Online 3' />
  </TabItem>
  <TabItem label="goal">
     Run the following code to create an online key registration transaction and dump the transaction object into the `online.txn` file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`.
@@ -58,9 +83,24 @@ There are three main ways you can create an online key registration transaction.
 ### Authorize and send the key registration transaction
 
 <Tabs>
-    <TabItem label="TUI">
-    </TabItem>
-    <TabItem label="LORA">
+    <TabItem label="NodeKit">
+    Once you are in Lora Transaction Wizard, with the key information pre-filled:
+
+    1. Select Connect Wallet on the top right and connect your wallet.
+
+    2. Click the Send button on the bottom right. Your wallet should prompt you to sign the key registration transaction
+
+    3. Sign the transaction
+
+    The transaction will be submitted to the network. If it is accepted, you will see a visual confirmation in Lora similar to the one displayed below:
+    <Image src={keyregOnline4} alt='Keyreg Online 4' />
+
+    NodeKit will detect the key registration and take you back to the Key information view:
+    <Image src={keyregOnline5} alt='Keyreg Online 5' />
+
+    You can press ESC to leave the key information modal.
+
+    That’s it! Your node is now participating in Algorand consensus. If your account balance is over 30,000 ALGO, it will accumulate rewards for each block it proposes on the Algorand network.
     </TabItem>
     <TabItem label="goal">
         To sign the key registration transaction inside the `online.txn` file generated from the previous step with goal, you first need to have a funded account in a goal wallet.
@@ -129,18 +169,28 @@ There are three main ways you can create an online key registration transaction.
 
 ## Register your account offline
 
-To mark an account offline send a key registration transaction to the network authorized by the account to be marked offline. The signal to mark the sending account offline is the issuance of a `"type": "keyreg"` transaction that does not contain any participation key-related fields (i.e. they are all set to null values)
+To mark an account offline, send a key registration transaction to the network authorized by the account to be marked offline. The signal to mark the sending account offline is the issuance of a `"type": "keyreg"` transaction that does not contain any participation key-related fields (i.e., they are all set to null values).
 
 Just like with online keyreg transactions. The moment a key registration transaction is confirmed by the network it takes `320 rounds` for the change to take effect. So, if a key registration is confirmed in `round 5000`, the account will stop participating at `round 5320`.
 
 ### Create an offline key registration transaction
 
-There are three main ways you can create an online key registration transaction.
+There are two main ways you can create an online key registration transaction.
 
 <Tabs>
-    <TabItem label="TUI">
-    </TabItem>
-    <TabItem label="LORA">
+    <TabItem label="NodeKit">
+    To generate an offline key registration transaction, press `o` on the [key information screen](https://nodekit.run/guides/navigating-accounts-and-keys/) shown below to start the flow.
+    <Image src={keyregOffline1} alt='Keyreg Offline 1' />
+
+    After you press `o`, you will see a link that you can follow to sign your key registration transaction:
+    <Image src={keyregOffline2} alt='Keyreg Offline 2' />
+
+    On most terminals, you can hold down `Ctrl` and click the link, which will open it in your default browser.
+
+    If this does not work, copy the link and paste it into your browser.
+
+    You will be taken to the Lora Transaction Wizard, where you should see the offline keyreg transaction information pre-filled:
+    <Image src={keyregOffline3} alt='Keyreg Offline 3' />
     </TabItem>
     <TabItem label="goal">
         Run the following code to create an offline key registration transaction and dump the transaction object into the `offline.txn` file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`.
@@ -170,9 +220,22 @@ There are three main ways you can create an online key registration transaction.
 ### Authorize and send the key registration transaction
 
 <Tabs>
-    <TabItem label="TUI">
-    </TabItem>
-    <TabItem label="LORA">
+    <TabItem label="NodeKit">
+        Once you are in Lora Transaction Wizard, with the offline keyreg transaction information pre-filled:
+
+        1. Select Connect Wallet on the top right and connect your wallet.
+
+        2. Click the Send button on the bottom right. Your wallet should prompt you to sign the key registration transaction
+
+        3. Sign the transaction
+
+        The transaction will be submitted to the network. If it is accepted, you will see a visual confirmation in Lora similar to the one displayed below:
+        <Image src={keyregOffline4} alt='Keyreg Offline 4' />
+
+        NodeKit will detect the key registration and take you back to the Key information view:
+        <Image src={keyregOffline5} alt='Keyreg Offline 5' />
+
+        You can press ESC to leave the key information modal.
     </TabItem>
     <TabItem label="goal">
         Sign the key registration transaction inside the `offline.txn` file with the following command.
