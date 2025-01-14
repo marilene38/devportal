@@ -258,7 +258,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Manual Installation',
-                  link: 'nodes/installation/manual',
+                  link: 'nodes/installation/manual-installation',
                 },
                 {
                   label: 'Catchup & Status',

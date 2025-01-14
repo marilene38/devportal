@@ -33,13 +33,13 @@ Genesis ID: testnet-v1.0
 Genesis hash: SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=
 ```
 
-Read [Install a Node](/nodes/node-installation) to set these variables properly.
+Read [Install a Node](/nodes/installation/manual-installation) to set these variables properly.
 
 If you see:
 
 - `Data directory not specified. Please use -d or set $ALGORAND_DATA in your environment. Exiting.`: Your `$ALGORAND_DATA` is not properly set up.
 - `command not found: goal`: Your `$PATH` is not properly set up.
-- `Cannot contact Algorand node: open ...: no such file or directory`: The node is not started. Starting a node varies depending on the [installation method](/nodes/node-installation).
+- `Cannot contact Algorand node: open ...: no such file or directory`: The node is not started. Starting a node varies depending on the [installation method](/nodes/installation/manual-installation).
 
 ## Common Issues for `algod`
 
@@ -95,7 +95,7 @@ _**Tip:** Non-archival nodes can sync faster using [fast catchup](/nodes/install
 
 If syncing appears to need much longer than 4 weeks:
 
-1. Verify your node meets the [hardware requirements](/nodes/node-installation). MainNet requires at least 16GB of RAM and cannot run on HDD/slow-SATA-SSD/SD.
+1. Verify your node meets the [hardware requirements](/nodes/installation/manual-installation). MainNet requires at least 16GB of RAM and cannot run on HDD/slow-SATA-SSD/SD.
 2. Check for resource overuse:
    1. Monitor RAM and CPU usage with `top` or `htop`
    2. Check available disk space with `df -h`
