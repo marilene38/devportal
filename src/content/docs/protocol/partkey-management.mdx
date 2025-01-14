@@ -57,7 +57,7 @@ It is okay to have multiple participation keys on a single node. However, if you
 
 ## View participation key info
 
-Use [`goal account partkeyinfo`](FUTURELINK:/reference/algokit-cli/reference) to dump all the information about each participation key that lives on the node. This information is used to generate the online key registration transaction [described in the next section](/nodes/consensus/online-offline-registration).
+Use [`goal account partkeyinfo`](FUTURELINK:/reference/algokit-cli/reference) to dump all the information about each participation key that lives on the node. This information is used to generate the online key registration transaction [described in the next section](/protocol/registration).
 
 ```bash showLineNumbers=false frame=none
 $ goal account partkeyinfo
@@ -89,7 +89,7 @@ The validity ranges of participation keys can overlap. For any account, at any t
 ## Step-by-Step¶
 
 - [Create a new participation key](#generate-the-participation-key-with-goal) with a first voting round that is less than the last voting round of the current participation key. It should leave enough time to carry out this whole process (e.g. 40,000 rounds).
-- Once the network reaches the first voting round for the new key, [submit an online key registration transaction for the new participation key](/nodes/consensus/online-offline-registration).
+- Once the network reaches the first voting round for the new key, [submit an online key registration transaction for the new participation key](/protocol/registration).
 - Wait at least 320 rounds to [validate that the node is participating](FUTURELINK:/node/consensus/online-offline-registration/#check-that-the-node-is-participating).
 - Once participation is confirmed, it is safe to [delete the old participation key](#removing-old-keys).
 
