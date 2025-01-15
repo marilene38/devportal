@@ -312,6 +312,10 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: 'NodeKit Reference',
+              autogenerate: { directory: 'nodes/nodekit-reference' },
+            },
           ],
         },
         {
