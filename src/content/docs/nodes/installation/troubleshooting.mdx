@@ -14,7 +14,7 @@ Consider using [third-party API services](https://developer.algorand.org/ecosyst
 
 Ensure your `$PATH` and `$ALGORAND_DATA` environment variables are set properly and your node is running. In particular:
 
-```bash
+```shell showLineNumbers=false frame=none
 goal node status
 ```
 
@@ -102,7 +102,7 @@ If syncing appears to need much longer than 4 weeks:
 3. Verify your internet connection speed (need 100Mbps minimum) and latency (should be under 100ms).
 4. Some regions may have fewer relays, which can slow syncing. Latency above 100ms to the top 20 relays may cause issues. Check latency to the best relays using [nodely.io](https://nodely.io/extras/) scripts (from [https://snap.algonode.cloud](https://snap.algonode.cloud) in the `utils` directory):
 
-```bash
+```shell showLineNumbers=false frame=none
 #!/bin/bash
 
 # needs dig from dnsutils

@@ -8,7 +8,7 @@ The AlgoKit IPFS feature allows you to interact with the IPFS [InterPlanetary Fi
 
 Available commands and possible usage as follows:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task ipfs
 Usage: algokit task ipfs [OPTIONS]
 
@@ -33,7 +33,7 @@ Before you can use this feature, you need to ensure that you have signed up for 
 
 Please note, you need to login to the Piñata provider before you can upload files. You can do this using the `login` command:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task ipfs login
 ```
 
@@ -43,7 +43,7 @@ This will prompt you to enter your Piñata JWT. Once you are logged in, you can 
 
 To upload a file to IPFS, you can use the `ipfs` command as follows:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task ipfs --file {PATH_TO_YOUR_FILE}
 ```
 
@@ -53,7 +53,7 @@ This will upload the file to IPFS using the Piñata provider and return the CID 
 
 If you want to logout from the Piñata provider, you can use the `logout` command:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task ipfs logout
 ```
 
