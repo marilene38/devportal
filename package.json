@@ -11,7 +11,7 @@
     "astro": "astro",
     "init:submodules": "git submodule update --init",
     "import:all": "pnpm run import:nodekit",
-    "import:nodekit": "npx tsx imports/scripts/nodekit.ts"
+    "import:nodekit": "npx tsx imports/scripts/nodekit.ts && prettier --write src/content/docs/nodes/nodekit-reference/"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
