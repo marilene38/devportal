@@ -258,7 +258,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Manual Installation',
-                  link: 'nodes/installation/manual',
+                  link: 'nodes/installation/manual-installation',
                 },
                 {
                   label: 'Catchup & Status',
@@ -312,6 +312,10 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: 'NodeKit Reference',
+              autogenerate: { directory: 'nodes/nodekit-reference' },
+            },
           ],
         },
         {
@@ -325,6 +329,10 @@ export default defineConfig({
             {
               label: 'Consensus',
               link: 'protocol/consensus',
+            },
+            {
+              label: 'Participation Key Management',
+              link: 'protocol/partkey-management',
             },
             {
               label: 'Account Registration',
