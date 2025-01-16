@@ -43,8 +43,6 @@ If you need a private network for development, consider using [AlgoKit](https://
 
 ## Hardware Requirements
 
-_Last updated: April 3, 2024_
-
 ### Participation Nodes
 
 Participation nodes are actively involved in the Algorand consensus protocol by proposing and voting on blocks. They require higher network bandwidth to communicate with other nodes efficiently.
@@ -87,7 +85,11 @@ The package manager installs Algorand node software in the standard system locat
 
 See [Node Artifacts](/nodes/reference/artifacts) for a complete list of installed files.
 
-> **Info**: The Key Manager Daemon (KMD) is Algorand's wallet process that manages keys and signing operations. It is used for wallet operations through the SDKs and REST API.
+<Aside type='note'>
+  The Key Manager Daemon (KMD) is Algorand's wallet process that manages keys
+  and signing operations. It is used for wallet operations through the SDKs and
+  REST API.
+</Aside>
 
 It is recommended to configure the environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
 
@@ -271,7 +273,9 @@ chmod 744 update.sh
 ./update.sh -i -c stable -p ~/node -d ~/node/data -n
 ```
 
-> **Note**: For beta releases, use `-c beta` instead of `-c stable`.
+<Aside type='note'>
+  For beta releases, use `-c beta` instead of `-c stable`.
+</Aside>
 
 The installer will download and install the latest package from S3. The `-n` flag prevents automatic node startup. All binaries, including developer tools, are included in this installation.
 
@@ -507,7 +511,7 @@ If you accidentally used fast catchup on an archival node:
 goal node start
 ```
 
-## Telemetry Configuration
+## Enabling Telemetry
 
 Algorand nodes include telemetry instrumentation that can provide insights into the software's performance and usage. This data helps Algorand Inc. improve the software and identify issues. Telemetry is disabled by default - no data will be shared unless you explicitly enable it.
 
@@ -539,7 +543,10 @@ diagcfg telemetry enable
 sudo -u algorand -H -E diagcfg telemetry enable
 ```
 
-> **Note**: After enabling or disabling telemetry, restart your node for changes to take effect.
+<Aside type='note'>
+  After enabling or disabling telemetry, restart your node for changes to take
+  effect.
+</Aside>
 
 #### Disable Telemetry
 
