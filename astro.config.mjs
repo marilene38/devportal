@@ -16,6 +16,7 @@ export default defineConfig({
         starlightImageZoom(),
         starlightLinksValidator({
           exclude: ['FUTURELINK*'],
+          errorOnRelativeLinks: false,
         }),
       ],
       components: {

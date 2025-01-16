@@ -23,7 +23,7 @@ async function transformNodekitDocs() {
             // Read file content
             let content = await fs.readFile(sourcePath, 'utf-8');
 
-            // Parse frontmatter
+            // arse frontmatter
             const frontmatterRegex = /^---\n([\s\S]*?)\n---/;
             const match = content.match(frontmatterRegex);
 
@@ -49,6 +49,20 @@ async function transformNodekitDocs() {
                 // Replace old frontmatter with new
                 content = content.replace(frontmatterRegex, `---\n${frontmatter}\n---`);
             }
+
+            // Transform links
+            content = content.replace(
+                /\[([^\]]+)\]\(\/reference\/nodekit(?:\/([^/)]+)(?:\/([^/)]+))?)?\)/g,
+                (match, text, command, subcommand) => {
+                    if (subcommand) {
+                        return `[${text}](./nodekit-${command}-${subcommand})`;
+                    }
+                    if (command) {
+                        return `[${text}](../nodekit-${command})`;
+                    }
+                    return `[${text}](../nodekit)`;
+                }
+            );
 
             // Write transformed content to target file
             await fs.writeFile(targetPath, content);
