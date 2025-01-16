@@ -4,6 +4,8 @@ title: Indexer Installation
 
 ## Install the Indexer
 
+import { Aside, Steps } from '@astrojs/starlight/components';
+
 The Algorand Indexer enables searching the blockchain for transactions, assets, accounts, and blocks using various criteria. While both V1 and V2 Indexers exist, the V1 Indexer is deprecated and can significantly slow down nodes. Users should use the V2 Indexer.
 
 The V2 Indexer runs as an independent process that connects to a [PostgreSQL](https://www.postgresql.org/) compatible database containing the ledger data. The Indexer populates this database by connecting to an Algorand archival node and processing all ledger data. Alternatively, the Indexer can connect to a PostgreSQL database that has already been populated by another Indexer instance. This setup allows you to have multiple reader instances providing [REST APIs](https://developer.algorand.org/docs/rest-apis/indexer) for searching the database, while a single Indexer handles loading the ledger data.
@@ -20,62 +22,72 @@ For more information, see:
 
 ## Indexer V2 Installation and Setup
 
-### Download the Indexer Binaries
+<Steps>
 
-The Indexer binaries are available on [GitHub](https://github.com/algorand/indexer/releases).
+1. Download the Indexer Binaries
 
-_**Info**: Additional installation methods will be available in the near future._
+   The Indexer binaries are available on [GitHub](https://github.com/algorand/indexer/releases).
 
-### Extract the Binaries
+   <Aside type='note'>
+     Additional installation methods will be available in the near future.
+   </Aside>
 
-You can place the binary in any directory. These instructions use an indexer folder in the current user's home directory:
+2. Extract the Binaries
 
-```bash
-mkdir ~/indexer
-cd /path/to/download-dir
-tar -xf <your-os-tarfile> -C ~/indexer
-cd ~/indexer/<tarfile-name>
-```
+   You can place the binary in any directory. These instructions use an indexer folder in the current user's home directory:
 
-### Run the Indexer
+   ```bash
+   mkdir ~/indexer
+   cd /path/to/download-dir
+   tar -xf <your-os-tarfile> -C ~/indexer
+   cd ~/indexer/<tarfile-name>
+   ```
 
-The Indexer provides two main services:
+3. Run the Indexer
 
-1. Loading ledger data into a PostgreSQL database
-2. Providing a REST API to search this ledger data
+   The Indexer provides two main services:
 
-You can configure the Indexer to point to a database loaded by another Indexer instance, and the database doesn't need to be on the current node. This allows for a setup where one Indexer loads the database while multiple Indexers share this data through their REST APIs.
+   1. Loading ledger data into a PostgreSQL database
+   2. Providing a REST API to search this ledger data
 
-View all available options by running the [Indexer binary](https://developer.algorand.org/docs/clis/indexer/indexer/) with the -h flag.
+   You can configure the Indexer to point to a database loaded by another Indexer instance, and the database doesn't need to be on the current node. This allows for a setup where one Indexer loads the database while multiple Indexers share this data through their REST APIs.
 
-#### Start as a Reader
+   View all available options by running the [Indexer binary](https://developer.algorand.org/docs/clis/indexer/indexer/) with the -h flag.
 
-To run the Indexer as a reader (without connecting to an Algorand node), use the `--postgres` or `-P` option with a valid PostgreSQL connection string:
+   #### Start as a Reader
 
-```bash
-./algorand-indexer daemon --data-dir /tmp -P "host=[your-host] port=[your-port] user=[uname] password=[password] dbname=[ledgerdb] sslmode=disable" --no-algod
-```
+   To run the Indexer as a reader (without connecting to an Algorand node), use the `--postgres` or `-P` option with a valid PostgreSQL connection string:
 
-#### Start as a Data Loader
+   ```bash
+   ./algorand-indexer daemon --data-dir /tmp -P "host=[your-host] port=[your-port] user=[uname] password=[password] dbname=[ledgerdb] sslmode=disable" --no-algod
+   ```
 
-To populate the PostgreSQL database, provide the Algorand Archival node connection details using either:
+   #### Start as a Data Loader
 
-- The Algorand Node data directory (`--algod`), if the node is on the same machine
-- The algod network host and port string (`--algod-net`) with the API token (`--algod-token`)
+   To populate the PostgreSQL database, provide the Algorand Archival node connection details using either:
 
-_**Note**: Create and start the database before launching the Indexer._
+   - The Algorand Node data directory (`--algod`), if the node is on the same machine
+   - The algod network host and port string (`--algod-net`) with the API token (`--algod-token`)
 
-The Indexer's `--data-dir` flag specifies where it writes its own data and is distinct from the algod data directory mentioned above.
+   <Aside type='note'>
+     Create and start the database before launching the Indexer.
+   </Aside>
 
-```bash
-# Start with local data directory
-./algorand-indexer daemon --data-dir /tmp -P "host=[your-host] port=[your-port] user=[uname] password=[password] dbname=[ledgerdb] sslmode=disable" --algod=~/node/data
+   The Indexer's `--data-dir` flag specifies where it writes its own data and is distinct from the algod data directory mentioned above.
 
-# Start with networked Algorand node
-./algorand-indexer daemon --data-dir /tmp -P "host=[your-host] port=[your-port] user=[uname] password=[password] dbname=[ledgerdb] sslmode=disable" --algod-net="http://[your-host]:[your-port]" --algod-token="[your-api-token]"
-```
+   ```bash
+   # Start with local data directory
+   ./algorand-indexer daemon --data-dir /tmp -P "host=[your-host] port=[your-port] user=[uname] password=[password] dbname=[ledgerdb] sslmode=disable" --algod=~/node/data
 
-_**Info**: Initial database loading will take considerable time._
+   # Start with networked Algorand node
+   ./algorand-indexer daemon --data-dir /tmp -P "host=[your-host] port=[your-port] user=[uname] password=[password] dbname=[ledgerdb] sslmode=disable" --algod-net="http://[your-host]:[your-port]" --algod-token="[your-api-token]"
+   ```
+
+   <Aside type='note'>
+     Initial database loading will take considerable time.
+   </Aside>
+
+</Steps>
 
 ### REST API Configuration
 
