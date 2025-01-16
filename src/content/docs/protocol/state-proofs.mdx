@@ -10,7 +10,7 @@ A State Proof is a cryptographic proof of state changes that occur in a given se
 
 After a State Proof is created, a State Proof transaction, which includes the State Proof and the message it proves, is created and sent to the Algorand network for validation. The transaction goes through [consensus](/protocol/consensus) like any other pending Algorand transaction: it gets validated by participation nodes, included in a block proposal, and written to the blockchain.
 
-Each State Proof can be used to power lightweight services that verify Algorand transactions without running consensus or storing a copy of the Algorand ledger. These external services, or “Light Clients'', can efficiently verify proofs of Algorand state (either State Proofs or State Proof derived zk-SNARK proofs) in low-power environments like a smartphone, IoT device, or even inside a blockchain smart contract. For each verified State Proof, the Light Client can store the message’s transaction summary, giving it a light, verified history of Algorand state. Depending on its storage budget, a Light Client could store all State Proof history, giving it the ability to efficiently, cryptographically verify any Algorand transaction which occurred since the first State Proof was written on-chain.
+Each State Proof can be used to power lightweight services that verify Algorand transactions without running consensus or storing a copy of the Algorand ledger. These external services, or "Light Clients", can efficiently verify proofs of Algorand state (either State Proofs or State Proof derived zk-SNARK proofs) in low-power environments like a smartphone, IoT device, or even inside a blockchain smart contract. For each verified State Proof, the Light Client can store the message’s transaction summary, giving it a light, verified history of Algorand state. Depending on its storage budget, a Light Client could store all State Proof history, giving it the ability to efficiently, cryptographically verify any Algorand transaction which occurred since the first State Proof was written on-chain.
 
 Since Algorand users already trust the Algorand network’s ability to reach consensus on new blocks, we call these State Proof transactions, and the Light Clients they power, “trustless.” By providing simple interfaces to verify Algorand transactions, these Light Clients make it safer and easier to develop and use cross-chain products and services which want to leverage the state of the Algorand blockchain.
 
@@ -35,12 +35,12 @@ After creating the proof, the relay node constructs a State Proof transaction, c
 
 Note that each State Proof is linked together by a series of participation commitments indicating which accounts should produce signatures for the next State Proof, and their weights. These commitments form a chain linking the most recent proof written on-chain to the genesis State Proof from launch day. Since the set of participants is committed ahead of time, and each participants’ signature is produced using quantum-safe Falcon keys, we can have confidence that each verifiable State Proof was produced by actual network participants. This means that any State Proof verifier can have full confidence that the transactions committed to in each State Proof message are in fact legitimate, even in an age where powerful quantum computers attempt attacks. By producing quantum-safe proofs of the history of the blockchain, Algorand reaches its first milestone towards post-quantum security.
 
-## Using State Proofs¶
+## Using State Proofs
 
 State Proofs allow others to verify Algorand transactions while taking on minimal trust assumptions. Specifically, someone verifying Algorand transactions via a State Proof Light Client needs to trust the following:
 
 The Algorand blockchain’s ability to reach consensus on valid transactions.
-The first “participants” commitment that initialized the Light Client was obtained in a trustworthy way (this specifies the eligible voters for the genesis State Proof).
+The first "participants" commitment that initialized the Light Client was obtained in a trustworthy way (this specifies the eligible voters for the genesis State Proof).
 The State Proof verifier code inside the Light Client was implemented correctly.
 Algorand’s new cryptographic primitives are secure ([Sumhash](https://github.com/algorand/go-sumhash/blob/master/cryptanalysis/merging-trees-ss.pdf), [Falcon](https://github.com/algorand/falcon)).
 (Depending on the use case): The environment where the Algorand Light Client code is running is secure (e.g. another blockchain’s smart contract).
