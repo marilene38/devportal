@@ -40,13 +40,13 @@ The latest `conduit` binary can be downloaded from the [GitHub releases page](ht
 
     1. Checkout the repo, or download the source:
 
-       ```sh
+       ```shell showLineNumbers=false frame=none
        git clone https://github.com/algorand/conduit.git && cd conduit
        ```
 
     2. Run Conduit:
 
-       ```sh
+       ```shell showLineNumbers=false frame=none
        make conduit
        ```
 
@@ -62,7 +62,7 @@ Conduit is configured with a YAML file named `conduit.yml`. This file defines th
 
 Use the `conduit init` subcommand to create a configuration template. Place the configuration template in a new data directory. By convention the directory is named `data` and is referred to as the data directory.
 
-```sh
+```shell showLineNumbers=false frame=none
 mkdir data
 ./conduit init > data/conduit.yml
 ```
@@ -72,7 +72,7 @@ Every pipeline must define exactly 1 Importer, exactly 1 Exporter, and can optio
 
 Here is an example `conduit.yml` that configures two plugins:
 
-```yaml
+```yaml showLineNumbers=false frame=none
 importer:
   name: algod
   config:
@@ -91,7 +91,7 @@ exporter:
 
 The `conduit init` command can also be used to select which plugins to include in the template. The example below uses the standard algod importer and sends the data to PostgreSQL. This example does not use any processor plugins.
 
-```sh
+```shell showLineNumbers=false frame=none
 ./conduit init --importer algod --exporter postgresql > data/conduit.yml
 ```
 
@@ -101,7 +101,7 @@ Before running Conduit you need to review and modify `conduit.yml` according to 
 
 Once configured, start Conduit with your data directory as an argument:
 
-```sh
+```shell showLineNumbers=false frame=none
 ./conduit -d data
 ```
 
