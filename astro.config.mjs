@@ -318,7 +318,13 @@ export default defineConfig({
             },
             {
               label: 'NodeKit Reference',
-              autogenerate: { directory: 'nodes/nodekit-reference' },
+              items: [
+                {
+                  label: "Commands",
+                  collapsed: true,
+                  autogenerate: { directory: 'nodes/nodekit-reference/commands' },
+                }
+              ],
             },
           ],
         },
