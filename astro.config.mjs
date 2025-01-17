@@ -316,10 +316,10 @@ export default defineConfig({
               label: 'NodeKit Reference',
               items: [
                 {
-                  label: "Commands",
+                  label: 'Commands',
                   collapsed: true,
                   autogenerate: { directory: 'nodes/nodekit-reference/commands' },
-                }
+                },
               ],
             },
           ],
@@ -331,10 +331,6 @@ export default defineConfig({
             {
               label: 'Overview',
               link: 'protocol/overview',
-            },
-            {
-              label: 'Consensus',
-              link: 'protocol/consensus',
             },
             {
               label: 'Participation Key Management',

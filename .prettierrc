@@ -18,8 +18,9 @@
     {
       "files": "*.md*",
       "options": {
+        "printWidth": 100,
         "parser": "mdx",
-        "proseWrap": "preserve"
+        "proseWrap": "always"
       }
     },
     {
