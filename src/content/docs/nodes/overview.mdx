@@ -1,3 +1,71 @@
 ---
-title: Running a Node
+title: Running a Node Overview
+description: An intro to understand the primary concepts for running a node
 ---
+
+## What is a node
+
+A node is a computer, running the algorand software (algod), that participates in the Algorand
+network playing a crucial role in maintaining the blockchain, by processing blocks, participating in
+the consensus protocol or storing data.
+
+There are two primary types of nodes in Algorand:
+
+- Relay Nodes: Primarily facilitate communication by routing data to connected non-relay nodes. They
+  interact with other relay nodes and distribute blocks to all linked non-relay nodes.
+
+- Non-Relay Nodes: Connect exclusively to relay nodes and can participate in consensus. While
+  non-relay nodes may establish connections with multiple relay nodes, they do not connect directly
+  to other non-relay nodes.
+
+Also, depending on configuration, the nodes can be categorized as following:
+
+- Archival Nodes: Store the entire blockchain ledger.
+- Non-Archival Nodes: Retain only the last 1000 blocks.
+- Participation Nodes: Actively engage in consensus by proposing and voting on blocks.
+
+More information about node types can be found [here](/nodes/types).
+
+## Consensus and Participation
+
+Algorand uses a unique consensus protocol called Pure Proof of Stake (PPoS) to achieve agreement on
+the blockchain, using a VRF (Verifiable Random Function) to randomly select leaders to propose
+blocks and committee members to vote on block proposals. This process is weighted based on the stake
+each account holds
+
+Algorand’s Pure Proof-of-Stake (PPoS) consensus relies on participation from online accounts. Nodes
+with valid participation keys can propose and vote on blocks- Managing participation keys and
+online/offline statuses is critical for ensuring network health and avoiding negative impacts on
+consensus thresholds.
+
+[This section](/protocol/overview) provides detailed information about consensus and participation
+
+## Running a Node
+
+You can run an Algorand node (the algod software) using any of the following methods:
+
+- [NodeKit](/nodes/nodekit-reference/commands/nodekit/) – A streamlined CLI tool that simplifies
+  deploying and managing Algorand nodes. It offers pre-configured environments, making it ideal for
+  developers and operators looking to quickly set up nodes for various use cases.
+- Package Manager (Debian, Fedora and CentOS) – Install via official repositories, enabling standard
+  system service management.
+- Updater Script (Linux & macOS) – Required on macOS and supported on all Linux distributions,
+  allowing a customizable data directory but relying on a manual update process.
+
+Find detailed instructions of the last two options and some extra alternatives for Windows and using
+Docker in [this section](/nodes/management/best-practices).
+
+## Node Management
+
+Node management involves preparing your environment to run a stable, high-performance Algorand node
+and following best practices that keep the network healthy and ensure reliability and performance.
+At a minimum, you need a computer that meets the published requirements, robust power backup, and a
+reliable internet connection (possibly with redundancy); and following best practices (e.g., not
+running multiple nodes on the same machine, overloading a node with too many participation keys, or
+under-provisioning RAM and CPU).
+
+Proper node management also covers protocol updates, secure operating procedures, and, when needed,
+switching between networks.
+
+Best practices and extra details can be found in the
+[node management guide](/nodes/management/best-practices).
