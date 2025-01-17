@@ -39,11 +39,12 @@ Note that each State Proof is linked together by a series of participation commi
 
 State Proofs allow others to verify Algorand transactions while taking on minimal trust assumptions. Specifically, someone verifying Algorand transactions via a State Proof Light Client needs to trust the following:
 
-The Algorand blockchain’s ability to reach consensus on valid transactions.
-The first "participants" commitment that initialized the Light Client was obtained in a trustworthy way (this specifies the eligible voters for the genesis State Proof).
-The State Proof verifier code inside the Light Client was implemented correctly.
-Algorand’s new cryptographic primitives are secure ([Sumhash](https://github.com/algorand/go-sumhash/blob/master/cryptanalysis/merging-trees-ss.pdf), [Falcon](https://github.com/algorand/falcon)).
-(Depending on the use case): The environment where the Algorand Light Client code is running is secure (e.g. another blockchain’s smart contract).
+- The Algorand blockchain’s ability to reach consensus on valid transactions.
+- The first "participants" commitment that initialized the Light Client was obtained in a trustworthy way (this specifies the eligible voters for the genesis State Proof).
+- The State Proof verifier code inside the Light Client was implemented correctly.
+- Algorand’s new cryptographic primitives are secure ([Sumhash](https://github.com/algorand/go-sumhash/blob/master/cryptanalysis/merging-trees-ss.pdf), [Falcon](https://github.com/algorand/falcon)).
+- (Depending on the use case): The environment where the Algorand Light Client code is running is secure (e.g. another blockchain’s smart contract).
+
 To verify an Algorand transaction outside of the Algorand blockchain, external processes need to understand the structure of how transactions are hashed into the Block Interval commitment. This is done using two commitment trees that are explained below.
 
 ### Transaction Commitment
