@@ -269,6 +269,10 @@ export default defineConfig({
                   link: 'nodes/installation/indexer-installation',
                 },
                 {
+                  label: 'Conduit Installation',
+                  link: 'nodes/installation/conduit-installation',
+                },
+                {
                   label: 'Node Troubleshooting',
                   link: 'nodes/installation/troubleshooting',
                 },
@@ -314,7 +318,13 @@ export default defineConfig({
             },
             {
               label: 'NodeKit Reference',
-              autogenerate: { directory: 'nodes/nodekit-reference' },
+              items: [
+                {
+                  label: 'Commands',
+                  collapsed: true,
+                  autogenerate: { directory: 'nodes/nodekit-reference/commands' },
+                },
+              ],
             },
           ],
         },
@@ -325,10 +335,6 @@ export default defineConfig({
             {
               label: 'Overview',
               link: 'protocol/overview',
-            },
-            {
-              label: 'Consensus',
-              link: 'protocol/consensus',
             },
             {
               label: 'Participation Key Management',

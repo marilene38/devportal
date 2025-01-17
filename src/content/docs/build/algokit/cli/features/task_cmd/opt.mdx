@@ -10,7 +10,7 @@ Available commands and possible usage as follows:
 
 ### Opt-in
 
-```bash
+```shell showLineNumbers=false frame=none
 Usage: algokit task opt-in [OPTIONS] ASSET_IDS...
 
   Opt-in to an asset(s). This is required before you can receive an asset.
@@ -24,7 +24,7 @@ Options:
 
 ### Opt-out
 
-```bash
+```shell showLineNumbers=false frame=none
 Usage: algokit task opt-out [OPTIONS] [ASSET_IDS]...
 
   Opt-out of an asset(s). You can only opt out of an asset with a zero balance.
@@ -50,19 +50,19 @@ Example
 
 To opt-in to an asset(s), you can use the opt-in command as follows:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task opt-in --account {YOUR_ACCOUNT} {ASSET_ID_1} {ASSET_ID_2} {ASSET_ID_3} ...
 ```
 
 To opt-out of an asset(s), you can use the opt-out command as follows:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task opt-out --account {YOUR_ACCOUNT} {ASSET_ID_1} {ASSET_ID_2} ...
 ```
 
 To opt-out of all assets with zero balance, you can use the opt-out command with the `--all` flag:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task opt-out --account {YOUR_ACCOUNT} --all
 ```
 
