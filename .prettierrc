@@ -20,7 +20,7 @@
       "options": {
         "printWidth": 100,
         "parser": "mdx",
-        "proseWrap": "always"
+        "proseWrap": "preserve"
       }
     },
     {
