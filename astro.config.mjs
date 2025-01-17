@@ -269,6 +269,10 @@ export default defineConfig({
                   link: 'nodes/installation/indexer-installation',
                 },
                 {
+                  label: 'Conduit Installation',
+                  link: 'nodes/installation/conduit-installation',
+                },
+                {
                   label: 'Node Troubleshooting',
                   link: 'nodes/installation/troubleshooting',
                 },
