@@ -4,6 +4,7 @@ description: Install an Algorand node on your system
 ---
 
 import { Aside, Steps } from '@astrojs/starlight/components';
+import { LinkCard } from '@astrojs/starlight/components';
 
 This guide shows how to install and run an Algorand node on your system. It covers installation
 methods for both Linux distributions and MacOS, with Linux users having the option of package
@@ -11,14 +12,29 @@ manager or updater script installation.
 
 ## Installation Methods
 
-### 1. Package Manager Installation
+There are two different methods for installing Algorand nodes depending on your operating system.
+Choose the approach that works for your platform and preferences.
+
+<Aside type='caution'>
+  Choose one installation method and stick with it. Mixing methods can lead to complex
+  troubleshooting issues. If the package manager method is available for your Linux system, it is
+  strongly recommended over the updater script method.
+</Aside>
+
+### Package Manager Method
 
 _Supported on Debian-based (Ubuntu, Linux Mint) and Red Hat-based (Fedora, CentOS) distributions._
 
 Recommended for users on supported Linux distributions. This method provides automated updates, a
 fixed directory structure, and a pre-configured system service, simplifying maintenance.
 
-### 2. Updater Script Installation
+<LinkCard
+  title='Node Installation - Package Manager'
+  href='/nodes/installation/manual-installation#package-manager-installation'
+  description='Install Algorand using your system package manager'
+/>
+
+### Updater Script Method
 
 _Supported on Linux distributions and MacOS._
 
@@ -26,11 +42,11 @@ Required for MacOS users and supported for all Linux distributions. This method 
 data directory location. However, it uses a manual update process. It works with MacOS and all Linux
 distributions, including openSUSE Leap, Manjaro, Mageia, Alpine, and Solus.
 
-<Aside type='caution'>
-  Choose one installation method and stick with it. Mixing methods can lead to complex
-  troubleshooting issues. If the package manager method is available for your Linux system, it is
-  strongly recommended over the updater script method.
-</Aside>
+<LinkCard
+  title='Node Installation - Updater Script'
+  href='/nodes/installation/manual-installation#updater-script-installation'
+  description='Install Algorand using your the updater script'
+/>
 
 ## Alternative Options
 
@@ -168,7 +184,6 @@ directory, eliminating the need to specify it with the `-d` flag in every comman
    ```
 
 2. Install Algorand (choose one option):
-3. Install Algorand (choose one option):
 
    ```shell showLineNumbers=false frame=terminal
    # Option A: Install Algorand with developer tools
@@ -194,7 +209,6 @@ directory, eliminating the need to specify it with the `-d` flag in every comman
    ```
 
 2. Install Algorand:
-3. Install Algorand:
 
    ```shell showLineNumbers=false frame=terminal
    dnf install algorand
@@ -298,39 +312,35 @@ directly executable.
 
 ### MacOS Installation
 
-### MacOS Installation
-
 Verified on OSX v12.3.1 (Monterey).
 
 <Steps>
 
 1. Create and enter the installation directory:
 
-```shell showLineNumbers=false frame=none
-mkdir ~/node
-cd ~/node
-```
+   ```shell showLineNumbers=false frame=none
+   mkdir ~/node
+   cd ~/node
+   ```
 
-```shell showLineNumbers=false frame=terminal
-mkdir ~/node
-cd ~/node
-```
+   ```shell showLineNumbers=false frame=terminal
+   mkdir ~/node
+   cd ~/node
+   ```
 
 2. Download and prepare the updater script:
-3. Download and prepare the updater script:
 
-```shell showLineNumbers=false frame=none
-curl https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh -O
-chmod 744 update.sh
-```
+   ```shell showLineNumbers=false frame=none
+   curl https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh -O
+   chmod 744 update.sh
+   ```
 
-```shell showLineNumbers=false frame=terminal
-curl https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh -O
-chmod 744 update.sh
-```
+   ```shell showLineNumbers=false frame=terminal
+   curl https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh -O
+   chmod 744 update.sh
+   ```
 
 3. Run the installer:
-4. Run the installer:
 
    ```shell showLineNumbers=false frame=terminal
    ./update.sh -i -c stable -p ~/node -d ~/node/data -n
@@ -342,8 +352,7 @@ chmod 744 update.sh
    automatic node startup. All binaries, including developer tools, are included in this
    installation.
 
-5. Configure your environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
-6. Configure your environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
+4. Configure your environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
 
    These environment variables help you run `goal` commands without specifying the data directory
    each time.
@@ -364,31 +373,19 @@ Linux distributions should work as well.
 
 1. Create and enter the installation directory:
 
-```shell showLineNumbers=false frame=none
-mkdir ~/node
-cd ~/node
-```
-
-```shell showLineNumbers=false frame=terminal
-mkdir ~/node
-cd ~/node
-```
+   ```shell showLineNumbers=false frame=terminal
+   mkdir ~/node
+   cd ~/node
+   ```
 
 2. Download and prepare the updater script:
-3. Download and prepare the updater script:
 
-```shell showLineNumbers=false frame=none
-wget https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh
-chmod 744 update.sh
-```
-
-```shell showLineNumbers=false frame=terminal
-wget https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh
-chmod 744 update.sh
-```
+   ```shell showLineNumbers=false frame=terminal
+   wget https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh
+   chmod 744 update.sh
+   ```
 
 3. Run the installer:
-4. Run the installer:
 
    ```shell showLineNumbers=false frame=terminal
    ./update.sh -i -c stable -p ~/node -d ~/node/data -n
@@ -398,8 +395,7 @@ chmod 744 update.sh
    automatic node startup. All binaries, including developer tools, are included in this
    installation.
 
-5. Configure your environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
-6. Configure your environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
+4. Configure your environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
 
    ```shell showLineNumbers=false frame=terminal
    export ALGORAND_DATA="$HOME/node/data"
@@ -468,7 +464,6 @@ Usage: `./systemd-setup.sh username group [bindir]`
    worth reviewing.
 
 2. Specify binary location (optional):
-3. Specify binary location (optional):
 
    ```ini
    [Service]
@@ -485,8 +480,7 @@ Usage: `./systemd-setup.sh username group [bindir]`
    sudo ./systemd-setup.sh algorand algorand /path/to/binary/directory
    ```
 
-4. Register the service:
-5. Register the service:
+3. Register the service:
 
    ```shell showLineNumbers=false frame=terminal
    sudo systemctl daemon-reload
@@ -495,7 +489,7 @@ Usage: `./systemd-setup.sh username group [bindir]`
    This command makes `systemd` aware that the service is present on the system. You should also run
    this command if you make any changes to the service after installation.
 
-6. Start the service:
+4. Start the service:
 
    ```shell showLineNumbers=false frame=terminal
    sudo systemctl start algorand@$(systemd-escape $ALGORAND_DATA)
@@ -570,27 +564,25 @@ Get the most recent catchpoint for your network:
 
 1. Start your node if it isn't running:
 
-```shell showLineNumbers=false frame=none
-goal node start
-```
+   ```shell showLineNumbers=false frame=none
+   goal node start
+   ```
 
-```shell showLineNumbers=false frame=terminal
-goal node start
-```
+   ```shell showLineNumbers=false frame=terminal
+   goal node start
+   ```
 
 2. Use the catchup command with your network's current catchpoint from from the catchpoint URL:
-3. Use the catchup command with your network's current catchpoint from from the catchpoint URL:
 
-```shell showLineNumbers=false frame=none
-goal node catchup 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
-```
+   ```shell showLineNumbers=false frame=none
+   goal node catchup 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
+   ```
 
-```shell showLineNumbers=false frame=terminal
-goal node catchup 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
-```
+   ```shell showLineNumbers=false frame=terminal
+   goal node catchup 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
+   ```
 
 3. Check your node's sync status:
-4. Check your node's sync status:
 
    ```shell showLineNumbers=false frame=terminal
    goal node status -w 1000
@@ -628,13 +620,16 @@ If you accidentally used fast catchup on an archival node:
 
 1. Stop the node
 
+   ```shell showLineNumbers=false frame=terminal
+     goal node stop
+   ```
+
 2. Remove all files in the data directory except:
 
    - Configuration files (\*.json)
    - Genesis files (genesis\*)
 
 3. Restart the node
-4. Restart the node
 
    ```shell showLineNumbers=false frame=terminal
      goal node start
@@ -758,3 +753,4 @@ For more details about Nodely's telemetry service, see their
   Nodely's telemetry service is designed for MainNet nodes including validators, API nodes, and P2P
   nodes/relays. Do not use it for the Relay/Archiver Running Program.
 </Aside>
+````
