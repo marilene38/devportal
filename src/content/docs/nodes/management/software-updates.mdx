@@ -9,7 +9,7 @@ The Algorand node software is upgraded from time to time, and some of these upda
 
 However, when a new version of `algod` contains a protocol upgrade, an important process is kicked off in which online accounts effectively vote for or against a new protocol with the blocks they propose. These protocol upgrade voting periods last 10,000 rounds, and each block produced counts as one vote.
 
-When the network is in a voting period, additional details can be see in the output of `goal node status`:
+When the network is in a voting period, additional details can be seen in the output of running `goal node status`:
 
 ```shell showLineNumbers=false frame=none {9-14}
 Last committed block: 46248141
@@ -55,11 +55,11 @@ Node software updates can be automated, but node runners are encouraged to read 
 
 ### Linux - Package Manager Install
 
-The RPM or Debian packages in the package repository are updated automatically, but this does not mean that the node installation on your local machine is updated automatically. Depending on your Linux distribution and version, you may have or need to install `unattended-upgrdes` to handle automatic updates.
+The RPM or Debian packages in the package repository are updated automatically, but this does not mean that the node installation on your local machine is updated automatically. Depending on your Linux distribution and version, you may have or need to install `unattended-upgrades` to handle automatic updates.
 
 ### Linux or MacOS - Update Script Install
 
-If your node was installed using the update script, follow this approach. You can check for and install the latest updates by running the following at any time from within your node directory:
+If your node was installed using the [updater script](/nodes/installation/manual-installation#2-updater-script-installation), follow this approach. You can check for and install the latest updates by running the following at any time from within your node directory:
 
 ```shell showLineNumbers=false frame=none
 ./update.sh -d ~/node/data
@@ -71,7 +71,7 @@ Note that the `-d` argument has to be specified when updating. It will query S3 
 ./update.sh -i -c stable -d ~/node/data
 ```
 
-If there is a newer version, it will be downloaded and unpacked. The node will shutdown, the binaries and data files will be archived, and the new binaries will be installed. If any part of the process fails, the node will restore the previous version (bin and data) and restart the node. If it succeeds, the new version is started. The automatic start can be disabled by adding the -n option.
+If there is a newer version, it will be downloaded and unpacked. The node will shutdown, the binaries and data files will be archived, and the new binaries will be installed. If any part of the process fails, the node will restore the previous version (`bin` and `data`) and restart the node. If it succeeds, the new version is started. The automatic start can be disabled by adding the `-n` option.
 
 Setting up a schedule to automatically check for and install updates can be done with CRON.
 
@@ -79,7 +79,7 @@ Setting up a schedule to automatically check for and install updates can be done
 crontab -e
 ```
 
-Add a line that looks like this (run update.sh every hour, on the half-hour, of every day), where ‘user’ is the name of the account used to install / run the node:
+Add a line that looks like this (run `update.sh` every hour, on the half-hour, of every day), where `user` is the name of the account used to install / run the node:
 
 ```shell showLineNumbers=false frame=none
 30 * * * * /home/user/node/update.sh -d /home/user/node/data >/home/user/node/update.log 2>&1
