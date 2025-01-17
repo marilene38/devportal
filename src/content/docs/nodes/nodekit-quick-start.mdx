@@ -4,7 +4,7 @@ title: NodeKit Quick Start
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-Get up and running with NodeKit in minutes. This guide will walk you through installing NodeKit and setting up your first Algorand node.
+Get up and running with NodeKit in minutes. This guide will walk you through installing NodeKit and setting up your first Algorand node, including generating participation keys for an account and registering them online.
 
 NodeKit can help you with:
 
@@ -12,6 +12,8 @@ NodeKit can help you with:
 - Syncing your node with the latest state of the network
 - Managing consensus participation keys
 - Monitoring your node and the network
+
+## Installing NodeKit
 
 To get started with NodeKit, copy-paste this command in your terminal:
 
@@ -54,11 +56,11 @@ It will then immediately start the bootstrap process to get your Algorand node u
 
 ![Screenshot of a typical NodeKit installation process](/src/assets/images/nodekit-install.png)
 
-## Bootstrapping the Algorand node
+## Bootstrapping the Algorand Node
 
 import { Code } from '@astrojs/starlight/components';
 
-### How to start the process
+### How to Start the Process
 
 The bootstrap process is automatically started after following the installation instructions above, but it can also be triggered manually by running this command:
 
@@ -66,7 +68,7 @@ The bootstrap process is automatically started after following the installation 
 ./nodekit bootstrap
 ```
 
-### Prompts: Installation and Fast-catchup
+### Prompts: Installation and Fast-Catchup
 
 `nodekit bootstrap` will check to see if there is a node already installed.
 
@@ -113,7 +115,7 @@ The installation phase should only take a few minutes. Your terminal will look l
 
 ![Screenshot of first phase of "nodekit bootstrap" process](/src/assets/images/nodekit-bootstrap.png)
 
-### Fast catchup
+### Fast Catchup
 
 After installation is complete, NodeKit will automatically start the NodeKit user interface.
 
@@ -131,7 +133,7 @@ When the process is done, the Fast Catchup status information will disappear and
   <summary>Troubleshooting: Fast-catchup</summary>
   If the fast catchup process does not complete within 1-2 hours, check the following:
 
-### Your hardware meets the requirements
+### Your Hardware Meets the Requirements
 
 Check that your node meets the [hardware requirements](/nodes/installation/manual#hardware-requirements) for a participation node.
 
@@ -153,7 +155,7 @@ If there is no progress for a while, or the Latest Round value is smaller than `
 
 </details>
 
-## Generating participation keys
+## Generating Participation Keys
 
 If it is not running already, start NodeKit with this command:
 
@@ -167,7 +169,7 @@ After your node has fully synced with the network, you will see a green `RUNNING
 
 You will only be able to generate participation keys after your node is in a `RUNNING` state
 
-### Generate participation keys
+### Generate Participation Keys
 
 Press the `G` key to start generating participation keys.
 
@@ -175,7 +177,7 @@ NodeKit will ask the account address that will be participating in consensus. En
 
 ![NodeKit account address prompt](/src/assets/images/nodekit-partkey-gen-1.png)
 
-### Select participation key duration
+### Select Participation Key Duration
 
 NodeKit will ask the number of days that the participation keys will be valid for:
 
@@ -187,7 +189,7 @@ The longer your duration, the longer the participation key generation step will 
 
 We recommend a value between 30 and 90 days.
 
-### Key generation
+### Key Generation
 
 After you have selected your key duration, nodekit will instruct your node to generate participation keys.
 
@@ -209,15 +211,13 @@ You can:
 
 ![NodeKit key generation progress](/src/assets/images/nodekit-partkey-gen-3.png)
 
-### Done
-
 When your participation keys are ready, nodekit will display the key information as shown below.
 
 ![NodeKit key generation complete](/src/assets/images/nodekit-partkey-gen-4.png)
 
 You are now one step away from participating in Algorand consensus! The next step is to [register your keys online](#registering-your-keys-online).
 
-## Registering your keys online
+## Registering Your Keys Online
 
 After generating a participation key, you can press `R` to start registering it on the Algorand network.
 
@@ -263,7 +263,7 @@ The `Protocol Voting` label in the top right panel refers to the **consensus pro
 ![Protocol voting indicator location](/src/assets/images/nodekit-note-protocol-voting.png)
 :::
 
-## Navigating accounts and keys
+## Navigating Accounts and Keys
 
 If it is not running already, start nodekit with this command:
 
@@ -281,7 +281,7 @@ Press `ESC` in the keys view to return to the accounts list.
 
 ![Demo of navigating between accounts](/src/assets/images/nodekit-navigate-accounts.gif)
 
-### Navigating keys
+### Navigating Keys
 
 If you have more than one set of participating keys for your account, you can highlight them using the up and down arrow keys.
 
