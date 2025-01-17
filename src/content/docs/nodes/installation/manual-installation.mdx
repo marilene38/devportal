@@ -104,77 +104,81 @@ This sets a permanent environment variable that tells Algorand tools where to fi
 #### For Debian-Based Systems (Ubuntu, Linux Mint)
 
 <Steps>
-  1. First, update your system and install required packages:
-      ```bash
-      sudo apt-get update
-      sudo apt-get install -y gnupg2 curl software-properties-common
-      ```
 
-2.  Add Algorand’s repository and security key:
+1. First, update your system and install required packages:
 
-    ```bash
-    curl -o - https://releases.algorand.com/key.pub | sudo tee /etc/apt/trusted.gpg.d/algorand.asc
-    sudo add-apt-repository "deb [arch=amd64] https://releases.algorand.com/deb/ stable main"
-    sudo apt-get update
-    ```
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y gnupg2 curl software-properties-common
+   ```
 
-3.  Install Algorand (choose one option):
+2. Add Algorand’s repository and security key:
 
-    ````bash # Option A: Install Algorand with developer tools
-    sudo apt-get install -y algorand-devtools
+   ```bash
+   curl -o - https://releases.algorand.com/key.pub | sudo tee /etc/apt/trusted.gpg.d/algorand.asc
+   sudo add-apt-repository "deb [arch=amd64] https://releases.algorand.com/deb/ stable main"
+   sudo apt-get update
+   ```
 
-          # Option B: Install only Algorand node
-          sudo apt-get install -y algorand
-          ```
+3. Install Algorand (choose one option):
 
-    </Steps>
-    ````
+   ```bash
+   # Option A: Install Algorand with developer tools
+   sudo apt-get install -y algorand-devtools
+
+   # Option B: Install only Algorand node
+   sudo apt-get install -y algorand
+   ```
+
+</Steps>
 
 #### For Red Hat-Based Systems (Fedora, CentOS)
 
 ##### CentOS 7
 
 <Steps>
-  1. Import Algorand’s repository key and set up the repository:
 
-      ```bash
-      curl -O https://releases.algorand.com/rpm/rpm_algorand.pub
-      sudo rpmkeys --import rpm_algorand.pub
-      sudo yum install yum-utils
-      sudo yum-config-manager --add-repo https://releases.algorand.com/rpm/stable/algorand.repo
-      ```
+1. Import Algorand’s repository key and set up the repository:
 
-2.  Install Algorand (choose one option):
+   ```bash
+   curl -O https://releases.algorand.com/rpm/rpm_algorand.pub
+   sudo rpmkeys --import rpm_algorand.pub
+   sudo yum install yum-utils
+   sudo yum-config-manager --add-repo https://releases.algorand.com/rpm/stable/algorand.repo
+   ```
 
-          ```bash
-          # Option A: Install Algorand with developer tools
-          sudo yum install algorand-devtools
+2. Install Algorand (choose one option):
 
-          # Option B: Install only Algorand node
-          sudo yum install algorand
-          ```
+   ```bash
+   # Option A: Install Algorand with developer tools
+   sudo yum install algorand-devtools
 
-    </Steps>
+   # Option B: Install only Algorand node
+   sudo yum install algorand
+   ```
+
+</Steps>
 
 ##### Fedora or CentOS 8 Stream
 
 <Steps>
-  1. Import Algorand’s repository key and set up the repository:
 
-      ```bash
-      curl -O https://releases.algorand.com/rpm/rpm_algorand.pub
-      sudo rpmkeys --import rpm_algorand.pub
-      dnf install -y 'dnf-command(config-manager)'
-      dnf config-manager --add-repo=https://releases.algorand.com/rpm/stable/algorand.repo
-      ```
+1. Import Algorand’s repository key and set up the repository:
 
-2.  Install Algorand:
+   ```bash
+   curl -O https://releases.algorand.com/rpm/rpm_algorand.pub
+   sudo rpmkeys --import rpm_algorand.pub
+   dnf install -y 'dnf-command(config-manager)'
+   dnf config-manager --add-repo=https://releases.algorand.com/rpm/stable/algorand.repo
+   ```
 
-          ```bash
-          dnf install algorand
-          ```
+2. Install Algorand:
 
-    </Steps>
+   ```bash
+   dnf install algorand
+   ```
+
+</Steps>
 
 ### Post-Installation Notes
 
@@ -262,12 +266,13 @@ These settings tell Algorand tools where to find your data directory and make `g
 Verified on OSX v12.3.1 (Monterey).
 
 <Steps>
-  1. Create and enter the installation directory:
 
-      ```bash
-      mkdir ~/node
-      cd ~/node
-      ```
+1. Create and enter the installation directory:
+
+   ```bash
+   mkdir ~/node
+   cd ~/node
+   ```
 
 2. Download and prepare the updater script:
 
@@ -282,22 +287,18 @@ Verified on OSX v12.3.1 (Monterey).
    ./update.sh -i -c stable -p ~/node -d ~/node/data -n
    ```
 
-   > **Note**: For beta releases, use `-c beta` instead of `-c stable`.
+   For beta releases, use `-c beta` instead of `-c stable`.
 
-<Aside type='note'>
-  For beta releases, use `-c beta` instead of `-c stable`.
-</Aside>
+   The installer will download and install the latest package from S3. The `-n` flag prevents automatic node startup. All binaries, including developer tools, are included in this installation.
 
-      The installer will download and install the latest package from S3. The `-n` flag prevents automatic node startup. All binaries, including developer tools, are included in this installation.
+4. Configure your environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
 
-4.  Configure your environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
+   These environment variables help you run `goal` commands without specifying the data directory each time.
 
-```bash
-  export ALGORAND_DATA="$HOME/node/data"
-  export PATH="$HOME/node:$PATH"
-```
-
-These environment variables help you run `goal` commands without specifying the data directory each time.
+   ```bash
+   export ALGORAND_DATA="$HOME/node/data"
+   export PATH="$HOME/node:$PATH"
+   ```
 
 </Steps>
 
@@ -306,38 +307,39 @@ These environment variables help you run `goal` commands without specifying the 
 Verified on Ubuntu, CentOS, Fedora, openSUSE Leap, Manjaro, Mageia, Alpine, and Solus. Other modern Linux distributions should work as well.
 
 <Steps>
-  1. Create and enter the installation directory:
 
-      ```bash
-      mkdir ~/node
-      cd ~/node
-      ```
+1. Create and enter the installation directory:
 
-2.  Download and prepare the updater script:
+   ```bash
+   mkdir ~/node
+   cd ~/node
+   ```
 
-    ```bash
-    wget https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh
-    chmod 744 update.sh
-    ```
+2. Download and prepare the updater script:
 
-3.  Run the installer:
+   ```bash
+   wget https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh
+   chmod 744 update.sh
+   ```
 
-    ```bash
-    ./update.sh -i -c stable -p ~/node -d ~/node/data -n
-    ```
+3. Run the installer:
 
-    The installer will download and install the latest package from S3. The `-n` flag prevents automatic node startup. All binaries, including developer tools, are included in this installation.
+   ```bash
+   ./update.sh -i -c stable -p ~/node -d ~/node/data -n
+   ```
 
-4.  Configure your environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
+   The installer will download and install the latest package from S3. The `-n` flag prevents automatic node startup. All binaries, including developer tools, are included in this installation.
 
-          ```bash
-          export ALGORAND_DATA="$HOME/node/data"
-          export PATH="$HOME/node:$PATH"
-          ```
+4. Configure your environment by adding to your shell config file (`~/.bashrc` or `~/.zshrc`):
 
-          These environment variables help you run `goal` commands without specifying the data directory each time.
+   ```bash
+   export ALGORAND_DATA="$HOME/node/data"
+   export PATH="$HOME/node:$PATH"
+   ```
 
-    </Steps>
+   These environment variables help you run `goal` commands without specifying the data directory each time.
+
+</Steps>
 
 ### Post-Installation Notes
 
@@ -378,52 +380,53 @@ Usage: `./systemd-setup.sh username group [bindir]`
 #### Installation
 
 <Steps>
-  1. Create the service with root privileges:
 
-      ```bash
-      sudo ./systemd-setup.sh algorand algorand
-      ```
+1. Create the service with root privileges:
 
-      This creates `/lib/systemd/system/algorand@.service` using the included template (`algorand@.service.template`). The template file includes helpful information at its top and is worth reviewing.
+   ```bash
+   sudo ./systemd-setup.sh algorand algorand
+   ```
 
-2.  Specify binary location (optional):
+   This creates `/lib/systemd/system/algorand@.service` using the included template (`algorand@.service.template`). The template file includes helpful information at its top and is worth reviewing.
 
-    ```ini
-    [Service]
-    ExecStart=@@BINDIR@@/algod -d %I
-    User=@@USER@@
-    Group=@@GROUP@@
-    ```
+2. Specify binary location (optional):
 
-    The service template above shows how `systemd` locates your `algod` binary. By default, it uses the current working directory, but you can specify a different location using the `bindir` parameter, which must be an absolute path:
+   ```ini
+   [Service]
+   ExecStart=@@BINDIR@@/algod -d %I
+   User=@@USER@@
+   Group=@@GROUP@@
+   ```
 
-    ```bash
-    sudo ./systemd-setup.sh algorand algorand /path/to/binary/directory
-    ```
+   The service template above shows how `systemd` locates your `algod` binary. By default, it uses the current working directory, but you can specify a different location using the `bindir` parameter, which must be an absolute path:
 
-3.  Register the service:
+   ```bash
+   sudo ./systemd-setup.sh algorand algorand /path/to/binary/directory
+   ```
 
-    ```bash
-    sudo systemctl daemon-reload
-    ```
+3. Register the service:
 
-    This command makes `systemd` aware that the service is present on the system. You should also run this command if you make any changes to the service after installation.
+   ```bash
+   sudo systemctl daemon-reload
+   ```
 
-4.  Start the service:
+   This command makes `systemd` aware that the service is present on the system. You should also run this command if you make any changes to the service after installation.
 
-          ```bash
-          sudo systemctl start algorand@$(systemd-escape $ALGORAND_DATA)
-          ```
+4. Start the service:
 
-          This command starts the Algorand service using your data directory path (specified by `$ALGORAND_DATA`). The `systemd-escape` command formats the path to be compatible with systemd.
+   ```bash
+   sudo systemctl start algorand@$(systemd-escape $ALGORAND_DATA)
+   ```
 
-          To configure the service to start automatically when your system boots:
+   This command starts the Algorand service using your data directory path (specified by `$ALGORAND_DATA`). The `systemd-escape` command formats the path to be compatible with systemd.
 
-          ```bash
-          sudo systemctl enable algorand@$(systemd-escape $ALGORAND_DATA)
-          ```
+   To configure the service to start automatically when your system boots:
 
-    </Steps>
+   ```bash
+   sudo systemctl enable algorand@$(systemd-escape $ALGORAND_DATA)
+   ```
+
+</Steps>
 
 ## Synchronizing Your Node
 
@@ -464,7 +467,7 @@ However, keep in mind that fast catchup requires trusting the entity providing t
   you must reset your node and start from scratch.
 </Aside>
 
-**Latest Catchpoints**
+#### Latest Catchpoints
 
 Get the most recent catchpoint for your network:
 
@@ -475,38 +478,39 @@ Get the most recent catchpoint for your network:
 #### Fast Catchup Process
 
 <Steps>
-  1. Start your node if it isn't running:
 
-      ```bash
-      goal node start
-      ```
+1. Start your node if it isn't running:
 
-2.  Use the catchup command with your network's current catchpoint from from the catchpoint URL:
+   ```bash
+   goal node start
+   ```
 
-    ```bash
-    goal node catchup 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
-    ```
+2. Use the catchup command with your network's current catchpoint from from the catchpoint URL:
 
-3.  Check your node's sync status:
+   ```bash
+   goal node catchup 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
+   ```
 
-          ```bash
-          goal node status -w 1000
-          ```
+3. Check your node's sync status:
 
-          The `-w` flag updates the status every 1000 milliseconds (1 second). Press Ctrl/Cmd+C to stop monitoring.
-          During catchup, you'll see additional status lines showing progress:
+   ```bash
+   goal node status -w 1000
+   ```
 
-          ```bash
-          Catchpoint: 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
-          Catchpoint total accounts: 1146
-          Catchpoint accounts processed: 1146
-          Catchpoint total blocks: 1000
-          Catchpoint downloaded blocks: 81
-          ```
+   The `-w` flag updates the status every 1000 milliseconds (1 second). Press Ctrl/Cmd+C to stop monitoring.
+   During catchup, you'll see additional status lines showing progress:
 
-          Your node is fully synchronized when these catchpoint lines disappear and "Sync Time" shows 0.0s.
+   ```bash
+   Catchpoint: 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
+   Catchpoint total accounts: 1146
+   Catchpoint accounts processed: 1146
+   Catchpoint total blocks: 1000
+   Catchpoint downloaded blocks: 81
+   ```
 
-    </Steps>
+   Your node is fully synchronized when these catchpoint lines disappear and "Sync Time" shows 0.0s.
+
+</Steps>
 
 #### Troubleshooting Fast Catchup
 
@@ -522,15 +526,19 @@ If fast catchup fails, verify:
 If you accidentally used fast catchup on an archival node:
 
 <Steps>
-  1. Stop the node
-  2. Remove all files in the data directory except:
-    - Configuration files (\*.json)
-    - Genesis files (genesis\*)
-  3. Restart the node
 
-```bash
-  goal node start
-```
+1. Stop the node
+
+2. Remove all files in the data directory except:
+
+   - Configuration files (\*.json)
+   - Genesis files (genesis\*)
+
+3. Restart the node
+
+   ```bash
+     goal node start
+   ```
 
 </Steps>
 
