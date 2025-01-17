@@ -2,7 +2,7 @@
 name: "\U0001F4DD Documentation Feedback"
 about: Feedback about the content of the documentation
 title: 'docs: '
-labels: enhancement
+labels: documentation
 assignees: ''
 
 ---
