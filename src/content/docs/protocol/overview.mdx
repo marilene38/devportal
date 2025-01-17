@@ -1,80 +1,143 @@
 ---
-title: Overview
+title: Consensus Overview
+sidebar:
+  label: 'Overview'
+prev: false
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import consensus1 from '/src/assets/images/algorand_consensus-1.png';
+import consensus2 from '/src/assets/images/algorand_consensus-2.png';
+import consensus3 from '/src/assets/images/algorand_consensus-3.png';
+import consensus4 from '/src/assets/images/algorand_consensus-4.png';
 
-This section covers the procedure for registering an account to participate in the Algorand Consensus Protocol. It begins with a description of important concepts and best practices before getting started.
+The Algorand blockchain uses a decentralized Byzantine Agreement protocol that leverages pure proof
+of stake (Pure POS). This means that it can tolerate malicious users and achieve consensus without a
+central authority as long as a supermajority of the stake is in non-malicious hands. This protocol
+is very fast and requires minimal computational power per node, allowing it to finalize transactions
+efficiently.
 
-## Tldr
+Before discussing the protocol, we discuss two functional concepts that Algorand uses. The following
+is a simplified explanation of the protocol that covers the ideal conditions. For all technical
+details see the
+[white paper](https://26119259.fs1.hubspotusercontent-eu1.net/hubfs/26119259/Website-2024/PDFs/Algorand%20-%20Whitepaper.pdf)
+or the [source code](https://github.com/algorand/go-algorand).
 
-- Accounts participate in the Algorand consensus protocol by generating a valid participation key and then registering that key online with a special online registration transaction.
-- Accounts mark themselves online by submitting an [online key registration transaction](/protocol/registration/) for a valid participation key.
-- Accounts mark themselves offline by submitting an [offline key registration transaction](/protocol/registration/).
-- It is important to mark your account offline if it is not participating. Not doing so is bad network behavior and will decrease the honest/dishonest user ratio that underpins the liveness of the agreement protocol.
-- It is important to ensure that only the latest update of the participation key ever exists at any time.
-- In the event of node migration, hardware swap, or other similar events, it is preferable to have your participation key offline for a few rounds than to have it present on multiple nodes at the same time.
+## Verifiable Random Function
 
-## Important Concepts
+Recently we released the [source code](https://github.com/algorand/libsodium/tree/master/src) for
+our implementation of a Verifiable ßRandom Function (VRF). The VRF takes a secret key and a value
+and produces a pseudorandom output, with a proof that anyone can use to verify the result. The VRF
+functions similar to a lottery and is used to choose leaders to propose a block and committee
+members to vote on a block. This VRF output, when executed for an account, is used to sample from a
+[binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution) to emulate a call for
+every algo in a user’s account. The more algos in an account, the greater chance the account has of
+being selected -- it’s as if every algo in an account participates in its own lottery. This method
+ensures that a user does not gain any advantage by creating multiple accounts.
 
-### Online Participation
+## Participation Keys
 
-In the context of this section, participation means participation in the Algorand consensus protocol. An account that participates in the Algorand consensus protocol is eligible and available to be selected to propose and vote on new blocks in the Algorand blockchain. Note that the likelihood that this account will be selected to propose and vote on blocks is proportional to its amount of stake. Read more about voting and block proposals in the [Algorand Consensus Protocol overview](/protocol/consensus/).
+A user account must be online to participate in the consensus protocol. To reduce exposure, online
+users do not use their spending keys (i.e., the keys they use to sign transactions) for consensus.
+Instead, a user generates and registers a participation key for a certain number of rounds. It also
+generates a collection of ephemeral keys, one for each round, signs these keys with the
+participation key, and then deletes the participation key. Each ephemeral key is used to sign
+messages for the corresponding round, and is deleted after the round is over. Using participation
+keys ensures that a user's tokens are secure even if their participating node is compromised.
+Deleting the participation and ephemeral keys after they are used ensures that the blockchain is
+forward-secure and cannot be compromised by attacks on old blocks using old keys.
 
-<Aside type='tip'>
-  Participation in consensus currently does not affect the proportion of
-  participation rewards an account receives. Participation rewards are based on
-  the amount of stake an account has, irrespective of whether the account is
-  marked online or offline. Furthermore, currently, there are no participation
-  rewards on MainNet.
-</Aside>
+## State Proof Keys
 
-### Online/Offline Status
+As of go-algorand 3.4.2 (released March 2022), users also generate a state proof key, with
+associated ephemeral keys, alongside their participation keys. State proof keys will be used to
+generate Post-Quantum secure state proofs that attest to the state of the blockchain at different
+points in time. These will be useful for applications that want a portable, lightweight way to
+cryptographically verify Algorand state without running a full participation node.
 
-In order for an account to participate in consensus, it must first mark itself online. Marking an account online requires the account to have a valid participation key, which has been registered with the network by way of an [online key registration transaction](/protocol/registration/), authorized by the participating account. Marking an account offline requires an [offline key registration transaction](/protocol/registration/) that is also authorized by the private key of the participating account.
+## The Algorand Consensus Protocol
 
-## Guidelines for a Healthy Network
+Consensus refers to the way blocks are selected and written to the blockchain. Algorand uses the VRF
+described above to select leaders to propose blocks for a given round. When a block is proposed to
+the blockchain, a committee of voters is selected to vote on the block proposal. If a super majority
+of the votes are from honest participants, the block can be certified. What makes this algorithm a
+Pure Proof of Stake is that users are chosen for committees based on the number of algos in their
+accounts. Committees are made up of pseudorandomly selected accounts with voting power dependent on
+their online stake. It is as if every token gets an execution of the VRF. Users with more tokens are
+likely to be selected more. For a committee membership this means higher stake accounts will most
+likely have more votes than a selected account with less tokens. Using randomly selected committees
+allows the protocol to still have good performance while allowing anyone in the network to
+participate.
 
-### Ensure that Online Accounts are Participating
+Consensus requires three steps to propose, confirm and write the block to the blockchain. These
+steps are: 1) propose, 2) soft vote and 3) certify vote. Each is described below, assuming the ideal
+case when there are no malicious users and the network is not partitioned (i.e., none of the network
+is down due to technical issues or from DDoS attacks). Note that all messages are cryptographically
+signed with the user’s participation key and committee membership is verified using the VRF in these
+steps.
 
-If an account registers itself online, it is important that its participation key is online. A participation key is online if there is a single fully synchronized node on the Algorand network that has that key in its ledger directory. You should always mark an account offline if it is not actually available to participate since the network uses the online/offline status of an account to calculate block vote thresholds. If you are marked online but are not participating, you will be considered a dishonest user and will negatively impact the voting threshold. Furthermore, if your node experiences issues you are not able to solve promptly, it is recommended that you register the account offline as soon as possible.
+### Block Proposal
 
-<Aside type='tip'>
-  If you keep your private keys in cold storage, it is recommended that you
-  generate and sign enough offline transactions to be able to take the account
-  offline in case of emergencies. Learn more about generating transactions for
-  future rounds in the [Transactions guide](FUTURELINK:txn-generation). Learn
-  how to create and authorize transactions offline in the [Authorizing
-  Transactions Offline guide](FUTURELINK:txn-offline-authorization).
-</Aside>
+In the block proposal phase, accounts are selected to propose new blocks to the network. This phase
+starts with every node in the network looping through each online account for which it has valid
+participation keys, running Algorand’s VRF to determine if the account is selected to propose the
+block. The VRF acts similar to a weighted lottery where the number of Algos that the account has
+participating online determines the account’s chance of being selected. Once an account is selected
+by the VRF, the node propagates the proposed block along with the VRF output, which proves that the
+account is a valid proposer. We then move from the propose step to the soft vote step.
 
-### Renew participation keys before they expire
+<figure>
+  <Image src={consensus1} alt='Block Proposal' />
+  <figcaption>Block Proposal</figcaption>
+</figure>
 
-Participation keys are valid for a specific round range. Make sure to renew participation keys or mark the account offline before the current participation key expires. Your account will not automatically be marked offline.
-Visit the [Renew Participation Keys section](/protocol/partkey-management) for detailed instructions.
+### Soft Vote
 
-### Ensure that Participation Nodes are working properly
+The purpose of this phase is to filter the number of proposals down to one, guaranteeing that only
+one block gets certified. Each node in the network will get many proposal messages from other nodes.
+Nodes will verify the signature of the message and then validate the selection using the VRF proof.
+Next, the node will compare the hash from each validated winner’s VRF proof to determine which is
+the lowest and will only propagate the block proposal with the lowest VRF hash. This process
+continues for a fixed amount of time to allow votes to be propagated across the network.
 
-Monitor your participation node to ensure high performance and consistent access to your registered participation key. The following should be monitored:
+<figure>
+  <Image src={consensus2} alt='Soft Vote Part 1' />
+  <figcaption>Soft Vote (Part 1)</figcaption>
+</figure>
 
-- Last committed block (goal node status or API) matches a third-party API service
-- CPU / RAM/disk use are within thresholds
-- Clock is accurate (blocks are timestamped using the clock time from the block proposer's node, so keep your node clock accurate and on time)
-- The participation node sends votes and proposes blocks at the expected frequency.
+Each node will then run the VRF for every participating account it manages to see if they have been
+chosen to participate in the soft vote committee. If any account is chosen it will have a weighted
+vote based on the number of Algos the account has, and these votes will be propagated to the
+network. These votes will be for the lowest VRF block proposal calculated at the timeout and will be
+sent out to the other nodes along with the VRF Proof.
 
-### Securely Store Participation Keys
+<figure>
+  <Image src={consensus3} alt='Soft Vote Part 2' />
+  <figcaption>Soft Vote (Part 2)</figcaption>
+</figure>
 
-Registered participation keys that are in operation are regularly updated through the protocol so that they cannot be used to vote on earlier rounds. Essentially, the set of keys corresponding to earlier rounds is deleted after the round passes to ensure that a bad actor's compromise of a participation key does not give the bad actor the potential to rewrite history. Because of this, it is important that only a single instance of the participation key (files ending in \*.partkey) exists at any time in the system.
+A new committee is selected for every step in the process and each step has a different committee
+size. This committee size is quantified in algos. A quorum of votes is needed to move to the next
+step and must be a certain percentage of the expected committee size. These votes will be received
+from other nodes on the network and each node will validate the committee membership VRF proof
+before adding to the vote tally. Once a quorum is reached for the soft vote the process moves to the
+certify vote step.
 
-<Aside type='caution'>
-  Because of this, holding backups of participation keys is highly discouraged
-  unless appropriate procedures are set up to purge those backups regularly.
-</Aside>
+### Certify Vote
 
-## Technical Procedure
+A new committee checks the block proposal that was voted on in the soft vote stage for overspending,
+double-spending, or any other problems. If valid, the new committee votes again to certify the
+block. This is done in a similar manner as the soft vote where each node iterates through its
+managed accounts to select a committee and to send votes. These votes are collected and validated by
+each node until a quorum is reached, triggering an end to the round and prompting the node to create
+a certificate for the block and write it to the ledger. At that point, a new round is initiated and
+the process starts over.
 
-The following sections will go more in-depth on:
+<figure>
+  <Image src={consensus4} alt='Soft Vote Part 2' />
+  <figcaption>Soft Vote (Part 2)</figcaption>
+</figure>
 
-- [How to generate/renew a participation key for an account](/protocol/partkey-management/)
-- [How to mark or register the account online/offline (with the generated participation key)](/protocol/registration/)
-- [Algorand consensus staking rewards](/protocol/partkey-management)
+If a quorum is not reached in a certifying committee vote by a certain timeout then the network will
+enter recovery mode.

@@ -8,7 +8,7 @@ The AlgoKit Vanity Address feature allows you to generate a vanity Algorand addr
 
 Available commands and possible usage as follows:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task vanity-address
 Usage: algokit task vanity-address [OPTIONS] KEYWORD
 
@@ -31,24 +31,24 @@ Options:
 
 Generate a vanity address with the keyword "ALGO" at the start of the address with default output to `stdout`:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task vanity-address ALGO
 ```
 
 Generate a vanity address with the keyword "ALGO" at the start of the address with output to a file:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task vanity-address ALGO -o file -f vanity-address.txt
 ```
 
 Generate a vanity address with the keyword "ALGO" anywhere in the address with output to a file:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task vanity-address ALGO -m anywhere -o file -f vanity-address.txt
 ```
 
 Generate a vanity address with the keyword "ALGO" at the start of the address and store into a [wallet alias](/build/algokit/cli/features/task_cmd/wallet):
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task vanity-address ALGO -o alias -a my-vanity-address
 ```
