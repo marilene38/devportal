@@ -34,7 +34,7 @@ For more information, see:
 
    You can place the binary in any directory. These instructions use an indexer folder in the current user's home directory:
 
-   ```bash
+   ```shell showLineNumbers=false frame=terminal
    mkdir ~/indexer
    cd /path/to/download-dir
    tar -xf <your-os-tarfile> -C ~/indexer
@@ -56,7 +56,7 @@ For more information, see:
 
    To run the Indexer as a reader (without connecting to an Algorand node), use the `--postgres` or `-P` option with a valid PostgreSQL connection string:
 
-   ```bash
+   ```shell showLineNumbers=false frame=terminal
    ./algorand-indexer daemon --data-dir /tmp -P "host=[your-host] port=[your-port] user=[uname] password=[password] dbname=[ledgerdb] sslmode=disable" --no-algod
    ```
 
@@ -73,7 +73,7 @@ For more information, see:
 
    The Indexer's `--data-dir` flag specifies where it writes its own data and is distinct from the algod data directory mentioned above.
 
-   ```bash
+   ```shell showLineNumbers=false frame=terminal
    # Start with local data directory
    ./algorand-indexer daemon --data-dir /tmp -P "host=[your-host] port=[your-port] user=[uname] password=[password] dbname=[ledgerdb] sslmode=disable" --algod=~/node/data
 
