@@ -67,8 +67,8 @@ mkdir data
 ./conduit init > data/conduit.yml
 ```
 
-A Conduit pipeline is composed of 3 components, [Importers](http://localhost:4321/nodes/installation/conduit/plugins/importers/), [Processors](http://localhost:4321/nodes/installation/conduit/plugins/processors/), and [Exporters](http://localhost:4321/nodes/installation/conduit/plugins/exporters/).
-Every pipeline must define exactly 1 Importer, exactly 1 Exporter, and can optionally define a series of 0 or more Processors. See a full list of available plugins with `conduit list` or the [plugin documentation page](http://localhost:4321/nodes/installation/conduit/plugins).
+A Conduit pipeline is composed of 3 components, Importers, Processors, and Exporters.
+Every pipeline must define exactly 1 Importer, exactly 1 Exporter, and can optionally define a series of 0 or more Processors. See a full list of available plugins with `conduit list`.
 
 Here is an example `conduit.yml` that configures two plugins:
 
@@ -118,4 +118,4 @@ For a list of available plugins and instructions on how to use them, see the [Ex
 
 ### External Plugin Development
 
-See the [Plugin Development](./docs/PluginDevelopment.md) page for building a plugin.
+See the [Plugin Development](https://github.com/algorand/conduit/blob/master/docs/PluginDevelopment.md) page for building a plugin.

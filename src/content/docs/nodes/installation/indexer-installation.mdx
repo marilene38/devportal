@@ -28,32 +28,32 @@ For more information, see:
 
 ## Indexer V2 Installation and Setup
 
+### Installation
+
 <Steps>
 
-1. Download the Indexer Binaries
+1. Download the Indexer binaries from [GitHub](https://github.com/algorand/indexer/releases).
 
-   The Indexer binaries are available on [GitHub](https://github.com/algorand/indexer/releases).
+2. Extract the binaries:
 
-_**Info**: Additional installation methods will be available in the near future._
+   You can place the binary in any directory. These instructions use an indexer folder in the current
+   user's home directory:
 
-2. Extract the Binaries
+   ```shell showLineNumbers=false frame=none
+     mkdir ~/indexer
+     cd /path/to/download-dir
+     tar -xf <your-os-tarfile> -C ~/indexer
+     cd ~/indexer/<tarfile-name>
+   ```
 
-You can place the binary in any directory. These instructions use an indexer folder in the current
-user's home directory:
+</Steps>
 
-```shell showLineNumbers=false frame=none
-mkdir ~/indexer
-cd /path/to/download-dir
-tar -xf <your-os-tarfile> -C ~/indexer
-cd ~/indexer/<tarfile-name>
-```
+### Running the Indexer
 
-3. Run the Indexer
+The Indexer provides two main services:
 
-   The Indexer provides two main services:
-
-   1. Loading ledger data into a PostgreSQL database
-   2. Providing a REST API to search this ledger data
+1.  Loading ledger data into a PostgreSQL database
+2.  Providing a REST API to search this ledger data
 
 You can configure the Indexer to point to a database loaded by another Indexer instance, and the
 database doesn't need to be on the current node. This allows for a setup where one Indexer loads the
@@ -79,7 +79,9 @@ either:
 - The Algorand Node data directory (`--algod`), if the node is on the same machine
 - The algod network host and port string (`--algod-net`) with the API token (`--algod-token`)
 
-_**Note**: Create and start the database before launching the Indexer._
+:::note
+Create and start the database before launching the Indexer.
+:::
 
 The Indexer's `--data-dir` flag specifies where it writes its own data and is distinct from the
 algod data directory mentioned above.
@@ -92,7 +94,9 @@ algod data directory mentioned above.
 ./algorand-indexer daemon --data-dir /tmp -P "host=[your-host] port=[your-port] user=[uname] password=[password] dbname=[ledgerdb] sslmode=disable" --algod-net="http://[your-host]:[your-port]" --algod-token="[your-api-token]"
 ```
 
-_**Info**: Initial database loading will take considerable time._
+:::note
+Initial database loading will take considerable time.
+:::
 
 ### REST API Configuration
 
@@ -118,4 +122,6 @@ To enable indexing on a node:
 1. Set the `isIndexerActive` configuration parameter to `true`
 2. Ensure the node is in archival mode
 
-_**Warning**: Enabling indexing will increase the node's disk space requirements._
+:::caution
+Enabling indexing will more than double the node's disk space requirements.
+:::
