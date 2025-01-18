@@ -242,12 +242,12 @@ export default defineConfig({
           collapsed: false,
           items: [
             {
-              label: 'NodeKit Quick Start',
-              link: 'nodes/nodekit-quick-start',
-            },
-            {
               label: 'Overview',
               link: 'nodes/overview',
+            },
+            {
+              label: 'NodeKit Quick Start',
+              link: 'nodes/nodekit-quick-start',
             },
             {
               label: 'Node Types',
