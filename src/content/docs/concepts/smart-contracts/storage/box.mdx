@@ -36,7 +36,7 @@ Boxes are helpful in many scenarios:
 - Applications requiring larger storage blocks that can not fit the existing global state key-value pairs.
 - Applications that require storing arbitrary maps or hash tables.
 
-## Box Array¶
+## Box Array
 
 When interacting with apps via [app call transactions](/concepts/transactions/overview), developers need a way to specify which boxes an application will access during execution. The box array is part of the [smart contract reference arrays](FUTURELINK) alongside the apps, accounts, and assets arrays. These arrays define the objects the app call will interact with (read, write, or send transactions to).
 
@@ -62,7 +62,7 @@ Box refs can be added to the boxes array using `goal` or any SDKs.
 goal app method --app-id=53 --method="add_member2()void" --box="53,str:BoxA" --from=CONP4XZSXVZYA7PGYH7426OCAROGQPBTWBUD2334KPEAZIHY7ZRR653AFY
 ```
 
-## Minimum Balance Requirement For Boxes¶
+## Minimum Balance Requirement For Boxes
 
 Boxes are created by a smart contract and raise the minimum balance requirement (MBR) in the contract’s ledger balance. This means that a contract intending to use boxes must be funded beforehand.
 
@@ -97,7 +97,7 @@ The app call's boxes array must reference a box name and app ID to be allocated.
 
 Boxes may only be accessed (whether reading or writing) in a Smart Contract’s approval program, not in a clear state program.
 
-### Creating a Box¶
+### Creating a Box
 
 The AVM supports two opcodes `box_create` and `box_put` that can be used to create a box. The box_create opcode takes two parameters, the name and the size in bytes for the created box. The `box_put` opcode takes two parameters as well. The first parameter is the name and the second is a byte array to write. Because the AVM limits any element on the stack to 4kb, `box_put` can only be used for boxes with length `<= 4kb.`
 
@@ -195,7 +195,7 @@ When using `box_replace`, the box size can not increase. This means the call wil
 
 The following sections cover the details of manipulating boxes within a smart contract.
 
-### Getting a Box Length¶
+### Getting a Box Length
 
 The AVM offers the `box_len` opcode to retrieve the length of a box and verify its existence. The opcode takes the box key name and returns two unsigned integers (uint64). The top-of-stack is either a 0 or 1, where 1 indicates the box's existence, and 0 indicates it does not exist. The next is the length of the box if it exists; otherwise, it is 0.
 
@@ -214,7 +214,7 @@ The AVM offers the `box_len` opcode to retrieve the length of a box and verify i
   </TabItem>
 </Tabs>
 
-### Deleting a Box¶
+### Deleting a Box
 
 Only the app that created a box can delete it. If an app is deleted, its boxes are not deleted. The boxes will not be modifiable but can still be queried using the SDKs. The minimum balance will also be locked. (The correct cleanup design is to look up the boxes from off-chain and call the app to delete all its boxes before deleting the app itself.)
 
@@ -274,7 +274,7 @@ TEAL: Different opcodes can be used
 | box_put     | replaces the contents of box A with byte-array B. It fails if A exists and len(B) != len(box A). It creates A if it does not exist |
 | box_replace | writes byte-array C into box A, starting at offset B. It fails if A does not exist or the byte range is outside A’s size           |
 
-Python SDK: Different functions of the box can be used. The detailed API reference can be found [here](https://algorandfoundation.github.io/puya/api-algopy.html#algopy.Box)
+Different functions of the box can be used. The detailed API reference can be found [here](https://algorandfoundation.github.io/puya/api-algopy.html#algopy.Box)
 
 ## Example: Storing struct in box map
 
