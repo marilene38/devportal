@@ -1,3 +1,6 @@
+[submodule "imports/repos/nodekit"]
+	path = imports/repos/nodekit
+	url = https://github.com/algorandfoundation/nodekit
 [submodule "imports/repos/puya"]
 	path = imports/repos/puya
 	url = https://github.com/algorandfoundation/puya
