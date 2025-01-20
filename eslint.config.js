@@ -4,7 +4,7 @@ import eslintPluginAstro from 'eslint-plugin-astro';
 import eslintConfigPrettier from "eslint-config-prettier";
 export default [
   {
-    ignores: ["examples/*", "dist/*", ".astro", "src/env.d.ts", "src/global.d.ts"],
+    ignores: ["examples/*", "dist/*", ".astro", "src/env.d.ts", "src/global.d.ts", "imports/*"],
   },
   eslintConfigPrettier,
   eslint.configs.recommended,
