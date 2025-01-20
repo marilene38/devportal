@@ -1,9 +1,10 @@
 ---
-name: "🐛 Bug report"
-about: Create a report to help us improve
-title: "bug: "
+name: "\U0001F41B Bug Report"
+about: Report a bug with the how the website functions
+title: 'bug: '
 labels: bug
 assignees: ''
+
 ---
 
 **Describe the bug**

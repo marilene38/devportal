@@ -1,10 +1,36 @@
 #pragma version 10
 
-delete_boxes:
+delete_box:
     proto 0 0
+    byte "box_int"
+    box_del
+    pop
+    byte "b"
+    box_del
+    pop
     byte 0x424f585f43
     box_del
     pop
+    byte "box_int"
+    box_get
+    swap
+    btoi
+    int 42
+    swap
+    uncover 2
+    select
+    int 42
+    ==
+    assert
+    byte "b"
+    box_get
+    byte 0x00023432
+    cover 2
+    select
+    extract 2 0
+    byte 0x3432
+    ==
+    assert
     byte 0x424f585f43
     box_get
     byte 0x00023432
@@ -13,17 +39,9 @@ delete_boxes:
     byte 0x00023432
     ==
     assert
-    byte 0x424f585f43
-    box_get
-    !
-    assert
-    byte 0x000130
-    ==
-    assert
     retsub
 
-
-box_map_del:
+delete_box_map:
     proto 1 0
     frame_dig -1
     itob
@@ -44,4 +62,11 @@ delete_box_ref:
     byte "box_ref"
     box_del
     pop
+    byte "blob"
+    box_get
+    !
+    assert
+    byte 0x
+    ==
+    assert
     retsub

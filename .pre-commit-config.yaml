@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: eslint
         name: eslint
-        description: 'eslint: Find and fix problems in your JavaScript code'
+        description: "eslint: Find and fix problems in your JavaScript code"
         entry: npx eslint .
         language: node
         fail_fast: true

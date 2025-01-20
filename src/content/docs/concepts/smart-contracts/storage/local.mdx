@@ -6,10 +6,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
 import importedCode from '/src/env.d.ts?raw';
 import { Aside } from '@astrojs/starlight/components';
-import createLocalStatePython from '/examples/smart-contracts/py/storage-local-init-py.py?raw';
-import getLocalStoragePython from '/examples/smart-contracts/py/storage-local-init-py.py?raw';
-import setLocalStoragePython from '/examples/smart-contracts/py/storage-local-init-py.py?raw';
-import deleteLocalStoragePython from '/examples/smart-contracts/py/storage-local-init-py.py?raw';
+import RemoteCode from '/src/components/RemoteCode.astro';
 import {
   getLocalStorageTEAL,
   setLocalStorageTEAL,
@@ -31,11 +28,16 @@ Local storage is allocated when an account opts into a smart contract by submitt
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={createLocalStatePython} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-contract-examples/smart_contracts/local_storage/contract.py'
+      snippet='INIT_LOCAL_STORAGE'
+      lang='py'
+      title='Init Local Storage'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
-
-Refer [Sinppet Source](https://github.com/Asthay97/puya/blob/feature/kitchen-sink/examples/kitchen-sink/contract.py#L13-L21) to allocate local storage value for different data types
 
 ### Reading from Local State
 
@@ -52,20 +54,26 @@ Branching logic is typically used after calling the \_ex opcodes to handle cases
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={getLocalStoragePython} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-contract-examples/smart_contracts/local_storage/contract.py'
+      snippet='READ_LOCAL_STATE'
+      lang='py'
+      title='Read Local State'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='TEAL' icon='algorand-icon'>
     <Code code={getLocalStorageTEAL} lang='TEAL' />
   </TabItem>
 </Tabs>
 
-Refer [Sinppet Source](https://github.com/Asthay97/puya/blob/feature/kitchen-sink/examples/kitchen-sink/contract.py#L87-L99) to get local storage value for different data types
+Refer [Sinppet Source](https://github.com/algorandfoundation/devportal-code-examples/blob/main/projects/python-contract-examples/smart_contracts/local_storage/contract.py#L68-L138) to get local storage value for different data types
 
 The local state values of a smart contract can also be read externally using cli. The below command reads are non-transactional queries that retrieve the current state of the contract.
 
 Example command:
 
-```shell {1} showLineNumbers=false frame=terminal
+```shell showLineNumbers=false frame=terminal
 goal app read --app-id 1 --guess-format --local --from [ADDRESS]
 ```
 
@@ -109,14 +117,20 @@ To write to local state, use the `app_local_put` opcode. An additional account p
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={setLocalStoragePython} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-contract-examples/smart_contracts/local_storage/contract.py'
+      snippet='WRITE_LOCAL_STATE'
+      lang='py'
+      title='Write Local State'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='TEAL' icon='algorand-icon'>
     <Code code={setLocalStorageTEAL} lang='TEAL' />
   </TabItem>
 </Tabs>
 
-Refer [Sinppet Source](https://github.com/Asthay97/puya/blob/feature/kitchen-sink/examples/kitchen-sink/contract.py#L102-L122) to set local storage value for different data types
+Refer [Sinppet Source](https://github.com/algorandfoundation/devportal-code-examples/blob/main/projects/python-contract-examples/smart_contracts/local_storage/contract.py#L147-L175) to set local storage value for different data types
 
 ### Deletion of Local State
 
@@ -126,14 +140,20 @@ An account can request to clear its local state using a closeout transaction or 
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={deleteLocalStoragePython} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-contract-examples/smart_contracts/local_storage/contract.py'
+      snippet='DELETE_LOCAL_STATE'
+      lang='py'
+      title='Delete Local State'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='TEAL' icon='algorand-icon'>
     <Code code={deleteLocalStorageTEAL} lang='TEAL' />
   </TabItem>
 </Tabs>
 
-Refer [Sinppet Source](https://github.com/Asthay97/puya/blob/feature/kitchen-sink/examples/kitchen-sink/contract.py#L67-L84) to delete local storage value for different data types
+Refer [Sinppet Source](https://github.com/algorandfoundation/devportal-code-examples/blob/main/projects/python-contract-examples/smart_contracts/local_storage/contract.py#L184-L195) to delete local storage value for different data types
 
 ## Summary of Local State Operations
 
@@ -150,13 +170,14 @@ TEAL: Different opcodes can be used
 | app_local_get_ex | Check if local data exists for the current app |
 | app_local_get_ex | Check if local data exists for the other app   |
 
-Python SDK: Different functions of LocalState class can be used. The detailed api reference can be found [here](https://algorandfoundation.github.io/puya/api-algopy.html#algopy.LocalState)
-| Function | Description |
-|---------------------------|-----------------------------------------------------------|
-| LocalState(type\_) | Initialize a local state with the specified data type |
-| getitem(account) | Get data for the given account |
-| get(account, default) | Get data for the given account, or a default value if not found |
-| maybe(account) | Get data for the given account, and a boolean indicating if it exists |
-| setitem(account, value) | Set data for the given account |
-| delitem(account) | Delete data for the given account |
-| contains(account) | Check if data exists for the given account |
+Different functions of LocalState class can be used. The detailed api reference can be found [here](https://algorandfoundation.github.io/puya/api-algopy.html#algopy.LocalState)
+
+| Function                | Description                                                           |
+| ----------------------- | --------------------------------------------------------------------- |
+| LocalState(type\_)      | Initialize a local state with the specified data type                 |
+| getitem(account)        | Get data for the given account                                        |
+| get(account, default)   | Get data for the given account, or a default value if not found       |
+| maybe(account)          | Get data for the given account, and a boolean indicating if it exists |
+| setitem(account, value) | Set data for the given account                                        |
+| delitem(account)        | Delete data for the given account                                     |
+| contains(account)       | Check if data exists for the given account                            |

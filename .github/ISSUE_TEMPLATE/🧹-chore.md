@@ -1,9 +1,10 @@
 ---
-name: "🧹 Chore"
-about: Housekeeping issues
-title: "chore: "
-labels: 'task'
+name: "\U0001F9F9 Chore"
+about: Code housekeeping & miscellaneous matters
+title: 'chore: '
+labels: task
 assignees: ''
+
 ---
 
 
