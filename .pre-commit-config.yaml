@@ -1,7 +1,6 @@
 repos:
   - repo: local
     hooks:
-
       - id: eslint
         name: eslint
         description: "eslint: Find and fix problems in your JavaScript code"
@@ -13,9 +12,9 @@ repos:
 
       - id: prettier
         name: prettier
-        description: "prettier: Opinionated Code Formatter"
+        description: 'prettier: Opinionated Code Formatter'
         entry: npx prettier -c
-        files: "^src"
+        files: '^src'
         language: node
         fail_fast: true
         minimum_pre_commit_version: 2.9.2
@@ -23,7 +22,7 @@ repos:
 
       - id: astro
         name: astro
-        description: "astro check: Check your project for errors"
+        description: 'astro check: Check your project for errors'
         entry: npx astro check
         language: node
         fail_fast: true

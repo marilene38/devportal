@@ -8,7 +8,7 @@ The AlgoKit Transfer feature allows you to transfer algos and assets between two
 
 Available commands and possible usage as follows:
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task transfer
 Usage: algokit task transfer [OPTIONS]
 
@@ -32,7 +32,7 @@ Options:
 
 ### Transfer algo between accounts on LocalNet
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task transfer -s {SENDER_ALIAS OR SENDER_ADDRESS} -r {RECEIVER_ALIAS OR RECEIVER_ADDRESS} -a {AMOUNT}
 ```
 
@@ -43,7 +43,7 @@ By default:
 
 ### Transfer asset between accounts on TestNet
 
-```bash
+```shell showLineNumbers=false frame=none
 > algokit task transfer -s {SENDER_ALIAS OR SENDER_ADDRESS} -r {RECEIVER_ALIAS OR RECEIVER_ADDRESS} -a {AMOUNT} --id {ASSET_ID} --network testnet
 ```
 

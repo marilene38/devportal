@@ -54,3 +54,27 @@ ul.top-level li {
   --sl-text-code: var(--sl-text-sm);
   --sl-text-code-sm: var(--sl-text-xs);
 }
+
+/* Center column overrides for ContentPanel.astro */
+:root .sl-container {
+  --sl-content-width: auto;
+  /* --sl-content-margin-inline: 0; */
+  margin-inline: 0;
+}
+
+/* Center images and their captions in the content panel  */
+/* Center images */
+.content-panel figure img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+}
+
+/* Style and center captions */
+.content-panel figure figcaption {
+  margin-top: 0.5em;
+  text-align: center; /* centers the caption text */
+  font-style: italic; /* optional style for captions */
+  color: #666;
+}
