@@ -5,24 +5,24 @@ description: An intro to understand the primary concepts for running a node
 
 ## What is a node
 
-A node is a computer, running the algorand software (algod), that participates in the Algorand
+A node is a computer, running the Algorand software (algod), that participates in the Algorand
 network playing a crucial role in maintaining the blockchain, by processing blocks, participating in
 the consensus protocol or storing data.
 
 There are two primary types of nodes in Algorand:
 
-- Relay Nodes: Primarily facilitate communication by routing data to connected non-relay nodes. They
+- **Relay Nodes:** Primarily facilitate communication by routing data to connected non-relay nodes. They
   interact with other relay nodes and distribute blocks to all linked non-relay nodes.
 
-- Non-Relay Nodes: Connect exclusively to relay nodes and can participate in consensus. While
+- **Non-Relay Nodes:** Connect exclusively to relay nodes and can participate in consensus. While
   non-relay nodes may establish connections with multiple relay nodes, they do not connect directly
   to other non-relay nodes.
 
 Also, depending on configuration, the nodes can be categorized as following:
 
-- Archival Nodes: Store the entire blockchain ledger.
-- Non-Archival Nodes: Retain only the last 1000 blocks.
-- Participation Nodes: Actively engage in consensus by proposing and voting on blocks.
+- **Archival Nodes:** Store the entire blockchain ledger.
+- **Non-Archival Nodes**: Retain only the last 1000 blocks.
+- **Participation Nodes:** Actively engage in consensus by proposing and voting on blocks.
 
 More information about node types can be found [here](/nodes/types).
 
@@ -41,13 +41,14 @@ consensus thresholds.
 [This section](/protocol/overview) provides detailed information about consensus and participation
 
 ## Why run an Algorand node?
+
 Running a node on the Algorand network has several benefits that enhance the blockchain’s security, decentralization, and functionality. Below are the key points explaining why running a node is essential:
 
 - **Support Network Decentralization**: Each node contributes to the decentralization and security of the Algorand network, making it more resistant to attacks and single points of failure. Nodes worldwide improve geographic diversity and network robustness.
 
-- **Participate in Consensus**: By running a participation node, you can propose and vote on new blocks, directly contributing to the integrity of the blockchain. Algorand’s consensus protocol allows participation without locking or risking your ALGO. 
+- **Participate in Consensus**: By running a participation node, you can propose and vote on new blocks, directly contributing to the integrity of the blockchain. Algorand’s consensus protocol allows participation without locking or risking your ALGO.
 
-- **Earn Staking Rewards**: Your ALGO tokens automatically earn rewards for participating in the consensus process, unlike systems that require explicit staking or delegation. Your tokens remain spendable at all times, providing flexibility without compromising on rewards. Refer to [Staking Rewards](/protocol/staking-rewards) for more details. 
+- **Earn Staking Rewards**: Your ALGO tokens automatically earn rewards for participating in the consensus process, unlike systems that require explicit staking or delegation. Your tokens remain spendable at all times, providing flexibility without compromising on rewards. Refer to [Staking Rewards](/protocol/staking-rewards) for more details.
 
 - **Direct Access to Blockchain Data with Advanced Querying**: Running a node provides direct access to the Algorand blockchain, enabling you to submit transactions, access real-time data. Additionally, running an archival node with an indexer enhances this capability by allowing advanced querying for specific transactions, accounts, or assets.
 
@@ -57,7 +58,7 @@ Running a node on the Algorand network has several benefits that enhance the blo
 
 You can run an Algorand node (the algod software) using any of the following methods:
 
-- [NodeKit](/nodes/nodekit-reference/commands/nodekit) – A streamlined CLI tool that simplifies
+- [NodeKit](/nodes/nodekit-quick-start) – A streamlined CLI tool that simplifies
   deploying and managing Algorand nodes. It offers pre-configured environments, making it ideal for
   developers and operators looking to quickly set up nodes for various use cases.
 - Package Manager (Debian, Fedora and CentOS) – Install via official repositories, enabling standard
