@@ -8,3 +8,8 @@ extend-exclude = [
 
 [default.extend-words]
 Allo = "Allo"
+
+[default]
+extend-ignore-re = [
+  "(?i)[A-Z2-7]{26,}",  # Matches base32-encoded strings
+]

@@ -45,11 +45,10 @@ await client.refund('transaction_id');
 ```
 
 <Aside>
-  To perform a refund you need to perform a payment transaction yourself first
-  by sending funds back to TestNet Dispenser, then you can invoke this `refund`
-  endpoint and pass the `txn_id` of your refund txn. You can obtain dispenser
-  address by inspecting the `sender` field of any issued fund transaction
-  initiated via [fund](#funding-an-account).
+  To perform a refund you need to perform a payment transaction yourself first by sending funds back
+  to TestNet Dispenser, then you can invoke this `refund` endpoint and pass the `txn_id` of your
+  refund txn. You can obtain dispenser address by inspecting the `sender` field of any issued fund
+  transaction initiated via [fund](#funding-an-account).
 </Aside>
 
 ## Getting Current Limit

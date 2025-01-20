@@ -1,42 +1,54 @@
 #pragma version 10
 
-length_box_map:
-    proto 0 0
+box_map_length:
+    proto 0 1
     int 0
     itob
     dup
-    box_del
-    pop
-    dup
-    byte "Value"
-    box_put
-    dup
+    box_len
+    bury 1
+    bnz box_map_length_after_if_else@2
+    int 0
+    swap
+    retsub
+
+box_map_length_after_if_else@2:
+    frame_dig 0
     box_len
     assert
-    int 5
-    ==
-    assert
-    box_len
-    assert
-    int 5
-    ==
-    assert
+    swap
     retsub
 
 length_box_ref:
-    proto 0 0
-    byte "box_ref"
+    proto 0 1
+    byte "blob"
     int 32
     box_create
-    pop
-    byte "box_ref"
-    box_len
-    bury 1
-    assert 
-    byte "box_ref"
+    assert
+    byte "blob"
     box_len
     assert
-    int 64
+    retsub
+
+box_map_struct_length:
+    proto 0 1
+    byte 0x75736572730000000000000000
+    box_del
+    pop
+    byte 0x75736572730000000000000000
+    byte 0x0012000000000000004600000000000000020008746573744e616d65
+    box_put
+    byte 0x75736572730000000000000000
+    box_len
+    assert
+    int 28
     ==
     assert
+    byte 0x75736572730000000000000000
+    box_len
+    assert
+    int 28
+    ==
+    assert
+    int 1
     retsub

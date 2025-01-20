@@ -1,6 +1,6 @@
 #pragma version 10
 
-test_box_ref:
+manipulate_box_ref:
     proto 0 0
     byte "blob"
     int 32
@@ -29,10 +29,29 @@ test_box_ref:
     int 0
     int 69
     box_extract
-    cover 2
+    dig 2
+    dig 2
     concat
     byte 0x68656c6c6f
     concat
+    ==
+    assert
+    byte "blob"
+    box_del
+    assert
+    swap
+    concat
+    byte "blob"
+    swap
+    box_put
+    byte "blob"
+    box_len
+    bury 1
+    assert
+    byte "blob"
+    box_len
+    assert
+    int 64
     ==
     assert
     retsub

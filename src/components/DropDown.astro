@@ -1,7 +1,7 @@
 ---
 const { label, items } = Astro.props;
 const menuBtnId = `menu-button-${label.toLowerCase().replace(' ', '-')}`;
-const menuId = `menu-${label.toLowerCase().replace(' ', '-')}`;
+const aMenuId = `menu-${label.toLowerCase().replace(' ', '-')}`;
 import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
 ---
 
@@ -29,7 +29,7 @@ import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
     </button>
   </div>
   <div
-    id={menuId}
+    id={aMenuId}
     class='hidden absolute opacity-0 right-0 z-10 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
     role='menu'
     aria-orientation='vertical'
@@ -41,9 +41,9 @@ import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
     </div>
   </div>
 </div>
-<script is:inline define:vars={{ menuBtnId, menuId }}>
+<script is:inline define:vars={{ menuBtnId, aMenuId }}>
   const button = document.getElementById(menuBtnId);
-  const menu = document.getElementById(menuId);
+  const menu = document.getElementById(aMenuId);
   if (!button || !menu) {
     throw new Error('Menu button or menu not found');
   }
