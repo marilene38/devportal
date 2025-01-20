@@ -51,7 +51,7 @@ async function transformNodekitDocs() {
 
         // Add order property for nodekit.md
         if (file === 'nodekit.md') {
-          frontmatter += '\nsidebar:\n\torder: 1';
+          frontmatter += '\nsidebar:\n    order: 1';
         }
 
         // Replace old frontmatter with new
@@ -63,12 +63,12 @@ async function transformNodekitDocs() {
         /\[([^\]]+)\]\(\/reference\/nodekit(?:\/([^/)]+)(?:\/([^/)]+))?)?\)/g,
         (match, text, command, subcommand) => {
           if (subcommand) {
-            return `[${text}](./nodekit-${command}-${subcommand})`;
+            return `[${text}](/nodes/nodekit-reference/commands/${command}-${subcommand})`;
           }
           if (command) {
-            return `[${text}](../nodekit-${command})`;
+            return `[${text}](/nodes/nodekit-reference/commands/${command})`;
           }
-          return `[${text}](../nodekit)`;
+          return `[${text}](/nodes/nodekit-reference/commands/nodekit)`;
         },
       );
 
