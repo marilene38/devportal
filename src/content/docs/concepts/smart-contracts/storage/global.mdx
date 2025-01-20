@@ -78,7 +78,7 @@ These reads are non-transactional queries that retrieve the current state of the
 
 Example command:
 
-```shell {1} showLineNumbers=false frame=terminal
+```shell showLineNumbers=false frame=terminal
 goal app read --app-id 1 --guess-format --global --from [ADDRESS]
 ```
 
@@ -112,7 +112,7 @@ Interpretation:
 
 The app_global_get_ex is used to read not only the global state of the current contract but any contract that is in the applications array. To access these foreign apps, they must be passed in with the application call.
 
-```shell {1} showLineNumbers=false frame=terminal
+```shell showLineNumbers=false frame=terminal
 goal app call --foreign-app APP1ID --foreign-app APP2ID
 ```
 
