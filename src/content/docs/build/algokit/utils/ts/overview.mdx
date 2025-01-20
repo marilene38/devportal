@@ -29,18 +29,12 @@ If you prefer Python there's an equivalent [Python utility library](/build/algok
 ## Features
 
 <CardGrid>
-  <LinkCard
-    title='Account Management'
-    href='/build/algokit/utils/ts/account/'
-  />
+  <LinkCard title='Account Management' href='/build/algokit/utils/ts/account/' />
   <LinkCard title='Client Management' href='/build/algokit/utils/ts/client/' />
   <LinkCard title='App Client' href='/build/algokit/utils/ts/app-client/' />
   <LinkCard title='App Deployment' href='/build/algokit/utils/ts/app-deploy/' />
   <LinkCard title='Algo Transfer' href='/build/algokit/utils/ts/transfer/' />
-  <LinkCard
-    title='Testnet Dispenser Client'
-    href='/build/algokit/utils/ts/dispenser/'
-  />
+  <LinkCard title='Testnet Dispenser Client' href='/build/algokit/utils/ts/dispenser/' />
   <LinkCard title='Reference' href='/build/algokit/utils/ts/reference/' />
 </CardGrid>
 
@@ -134,8 +128,8 @@ To do this you need to create a logging translator that exposes the following in
 
 <Code code={importedCodeLogger} lang='ts' title='Typescript' />
 :::note this interface type is directly compatible with
-[Winston](https://github.com/winstonjs/winston) so you should be able to pass
-AlgoKit a Winston logger. :::
+[Winston](https://github.com/winstonjs/winston) so you should be able to pass AlgoKit a Winston
+logger. :::
 
 By default, the [`consoleLogger`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/types_logging.md#consolelogger) is set as the logger, which will send log messages to the various `console.*` methods for all logs apart from verbose logs. There is also a [`nullLogger`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/types_logging.md#nulllogger) if you want to disable logging, or various leveled console loggers: [`verboseConsoleLogger`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/types_logging.md#verboseconsolelogger) (also outputs verbose logs), [`infoConsoleLogger`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/types_logging.md#infoconsolelogger) (only outputs info, warning and error logs), [`warningConsoleLogger`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/types_logging.md#warningconsolelogger) (only outputs warning and error logs).
 

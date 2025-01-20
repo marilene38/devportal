@@ -12,18 +12,18 @@ When a node’s telemetry is enabled, a telemetry state (which wraps the node’
 
 A node’s telemetry status can be managed using the diagcfg CLI, which modifies the node’s **_logging.config_** file. This file instructs the node’s construction of its `TelemetryConfig` struct, defining the following fields:
 
-| Key                | Data type       | Description                                                                                                                                                 |
-| ------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Enable             | bool            | Determines whether Algorand remote logging is enabled for this node.                                                                                        |
-| SendToLog          | bool            | Determines whether telemetry entries should also be logged locally.                                                                                      |
-| URI                | string          | The URI for the elastic search server to be logged to. Leave blank for default.                                                                             |
-| Name               | string          | The machine's name for remote logging purposes.                                                                                                        |
+| Key                | Data type       | Description                                                                                                                                           |
+| ------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Enable             | bool            | Determines whether Algorand remote logging is enabled for this node.                                                                                  |
+| SendToLog          | bool            | Determines whether telemetry entries should also be logged locally.                                                                                   |
+| URI                | string          | The URI for the elastic search server to be logged to. Leave blank for default.                                                                       |
+| Name               | string          | The machine's name for remote logging purposes.                                                                                                       |
 | GUID               | string          | A unique identifier for the node’s telemetry logging. Except in contrived circumstances, one GUID should exist across all nodes running on a machine. |
-| MinLogLevel        | logrus.LogLevel | The lowest event significance that should be logged.                                                                                                        |
-| ReportHistoryLevel | logrus.LogLevel | The logrus importance level at which the node’s history will be reported. It must be greater than or equal to MinLogLevel.                                     |
-| FilePath           | string          | The location to which the logging.config file instance of the struct will be saved.                                                                         |
-| UserName           | string          | The username credential for establishing an elastic telemetry hook.                                                                                         |
-| Password           | string          | The password credential for establishing an elastic telemetry hook.                                                                                         |
+| MinLogLevel        | logrus.LogLevel | The lowest event significance that should be logged.                                                                                                  |
+| ReportHistoryLevel | logrus.LogLevel | The logrus importance level at which the node’s history will be reported. It must be greater than or equal to MinLogLevel.                            |
+| FilePath           | string          | The location to which the logging.config file instance of the struct will be saved.                                                                   |
+| UserName           | string          | The username credential for establishing an elastic telemetry hook.                                                                                   |
+| Password           | string          | The password credential for establishing an elastic telemetry hook.                                                                                   |
 
 An Algorand node host can configure their node’s telemetry before running it by modifying the logging.config file in their node’s data directory, or deleting this file and modifying their **_~/.algorand/logging.config_** file. In addition, the user can alter a running node’s telemetry status using the `diagcfg` CLI
 
@@ -32,5 +32,3 @@ An Algorand node host can configure their node’s telemetry before running it b
 The file named **_logging.config_** informs the initial configuration of a node’s telemetry. There will typically be at least two **_logging.config_** files on a machine running a node: one for each node the machine runs, stored in that node’s data directory, and a global config file stored in **_~/.algorand/_**. This global file is generally only accessed when a node-specific config file cannot be found.
 
 However, the `diagcfg telemetry` command tree, which replaces the functionality of **goal logging**, updates or creates both the local and global config files when executing any command that changes the node’s telemetry state. It only fails to create the local file if no dataDir is provided, in which case there’s presumably also no node running.
-
-
