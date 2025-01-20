@@ -9,6 +9,8 @@ import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
 
 export default defineConfig({
+  output: 'static',
+  viewTransitions: true,
   integrations: [
     starlight({
       title: 'Algorand Developer Portal',
@@ -319,10 +321,11 @@ export default defineConfig({
             },
             {
               label: 'NodeKit Reference',
+              collapsed: true,
               items: [
                 {
                   label: 'Commands',
-                  collapsed: true,
+                  collapsed: false,
                   autogenerate: { directory: 'nodes/nodekit-reference/commands' },
                 },
               ],
