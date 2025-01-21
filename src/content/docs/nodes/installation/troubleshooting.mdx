@@ -27,13 +27,13 @@ a third-party provider to help set up and maintain your node.
 Ensure your `$PATH` and `$ALGORAND_DATA` environment variables are correctly set and your node is
 running. In particular:
 
-```bash showLineNumbers=false
+```bash showLineNumbers=false frame=none
 goal node status
 ```
 
 Should return something like:
 
-```goal showLineNumbers=false
+```bash showLineNumbers=false frame=none
 Last committed block: 23119736
 Time since last block: 0.1s
 Sync Time: 2.7s
@@ -107,7 +107,7 @@ withholding new blocks. Enable DNSSec in production whenever possible. :::
 
 To check your node's DNS access, run these commands:
 
-```goal showLineNumbers=false
+```bash showLineNumbers=false frame=none
 dig -t SRV _algobootstrap._tcp.mainnet.algorand.network +dnssec
 dig -t SRV _algobootstrap._tcp.mainnet.algorand.network @8.8.8.8 +dnssec
 ```
@@ -148,7 +148,7 @@ If syncing appears to need much longer than 4 weeks:
    [nodely.io](https://nodely.io/extras/) scripts (from
    [https://snap.algonode.cloud](https://snap.algonode.cloud) in the `utils` directory):
 
-```shell showLineNumbers=false frame=none
+```bash showLineNumbers=false frame=none
 #!/bin/bash
 
 # needs dig from dnsutils
