@@ -24,13 +24,15 @@ export default defineConfig({
       components: {
         ThemeProvider: './src/components/CustomThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro',
-        //Header: './src/components/Header.astro',
       },
       logo: {
         light: '/src/assets/images/portal-logo-light-mode.svg',
         dark: '/src/assets/images/portal-logo-dark-mode.svg',
         alt: 'Algorand Developer Portal',
         replacesTitle: true,
+      },
+      social: {
+        github: 'https://github.com/algorandfoundation/devportal',
       },
       favicon: '/favicon.png',
       customCss: ['/src/styles/global.css'],
