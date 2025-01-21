@@ -3,13 +3,16 @@ title: Node Artifacts
 description: This reference outlines key files, processes, and tools for managing Algorand nodes, including utilities like goal and algokey, processes like algod and kmd, and configuration files for blockchain interaction, key management, debugging, and node maintenance.
 ---
 
+This section describes the core files, directories, and executables that make up an Algorand node. Covering different tools and commands to interact with the primary node processes to manage wallets, handle blockchain data, and facilitate REST API communications. Configuration and log files are also outlined, explaining their roles in customization and troubleshooting.
+Understanding these artifacts is essential for maintaining a stable node environment. This knowledge helps diagnose issues, securely store participation keys, and manage node processes for optimal performance.
+
 ## Applications and Tools
 
 These files run as part of the Algorand node or are CLI utilities that will help to diagnose or interact with a currently running node. The primary files are described below.
 
 ### goal
 
-Goal is the command line utility used to interact with the Algorand node. It communicates with `algod` and the `kmd` process to do things like: create an account, list the ledger, examine the status of the network, or create a transaction. Goal documentation is available in the [Goal](FUTURELINK) guide.
+Goal is the command line utility used to interact with the Algorand node. It communicates with `algod` and the `kmd` process to do things like: create an account, list the ledger, examine the status of the network, or create a transaction. Goal documentation is available in the [Goal](https://developer.algorand.org/docs/clis/goal/goal/) guide.
 
 ### algod
 
@@ -26,7 +29,7 @@ Kmd is the key management daemon. This process handles interacting with clientsâ
 ### algokey
 
 algokey is a command line utility for generating, exporting and importing keys. The tool can be used to sign single and multi-signature transactions as well.
-See [algokey](FUTURELINK) documentation for more details.
+See [algokey](https://developer.algorand.org/docs/clis/algokey/algokey/) documentation for more details.
 
 ### carpenter
 
