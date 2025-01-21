@@ -83,7 +83,7 @@ An absent account is added to the `AbsentParticipationAccounts` list of the bloc
 evaluating a block accounts in `AbsentParticipationAccounts` are suspended by changing their
 `Status` to `Offline` and setting `IncentiveEligible` to false, but retaining their voting keys.
 
-#### Keyreg and `LastHeartbeat`
+#### Keyreg and LastHeartbeat
 
 As described so far, 320 rounds after a `keyreg` to go online, an account suddenly is expected to
 have proposed more recently than 20 times its new expected interval. That would be impossible, as
@@ -91,7 +91,7 @@ it was not online until that round. Therefore, when a `keyreg` is used to go onl
 `IncentiveEligible`, the account's `LastHeartbeat` field is set 320 rounds into the future. In
 effect, the account is treated as though it proposed in the first round it is online.
 
-#### Large Algo increases and `LastHeartbeat`
+#### Large Algo increases and LastHeartbeat
 
 A similar problem can occur when an online account receives Algos. 320 rounds after receiving the
 new Algos, the account's expected proposal interval will shrink. If, for example, such an account

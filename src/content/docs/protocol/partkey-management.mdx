@@ -7,7 +7,7 @@ import nodeKeyRotation from '@images/node-renew.png';
 
 Algorand provides a set of keys for voting and proposing blocks separate from account spending keys. These are called **participation keys** (sometimes referred to as **partkeys**). At a high-level, participation keys are a specialized set of keys located on a single node. Once this participation key set is associated with an account, the account has the ability to participate in consensus.
 
-Read [more](FUTURELINK:/nodes/consensus/overview#Participation-Keys) about how Participation Keys function in the Algorand Consensus Protocol.
+Read [more](/protocol/overview#participation-keys) about how Participation Keys function in the Algorand Consensus Protocol.
 
 :::note
 
@@ -18,7 +18,7 @@ Read [more](FUTURELINK:/nodes/consensus/overview#Participation-Keys) about how P
 
 ## Generate the participation key with `goal`
 
-To generate a participation key, use the [`goal account addpartkey`](FUTURELINK:/reference/algokit-cli/reference) command on the node where the participation key will reside. This command takes the address of the participating account, a range of rounds, and an optional key dilution parameter. It then generates a [VRF key pair](FUTURELINK:/protocol/consensus/#verifiable-random-function) and, using optimizations, generates a set of single-round voting keys for each round of the range specified. The VRF private key is what is passed into the VRF to determine if you are selected to propose or vote on a block in any given round.
+To generate a participation key, use the [`goal account addpartkey`](https://developer.algorand.org/docs/clis/goal/account/addpartkey/) command on the node where the participation key will reside. This command takes the address of the participating account, a range of rounds, and an optional key dilution parameter. It then generates a [VRF key pair](/protocol/overview#verifiable-random-function) and, using optimizations, generates a set of single-round voting keys for each round of the range specified. The VRF private key is what is passed into the VRF to determine if you are selected to propose or vote on a block in any given round.
 
 ```shell showLineNumbers=false frame=none showLineNumbers=false frame=none
 $ goal account addpartkey -a <address-of-participating-account> --roundFirstValid=<partkey-first-round> --roundLastValid=<partkey-last-round>
@@ -41,7 +41,7 @@ $ goal account installpartkey --partkey ALICE...VWXYZ.0.30000.partkey --delete-i
 
 ## Check that the key exists
 
-The [`goal account listpartkeys`](FUTURELINK:/reference/algokit-cli/reference) command will check for any participation keys that live on the node and display pertinent information about them.
+The [`goal account listpartkeys`](https://developer.algorand.org/docs/clis/goal/account/listpartkeys/) command will check for any participation keys that live on the node and display pertinent information about them.
 
 ```shell showLineNumbers=false frame=none showLineNumbers=false frame=none
 $ goal account listpartkeys
@@ -57,7 +57,7 @@ It is okay to have multiple participation keys on a single node. However, if you
 
 ## View participation key info
 
-Use [`goal account partkeyinfo`](FUTURELINK:/reference/algokit-cli/reference) to dump all the information about each participation key that lives on the node. This information is used to generate the online key registration transaction [described in the next section](/protocol/registration).
+Use [`goal account partkeyinfo`](https://developer.algorand.org/docs/clis/goal/account/partkeyinfo/) to dump all the information about each participation key that lives on the node. This information is used to generate the online key registration transaction described in the [next section](/protocol/registration).
 
 ```shell showLineNumbers=false frame=none showLineNumbers=false frame=none
 $ goal account partkeyinfo
@@ -76,35 +76,37 @@ Selection key:             l6MsaTt7AiCAdG+69LG/wjaprsI1vImZuGN6gQ1jS88=
 Voting key:                Rleu99r3UqlwuuhaxCTrTQUuq1C9qk5uJd2WQQEG+6U=
 ```
 
-Above is the example output from a particular node. Use these values to create the [key registration transaction](FUTURELINK:/concepts/transactions/types/#key-registration-transaction) that will place the account online.
+Above is the example output from a particular node. Use these values to create the [key registration transaction](https://developer.algorand.org/docs/get-details/transactions/transactions#key-registration-transaction) that will place the account online.
 
 ## Renew participation keys
 
 The process of renewing a participation key is simply creating a new participation key and registering it online before the previous key expires.
 
-You can renew a participation key anytime before it expires, and we recommend to do it at least two weeks (about 268,800 rounds) in advance so as not to risk [having an account marked as online that is not participating](FUTURELINK:/nodes/consensus/overview/#ensure-that-online-accounts-are-participating).
+You can renew a participation key anytime before it expires, and we recommend to do it at least two weeks (about 268,800 rounds) in advance so as not to risk having an account marked as online that is not [participating](/protocol/overview#participation-keys).
 
 The validity ranges of participation keys can overlap. For any account, at any time, at most one participation key is registered, namely the one included in the latest online key registration transaction for this account.
 
 ## Step-by-Step¶
 
 - [Create a new participation key](#generate-the-participation-key-with-goal) with a first voting round that is less than the last voting round of the current participation key. It should leave enough time to carry out this whole process (e.g. 40,000 rounds).
-- Once the network reaches the first voting round for the new key, [submit an online key registration transaction for the new participation key](/protocol/registration).
-- Wait at least 320 rounds to [validate that the node is participating](FUTURELINK:/node/consensus/online-offline-registration/#check-that-the-node-is-participating).
-- Once participation is confirmed, it is safe to [delete the old participation key](#removing-old-keys).
+- Once the network reaches the first voting round for the new key, submit an online key registration transaction for the [new participation key](/protocol/registration).
+- Wait at least 320 rounds to [validate that the node is participating](/protocol/registration#register-your-account-online).
+- Once participation is confirmed, it is safe to [delete the old participation key](/protocol/partkey-management#removing-old-keys).
 
-<Image src={nodeKeyRotation} alt='Example Key Rotation Window' />
-Figure: Example key rotation window
+<figure>
+  <Image src={nodeKeyRotation} alt='Example Key Rotation Window' />
+  <figcaption>Example key rotation window</figcaption>
+</figure>
 
 :::note
-`goal` supplies single commands to renew all participation keys on a node ([`goal account renewallpartkeys`](FUTURELINK:/reference/algokit-cli/reference)) or renew the participation key for a specific account ([`goal account renewpartkey`](FUTURELINK:/reference/algokit-cli/reference)). It is recommended that you only use these for testing purposes or for very low-stake accounts, since both of them require your private keys to be online.
+`goal` supplies single commands to renew all participation keys on a node ([`goal account renewallpartkeys`](https://developer.algorand.org/docs/clis/goal/account/renewallpartkeys/)) or renew the participation key for a specific account ([`goal account renewpartkey`](https://developer.algorand.org/docs/clis/goal/account/renewpartkey/)). It is recommended that you only use these for testing purposes or for very low-stake accounts, since both of them require your private keys to be online.
 :::
 
 ## Removing Old Keys
 
 When a participation key is no longer in use, you can remove it by running the following goal command with the participation ID of the key you want to remove.
 
-```shell showLineNumbers=false frame=none showLineNumbers=false frame=none
+```shell showLineNumbers=false frame=none
 $ goal account deletepartkey --partkeyid IWBP2447JQIT54XWOZ7XKWOBVITS2AEIBOEZXDACX5Q6DZ4Z7VHA
 ```
 

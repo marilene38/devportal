@@ -3,24 +3,6 @@ title: NodeKit Quick Start
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
-import { Image } from 'astro:assets';
-import nodekitInstall from '@images/nodekit-install.png';
-import nodekitBootstrap from '@images/nodekit-bootstrap.png';
-import nodekitFastCatchup from '@images/nodekit-fast-catchup.png';
-import nodekitStateRunning from '@images/nodekit-state-running.png';
-import nodekitStateFastCatchup from '@images/nodekit-state-fast-catchup.png';
-import nodekitStateSyncing from '@images/nodekit-state-syncing.png';
-import nodekitPartKeyGen1 from '@images/nodekit-partkey-gen-1.png';
-import nodekitPartKeyGen2 from '@images/nodekit-partkey-gen-2.png';
-import nodekitPartKeyGen3 from '@images/nodekit-partkey-gen-3.png';
-import nodekitPartKeyGen4 from '@images/nodekit-partkey-gen-4.png';
-import nodekitKeyregOnline from '@images/nodekit-keyreg-online.png';
-import nodekitLoraKeyreg from '@images/nodekit-lora-keyreg.png';
-import nodekitLoraTxnOk from '@images/nodekit-lora-txn-ok.png';
-import nodekitKeyregSuccess from '@images/nodekit-keyreg-success.png';
-import nodekitNoteProtocolVoting from '@images/nodekit-note-protocol-voting.png';
-import nodekitNavigateAccounts from '@images/nodekit-navigate-accounts.gif';
-import nodekitNavigateKeys from '@images/nodekit-navigate-keys.gif';
 
 Get up and running with NodeKit in minutes. This guide will walk you through installing NodeKit and setting up your first Algorand node, including generating participation keys for an account and registering them online.
 
@@ -45,7 +27,7 @@ wget -qO- https://nodekit.run/install.sh | bash
 </TabItem>
 <TabItem label="macOS" icon="apple">
 
-```bash showLineNumbers=false frame=none
+```sh showLineNumbers=false frame=none
 curl -fsSL https://nodekit.run/install.sh | bash
 ```
 
@@ -72,7 +54,7 @@ This will detect your operating system and download the appropriate NodeKit exec
 
 It will then immediately start the bootstrap process to get your Algorand node up and running:
 
-<Image src={nodekitInstall} alt='Screenshot of a typical NodeKit installation process' />
+![Screenshot of a typical NodeKit installation process](/src/assets/images/nodekit-install.png)
 
 ## Bootstrapping the Algorand Node
 
@@ -131,7 +113,7 @@ After you enter your password, you can now sit back and wait until your Algorand
 
 The installation phase should only take a few minutes. Your terminal will look like this during the installation phase:
 
-<Image src={nodekitBootstrap} alt='Screenshot of first phase of "nodekit bootstrap" process' />
+![Screenshot of first phase of "nodekit bootstrap" process](/src/assets/images/nodekit-bootstrap.png)
 
 ### Fast Catchup
 
@@ -139,16 +121,13 @@ After installation is complete, NodeKit will automatically start the NodeKit use
 
 This will display the progress of catching up to the latest state of the Algorand network:
 
-<Image
-  src={nodekitFastCatchup}
-  alt='Screenshot of second phase of "nodekit bootstrap" process - fast catchup'
-/>
+![Screenshot of second phase of "nodekit bootstrap" process - fast catchup](/src/assets/images/nodekit-fast-catchup.png)
 
 This process usually takes between 30-60 minutes, depending on your hardware and network connection.
 
 When the process is done, the Fast Catchup status information will disappear and the yellow `FAST-CATCHUP` status at the top will change to a green `RUNNING` state.
 
-<Image src={nodekitStateRunning} alt='Screenshot of NodeKit running in fast-catchup state' />
+![NodeKit running in fast-catchup state](/src/assets/images/nodekit-state-running.png)
 
 <details>
   <summary>Troubleshooting: Fast-catchup</summary>
@@ -162,13 +141,13 @@ Check that your node meets the [hardware requirements](/nodes/installation/manua
 
 The colored status at the top of Nodekit should be in a yellow `FAST-CATCHUP` state:
 
-<Image src={nodekitStateFastCatchup} alt='Screenshot of NodeKit fast-catchup status indicator' />
+![NodeKit fast-catchup status indicator](/src/assets/images/nodekit-state-fast-catchup.png)
 
 If not, exit nodekit with `Q` and run `./nodekit catchup` to start catching up. Then run `./nodekit` again to enter the user interface.
 
 After fast-catchup completes successfully, it is normal for a node to be in a `SYNCING` state for a few minutes:
 
-<Image src={nodekitStateSyncing} alt='Screenshot of NodeKit syncing status indicator' />
+![NodeKit syncing status indicator](/src/assets/images/nodekit-state-syncing.png)
 
 During this the `Latest Round` number should be increasing rapidly.
 
@@ -186,7 +165,7 @@ If it is not running already, start NodeKit with this command:
 
 After your node has fully synced with the network, you will see a green `RUNNING` label at the top:
 
-<Image src={nodekitStateRunning} alt='NodeKit running in fast-catchup state' />
+![NodeKit running in fast-catchup state](/src/assets/images/nodekit-state-running.png)
 
 You will only be able to generate participation keys after your node is in a `RUNNING` state
 
@@ -196,13 +175,13 @@ Press the `G` key to start generating participation keys.
 
 NodeKit will ask the account address that will be participating in consensus. Enter your account address and press `ENTER`.
 
-<Image src={nodekitPartKeyGen1} alt='NodeKit account address prompt' />
+![NodeKit account address prompt](/src/assets/images/nodekit-partkey-gen-1.png)
 
 ### Select Participation Key Duration
 
 NodeKit will ask the number of days that the participation keys will be valid for:
 
-<Image src={nodekitPartKeyGen2} alt='NodeKit key information display' />
+![NodeKit key information display](/src/assets/images/nodekit-partkey-gen-2.png)
 
 You can press the `S` key to cycle through duration modes in days / months / rounds.
 
@@ -230,11 +209,11 @@ You can:
 
 </details>
 
-<Image src={nodekitPartKeyGen3} alt='NodeKit key generation progress' />
+![NodeKit key generation progress](/src/assets/images/nodekit-partkey-gen-3.png)
 
 When your participation keys are ready, nodekit will display the key information as shown below.
 
-<Image src={nodekitPartKeyGen4} alt='NodeKit key generation complete' />
+![NodeKit key generation complete](/src/assets/images/nodekit-partkey-gen-4.png)
 
 You are now one step away from participating in Algorand consensus! The next step is to [register your keys online](#registering-your-keys-online).
 
@@ -244,17 +223,17 @@ After generating a participation key, you can press `R` to start registering it 
 
 You can also start this flow by pressing `R` on the [key information screen](#navigating-accounts-and-keys) shown below.
 
-<Image src={nodekitPartKeyGen4} alt='NodeKit key information display' />
+![NodeKit key information display](/src/assets/images/nodekit-partkey-gen-4.png)
 
 After you press `R`, you will see a link that you can follow to sign your key registration transaction:
 
-<Image src={nodekitKeyregOnline} alt='NodeKit key registration link screen' />
+![NodeKit key registration link screen](/src/assets/images/nodekit-keyreg-online.png)
 
 On most terminals, you can hold down `CTRL` or `CMD` and click the link, which will open it in your default browser. If this does not work, copy the link and paste it into your browser.
 
 You will be taken to the Lora Transaction Wizard, where you should see the key information pre-filled:
 
-<Image src={nodekitLoraKeyreg} alt='Lora Transaction Wizard interface' />
+![Lora Transaction Wizard interface](/src/assets/images/nodekit-lora-keyreg.png)
 
 Next you need to:
 
@@ -266,11 +245,11 @@ Next you need to:
 
 The transaction will be submitted to the network. If it is accepted, you will see a visual confirmation in Lora similar to the one displayed below:
 
-<Image src={nodekitLoraTxnOk} alt='Lora transaction success confirmation' />
+![Lora transaction success confirmation](/src/assets/images/nodekit-lora-txn-ok.png)
 
 NodeKit will detect the key registration and take you back to the Key information view:
 
-<Image src={nodekitKeyregSuccess} alt='NodeKit key registration success screen' />
+![NodeKit key registration success screen](/src/assets/images/nodekit-keyreg-success.png)
 
 You can press `ESC` twice to get back to the home screen.
 
@@ -281,8 +260,7 @@ That's it! If your account balance is over 30,000 ALGO, it will accumulate rewar
 :::note
 The `Protocol Voting` label in the top right panel refers to the **consensus protocol upgrade process**, not your account participation.
 
-<Image src={nodekitNoteProtocolVoting} alt='NodeKit protocol voting indicator location' />
-
+![Protocol voting indicator location](/src/assets/images/nodekit-note-protocol-voting.png)
 :::
 
 ## Navigating Accounts and Keys
@@ -301,7 +279,7 @@ Press `ENTER` to view the keys list of the highlighted account.
 
 Press `ESC` in the keys view to return to the accounts list.
 
-<Image src={nodekitNavigateAccounts} alt='Demo of navigating between accounts' />
+![Demo of navigating between accounts](/src/assets/images/nodekit-navigate-accounts.gif)
 
 ### Navigating Keys
 
@@ -311,4 +289,4 @@ Press `ENTER` to view the key information.
 
 From this screen, you can press `ESC` to return back to they keys list, `D` to delete a participation key, or `R` to register your key online or offline.
 
-<Image src={nodekitNavigateKeys} alt='Demo of navigating between participation keys' />
+![Demo of navigating between participation keys](/src/assets/images/nodekit-navigate-keys.gif)
