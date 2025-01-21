@@ -3,8 +3,6 @@ title: Software Updates
 description: How to update your Algorand node software
 ---
 
-import { Aside } from '@astrojs/starlight/components';
-
 The Algorand node software is upgraded from time to time, and some of these updates may contain a consensus protocol upgrade. When there is no protocol upgrade, it is not be necessary to upgrade the node software, but it may be desirable to do so to take advantage of new features and/or bug fixes.
 
 However, when a new version of `algod` contains a protocol upgrade, an important process is kicked off in which online accounts effectively vote for or against a new protocol with the blocks they propose. These protocol upgrade voting periods last 10,000 rounds, and each block produced counts as one vote.
@@ -32,23 +30,23 @@ Genesis hash: wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=
 
 The new protocol is activated if 90% of the votes--9000 blocks within the 10,000 block range--are in favor of the new protocol. If the new protocol is not activated, the voting period ends and the network continues to run on the current protocol. If a new protocol is approved, it will be activated after a cooldown period that may range from 10,000-150,000 rounds (or more, in special circumstances). At this point, all nodes must be running the new protocol. If a node is not running the new protocol, it will be kicked offline and unable to participate in consensus until it is upgraded.
 
-<Aside type='note'>
-  Although the next protocol to be activated following a voting period is generally the next version
-  with a higher version number, this may not always be the case. In extenuating circumstances, it
-  may be necessary or node operators to downgrade their software to approve falling back to a
-  previous protocol version in order to resolve an issue.
-</Aside>
+:::note
+Although the next protocol to be activated following a voting period is generally the next version
+with a higher version number, this may not always be the case. In extenuating circumstances, it
+may be necessary or node operators to downgrade their software to approve falling back to a
+previous protocol version in order to resolve an issue.
+:::
 
 ## Updating Node Software
 
 Node software updates can be automated, but node runners are encouraged to read release notes to be aware of changes included in new versions of `algod` and decide if and when updating is appropriate for their situation.
 
-<Aside type='caution'>
-  Node runners should avoid scheduling updates to run automatically at a common time, such as 00:00
-  UTC or at the top of any hour, especially if they have significant online stake. If a large enough
-  amount of stake went offline because nodes were simultaneously running an automated update, it is
-  possible that the network could briefly halt while waiting for enough stake to certify blocks.
-</Aside>
+:::caution
+Node runners should avoid scheduling updates to run automatically at a common time, such as 00:00
+UTC or at the top of any hour, especially if they have significant online stake. If a large enough
+amount of stake went offline because nodes were simultaneously running an automated update, it is
+possible that the network could briefly halt while waiting for enough stake to certify blocks.
+:::
 
 ### Linux - Package Manager Install
 
