@@ -27,13 +27,13 @@ or the [source code](https://github.com/algorand/go-algorand).
 ## Verifiable Random Function
 
 Recently we released the [source code](https://github.com/algorand/libsodium/tree/master/src) for
-our implementation of a Verifiable ßRandom Function (VRF). The VRF takes a secret key and a value
+our implementation of a Verifiable Random Function (VRF). The VRF takes a secret key and a value
 and produces a pseudorandom output, with a proof that anyone can use to verify the result. The VRF
 functions similar to a lottery and is used to choose leaders to propose a block and committee
 members to vote on a block. This VRF output, when executed for an account, is used to sample from a
 [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution) to emulate a call for
-every algo in a user’s account. The more algos in an account, the greater chance the account has of
-being selected -- it’s as if every algo in an account participates in its own lottery. This method
+every Algo in a user’s account. The more Algo in an account, the greater chance the account has of
+being selected -- it’s as if every Algo in an account participates in its own lottery. This method
 ensures that a user does not gain any advantage by creating multiple accounts.
 
 ## Participation Keys
@@ -62,7 +62,7 @@ Consensus refers to the way blocks are selected and written to the blockchain. A
 described above to select leaders to propose blocks for a given round. When a block is proposed to
 the blockchain, a committee of voters is selected to vote on the block proposal. If a super majority
 of the votes are from honest participants, the block can be certified. What makes this algorithm a
-Pure Proof of Stake is that users are chosen for committees based on the number of algos in their
+Pure Proof of Stake is that users are chosen for committees based on the number of Algo in their
 accounts. Committees are made up of pseudorandomly selected accounts with voting power dependent on
 their online stake. It is as if every token gets an execution of the VRF. Users with more tokens are
 likely to be selected more. For a committee membership this means higher stake accounts will most
@@ -82,7 +82,7 @@ steps.
 In the block proposal phase, accounts are selected to propose new blocks to the network. This phase
 starts with every node in the network looping through each online account for which it has valid
 participation keys, running Algorand’s VRF to determine if the account is selected to propose the
-block. The VRF acts similar to a weighted lottery where the number of Algos that the account has
+block. The VRF acts similar to a weighted lottery where the number of Algo that the account has
 participating online determines the account’s chance of being selected. Once an account is selected
 by the VRF, the node propagates the proposed block along with the VRF output, which proves that the
 account is a valid proposer. We then move from the propose step to the soft vote step.
@@ -108,7 +108,7 @@ continues for a fixed amount of time to allow votes to be propagated across the 
 
 Each node will then run the VRF for every participating account it manages to see if they have been
 chosen to participate in the soft vote committee. If any account is chosen it will have a weighted
-vote based on the number of Algos the account has, and these votes will be propagated to the
+vote based on the number of Algo the account has, and these votes will be propagated to the
 network. These votes will be for the lowest VRF block proposal calculated at the timeout and will be
 sent out to the other nodes along with the VRF Proof.
 
@@ -118,7 +118,7 @@ sent out to the other nodes along with the VRF Proof.
 </figure>
 
 A new committee is selected for every step in the process and each step has a different committee
-size. This committee size is quantified in algos. A quorum of votes is needed to move to the next
+size. This committee size is quantified in Algo. A quorum of votes is needed to move to the next
 step and must be a certain percentage of the expected committee size. These votes will be received
 from other nodes on the network and each node will validate the committee membership VRF proof
 before adding to the vote tally. Once a quorum is reached for the soft vote the process moves to the
