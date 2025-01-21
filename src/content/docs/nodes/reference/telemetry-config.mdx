@@ -1,9 +1,11 @@
 ---
 title: Telemetry Configuration
-description: This guide explains configuring and managing Algorand node telemetry using logging.config files or the diagcfg CLI. It details initialization, key telemetry settings like Enable and URI, and the location of configuration files, which can be node-specific or global.
+description: This guide explains configuring and managing Algorand node telemetry using logging.config files or the `diagcfg` CLI. It details initialization, key telemetry settings like Enable and URI, and the location of configuration files, which can be node-specific or global.
 ---
 
 This section explains how to enable and manage telemetry for an Algorand node, allowing node operators to gather performance and usage insights. Telemetry can be configured by parameters such as whether telemetry is enabled, what URI the logs should be sent to, and/or credentials for an Elasticsearch server. The node automatically applies these settings at startup, or at runtime.
+
+Telemetry Config refers to the configuration settings that manage remote logging and data collection for Algorand nodes. It enables node operators to control the transmission of performance and usage data, which helps improve the software and identify potential issues. By configuring telemetry, node operators can choose to enable or disable the sending of this data, contributing to the ongoing enhancement and troubleshooting of the Algorand network.
 
 ## Initialization
 
@@ -12,7 +14,7 @@ When a node’s telemetry is enabled, a telemetry state (which wraps the node’
 
 ## Configuration
 
-A node’s telemetry status can be managed using the diagcfg CLI, which modifies the node’s **_logging.config_** file. This file instructs the node’s construction of its `TelemetryConfig` struct, defining the following fields:
+A node’s telemetry status can be managed using the `diagcfg` CLI, which modifies the node’s `logging.config` file. This file instructs the node’s construction of its `TelemetryConfig` struct, defining the following fields:
 
 | Key                | Data type       | Description                                                                                                                                           |
 | ------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -27,10 +29,10 @@ A node’s telemetry status can be managed using the diagcfg CLI, which modifies
 | UserName           | string          | The username credential for establishing an elastic telemetry hook.                                                                                   |
 | Password           | string          | The password credential for establishing an elastic telemetry hook.                                                                                   |
 
-An Algorand node host can configure their node’s telemetry before running it by modifying the logging.config file in their node’s data directory, or deleting this file and modifying their **_~/.algorand/logging.config_** file. In addition, the user can alter a running node’s telemetry status using the `diagcfg` CLI
+An Algorand node host can configure their node’s telemetry before running it by modifying the logging.config file in their node’s data directory, or deleting this file and modifying their `~/.algorand/logging.config` file. In addition, the user can alter a running node’s telemetry status using the `diagcfg` CLI
 
 ## Config File Location
 
-The file named **_logging.config_** informs the initial configuration of a node’s telemetry. There will typically be at least two **_logging.config_** files on a machine running a node: one for each node the machine runs, stored in that node’s data directory, and a global config file stored in **_~/.algorand/_**. This global file is generally only accessed when a node-specific config file cannot be found.
+The file named `logging.config` informs the initial configuration of a node’s telemetry. There will typically be at least two `logging.config` files on a machine running a node: one for each node the machine runs, stored in that node’s data directory, and a global config file stored in `~/.algorand/`. This global file is generally only accessed when a node-specific config file cannot be found.
 
 However, the `diagcfg telemetry` command tree, which replaces the functionality of **goal logging**, updates or creates both the local and global config files when executing any command that changes the node’s telemetry state. It only fails to create the local file if no dataDir is provided, in which case there’s presumably also no node running.
