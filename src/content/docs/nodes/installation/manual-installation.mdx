@@ -373,7 +373,7 @@ This section outlines the basic steps to install prerequisites, create a launch 
 
    2. **Install bash**
 
-      ```shell showLineNumbers=false frame=terminal
+      ```shell showLineNumbers=false frame=none
       brew install bash
       ```
 
@@ -381,7 +381,7 @@ This section outlines the basic steps to install prerequisites, create a launch 
 
       Netdata helps monitor system metrics in real time.
 
-      ```shell showLineNumbers=false frame=terminal
+      ```shell showLineNumbers=false frame=none
       brew install netdata
       ```
 
@@ -389,7 +389,7 @@ This section outlines the basic steps to install prerequisites, create a launch 
 
       To prevent macOS from suspending your node, you can disable sleep targets:
 
-      ```shell showLineNumbers=false frame=terminal
+      ```shell showLineNumbers=false frame=none
       sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
       ```
 
@@ -432,19 +432,19 @@ This section outlines the basic steps to install prerequisites, create a launch 
 
    2. **Launch the service**
 
-      ```shell showLineNumbers=false frame=terminal
+      ```shell showLineNumbers=false frame=none
       sudo launchctl bootstrap system `/Library/LaunchDaemons/com.algorand.plist
       ```
 
    3. **Confirm that the service is running by doing launchctl list and grepping for the service name algorand:**
 
-      ```shell showLineNumbers=false frame=terminal
+      ```shell showLineNumbers=false frame=none
       sudo launchctl list | grep algorand
       ```
 
    If you need to make changes to the plist file, first run:
 
-   ```shell showLineNumbers=false frame=terminal
+   ```shell showLineNumbers=false frame=none
    sudo launchctl bootout system /Library/LaunchDaemons/com.algorand.plist
    ```
 
