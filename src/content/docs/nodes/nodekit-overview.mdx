@@ -2,7 +2,9 @@
 title: NodeKit Overview
 ---
 
-NodeKit is a terminal-based user interface (TUI) designed to simplify the process of managing Algorand nodes. A one stop shop for managing Algorand nodes. With NodeKit, you can easily handle tasks like node installation, configuration, and maintenance; all from the command line, making it accessible for both beginners and seasoned developers.
+import { LinkCard } from '@astrojs/starlight/components';
+
+NodeKit is a terminal-based user interface (TUI) designed to simplify the process of managing Algorand nodes, a one-stop shop for managing Algorand nodes. With NodeKit, you can easily handle tasks like node installation, configuration, and maintenance, all from the command line, making it accessible for beginners and seasoned developers.
 
 ## Benefits
 
@@ -12,7 +14,7 @@ Setting up and running an Algorand node can be a complex process. NodeKit addres
 - Simplify node upgrades and maintenance tasks.
 - Manage node settings and debugging in a consistent and structured way.
 
-With NodeKit, you save time and avoid the potential pitfalls of manual node management, empowering you to focus on building and deploying your applications.
+With NodeKit, you save time and avoid the pitfalls of manual node management, empowering you to focus on building and deploying your applications.
 
 ## Features
 
@@ -20,7 +22,7 @@ NodeKit offers several powerful features for managing your Algorand nodes:
 
 ### install
 
-Configures the local package manager and installs the algorand daemon on your local machine.
+Configures the local package manager and installs the Algorand daemon on your local machine.
 
 ```bash showLineNumbers=false frame=none
 nodekit install [flags]
@@ -28,17 +30,21 @@ nodekit install [flags]
 
 **Options**:
 
-```bash showLineNumbers=false
+```bash showLineNumbers=false frame=none
   -f, --force   forcefully install the node
   -h, --help    help for install
 ```
 
-For more details, refer to [Nodekit install](/nodes/nodekit-reference/commands/install/).
+<LinkCard
+  title='Nodekit install'
+  href='/nodes/nodekit-reference/commands/install/'
+  description='Install the node daemon'
+/>
 
 ### bootstrap
 
 Get up and running with a fresh Algorand node.
-Uses the local package manager to install Algorand, and then starts the node and performs a Fast-Catchup.
+Uses the local package manager to install Algorand, then starts the node and performs a Fast-Catchup.
 
 ```bash showLineNumbers=false frame=none
 nodekit bootstrap [flags]
@@ -46,11 +52,15 @@ nodekit bootstrap [flags]
 
 **Options**:
 
-```bash showLineNumbers=false
+```bash showLineNumbers=false frame=none
 -h, --help   help for bootstrap
 ```
 
-For more details, refer to [Nodekit bootstrap](/nodes/nodekit-reference/commands/bootstrap/).
+<LinkCard
+  title='Nodekit bootstrap'
+  href='/nodes/nodekit-reference/commands/bootstrap/'
+  description='Initialize a fresh node'
+/>
 
 ### catchup
 
@@ -62,12 +72,16 @@ nodekit catchup [flags]
 
 **Options**:
 
-```bash showLineNumbers=false
+```bash showLineNumbers=false frame=none
 -d, --datadir string   Data directory for the node
 -h, --help             help for catchup
 ```
 
-For more details, refer to [Nodekit catchup](/nodes/nodekit-reference/commands/catchup/).
+<LinkCard
+  title='Nodekit catchup'
+  href='/nodes/nodekit-reference/commands/catchup/'
+  description='Manage Fast-Catchup for your node'
+/>
 
 ### start
 
@@ -79,12 +93,16 @@ nodekit start [flags]
 
 **Options**:
 
-```bash showLineNumbers=false
+```bash showLineNumbers=false frame=none
 -f, --force   forcefully start the node
 -h, --help    help for start
 ```
 
-For more details, refer to [Nodekit start](/nodes/nodekit-reference/commands/start/).
+<LinkCard
+  title='Nodekit start'
+  href='/nodes/nodekit-reference/commands/start/'
+  description='Start the node daemon'
+/>
 
 ### stop
 
@@ -98,14 +116,16 @@ nodekit stop [flags]
 
 **Options**:
 
-```bash showLineNumbers=false
+```bash showLineNumbers=false frame=none
 -f, --force   forcefully stop the node
 -h, --help    help for stop
 ```
 
-For more details, refer to [Nodekit stop](/nodes/nodekit-reference/commands/stop/).
-
-To checkout all the features, refer to [Nodekit Reference](/nodes/nodekit-reference/commands/nodekit/).
+<LinkCard
+  title='Nodekit stop'
+  href='/nodes/nodekit-reference/commands/stop/'
+  description='Stop the node daemon'
+/>
 
 ## Getting started
 
