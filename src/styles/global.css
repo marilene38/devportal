@@ -106,6 +106,9 @@ header.header {
   --sl-color-gray-5: #353841;
   --sl-color-gray-6: #17181c;
   --sl-color-black: #17181c;
+  --sl-color-banner-bg: #7f80f3 !important;
+  /* --sl-color-banner-text: #dfe1e5; */
+  --sl-color-text-accent: #7f80f3;
 }
 /* Light mode colors. */
 :root[data-theme='light'] {
@@ -121,12 +124,6 @@ header.header {
   --sl-color-gray-6: #eceef2;
   --sl-color-gray-7: #ffffff;
   --sl-color-black: #ffffff;
+  --sl-color-banner-bg: #2d2df1 !important;
+  /* --sl-color-banner-text: #dfe1e5; */
 }
-
-/* :global(html[data-theme='light'] .sl-banner) {
-  background-color: #f8fafc !important; 
-}
-
-:global(html[data-theme='dark'] .sl-banner) {
-  background-color: #0f172a !important; 
-} */
