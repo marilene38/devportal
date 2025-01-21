@@ -249,6 +249,10 @@ export default defineConfig({
               link: 'nodes/overview',
             },
             {
+              label: 'Nodekit Overview',
+              link: 'nodes/nodekit-overview',
+            },
+            {
               label: 'NodeKit Quick Start',
               link: 'nodes/nodekit-quick-start',
             },
