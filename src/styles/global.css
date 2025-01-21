@@ -127,3 +127,15 @@ header.header {
   --sl-color-banner-bg: #2d2df1 !important;
   /* --sl-color-banner-text: #dfe1e5; */
 }
+
+/* :root[data-theme='light'] .sl-markdown-content a {
+  color: #17cac6 !important;
+}
+
+:root[data-theme='light'] .sl-markdown-content a:hover {
+  color: #c0c2c7 !important;
+} */
+
+/* :root .sl-markdown-content a {
+  color: #17cac6 !important;
+} */
