@@ -7,7 +7,7 @@ By default, an Algorand installation is configured to run on MainNet. For most u
 
 ## Replacing the Genesis File
 
-Every Algorand node has a data directory that is used to store the ledger and other configuration information. As part of this configuration, a `genesis.json` file is used. The `genesis.json` file defines the initial state of the blockchain, its ‘genesis block’. This is a JSON formatted file with the schema for the blockchain. It contains the network name and ID, the protocol version, and the list of allocated addresses to start the chain with. Each address contains a list of things like address status and the amount of Algos owned by the address.
+Every Algorand node has a data directory that is used to store the ledger and other configuration information. As part of this configuration, a `genesis.json` file is used. The `genesis.json` file defines the initial state of the blockchain, its ‘genesis block’. This is a JSON formatted file with the schema for the blockchain. It contains the network name and ID, the protocol version, and the list of allocated addresses to start the chain with. Each address contains a list of things like address status and the amount of Algo owned by the address.
 
 As part of the installer, a `genesis` directory is created under the node's installed location for binaries. This directory contains additional directories for each of the Algorand networks: BetaNet, TestNet, MainNet, etc.. These directories each contain the `genesis.json` file for that instance of the public Algorand networks (eg `~/var/lib/algorand/genesis/mainnet/genesis.json`).
 
