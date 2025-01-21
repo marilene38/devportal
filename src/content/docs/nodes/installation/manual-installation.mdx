@@ -318,22 +318,12 @@ Verified on OSX v12.3.1 (Monterey).
 
 1. Create and enter the installation directory:
 
-   ```shell showLineNumbers=false frame=none
-   mkdir ~/node
-   cd ~/node
-   ```
-
    ```shell showLineNumbers=false frame=terminal
    mkdir ~/node
    cd ~/node
    ```
 
 2. Download and prepare the updater script:
-
-   ```shell showLineNumbers=false frame=none
-   curl https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh -O
-   chmod 744 update.sh
-   ```
 
    ```shell showLineNumbers=false frame=terminal
    curl https://raw.githubusercontent.com/algorand/go-algorand/rel/stable/cmd/updater/update.sh -O
@@ -564,19 +554,11 @@ Get the most recent catchpoint for your network:
 
 1. Start your node if it isn't running:
 
-   ```shell showLineNumbers=false frame=none
-   goal node start
-   ```
-
    ```shell showLineNumbers=false frame=terminal
    goal node start
    ```
 
 2. Use the catchup command with your network's current catchpoint from from the catchpoint URL:
-
-   ```shell showLineNumbers=false frame=none
-   goal node catchup 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
-   ```
 
    ```shell showLineNumbers=false frame=terminal
    goal node catchup 4420000#Q7T2RRTDIRTYESIXKAAFJYFQWG4A3WRA3JIUZVCJ3F4AQ2G2HZRA
