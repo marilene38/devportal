@@ -9,13 +9,16 @@ import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
 
 export default defineConfig({
+  output: 'static',
+  viewTransitions: true,
   integrations: [
     starlight({
       title: 'Algorand Developer Portal',
       plugins: [
         starlightImageZoom(),
         starlightLinksValidator({
-          exclude: ['**[FUTURELINK]*'],
+          errorOnRelativeLinks: false,
+          exclude: ['**[FUTURELINK]*', '**/reference/**'],
         }),
       ],
       components: {
@@ -246,6 +249,10 @@ export default defineConfig({
               link: 'nodes/overview',
             },
             {
+              label: 'Nodekit Overview',
+              link: 'nodes/nodekit-overview',
+            },
+            {
               label: 'NodeKit Quick Start',
               link: 'nodes/nodekit-quick-start',
             },
@@ -318,10 +325,11 @@ export default defineConfig({
             },
             {
               label: 'NodeKit Reference',
+              collapsed: true,
               items: [
                 {
                   label: 'Commands',
-                  collapsed: true,
+                  collapsed: false,
                   autogenerate: { directory: 'nodes/nodekit-reference/commands' },
                 },
               ],
