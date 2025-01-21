@@ -1,5 +1,5 @@
 ---
-title: Online/Offline Registration
+title: Account Registration
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
@@ -35,37 +35,43 @@ The moment a key registration transaction is confirmed by the network, the chang
 
 There are two main ways you can create an online key registration transaction.
 
-<Tabs>
+<Tabs syncKey='lang'>
  <TabItem label="NodeKit">
     After generating a participation key, you can press `r` to register it online on the Algorand network.
 
     You can also start this flow by pressing `r` on the [key information screen](https://nodekit.run/guides/navigating-accounts-and-keys/) shown below.
-    <Image src={keyregOnline1} alt='Keyreg Online 1' />
+    <figure>
+        <Image src={keyregOnline1} alt='Keyreg Online 1' />
+    </figure>
 
     After you press `r`, you will see a link that you can follow to sign your key registration transaction:
-    <Image src={keyregOnline2} alt='Keyreg Online 2' />
+    <figure>
+        <Image src={keyregOnline2} alt='Keyreg Online 2' />
+    </figure>
 
     On most terminals, you can hold down `Ctrl` and click the link to open it in your default browser.
 
     If this does not work, copy the link and paste it into your browser.
 
     You will be taken to the Lora Transaction Wizard, where you should see the key information pre-filled:
-    <Image src={keyregOnline3} alt='Keyreg Online 3' />
+    <figure>
+        <Image src={keyregOnline3} alt='Keyreg Online 3' />
+    </figure>
 
  </TabItem>
  <TabItem label="goal">
-    Run the following code to create an online key registration transaction and dump the transaction object into the **_online.txn_** file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`.
+    Run the following code to create an online key registration transaction and dump the transaction object into the `online.txn` file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`.
 
-    ```shell showLineNumbers=false frame=terminal
+    ```shell showLineNumbers=false frame=none
     # WARNING: This command must be run on the node where the partkey lives and the node
     # must only have a single partkey for the account. Otherwise the command will
     # choose one at random.
     $ goal account changeonlinestatus --address=[your account address] --fee=1000 --firstvalid=40000000 --lastvalid=40001000 --online=true --txfile=online.txn
     ```
 
-    Now you should see the **_online.txn_** file created in your directory. You can inspect the transaction object inside of **_online.txn_** file by running `goal clerk inspect online.txn`, and it should look something like this:
+    Now you should see the `online.txn` file created in your directory. You can inspect the transaction object inside of `online.txn` file by running `goal clerk inspect online.txn`, and it should look something like this:
 
-    ```shell showLineNumbers=false frame=terminal
+    ```shell showLineNumbers=false frame=none
     {
         "txn": {
             "fee": 1000,
@@ -89,7 +95,7 @@ There are two main ways you can create an online key registration transaction.
 
 ### Authorize and send the key registration transaction
 
-<Tabs>
+<Tabs syncKey='lang'>
     <TabItem label="NodeKit">
     Once you are in Lora Transaction Wizard, with the key information pre-filled:
 
@@ -100,19 +106,23 @@ There are two main ways you can create an online key registration transaction.
     3. Sign the transaction
 
     The transaction will be submitted to the network. If it is accepted, you will see a visual confirmation in Lora similar to the one displayed below:
-    <Image src={keyregOnline4} alt='Keyreg Online 4' />
+    <figure>
+        <Image src={keyregOnline4} alt='Keyreg Online 4' />
+    </figure>
 
     NodeKit will detect the key registration and take you back to the Key information view:
-    <Image src={keyregOnline5} alt='Keyreg Online 5' />
+    <figure>
+        <Image src={keyregOnline5} alt='Keyreg Online 5' />
+    </figure>
 
     You can press `ESC` to leave the key information modal.
 
     That’s it! Your node is now participating in Algorand consensus. If your account balance exceeds 30,000 ALGO`, it will accumulate rewards for each block it proposes on the Algorand network.
     </TabItem>
     <TabItem label="goal">
-        To sign the key registration transaction inside the **_online.txn_** file generated from the previous step with goal, you first need to have a funded account in a goal wallet.
+        To sign the key registration transaction inside the `online.txn` file generated from the previous step with goal, you first need to have a funded account in a goal wallet.
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         # First create a goal wallet. Make sure to securely store the seedphrase!
         goal wallet new [name of your wallet]
 
@@ -130,19 +140,19 @@ There are two main ways you can create an online key registration transaction.
 
         If you are signing with the same account as the sender of the key registration transaction:
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         goal clerk sign -i online.txn -o signed-online.txn
         ```
 
         If you are signing with an account different from the key registration transaction sender:
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         goal clerk sign -i online.txn -o signed-online.txn -S [address of the signer]
         ```
 
         Now if you run `goal clerk inspect signed-online.txn`, you should see the signature added to the transaction object:
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         # You will only see `sgnr` if you signed the transaction with an account different from the sender.
 
         {
@@ -167,7 +177,7 @@ There are two main ways you can create an online key registration transaction.
 
         Verify that the participation key is on the node before submitting the signed transaction. Once verified, wait for the network to reach the transaction's first valid round, then submit the transaction.
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         goal clerk rawsend -f signed-online.txn
         ```
     </TabItem>
@@ -186,31 +196,37 @@ Just like with online keyreg transactions. The moment a key registration transac
 
 There are two main ways you can create an online key registration transaction.
 
-<Tabs>
+<Tabs syncKey='lang'>
     <TabItem label="NodeKit">
     To generate an offline key registration transaction, press `o` on the [key information screen](https://nodekit.run/guides/navigating-accounts-and-keys/) shown below to start the flow.
-    <Image src={keyregOffline1} alt='Keyreg Offline 1' />
+    <figure>
+        <Image src={keyregOffline1} alt='Keyreg Offline 1' />
+    </figure>
 
     After you press `o`, you will see a link that you can follow to sign your key registration transaction:
-    <Image src={keyregOffline2} alt='Keyreg Offline 2' />
+    <figure>
+        <Image src={keyregOffline2} alt='Keyreg Offline 2' />
+    </figure>
 
     On most terminals, you can hold down `Ctrl` and click the link to open it in your default browser.
 
     If this does not work, copy the link and paste it into your browser.
 
     You will be taken to the Lora Transaction Wizard, where you should see the offline keyreg transaction information pre-filled:
-    <Image src={keyregOffline3} alt='Keyreg Offline 3' />
+    <figure>
+        <Image src={keyregOffline3} alt='Keyreg Offline 3' />
+    </figure>
     </TabItem>
     <TabItem label="goal">
-        Run the following code to create an offline key registration transaction and dump the transaction object into the **_offline.txn_** file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`.
+        Run the following code to create an offline key registration transaction and dump the transaction object into the `offline.txn` file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`.
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         $ goal account changeonlinestatus --address=[your account address] --fee=1000 --firstvalid=50000000 --lastvalid=50001000 --online=false --txfile=offline.txn
         ```
 
-        Now you should see the **_offline.txn_** file created in your directory. You can inspect the transaction object inside of **_offline.txn_** file by running `goal clerk inspect offline.txn`, and it should look something like this:
+        Now you should see the `offline.txn` file created in your directory. You can inspect the transaction object inside of `offline.txn` file by running `goal clerk inspect offline.txn`, and it should look something like this:
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         {
             "txn": {
                 "fee": 1000,
@@ -228,7 +244,7 @@ There are two main ways you can create an online key registration transaction.
 
 ### Authorize and send the key registration transaction
 
-<Tabs>
+<Tabs syncKey='lang'>
     <TabItem label="NodeKit">
         Once you are in Lora Transaction Wizard, with the offline keyreg transaction information pre-filled:
 
@@ -239,31 +255,35 @@ There are two main ways you can create an online key registration transaction.
         3. Sign the transaction
 
         The transaction will be submitted to the network. If it is accepted, you will see a visual confirmation in Lora similar to the one displayed below:
-        <Image src={keyregOffline4} alt='Keyreg Offline 4' />
+        <figure>
+            <Image src={keyregOffline4} alt='Keyreg Offline 4' />
+        </figure>
 
         NodeKit will detect the key registration and take you back to the Key information view:
-        <Image src={keyregOffline5} alt='Keyreg Offline 5' />
+        <figure>
+            <Image src={keyregOffline5} alt='Keyreg Offline 5' />
+        </figure>
 
         You can press `ESC` to leave the key information modal.
     </TabItem>
     <TabItem label="goal">
-        Sign the key registration transaction inside the **_offline.txn_** file with the following command.
+        Sign the key registration transaction inside the `offline.txn` file with the following command.
 
         If you are signing with the same account as the sender of the key registration transaction:
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         goal clerk sign -i offline.txn -o signed-offline.txn
         ```
 
         If you are signing with an account different from the key registration transaction sender:
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         goal clerk sign -i offline.txn -o signed-offline.txn -S [address of the signer]
         ```
 
         Now if you run `goal clerk inspect signed-offline.txn`, you should see the signature added to the transaction object:
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         # You will only see `sgnr` if you signed the transaction with an account different from the sender.
 
         {
@@ -282,7 +302,7 @@ There are two main ways you can create an online key registration transaction.
 
         Once the transaction is signed, wait for the network to reach its first valid round and then submit it.
 
-        ```shell showLineNumbers=false frame=terminal
+        ```shell showLineNumbers=false frame=none
         goal clerk rawsend -f signed-offline.txn
         ```
     </TabItem>
