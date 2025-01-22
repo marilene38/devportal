@@ -1,5 +1,5 @@
 ---
-title: Configure Node as a Relay
+title: Configure a Node as a Relay
 description: This guide outlines setting up a relay node in Algorand by configuring NetAddress in config.json and connecting other nodes via goal node start. Relay nodes should avoid account interaction or consensus participation.
 ---
 
@@ -7,16 +7,16 @@ A benefit of Algorand's decentralized network implementation is that a relay is 
 
 It is possible to set up a relay for a personal network that does not require DNS entries. This is done using the following steps.
 
-## Install Node
+## Install a Node
 
 See this page for [node hardware requirements](/nodes/installation/manual-installation#hardware-requirements).
 Follow the [install instructions](/nodes/installation/manual-installation) for the specific operating system that the relay will run on.
 
 ## Edit the Configuration File
 
-Edit the configuration file for the node as described in the [configuration](/nodes/reference/config-settings) guide. Set the property `NetAddress` to `":4161"` for TestNet and to `":4160"` for MainNet. Then the file. Make sure the file is named `config.json`.
+Edit the configuration file for the node as described in the [configuration](/nodes/reference/config-settings) guide. Set the property `NetAddress` to `":4161"` for TestNet or to `":4160"` for MainNet. Then the file. Make sure the file is named `config.json`.
 
-Concretely, your `config.json` file should look like:
+Concretely, your `config.json` file should look like the following for TestNet:
 
 ```json
 {
@@ -24,19 +24,17 @@ Concretely, your `config.json` file should look like:
 }
 ```
 
-for TestNet.
-
 :::caution
 It is not recommended that relay nodes interact with accounts or participate in consensus.
 :::
 
-## Start the Node
+## Start the Relay Node
 
-Start the node as described in the [install](/nodes/installation/manual-installation) guide. The node will now listen for incoming traffic on port 4161 (for TestNet) or on port 4160 (for MainNet). Other nodes can now connect to this relay.
+Start the node as described in the [install](/nodes/installation/manual-installation) guide. The node will now listen for incoming traffic on port 4161 for TestNet or on port 4160 for MainNet. Other nodes can now connect to this relay.
 
-## Connect a Node to Relay
+## Connect a Node to the Relay
 
-Any node can connect to this relay by specifying it in the `goal node start` command.
+Any node can connect to this relay by specifying it in the `goal node start` command. Use 4161 for TestNet or 4160 for MainNet.
 
 ```
 goal node start -p "ipaddress:4161"
@@ -48,10 +46,6 @@ The node can also be set up to connect to multiple relays using a `;` separated 
 goal node start -p "ipaddress-1:4161;ipaddress-2:4161"
 ```
 
-(4161 needs to be replaced by 4160 for MainNet.)
-
 :::caution
 Using the above process will prevent the node from connecting to any of the Algorand networks. See the [Phonebook](https://developer.algorand.org/docs/run-a-node/reference/artifacts/?from_query=phonebook#phonebookjson) documentation for more information on how nodes connect to relays.
 :::
-
-{/* See the [Algorand Foundation FAQ](https://www.algorand.foundation/general-faq#04-faq) for additional details about MainNet relays. */}
