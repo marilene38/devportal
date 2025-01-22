@@ -4,7 +4,7 @@ title: 'catchup stop'
 
 ## Synopsis
 
-Stop a fast catchup
+Stop a fast-catchup
 
 Overview:  
 Stop an active Fast-Catchup. This will abort the catchup process if one has started

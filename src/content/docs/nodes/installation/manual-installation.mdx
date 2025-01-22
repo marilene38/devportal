@@ -636,11 +636,11 @@ Fast catchup significantly accelerates the synchronization process by using catc
 Instead of processing every block, your node downloads a recent snapshot of the blockchain state and
 then synchronizes only the most recent blocks.
 
-However, keep in mind that fast catchup requires trusting the entity providing the catchpoint. For
+However, keep in mind that fast-catchup requires trusting the entity providing the catchpoint. For
 maximum security, either use a catchpoint from your own archival node or synchronize from genesis.
 
 :::caution
-Do not use fast catchup on archival or relay nodes. If you accidentally do so, you must reset your
+Do not use fast-catchup on archival or relay nodes. If you accidentally do so, you must reset your
 node and start from scratch.
 :::
 
@@ -691,7 +691,7 @@ Get the most recent catchpoint for your network:
 
 #### Troubleshooting Fast Catchup
 
-If fast catchup fails, verify:
+If fast-catchup fails, verify:
 
 - Your node is not configured as archival or relay
 - You're running the latest Algorand software (goal version -v)
@@ -700,7 +700,7 @@ If fast catchup fails, verify:
 - Your system has sufficient memory
 - You're using an SSD (not HDD) for storage
 
-If you accidentally used fast catchup on an archival node:
+If you accidentally used fast-catchup on an archival node:
 
 <Steps>
 

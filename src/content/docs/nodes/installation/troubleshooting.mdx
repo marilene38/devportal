@@ -124,12 +124,12 @@ Less common reasons for failing to catch up:
 - For BetaNet, verify `$ALGORAND_DATA/config.json` has the correct `DNSBootstrapID`. See
   [configuration for BetaNet](/nodes/installation/catchup-status).
 
-### My node is syncing/catching up very slowly (without fast catchup)
+### My node is syncing/catching up very slowly (without fast-catchup)
 
-As of November 2022, syncing without fast catchup takes 2-4 weeks due to the blockchain's size.
+As of November 2022, syncing without fast-catchup takes 2-4 weeks due to the blockchain's size.
 Syncing slows as rounds increase since newer blocks typically contain more transactions.
 
-:::tip Non-archival nodes can sync faster using [fast catchup](/nodes/installation/catchup-status).
+:::tip Non-archival nodes can sync faster using [fast-catchup](/nodes/installation/catchup-status).
 For archival nodes, nodely.io provides [snapshots](https://nodely.io/extras/). This is not an
 endorsement - using these snapshots requires careful risk assessment since `algod` cannot verify
 their validity or that they don't contain invalid data, allowing double spending. :::
@@ -173,10 +173,10 @@ sort -n report.txt | head -20
    Only modify parameters if you understand the implications - some changes can significantly slow
    syncing.
 
-### My node is not syncing/catching up with fast catchup
+### My node is not syncing/catching up with fast-catchup
 
 See
-[troubleshooting for fast catchup](https://developer.algorand.org/docs/run-a-node/setup/install#troubleshooting-for-fast-catchup).
+[troubleshooting for fast-catchup](https://developer.algorand.org/docs/run-a-node/setup/install#troubleshooting-for-fast-catchup).
 
 ### Other issues
 
