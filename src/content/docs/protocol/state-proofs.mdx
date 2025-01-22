@@ -5,6 +5,7 @@ title: State Proofs
 import { Image } from 'astro:assets';
 import blockIntervalCommitment from '@images/sp_block_interval_commitment.png';
 import transactionCommitment from '@images/sp_transaction_commitment.png';
+import { Steps } from '@astrojs/starlight/components';
 
 A State Proof is a cryptographic proof of state changes that occur in a given set of blocks. While other interoperability solutions use intermediaries to “prove” blockchain activity, State Proofs are created and signed by the Algorand network itself. The same participants that reach consensus on new blocks sign a message attesting to a summary of recent Algorand transactions. These signatures are then compressed into a [compact certificate of collective knowledge](https://people.csail.mit.edu/nickolai/papers/micali-compactcert-eprint.pdf), also known as a State Proof.
 
@@ -25,9 +26,13 @@ The process for generating a State Proof for a specific block interval actually 
 On round 512 (=768 - 256), every participating node would create a participation commitment for the top N online accounts, composed of their public state proof keys and relative online stake. When a node is elected to propose a block through consensus, it includes this commitment in the block header.
 On round 769, every participating node executes the following steps for each online account it manages:
 
-A. Build a Block Interval commitment tree based on all the blocks in the interval. This tree’s leaves are created using the transaction commitment from each of the blocks’ headers. This block interval will include rounds [513,...,768].
+<Steps>
 
-B. Assemble a message containing this Block Interval Commitment and some other metadata, sign the message, and propagate it to the network using the standard protocol gossip framework.
+1. Build a Block Interval commitment tree based on all the blocks in the interval. This tree’s leaves are created using the transaction commitment from each of the blocks’ headers. This block interval will include rounds [513,...,768].
+
+2. Assemble a message containing this Block Interval Commitment and some other metadata, sign the message, and propagate it to the network using the standard protocol gossip framework.
+
+</Steps>
 
 Relay nodes receive the signed messages and verify them. These signatures are accumulated based on the signer's weight and added to a Signature array. Once the relay node has sufficient signed weight accumulated, the relay node constructs a State Proof that contains a randomized sample of accumulated signatures which can convince a verifier that at least 30% of the top N accounts have signed the State Proof message.
 
