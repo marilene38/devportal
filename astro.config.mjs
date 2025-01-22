@@ -251,7 +251,7 @@ export default defineConfig({
               link: 'nodes/overview',
             },
             {
-              label: 'Nodekit Overview',
+              label: 'NodeKit Overview',
               link: 'nodes/nodekit-overview',
             },
             {
