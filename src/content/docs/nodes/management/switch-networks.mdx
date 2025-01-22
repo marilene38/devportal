@@ -3,6 +3,8 @@ title: Switching Networks
 description: Guide to properly switch between different Algorand networks
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 By default, an Algorand installation is configured to run on MainNet. For most users, this is the desired outcome. Developers, however, need access to TestNet, BetaNet, and other networks. This guide describes switching between networks.
 
 ## Replacing the Genesis File
@@ -18,88 +20,141 @@ The network can be switched by either replacing the current genesis file located
 
 # Using a New Data Directory
 
-To construct a new data directory follow the steps described below that depend on the type of install that was used with the current node.
+Below are instructions for creating and using a new data directory (the recommended method). Follow the steps based on how your node is installed and managed.
 
-## Debian or RPM Installs
+## **Unmanaged (Command-Line Only) Install**
 
-For _Debian_ and _RPM_ installs the data directory is set to `/var/lib/algorand`. With these installs, the genesis files are stored in `/var/lib/algorand/genesis/`. Create the new data directory for the network that is being switched to. (eg `/var/lib/algorand_testnet`).
+This category includes:
 
-```shell showLineNumbers=false frame=none
-ALGORAND_DATA=/var/lib/algorand_testnet
-sudo mkdir -p ${ALGORAND_DATA}
-```
+- Other Linux Distributions using the updater script without systemd
+- macOS installs without a launchctl service
 
-Copy the specific network genesis file to the new directory and set the ownership to the algorand account.
+Assume:
 
-```shell showLineNumbers=false frame=none
-sudo cp -p /var/lib/algorand/genesis/testnet/genesis.json ${ALGORAND_DATA}/genesis.json
-sudo cp -p /var/lib/algorand/system.json ${ALGORAND_DATA}/system.json
-sudo chown -R algorand ${ALGORAND_DATA}
-```
+- Node binaries are in ~/node.
+- Current data directory is ~/node/data.
 
-Use `systemctl` to enable the process and start it.
+<Steps>
 
-```shell showLineNumbers=false frame=none
-sudo systemctl enable algorand@$(systemd-escape ${ALGORAND_DATA})
-sudo systemctl start algorand@$(systemd-escape ${ALGORAND_DATA})
-```
+1.  Stop the current node:
 
-The process can be disabled or stopped using `systemctl` commands.
+    ```shell showLineNumbers=false frame=none
+    cd ~/node
+    ./goal node stop -d data
+    ```
 
-```shell showLineNumbers=false frame=none
-sudo systemctl stop algorand@$(systemd-escape ${ALGORAND_DATA})
-sudo systemctl disable algorand@$(systemd-escape ${ALGORAND_DATA})
-```
+2.  Create a New Directory and Copy the Genesis File (Adjust paths as needed, e.g. betanet/genesis.json for BetaNet.)
 
-## Other Linux Distributions
+    ```shell showLineNumbers=false frame=none
+    mkdir data_testnet
+    cp ~/node/genesis/testnet/genesis.json ~/node/data_testnet
+    ```
 
-Assume the node binaries are currently installed in `~/node` and the data directory is set to `~/node/data`. Create the new data directory for the network that is being switched to. (eg `~/node/data_testnet`).
+3.  Start the Node on the New Network
 
-```shell showLineNumbers=false frame=none
-cd ~/node
-./goal node stop -d data
-mkdir data_testnet
-cp ~/node/genesis/testnet/genesis.json ~/node/data_testnet
-```
+    ```shell showLineNumbers=false frame=none
+    ./goal node start -d ~/node/data_testnet
+    ```
 
-Startup the new node using the `-d` option to point at the new network.
+4.  Check Sync Status
 
-```shell showLineNumbers=false frame=none
-./goal node start -d ~/node/data_testnet
-```
+        ```shell showLineNumbers=false frame=none
+        ./goal node status -d ~/node/data_testnet
+        ```
 
-The node will restart and begin communicating with the TestNet network. It will need to sync with the network which will take time. Run the following command to check the current sync status.
+</Steps>
 
-```shell showLineNumbers=false frame=none
-./goal node status -d ~/node/data_testnet
-```
+The node will restart and begin communicating with the TestNet network. It will need to sync with the network which will take time.
 
-At this point, the original network can be stared as well using the standard data directory.
+At this point, it’s possible to run the original network again by starting the node with its original data directory on a different port.
 
-## MacOS
+## **Managed on Linux (systemd)**
 
-Assume the node binaries are currently installed in `~/node` and the data directory is set to `~/node/data`. Create the new data directory for the network that is being switched to. (eg `~/node/data_testnet`).
+Applies typically to Debian or RPM installs or any Linux environment where Algorand is managed as a system service.
 
-```shell showLineNumbers=false frame=none
-cd ~/node
-./goal node stop -d data
-mkdir data_testnet
-cp ~/node/genesis/testnet/genesis.json ~/node/data_testnet
-```
+<Steps>
 
-Startup the new node using the `-d` option to point at the new network.
+1.  Create a New Data Directory
 
-```shell showLineNumbers=false frame=none
-./goal node start -d ~/node/data_testnet
-```
+    ```shell showLineNumbers=false frame=none
+    export ALGORAND_DATA=/var/lib/algorand_testnet
+    sudo mkdir -p ${ALGORAND_DATA}
+    ```
 
-The node will restart and begin communicating with the TestNet network. It will need to sync with the network which will take time. Run the following command to check the current sync status.
+2.  Copy the Genesis and System Files
 
-```shell showLineNumbers=false frame=none
-./goal node status -d ~/node/data_testnet
-```
+    ```shell showLineNumbers=false frame=none
+    sudo cp -p /var/lib/algorand/genesis/testnet/genesis.json ${ALGORAND_DATA}/genesis.json
+    sudo cp -p /var/lib/algorand/system.json ${ALGORAND_DATA}/system.json
+    sudo chown -R algorand:algorand ${ALGORAND_DATA}
+    ```
 
-At this point, the original network can be stared as well using the standard data directory.
+3.  Enable and Start the New Service
+
+    ```shell showLineNumbers=false frame=none
+    sudo systemctl enable algorand@$(systemd-escape ${ALGORAND_DATA})
+    sudo systemctl start algorand@$(systemd-escape ${ALGORAND_DATA})
+    ```
+
+4.  Check sync status
+
+    ```shell showLineNumbers=false frame=none
+    sudo -u algorand -E goal node status -d ${ALGORAND_DATA}
+    ```
+
+5.  Stopping or Disabling
+
+        ```shell showLineNumbers=false frame=none
+        sudo systemctl stop algorand@$(systemd-escape ${ALGORAND_DATA})
+        sudo systemctl disable algorand@$(systemd-escape ${ALGORAND_DATA})
+        ```
+
+</Steps>
+
+## **Managed on macOS (launchctl)**
+
+This applies if the node is configured to run as a [.plist service on macOS](/nodes/installation/manual-installation#running-the-node-as-a-macos-service). If your macOS node is run purely via command line, follow the [Unmanaged steps](#unmanaged-command-line-only-install) instead.
+
+<Steps>
+
+1. Unload the Current Service (Adjust path and filename as needed.)
+
+   ```shell showLineNumbers=false frame=none
+   sudo launchctl bootout system /Library/LaunchDaemons/com.algorand.plist
+   ```
+
+2. Create a New Data Directory
+
+   ```shell showLineNumbers=false frame=none
+   cd ~/node
+   mkdir data_testnet
+   cp ~/node/genesis/testnet/genesis.json ~/node/data_testnet
+   ```
+
+3. Update the .plist to reference the new data directory, for example:
+
+   ```xml showLineNumbers=false frame=none
+   <key>EnvironmentVariables</key>
+   <dict>
+       <key>ALGORAND_DATA</key>
+       <string>/Users/USERNAME/node/data_testnet</string>
+   </dict>
+   ```
+
+4. Load the Updated Service
+
+   ```shell showLineNumbers=false frame=none
+   sudo launchctl bootstrap system /Library/LaunchDaemons/com.algorand.plist
+   sudo launchctl start com.algorand
+   ```
+
+5. Check sync status (Wait until Sync Time: 0.0s indicates the node is fully caught up.)
+
+   ```shell showLineNumbers=false frame=none
+   ./goal node status -d /Users/USERNAME/node/data_testnet
+   ```
+
+</Steps>
 
 # DNS Configuration for BetaNet
 
