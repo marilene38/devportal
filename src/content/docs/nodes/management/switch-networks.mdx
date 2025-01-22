@@ -24,14 +24,14 @@ To construct a new data directory follow the steps described below that depend o
 
 For _Debian_ and _RPM_ installs the data directory is set to `/var/lib/algorand`. With these installs, the genesis files are stored in `/var/lib/algorand/genesis/`. Create the new data directory for the network that is being switched to. (eg `/var/lib/algorand_testnet`).
 
-```
+```shell showLineNumbers=false frame=none
 ALGORAND_DATA=/var/lib/algorand_testnet
 sudo mkdir -p ${ALGORAND_DATA}
 ```
 
 Copy the specific network genesis file to the new directory and set the ownership to the algorand account.
 
-```
+```shell showLineNumbers=false frame=none
 sudo cp -p /var/lib/algorand/genesis/testnet/genesis.json ${ALGORAND_DATA}/genesis.json
 sudo cp -p /var/lib/algorand/system.json ${ALGORAND_DATA}/system.json
 sudo chown -R algorand ${ALGORAND_DATA}
@@ -39,14 +39,14 @@ sudo chown -R algorand ${ALGORAND_DATA}
 
 Use `systemctl` to enable the process and start it.
 
-```
+```shell showLineNumbers=false frame=none
 sudo systemctl enable algorand@$(systemd-escape ${ALGORAND_DATA})
 sudo systemctl start algorand@$(systemd-escape ${ALGORAND_DATA})
 ```
 
 The process can be disabled or stopped using `systemctl` commands.
 
-```
+```shell showLineNumbers=false frame=none
 sudo systemctl stop algorand@$(systemd-escape ${ALGORAND_DATA})
 sudo systemctl disable algorand@$(systemd-escape ${ALGORAND_DATA})
 ```
@@ -55,7 +55,7 @@ sudo systemctl disable algorand@$(systemd-escape ${ALGORAND_DATA})
 
 Assume the node binaries are currently installed in `~/node` and the data directory is set to `~/node/data`. Create the new data directory for the network that is being switched to. (eg `~/node/data_testnet`).
 
-```
+```shell showLineNumbers=false frame=none
 cd ~/node
 ./goal node stop -d data
 mkdir data_testnet
@@ -64,13 +64,13 @@ cp ~/node/genesis/testnet/genesis.json ~/node/data_testnet
 
 Startup the new node using the `-d` option to point at the new network.
 
-```
+```shell showLineNumbers=false frame=none
 ./goal node start -d ~/node/data_testnet
 ```
 
 The node will restart and begin communicating with the TestNet network. It will need to sync with the network which will take time. Run the following command to check the current sync status.
 
-```
+```shell showLineNumbers=false frame=none
 ./goal node status -d ~/node/data_testnet
 ```
 
@@ -80,7 +80,7 @@ At this point, the original network can be stared as well using the standard dat
 
 Assume the node binaries are currently installed in `~/node` and the data directory is set to `~/node/data`. Create the new data directory for the network that is being switched to. (eg `~/node/data_testnet`).
 
-```
+```shell showLineNumbers=false frame=none
 cd ~/node
 ./goal node stop -d data
 mkdir data_testnet
@@ -89,13 +89,13 @@ cp ~/node/genesis/testnet/genesis.json ~/node/data_testnet
 
 Startup the new node using the `-d` option to point at the new network.
 
-```
+```shell showLineNumbers=false frame=none
 ./goal node start -d ~/node/data_testnet
 ```
 
 The node will restart and begin communicating with the TestNet network. It will need to sync with the network which will take time. Run the following command to check the current sync status.
 
-```
+```shell showLineNumbers=false frame=none
 ./goal node status -d ~/node/data_testnet
 ```
 
@@ -105,20 +105,20 @@ At this point, the original network can be stared as well using the standard dat
 
 For the BetaNet network, when installing a new node or relay, make the following modification to the `config.json` file located in the node's data directory. Replace the line:
 
-```
+```shell showLineNumbers=false frame=none
 "DNSBootstrapID": "<network>.algorand.network",
 ```
 
 with
 
-```
+```shell showLineNumbers=false frame=none
 "DNSBootstrapID": "<network>.algodev.network",
 ```
 
 If former line is not present, just add the latter line.
 If there is no `config.json` in the Algorand data folder, just create a new one with the following content:
 
-```json
+```json showLineNumbers=false frame=none
 {
   "DNSBootstrapID": "<network>.algodev.network"
 }
