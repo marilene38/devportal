@@ -5,11 +5,13 @@ title: Account Registration
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 
-import keyregOnline1 from '@images/nodekit-keyreg-online-1.png';
-import keyregOnline2 from '@images/nodekit-keyreg-online-2.png';
-import keyregOnline3 from '@images/nodekit-keyreg-online-3.png';
-import keyregOnline4 from '@images/nodekit-keyreg-online-4.png';
-import keyregOnline5 from '@images/nodekit-keyreg-online-5.png';
+import nodekitOnliningKeysGenerated from '@images/nodekit-onlining-keys-generated.png';
+import nodekitOnliningLink from '@images/nodekit-onlining-link.png';
+import nodekitOnliningQR from '@images/nodekit-onlining-qr.png';
+import nodekitOnliningLora from '@images/nodekit-onlining-lora.png';
+import nodekitOnliningPera from '@images/nodekit-onlining-pera.png';
+import nodekitOnliningLoraResult from '@images/nodekit-onlining-lora-result.png';
+import nodekitOnliningKeysView from '@images/nodekit-onlining-keys-view.png';
 
 import keyregOffline1 from '@images/nodekit-keyreg-offline-1.png';
 import keyregOffline2 from '@images/nodekit-keyreg-offline-2.png';
@@ -20,6 +22,8 @@ import keyregOffline5 from '@images/nodekit-keyreg-offline-5.png';
 An online account means that the account is available to participate in consensus. An account is marked online by registering a participation key with the network by sending an online key registration transaction to the network. An offline account means that the account is not available to participate in consensus. An account is marked offline by sending an offline key registration transaction to the network.
 
 It is important to mark your account offline if it is not participating for various reasons. Not doing so is bad network behavior and will decrease the honest/dishonest user ratio that underpins the liveness of the agreement protocol. Also, in the event of node migration, hardware swap, or other similar events, it is recommended to have your account offline for a few rounds rather than having it online on multiple nodes at the same time.
+
+With the addition of staking rewards into the protocol as of v4.0, Algorand consensus participants can set their account as eligible for rewards by including a 2 Algo fee when registering participation keys online. This eligibility status persists if the account is marked offline gracefully, such as for hardware maintenance, or when renewing participation keys. It is only necessary to pay the 2 Algo fee again if the account is kicked offline by the protocol for consensus absenteeism.
 
 ## Register your account online
 
@@ -41,26 +45,32 @@ There are two main ways you can create an online key registration transaction.
 
     You can also start this flow by pressing `r` on the [key information screen](https://nodekit.run/guides/navigating-accounts-and-keys/) shown below.
     <figure>
-        <Image src={keyregOnline1} alt='Keyreg Online 1' />
+        <Image src={nodekitOnliningKeysGenerated} alt='NodeKit keys generated' />
     </figure>
 
     After you press `r`, you will see a link that you can follow to sign your key registration transaction:
     <figure>
-        <Image src={keyregOnline2} alt='Keyreg Online 2' />
+        <Image src={nodekitOnliningLink} alt='NodeKit link to register keys online' />
     </figure>
 
-    On most terminals, you can hold down `Ctrl` and click the link to open it in your default browser.
-
-    If this does not work, copy the link and paste it into your browser.
-
-    You will be taken to the Lora Transaction Wizard, where you should see the key information pre-filled:
+    On most terminals, you can hold down `Ctrl` and click the link to open it in your default browser. If this does not work, copy the link and paste it into your browser. You will be taken to the Lora Transaction Wizard, where you should see the key information pre-filled:
     <figure>
-        <Image src={keyregOnline3} alt='Keyreg Online 3' />
+        <Image src={nodekitOnliningLora} alt='NodeKit key registration transaction in Lora' />
+    </figure>
+
+    Alternatively, you can press `s` when the link is presented to show a QR code that contains the key registration transaction that can be scanned to open the transaction in Pera wallet ready to be signed and sent.
+    <figure>
+        <Image src={nodekitOnliningQR} alt='NodeKit QR code register keys online' />
+    </figure>
+
+    After scanning with Pera, you will see the transaction details in your wallet.
+        <figure>
+        <Image src={nodekitOnliningPera} alt='NodeKit key registration transaction in Pera' />
     </figure>
 
  </TabItem>
  <TabItem label="goal">
-    Run the following code to create an online key registration transaction and dump the transaction object into the `online.txn` file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`.
+    Run the following command to create an online key registration transaction and dump the transaction object into the `online.txn` file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`. If you need to set the account as eligible for staking rewards, set the fee to 2 Algo by adding `--fee=2000000`.
 
     ```shell showLineNumbers=false frame=none
     # WARNING: This command must be run on the node where the partkey lives and the node
@@ -93,7 +103,7 @@ There are two main ways you can create an online key registration transaction.
  </TabItem>
 </Tabs>
 
-### Authorize and send the key registration transaction
+### Authorize and Send the Key Registration Transaction
 
 <Tabs syncKey='lang'>
     <TabItem label="NodeKit">
@@ -107,12 +117,12 @@ There are two main ways you can create an online key registration transaction.
 
     The transaction will be submitted to the network. If it is accepted, you will see a visual confirmation in Lora similar to the one displayed below:
     <figure>
-        <Image src={keyregOnline4} alt='Keyreg Online 4' />
+        <Image src={nodekitOnliningLoraResult} alt='NodeKit transaction confirmed in Lora' />
     </figure>
 
     NodeKit will detect the key registration and take you back to the Key information view:
     <figure>
-        <Image src={keyregOnline5} alt='Keyreg Online 5' />
+        <Image src={nodekitOnliningKeysView} alt='NodeKit keys view' />
     </figure>
 
     You can press `ESC` to leave the key information modal.
@@ -192,7 +202,7 @@ To mark an account offline, send a key registration transaction to the network a
 Just like with online keyreg transactions. The moment a key registration transaction is confirmed by the network it takes `320 rounds` for the change to take effect. So, if a key registration is confirmed in `round 5000`, the account will stop participating at `round 5320`.
 :::
 
-### Create an offline key registration transaction
+### Create an Offline Key Registration Transaction
 
 There are two main ways you can create an online key registration transaction.
 
@@ -242,7 +252,7 @@ There are two main ways you can create an online key registration transaction.
 
 </Tabs>
 
-### Authorize and send the key registration transaction
+### Sign and Send the Key Registration Transaction
 
 <Tabs syncKey='lang'>
     <TabItem label="NodeKit">
