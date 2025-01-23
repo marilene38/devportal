@@ -38,7 +38,7 @@ Global storage can include between 0 and 64 key/value pairs and a total of 8K of
       frame='none'
     />
   </TabItem>
-  <TabItem label='TEAL' icon='algorand-icon' icon='seti:TEAL'>
+  <TabItem label='TEAL' icon='algorand-icon'>
     <Code code={createGlobalStateTEAL} lang='TEAL' frame='none' />
   </TabItem>
 </Tabs>
@@ -79,7 +79,7 @@ These reads are non-transactional queries that retrieve the current state of the
 Example command:
 
 ```shell showLineNumbers=false frame=terminal
-goal app read --app-id 1 --guess-format --global --from [ADDRESS]
+goal app read --app-id 1 --guess-format --global --from <ADDRESS>
 ```
 
 This command returns the global state of the smart contract with application ID 1, formatted for readability.
