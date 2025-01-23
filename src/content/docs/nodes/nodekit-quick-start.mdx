@@ -2,7 +2,7 @@
 title: NodeKit Quick Start
 ---
 
-import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Tabs, TabItem, LinkCard } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 import nodekitInstall from '@images/nodekit-install.png';
 import nodekitBootstrap from '@images/nodekit-bootstrap.png';
@@ -327,3 +327,9 @@ Press `enter` to view the key information.
 From this screen, you can press `esc` to return back to they keys list, `D` to delete a participation key, or `r` to register your key online or offline.
 
 <Image src={nodekitNavigateKeys} alt='Demo of navigating between participation keys' />
+
+<LinkCard
+  title='NodeKit Reference'
+  href='/nodes/nodekit-reference/commands/nodekit/'
+  description='Learn more about the commands and features available in NodeKit.'
+/>
