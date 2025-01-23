@@ -14,9 +14,13 @@ import nodekitPartKeyGen1 from '@images/nodekit-partkey-gen-1.png';
 import nodekitPartKeyGen2 from '@images/nodekit-partkey-gen-2.png';
 import nodekitPartKeyGen3 from '@images/nodekit-partkey-gen-3.png';
 import nodekitPartKeyGen4 from '@images/nodekit-partkey-gen-4.png';
-import nodekitKeyregOnline from '@images/nodekit-keyreg-online.png';
-import nodekitLoraKeyreg from '@images/nodekit-lora-keyreg.png';
-import nodekitLoraTxnOk from '@images/nodekit-lora-txn-ok.png';
+
+import nodekitOnliningLink from '@images/nodekit-onlining-link.png';
+import nodekitOnliningQR from '@images/nodekit-onlining-qr.png';
+import nodekitOnliningLora from '@images/nodekit-onlining-lora.png';
+import nodekitOnliningPera from '@images/nodekit-onlining-pera.png';
+import nodekitOnliningLoraResult from '@images/nodekit-onlining-lora-result.png';
+
 import nodekitKeyregSuccess from '@images/nodekit-keyreg-success.png';
 import nodekitNoteProtocolVoting from '@images/nodekit-note-protocol-voting.png';
 import nodekitNavigateAccounts from '@images/nodekit-navigate-accounts.gif';
@@ -164,7 +168,7 @@ The colored status at the top of Nodekit should be in a yellow `FAST-CATCHUP` st
 
 <Image src={nodekitStateFastCatchup} alt='Screenshot of NodeKit fast-catchup status indicator' />
 
-If not, exit nodekit with `Q` and run `./nodekit catchup` to start catching up. Then run `./nodekit` again to enter the user interface.
+If not, exit nodekit with `q` and run `./nodekit catchup` to start catching up. Then run `./nodekit` again to enter the user interface.
 
 After fast-catchup completes successfully, it is normal for a node to be in a `SYNCING` state for a few minutes:
 
@@ -192,9 +196,9 @@ You will only be able to generate participation keys after your node is in a `RU
 
 ### Generate Participation Keys
 
-Press the `G` key to start generating participation keys.
+Press the `g` key to start generating participation keys.
 
-NodeKit will ask the account address that will be participating in consensus. Enter your account address and press `ENTER`.
+NodeKit will ask the account address that will be participating in consensus. Enter your account address and press `enter`.
 
 <Image src={nodekitPartKeyGen1} alt='NodeKit account address prompt' />
 
@@ -240,39 +244,50 @@ You are now one step away from participating in Algorand consensus! The next ste
 
 ## Registering Your Keys Online
 
-After generating a participation key, you can press `R` to start registering it on the Algorand network.
+After generating a participation key, you can press `r` to start registering it on the Algorand network. By default NodeKit will assume that the account should be made eligible for staking rewards, which costs a 2A fee on key registration. To opt out of this default logic and have accounts not be enrolled in staking rewards, launch NodeKit with `./nodekit -n', including the `-n` flag.
 
-You can also start this flow by pressing `R` on the [key information screen](#navigating-accounts-and-keys) shown below.
+You can also start this flow by pressing `r` on the [key information screen](#navigating-accounts-and-keys) shown below.
 
 <Image src={nodekitPartKeyGen4} alt='NodeKit key information display' />
 
-After you press `R`, you will see a link that you can follow to sign your key registration transaction:
+After you press `r`, you will see a link that you can follow to sign your key registration transaction:
 
-<Image src={nodekitKeyregOnline} alt='NodeKit key registration link screen' />
+<figure>
+  <Image src={nodekitOnliningLink} alt='NodeKit link to register keys online' />
+</figure>
 
-On most terminals, you can hold down `CTRL` or `CMD` and click the link, which will open it in your default browser. If this does not work, copy the link and paste it into your browser.
+On most terminals, you can hold down `ctrl` or `cmd` and click the link to open it in your default browser. If this does not work, copy the link and paste it into your browser. You will be taken to the Lora Transaction Wizard, where you should see the key information pre-filled:
 
-You will be taken to the Lora Transaction Wizard, where you should see the key information pre-filled:
+<figure>
+  <Image src={nodekitOnliningLora} alt='NodeKit key registration transaction in Lora' />
+</figure>
 
-<Image src={nodekitLoraKeyreg} alt='Lora Transaction Wizard interface' />
+Alternatively, you can press `s` when the link is presented to show a QR code that contains the key registration transaction that can be scanned to open the transaction in Pera wallet ready to be signed and sent.
 
-Next you need to:
+<figure>
+  <Image src={nodekitOnliningQR} alt='NodeKit QR code register keys online' />
+</figure>
 
-1. Select `Connect Wallet` on the top right and connect your wallet.
+After scanning with Pera, you will see the transaction details in your wallet.
 
-2. Click the `Send` button on the bottom right. Your wallet should prompt you to sign the key registration transaction
+<figure>
+<Image src={nodekitOnliningPera} alt='NodeKit key registration transaction in Pera' />
+
+</figure>
 
 3. Sign the transaction
 
 The transaction will be submitted to the network. If it is accepted, you will see a visual confirmation in Lora similar to the one displayed below:
 
-<Image src={nodekitLoraTxnOk} alt='Lora transaction success confirmation' />
+<figure>
+  <Image src={nodekitOnliningLoraResult} alt='NodeKit transaction confirmed in Lora' />
+</figure>
 
 NodeKit will detect the key registration and take you back to the Key information view:
 
 <Image src={nodekitKeyregSuccess} alt='NodeKit key registration success screen' />
 
-You can press `ESC` twice to get back to the home screen.
+You can press `esc` twice to get back to the home screen.
 
 To confirm that your account is online, review the `STATUS` of your account. Accounts with an `ONLINE` status are participating in consensus.
 
@@ -297,9 +312,9 @@ If it is not running already, start nodekit with this command:
 
 If you have participation keys for more than one account on your node, you can navigate between accounts using the up and down arrow keys.
 
-Press `ENTER` to view the keys list of the highlighted account.
+Press `enter` to view the keys list of the highlighted account.
 
-Press `ESC` in the keys view to return to the accounts list.
+Press `esc` in the keys view to return to the accounts list.
 
 <Image src={nodekitNavigateAccounts} alt='Demo of navigating between accounts' />
 
@@ -307,8 +322,8 @@ Press `ESC` in the keys view to return to the accounts list.
 
 If you have more than one set of participating keys for your account, you can highlight them using the up and down arrow keys.
 
-Press `ENTER` to view the key information.
+Press `enter` to view the key information.
 
-From this screen, you can press `ESC` to return back to they keys list, `D` to delete a participation key, or `R` to register your key online or offline.
+From this screen, you can press `esc` to return back to they keys list, `D` to delete a participation key, or `r` to register your key online or offline.
 
 <Image src={nodekitNavigateKeys} alt='Demo of navigating between participation keys' />

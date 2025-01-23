@@ -25,7 +25,7 @@ It is important to mark your account offline if it is not participating for vari
 
 With the addition of staking rewards into the protocol as of v4.0, Algorand consensus participants can set their account as eligible for rewards by including a 2 Algo fee when registering participation keys online. This eligibility status persists if the account is marked offline gracefully, such as for hardware maintenance, or when renewing participation keys. It is only necessary to pay the 2 Algo fee again if the account is kicked offline by the protocol for consensus absenteeism.
 
-## Register your account online
+## Register Your Account Online
 
 This section assumes that you have already [generated a participation key](/protocol/partkey-management/) for the account you plan to mark online.
 
@@ -35,7 +35,7 @@ For an account to participate in consensus, the account needs to be registered o
 The moment a key registration transaction is confirmed by the network, the change takes `320 rounds` to take effect. In other words, if a key registration is confirmed in `round 1000`, the account will not start participating until `round 1320`.
 :::
 
-### Create an online key registration transaction
+### Create an Online Key Registration Transaction
 
 There are two main ways you can create an online key registration transaction.
 
@@ -53,7 +53,7 @@ There are two main ways you can create an online key registration transaction.
         <Image src={nodekitOnliningLink} alt='NodeKit link to register keys online' />
     </figure>
 
-    On most terminals, you can hold down `Ctrl` and click the link to open it in your default browser. If this does not work, copy the link and paste it into your browser. You will be taken to the Lora Transaction Wizard, where you should see the key information pre-filled:
+    On most terminals, you can hold down `ctrl` or `cmd` and click the link to open it in your default browser. If this does not work, copy the link and paste it into your browser. You will be taken to the Lora Transaction Wizard, where you should see the key information pre-filled:
     <figure>
         <Image src={nodekitOnliningLora} alt='NodeKit key registration transaction in Lora' />
     </figure>
@@ -70,13 +70,13 @@ There are two main ways you can create an online key registration transaction.
 
  </TabItem>
  <TabItem label="goal">
-    Run the following command to create an online key registration transaction and dump the transaction object into the `online.txn` file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`. If you need to set the account as eligible for staking rewards, set the fee to 2 Algo by adding `--fee=2000000`.
+    Run the following command to create an online key registration transaction and dump the transaction object into the `online.txn` file. Make sure to replace `--address` to the account address sending the key registration transaction, replace the `--firstvalid` to the most recent block round, replace replace `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`. If you need to set the account as eligible for staking rewards, set the fee to 2 Algo by adding `--fee=2000000`.
 
     ```shell showLineNumbers=false frame=none
     # WARNING: This command must be run on the node where the partkey lives and the node
     # must only have a single partkey for the account. Otherwise the command will
     # choose one at random.
-    $ goal account changeonlinestatus --address=[your account address] --fee=1000 --firstvalid=40000000 --lastvalid=40001000 --online=true --txfile=online.txn
+    $ goal account changeonlinestatus --address=<ADDRESS> --fee=1000 --firstvalid=40000000 --lastvalid=40001000 --online=true --txfile=online.txn
     ```
 
     Now you should see the `online.txn` file created in your directory. You can inspect the transaction object inside of `online.txn` file by running `goal clerk inspect online.txn`, and it should look something like this:
@@ -157,7 +157,7 @@ There are two main ways you can create an online key registration transaction.
         If you are signing with an account different from the key registration transaction sender:
 
         ```shell showLineNumbers=false frame=none
-        goal clerk sign -i online.txn -o signed-online.txn -S [address of the signer]
+        goal clerk sign -i online.txn -o signed-online.txn -S <SIGNER ADDRESS>
         ```
 
         Now if you run `goal clerk inspect signed-online.txn`, you should see the signature added to the transaction object:
@@ -194,7 +194,7 @@ There are two main ways you can create an online key registration transaction.
 
 </Tabs>
 
-## Register your account offline
+## Register Your Account Offline
 
 To mark an account offline, send a key registration transaction to the network authorized by the account to be marked offline. The signal to mark the sending account offline is the issuance of a `"type": "keyreg"` transaction that does not contain any participation key-related fields (i.e., they are all set to null values).
 
@@ -231,7 +231,7 @@ There are two main ways you can create an online key registration transaction.
         Run the following code to create an offline key registration transaction and dump the transaction object into the `offline.txn` file. Make sure to replace `--address` to the account address sending the key registration transaction Also replace the `--firstvalid` to the most recent block round and `--lastvalid` to `latest block round + 1000`. You can get the latest block round by running `goal node status`.
 
         ```shell showLineNumbers=false frame=none
-        $ goal account changeonlinestatus --address=[your account address] --fee=1000 --firstvalid=50000000 --lastvalid=50001000 --online=false --txfile=offline.txn
+        $ goal account changeonlinestatus --address=<ADDRESS> --fee=1000 --firstvalid=50000000 --lastvalid=50001000 --online=false --txfile=offline.txn
         ```
 
         Now you should see the `offline.txn` file created in your directory. You can inspect the transaction object inside of `offline.txn` file by running `goal clerk inspect offline.txn`, and it should look something like this:
@@ -288,7 +288,7 @@ There are two main ways you can create an online key registration transaction.
         If you are signing with an account different from the key registration transaction sender:
 
         ```shell showLineNumbers=false frame=none
-        goal clerk sign -i offline.txn -o signed-offline.txn -S [address of the signer]
+        goal clerk sign -i offline.txn -o signed-offline.txn -S <SIGNER ADDRESS>
         ```
 
         Now if you run `goal clerk inspect signed-offline.txn`, you should see the signature added to the transaction object:
