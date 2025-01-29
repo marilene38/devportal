@@ -22,7 +22,8 @@ export default {
         '9xl': '8rem', // 128px
       },
       fontFamily: {
-        sans: ['Aeonik', 'sans-serif'], // Set Aeonik as the default sans font
+        sans: ['Inter', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'monospace'],
       },
       colors: {
         icon: {
