@@ -12,6 +12,7 @@
 ## Project setup
 
 - run `git clone` in your terminal to clone this repo
+- run `pnpm run import:all` to fetch the latest submodules
 - run `pnpm install` in your terminal to install all dependencies
 - run `pnpm run dev` in your terminal to start a local developer environment
 
