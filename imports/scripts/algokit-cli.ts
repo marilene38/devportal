@@ -1,6 +1,5 @@
 import { readFile, writeFile, readdir, mkdir, rm, cp, mkdtemp } from 'fs/promises';
 import path from 'path';
-import { spawn } from 'child_process';
 
 type FileTransformer = (content: string) => string;
 
@@ -121,34 +120,6 @@ async function processFile(configs: FileTransformation[]) {
     }
 }
 
-async function setupCli() {
-    try {
-        const runCommand = (command: string, args: string[]) => {
-            return new Promise((resolve, reject) => {
-                const process = spawn(command, args, {
-                    cwd: path.join(__dirname, '../repos/algokit-cli'),
-                    stdio: 'inherit'
-                });
-
-                process.on('close', (code) => {
-                    if (code === 0) resolve(code);
-                    else reject(new Error(`Command failed with code ${code}`));
-                });
-
-                process.on('error', reject);
-            });
-        };
-        await runCommand('poetry', ['install', '--with=dev']);
-        await runCommand('poetry', ['run', 'poe', 'docs']);
-
-        console.log('AlgoKit CLI setup completed successfully');
-    } catch (error) {
-        console.error('Error setting up AlgoKit CLI:', error);
-        throw error;
-    }
-}
-
-// await setupCli();
 await processDirectories([
     {
         src: './../repos/algokit-cli/docs/features',
