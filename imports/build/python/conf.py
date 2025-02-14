@@ -48,7 +48,12 @@ elif repo == "utils":
             "auto_mode": True,
         },
     ]
-
+elif repo == "cli":
+    project = "Algokit CLI"
+    extensions = [
+        "sphinx_click",
+    ]
+    smartquotes = False
 
 else:
     raise ValueError(

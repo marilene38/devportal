@@ -29,3 +29,5 @@ utils: clean
 	$(FULL_SPHINX_COMMAND) && \
 	cp -r _build/starlight/apidocs/* "../../../src/content/docs/reference/algokit-utils-py/API Reference"
 
+cli-setup:
+	cd ../../repos/algokit-cli/ && poetry install --with=dev && poetry run poe docs
