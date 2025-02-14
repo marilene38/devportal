@@ -48,13 +48,7 @@ elif repo == "utils":
             "auto_mode": True,
         },
     ]
-elif repo == "cli":
-    project = "Algokit CLI"
-    extensions = [
-        "sphinx_click",
-    ]
-    smartquotes = False
-
+    
 else:
     raise ValueError(
         f"Invalid repo: {repo}. Make sure to set the SPHINX_REPO environment variable."
