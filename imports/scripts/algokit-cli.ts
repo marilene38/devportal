@@ -29,6 +29,13 @@ title: ${title}
 ${newContent}`;
 };
 
+const correctTypo: FileTransformer = (content: string): string => {
+    return content
+        .replaceAll('immedately', 'immediately')
+        .replaceAll('lastest', 'latest')
+        .replaceAll('directy', 'directly');
+}
+
 
 const stripLinkExtensions: FileTransformer = (content: string): string => {
     return content.replaceAll('.md', '');
@@ -128,6 +135,7 @@ await processDirectories([
             stripLinkExtensions,
             changeFeatureLinks,
             changeReferenceLinks,
+            correctTypo,
             removeLine('> For details on executing `algokit localnet` without `docker` or `podman` refer to the [codespaces](#codespaces) section.')
         ],
         dest: './../../src/content/docs/reference/algokit-cli'
