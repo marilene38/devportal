@@ -6,7 +6,7 @@ import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
 
-Algorand offers multiple approaches to account creation, in this guide we'll explore the various methods available for creating accounts on the Algorand blockchain. Depending on your needs, consider [standalone accounts](#standalone), [wallet-derived accounts](#wallet-derived) using [kmd](/nodes/reference/artifacts#kmd) (Key Management Daemon), or [multi-signature accounts](/concepts/accounts/multisig) (which entails one of the prior methods). This section will explore standalone accounts and wallet-derived accounts in-depth, guiding how to utilize them in `algokit-utils` , `goal`, `algokey`, `SDKs`, and `Pera Wallet`, the reasons you might want to choose one method over another for your application.
+Algorand offers multiple approaches to account creation, in this guide we'll explore the various methods available for creating accounts on the Algorand blockchain. Depending on your requirement, consider [standalone accounts](#standalone), [wallet-derived accounts](#wallet-derived) using [kmd](/nodes/reference/artifacts#kmd) (Key Management Daemon), or [multi-signature accounts](/concepts/accounts/multisig) (which entails one of the prior methods). This section will explore standalone accounts and wallet-derived accounts in-depth, guiding how to utilize them in `algokit-utils` , `goal`, `algokey`, `SDKs`, and `Pera Wallet`, the reasons you might want to choose one method over another for your application.
 
 ## Quick start videos
 
@@ -28,12 +28,12 @@ Remember that accounts participating in transactions are required to maintain a 
 
 ## Standalone
 
-A standalone account is an Algorand address and private key pair that is not stored on disk. The private key is most often in the [25-word mnemonic form](https://developer.algorand.org/docs/get-details/accounts/#transformation-private-key-to-25-word-mnemonic).
+A standalone account is an Algorand address and private key pair that is not stored on disk. The private key is most often in the [25-word mnemonic form](FUTURELINK).
 
 ### Reasons to use standalone accounts
 
 - Low setup cost: No need to connect to a separate client or hardware; all you need is the 25-word human-readable mnemonic of the relevant account.
-- Supports offline signing: Since private keys are not stored on disk, standalone accounts can be used in [secure offline-signing procedures](https://developer.algorand.org/docs/get-details/transactions/offline_transactions) where hardware constraints may make using kmd more difficult.
+- Supports offline signing: Since private keys are not stored on disk, standalone accounts can be used in [secure offline-signing procedures](FUTURELINK) where hardware constraints may make using kmd more difficult.
 - Widely supported: Standalone account mnemonics are commonly used across various Algorand developer tools and services.
 
 :::note
@@ -43,7 +43,7 @@ Algorand's mobile wallet (Android, iOS) uses standalone accounts. Use the 25-wor
 ### Reasons not to use standalone accounts
 
 - Lack of encrypted storage: If you prefer storing keys securely on disk rather than as a 25-word mnemonic, kmd may be a better choice.
-- Limited direct import/export options: Developers relying on import and export functions may find kmd more suitable, as [Algokit Utils](#algokit-utils) provides import and export capabilities.
+- Limited direct import/export options: Developers relying on import and export functions may find kmd more suitable, as [Algokit Utils](FUTURELINK) provides import and export capabilities.
 
 ### How to generate a standalone account
 
@@ -168,7 +168,7 @@ kmd token:  [token]
 
 Wallet and account can be created using different ways.
 
-##### Using goal
+##### goal
 
 Following are the commands to create a new wallet and a generate an account using goal,
 
@@ -190,7 +190,7 @@ $ goal account new
 Created new account with address [address]
 ```
 
-##### Using utils
+##### Algokit Utils
 
 - KMD client based Account Creation: We can also use the utils to create a wallet and account with the KMD client.
   <Tabs syncKey='lang'>
