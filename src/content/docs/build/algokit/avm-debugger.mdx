@@ -115,21 +115,21 @@ This vscode launch config is pre bundled with the template. And there is also an
 :::
 
 <Image src={avmDebuggerDebugTraces} alt='AVM Debugger Debug Traces' />
-Figure: Load Debugger in VSCode{' '}
+Figure: Load Debugger in VSCode
 
 Next it will ask you to select the source map file. Select the `approval.puya.map` file. Which would indicate to the debug extension that you would like to debug the given trace file using Puya sourcemaps, allowing you to step through high level python code. If you need to change the debugger to use TEAL or puya sourcemaps for other frontends such as Typescript, remove the individual record from `.algokit/sources/sources.avm.json` file or run the [debugger commands via VSCode command palette](https://github.com/algorandfoundation/algokit-avm-vscode-debugger#vscode-commands)
 
-<Image src={avmDebuggerMapFile} alt='AVM Debugger Map File' />{' '}
+<Image src={avmDebuggerMapFile} alt='AVM Debugger Map File' />
 
 ## Step 5: Debugging the smart contract
 
 Let’s now debug the issue:
 
-<Image src={avmDebuggerStarted} alt='AVM Debugger Started' />{' '}
+<Image src={avmDebuggerStarted} alt='AVM Debugger Started' />
 
 Enter into the `app_id` of the `transaction_group.json` file. This opens the contract. Set a breakpoint in the `move` method. You can also add additional breakpoints.
 
-<Image src={avmDebuggerSmartContract} alt='AVM Debugger Smart Contract' />{' '}
+<Image src={avmDebuggerSmartContract} alt='AVM Debugger Smart Contract' />
 
 On left side, you can see `Program State` which includes `program counter`, `opcode`, `stack`, `scratch space`. In `On-chain State` you will be able to see `global`, `local` and `box` storages for the application id deployed on localnet.
 

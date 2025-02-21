@@ -2,9 +2,13 @@
 title: Multisignature Accounts
 ---
 
-Multisignature accounts are a logical representation of an ordered set of addresses with a threshold and version. Multisignature accounts can perform the same operations as other accounts, including sending transactions and participating in consensus. The address for a multisignature account is essentially a hash of the _ordered_ list of accounts, the threshold and version values. The threshold determines how many signatures are required to process any transaction from this multisignature account.
+import { Code } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import RemoteCode from '/src/components/RemoteCode.astro';
 
-## Quick start video - Multisignature
+Multisignature accounts are a logical representation of an ordered set of addresses with a threshold and version. Multisignature accounts can perform the same operations as other accounts, including sending transactions and participating in consensus. The address for a multisignature account is essentially a hash of the ordered list of accounts, the threshold and version values. The threshold determines how many signatures are required to process any transaction from this multisignature account.
+
+## Quick start video
 
 If you prefer videos, take a look at this 4 minute guide to Learn About Multisig Algorand Account.
 
@@ -28,24 +32,59 @@ You can use the fact that order matters to generate multiple addresses that can 
 
 [Send Algos](/concepts/accounts/funding) to the address to initialize its state on the blockchain as you would any other address.
 
-## When to use multisignature accounts
+## Reasons to use multisignature accounts
 
-Since every transaction requires a threshold of signatures you can create an extra layer of security on an account by requiring multiple signatures to authorize spending. The total accounts and threshold can be tailored to fit your security model.
+- Enhanced Security: Requires multiple signatures for transactions, adding an extra layer of security.
+- Customizable Authorization: The number of required signatures can be adjusted to fit different security models.
+- Distributed Key Storage: Signing keys can be stored separately and generated through different methods (kmd, standalone accounts, or a mix).
+- Governance Mechanisms: Enables cryptographically secure governance structures where multiple users control an account and spending is authorized by a subset of those users.
+- Integration with Smart Contracts: Can be paired with Algorand Smart Contracts for complex governance models requiring specific signature subsets.
 
-The keys that can sign for the multisignature account can be stored in separate locations and they can be generated with kmd, as standalone accounts, or with a mixture of both.
+## Reasons not to use multisignature accounts
 
-Multisignature accounts can also be used to create cryptographically secure governance structures for an account, where keys can be owned by multiple users and spending is authorized by a subset of those users. Pair this with Algorand Smart Contract functionality for the potential to realize even more complex governance structures such as authorizing spending from an account given a _specific_ subset of signatures.
-
-## When not to use multisignature accounts
-
-Multisignature accounts trade off convenience for security. Every transaction requires multiple signatures which can be overly complex for a scenario where security or governance is not critical.
+- Reduced Convenience: Requires multiple signatures for every transaction, adding complexity.
+- Unnecessary for Simple Use Cases: If security and governance are not critical, a single-signature account may be more practical.
 
 ## How to generate a multisignature account
 
-The following code shows how to generate a multisignature account composed of three Algorand addresses, with a signing threshold of 2.
+There are different ways to generate a multisig account. The following ways show how to generate a multisignature account composed of three Algorand addresses, with a signing threshold of 2. Hardcode the mnemonics in the code samples below to recreate a specific multisignature address or create new accounts.
 
 :::tip
 Since multisignature accounts are just logical representations of the data defined above, anyone can "create" the same Algorand address if they know how it is composed. This information is public and included in a signed transaction from a multisignature account.
 :::
 
-To be added: Utils code
+### Using goal
+
+```bash showLineNumbers=false frame=none
+$ ADDRESS1=$(goal account new | awk '{ print $6 }')
+$ ADDRESS2=$(goal account new | awk '{ print $6 }')
+$ ADDRESS3=$(goal account new | awk '{ print $6 }')
+
+$ goal account multisig new $ADDRESS1 $ADDRESS2 $ADDRESS3 -T 2
+Created new account with address [MULTISIG_ADDRESS]
+```
+
+### Using Algokit Utils
+
+AlgoKit Utils simplifies the creation and management of standalone Algorand accounts in Python and TypeScript by abstracting Algorand SDK complexities. Handle multisignature accounts efficiently by managing signing processes and transaction approvals. With AlgoKit Utils, developers can seamlessly create and fund multisignature accounts, ensuring secure and flexible transaction authorization.
+
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/multisignature-accounts.ts'
+      snippet='MULTISIG_ACCOUNT'
+      lang='py'
+      title='Multisig Account'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/multisignature_accounts.py'
+      snippet='MULTISIG_ACCOUNT'
+      lang='py'
+      title='Multisig Account'
+      frame='none'
+    />
+  </TabItem>
+</Tabs>
