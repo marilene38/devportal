@@ -1,3 +1,737 @@
 ---
-title: Overview
+title: Algorand Standard Assets (ASAs)
 ---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+
+The Algorand protocol supports the creation of on-chain assets that benefit from the same security, compatibility, speed and ease of use as the Algo. The official name for assets on Algorand is **Algorand Standard Assets (ASA)**.
+
+With Algorand Standard Assets you can represent stablecoins, loyalty points, system credits, and in-game points, just to name a few examples. You can also represent single, unique assets like a deed for a house, collectable items, unique parts on a supply chain, etc. There is also ABI_CODEC functionality to place transfer restrictions on an asset that help support securities, compliance, and certification use cases.
+
+:::note
+Assets that represent many of the same type, like a stablecoin, may be referred to as **fungible assets**. Single, unique assets are referred to as **non-fungible assets**. 
+:::
+
+This section begins with an [overview](#assets-overview) of the asset implementation on Algorand including a review of all [asset parameters](#asset-parameters). This is followed by [how-tos](#asset-functions) in the SDKs and `goal` for all on-chain asset functions.
+
+# Quick start videos
+
+If you prefer videos, take a look at this 7 minute guide to learn about Introduction to Assets.
+
+<iframe width="100%" style="aspect-ratio:16/9" src="https://www.youtube-nocookie.com/embed/94XMLuTt8nM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+# Assets overview
+
+Here are several things to be aware of before getting started with assets.
+
+- For every asset an account creates or owns, its minimum balance is increased by 0.1 Algos (100,000 microAlgos). 
+- This minimum balance requirement will be placed on the original creator as long as the asset has not been destroyed. Transferring the asset does not alleviate the creator's minimum balance requirement.
+- Before a new asset can be transferred to a specific account the receiver must opt-in to receive the asset. This process is described below in [Receiving an asset](#receiving-an-asset). 
+- If any transaction is issued that would violate the minimum balance requirements, the transaction will fail.
+
+:::note
+Prior to AVM 1.1 (go-algorand 3.5.0), a single Algorand account was only permitted to create and optin to 1000 assets. These limits are now removed allowing an unlimited number of assets to be created and optin to by a single account.
+:::
+
+## Asset parameters
+The type of asset that is created will depend on the parameters that are passed during asset creation and sometimes during asset re-configuration. View the full list of asset parameters in the [Asset Parameters Reference](../transactions/transactions#asset-parameters).
+
+### Immutable asset parameters
+
+These eight parameters can *only* be specified when an asset is created.  
+
+- [Creator](../transactions/transactions#creator) (*required*)
+- [AssetName](../transactions/transactions#assetname) (*optional, but recommended*)
+- [UnitName](../transactions/transactions#unitname) (*optional, but recommended*)
+- [Total](../transactions/transactions#total) (*required*)
+- [Decimals](../transactions/transactions#decimals) (*required*)
+- [DefaultFrozen](../transactions/transactions#defaultfrozen) (*required*)
+- [URL](../transactions/transactions#url) (*optional*)
+- [MetaDataHash](../transactions/transactions#metadatahash) (*optional*)
+
+### Mutable asset parameters
+There are four parameters that correspond to addresses that can authorize specific functionality for an asset. These addresses must be specified on creation but they can also be modified after creation. Alternatively, these addresses can be set as empty strings, which will irrevocably lock the function that they would have had authority over. 
+
+Here are the four address types.
+
+[**Manager Address**](../transactions/transactions#manageraddr)
+
+The manager account is the only account that can authorize transactions to [re-configure](#modifying-an-asset) or [destroy](#destroying-an-asset) an asset. 
+
+:::caution
+Never set this address to empty if you want to be able to re-configure or destroy the asset.
+:::
+
+[**Reserve Address**](../transactions/transactions#reserveaddr)
+
+Specifying a reserve account signifies that non-minted assets will reside in that account instead of the default creator account. Assets transferred from this account are "minted" units of the asset. If you specify a new reserve address, you must make sure the new account has opted into the asset and then issue a transaction to transfer all assets to the new reserve.
+
+:::caution
+The reserve account has no functional authority in the protocol. It is purely informational. 
+:::
+
+[**Freeze Address**](../transactions/transactions#freezeaddr)
+
+The freeze account is allowed to freeze or unfreeze the asset holdings for a specific account. When an account is frozen it cannot send or receive the frozen asset. In traditional finance, freezing assets may be performed to restrict liquidation of company stock, to investigate suspected criminal activity or to deny-list certain accounts. If the DefaultFrozen state is set to True, you can use the unfreeze action to authorize certain accounts to trade the asset (such as after passing KYC/AML checks).
+
+:::caution
+Just remember that DefaultFrozen is an [immutable parameter](#immutable-asset-parameters) and cannot be changed after creation.
+:::
+
+:::tip
+Set this address to `""` if you want to prove to asset holders that the asset can never be frozen.
+:::
+
+[**Clawback Address**](../transactions/transactions#clawbackaddr)
+
+The clawback address represents an account that is allowed to transfer assets from and to any asset holder (assuming they have opted-in).  Use this if you need the option to revoke assets from an account (like if they breach certain contractual obligations tied to holding the asset). In traditional finance, this sort of transaction is referred to as a clawback.
+
+:::tip
+Set this address to `""` if you want to ensure to asset holders that assets can never be revoked.
+:::
+
+If any of these four addresses is set to `""` that address will be cleared and can never be reset for the life of the asset. This will also effectively disable the feature of that address. For example setting the freeze address to `""` will prevent the asset from ever being frozen.
+
+# Asset functions
+
+# Quick start videos
+
+If you prefer videos, take a look at this 8 minute guide to learn about Building Solutions Using ASAs.
+
+<iframe width="100%" style="aspect-ratio:16/9" src="https://www.youtube-nocookie.com/embed/_Q37eysrRh4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Creating an asset
+**Transaction Authorizer**: Any account with sufficient Algo balance
+
+Create assets using either the SDKs or `goal`. When using the SDKs supply all creation parameters. With `goal`, managing the various addresses associated with the asset must be done after executing an asset creation. See Modifying an Asset in the next section for more details on changing addresses for the asset.
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    # Account 1 creates an asset called `rug` with a total supply
+    # of 1000 units and sets itself to the freeze/clawback/manager/reserve roles
+    sp = algod_client.suggested_params()
+    txn = transaction.AssetConfigTxn(
+        sender=acct1.address,
+        sp=sp,
+        default_frozen=False,
+        unit_name="rug",
+        asset_name="Really Useful Gift",
+        manager=acct1.address,
+        reserve=acct1.address,
+        freeze=acct1.address,
+        clawback=acct1.address,
+        url="https://path/to/my/asset/details",
+        total=1000,
+        decimals=0,
+    )
+    
+    # Sign with secret key of creator
+    stxn = txn.sign(acct1.private_key)
+    # Send the transaction to the network and retrieve the txid.
+    txid = algod_client.send_transaction(stxn)
+    print(f"Sent asset create transaction with txid: {txid}")
+    # Wait for the transaction to be confirmed
+    results = transaction.wait_for_confirmation(algod_client, txid, 4)
+    print(f"Result confirmed in round: {results['confirmed-round']}")
+    
+    # grab the asset id for the asset we just created
+    created_asset = results["asset-index"]
+    print(f"Asset ID created: {created_asset}")
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    const suggestedParams = await algodClient.getTransactionParams().do();
+	const txn = algosdk.makeAssetCreateTxnWithSuggestedParamsFromObject({
+	  from: creator.addr,
+	  suggestedParams,
+	  defaultFrozen: false,
+	  unitName: 'rug',
+	  assetName: 'Really Useful Gift',
+	  manager: creator.addr,
+	  reserve: creator.addr,
+	  freeze: creator.addr,
+	  clawback: creator.addr,
+	  assetURL: 'http://path/to/my/asset/details',
+	  total: 1000,
+	  decimals: 0,
+	});
+	
+	const signedTxn = txn.signTxn(creator.privateKey);
+	await algodClient.sendRawTransaction(signedTxn).do();
+	const result = await algosdk.waitForConfirmation(
+	  algodClient,
+	  txn.txID().toString(),
+	  3
+	);
+	
+	const assetIndex = result['asset-index'];
+	console.log(`Asset ID created: ${assetIndex}`);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:shell'>
+    ```shell showLineNumbers=false frame=none
+    goal asset create --creator <address> --total 1000 --unitname <unit-name> --asseturl "https://path/to/my/asset/details" --decimals 0   -d data
+    ```
+  </TabItem>
+</Tabs>
+
+:::note
+The Algorand Foundation [hosts many standards (ARCs)](https://arc.algorand.foundation/) associated with asset creation. Conforming to these standards allows your apps/assets to work well with existing community tools that support them.
+:::
+
+**See also**
+
+- [Anatomy of an Asset Creation Transaction](../transactions#create-an-asset)
+
+
+## Modifying an asset
+
+**Authorized by**: [Asset Manager Account](../transactions/transactions#manageraddr)
+
+After an asset has been created only the manager, reserve, freeze and clawback accounts can be changed. All other parameters are locked for the life of the asset. If any of these addresses are set to `""` that address will be cleared and can never be reset for the life of the asset. Only the manager account can make configuration changes and must authorize the transaction.
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    sp = algod_client.suggested_params()
+	# Create a config transaction that wipes the
+	# reserve address for the asset
+	txn = transaction.AssetConfigTxn(
+	    sender=acct1.address,
+	    sp=sp,
+	    manager=acct1.address,
+	    reserve=None,
+	    freeze=acct1.address,
+	    clawback=acct1.address,
+	    strict_empty_address_check=False,
+	)
+	# Sign with secret key of manager
+	stxn = txn.sign(acct1.private_key)
+	# Send the transaction to the network and retrieve the txid.
+	txid = algod_client.send_transaction(stxn)
+	print(f"Sent asset config transaction with txid: {txid}")
+	# Wait for the transaction to be confirmed
+	results = transaction.wait_for_confirmation(algod_client, txid, 4)
+	print(f"Result confirmed in round: {results['confirmed-round']}")
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    const manager = accounts[1];
+	
+	const configTxn = algosdk.makeAssetConfigTxnWithSuggestedParamsFromObject({
+	  from: creator.addr,
+	  manager: manager.addr,
+	  freeze: manager.addr,
+	  clawback: manager.addr,
+	  reserve: undefined,
+	  suggestedParams,
+	  assetIndex,
+	  // don't throw error if freeze, clawback, or manager are empty
+	  strictEmptyAddressChecking: false,
+	});
+	
+	const signedConfigTxn = configTxn.signTxn(creator.privateKey);
+	await algodClient.sendRawTransaction(signedConfigTxn).do();
+	const configResult = await algosdk.waitForConfirmation(
+	  algodClient,
+	  txn.txID().toString(),
+	  3
+	);
+	console.log(`Result confirmed in round: ${configResult['confirmed-round']}`);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:laptop'>
+    ```shell showLineNumbers=false frame=none
+    goal asset config  --manager <address> --new-reserve <address> --assetid <asset-id> -d data
+    ```
+  </TabItem>
+</Tabs>
+
+**See also**
+
+- [Anatomy of an Asset Reconfiguration Transaction](../transactions#reconfigure-an-asset)
+
+
+## Receiving an asset
+
+**Authorized by**: The account opting in
+
+Before an account can receive a specific asset it must opt-in to receive it. An opt-in transaction places an asset holding of 0 into the account and increases its minimum balance by 100,000 microAlgos. An opt-in transaction is simply an asset transfer with an amount of 0, both to and from the account opting in. The following code illustrates this transaction.
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    sp = algod_client.suggested_params()
+	# Create opt-in transaction
+	# asset transfer from me to me for asset id we want to opt-in to with amt==0
+	optin_txn = transaction.AssetOptInTxn(
+	    sender=acct2.address, sp=sp, index=created_asset
+	)
+	signed_optin_txn = optin_txn.sign(acct2.private_key)
+	txid = algod_client.send_transaction(signed_optin_txn)
+	print(f"Sent opt in transaction with txid: {txid}")
+	
+	# Wait for the transaction to be confirmed
+	results = transaction.wait_for_confirmation(algod_client, txid, 4)
+	print(f"Result confirmed in round: {results['confirmed-round']}")
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    // opt-in is simply a 0 amount transfer of the asset to oneself
+	const optInTxn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+	  from: receiver.addr,
+	  to: receiver.addr,
+	  suggestedParams,
+	  assetIndex,
+	  amount: 0,
+	});
+	
+	const signedOptInTxn = optInTxn.signTxn(receiver.privateKey);
+	await algodClient.sendRawTransaction(signedOptInTxn).do();
+	await algosdk.waitForConfirmation(algodClient, optInTxn.txID().toString(), 3);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:laptop'>
+    ```shell showLineNumbers=false frame=none
+    goal asset send -a 0 --asset <asset-name>  -f <opt-in-account> -t <opt-in-account> --creator <asset-creator>  -d data
+    ```
+  </TabItem>
+</Tabs>
+
+**See also**
+
+- [Structure of an Asset Opt-In Transaction](../transactions#opt-in-to-an-asset)
+
+## Transferring an asset
+
+**Authorized by**: The account that holds the asset to be transferred.
+
+Assets can be transferred between accounts that have opted-in to receiving the asset. These are analogous to standard payment transactions but for Algorand Standard Assets. 
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    sp = algod_client.suggested_params()
+	# Create transfer transaction
+	xfer_txn = transaction.AssetTransferTxn(
+	    sender=acct1.address,
+	    sp=sp,
+	    receiver=acct2.address,
+	    amt=1,
+	    index=created_asset,
+	)
+	signed_xfer_txn = xfer_txn.sign(acct1.private_key)
+	txid = algod_client.send_transaction(signed_xfer_txn)
+	print(f"Sent transfer transaction with txid: {txid}")
+	
+	results = transaction.wait_for_confirmation(algod_client, txid, 4)
+	print(f"Result confirmed in round: {results['confirmed-round']}")
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    const xferTxn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+	  from: creator.addr,
+	  to: receiver.addr,
+	  suggestedParams,
+	  assetIndex,
+	  amount: 1,
+	});
+	
+	const signedXferTxn = xferTxn.signTxn(creator.privateKey);
+	await algodClient.sendRawTransaction(signedXferTxn).do();
+	await algosdk.waitForConfirmation(algodClient, xferTxn.txID().toString(), 3);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:laptop'>
+    ```shell showLineNumbers=false frame=none
+    goal asset send -a <asset-amount> --asset <asset-name> -f <asset-sender> -t <asset-receiver> --creator <asset-creator> -d data
+    ```
+  </TabItem>
+</Tabs>
+
+[See complete code...](https://github.com/algorand/docs/tree/master/examples/assets/v2)
+
+**See also**
+
+- [Anatomy of an Asset Transfer Transaction](../transactions#transfer-an-asset)
+
+## Freezing an asset
+
+**Authorized by**: [Asset Freeze Address](../transactions/transactions#freezeaddr)
+
+Freezing or unfreezing an asset for an account requires a transaction that is signed by the freeze account. The code below illustrates the freeze transaction.
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    sp = algod_client.suggested_params()
+	# Create freeze transaction to freeze the asset in acct2 balance
+	freeze_txn = transaction.AssetFreezeTxn(
+	    sender=acct1.address,
+	    sp=sp,
+	    index=created_asset,
+	    target=acct2.address,
+	    new_freeze_state=True,
+	)
+	signed_freeze_txn = freeze_txn.sign(acct1.private_key)
+	txid = algod_client.send_transaction(signed_freeze_txn)
+	print(f"Sent freeze transaction with txid: {txid}")
+	
+	results = transaction.wait_for_confirmation(algod_client, txid, 4)
+	print(f"Result confirmed in round: {results['confirmed-round']}")
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    const freezeTxn = algosdk.makeAssetFreezeTxnWithSuggestedParamsFromObject({
+	  from: manager.addr,
+	  suggestedParams,
+	  assetIndex,
+	  // freezeState: false would unfreeze the account's asset holding
+	  freezeState: true,
+	  // freezeTarget is the account that is being frozen or unfrozen
+	  freezeTarget: receiver.addr,
+	});
+	
+	const signedFreezeTxn = freezeTxn.signTxn(manager.privateKey);
+	await algodClient.sendRawTransaction(signedFreezeTxn).do();
+	await algosdk.waitForConfirmation(
+	  algodClient,
+	  freezeTxn.txID().toString(),
+	  3
+	);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:laptop'>
+    ```shell showLineNumbers=false frame=none
+    goal asset freeze --freezer <asset-freeze-account> --freeze=true --account <account-to-freeze> --creator <asset-creator> --asset <asset-name> -d data
+    ```
+  </TabItem>
+</Tabs>
+
+**See also**
+
+- [Anatomy of an Asset Freeze Transaction](../transactions#freeze-an-asset)
+
+## Revoking an asset
+
+**Authorized by**: [Asset Clawback Address](../transactions/transactions#clawbackaddr)
+
+Revoking an asset for an account removes a specific number of the asset from the revoke target account. Revoking an asset from an account requires specifying an asset sender (the revoke target account) and an asset receiver (the account to transfer the funds back to). The code below illustrates the clawback transaction.
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    sp = algod_client.suggested_params()
+	# Create clawback transaction to freeze the asset in acct2 balance
+	clawback_txn = transaction.AssetTransferTxn(
+	    sender=acct1.address,
+	    sp=sp,
+	    receiver=acct1.address,
+	    amt=1,
+	    index=created_asset,
+	    revocation_target=acct2.address,
+	)
+	signed_clawback_txn = clawback_txn.sign(acct1.private_key)
+	txid = algod_client.send_transaction(signed_clawback_txn)
+	print(f"Sent clawback transaction with txid: {txid}")
+	
+	results = transaction.wait_for_confirmation(algod_client, txid, 4)
+	print(f"Result confirmed in round: {results['confirmed-round']}")
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    const clawbackTxn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject(
+	  {
+	    from: manager.addr,
+	    to: creator.addr,
+	    // revocationTarget is the account that is being clawed back from
+	    revocationTarget: receiver.addr,
+	    suggestedParams,
+	    assetIndex,
+	    amount: 1,
+	  }
+	);
+	
+	const signedClawbackTxn = clawbackTxn.signTxn(manager.privateKey);
+	await algodClient.sendRawTransaction(signedClawbackTxn).do();
+	await algosdk.waitForConfirmation(
+	  algodClient,
+	  clawbackTxn.txID().toString(),
+	  3
+	);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:laptop'>
+    ```shell showLineNumbers=false frame=none
+    goal asset send -a <amount-to-revoke> --asset <asset-name> -f <address-of-revoke-target> -t <address-to-send-assets-to> --clawback <clawback-address> --creator <creator-address> -d data
+    ```
+  </TabItem>
+</Tabs>
+
+**See also**
+
+- [Anatomy of an Asset Clawback Transaction](../transactions#revoke-an-asset)
+
+## Opting Out of an Asset
+
+**Authorized by**: The account opting out 
+
+An account can opt out of an asset at any time. This means that the account will no longer hold the asset, and the account will no longer be able to receive the asset. The account also recovers the Minimum Balance Requirement for the asset (0.1A).
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    sp = algod_client.suggested_params()
+	opt_out_txn = transaction.AssetTransferTxn(
+	    sender=acct2.address,
+	    sp=sp,
+	    index=created_asset,
+	    receiver=acct1.address,
+	    # an opt out transaction sets its close_asset_to parameter
+	    # it is always possible to close an asset to the creator
+	    close_assets_to=acct1.address,
+	    amt=0,
+	)
+	signed_opt_out = opt_out_txn.sign(acct2.private_key)
+	txid = algod_client.send_transaction(signed_opt_out)
+	print(f"Sent opt out transaction with txid: {txid}")
+	
+	results = transaction.wait_for_confirmation(algod_client, txid, 4)
+	print(f"Result confirmed in round: {results['confirmed-round']}")
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    // opt-out is an amount transfer with the `closeRemainderTo` field set to
+	// any account that can receive the asset.
+	// note that closing to the asset creator will always succeed
+	const optOutTxn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+	  from: receiver.addr,
+	  to: creator.addr,
+	  closeRemainderTo: creator.addr,
+	  suggestedParams,
+	  assetIndex,
+	  amount: 0,
+	});
+	
+	const signedOptOutTxn = optOutTxn.signTxn(receiver.privateKey);
+	await algodClient.sendRawTransaction(signedOptOutTxn).do();
+	await algosdk.waitForConfirmation(
+	  algodClient,
+	  optOutTxn.txID().toString(),
+	  3
+	);
+    ```
+  </TabItem>
+</Tabs>
+
+## Destroying an asset
+
+**Authorized by**: [Asset Manager](../transactions/transactions#manageraddr)
+
+Created assets can be destroyed only by the asset manager account. All of the assets must be owned by the creator of the asset before the asset can be deleted. 
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    sp = algod_client.suggested_params()
+	# Create asset destroy transaction to destroy the asset
+	destroy_txn = transaction.AssetDestroyTxn(
+	    sender=acct1.address,
+	    sp=sp,
+	    index=created_asset,
+	)
+	signed_destroy_txn = destroy_txn.sign(acct1.private_key)
+	txid = algod_client.send_transaction(signed_destroy_txn)
+	print(f"Sent destroy transaction with txid: {txid}")
+	
+	results = transaction.wait_for_confirmation(algod_client, txid, 4)
+	print(f"Result confirmed in round: {results['confirmed-round']}")
+	
+	# now, trying to fetch the asset info should result in an error
+	try:
+	    info = algod_client.asset_info(created_asset)
+	except Exception as e:
+	    print("Expected Error:", e)
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    const deleteTxn = algosdk.makeAssetDestroyTxnWithSuggestedParamsFromObject({
+	  from: manager.addr,
+	  suggestedParams,
+	  assetIndex,
+	});
+	
+	const signedDeleteTxn = deleteTxn.signTxn(manager.privateKey);
+	await algodClient.sendRawTransaction(signedDeleteTxn).do();
+	await algosdk.waitForConfirmation(
+	  algodClient,
+	  deleteTxn.txID().toString(),
+	  3
+	);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:laptop'>
+    ```shell showLineNumbers=false frame=none
+    goal asset destroy --creator <creator-address> --manager <asset-manager-address> --asset <asset-name> -d data 
+    ```
+  </TabItem>
+</Tabs>
+
+**See also**
+
+- [Anatomy of the Asset Destroy Transaction](../transactions#destroy-an-asset)
+
+# Retrieve asset information
+Retrieve an asset's configuration information from the network using the SDKs or `goal`. Additional details are also added to the accounts that own the specific asset and can be listed with standard account information calls.
+
+:::note
+The code below illustrates getting asset information without the Indexer. If you have the Indexer installed use the Indexer API to [search for asset](../../rest-apis/indexer/#search-assets) information.
+:::
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    # Retrieve the asset info of the newly created asset
+	asset_info = algod_client.asset_info(created_asset)
+	asset_params: Dict[str, Any] = asset_info["params"]
+	print(f"Asset Name: {asset_params['name']}")
+	print(f"Asset params: {list(asset_params.keys())}")
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    const assetInfo = await algodClient.getAssetByID(assetIndex).do();
+	console.log(`Asset Name: ${assetInfo.params.name}`);
+	console.log(`Asset Params: ${assetInfo.params}`);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:laptop'>
+    ```shell showLineNumbers=false frame=none
+    goal asset info --creator <creator-address> --asset unitname  -d ~/node/data -w testwall
+    Asset ID:         <created-asset-id>
+    Creator:          <creator-address>
+    Asset name:       testtoken
+    Unit name:        unitname
+    Maximum issue:    12 unitname
+    Reserve amount:   12 unitname
+    Issued:           0 unitname
+    Decimals:         0
+    Default frozen:   false
+    Manager address:  <creator-address>
+    Reserve address:  <reserve-address>
+    Freeze address:   <freeze-address>
+    Clawback address: <clawback-address>
+    ```
+  </TabItem>
+</Tabs>
+
+# Assets
+
+The asset management functions include opting in and out of assets, which are fundamental to asset interaction in a blockchain environment.
+To see some usage examples check out the [automated tests](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/src/asset.spec.ts).
+
+## Transfer
+
+### `transferAsset`
+
+The key function to facilitate asset transfers is `transferAsset(transfer, algod)`, which returns a [`SendTransactionResult`](./transaction.md#sendtransactionresult) and takes a [`TransferAssetParams`](../code/interfaces/types_transfer.TransferAssetParams.md):
+
+- All properties in [`SendTransactionParams`](./transaction.md#sendtransactionparams)
+- `from: SendTransactionFrom` - The account that will send the asset
+- `to: SendTransactionFrom | string` - The account / account address that will receive the asset
+- `assetId: number` - The asset id that will be transfered
+- `amount: number | bigint` - The amount to send in the smallest divisible unit
+- `transactionParams?: SuggestedParams` - The optional [transaction parameters](./transaction.md#transaction-params)
+- `clawbackFrom: SendTransactionFrom | string` - An optional address of a target account from which to perform a clawback operation. Please note, in such cases senderAccount must be equal to clawback field on ASA metadata.
+- `note?: TransactionNote` - The [transaction note](./transaction.md#transaction-notes)
+- `lease?: string | Uint8Array`: A [lease](https://developer.algorand.org/articles/leased-transactions-securing-advanced-smart-contract-design/) to assign to the transaction to enforce a mutually exclusive transaction (useful to prevent double-posting and other scenarios)
+
+## Opt-in/out
+
+Before an account can receive a specific asset, it must `opt-in` to receive it. An opt-in transaction places an asset holding of 0 into the account and increases its minimum balance by [100,000 microAlgos](https://developer.algorand.org/docs/get-details/asa/#assets-overview).
+
+An account can opt out of an asset at any time. This means that the account will no longer hold the asset, and the account will no longer be able to receive the asset. The account also recovers the Minimum Balance Requirement for the asset (100,000 microAlgos).
+
+When opting-out you generally want to be careful to ensure you have a zero-balance otherwise you will forfeit the balance you do have. By default, AlgoKit Utils protects you from making this mistake by checking you have a zero-balance before issuing the opt-out transaction. You can turn this check off if you want to avoid the extra calls to Algorand and are confident in what you are doing.
+
+AlgoKit Utils gives you functions that allow you to do opt-ins in bulk or as a single operation. The bulk operations give you less control over the sending semantics as they automatically send the transactions to Algorand in the most optimal way using transaction groups.
+
+### `assetOptIn`
+
+To opt-in an account to a single asset you can use the [`algokit.assetOptIn(optIn, algod)`](../code/modules/index.md#assetoptin) function. The `optIn` argument is an object [containing](../code/interfaces/types_asset.AssetOptInParams.md):
+
+- All properties in [`SendTransactionParams`](./transaction.md#sendtransactionparams)
+- `account: SendTransactionFrom` - The account that will opt-in to the asset
+- `assetId: number` - The asset id that will be opted-in to
+- `transactionParams: SuggestedParams` - The optional [transaction parameters](./transaction.md#transaction-params)
+- `note: TransactionNote` - The optional [transaction note](./transaction.md#transaction-notes)
+- `lease: string | Uint8Array`: A [lease](https://developer.algorand.org/articles/leased-transactions-securing-advanced-smart-contract-design/) to assign to the transaction to enforce a mutually exclusive transaction (useful to prevent double-posting and other scenarios)
+
+```typescript
+// Example
+await algokit.assetOptIn({
+  account: account,
+  assetId: 12345,
+  // Can optionally also specify transactionParams, note, lease and other send params
+})
+```
+
+### `assetOptOut`
+
+To opt-out an account from a single asset you can use the [`algokit.assetOptOut(optOut, algod)`](../code/modules/index.md#assetoptout) function. The `optOut` argument is an object [containing](../code/interfaces/types_asset.AssetOptOutParams.md):
+
+- All properties from [`assetOptIn`](#assetoptin)
+- `assetCreatorAddress: string` - The address of the creator account for the asset; if unspecified then it looks it up using algod
+- `ensureZeroBalance: boolean` - Whether or not to validate the account has a zero-balance before issuing the opt-out; defaults to true
+
+```typescript
+// Example
+await algokit.assetOptOut({
+  account: account,
+  assetId: 12345,
+  assetCreatorAddress: creator,
+  // Can optionally also specify ensureZeroBalance, transactionParams, note, lease and other send params
+})
+```
+
+### `assetBulkOptIn`
+
+The [`assetBulkOptIn`](../code/modules/index.md#assetbulkoptin) function facilitates the opt-in process for an account to multiple assets, allowing the account to receive and hold those assets.
+
+```typescript
+// Example
+await algokit.assetBulkOptIn(
+  {
+    account: account,
+    assetIds: [12354, 673453],
+    // Can optionally also specify validateBalances, transactionParams, note
+  },
+  algod,
+)
+```
+
+### `assetBulkOptOut`
+
+The `assetBulkOptOut` function manages the opt-out process for a number of assets, permitting the account to discontinue holding a group of assets.
+
+```typescript
+// Example
+await algokit.assetBulkOptOut(
+  {
+    account: account,
+    assetIds: [12354, 673453],
+    // Can optionally also specify validateBalances, transactionParams, note
+  },
+  algod,
+)
+```
