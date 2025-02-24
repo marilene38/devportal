@@ -27,6 +27,7 @@ export default defineConfig({
            label: 'algod',
            schema: 'https://raw.githubusercontent.com/algorand/go-algorand/refs/heads/master/daemon/algod/api/algod.oas3.yml',
            collapsed: true,
+           sidebarMethodBadges: true,
           },
         ]),
       ],
