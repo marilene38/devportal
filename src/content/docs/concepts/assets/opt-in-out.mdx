@@ -5,11 +5,10 @@ title: Opting in and out of assets
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
 
-**Authorized by**: The account opting out 
+**Authorized by**: The account opting out
 
 The asset management functions include opting in and out of assets, which are fundamental to asset interaction in a blockchain environment.
 To see some usage examples check out the [automated tests](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/src/asset.spec.ts).
-
 
 An account can opt out of an asset at any time. This means that the account will no longer hold the asset, and the account will no longer be able to receive the asset. The account also recovers the Minimum Balance Requirement for the asset (0.1A).
 
@@ -59,7 +58,6 @@ An account can opt out of an asset at any time. This means that the account will
     ```
   </TabItem>
 </Tabs>
-
 
 ## Receiving an asset
 
@@ -111,9 +109,10 @@ Before an account can receive a specific asset it must opt-in to receive it. An 
 **See also**
 
 - [Structure of an Asset Opt-In Transaction](FUTURELINK)
-{/* TODO ../transactions#opt-in-to-an-asset */}
+  {/* TODO ../transactions#opt-in-to-an-asset */}
 
 {/* TODO unify */}
+
 ## Opt-in/out
 
 Before an account can receive a specific asset, it must `opt-in` to receive it. An opt-in transaction places an asset holding of 0 into the account and increases its minimum balance by [100,000 microAlgos](https://developer.algorand.org/docs/get-details/asa/#assets-overview).
@@ -141,7 +140,7 @@ await algokit.assetOptIn({
   account: account,
   assetId: 12345,
   // Can optionally also specify transactionParams, note, lease and other send params
-})
+});
 ```
 
 ### `assetOptOut`
@@ -161,7 +160,7 @@ await algokit.assetOptOut({
   assetId: 12345,
   assetCreatorAddress: creator,
   // Can optionally also specify ensureZeroBalance, transactionParams, note, lease and other send params
-})
+});
 ```
 
 ### `assetBulkOptIn`
@@ -178,7 +177,7 @@ await algokit.assetBulkOptIn(
     // Can optionally also specify validateBalances, transactionParams, note
   },
   algod,
-)
+);
 ```
 
 ### `assetBulkOptOut`
@@ -194,5 +193,5 @@ await algokit.assetBulkOptOut(
     // Can optionally also specify validateBalances, transactionParams, note
   },
   algod,
-)
+);
 ```
