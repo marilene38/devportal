@@ -23,11 +23,22 @@ export default defineConfig({
         }),
         starlightOpenAPI([
           {
-           base: 'reference/rest-apis/algod',
+           base: 'reference/rest-api/algod',
            label: 'algod',
            schema: 'https://raw.githubusercontent.com/algorand/go-algorand/refs/heads/master/daemon/algod/api/algod.oas3.yml',
            collapsed: true,
-           sidebarMethodBadges: true,
+          },
+          {
+           base: 'reference/rest-api/indexer',
+           label: 'indexer',
+           schema: 'https://raw.githubusercontent.com/algorand/indexer/refs/heads/main/api/indexer.oas3.yml',
+           collapsed: true,
+          },
+          {
+           base: 'reference/rest-api/kmd',
+           label: 'kmd',
+           schema: 'https://raw.githubusercontent.com/algorand/go-algorand/ad578576ab5f5bfe58a590164903617ecef379e4/daemon/kmd/api/swagger.json',
+           collapsed: true,
           },
         ]),
       ],
@@ -629,27 +640,9 @@ export default defineConfig({
               ],
             },
             {
-              label: 'REST APIs',
+              label: 'REST API',
               collapsed: false,
-              items: openAPISidebarGroups
-              // items: [
-              //   {
-              //     label: 'Overview',
-              //     link: 'reference/rest-apis/overview',
-              //   },
-              //   {
-              //     label: 'algod',
-              //     link: 'reference/rest-apis/algod',
-              //   },
-              //   {
-              //     label: 'indexer',
-              //     link: 'reference/rest-apis/indexer',
-              //   },
-              //   {
-              //     label: 'kmd',
-              //     link: 'reference/rest-apis/kmd',
-              //   },
-              // ],
+              items: openAPISidebarGroups,
             },
           ],
         },
