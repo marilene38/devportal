@@ -1,5 +1,5 @@
 ---
-title: "Algorand REST APIs"
+title: 'Algorand REST APIs'
 ---
 
 ## Algod, Indexer and KMD REST Endpoints
@@ -28,8 +28,6 @@ Algorand provides endpoints for [Open API Specification version 2 (OAS2)](https:
 
 [![Run in Swagger](https://img.shields.io/badge/Run%20in-Swagger-85EA2D?logo=swagger&logoColor=black)](https://nodely.io/swagger/index.html?url=/swagger/api/4160/algod.oas3.yml)
 
-
-
 ### Indexer REST Endpoints
 
 The `algorand-indexer` daemon provides its API from the _host:port_ defined by the _--server_ flag specified at start up. The default port is 8980.
@@ -38,18 +36,15 @@ The `algorand-indexer` daemon provides its API from the _host:port_ defined by t
 
 [Indexer REST Endpoints OAS2 spec file](https://github.com/algorand/indexer/blob/develop/api/indexer.oas2.json?raw=true)
 
-
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/algorand-devrel/algorand/collection/n3whqmk/indexer)
 
 [![Run in Swagger](https://img.shields.io/badge/Run%20in-Swagger-85EA2D?logo=swagger&logoColor=black)](https://nodely.io/swagger/index.html?url=/swagger/api/4160/indexer.oas3.yml)
-
 
 ### KMD REST Endpoints
 
 :::note
 All examples in this section assume the data directory is ~/node/data
 :::
-
 
 This API is described using the [Open API Specification version 2 (OAS 2)](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md). The `kmd` daemon serves it's API from the _kmd.net_ files found in the _~/node/data_ and _~/node/data/kmd-{version}_ directories. The `kmd` daemons provide their API specifications in a [swagger json](https://github.com/algorand/go-algorand/blob/master/daemon/kmd/api/swagger.json) format available from this endpoint:
 
