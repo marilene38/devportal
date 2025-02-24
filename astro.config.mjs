@@ -642,7 +642,16 @@ export default defineConfig({
             {
               label: 'REST API',
               collapsed: false,
-              items: openAPISidebarGroups,
+              items: [
+                {
+                  label: 'Overview',
+                  link: 'reference/rest-api/overview',
+                },
+                {
+                  label: 'API Endpoints',
+                  items: openAPISidebarGroups,
+                },
+              ],
             },
           ],
         },
