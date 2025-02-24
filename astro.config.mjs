@@ -7,6 +7,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { resolve } from 'path';
 import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
+import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
 
 export default defineConfig({
   output: 'static',
@@ -20,6 +21,14 @@ export default defineConfig({
           errorOnRelativeLinks: false,
           exclude: ['**[FUTURELINK]*', '**/reference/**'],
         }),
+        starlightOpenAPI([
+          {
+           base: 'reference/rest-apis/algod',
+           label: 'algod',
+           schema: 'https://raw.githubusercontent.com/algorand/go-algorand/refs/heads/master/daemon/algod/api/algod.oas3.yml',
+           collapsed: true,
+          },
+        ]),
       ],
       components: {
         ThemeProvider: './src/components/CustomThemeProvider.astro',
@@ -617,6 +626,29 @@ export default defineConfig({
                   ],
                 },
               ],
+            },
+            {
+              label: 'REST APIs',
+              collapsed: false,
+              items: openAPISidebarGroups
+              // items: [
+              //   {
+              //     label: 'Overview',
+              //     link: 'reference/rest-apis/overview',
+              //   },
+              //   {
+              //     label: 'algod',
+              //     link: 'reference/rest-apis/algod',
+              //   },
+              //   {
+              //     label: 'indexer',
+              //     link: 'reference/rest-apis/indexer',
+              //   },
+              //   {
+              //     label: 'kmd',
+              //     link: 'reference/rest-apis/kmd',
+              //   },
+              // ],
             },
           ],
         },
