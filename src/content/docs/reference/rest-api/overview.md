@@ -26,6 +26,8 @@ Algorand provides endpoints for [Open API Specification version 2 (OAS2)](https:
 
 Run Algod in Postman OAS3 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7417958-60ff1bfc-b5f2-42aa-83b0-6888f0d4c2f4?action=collection%2Ffork&collection-url=entityId%3D7417958-60ff1bfc-b5f2-42aa-83b0-6888f0d4c2f4%26entityType%3Dcollection%26workspaceId%3Dab8846ef-efa3-4872-a5e5-c2992de6b69c)
 
+[![Run in Swagger](https://img.shields.io/badge/Run%20in-Swagger-85EA2D?logo=swagger&logoColor=black)](https://nodely.io/swagger/index.html?url=/swagger/api/4160/algod.oas3.yml)
+
 
 
 ### Indexer REST Endpoints
@@ -38,6 +40,8 @@ The `algorand-indexer` daemon provides its API from the _host:port_ defined by t
 
 
 Run Indexer in Postman OAS3 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7417958-2e088cf0-8c78-44b0-8b08-9a832b120d1a?action=collection%2Ffork&collection-url=entityId%3D7417958-2e088cf0-8c78-44b0-8b08-9a832b120d1a%26entityType%3Dcollection%26workspaceId%3Dab8846ef-efa3-4872-a5e5-c2992de6b69c)
+
+[![Run in Swagger](https://img.shields.io/badge/Run%20in-Swagger-85EA2D?logo=swagger&logoColor=black)](https://nodely.io/swagger/index.html?url=/swagger/api/4160/indexer.oas3.yml)
 
 
 ### KMD REST Endpoints
