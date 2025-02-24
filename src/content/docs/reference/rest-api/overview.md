@@ -24,7 +24,7 @@ Algorand provides endpoints for [Open API Specification version 2 (OAS2)](https:
 
 [Algod REST Endpoints OAS2 spec file](https://github.com/algorand/go-algorand/blob/master/daemon/algod/api/algod.oas2.json?raw=true)
 
-Run Algod in Postman OAS3 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7417958-60ff1bfc-b5f2-42aa-83b0-6888f0d4c2f4?action=collection%2Ffork&collection-url=entityId%3D7417958-60ff1bfc-b5f2-42aa-83b0-6888f0d4c2f4%26entityType%3Dcollection%26workspaceId%3Dab8846ef-efa3-4872-a5e5-c2992de6b69c)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/algorand-devrel/algorand/collection/ji81cju/algod-rest-api)
 
 [![Run in Swagger](https://img.shields.io/badge/Run%20in-Swagger-85EA2D?logo=swagger&logoColor=black)](https://nodely.io/swagger/index.html?url=/swagger/api/4160/algod.oas3.yml)
 
@@ -39,7 +39,7 @@ The `algorand-indexer` daemon provides its API from the _host:port_ defined by t
 [Indexer REST Endpoints OAS2 spec file](https://github.com/algorand/indexer/blob/develop/api/indexer.oas2.json?raw=true)
 
 
-Run Indexer in Postman OAS3 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7417958-2e088cf0-8c78-44b0-8b08-9a832b120d1a?action=collection%2Ffork&collection-url=entityId%3D7417958-2e088cf0-8c78-44b0-8b08-9a832b120d1a%26entityType%3Dcollection%26workspaceId%3Dab8846ef-efa3-4872-a5e5-c2992de6b69c)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/algorand-devrel/algorand/collection/n3whqmk/indexer)
 
 [![Run in Swagger](https://img.shields.io/badge/Run%20in-Swagger-85EA2D?logo=swagger&logoColor=black)](https://nodely.io/swagger/index.html?url=/swagger/api/4160/indexer.oas3.yml)
 
@@ -58,6 +58,8 @@ Algorand Key Management Daemon (`kmd`)
 ```shell showLineNumbers=false frame=none
 curl http://$(cat ~/node/data/kmd-v0.5/kmd.net)/swagger.json
 ```
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/algorand-devrel/algorand/collection/rljs0ht/kmd)
 
 :::note
 The `kmd` daemon is only automatically started when using the `goal` command line tool with specific commands requiring key management access. If you require API access to `kmd` you will need to manually start the process with `goal` using the command: `goal kmd start -d <data-dir>`. If the kmd is started with the above command it never times out and stops running unless a timeout flag is specified with the -t flag. The default of 0 is no timeout.
