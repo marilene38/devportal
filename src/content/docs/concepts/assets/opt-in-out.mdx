@@ -110,9 +110,10 @@ Before an account can receive a specific asset it must opt-in to receive it. An 
 
 **See also**
 
-- [Structure of an Asset Opt-In Transaction](../transactions#opt-in-to-an-asset)
+- [Structure of an Asset Opt-In Transaction](FUTURELINK)
+{/* TODO ../transactions#opt-in-to-an-asset */}
 
-
+{/* TODO unify */}
 ## Opt-in/out
 
 Before an account can receive a specific asset, it must `opt-in` to receive it. An opt-in transaction places an asset holding of 0 into the account and increases its minimum balance by [100,000 microAlgos](https://developer.algorand.org/docs/get-details/asa/#assets-overview).
@@ -145,7 +146,9 @@ await algokit.assetOptIn({
 
 ### `assetOptOut`
 
-To opt-out an account from a single asset you can use the [`algokit.assetOptOut(optOut, algod)`](../code/modules/index.md#assetoptout) function. The `optOut` argument is an object [containing](../code/interfaces/types_asset.AssetOptOutParams.md):
+To opt-out an account from a single asset you can use the [`algokit.assetOptOut(optOut, algod)`](FUTURELINK) function. The `optOut` argument is an object [containing](FUTURELINK):
+{/* TODO revist ../code/modules/index.md#assetoptout */}
+{/* TODO revisit ../code/interfaces/types_asset.AssetOptOutParams.md */}
 
 - All properties from [`assetOptIn`](#assetoptin)
 - `assetCreatorAddress: string` - The address of the creator account for the asset; if unspecified then it looks it up using algod
@@ -163,7 +166,8 @@ await algokit.assetOptOut({
 
 ### `assetBulkOptIn`
 
-The [`assetBulkOptIn`](../code/modules/index.md#assetbulkoptin) function facilitates the opt-in process for an account to multiple assets, allowing the account to receive and hold those assets.
+The [`assetBulkOptIn`](FUTURELINK) function facilitates the opt-in process for an account to multiple assets, allowing the account to receive and hold those assets.
+{/* TODO revisit ../code/modules/index.md#assetbulkoptin */}
 
 ```typescript
 // Example
