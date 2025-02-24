@@ -1,3 +1,62 @@
 ---
 title: Deleting assets
 ---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+
+**Authorized by**: [Asset Manager](../transactions/transactions#manageraddr)
+
+Created assets can be destroyed only by the asset manager account. All of the assets must be owned by the creator of the asset before the asset can be deleted. 
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    sp = algod_client.suggested_params()
+	# Create asset destroy transaction to destroy the asset
+	destroy_txn = transaction.AssetDestroyTxn(
+	    sender=acct1.address,
+	    sp=sp,
+	    index=created_asset,
+	)
+	signed_destroy_txn = destroy_txn.sign(acct1.private_key)
+	txid = algod_client.send_transaction(signed_destroy_txn)
+	print(f"Sent destroy transaction with txid: {txid}")
+	
+	results = transaction.wait_for_confirmation(algod_client, txid, 4)
+	print(f"Result confirmed in round: {results['confirmed-round']}")
+	
+	# now, trying to fetch the asset info should result in an error
+	try:
+	    info = algod_client.asset_info(created_asset)
+	except Exception as e:
+	    print("Expected Error:", e)
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    const deleteTxn = algosdk.makeAssetDestroyTxnWithSuggestedParamsFromObject({
+	  from: manager.addr,
+	  suggestedParams,
+	  assetIndex,
+	});
+	
+	const signedDeleteTxn = deleteTxn.signTxn(manager.privateKey);
+	await algodClient.sendRawTransaction(signedDeleteTxn).do();
+	await algosdk.waitForConfirmation(
+	  algodClient,
+	  deleteTxn.txID().toString(),
+	  3
+	);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:laptop'>
+    ```shell showLineNumbers=false frame=none
+    goal asset destroy --creator <creator-address> --manager <asset-manager-address> --asset <asset-name> -d data 
+    ```
+  </TabItem>
+</Tabs>
+
+**See also**
+
+- [Anatomy of the Asset Destroy Transaction](../transactions#destroy-an-asset)

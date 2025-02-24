@@ -1,3 +1,92 @@
 ---
 title: Creating assets
 ---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+
+**Transaction Authorizer**: Any account with sufficient Algo balance
+
+Create assets using either the SDKs or `goal`. When using the SDKs supply all creation parameters. With `goal`, managing the various addresses associated with the asset must be done after executing an asset creation. See Modifying an Asset in the next section for more details on changing addresses for the asset.
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    # Account 1 creates an asset called `rug` with a total supply
+    # of 1000 units and sets itself to the freeze/clawback/manager/reserve roles
+    sp = algod_client.suggested_params()
+    txn = transaction.AssetConfigTxn(
+        sender=acct1.address,
+        sp=sp,
+        default_frozen=False,
+        unit_name="rug",
+        asset_name="Really Useful Gift",
+        manager=acct1.address,
+        reserve=acct1.address,
+        freeze=acct1.address,
+        clawback=acct1.address,
+        url="https://path/to/my/asset/details",
+        total=1000,
+        decimals=0,
+    )
+    
+    # Sign with secret key of creator
+    stxn = txn.sign(acct1.private_key)
+    # Send the transaction to the network and retrieve the txid.
+    txid = algod_client.send_transaction(stxn)
+    print(f"Sent asset create transaction with txid: {txid}")
+    # Wait for the transaction to be confirmed
+    results = transaction.wait_for_confirmation(algod_client, txid, 4)
+    print(f"Result confirmed in round: {results['confirmed-round']}")
+    
+    # grab the asset id for the asset we just created
+    created_asset = results["asset-index"]
+    print(f"Asset ID created: {created_asset}")
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    const suggestedParams = await algodClient.getTransactionParams().do();
+	const txn = algosdk.makeAssetCreateTxnWithSuggestedParamsFromObject({
+	  from: creator.addr,
+	  suggestedParams,
+	  defaultFrozen: false,
+	  unitName: 'rug',
+	  assetName: 'Really Useful Gift',
+	  manager: creator.addr,
+	  reserve: creator.addr,
+	  freeze: creator.addr,
+	  clawback: creator.addr,
+	  assetURL: 'http://path/to/my/asset/details',
+	  total: 1000,
+	  decimals: 0,
+	});
+	
+	const signedTxn = txn.signTxn(creator.privateKey);
+	await algodClient.sendRawTransaction(signedTxn).do();
+	const result = await algosdk.waitForConfirmation(
+	  algodClient,
+	  txn.txID().toString(),
+	  3
+	);
+	
+	const assetIndex = result['asset-index'];
+	console.log(`Asset ID created: ${assetIndex}`);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:shell'>
+    ```shell showLineNumbers=false frame=none
+    goal asset create --creator <address> --total 1000 --unitname <unit-name> --asseturl "https://path/to/my/asset/details" --decimals 0   -d data
+    ```
+  </TabItem>
+</Tabs>
+
+:::note
+The Algorand Foundation [hosts many standards (ARCs)](https://arc.algorand.foundation/) associated with asset creation. Conforming to these standards allows your apps/assets to work well with existing community tools that support them.
+:::
+
+**See also**
+
+- [Anatomy of an Asset Creation Transaction](../transactions#create-an-asset)
+
+

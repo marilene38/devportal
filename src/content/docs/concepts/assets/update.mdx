@@ -1,3 +1,72 @@
 ---
 title: Updating assets
 ---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+
+**Authorized by**: [Asset Manager Account](../transactions/transactions#manageraddr)
+
+After an asset has been created only the manager, reserve, freeze and clawback accounts can be changed. All other parameters are locked for the life of the asset. If any of these addresses are set to `""` that address will be cleared and can never be reset for the life of the asset. Only the manager account can make configuration changes and must authorize the transaction.
+
+<Tabs syncKey='lang'>
+  <TabItem label='Python' icon='seti:python'>
+    ```python showLineNumbers=false frame=none
+    sp = algod_client.suggested_params()
+	# Create a config transaction that wipes the
+	# reserve address for the asset
+	txn = transaction.AssetConfigTxn(
+	    sender=acct1.address,
+	    sp=sp,
+	    manager=acct1.address,
+	    reserve=None,
+	    freeze=acct1.address,
+	    clawback=acct1.address,
+	    strict_empty_address_check=False,
+	)
+	# Sign with secret key of manager
+	stxn = txn.sign(acct1.private_key)
+	# Send the transaction to the network and retrieve the txid.
+	txid = algod_client.send_transaction(stxn)
+	print(f"Sent asset config transaction with txid: {txid}")
+	# Wait for the transaction to be confirmed
+	results = transaction.wait_for_confirmation(algod_client, txid, 4)
+	print(f"Result confirmed in round: {results['confirmed-round']}")
+    ```
+  </TabItem>
+  <TabItem label='JavaScript' icon='seti:typescript'>
+    ```typescript showLineNumbers=false frame=none
+    const manager = accounts[1];
+	
+	const configTxn = algosdk.makeAssetConfigTxnWithSuggestedParamsFromObject({
+	  from: creator.addr,
+	  manager: manager.addr,
+	  freeze: manager.addr,
+	  clawback: manager.addr,
+	  reserve: undefined,
+	  suggestedParams,
+	  assetIndex,
+	  // don't throw error if freeze, clawback, or manager are empty
+	  strictEmptyAddressChecking: false,
+	});
+	
+	const signedConfigTxn = configTxn.signTxn(creator.privateKey);
+	await algodClient.sendRawTransaction(signedConfigTxn).do();
+	const configResult = await algosdk.waitForConfirmation(
+	  algodClient,
+	  txn.txID().toString(),
+	  3
+	);
+	console.log(`Result confirmed in round: ${configResult['confirmed-round']}`);
+    ```
+  </TabItem>
+  <TabItem label='Goal' icon='seti:laptop'>
+    ```shell showLineNumbers=false frame=none
+    goal asset config  --manager <address> --new-reserve <address> --assetid <asset-id> -d data
+    ```
+  </TabItem>
+</Tabs>
+
+**See also**
+
+- [Anatomy of an Asset Reconfiguration Transaction](../transactions#reconfigure-an-asset)
