@@ -8,6 +8,8 @@ extend-exclude = [
 
 [default.extend-words]
 Allo = "Allo"
+optin = "optin"
+asnd = "asnd"
 
 [default]
 extend-ignore-re = [
