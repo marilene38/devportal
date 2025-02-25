@@ -4,6 +4,7 @@ title: Transferring assets
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
+import RemoteCode from '/src/components/RemoteCode.astro';
 
 **Authorized by**: The account that holds the asset to be transferred.
 
@@ -11,23 +12,13 @@ Assets can be transferred between accounts that have opted-in to receiving the a
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    ```python showLineNumbers=false frame=none
-    sp = algod_client.suggested_params()
-	# Create transfer transaction
-	xfer_txn = transaction.AssetTransferTxn(
-	    sender=acct1.address,
-	    sp=sp,
-	    receiver=acct2.address,
-	    amt=1,
-	    index=created_asset,
-	)
-	signed_xfer_txn = xfer_txn.sign(acct1.private_key)
-	txid = algod_client.send_transaction(signed_xfer_txn)
-	print(f"Sent transfer transaction with txid: {txid}")
-	
-	results = transaction.wait_for_confirmation(algod_client, txid, 4)
-	print(f"Result confirmed in round: {results['confirmed-round']}")
-    ```
+	<RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
+      snippet='ASSET_TRANSFER_TRANSACTION'
+      lang='py'
+      title='Asset Transfer Transaction'
+      frame='none'
+    />  
   </TabItem>
   <TabItem label='JavaScript' icon='seti:typescript'>
     ```typescript showLineNumbers=false frame=none

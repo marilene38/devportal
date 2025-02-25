@@ -4,6 +4,7 @@ title: Deleting assets
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
+import RemoteCode from '/src/components/RemoteCode.astro';
 
 **Authorized by**: [Asset Manager](FUTURELINK)
 {/* TODO ../transactions/transactions#manageraddr */}
@@ -12,27 +13,13 @@ Created assets can be destroyed only by the asset manager account. All of the as
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    ```python showLineNumbers=false frame=none
-    sp = algod_client.suggested_params()
-	# Create asset destroy transaction to destroy the asset
-	destroy_txn = transaction.AssetDestroyTxn(
-	    sender=acct1.address,
-	    sp=sp,
-	    index=created_asset,
-	)
-	signed_destroy_txn = destroy_txn.sign(acct1.private_key)
-	txid = algod_client.send_transaction(signed_destroy_txn)
-	print(f"Sent destroy transaction with txid: {txid}")
-	
-	results = transaction.wait_for_confirmation(algod_client, txid, 4)
-	print(f"Result confirmed in round: {results['confirmed-round']}")
-	
-	# now, trying to fetch the asset info should result in an error
-	try:
-	    info = algod_client.asset_info(created_asset)
-	except Exception as e:
-	    print("Expected Error:", e)
-    ```
+  	<RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_delete.py'      
+      snippet='ASSET_DESTROY_TRANSACTION'
+      lang='py'
+      title='Asset Delete Transaction'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='JavaScript' icon='seti:typescript'>
     ```typescript showLineNumbers=false frame=none
