@@ -1,3 +1,532 @@
 ---
 title: Transaction types
 ---
+
+The following sections describe the seven types of Algorand transactions through example transactions that represent common use cases.
+
+## Payment Transaction
+
+A `PaymentTx` sends Algos (the Algorand blockchain's native currency) from one account to another.
+
+### Send 5 Algos
+
+Here is an example transaction that sends 5 Algos from one account to another on MainNet.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "amt": 5000000,
+    "fee": 1000,
+    "fv": 6000000,
+    "gen": "mainnet-v1.0",
+    "gh": "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=",
+    "lv": 6001000,
+    "note": "SGVsbG8gV29ybGQ=",
+    "rcv": "GD64YIY3TWGDMCNPP553DZPPR6LDUSFQOIJVFDPPXWEG3FVOJCCDBBHU5A",
+    "snd": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "type": "pay"
+  }
+}
+```
+
+The `"type": "pay"` signals that this is a payment transaction.
+
+This transaction transfers 5 Algos (shown as 5000000 microAlgos) from the account represented by the address starting with `"EW64GC..."` to the account with the address starting with `"GD64YI..."`. The sender address (`"EW64GC..."`) will pay a fee of `1000` microAlgos, which is also the minimum fee. An optional note is included in this transaction, which corresponds to the base64-encoded bytes for `"Hello World"`.
+
+This transaction is valid on MainNet, as per the genesis hash value which corresponds to MainNet's genesis hash. The genesis ID is also provided for human-readability and also matches MainNet. Be sure to validate against the genesis hash value since it is unique to the specific network. The genesis ID is not; anyone could spin up a private network and call it `"mainnet-v1.0"` if desired. This transaction is valid if submitted between rounds 6000000 and 6001000.
+
+### Close an Account
+
+Closing an account means removing it from the Algorand ledger. Since there is a minimum balance requirement for every account on Algorand, the only way to completely remove it is to use the Close Remainder To field as in the transaction below.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "close": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "fee": 1000,
+    "fv": 4695599,
+    "gen": "testnet-v1.0",
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 4696599,
+    "rcv": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "snd": "SYGHTA2DR5DYFWJE6D4T34P4AWGCG7JTNMY4VI6EDUVRMX7NG4KTA2WMDA",
+    "type": "pay"
+  }
+}
+```
+
+In this transaction, after the fee and the transaction `"amt"` are paid to the receiver from the sender account (`"SYGHTA..."`), the remaining balance is transferred to the closeto account (`"EW64GC..."`). Note that there is an implicit `"amt"` of 0 Algos when none is specified.
+
+:::note
+If you have asset holdings, you must first close out those asset holdings before you can close out the Algorand account completely. Close out your asset holdings by specifying an Asset Close Remainder To address within an Asset Transfer transaction.
+:::
+
+:::caution
+Using the `--close-to` parameter on any transaction from a _rekeyed account_ will remove the **auth-addr** field, thus reverting signing authority to the original address. The `--close-to` parameter should be used with caution by keyholder(s) of **auth-addr** as the effects remove their authority to access this account thereafter.
+:::
+
+## Key Registration Transaction
+
+The purpose of a `KeyRegistrationTx` is to register an account either `online` or `offline` to participate (i.e. vote) in Algorand Consensus.
+
+An account that is marked `online` does not necessarily mean it is participating in consensus. The process of registering an account online involves first generating a participation key _prior_ to issuing a KeyReg transaction.
+
+### Register account online
+
+This is an example of an **online** key registration transaction.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "fee": 2000,
+    "fv": 6002000,
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 6003000,
+    "selkey": "X84ReKTmp+yfgmMCbbokVqeFFFrKQeFZKEXG89SXwm4=",
+    "snd": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "type": "keyreg",
+    "votefst": 6000000,
+    "votekd": 1730,
+    "votekey": "eXq34wzh2UIxCZaI1leALKyAvSz/+XOe0wqdHagM+bw=",
+    "votelst": 9000000
+  }
+}
+```
+
+What distinguishes this as a key registration transaction is `"type": "keyreg"` and what distinguishes it as an _online_ key registration is the existence of the participation key-related fields, namely `"votekey"`, `"selkey"`, `"votekd"`, `"votefst"`, and `"votelst"`. The values for these fields are obtained by dumping the participation key info on the node where the participation key lives. The sender (`"EW64GC..."`) will pay a fee of `2000` microAlgos and its account state will change to `online` after this transaction is confirmed by the network. The transaction is valid between rounds 6002000 and 6003000 on TestNet.
+
+### Register account offline
+
+Here is an example of an **offline** key registration transaction.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "fee": 1000,
+    "fv": 7000000,
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 7001000,
+    "snd": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "type": "keyreg"
+  }
+}
+```
+
+What distinguishes this from an _online_ transaction is that it does _not_ contain any participation key-related fields, since the account will no longer need a participation key if the transaction is confirmed. The sender (`"EW64GC..."`) will pay a fee of `2000` microAlgos and its account state will change to `offline` after this transaction is confirmed by the network. This transaction is valid between rounds 7,000,000 (`"fv"`) and 7,001,000 (`"lv"`) on TestNet as per the Genesis Hash (`"gh"`) value.
+
+## Asset Configuration Transaction
+
+An `AssetConfigTx` is used to create an asset, modify certain parameters of an asset, or destroy an asset.
+
+### Create an Asset
+
+Here is an example asset creation transaction:
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "apar": {
+      "am": "gXHjtDdtVpY7IKwJYsJWdCSrnUyRsX4jr3ihzQ2U9CQ=",
+      "an": "My New Coin",
+      "au": "developer.algorand.co",
+      "c": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+      "dc": 2,
+      "f": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+      "m": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+      "r": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+      "t": 50000000,
+      "un": "MNC"
+    },
+    "fee": 1000,
+    "fv": 6000000,
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 6001000,
+    "snd": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "type": "acfg"
+  }
+}
+```
+
+The `"type": "acfg"` distinguishes this as an Asset Configuration transaction. What makes this uniquely an **asset creation** transaction is that _no_ asset ID (`"caid"`) is specified and there exists an asset parameters struct that includes all the initial configurations for the asset. The asset is named (`an`) "My New Coin". the unitname (`"un"`) is "MNC". There are 50,000,000 total base units of this asset. Combine this with the decimals (`"dc"`) value set to 2, means that there are 500,000.00 of this asset. There is an asset URL (`"au"`) specified which points to [developer.algorand.co](https://developer.algorand.co/) and a base64-encoded metadata hash (`"am"`). This specific value corresponds to the SHA512/256 hash of the string "My New Coin Certificate of Value". The manager (`"m"`), freeze (`"f"`), clawback (`"c"`), and reserve (`"r"`) are the same as the sender. The sender is also the creator.
+
+This transaction is valid between rounds 6000000 (`"fv"`) and 6001000 (`"lv"`) on TestNet as per the Genesis Hash (`"gh"`) value.
+
+### Reconfigure an Asset
+
+A **Reconfiguration Transaction** is issued by the asset manager to change the configuration of an already created asset.
+
+Here is what an example reconfiguration transaction that changes the manager address for the asset with the Id `168103` that was created above.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "apar": {
+      "c": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+      "f": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+      "m": "QC7XT7QU7X6IHNRJZBR67RBMKCAPH67PCSX4LYH4QKVSQ7DQZ32PG5HSVQ",
+      "r": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4"
+    },
+    "caid": 168103,
+    "fee": 1000,
+    "fv": 6002000,
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 6003000,
+    "snd": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "type": "acfg"
+  }
+}
+```
+
+What distinguishes this from an asset creation transaction is the inclusion of the **asset id** to be changed. The only fields that can be reconfigured are the manager, freeze, clawback, and reserve addresses. All of them must be specified even if they do not change.
+
+:::caution
+The protocol interprets unspecified addresses in an `AssetConfigTx` as an explicit action to set those values to null for the asset. Once set to `null`, this action cannot be undone.
+:::
+
+Upon confirmation, this transaction will change the manager of the asset from `"EW64GC..."` to `"QC7XT7..."`.
+This transaction is valid on TestNet between rounds 6002000 and 6003000. A fee of `1000` microAlgos will be paid by the sender if confirmed.
+
+### Destroy an Asset
+
+A **Destroy Transaction** is issued to remove an asset from the Algorand ledger. To destroy an existing asset on Algorand, the original `creator` must be in possession of all units of the asset and the `manager` must send and therefore authorize the transaction.
+
+Here is what an example transaction destroy transaction looks like:
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "caid": 168103,
+    "fee": 1000,
+    "fv": 7000000,
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 7001000,
+    "snd": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "type": "acfg"
+  }
+}
+```
+
+This transaction differentiates itself from an **Asset Creation** transaction in that it contains an **asset ID** (`caid`) pointing to the asset to be destroyed. It differentiates itself from an **Asset Reconfiguration** transaction by the _lack_ of any asset parameters.
+
+## Asset Transfer Transaction
+
+An Asset Transfer Transaction is used to opt-in to receive a specific type of Algorand Standard Asset, transfer an Algorand Standard asset, or revoke an Algorand Standard Asset from a specific account.
+
+### Opt-in to an Asset
+
+Here is an example of an opt-in transaction:
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "arcv": "QC7XT7QU7X6IHNRJZBR67RBMKCAPH67PCSX4LYH4QKVSQ7DQZ32PG5HSVQ",
+    "fee": 1000,
+    "fv": 6631154,
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 6632154,
+    "snd": "QC7XT7QU7X6IHNRJZBR67RBMKCAPH67PCSX4LYH4QKVSQ7DQZ32PG5HSVQ",
+    "type": "axfer",
+    "xaid": 168103
+  }
+}
+```
+
+The `"type": "axfer"` distinguishes this as an asset transfer transaction. The fields used in the transaction are the same as any other asset transfer. What distinguishes it as an opt-in transaction is in how those fields are specified and the sender account's asset holdings state prior to sending the transaction. In particular, the address `"QC7XT7...` is both the sender and asset receiver and it is assumed that the sender does not yet possess any of the desired asset identified with the asset ID `168103`. The asset amount is not specified in this example. This transaction is valid on TestNet between rounds 6631154 and 6632154.
+
+### Transfer an Asset
+
+Here is an example of an asset transfer transaction.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "aamt": 1000000,
+    "arcv": "QC7XT7QU7X6IHNRJZBR67RBMKCAPH67PCSX4LYH4QKVSQ7DQZ32PG5HSVQ",
+    "fee": 3000,
+    "fv": 7631196,
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 7632196,
+    "snd": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "type": "axfer",
+    "xaid": 168103
+  }
+}
+```
+
+An asset transfer transaction assumes that the asset receiver has already opted-in. The account represented by address `"EW64GC6..."` sends 1 million base units (or 10,000.00 units) of asset `168103` between rounds 7631196 and 7632196 on TestNet. `"EW64GC6..."` pays a fee of 3000 microAlgos.
+
+:::note
+If you are displaying asset amounts to users, be sure to include the asset's `"decimal"` configuration for easier readability.
+:::
+
+### Revoke an Asset
+
+Here is an example of the clawback account revoking assets from another account.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "aamt": 500000,
+    "arcv": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "asnd": "QC7XT7QU7X6IHNRJZBR67RBMKCAPH67PCSX4LYH4QKVSQ7DQZ32PG5HSVQ",
+    "fee": 1000,
+    "fv": 7687457,
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 7688457,
+    "snd": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "type": "axfer",
+    "xaid": 168103
+  }
+}
+```
+
+The existence of an asset sender tells us that this transaction is utilizing the clawback workflow. During a clawback, the clawback address (`"EW64GC..."`) sends the transactions and therefore authorizes it and pays the `1000` microAlgo fee. The asset sender (`"QC7XT7..."`) is the address of the account from which the assets will be revoked. In this case, 5 million base units (5,000.00 units) of asset `168103` will be revoked from `"QC7XT7..."` and transferred to `"EW64GC..."`.
+
+## Asset Freeze Transaction
+
+An Asset Freeze Transaction is issued by the Freeze Address and results in the asset receiver address losing or being granted the ability to send or receive the frozen asset.
+
+### Freeze an Asset
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "afrz": true,
+    "fadd": "QC7XT7QU7X6IHNRJZBR67RBMKCAPH67PCSX4LYH4QKVSQ7DQZ32PG5HSVQ",
+    "faid": 168103,
+    "fee": 1000,
+    "fv": 7687793,
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 7688793,
+    "snd": "EW64GC6F24M7NDSC5R3ES4YUVE3ZXXNMARJHDCCCLIHZU6TBEOC7XRSBG4",
+    "type": "afrz"
+  }
+}
+```
+
+An asset freeze transaction is identified by `"type": "afrz"`. In this example, the freeze manager `"EW64GC..."` (i.e. the sender) freezes the asset `168103` for the account represented by address `"QC7XT7..."`. To unfreeze the asset, the `"afrz"` field is set to `false`.
+
+## Application Call Transaction
+
+An Application Call Transaction is submitted to the network with an AppId and an OnComplete method. The AppId specifies which App to call and the OnComplete method is used in the contract to determine what branch of logic to execute.
+
+Application Call transactions may include other fields needed by the logic such as:
+
+_ApplicationArgs_ - To pass arbitrary arguments to an application (or in the future to call an ABI method)
+
+_Accounts_ - To pass accounts that may require some balance checking or opt-in status
+
+_ForeignApps_ - To pass apps and allow state access to an external application (or in the future to call an ABI method)
+
+_ForeignAssets_ - To pass ASAs for parameter checking
+
+_Boxes_ - To pass references to Application Boxes so the AVM can access the contents
+
+### Application Create Transaction
+
+When an application is to be created, the OnComplete method is set to NoOp, no AppId is set, and the Approval/Clear programs and Schema are passed. The approval program may do additional checking during setup by checking that the AppId == 0.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "apap": "BYEB",
+    "apgs": {
+      "nbs": 1,
+      "nui": 1
+    },
+    "apls": {
+      "nbs": 1,
+      "nui": 1
+    },
+    "apsu": "BYEB",
+    "fee": 1000,
+    "fv": 12774,
+    "gh": "ALXYc8IX90hlq7olIdloOUZjWfbnA3Ix1N5vLn81zI8=",
+    "lv": 13774,
+    "note": "poeVkF5j4MU=",
+    "snd": "FOZF4CMXLU2KDWJ5QARE3J2U7XELSXL7MWGNWUHD7OPKGQAI4GPSMGNLCE",
+    "type": "appl"
+  }
+}
+```
+
+- The Approval program (`apap`) and Clear program (`apsu`) are set to `#pragma version 5; int 1`
+- The Apps global and local state both have bytes/ints set to 1
+- The OnComplete (`apan`) is set to NoOp (0 value so it is omitted from output)
+
+Assuming all the balance and signature checks pass, this will create an Application with a new AppId and subsequent calls.
+
+### Application Update Transaction
+
+An Application Update transaction may be submitted and approved assuming the logic of the Approval program allows it. This is done by specifying the AppId to update and passing the new logic for Approval and Clear programs.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "apan": 4,
+    "apap": "BYEB",
+    "apid": 51,
+    "apsu": "BYEB",
+    "fee": 1000,
+    "fv": 12973,
+    "gh": "ALXYc8IX90hlq7olIdloOUZjWfbnA3Ix1N5vLn81zI8=",
+    "lv": 13973,
+    "note": "ATFKEwKGqLk=",
+    "snd": "FOZF4CMXLU2KDWJ5QARE3J2U7XELSXL7MWGNWUHD7OPKGQAI4GPSMGNLCE",
+    "type": "appl"
+  }
+}
+```
+
+- The AppId (`apid`) is set to the app being updated (51 here)
+- The OnComplete (`apan`) is set to UpdateApplication (4)
+
+### Application Delete Transaction
+
+An application may be deleted as long as the logic in the Approval Program allows for it.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "apan": 5,
+    "apid": 51,
+    "fee": 1000,
+    "fv": 13555,
+    "gh": "ALXYc8IX90hlq7olIdloOUZjWfbnA3Ix1N5vLn81zI8=",
+    "lv": 14555,
+    "note": "V/RAbQ57DnI=",
+    "snd": "FOZF4CMXLU2KDWJ5QARE3J2U7XELSXL7MWGNWUHD7OPKGQAI4GPSMGNLCE",
+    "type": "appl"
+  }
+}
+```
+
+- The AppId (`apid`) is set to the app being deleted (51 here)
+- The OnComplete (`apan`) is set to DeleteApplication (5)
+
+### Application Opt-In Transaction
+
+An Application Opt-In transaction must be submitted by an account in order for the local state for that account to be used. If no local state is required, this transaction is not necessary for a given account.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "apan": 1,
+    "apid": 51,
+    "fee": 1000,
+    "fv": 13010,
+    "gh": "ALXYc8IX90hlq7olIdloOUZjWfbnA3Ix1N5vLn81zI8=",
+    "lv": 14010,
+    "note": "SEQpWAYkzoU=",
+    "snd": "LNTMAFSF43V7RQ7FBBRAWPXYZPVEBGKPNUELHHRFMCAWSARPFUYD2A623I",
+    "type": "appl"
+  }
+}
+```
+
+- The AppId (`apid`) is set to the app being opted into (51 here)
+- The OnComplete (`apan`) is set to OptIn (1)
+
+### Application Close Out Transaction
+
+An Application Close Out transaction is used when an account wants to opt out of a contract gracefully and remove its local state from its balance record. This transaction _may_ fail according to the logic in the Approval program.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "apan": 2,
+    "apid": 51,
+    "fee": 1000,
+    "fv": 13166,
+    "gh": "ALXYc8IX90hlq7olIdloOUZjWfbnA3Ix1N5vLn81zI8=",
+    "lv": 14166,
+    "note": "HFL7S60gOdM=",
+    "snd": "LNTMAFSF43V7RQ7FBBRAWPXYZPVEBGKPNUELHHRFMCAWSARPFUYD2A623I",
+    "type": "appl"
+  }
+}
+```
+
+- The AppId (`apid`) is set to the app being closed out of (51 here)
+- The OnComplete (`apan`) is set to CloseOut (2)
+
+### Application Clear State Transaction
+
+An Application Clear State transaction is used to force removal of the local state from the balance record of the sender. Given a well formed transaction this method will _always_ succeed. The Clear program is used by the application to perform any book keeping necessary to remove the Account from it's records.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "apan": 3,
+    "apid": 51,
+    "fee": 1000,
+    "fv": 13231,
+    "gh": "ALXYc8IX90hlq7olIdloOUZjWfbnA3Ix1N5vLn81zI8=",
+    "lv": 14231,
+    "note": "U93ZQy24zJ0=",
+    "snd": "LNTMAFSF43V7RQ7FBBRAWPXYZPVEBGKPNUELHHRFMCAWSARPFUYD2A623I",
+    "type": "appl"
+  }
+}
+```
+
+- The AppId (`apid`) is set to the app being cleared (51 here)
+- The OnComplete (`apan`) is set to ClearState (3)
+
+### Application NoOp Transaction
+
+Application NoOp Transactions make up a majority of the Application Call methods in practice. The logic in a smart contract will often branch to appropriate logic given the contents of the ApplicationArgs array passed.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "apaa": ["ZG9jcw==", "AAAAAAAAAAE="],
+    "apas": [16],
+    "apat": ["4RLXQGPZVVRSXQF4VKZ74I6BCUD7TUVROOUBCVRKY37LQSHXORZV4KCAP4"],
+    "apfa": [10],
+    "apbx": [{ "i": 51, "n": "Y29vbF9ib3g=" }],
+    "apid": 51,
+    "fee": 1000,
+    "fv": 13376,
+    "gh": "ALXYc8IX90hlq7olIdloOUZjWfbnA3Ix1N5vLn81zI8=",
+    "lv": 14376,
+    "note": "vQXvgqySYPY=",
+    "snd": "LNTMAFSF43V7RQ7FBBRAWPXYZPVEBGKPNUELHHRFMCAWSARPFUYD2A623I",
+    "type": "appl"
+  }
+}
+```
+
+- The AppId (`apid`) is set to the app being called (51 here)
+- The ApplicationArgs (`apaa`) contains to the string "docs" and the integer 1
+- The Accounts (`apat`) contains the address "4RLXQGPZVVRSXQF4VKZ74I6BCUD7TUVROOUBCVRKY37LQSHXORZV4KCAP4"
+- The ForeignAssets (`apas`) contains the ASA id 16
+- The ForeignApps (`apfa`) contains the AppId 10
+- The Boxes (`apbx`) contains a reference to the box named "cool_box", owned by app id 51
+- The OnComplete (`apan`) is set to NoOp (0 value so omitted from the output)
+
+# State Proof Transaction
+
+A State Proof Transaction is a transaction that's submitted to the network during the consensus process. These types of transactions are not submitted by individuals, nor can a Smart Contract issue inner state proof transactions.
+
+```json showLineNumbers=false frame=none
+{
+  "txn": {
+    "txn": {
+      "fv": 24192139,
+      "gh": "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=",
+      "lv": 24193139,
+      "snd": "XM6FEYVJ2XDU2IBH4OT6VZGW75YM63CM4TC6AV6BD3JZXFJUIICYTVB5EU",
+      "sp": {},
+      "spmsg": {
+        "P": 2230170,
+        "b": "8LkpbqSqlWcsfUr9EgpxBmrTDqQBg2tcubN7cpcFRM8=",
+        "f": 24191745,
+        "l": 24192000,
+        "v": "drLLvXcg+sOqAhYIjqatF68QP7TeR0B/NljKtOtDit7Hv5Hk7gB9BgI5Ijz+tkmDkRoblcchwYDJ1RKzbapMAw=="
+      },
+      "type": "stpf"
+    }
+  }
+}
+```
