@@ -4,6 +4,7 @@ title: Opting in and out of assets
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
+import RemoteCode from '/src/components/RemoteCode.astro';
 
 **Authorized by**: The account opting out
 
@@ -14,25 +15,13 @@ An account can opt out of an asset at any time. This means that the account will
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    ```python showLineNumbers=false frame=none
-    sp = algod_client.suggested_params()
-	opt_out_txn = transaction.AssetTransferTxn(
-	    sender=acct2.address,
-	    sp=sp,
-	    index=created_asset,
-	    receiver=acct1.address,
-	    # an opt out transaction sets its close_asset_to parameter
-	    # it is always possible to close an asset to the creator
-	    close_assets_to=acct1.address,
-	    amt=0,
-	)
-	signed_opt_out = opt_out_txn.sign(acct2.private_key)
-	txid = algod_client.send_transaction(signed_opt_out)
-	print(f"Sent opt out transaction with txid: {txid}")
-	
-	results = transaction.wait_for_confirmation(algod_client, txid, 4)
-	print(f"Result confirmed in round: {results['confirmed-round']}")
-    ```
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_optin_optout.py'      
+      snippet='ASSET_OPT_OUT_TRANSACTION'
+      lang='py'
+      title='Asset Opt-Out Transaction'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='JavaScript' icon='seti:typescript'>
     ```typescript showLineNumbers=false frame=none
@@ -67,21 +56,13 @@ Before an account can receive a specific asset it must opt-in to receive it. An 
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    ```python showLineNumbers=false frame=none
-    sp = algod_client.suggested_params()
-	# Create opt-in transaction
-	# asset transfer from me to me for asset id we want to opt-in to with amt==0
-	optin_txn = transaction.AssetOptInTxn(
-	    sender=acct2.address, sp=sp, index=created_asset
-	)
-	signed_optin_txn = optin_txn.sign(acct2.private_key)
-	txid = algod_client.send_transaction(signed_optin_txn)
-	print(f"Sent opt in transaction with txid: {txid}")
-	
-	# Wait for the transaction to be confirmed
-	results = transaction.wait_for_confirmation(algod_client, txid, 4)
-	print(f"Result confirmed in round: {results['confirmed-round']}")
-    ```
+	<RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_optin_optout.py'      
+      snippet='ASSET_OPT_IN_TRANSACTION'
+      lang='py'
+      title='Asset Opt-In Transaction'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='JavaScript' icon='seti:typescript'>
     ```typescript showLineNumbers=false frame=none

@@ -4,6 +4,7 @@ title: Freezing assets
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
+import RemoteCode from '/src/components/RemoteCode.astro';
 
 **Authorized by**: [Asset Freeze Address](FUTURELINK)
 {/* TODO ../transactions/transactions#freezeaddr */}
@@ -12,23 +13,13 @@ Freezing or unfreezing an asset for an account requires a transaction that is si
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
-    ```python showLineNumbers=false frame=none
-    sp = algod_client.suggested_params()
-	# Create freeze transaction to freeze the asset in acct2 balance
-	freeze_txn = transaction.AssetFreezeTxn(
-	    sender=acct1.address,
-	    sp=sp,
-	    index=created_asset,
-	    target=acct2.address,
-	    new_freeze_state=True,
-	)
-	signed_freeze_txn = freeze_txn.sign(acct1.private_key)
-	txid = algod_client.send_transaction(signed_freeze_txn)
-	print(f"Sent freeze transaction with txid: {txid}")
-	
-	results = transaction.wait_for_confirmation(algod_client, txid, 4)
-	print(f"Result confirmed in round: {results['confirmed-round']}")
-    ```
+  	<RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_freeze.py'      
+      snippet='ASSET_FREEZE_TRANSACTION'
+      lang='py'
+      title='Asset Freeze Transaction'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='JavaScript' icon='seti:typescript'>
     ```typescript showLineNumbers=false frame=none
