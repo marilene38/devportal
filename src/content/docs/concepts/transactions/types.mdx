@@ -8,7 +8,7 @@ The following sections describe the seven types of Algorand transactions through
 
 A `PaymentTx` sends Algos (the Algorand blockchain's native currency) from one account to another.
 
-### Send 5 Algos
+### Send Algos
 
 Here is an example transaction that sends 5 Algos from one account to another on MainNet.
 
@@ -33,11 +33,11 @@ The `"type": "pay"` signals that this is a payment transaction.
 
 This transaction transfers 5 Algos (shown as 5000000 microAlgos) from the account represented by the address starting with `"EW64GC..."` to the account with the address starting with `"GD64YI..."`. The sender address (`"EW64GC..."`) will pay a fee of `1000` microAlgos, which is also the minimum fee. An optional note is included in this transaction, which corresponds to the base64-encoded bytes for `"Hello World"`.
 
-This transaction is valid on MainNet, as per the genesis hash value which corresponds to MainNet's genesis hash. The genesis ID is also provided for human-readability and also matches MainNet. Be sure to validate against the genesis hash value since it is unique to the specific network. The genesis ID is not; anyone could spin up a private network and call it `"mainnet-v1.0"` if desired. This transaction is valid if submitted between rounds 6000000 and 6001000.
+This transaction is valid on MainNet, as per the genesis hash value which corresponds to MainNet's genesis hash. The genesis ID is also provided for human-readability and also matches MainNet. Be sure to validate against the genesis hash value since it is unique to the specific network. The genesis ID is not; anyone could spin up a private network and call it `mainnet-v1.0` if desired. This transaction is valid if submitted between rounds 6000000 and 6001000.
 
 ### Close an Account
 
-Closing an account means removing it from the Algorand ledger. Since there is a minimum balance requirement for every account on Algorand, the only way to completely remove it is to use the Close Remainder To field as in the transaction below.
+Closing an account means removing it from the Algorand ledger. Since there is a minimum balance requirement for every account on Algorand, the only way to completely remove it is to use the `close` field (Close Remainder To), as in the transaction below:
 
 ```json showLineNumbers=false frame=none
 {
@@ -55,7 +55,7 @@ Closing an account means removing it from the Algorand ledger. Since there is a 
 }
 ```
 
-In this transaction, after the fee and the transaction `"amt"` are paid to the receiver from the sender account (`"SYGHTA..."`), the remaining balance is transferred to the closeto account (`"EW64GC..."`). Note that there is an implicit `"amt"` of 0 Algos when none is specified.
+In this transaction, after the fee and the transaction `amt` are paid to the receiver from the sender account (`"SYGHTA..."`), the remaining balance is transferred to the closeto account (`"EW64GC..."`). Note that there is an implicit `amt` of 0 Algos when none is specified.
 
 :::note
 If you have asset holdings, you must first close out those asset holdings before you can close out the Algorand account completely. Close out your asset holdings by specifying an Asset Close Remainder To address within an Asset Transfer transaction.
