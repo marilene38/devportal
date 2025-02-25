@@ -3,11 +3,14 @@ title: Rekeying accounts
 ---
 
 import { Image } from 'astro:assets';
+import { Code } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import RemoteCode from '/src/components/RemoteCode.astro';
 import rekeySingleMulti from '@images/account-rekey-single-multisig.png';
 import rekeySingleSingle from '@images/account-rekey-single-single.png';
 import rekeyStandardAccount from '@images/accounts-rekey-standard-account.png';
 
-Rekeying is a powerful protocol feature that enables an Algorand account holder to maintain a static public address while dynamically rotating the authoritative private spending key(s). This is accomplished by issuing a “rekey-to transaction" which sets the authorized address field within the account object. Future transaction authorization using the account's public address must be provided by the spending key(s) associated with the authorized address, which may be a single key address, MultiSig address, or LogicSig program address. Key management is a critical concept, and Algorand provides tools to securely accomplish relevant tasks.
+Rekeying is a powerful protocol feature that enables an Algorand account holder to maintain a static public address while dynamically rotating the authoritative private spending key(s). This is accomplished by issuing a `rekey-to transaction` which sets the authorized address field within the account object. Future transaction authorization using the account's public address must be provided by the spending key(s) associated with the authorized address, which may be a single key address, MultiSig address, or LogicSig program address. Key management is a critical concept, and Algorand provides tools to securely accomplish relevant tasks.
 
 ## Quick start videos
 
@@ -34,16 +37,14 @@ Using the `--close-to` parameter on any transaction from a rekeyed account will 
 :::caution
 Rekeying an account only affects the authorizing address for that account. Note that an Account is distinct from an address, so several essential points may not be obvious:
 
-1\) If an account is closed (balance to 0), the rekey setting is lost (see previous caution).
-
-2\) Rekeys are not recursively resolved. If A is rekeyed to B and B rekeyed to C, B will authorize A's transactions, not C.
-
-3\) Rekeying members of a Multisig does not affect the Multisig authorization since it's composed of Addresses, not accounts. If necessary, the Multisig account would need to be rekeyed.
-:::
+1. If an account is closed (balance to 0), the rekey setting is lost (see previous caution).
+2. Rekeys are not recursively resolved. If A is rekeyed to B and B rekeyed to C, B will authorize A's transactions, not C.
+3. Rekeying members of a Multisig does not affect the Multisig authorization since it's composed of Addresses, not accounts. If necessary, the Multisig account would need to be rekeyed.
+   :::
 
 ## Account Review
 
-The [account overview](https://developer.algorand.org/docs/get-details/accounts/#keys-and-addresses) page introduces keys, addresses, and accounts. During initial account generation, a public key and corresponding private spending key are created to derive the Algorand address. This public address is commonly displayed within wallet software and remains static for each account. When you receive Algo or other assets, they will be sent to your public Algorand address. When you send from your account, the transaction must be authorized using the appropriate private spending key(s).
+The [keys and signing](/concepts/accounts/keys-signing) page introduces keys, addresses, and accounts. During initial account generation, a public key and corresponding private spending key are created to derive the Algorand address. This public address is commonly displayed within wallet software and remains static for each account. When you receive Algo or other assets, they will be sent to your public Algorand address. When you send from your account, the transaction must be authorized using the appropriate private spending key(s).
 
 ## Authorized Addresses
 
@@ -346,4 +347,23 @@ This transaction will succeed as a private spending key for `$ADDR_C` provided t
 
 In the following example, Account 1 is rekeyed to Account 2\. The code then illustrates that signing a transaction from Account 1 will fail if signed with Account 1’s private key and succeed if signed with Account 2’s private key.
 
-To be added: Utils code
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/rekeying-accounts.ts'
+      snippet='REKEY_ACCOUNT'
+      lang='ts'
+      title='Rekey Accounts'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/rekeying_accounts.py'
+      snippet='REKEY_ACCOUNT'
+      lang='py'
+      title='Rekey Accounts'
+      frame='none'
+    />
+  </TabItem>
+</Tabs>
