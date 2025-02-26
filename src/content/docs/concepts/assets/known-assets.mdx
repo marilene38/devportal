@@ -23,11 +23,13 @@ The code below illustrates getting asset information without the Indexer. If you
     />
   </TabItem>
   <TabItem label='JavaScript' icon='seti:typescript'>
-    ```typescript showLineNumbers=false frame=none
-    const assetInfo = await algodClient.getAssetByID(assetIndex).do();
-	console.log(`Asset Name: ${assetInfo.params.name}`);
-	console.log(`Asset Params: ${assetInfo.params}`);
-    ```
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-get-information.ts'
+      snippet='GET_ASSET_INFORMATION'
+      lang='py'
+      title='Get Asset Info'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='Goal' icon='seti:laptop'>
     ```shell showLineNumbers=false frame=none

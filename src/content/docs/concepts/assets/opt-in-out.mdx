@@ -33,23 +33,18 @@ AlgoKit Utils gives you functions that allow you to do opt-ins in bulk or as a s
       lang='py'
       title='Asset Opt-In Transaction'
       frame='none'
+      lineNumbers='false'
     />
   </TabItem>
   <TabItem label='JavaScript' icon='seti:typescript'>
-    ```typescript showLineNumbers=false frame=none
-    // opt-in is simply a 0 amount transfer of the asset to oneself
-    const optInTxn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
-      from: receiver.addr,
-      to: receiver.addr,
-      suggestedParams,
-      assetIndex,
-      amount: 0,
-    });
-    
-    const signedOptInTxn = optInTxn.signTxn(receiver.privateKey);
-    await algodClient.sendRawTransaction(signedOptInTxn).do();
-    await algosdk.waitForConfirmation(algodClient, optInTxn.txID().toString(), 3);
-    ```
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-optin-optout.ts'      
+      snippet='ASSET_OPT_IN_TRANSACTION'
+      lang='py'
+      title='Asset Opt-In Transaction'
+      frame='none'
+      lineNumbers='false'
+    />
   </TabItem>
   <TabItem label='Goal' icon='seti:laptop'>
     ```shell showLineNumbers=false frame=none
@@ -60,8 +55,7 @@ AlgoKit Utils gives you functions that allow you to do opt-ins in bulk or as a s
 
 ### `assetBulkOptIn`
 
-The [`assetBulkOptIn`](FUTURELINK) function facilitates the opt-in process for an account to multiple assets, allowing the account to receive and hold those assets.
-{/* TODO revisit ../code/modules/index.md#assetbulkoptin */}
+The `assetBulkOptIn` function facilitates the opt-in process for an account to multiple assets, allowing the account to receive and hold those assets.
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
@@ -71,15 +65,7 @@ The [`assetBulkOptIn`](FUTURELINK) function facilitates the opt-in process for a
   </TabItem>
   <TabItem label='JavaScript' icon='seti:typescript'>
     ```typescript
-    // Example
-    await algokit.assetBulkOptIn(
-      {
-        account: account,
-        assetIds: [12354, 673453],
-        // Can optionally also specify validateBalances, transactionParams, note
-      },
-      algod,
-    );
+    todo...
     ```
   </TabItem>
 </Tabs>
@@ -99,27 +85,13 @@ An account can opt out of an asset at any time. This means that the account will
     />
   </TabItem>
   <TabItem label='JavaScript' icon='seti:typescript'>
-    ```typescript showLineNumbers=false frame=none
-    // opt-out is an amount transfer with the `closeRemainderTo` field set to
-	// any account that can receive the asset.
-	// note that closing to the asset creator will always succeed
-	const optOutTxn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
-	  from: receiver.addr,
-	  to: creator.addr,
-	  closeRemainderTo: creator.addr,
-	  suggestedParams,
-	  assetIndex,
-	  amount: 0,
-	});
-	
-	const signedOptOutTxn = optOutTxn.signTxn(receiver.privateKey);
-	await algodClient.sendRawTransaction(signedOptOutTxn).do();
-	await algosdk.waitForConfirmation(
-	  algodClient,
-	  optOutTxn.txID().toString(),
-	  3
-	);
-    ```
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-optin-optout.ts'      
+      snippet='ASSET_OPT_OUT_TRANSACTION'
+      lang='py'
+      title='Asset Opt-Out Transaction'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -135,15 +107,7 @@ The `assetBulkOptOut` function manages the opt-out process for a number of asset
   </TabItem>
   <TabItem label='JavaScript' icon='seti:typescript'>
     ```typescript
-    // Example
-    await algokit.assetBulkOptOut(
-      {
-        account: account,
-        assetIds: [12354, 673453],
-        // Can optionally also specify validateBalances, transactionParams, note
-      },
-      algod,
-    );
+    todo...
     ```
   </TabItem>
 </Tabs>
