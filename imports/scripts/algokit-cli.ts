@@ -54,6 +54,12 @@ const removeLine = (line: string): FileTransformer => {
     }
 };
 
+const fromTo = (from: string, to: string): FileTransformer => {
+    return (content: string): string => {
+        return content.replaceAll(from, to);
+    }
+}
+
 const removeToc: FileTransformer = (content: string): string => {
     return content.replaceAll(/^ *- \[.+$/gm, '');
 }
@@ -165,12 +171,12 @@ await processFile([
     },
     {
         src: './../../src/content/docs/reference/algokit-cli/project.md',
-        transformations: [],
+        transformations: [fromTo('./project/', './')],
         dest: './../../src/content/docs/reference/algokit-cli/project/overview.md'
     },
     {
         src: './../../src/content/docs/reference/algokit-cli/tasks.md',
-        transformations: [],
+        transformations: [fromTo('./tasks/', './')],
         dest: './../../src/content/docs/reference/algokit-cli/tasks/overview.md'
     },
 ]);

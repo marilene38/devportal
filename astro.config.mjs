@@ -541,8 +541,8 @@ export default defineConfig({
                       link: 'reference/algokit-cli/tasks/transfer',
                     },
                     {
-                      label: 'Vanity Adress',
-                      link: 'reference/algokit-cli/tasks/vanity-adress',
+                      label: 'Vanity Address',
+                      link: 'reference/algokit-cli/tasks/vanity-address',
                     },
                     {
                       label: 'Wallet',
