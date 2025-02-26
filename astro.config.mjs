@@ -104,12 +104,10 @@ export default defineConfig({
                 {
                   label: 'Rekeying Accounts',
                   link: 'concepts/accounts/rekeying',
-                  badge: 'WIP',
                 },
                 {
                   label: 'Multisignature Accounts',
                   link: 'concepts/accounts/multisig',
-                  badge: 'WIP',
                 },
               ],
             },
