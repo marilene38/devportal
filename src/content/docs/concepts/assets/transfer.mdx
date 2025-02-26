@@ -48,23 +48,3 @@ Assets can be transferred between accounts that have opted-in to receiving the a
 
 - [Anatomy of an Asset Transfer Transaction](/concepts/transactions/types#transfer-an-asset)
 
-{/* TODO unify */}
-
-## Transfer
-
-### `transferAsset`
-
-The key function to facilitate asset transfers is `transferAsset(transfer, algod)`, which returns a [`SendTransactionResult`](./transaction.md#sendtransactionresult) and takes a [`TransferAssetParams`](../code/interfaces/types_transfer.TransferAssetParams.md):
-
-- All properties in [`SendTransactionParams`](FUTURELINK)
-  {/* TODO ./transaction.md#sendtransactionparams */}
-- `from: SendTransactionFrom` - The account that will send the asset
-- `to: SendTransactionFrom | string` - The account / account address that will receive the asset
-- `assetId: number` - The asset id that will be transferred
-- `amount: number | bigint` - The amount to send in the smallest divisible unit
-- `transactionParams?: SuggestedParams` - The optional [transaction parameters](FUTURELINK)
-  {/* TODO ./transaction.md#transaction-params */}
-- `clawbackFrom: SendTransactionFrom | string` - An optional address of a target account from which to perform a clawback operation. Please note, in such cases senderAccount must be equal to clawback field on ASA metadata.
-- `note?: TransactionNote` - The [transaction note](FUTURELINK)
-  {/* TODO ./transaction.md#transaction-notes */}
-- `lease?: string | Uint8Array`: A [lease](https://developer.algorand.org/articles/leased-transactions-securing-advanced-smart-contract-design/) to assign to the transaction to enforce a mutually exclusive transaction (useful to prevent double-posting and other scenarios)
