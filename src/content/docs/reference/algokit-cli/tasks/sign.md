@@ -86,7 +86,9 @@ algosdk.transaction.write_to_file([{YOUR_TXN_OBJECT}], "some_file.txn") # Result
 Encoding simple txn object in javascript:
 
 ```ts
-Buffer.from(algosdk.encodeObj({ txn: txn.get_obj_for_encoding() })).toString('base64'); // Resulting string can be passed directly to algokit task sign with --transaction flag
+Buffer.from(algosdk.encodeObj({ txn: txn.get_obj_for_encoding() })).toString(
+  "base64"
+); // Resulting string can be passed directly to algokit task sign with --transaction flag
 ```
 
 ## Further Reading

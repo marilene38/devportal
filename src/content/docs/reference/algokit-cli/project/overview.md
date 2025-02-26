@@ -90,8 +90,8 @@ name = 'my-project' # unique name for the project inside workspace
 
 Dive into the features of the `algokit project` command group:
 
-- [bootstrap](./project/bootstrap) - Bootstrap your project with AlgoKit.
-- [deploy](./project/deploy) - Deploy your smart contracts effortlessly to various networks.
-- [link](./project/link) - Powerful feature designed to streamline the integration between `frontend` and `contract` projects
-- [list](./project/list) - Enumerate all projects within an AlgoKit workspace.
-- [run](./project/run) - Define custom commands and manage their execution via `algokit` cli.
+- [bootstrap](./bootstrap) - Bootstrap your project with AlgoKit.
+- [deploy](./deploy) - Deploy your smart contracts effortlessly to various networks.
+- [link](./link) - Powerful feature designed to streamline the integration between `frontend` and `contract` projects
+- [list](./list) - Enumerate all projects within an AlgoKit workspace.
+- [run](./run) - Define custom commands and manage their execution via `algokit` cli.
