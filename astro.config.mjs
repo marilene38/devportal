@@ -75,6 +75,10 @@ export default defineConfig({
               label: 'Intro To AlgoKit',
               link: 'concepts/algokit-intro',
             },
+            {
+              label: 'AlgoKit Quick Start',
+              link: 'concepts/algokit-quick-start',
+            },
           ],
         },
         {
@@ -559,102 +563,64 @@ export default defineConfig({
             {
               label: 'Algorand Python',
               collapsed: false,
-              items: [],
+              items: [
+                {
+                  label: 'API Reference',
+                  items:[
+                    {
+                      label: 'algopy.arc4',
+                      link: 'reference/algorand-python/api-reference/algopy-arc4',
+                    },
+                    {
+                      label: 'algopy.gtxn',
+                      link: 'reference/algorand-python/api-reference/algopy-gtxn',
+                    },
+                    {
+                      label: 'algopy.itxn',
+                      link: 'reference/algorand-python/api-reference/algopy-itxn',
+                    },
+                    {
+                      label: 'algopy.op',
+                      link: 'reference/algorand-python/api-reference/algopy-op',
+                    },
+                    {
+                      label: 'algopy',
+                      link: 'reference/algorand-python/api-reference/algopy',
+                    },
+                  ],
+                },
+                {
+                  label: 'Overview',
+                  link: 'reference/algorand-python/overview'
+                }
+              ],
             },
             {
               label: 'Algorand Typescript',
               collapsed: false,
-              items: [],
-            },
-            {
-              label: 'Algorand TEAL',
-              collapsed: false,
-              items: [],
+              items: [
+                {
+                  label: 'API Reference',
+                  items:[],
+                },
+                {
+                  label: 'Overview',
+                  link: 'reference/algorand-typescript/overview'
+                }
+              ],
             },
             {
               label: 'AlgoKit Utils (Python)',
               collapsed: false,
               items: [
                 {
-                  label: 'Fundamentals',
-                  items: [
-                    {
-                      label: 'Client',
-                      link: 'reference/algokit-utils-py/fundamentals/client',
-                    },
-                    {
-                      label: 'Transactions',
-                      link: 'reference/algokit-utils-py/fundamentals/transactions',
-                    },
-                    {
-                      label: 'Accounts',
-                      link: 'reference/algokit-utils-py/fundamentals/accounts',
-                    },
-                    {
-                      label: 'Assets',
-                      link: 'reference/algokit-utils-py/fundamentals/assets',
-                    },
-                    {
-                      label: 'Amount Handling',
-                      link: 'reference/algokit-utils-py/fundamentals/amount-handling',
-                    },
-                  ],
+                  label: 'API Reference',
+                  items: [],
                 },
                 {
-                  label: 'Smart Contracts',
-                  items: [
-                    {
-                      label: 'App Clients',
-                      link: 'reference/algokit-utils-py/smart-contracts/app-clients',
-                    },
-                    {
-                      label: 'Interactions & State',
-                      link: 'reference/algokit-utils-py/smart-contracts/interactions-state',
-                    },
-                    {
-                      label: 'Deployment',
-                      link: 'reference/algokit-utils-py/smart-contracts/deployment',
-                    },
-                  ],
-                },
-                {
-                  label: 'Network',
-                  items: [
-                    {
-                      label: 'Environments',
-                      link: 'reference/algokit-utils-py/network/environments',
-                    },
-                    {
-                      label: 'Network Clients',
-                      link: 'reference/algokit-utils-py/network/clients',
-                    },
-                    {
-                      label: 'Testnet Dispenser',
-                      link: 'reference/algokit-utils-py/network/testnet-dispenser',
-                    },
-                    {
-                      label: 'Indexer Operations',
-                      link: 'reference/algokit-utils-py/network/indexer',
-                    },
-                  ],
-                },
-                {
-                  label: 'Development Tools',
-                  items: [
-                    {
-                      label: 'Testing',
-                      link: 'reference/algokit-utils-py/dev-tools/testing',
-                    },
-                    {
-                      label: 'Debugging',
-                      link: 'reference/algokit-utils-py/dev-tools/debugging',
-                    },
-                    {
-                      label: 'Logging',
-                      link: 'reference/algokit-utils-py/dev-tools/logging',
-                    },
-                  ],
-                },
+                  label: 'Overview',
+                  link: 'reference/algokit-utils-py/overview',
+                }
               ],
             },
             {
@@ -662,85 +628,27 @@ export default defineConfig({
               collapsed: false,
               items: [
                 {
-                  label: 'Fundamentals',
-                  items: [
-                    {
-                      label: 'Client',
-                      link: 'reference/algokit-utils-ts/fundamentals/client',
-                    },
-                    {
-                      label: 'Transactions',
-                      link: 'reference/algokit-utils-ts/fundamentals/transactions',
-                    },
-                    {
-                      label: 'Accounts',
-                      link: 'reference/algokit-utils-ts/fundamentals/accounts',
-                    },
-                    {
-                      label: 'Assets',
-                      link: 'reference/algokit-utils-ts/fundamentals/assets',
-                    },
-                    {
-                      label: 'Amount Handling',
-                      link: 'reference/algokit-utils-ts/fundamentals/amount-handling',
-                    },
-                  ],
+                  label: 'API Reference',
+                  items: [],
                 },
                 {
-                  label: 'Smart Contracts',
-                  items: [
-                    {
-                      label: 'App Clients',
-                      link: 'reference/algokit-utils-ts/smart-contracts/app-clients',
-                    },
-                    {
-                      label: 'Interactions & State',
-                      link: 'reference/algokit-utils-ts/smart-contracts/interactions-state',
-                    },
-                    {
-                      label: 'Deployment',
-                      link: 'reference/algokit-utils-ts/smart-contracts/deployment',
-                    },
-                  ],
+                  label: 'Overview',
+                  link: 'reference/algokit-utils-ts/overview',
+                }
+              ],
+            },
+            {
+              label: 'Opcodes',
+              collapsed: false,
+              items: [
+                {
+                  label: 'Opcodes List',
+                  link: 'reference/opcodes/opcodes-list'
                 },
                 {
-                  label: 'Network',
-                  items: [
-                    {
-                      label: 'Environments',
-                      link: 'reference/algokit-utils-ts/network/environments',
-                    },
-                    {
-                      label: 'Network Clients',
-                      link: 'reference/algokit-utils-ts/network/clients',
-                    },
-                    {
-                      label: 'Testnet Dispenser',
-                      link: 'reference/algokit-utils-ts/network/testnet-dispenser',
-                    },
-                    {
-                      label: 'Indexer Operations',
-                      link: 'reference/algokit-utils-ts/network/indexer',
-                    },
-                  ],
-                },
-                {
-                  label: 'Development Tools',
-                  items: [
-                    {
-                      label: 'Testing',
-                      link: 'reference/algokit-utils-ts/dev-tools/testing',
-                    },
-                    {
-                      label: 'Debugging',
-                      link: 'reference/algokit-utils-ts/dev-tools/debugging',
-                    },
-                    {
-                      label: 'Logging',
-                      link: 'reference/algokit-utils-ts/dev-tools/logging',
-                    },
-                  ],
-                },
+                  label: 'Overview',
+                  link: 'reference/opcodes/overview',
+                }
               ],
             },
             {
