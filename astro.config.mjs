@@ -665,6 +665,19 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: 'Standards and Practices',
+              collapsed: true,
+              items: [
+                {
+                  label: 'ARCs',
+                  collapsed: true,
+                  autogenerate: {
+                    directory: 'standards/arcs',
+                  },
+                },
+              ],
+            },
           ],
         },
       ],
