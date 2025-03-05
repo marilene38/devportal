@@ -7,7 +7,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { resolve } from 'path';
 import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
-import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
+import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi';
 
 export default defineConfig({
   output: 'static',
@@ -23,24 +23,36 @@ export default defineConfig({
         }),
         starlightOpenAPI([
           {
-           base: 'reference/rest-api/algod',
-           label: 'algod',
-           schema: 'https://raw.githubusercontent.com/algorand/go-algorand/refs/heads/master/daemon/algod/api/algod.oas3.yml',
-           collapsed: true,
+            base: 'reference/rest-api/algod',
+            label: 'algod',
+            schema:
+              'https://raw.githubusercontent.com/algorand/go-algorand/refs/heads/master/daemon/algod/api/algod.oas3.yml',
+            collapsed: true,
           },
           {
-           base: 'reference/rest-api/indexer',
-           label: 'indexer',
-           schema: 'https://raw.githubusercontent.com/algorand/indexer/refs/heads/main/api/indexer.oas3.yml',
-           collapsed: true,
+            base: 'reference/rest-api/indexer',
+            label: 'indexer',
+            schema:
+              'https://raw.githubusercontent.com/algorand/indexer/refs/heads/main/api/indexer.oas3.yml',
+            collapsed: true,
           },
           {
-           base: 'reference/rest-api/kmd',
-           label: 'kmd',
-           schema: 'https://raw.githubusercontent.com/algorand/go-algorand/ad578576ab5f5bfe58a590164903617ecef379e4/daemon/kmd/api/swagger.json',
-           collapsed: true,
+            base: 'reference/rest-api/kmd',
+            label: 'kmd',
+            schema:
+              'https://raw.githubusercontent.com/algorand/go-algorand/ad578576ab5f5bfe58a590164903617ecef379e4/daemon/kmd/api/swagger.json',
+            collapsed: true,
           },
         ]),
+      ],
+      head: [
+        {
+          tag: 'script',
+          attrs: {
+            'data-domain': 'developer.algorand.co',
+            src: 'https://plausible.io/js/script.hash.outbound-links.tagged-events.js',
+          },
+        },
       ],
       components: {
         ThemeProvider: './src/components/CustomThemeProvider.astro',
@@ -555,8 +567,8 @@ export default defineConfig({
                   ],
                 },
                 {
-                    label: 'Algokit CLI Reference',
-                    link: 'reference/algokit-cli/cli-reference',
+                  label: 'Algokit CLI Reference',
+                  link: 'reference/algokit-cli/cli-reference',
                 },
               ],
             },
@@ -566,7 +578,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'API Reference',
-                  items:[
+                  items: [
                     {
                       label: 'algopy.arc4',
                       link: 'reference/algorand-python/api-reference/algopy-arc4',
@@ -591,8 +603,8 @@ export default defineConfig({
                 },
                 {
                   label: 'Overview',
-                  link: 'reference/algorand-python/overview'
-                }
+                  link: 'reference/algorand-python/overview',
+                },
               ],
             },
             {
@@ -601,12 +613,12 @@ export default defineConfig({
               items: [
                 {
                   label: 'API Reference',
-                  items:[],
+                  items: [],
                 },
                 {
                   label: 'Overview',
-                  link: 'reference/algorand-typescript/overview'
-                }
+                  link: 'reference/algorand-typescript/overview',
+                },
               ],
             },
             {
@@ -620,7 +632,7 @@ export default defineConfig({
                 {
                   label: 'Overview',
                   link: 'reference/algokit-utils-py/overview',
-                }
+                },
               ],
             },
             {
@@ -634,7 +646,7 @@ export default defineConfig({
                 {
                   label: 'Overview',
                   link: 'reference/algokit-utils-ts/overview',
-                }
+                },
               ],
             },
             {
@@ -643,12 +655,12 @@ export default defineConfig({
               items: [
                 {
                   label: 'Opcodes List',
-                  link: 'reference/opcodes/opcodes-list'
+                  link: 'reference/opcodes/opcodes-list',
                 },
                 {
                   label: 'Overview',
                   link: 'reference/opcodes/overview',
-                }
+                },
               ],
             },
             {
