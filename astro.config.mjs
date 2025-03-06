@@ -702,6 +702,7 @@ export default defineConfig({
     // https://astro-d2.vercel.app/configuration
     d2({
       sketch: true,
+
       layout: 'dagre',
     }),
   ],
@@ -714,6 +715,7 @@ export default defineConfig({
       alias: {
         '@assets': resolve('./src/assets'),
         '@images': resolve('./src/assets/images'),
+        '@diagrams': resolve('./src/assets/diagrams/svg'),
       },
     },
   },
