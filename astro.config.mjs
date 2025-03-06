@@ -96,7 +96,7 @@ export default defineConfig({
           items: [
             {
               label: 'Accounts',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
@@ -126,7 +126,7 @@ export default defineConfig({
             },
             {
               label: 'Transactions',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
@@ -160,7 +160,7 @@ export default defineConfig({
             },
             {
               label: 'Assets',
-              collapsed: false,
+              collapsed: true,
               badge: 'WIP',
               items: [
                 {
@@ -212,7 +212,7 @@ export default defineConfig({
             },
             {
               label: 'Smart Contracts',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
@@ -220,6 +220,7 @@ export default defineConfig({
                 },
                 {
                   label: 'Languages',
+                  collapsed: false,
                   items: [
                     {
                       label: 'Python',
@@ -257,7 +258,7 @@ export default defineConfig({
                 },
                 {
                   label: 'Data Storage',
-                  collapsed: false,
+                  collapsed: true,
                   items: [
                     {
                       label: 'Overview',
@@ -307,7 +308,7 @@ export default defineConfig({
               badge: 'Owner',
             },
             {
-              label: 'AlgoKit CLI',
+              label: 'CLI Tools',
               collapsed: true,
               items: [
                 {
@@ -437,11 +438,21 @@ export default defineConfig({
               ],
             },
             {
-              label: "AlgoKit Workspace",
+              label: "LORA the Explorer",
               collapsed: true,
               items: [
                 {
-                  label: "AlgoKit Workspace Structure",
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Project Templates",
+              collapsed: true,
+              items: [
+                {
+                  label: "Project Structure",
                   link: "algokit/project-structure",
                 },
                 {
@@ -455,7 +466,49 @@ export default defineConfig({
               ],
             },
             {
-              label: "AlgoKit Utils TypeScript",
+              label: "AlgoKit Utils",
+              collapsed: true,
+              items: [
+                {
+                  label: "AlgoKit Utils TypeScript",
+                  link: "",
+                },
+                {
+                  label: "AlgoKit Utils Python",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Smart Contract Languages",
+              collapsed: true,
+              items: [
+                {
+                  label: "Algorand TypeScript",
+                  link: "",
+                },
+                {
+                  label: "Algorand Python",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Unit Testing",
+              collapsed: true,
+              items: [
+                {
+                  label: "TypeScript Unit Testing ",
+                  link: "",
+                },
+                {
+                  label: "Python Unit Testing",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "AVM Debugger",
               collapsed: true,
               items: [
                 {
@@ -465,27 +518,21 @@ export default defineConfig({
               ],
             },
             {
-              label: "AlgoKit Utils Python",
+              label: "Subscriber",
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
+                  label: "Subscriber TypeScript",
                   link: "",
                 },
-              ],
-            },
-            {
-              label: "Algorand TypeScript",
-              collapsed: true,
-              items: [
                 {
-                  label: "Overview",
+                  label: "Subscriber Python",
                   link: "",
-                },
-              ],
+                }
+              ]
             },
             {
-              label: "Algorand Python",
+              label: "Testnet Dispenser",
               collapsed: true,
               items: [
                 {
@@ -504,55 +551,11 @@ export default defineConfig({
                 },
               ],
             },
-            {
-              label: "LORA",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "",
-                },
-              ],
-            },
-            {
-              label: "AVM Debugger",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "",
-                },
-              ],
-            },
-            {
-              label: "Subscriber Libraries",
-              collapsed: true,
-              items: [
-                {
-                  label: "Subscriber TypeScript",
-                  link: "",
-                },
-                {
-                  label: "Subscriber Python",
-                  link: "",
-                }
-              ]
-            },
-            {
-              label: "AlgoKit Testnet Dispenser",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "",
-                },
-              ],
-            },
           ],
         },
         {
           label: 'Running A Node',
-          collapsed: false,
+          collapsed: true,
           items: [
             {
               label: 'Overview',
@@ -572,6 +575,7 @@ export default defineConfig({
             },
             {
               label: 'Direct Installation',
+              collapsed: true,
               items: [
                 {
                   label: 'Manual Installation',
@@ -597,6 +601,7 @@ export default defineConfig({
             },
             {
               label: 'Node Management',
+              collapsed: true,
               items: [
                 {
                   label: 'Best Practices',
@@ -614,6 +619,7 @@ export default defineConfig({
             },
             {
               label: 'Node Reference',
+              collapsed: true,
               items: [
                 {
                   label: 'Node Artifacts',
@@ -641,7 +647,7 @@ export default defineConfig({
         },
         {
           label: 'Consensus Protocol',
-          collapsed: false,
+          collapsed: true,
           items: [
             {
               label: 'Overview',
@@ -686,11 +692,11 @@ export default defineConfig({
         // },
         {
           label: 'Reference',
-          collapsed: false,
+          collapsed: true,
           items: [
             {
               label: 'AlgoKit CLI',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Algokit CLI Reference',
@@ -700,7 +706,7 @@ export default defineConfig({
             },
             {
               label: 'Algorand Python',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'API Reference',
@@ -735,7 +741,7 @@ export default defineConfig({
             },
             {
               label: 'Algorand Typescript',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'API Reference',
@@ -749,7 +755,7 @@ export default defineConfig({
             },
             {
               label: 'AlgoKit Utils (Python)',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'API Reference',
@@ -763,7 +769,7 @@ export default defineConfig({
             },
             {
               label: 'AlgoKit Utils (Typescript)',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'API Reference',
@@ -777,7 +783,7 @@ export default defineConfig({
             },
             {
               label: 'Opcodes',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Opcodes List',
@@ -791,7 +797,7 @@ export default defineConfig({
             },
             {
               label: 'REST API',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
