@@ -77,20 +77,16 @@ export default defineConfig({
           items: [
             {
               label: 'Blockchain 101',
-              link: 'concepts/blockchain-101',
+              link: 'getting-started/blockchain-101',
               badge: 'Owner',
             },
             {
               label: 'Why Algorand?',
-              link: 'concepts/why-algorand',
+              link: 'getting-started/why-algorand',
             },
             {
-              label: 'Intro To AlgoKit',
-              link: 'concepts/algokit-intro',
-            },
-            {
-              label: 'AlgoKit Quick Start',
-              link: 'concepts/algokit-quick-start',
+              label: 'Deploy Your First Smart Contract',
+              link: 'getting-started/algokit-quick-start',
             },
           ],
         },
@@ -100,7 +96,7 @@ export default defineConfig({
           items: [
             {
               label: 'Accounts',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
@@ -130,7 +126,7 @@ export default defineConfig({
             },
             {
               label: 'Transactions',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
@@ -164,7 +160,7 @@ export default defineConfig({
             },
             {
               label: 'Assets',
-              collapsed: false,
+              collapsed: true,
               badge: 'WIP',
               items: [
                 {
@@ -216,7 +212,7 @@ export default defineConfig({
             },
             {
               label: 'Smart Contracts',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
@@ -224,6 +220,7 @@ export default defineConfig({
                 },
                 {
                   label: 'Languages',
+                  collapsed: false,
                   items: [
                     {
                       label: 'Python',
@@ -261,7 +258,7 @@ export default defineConfig({
                 },
                 {
                   label: 'Data Storage',
-                  collapsed: false,
+                  collapsed: true,
                   items: [
                     {
                       label: 'Overview',
@@ -300,10 +297,265 @@ export default defineConfig({
               ],
             },
           ],
+        },        
+        {
+          label: 'Build With AlgoKit',
+          collapsed: false,
+          items: [
+            {
+              label: 'Intro to AlgoKit',
+              link: 'algokit/algokit-intro',
+              badge: 'Owner',
+            },
+            {
+              label: 'CLI Tools',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Overview',
+                  link: 'algokit/algokit-cli/overview',
+                },
+                {
+                  label: 'Compile',
+                  link: 'algokit/algokit-cli/compile',
+                },
+                {
+                  label: 'Completions',
+                  link: 'algokit/algokit-cli/completions',
+                },
+                {
+                  label: 'Config',
+                  link: 'algokit/algokit-cli/config',
+                },
+                {
+                  label: 'TestNet Dispenser',
+                  link: 'algokit/algokit-cli/dispenser',
+                },
+                {
+                  label: 'Doctor',
+                  link: 'algokit/algokit-cli/doctor',
+                },
+                {
+                  label: 'Explore',
+                  link: 'algokit/algokit-cli/explore',
+                },
+                {
+                  label: 'Generate',
+                  link: 'algokit/algokit-cli/generate',
+                },
+                {
+                  label: 'Goal',
+                  link: 'algokit/algokit-cli/goal',
+                },
+                {
+                  label: 'Init',
+                  link: 'algokit/algokit-cli/init',
+                },
+                {
+                  label: 'Localnet',
+                  link: 'algokit/algokit-cli/localnet',
+                },
+                {
+                  label: 'Project',
+                  collapsed: false,
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'algokit/algokit-cli/project/',
+                    },
+                    {
+                      label: 'Bootstrap',
+                      link: 'algokit/algokit-cli/project/bootstrap',
+                    },
+                    {
+                      label: 'Deploy',
+                      link: 'algokit/algokit-cli/project/deploy',
+                    },
+                    {
+                      label: 'Link',
+                      link: 'algokit/algokit-cli/project/link',
+                    },
+                    {
+                      label: 'List',
+                      link: 'algokit/algokit-cli/project/list',
+                    },
+                    {
+                      label: 'Run',
+                      link: 'algokit/algokit-cli/project/run',
+                    },
+                  ],
+                },
+                {
+                  label: 'Tasks',
+                  collapsed: false,
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'algokit/algokit-cli/tasks',
+                    },
+                    {
+                      label: 'Analyze',
+                      link: 'algokit/algokit-cli/tasks/analyze',
+                    },
+                    {
+                      label: 'IPFS',
+                      link: 'algokit/algokit-cli/tasks/ipfs',
+                    },
+                    {
+                      label: 'Mint',
+                      link: 'algokit/algokit-cli/tasks/mint',
+                    },
+                    {
+                      label: 'NFD Lookup',
+                      link: 'algokit/algokit-cli/tasks/nfd',
+                    },
+                    {
+                      label: 'Asset opt-(in|out)',
+                      link: 'algokit/algokit-cli/tasks/opt',
+                    },
+                    {
+                      label: 'Send',
+                      link: 'algokit/algokit-cli/tasks/send',
+                    },
+                    {
+                      label: 'Sign',
+                      link: 'algokit/algokit-cli/tasks/sign',
+                    },
+                    {
+                      label: 'Transfer',
+                      link: 'algokit/algokit-cli/tasks/transfer',
+                    },
+                    {
+                      label: 'Vanity Address',
+                      link: 'algokit/algokit-cli/tasks/vanity-address',
+                    },
+                    {
+                      label: 'Wallet',
+                      link: 'algokit/algokit-cli/tasks/wallet',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              label: "LORA the Explorer",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Project Templates",
+              collapsed: true,
+              items: [
+                {
+                  label: "Project Structure",
+                  link: "algokit/project-structure",
+                },
+                {
+                  label: "Official AlgoKit Templates",
+                  link: "algokit/official-algokit-templates",
+                },
+                {
+                  label: "Custom AlgoKit Templates",
+                  link: "algokit/custom-algokit-templates",
+                },
+              ],
+            },
+            {
+              label: "AlgoKit Utils",
+              collapsed: true,
+              items: [
+                {
+                  label: "AlgoKit Utils TypeScript",
+                  link: "",
+                },
+                {
+                  label: "AlgoKit Utils Python",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Smart Contract Languages",
+              collapsed: true,
+              items: [
+                {
+                  label: "Algorand TypeScript",
+                  link: "",
+                },
+                {
+                  label: "Algorand Python",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Unit Testing",
+              collapsed: true,
+              items: [
+                {
+                  label: "TypeScript Unit Testing ",
+                  link: "",
+                },
+                {
+                  label: "Python Unit Testing",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "AVM Debugger",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Subscriber",
+              collapsed: true,
+              items: [
+                {
+                  label: "Subscriber TypeScript",
+                  link: "",
+                },
+                {
+                  label: "Subscriber Python",
+                  link: "",
+                }
+              ]
+            },
+            {
+              label: "Testnet Dispenser",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Client Generators",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+          ],
         },
         {
           label: 'Running A Node',
-          collapsed: false,
+          collapsed: true,
           items: [
             {
               label: 'Overview',
@@ -323,6 +575,7 @@ export default defineConfig({
             },
             {
               label: 'Direct Installation',
+              collapsed: true,
               items: [
                 {
                   label: 'Manual Installation',
@@ -348,6 +601,7 @@ export default defineConfig({
             },
             {
               label: 'Node Management',
+              collapsed: true,
               items: [
                 {
                   label: 'Best Practices',
@@ -365,6 +619,7 @@ export default defineConfig({
             },
             {
               label: 'Node Reference',
+              collapsed: true,
               items: [
                 {
                   label: 'Node Artifacts',
@@ -392,7 +647,7 @@ export default defineConfig({
         },
         {
           label: 'Consensus Protocol',
-          collapsed: false,
+          collapsed: true,
           items: [
             {
               label: 'Overview',
@@ -437,136 +692,12 @@ export default defineConfig({
         // },
         {
           label: 'Reference',
-          collapsed: false,
+          collapsed: true,
           items: [
             {
               label: 'AlgoKit CLI',
-              collapsed: false,
+              collapsed: true,
               items: [
-                {
-                  label: 'Overview',
-                  link: 'reference/algokit-cli/overview',
-                },
-                {
-                  label: 'Compile',
-                  link: 'reference/algokit-cli/compile',
-                },
-                {
-                  label: 'Completions',
-                  link: 'reference/algokit-cli/completions',
-                },
-                {
-                  label: 'Config',
-                  link: 'reference/algokit-cli/config',
-                },
-                {
-                  label: 'TestNet Dispenser',
-                  link: 'reference/algokit-cli/dispenser',
-                },
-                {
-                  label: 'Doctor',
-                  link: 'reference/algokit-cli/doctor',
-                },
-                {
-                  label: 'Explore',
-                  link: 'reference/algokit-cli/explore',
-                },
-                {
-                  label: 'Generate',
-                  link: 'reference/algokit-cli/generate',
-                },
-                {
-                  label: 'Goal',
-                  link: 'reference/algokit-cli/goal',
-                },
-                {
-                  label: 'Init',
-                  link: 'reference/algokit-cli/init',
-                },
-                {
-                  label: 'Localnet',
-                  link: 'reference/algokit-cli/localnet',
-                },
-                {
-                  label: 'Project',
-                  collapsed: false,
-                  items: [
-                    {
-                      label: 'Overview',
-                      link: 'reference/algokit-cli/project/overview',
-                    },
-                    {
-                      label: 'Bootstrap',
-                      link: 'reference/algokit-cli/project/bootstrap',
-                    },
-                    {
-                      label: 'Deploy',
-                      link: 'reference/algokit-cli/project/deploy',
-                    },
-                    {
-                      label: 'Link',
-                      link: 'reference/algokit-cli/project/link',
-                    },
-                    {
-                      label: 'List',
-                      link: 'reference/algokit-cli/project/list',
-                    },
-                    {
-                      label: 'Run',
-                      link: 'reference/algokit-cli/project/run',
-                    },
-                  ],
-                },
-                {
-                  label: 'Tasks',
-                  collapsed: false,
-                  items: [
-                    {
-                      label: 'Overview',
-                      link: 'reference/algokit-cli/tasks/overview',
-                    },
-                    {
-                      label: 'Analyze',
-                      link: 'reference/algokit-cli/tasks/analyze',
-                    },
-                    {
-                      label: 'IPFS',
-                      link: 'reference/algokit-cli/tasks/ipfs',
-                    },
-                    {
-                      label: 'Mint',
-                      link: 'reference/algokit-cli/tasks/mint',
-                    },
-                    {
-                      label: 'NFD Lookup',
-                      link: 'reference/algokit-cli/tasks/nfd',
-                    },
-                    {
-                      label: 'Asset opt-(in|out)',
-                      link: 'reference/algokit-cli/tasks/opt',
-                    },
-                    {
-                      label: 'Send',
-                      link: 'reference/algokit-cli/tasks/send',
-                    },
-                    {
-                      label: 'Sign',
-                      link: 'reference/algokit-cli/tasks/sign',
-                    },
-                    {
-                      label: 'Transfer',
-                      link: 'reference/algokit-cli/tasks/transfer',
-                    },
-                    {
-                      label: 'Vanity Address',
-                      link: 'reference/algokit-cli/tasks/vanity-address',
-                    },
-                    {
-                      label: 'Wallet',
-                      link: 'reference/algokit-cli/tasks/wallet',
-                    },
-                  ],
-                },
                 {
                   label: 'Algokit CLI Reference',
                   link: 'reference/algokit-cli/cli-reference',
@@ -575,7 +706,7 @@ export default defineConfig({
             },
             {
               label: 'Algorand Python',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'API Reference',
@@ -610,7 +741,7 @@ export default defineConfig({
             },
             {
               label: 'Algorand Typescript',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'API Reference',
@@ -624,7 +755,7 @@ export default defineConfig({
             },
             {
               label: 'AlgoKit Utils (Python)',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'API Reference',
@@ -638,7 +769,7 @@ export default defineConfig({
             },
             {
               label: 'AlgoKit Utils (Typescript)',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'API Reference',
@@ -652,7 +783,7 @@ export default defineConfig({
             },
             {
               label: 'Opcodes',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Opcodes List',
@@ -666,7 +797,7 @@ export default defineConfig({
             },
             {
               label: 'REST API',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
