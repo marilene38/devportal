@@ -303,12 +303,12 @@ export default defineConfig({
           items: [
             {
               label: 'Intro to AlgoKit',
-              link: 'build-with-algokit/algokit-intro',
+              link: 'algokit/algokit-intro',
               badge: 'Owner',
             },
             {
               label: 'AlgoKit CLI',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
@@ -434,13 +434,120 @@ export default defineConfig({
                     },
                   ],
                 },
+              ],
+            },
+            {
+              label: "AlgoKit Workspace",
+              collapsed: true,
+              items: [
                 {
-                  label: 'Algokit CLI Reference',
-                  link: 'reference/algokit-cli/cli-reference',
+                  label: "AlgoKit Workspace Structure",
+                  link: "algokit/project-structure",
+                },
+                {
+                  label: "Official AlgoKit Templates",
+                  link: "algokit/official-algokit-templates",
+                },
+                {
+                  label: "Custom AlgoKit Templates",
+                  link: "algokit/custom-algokit-templates",
                 },
               ],
             },
-
+            {
+              label: "AlgoKit Utils TypeScript",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "AlgoKit Utils Python",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Algorand TypeScript",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Algorand Python",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Client Generators",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "LORA",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "AVM Debugger",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
+            {
+              label: "Subscriber Libraries",
+              collapsed: true,
+              items: [
+                {
+                  label: "Subscriber TypeScript",
+                  link: "",
+                },
+                {
+                  label: "Subscriber Python",
+                  link: "",
+                }
+              ]
+            },
+            {
+              label: "AlgoKit Testnet Dispenser",
+              collapsed: true,
+              items: [
+                {
+                  label: "Overview",
+                  link: "",
+                },
+              ],
+            },
           ],
         },
         {
