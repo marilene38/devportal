@@ -1,9 +1,9 @@
 ---
 title: Testing
 prev:
-  link: /build/algokit/utils/ts/debugging/
+  link: /algokit/utils/ts/debugging/
 next:
-  link: /build/algokit/utils/ts/reference/
+  link: /algokit/utils/ts/reference/
 sidebar:
   order: 11
 ---
@@ -63,7 +63,7 @@ When calling `algorandFixture()` you can optionally pass in some fixture configu
 - `algod?: Algodv2` - An optional algod client, if not specified then it will create one against environment variables defined network (if present) or default LocalNet
 - `indexer?: Indexer` - An optional indexer client, if not specified then it will create one against environment variables defined network (if present) or default LocalNet
 - `kmd?: Kmd` - An optional kmd client, if not specified then it will create one against environment variables defined network (if present) or default LocalNet
-- `testAccountFunding?: AlgoAmount` - The [amount](/build/algokit/utils/ts/amount) of funds to allocate to the default testing account, if not specified then it will get `10` ALGOs
+- `testAccountFunding?: AlgoAmount` - The [amount](/algokit/utils/ts/amount) of funds to allocate to the default testing account, if not specified then it will get `10` ALGOs
 
 ### Using the fixture context
 
@@ -140,11 +140,11 @@ The easiest way to use this functionality is via the [Algorand fixture](#algoran
 
 When testing, it's often useful to ephemerally generate random accounts, fund them with some number of ALGOs and then use that account to perform transactions. By creating an ephemeral, random account you naturally get isolation between tests and test runs and don't need to start from a specific blockchain network state. This makes test less flakey, and also means the same test can be run against LocalNet and (say) TestNet.
 
-The key when generating a test account is getting hold of a [dispenser](/build/algokit/utils/ts/transfer#dispenser) and then [ensuring the test account is funded](/build/algokit/utils/ts/transfer#ensuring-minimum-algos).
+The key when generating a test account is getting hold of a [dispenser](/algokit/utils/ts/transfer#dispenser) and then [ensuring the test account is funded](/algokit/utils/ts/transfer#ensuring-minimum-algos).
 
 To make it easier to quickly get a test account the testing capability provides the following mechanisms:
 
-- [`algotesting.getTestAccount(testAccountParams, algod, kmd?)`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/testing.md#gettestaccount) - Generates a random new account, logs the mnemonic of the account (unless suppressed), funds it from the [dispenser](/build/algokit/utils/ts/transfer#dispenser)
+- [`algotesting.getTestAccount(testAccountParams, algod, kmd?)`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/testing.md#gettestaccount) - Generates a random new account, logs the mnemonic of the account (unless suppressed), funds it from the [dispenser](/algokit/utils/ts/transfer#dispenser)
 - `algorandFixture.testAccount` - A test account that is always generated for every test (log output suppressed to reduce noise, but worth noting that means the mnemonic isn't logged for this account), by default it is given 10 ALGOs unless overridden in the [fixture config](#fixture-configuration)
 - [`algorandFixture.generateAccount(testAccountParams)`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_testing.AlgorandTestAutomationContext.md#generateaccount) - Allows you to quickly generate a test account with the `algod` and `kmd` instances that are part of the given fixture
 

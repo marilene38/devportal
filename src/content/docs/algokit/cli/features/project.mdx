@@ -2,7 +2,7 @@
 title: project
 ---
 
-`algokit project` is a collection of commands and command groups useful for managing algokit compliant [project workspaces](/build/algokit/cli/features/init#workspaces-vs-standalone-projects).
+`algokit project` is a collection of commands and command groups useful for managing algokit compliant [project workspaces](/algokit/cli/features/init#workspaces-vs-standalone-projects).
 
 ## Overview
 
@@ -83,14 +83,14 @@ type = {'backend' | 'contract' | 'frontend'} # currently support 3 generic categ
 name = 'my-project' # unique name for the project inside workspace
 ```
 
-> We recommend using workspaces for most projects (hence enabled by default), as it provides a more organized and scalable approach to managing multiple sub-projects. However, standalone projects are a great choice for simple applications or when you are certain that you will not need to add more sub-projects in the future, for such cases simply append `--no-workspace` when using `algokit init` command. For more details on init command please refer to [init](/build/algokit/cli/features/init) command docs.
+> We recommend using workspaces for most projects (hence enabled by default), as it provides a more organized and scalable approach to managing multiple sub-projects. However, standalone projects are a great choice for simple applications or when you are certain that you will not need to add more sub-projects in the future, for such cases simply append `--no-workspace` when using `algokit init` command. For more details on init command please refer to [init](/algokit/cli/features/init) command docs.
 
 ## Features
 
 Dive into the features of the `algokit project` command group:
 
-- [bootstrap](/build/algokit/cli/features/project_cmd/bootstrap) - Bootstrap your project with AlgoKit.
-- [deploy](/build/algokit/cli/features/project_cmd/deploy) - Deploy your smart contracts effortlessly to various networks.
-- [link](/build/algokit/cli/features/project_cmd/link) - Powerful feature designed to streamline the integration between `frontend` and `contract` projects
-- [list](/build/algokit/cli/features/project_cmd/list) - Enumerate all projects within an AlgoKit workspace.
-- [run](/build/algokit/cli/features/project_cmd/run) - Define custom commands and manage their execution via `algokit` cli.
+- [bootstrap](/algokit/cli/features/project_cmd/bootstrap) - Bootstrap your project with AlgoKit.
+- [deploy](/algokit/cli/features/project_cmd/deploy) - Deploy your smart contracts effortlessly to various networks.
+- [link](/algokit/cli/features/project_cmd/link) - Powerful feature designed to streamline the integration between `frontend` and `contract` projects
+- [list](/algokit/cli/features/project_cmd/list) - Enumerate all projects within an AlgoKit workspace.
+- [run](/algokit/cli/features/project_cmd/run) - Define custom commands and manage their execution via `algokit` cli.

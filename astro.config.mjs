@@ -313,47 +313,47 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: 'reference/algokit-cli/overview',
+                  link: 'algokit/algokit-cli/overview',
                 },
                 {
                   label: 'Compile',
-                  link: 'reference/algokit-cli/compile',
+                  link: 'algokit/algokit-cli/compile',
                 },
                 {
                   label: 'Completions',
-                  link: 'reference/algokit-cli/completions',
+                  link: 'algokit/algokit-cli/completions',
                 },
                 {
                   label: 'Config',
-                  link: 'reference/algokit-cli/config',
+                  link: 'algokit/algokit-cli/config',
                 },
                 {
                   label: 'TestNet Dispenser',
-                  link: 'reference/algokit-cli/dispenser',
+                  link: 'algokit/algokit-cli/dispenser',
                 },
                 {
                   label: 'Doctor',
-                  link: 'reference/algokit-cli/doctor',
+                  link: 'algokit/algokit-cli/doctor',
                 },
                 {
                   label: 'Explore',
-                  link: 'reference/algokit-cli/explore',
+                  link: 'algokit/algokit-cli/explore',
                 },
                 {
                   label: 'Generate',
-                  link: 'reference/algokit-cli/generate',
+                  link: 'algokit/algokit-cli/generate',
                 },
                 {
                   label: 'Goal',
-                  link: 'reference/algokit-cli/goal',
+                  link: 'algokit/algokit-cli/goal',
                 },
                 {
                   label: 'Init',
-                  link: 'reference/algokit-cli/init',
+                  link: 'algokit/algokit-cli/init',
                 },
                 {
                   label: 'Localnet',
-                  link: 'reference/algokit-cli/localnet',
+                  link: 'algokit/algokit-cli/localnet',
                 },
                 {
                   label: 'Project',
@@ -361,27 +361,27 @@ export default defineConfig({
                   items: [
                     {
                       label: 'Overview',
-                      link: 'reference/algokit-cli/project/overview',
+                      link: 'algokit/algokit-cli/project/',
                     },
                     {
                       label: 'Bootstrap',
-                      link: 'reference/algokit-cli/project/bootstrap',
+                      link: 'algokit/algokit-cli/project/bootstrap',
                     },
                     {
                       label: 'Deploy',
-                      link: 'reference/algokit-cli/project/deploy',
+                      link: 'algokit/algokit-cli/project/deploy',
                     },
                     {
                       label: 'Link',
-                      link: 'reference/algokit-cli/project/link',
+                      link: 'algokit/algokit-cli/project/link',
                     },
                     {
                       label: 'List',
-                      link: 'reference/algokit-cli/project/list',
+                      link: 'algokit/algokit-cli/project/list',
                     },
                     {
                       label: 'Run',
-                      link: 'reference/algokit-cli/project/run',
+                      link: 'algokit/algokit-cli/project/run',
                     },
                   ],
                 },
@@ -391,47 +391,47 @@ export default defineConfig({
                   items: [
                     {
                       label: 'Overview',
-                      link: 'reference/algokit-cli/tasks/overview',
+                      link: 'algokit/algokit-cli/tasks',
                     },
                     {
                       label: 'Analyze',
-                      link: 'reference/algokit-cli/tasks/analyze',
+                      link: 'algokit/algokit-cli/tasks/analyze',
                     },
                     {
                       label: 'IPFS',
-                      link: 'reference/algokit-cli/tasks/ipfs',
+                      link: 'algokit/algokit-cli/tasks/ipfs',
                     },
                     {
                       label: 'Mint',
-                      link: 'reference/algokit-cli/tasks/mint',
+                      link: 'algokit/algokit-cli/tasks/mint',
                     },
                     {
                       label: 'NFD Lookup',
-                      link: 'reference/algokit-cli/tasks/nfd',
+                      link: 'algokit/algokit-cli/tasks/nfd',
                     },
                     {
                       label: 'Asset opt-(in|out)',
-                      link: 'reference/algokit-cli/tasks/opt',
+                      link: 'algokit/algokit-cli/tasks/opt',
                     },
                     {
                       label: 'Send',
-                      link: 'reference/algokit-cli/tasks/send',
+                      link: 'algokit/algokit-cli/tasks/send',
                     },
                     {
                       label: 'Sign',
-                      link: 'reference/algokit-cli/tasks/sign',
+                      link: 'algokit/algokit-cli/tasks/sign',
                     },
                     {
                       label: 'Transfer',
-                      link: 'reference/algokit-cli/tasks/transfer',
+                      link: 'algokit/algokit-cli/tasks/transfer',
                     },
                     {
                       label: 'Vanity Address',
-                      link: 'reference/algokit-cli/tasks/vanity-address',
+                      link: 'algokit/algokit-cli/tasks/vanity-address',
                     },
                     {
                       label: 'Wallet',
-                      link: 'reference/algokit-cli/tasks/wallet',
+                      link: 'algokit/algokit-cli/tasks/wallet',
                     },
                   ],
                 },

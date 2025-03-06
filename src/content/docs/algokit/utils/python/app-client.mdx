@@ -1,9 +1,9 @@
 ---
 title: App Client
 prev:
-  link: /build/algokit/utils/python/client/
+  link: /algokit/utils/python/client/
 next:
-  link: /build/algokit/utils/python/app-deploy/
+  link: /algokit/utils/python/app-deploy/
 sidebar:
   order: 4
 ---
@@ -26,8 +26,8 @@ you to easily and safely create, update, delete, deploy, and call a smart contra
 ### Design
 
 The design for the app client is based on a wrapper for parsing an ARC-0032 application spec and
-wrapping the [App deployment](/build/algokit/utils/python/app-deploy) functionality and corresponding
-[design](/build/algokit/utils/python/app-deploy#design).
+wrapping the [App deployment](/algokit/utils/python/app-deploy) functionality and corresponding
+[design](/algokit/utils/python/app-deploy#design).
 
 ## App Client Generation
 
@@ -218,7 +218,7 @@ TransactionPool.Remember: transaction {TRANSACTION_ID}: logic eval error: {ERROR
 ```
 
 The information in that error message can be parsed and when combined with the
-[source map from compilation](/build/algokit/utils/python/app-deploy#compilation-and-template-substitution)
+[source map from compilation](/algokit/utils/python/app-deploy#compilation-and-template-substitution)
 you can expose debugging information that makes it much easier to understand what's happening.
 
 When an error is thrown then the resulting error that is re-thrown will be a `LogicError`, which has the

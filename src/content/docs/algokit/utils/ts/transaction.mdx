@@ -1,9 +1,9 @@
 ---
 title: Transaction Management
 prev:
-  link: /build/algokit/utils/ts/transfer/
+  link: /algokit/utils/ts/transfer/
 next:
-  link: /build/algokit/utils/ts/indexer/
+  link: /algokit/utils/ts/indexer/
 sidebar:
   order: 7
 ---
@@ -11,7 +11,7 @@ sidebar:
 Transaction management is one of the core capabilities provided by AlgoKit Utils. It allows you to send single, grouped or Atomic Transaction Composer transactions with consistent and highly configurable semantics, including configurable control of transaction notes (including ARC-0002), logging, fees, multiple sender account types, and sending behaviour.
 
 :::note
-The methods on this page require the [legacy AlgoKit Utils import method to access them](/build/algokit/utils/ts/overview#usage).
+The methods on this page require the [legacy AlgoKit Utils import method to access them](/algokit/utils/ts/overview#usage).
 :::
 
 ## Send Transaction Params
@@ -59,15 +59,15 @@ AlgoKit Utils provides three core helper methods that allow you to use the `Send
 - [`sendGroupOfTransactions`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/index.md#sendgroupoftransactions) - Takes an array of transactions to sign with associated `SendTransactionFrom` accounts and signs and sends (if instructed to) them as an atomic transaction group using the `SendTransactionParams` configuration
 - [`sendAtomicTransactionComposer`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/index.md#sendatomictransactioncomposer) - Signs and sends (if instructed to) the transactions and/or method calls loaded into an `AtomicTransactionComposer` object using the `SendTransactionParams` configuration
 
-All of these methods take `algosdk.Transaction` and/or `algosdk.AtomicTransactionComposer` objects so you can use them with transaction generation mechanisms outside of AlgoKit Utils per the [modularity principle](/build/algokit/utils/ts/overview#core-principles).
+All of these methods take `algosdk.Transaction` and/or `algosdk.AtomicTransactionComposer` objects so you can use them with transaction generation mechanisms outside of AlgoKit Utils per the [modularity principle](/algokit/utils/ts/overview#core-principles).
 
 ## Helpers
 
-The functionality provided by the transaction capability includes a set of lower level helpers that might be useful in their own right per the [modularity principle](/build/algokit/utils/ts/overview#core-principles).
+The functionality provided by the transaction capability includes a set of lower level helpers that might be useful in their own right per the [modularity principle](/algokit/utils/ts/overview#core-principles).
 
 ### Signing
 
-If you want to sign a transaction there are the [`algokit.signTransaction(transaction, signer)`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/index.md#signtransaction) method and [`algokit.getSenderTransactionSigner(sender)`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/index.md#getsendertransactionsigner) methods that both work with `SendTransactionFrom` as described in the [Account capability](/build/algokit/utils/ts/account).
+If you want to sign a transaction there are the [`algokit.signTransaction(transaction, signer)`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/index.md#signtransaction) method and [`algokit.getSenderTransactionSigner(sender)`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/index.md#getsendertransactionsigner) methods that both work with `SendTransactionFrom` as described in the [Account capability](/algokit/utils/ts/account).
 
 There are also some methods that take a [`TransactionToSign`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_transaction.TransactionToSign.md), which is the AlgoKit Utils equivalent of `algosdk.TransactionWithSigner`, but has a `SendTransactionFrom` as the signer.
 

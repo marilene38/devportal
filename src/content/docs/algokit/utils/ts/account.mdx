@@ -1,9 +1,9 @@
 ---
 title: Account Management
 prev:
-  link: /build/algokit/utils/ts/overview/
+  link: /algokit/utils/ts/overview/
 next:
-  link: /build/algokit/utils/ts/client/
+  link: /algokit/utils/ts/client/
 sidebar:
   order: 2
 ---
@@ -20,7 +20,7 @@ Account management is one of the core capabilities provided by AlgoKit Utils. It
 
 The [`AccountManager`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_account_manager.AccountManager.md) is a class that is used to get, create, and fund accounts and perform account-related actions such as funding. The `AccountManager` also keeps track of signers for each address so when using the `AlgokitComposer` to send transactions, a signer function does not need to manually be specified for each transaction - instead it can be inferred from the sender address automatically!
 
-To get an instance of `AccountManager`, you can use either [`AlgorandClient`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/algorand-client.md) via `algorand.account` or instantiate it directly (passing in a [`ClientManager`](/build/algokit/utils/ts/client)):
+To get an instance of `AccountManager`, you can use either [`AlgorandClient`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/algorand-client.md) via `algorand.account` or instantiate it directly (passing in a [`ClientManager`](/algokit/utils/ts/client)):
 
 ```typescript showLineNumbers=false
 import { AccountManager } from '@algorandfoundation/algokit-utils/types/account-manager';
@@ -36,7 +36,7 @@ Many methods in `AccountManager` expose a `TransactionSignerAccount`.
 ### SendTransactionFrom
 
 :::note
-The [legacy functions](/build/algokit/utils/ts/overview#usage) within AlgoKit Utils make use of a [`SendTransactionFrom`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/types_transaction.md#sendtransactionfrom) union type that is slowly being phased out in favour of the simpler `TransactionSignerAccount`. This `SendTransactionFrom` type is still prevalent within the legacy functions though.
+The [legacy functions](/algokit/utils/ts/overview#usage) within AlgoKit Utils make use of a [`SendTransactionFrom`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/types_transaction.md#sendtransactionfrom) union type that is slowly being phased out in favour of the simpler `TransactionSignerAccount`. This `SendTransactionFrom` type is still prevalent within the legacy functions though.
 :::
 
 `SendTransactionFrom` is a union of the following types that each represent an account that can both sign a transaction and represent a sender address:
@@ -47,9 +47,9 @@ The [legacy functions](/build/algokit/utils/ts/overview#usage) within AlgoKit Ut
 - [`MultisigAccount`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_account.MultisigAccount.md) - An abstraction around `algosdk.MultisigMetadata`, `algosdk.makeMultiSigAccountTransactionSigner`, `algosdk.multisigAddress`, `algosdk.signMultisigTransaction` and `algosdk.appendSignMultisigTransaction` that supports multisig accounts with one or more signers present
 - [`TransactionSignerAccount`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/interfaces/types_account.TransactionSignerAccount.md) - An interface that provides a sender address alongside a transaction signer (e.g. for use with `AtomicTransactionComposer` or [useWallet](https://github.com/TxnLab/use-wallet))
 
-The use of in-built algosdk types like `Account`, `LogicSigAccount` and `TransactionSigner` is aligned to the [Modularity](/build/algokit/utils/ts/overview#core-principles) principle. Allowing you to co-exist non AlgoKit Utils code with AlgoKit Utils functions.
+The use of in-built algosdk types like `Account`, `LogicSigAccount` and `TransactionSigner` is aligned to the [Modularity](/algokit/utils/ts/overview#core-principles) principle. Allowing you to co-exist non AlgoKit Utils code with AlgoKit Utils functions.
 
-AlgoKit Utils provides a few helper methods to take one of these `SendTransactionFrom` objects (that to reiterate uses the [legacy imports](/build/algokit/utils/ts/overview#usage) to access):
+AlgoKit Utils provides a few helper methods to take one of these `SendTransactionFrom` objects (that to reiterate uses the [legacy imports](/algokit/utils/ts/overview#usage) to access):
 
 - [`algokit.getSenderAddress`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/index.md#getsenderaddress) - Returns the public address of the sender the account represents
 - [`algokit.getSenderTransactionSigner`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/modules/index.md#getsendertransactionsigner) - Returns a `TransactionSigner` to represent the signer of the account' note: this is memoized so multiple calls to this for the same account will safely return the same `TransactionSigner` instance; this works nicely with `AtomicTransactionComposer`
@@ -77,7 +77,7 @@ In order to get/register accounts for signing operations you can use the followi
 ## Rekey account
 
 :::note
-This method requires the [legacy AlgoKit Utils import method to access them](/build/algokit/utils/ts/overview#usage).
+This method requires the [legacy AlgoKit Utils import method to access them](/algokit/utils/ts/overview#usage).
 :::
 
 One of the unique features of Algorand is the ability to change the private key that can authorise transactions for an account. This is called [rekeying](/concepts/accounts/rekeying).
@@ -116,7 +116,7 @@ When running LocalNet, you have an instance of the [Key Management Daemon](https
 
 The KMD SDK is fairly low level so to make use of it there is a fair bit of boilerplate code that's needed. This code has been abstracted away into the `KmdAccountManager` class.
 
-To get an instance of the `KmdAccountManager` class you can access it from [`AlgorandClient`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/algorand-client.md) via `algorand.account.kmd` or instantiate it directly (passing in a [`ClientManager`](/build/algokit/utils/ts/client)):
+To get an instance of the `KmdAccountManager` class you can access it from [`AlgorandClient`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/algorand-client.md) via `algorand.account.kmd` or instantiate it directly (passing in a [`ClientManager`](/algokit/utils/ts/client)):
 
 ```typescript
 import { KmdAccountManager } from '@algorandfoundation/algokit-utils/types/kmd-account-manager';

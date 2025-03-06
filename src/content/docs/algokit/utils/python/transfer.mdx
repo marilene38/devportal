@@ -1,9 +1,9 @@
 ---
 title: Algo Transfers
 prev:
-  link: /build/algokit/utils/python/app-deploy/
+  link: /algokit/utils/python/app-deploy/
 next:
-  link: /build/algokit/utils/python/dispenser/
+  link: /algokit/utils/python/dispenser/
 sidebar:
   order: 6
 ---
@@ -98,14 +98,14 @@ Example usage:
 If you want to programmatically send funds then you will often need a "dispenser" account that has a store of
 ALGOs that can be sent and a private key available for that dispenser account.
 
-There is a standard AlgoKit Utils function to get access to a [dispenser account](/build/algokit/utils/python/account):
+There is a standard AlgoKit Utils function to get access to a [dispenser account](/algokit/utils/python/account):
 `get_dispenser_account`. When running against
 [LocalNet](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/localnet.md), the
 dispenser account can be automatically determined using the
 [Kmd API](https://developer.algorand.org/docs/rest-apis/kmd). When running against other networks like TestNet
 or MainNet the mnemonic of the dispenser account can be provided via environment variable `DISPENSER_MNEMONIC`
 
-Please note that this does not refer to the [AlgoKit TestNet Dispenser API](/build/algokit/utils/python/dispenser) which is a
+Please note that this does not refer to the [AlgoKit TestNet Dispenser API](/algokit/utils/python/dispenser) which is a
 separate abstraction that can be used to fund accounts on TestNet via dedicated API service.
 
 Example usage:

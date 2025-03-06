@@ -1,9 +1,9 @@
 ---
 title: TestNet Dispenser
 prev:
-  link: /build/algokit/utils/algokit-utils-clients/
+  link: /algokit/utils/algokit-utils-clients/
 next:
-  link: /build/algokit/utils/python/overview/
+  link: /algokit/utils/python/overview/
 sidebar:
   order: 2
 ---
@@ -14,10 +14,10 @@ A dispenser is a mechanism commonly used to distribute non-MainNet tokens to use
 The Algokit dispenser allows you to send funds to an account, whether you’re working on LocalNet or Testnet. You can do this programmatically so your account can get funded using a “dispenser” account with an Algo store.
 There are different ways to achieve this:
 
-- Via the Algokit account manager, either in [Python](/build/algokit/utils/python/account/) or [Typescript](/build/algokit/utils/ts/account/) - either automatically from LocalNet or the environment
+- Via the Algokit account manager, either in [Python](/algokit/utils/python/account/) or [Typescript](/algokit/utils/ts/account/) - either automatically from LocalNet or the environment
 - By directly interacting with the Algokit API Service for TestNet via API calls such as REST.
 - Using the AlgoKit TestNet Dispenser API client, which can be used to fund accounts on TestNet via a dedicated API service
-  You also have the option to interact with the CLI to send funds to an account via the [Algokit CLI Dispenser](/build/algokit/cli/features/dispenser/).
+  You also have the option to interact with the CLI to send funds to an account via the [Algokit CLI Dispenser](/algokit/algokit-cli/dispenser/).
 
 ## Dispenser via Account Manager
 
@@ -53,7 +53,7 @@ You can find the Base URL (Production instance) here:
 
 - [https://api.dispenser.algorandfoundation.tools](https://api.dispenser.algorandfoundation.tools)
 
-To interact with it, all API endpoints require an Authorization header containing a valid JWT token. To get one, refer to the [AlgoKit CLI dispenser](/build/algokit/cli/features/dispenser/) command docs to learn how to obtain a valid JWT by using the next command: `algokit dispenser login –ci`
+To interact with it, all API endpoints require an Authorization header containing a valid JWT token. To get one, refer to the [AlgoKit CLI dispenser](/algokit/algokit-cli/dispenser/) command docs to learn how to obtain a valid JWT by using the next command: `algokit dispenser login –ci`
 
 ### Endpoints
 
@@ -151,5 +151,5 @@ It offers functions to:
 
 A detailed guide to using the Algokit TestNet dispenser can be found in the following sections depending on the needed language:
 
-- [Python](/build/algokit/utils/python/dispenser/)
-- [Typescript](/build/algokit/utils/ts/dispenser/)
+- [Python](/algokit/utils/python/dispenser/)
+- [Typescript](/algokit/utils/ts/dispenser/)
