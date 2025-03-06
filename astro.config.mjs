@@ -77,20 +77,16 @@ export default defineConfig({
           items: [
             {
               label: 'Blockchain 101',
-              link: 'concepts/blockchain-101',
+              link: 'getting-started/blockchain-101',
               badge: 'Owner',
             },
             {
               label: 'Why Algorand?',
-              link: 'concepts/why-algorand',
+              link: 'getting-started/why-algorand',
             },
             {
-              label: 'Intro To AlgoKit',
-              link: 'concepts/algokit-intro',
-            },
-            {
-              label: 'AlgoKit Quick Start',
-              link: 'concepts/algokit-quick-start',
+              label: 'Deploy Your First Smart Contract',
+              link: 'getting-started/algokit-quick-start',
             },
           ],
         },
