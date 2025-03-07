@@ -17,7 +17,6 @@ async function generateDiagrams() {
 
     const files = await fs.readdir(inputDir);
     const d2Files = files.filter(file => file.endsWith('.d2'));
-    const talaToken = process.env.TSTRUCT_TOKEN;
 
     console.log(`Found ${d2Files.length} .d2 files to process...`);
 
