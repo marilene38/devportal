@@ -29,7 +29,7 @@ async function generateDiagrams() {
 
       try {
         await execAsync(
-          `d2 --layout tala --theme=300 --sketch=true '${inputFilePath}' '${outputFilePath}'`,
+          `d2 --layout tala --sketch=true '${inputFilePath}' '${outputFilePath}'`,
         );
         console.log(`Successfully generated ${outputFilePath}`);
       } catch (err) {
