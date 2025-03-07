@@ -4,6 +4,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import 'dotenv/config';
 
 const execAsync = promisify(exec);
 
@@ -15,8 +16,8 @@ async function generateDiagrams() {
     await fs.mkdir(outputDir, { recursive: true });
 
     const files = await fs.readdir(inputDir);
-
     const d2Files = files.filter(file => file.endsWith('.d2'));
+    const talaToken = process.env.TSTRUCT_TOKEN;
 
     console.log(`Found ${d2Files.length} .d2 files to process...`);
 
@@ -29,7 +30,7 @@ async function generateDiagrams() {
 
       try {
         await execAsync(
-          `d2 --theme=300 --sketch=true '${inputFilePath}' '${outputFilePath}'`,
+          `d2 --layout tala --theme=300 --sketch=true '${inputFilePath}' '${outputFilePath}'`,
         );
         console.log(`Successfully generated ${outputFilePath}`);
       } catch (err) {
