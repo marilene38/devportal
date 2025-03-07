@@ -25,15 +25,32 @@ async function generateDiagrams() {
       const inputFilePath = path.join(inputDir, file);
       const outputFilePath = path.join(outputDir, `${baseName}.svg`);
 
-      console.log(`Processing ${file}...`);
-
+      let shouldRegenerate = true;
       try {
-        await execAsync(
-          `d2 --layout tala --sketch=true '${inputFilePath}' '${outputFilePath}'`,
-        );
-        console.log(`Successfully generated ${outputFilePath}`);
-      } catch (err) {
-        console.error(`Error processing ${file}:`, err);
+        const outputStat = await fs.stat(outputFilePath);
+        const inputStat = await fs.stat(inputFilePath);
+
+        // Compare modification times
+        // Only regenerate if input file is newer than output file
+        if (inputStat.mtime <= outputStat.mtime) {
+          console.log(`Skipping ${file} - SVG is up to date`);
+          shouldRegenerate = false;
+        }
+      } catch (error) {
+        // If error occurs (likely output file doesn't exist), we should regenerate
+        shouldRegenerate = true;
+      }
+
+      if (shouldRegenerate) {
+        console.log(`Processing ${file}...`);
+        try {
+          await execAsync(
+            `d2 --layout tala --sketch=true '${inputFilePath}' '${outputFilePath}'`,
+          );
+          console.log(`Successfully generated ${outputFilePath}`);
+        } catch (err) {
+          console.error(`Error processing ${file}:`, err);
+        }
       }
     }
 
