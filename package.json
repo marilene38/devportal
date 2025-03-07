@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "npx tsx scripts/generate-diagrams.ts",
+    "predev": "pnpm run generate-diagrams",
+    "prebuild": "pnpm run generate-diagrams",
     "build": "pnpm run import:all && astro check && astro build",
     "lint": "eslint . && prettier -c ./src/** && astro check",
     "preview": "astro preview",
     "astro": "astro",
+    "generate-diagrams": "npx tsx scripts/generate-diagrams.ts",
     "init:submodules": "git submodule update --init",
     "import:all": "pnpm run init:submodules && pnpm run import:nodekit",
     "import:nodekit": "npx tsx imports/scripts/nodekit.ts && prettier --write src/content/docs/nodes/nodekit-reference/",
@@ -42,11 +44,11 @@
     "sharp": "^0.32.5",
     "starlight-image-zoom": "^0.11.1",
     "starlight-links-validator": "^0.12.1",
+    "starlight-openapi": "^0.13.0",
     "starlight-typedoc": "^0.17.0",
     "tailwindcss": "^3.4.4",
     "typedoc": "^0.27.3",
-    "typedoc-plugin-markdown": "^4.3.1",
-    "starlight-openapi": "^0.13.0"
+    "typedoc-plugin-markdown": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -55,6 +57,7 @@
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.12.0",
     "@typescript-eslint/parser": "^8.4.0",
+    "dotenv": "^16.4.7",
     "eslint": "^9.10.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^1.2.3",

@@ -20,7 +20,7 @@ jobs:
 
       # Step 2: Install Dependencies
       - name: Install D2
-        run: curl -fsSL https://d2lang.com/install.sh | sh -s --
+        run: curl -fsSL https://d2lang.com/install.sh | sh -s -- --tala
 
       # Step 3: Set up Node.js (used by Astro)
       - name: Set up Node.js
@@ -49,6 +49,8 @@ jobs:
       # Step 7: Build the Astro project
       - name: Build the project
         run: pnpm run build
+        env:
+          TSTRUCT_TOKEN: ${{ secrets.TSTRUCT_TOKEN }}
 
       # Step 8: Deploy to Cloudflare Pages and capture the Preview URL
       - name: Publish to Cloudflare Pages

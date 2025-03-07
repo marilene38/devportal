@@ -1,10 +1,38 @@
 direction: right
+vars: {
+  d2-config: {
+    pad: 60
+    theme-overrides: {
+      N1: "#001324"
+      N2: "#192A39"
+      N4: "#4C5965"
+      N5: "#7F8991"
+      N7: "#E5E7E9"
+      B1: "#2D2DF1"
+      B2: "#4444ED"
+      B3: "#6C6CF1"
+      B4: "#9595F5"
+      B5: "#BFBFF9"
+      B6: "#E9E9FD"
+      AA4: "#FF7F48"
+      AA5: "#FF7F48"
+      AB4: "#FF7F48"
+      AB5: "#FF7F48"
+    }
+  }
+}
 
 classes: {
   tealBox: {
     style: {
       fill: "#17CAC6"
       stroke-width: 0
+    }
+  }
+  container: {
+    label.near: top-center
+    style: {
+      stroke: "#192A39"
     }
   }
 }
@@ -14,11 +42,18 @@ leftBlockchain: {
   label: "Algorand Blockchain"
   account1: {
     shape: rectangle
-    label: "Account 1\nAddress: PLDQ57WWG7ECNUQ...\nBalance: 500000000\nStatus: Online"
+    label: "Account 1\nBalance: 500000000\nStatus: Online"
+    address: {
+      height: 50
+      label: "Address: 57O3WBBRJAXXEMAT..."
+    }
+    address.class: tealBox
   }
+  account1.class: container
 }
-algorandAddress: Algorand Address {
+algorandAddress: {
   near: bottom-left
+  label: "Algorand Address"
   style: {
     fill: transparent
     stroke-width: 0
@@ -29,8 +64,12 @@ algorandAddress: Algorand Address {
   }
   address.class: tealBox
 }
-transaction: Transaction {
+transaction: {
   shape: page
+  label: "Transaction"
+  style: {
+    stroke: "#192A39"
+  }
   from: {
     height: 50
     label: "From: PLDQ57..."
@@ -48,6 +87,8 @@ transaction: Transaction {
     label: "Fee: 1000"
   }
 }
+transaction.class: container
+
 rightBlockchain: {
   grid-columns: 1
   near: center-right
@@ -62,6 +103,8 @@ rightBlockchain: {
     }
     address.class: tealBox
   }
+  account1.class: container
+
   account2: {
     shape: rectangle
     label: "Account 2\nBalance: 100000000\nStatus: Offline"
@@ -71,7 +114,10 @@ rightBlockchain: {
     }
     address.class: tealBox
   }
+  account2.class: container
 }
+rightBlockchain.class: container
+
 algorandAddress.address -> transaction.to: {
   style: {
     stroke-dash: 3
@@ -81,7 +127,4 @@ transaction.to -> rightBlockchain.account2.address: {
   style: {
     stroke-dash: 3
   }
-}
-style: {
-  fill: transparent
 }
