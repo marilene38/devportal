@@ -44,9 +44,7 @@ async function generateDiagrams() {
       if (shouldRegenerate) {
         console.log(`Processing ${file}...`);
         try {
-          await execAsync(
-            `d2 --layout tala --sketch=true '${inputFilePath}' '${outputFilePath}'`,
-          );
+          await execAsync(`d2 '${inputFilePath}' '${outputFilePath}'`);
           console.log(`Successfully generated ${outputFilePath}`);
         } catch (err) {
           console.error(`Error processing ${file}:`, err);
