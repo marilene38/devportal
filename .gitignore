@@ -23,8 +23,6 @@ pnpm-debug.log*
 .DS_Store
 .idea
 
-# Local scripts
-/scripts/
-
 # D2 Build directory
 public/d2/
+src/assets/diagrams/svg/
