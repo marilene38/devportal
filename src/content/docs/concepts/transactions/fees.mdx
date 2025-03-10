@@ -6,7 +6,7 @@ Blockchains like Algorand are decentralized networks with finite computational r
 
 ## Minimum Fee
 
-The minimum fee for each transaction on Algorand is 1000 microAlgo or 0.001 Algo, and it is **fixed** to this amount when the network is not congested. 
+The minimum fee for each transaction on Algorand is 1000 microAlgo or 0.001 Algo, and it is **fixed** to this amount when the network is not congested.
 
 ## Fee Calculation Formula
 
@@ -15,6 +15,7 @@ For a transaction that has been serialized into bytes (`txn_in_bytes`) and given
 ```shell showLineNumbers=false frame=none title="Fee Calculation"
 fee = max(current_fee_per_byte*len(txn_in_bytes), min_fee)
 ```
+
 If the network is not congested, the `current_fee_per_byte` will be zero, and the minimum transaction fee will be used.
 
 If the network is congested, the `current_fee_per_byte` will be non-zero. For a given transaction, if the product of the transaction's size in bytes and the current fee per byte is greater than the minimum fee, the product is used as the fee. Otherwise, the minimum fee is used.
@@ -22,11 +23,13 @@ If the network is congested, the `current_fee_per_byte` will be non-zero. For a 
 Transaction fees in Algorand apply uniformly across all transaction types—payments, Asset transfers, application calls, and others all use the same fee structure. Application call transaction fees also don't vary based on the complexity of the smart contract code being executed. Only the size of the serialized transaction determines the fee.
 
 ## Suggested Fee
+
 The [algod REST server](FUTURELINK: link to algod REST server page) provides `suggestedParams` that include the suggested `current fee per byte`. This suggested fee is used to determines transaction costs through this simple formula:
 
 ```shell showLineNumbers=false frame=none title="Fee Calculation"
 fee = max(current_fee_per_byte * transaction_size_in_bytes, min_fee)
 ```
+
 When the network isn't congested, `current_fee_per_byte` equals zero, simplifying the formula to:
 
 ```shell showLineNumbers=false frame=none title="Fee Calculation (Normal Network Conditions)"
@@ -42,15 +45,16 @@ When using suggested fees, always set a maximum fee limit. During network conges
 #code example
 
 ### Algorand Client Suggested Params Configuration
+
 The [Algorand Client](FUTURELINK:link_to_algorand_client_page) caches suggested parameters provided by the network automatically to reduce network traffic. It has a set of default configurations that control this behavior, but the default configuration can be overridden and changed:
+
 - `algorand.setDefaultValidityWindow(validityWindow)` - Set the default validity window (number of rounds from the current known round that the transaction will be valid to be accepted for). Having a smallish value for this is usually ideal to avoid transactions that are valid for a long future period and may be submitted even after you think it failed to submit if waiting for a particular number of rounds for the transaction to be successfully submitted. The validity window defaults to 10, except in automated testing where it's set to 1000 when targeting LocalNet.
 - `algorand.setSuggestedParams(suggestedParams, until?)` - Set the suggested network parameters to use (optionally until the given time)
 - `algorand.setSuggestedParamsTimeout(timeout)` - Set the timeout that is used to cache the suggested network parameters (by default 3 seconds)
 - `algorand.getSuggestedParams()` - Get the current suggested network parameters object, either the cached value, or if the cache has expired a fresh value
 
-
-
 ## Flat Fee
+
 The suggested parameters include a flat fee field that enables manual fee configuration. When set to true, you can specify exactly how much you want to pay for a transaction.
 
 If you choose this method, ensure your specified fee meets at least the minimum transaction fee (min-fee) available in the suggested parameters through the Algorand Client.
@@ -63,12 +67,13 @@ If you choose this method, ensure your specified fee meets at least the minimum 
 - Handling non-urgent transactions that can be retried if rejected
 
 ## Pooled transaction fees
+
 The Algorand protocol supports pooled fees, where one transaction can pay the fees of other transactions within the same [atomic group](FUTURELINK:link-to-atomic-group).
 
 For atomic transactions, the fees set on all transactions in the group are summed. This sum is compared against the protocol determined expected fee for the group and may proceed as long as the sum of the fees is greater than or equal to the required fee for the group.
 
 {/* ![Atomic Pooled Fees](../../imgs/atomic_transfers-2.png)
-*Atomic Pooled Fees* */}
+*Atomic Pooled Fees\* \*/}
 
 Below is an example of setting a pooled fee on an atomic group of two transactions. Here transaction B's fee is directly set to be 2x the minimum fee and transaction A's fee is set to zero. This atomic group will successfully execute because the sum of the fees is greater than or equal to the required fee for the group.
 
@@ -84,7 +89,9 @@ Below is an example of setting a pooled fee on an atomic group of two transactio
 Smart Contract Inner transactions may have their fees covered by the outer transactions, but they cannot cover outer transaction fees. This limitation that only outer transactions may cover the inner transactions is true in the case of nested smart contract inner transactions as well. For example, if Smart Contract A is called, which then calls Smart Contract B, which then calls Smart Contract C, then C's fee can not cover the call for B, which can not cover the call to A.
 
 ### Fee Structure
+
 Inner transaction fees are **fixed at 1,000 microAlgo** per transaction, regardless of network congestion. To properly cover fees:
+
 - For one inner transaction: Add 1,000 microALGO to the outer transaction fee
 - For two inner transactions: Add 2,000 microALGO to the outer transaction fee
 - And so on for additional inner transactions
@@ -92,6 +99,3 @@ Inner transaction fees are **fixed at 1,000 microAlgo** per transaction, regardl
 Here is an example of calling a smart contract with an inner transaction and covering the inner transaction fee with the outer transaction.
 
 #code example
-
-
-
