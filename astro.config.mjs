@@ -470,12 +470,86 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: "AlgoKit Utils TypeScript",
-                  link: "",
+                  label: "TypeScript",
+                  items: [
+                    {
+                      label: "Overview",
+                      link: "algokit/utils/ts/overview",
+                    },
+                    {
+                      label: "Account",
+                      link: "algokit/utils/ts/account",
+                    },
+                    {
+                      label: "Algorand Client",
+                      link: "algokit/utils/ts/algorand-client",
+                    },
+                    {
+                      label: "Amount",
+                      link: "algokit/utils/ts/amount",
+                    },
+                    {
+                      label: "App Client",
+                      link: "algokit/utils/ts/app-client",
+                    },
+                    {
+                      label: "App Deployment",
+                      link: "algokit/utils/ts/app-deploy",
+                    },
+                    {
+                      label: "Asset",
+                      link: "algokit/utils/ts/asset",
+                    },
+                    {
+                      label: "Client",
+                      link: "algokit/utils/ts/client",
+                    },
+                    {
+                      label: "Debugging",
+                      link: "algokit/utils/ts/debugging",
+                    },
+                    {
+                      label: "Dispenser Client",
+                      link: "algokit/utils/ts/dispenser-client",
+                    },
+                    {
+                      label: "Event Emitter",
+                      link: "algokit/utils/ts/event-emitter",
+                    },
+                    {
+                      label: "Indexer",
+                      link: "algokit/utils/ts/indexer",
+                    },
+                    {
+                      label: "Testing",
+                      link: "algokit/utils/ts/testing",
+                    },
+                    {
+                      label: "Transaction Composer",
+                      link: "algokit/utils/ts/transaction-composer",
+                    },
+                    {
+                      label: "Transaction",
+                      link: "algokit/utils/ts/transaction",
+                    },
+                    {
+                      label: "Transfer",
+                      link: "algokit/utils/ts/transfer",
+                    },
+                    {
+                      label: "Typed Clients",
+                      link: "algokit/utils/ts/typed-app-clients",
+                    },
+                  ],
                 },
                 {
-                  label: "AlgoKit Utils Python",
-                  link: "",
+                  label: "Python",
+                  items: [
+                    {
+                      label: "Overview",
+                      link: "algokit/utils/ts/overview",
+                    },
+                  ]
                 },
               ],
             },
