@@ -27,21 +27,33 @@ export default defineConfig({
             label: 'algod',
             schema:
               'https://raw.githubusercontent.com/algorand/go-algorand/refs/heads/master/daemon/algod/api/algod.oas3.yml',
-            collapsed: true,
+            sidebar: {
+              collapsed: true,
+              operations: { badges: false, labels: 'operationId', sort: 'alphabetical' },
+              tags: { sort: 'alphabetical' },
+            },
           },
           {
             base: 'reference/rest-api/indexer',
             label: 'indexer',
             schema:
               'https://raw.githubusercontent.com/algorand/indexer/refs/heads/main/api/indexer.oas3.yml',
-            collapsed: true,
+            sidebar: {
+              collapsed: true,
+              operations: { badges: false, labels: 'operationId', sort: 'alphabetical' },
+              tags: { sort: 'alphabetical' },
+            },
           },
           {
             base: 'reference/rest-api/kmd',
             label: 'kmd',
             schema:
               'https://raw.githubusercontent.com/algorand/go-algorand/ad578576ab5f5bfe58a590164903617ecef379e4/daemon/kmd/api/swagger.json',
-            collapsed: true,
+            sidebar: {
+              collapsed: true,
+              operations: { badges: false, labels: 'operationId', sort: 'alphabetical' },
+              tags: { sort: 'alphabetical' },
+            },
           },
         ]),
       ],
@@ -297,7 +309,7 @@ export default defineConfig({
               ],
             },
           ],
-        },        
+        },
         {
           label: 'Build With AlgoKit',
           collapsed: false,
@@ -438,116 +450,116 @@ export default defineConfig({
               ],
             },
             {
-              label: "LORA the Explorer",
+              label: 'LORA the Explorer',
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
-                  link: "",
+                  label: 'Overview',
+                  link: '',
                 },
               ],
             },
             {
-              label: "Project Templates",
+              label: 'Project Templates',
               collapsed: true,
               items: [
                 {
-                  label: "Project Structure",
-                  link: "algokit/project-structure",
+                  label: 'Project Structure',
+                  link: 'algokit/project-structure',
                 },
                 {
-                  label: "Official AlgoKit Templates",
-                  link: "algokit/official-algokit-templates",
+                  label: 'Official AlgoKit Templates',
+                  link: 'algokit/official-algokit-templates',
                 },
                 {
-                  label: "Custom AlgoKit Templates",
-                  link: "algokit/custom-algokit-templates",
+                  label: 'Custom AlgoKit Templates',
+                  link: 'algokit/custom-algokit-templates',
                 },
               ],
             },
             {
-              label: "AlgoKit Utils",
+              label: 'AlgoKit Utils',
               collapsed: true,
               items: [
                 {
-                  label: "AlgoKit Utils TypeScript",
-                  link: "",
+                  label: 'AlgoKit Utils TypeScript',
+                  link: '',
                 },
                 {
-                  label: "AlgoKit Utils Python",
-                  link: "",
+                  label: 'AlgoKit Utils Python',
+                  link: '',
                 },
               ],
             },
             {
-              label: "Smart Contract Languages",
+              label: 'Smart Contract Languages',
               collapsed: true,
               items: [
                 {
-                  label: "Algorand TypeScript",
-                  link: "",
+                  label: 'Algorand TypeScript',
+                  link: '',
                 },
                 {
-                  label: "Algorand Python",
-                  link: "",
+                  label: 'Algorand Python',
+                  link: '',
                 },
               ],
             },
             {
-              label: "Unit Testing",
+              label: 'Unit Testing',
               collapsed: true,
               items: [
                 {
-                  label: "TypeScript Unit Testing ",
-                  link: "",
+                  label: 'TypeScript Unit Testing ',
+                  link: '',
                 },
                 {
-                  label: "Python Unit Testing",
-                  link: "",
-                },
-              ],
-            },
-            {
-              label: "AVM Debugger",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "",
+                  label: 'Python Unit Testing',
+                  link: '',
                 },
               ],
             },
             {
-              label: "Subscriber",
+              label: 'AVM Debugger',
               collapsed: true,
               items: [
                 {
-                  label: "Subscriber TypeScript",
-                  link: "",
-                },
-                {
-                  label: "Subscriber Python",
-                  link: "",
-                }
-              ]
-            },
-            {
-              label: "Testnet Dispenser",
-              collapsed: true,
-              items: [
-                {
-                  label: "Overview",
-                  link: "",
+                  label: 'Overview',
+                  link: '',
                 },
               ],
             },
             {
-              label: "Client Generators",
+              label: 'Subscriber',
               collapsed: true,
               items: [
                 {
-                  label: "Overview",
-                  link: "",
+                  label: 'Subscriber TypeScript',
+                  link: '',
+                },
+                {
+                  label: 'Subscriber Python',
+                  link: '',
+                },
+              ],
+            },
+            {
+              label: 'Testnet Dispenser',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Overview',
+                  link: '',
+                },
+              ],
+            },
+            {
+              label: 'Client Generators',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Overview',
+                  link: '',
                 },
               ],
             },
@@ -803,10 +815,7 @@ export default defineConfig({
                   label: 'Overview',
                   link: 'reference/rest-api/overview',
                 },
-                {
-                  label: 'API Endpoints',
-                  items: openAPISidebarGroups,
-                },
+                ...openAPISidebarGroups,
               ],
             },
             {
