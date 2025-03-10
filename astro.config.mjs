@@ -137,6 +137,10 @@ export default defineConfig({
                   link: 'concepts/transactions/types',
                 },
                 {
+                  label: 'Fees',
+                  link: 'concepts/transactions/fees',
+                },
+                {
                   label: 'Atomic Transaction Groups',
                   link: 'concepts/transactions/atomic-txn-groups',
                 },
