@@ -6,41 +6,45 @@ import {
     processDirectories,
     processFile
 } from './src/functions';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const scriptLocation = path.dirname(fileURLToPath(import.meta.url));
 
 // Algorand Typescript
 await processDirectories([
     {
-        src: './../repos/puya-ts/docs/',
+        src: scriptLocation + '/../repos/puya-ts/docs/',
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
         ],
-        dest: './../../src/content/docs/algokit/languages/ts'
+        dest: scriptLocation + '/../../src/content/docs/algokit/languages/ts'
     },
 ]);
 await processFile([
     {
-        src: './../repos/puya-ts/README.md',
+        src: scriptLocation + '/../repos/puya-ts/README.md',
         transformations: [],
-        dest: './../../src/content/docs/algokit/languages/ts/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/languages/ts/overview.md'
     },
 ]);
 
 // Algorand Python
 await processDirectories([
     {
-        src: './../repos/puya/docs/',
+        src: scriptLocation + '/../repos/puya/docs/',
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
         ],
-        dest: './../../src/content/docs/algokit/languages/py'
+        dest: scriptLocation + '/../../src/content/docs/algokit/languages/py'
     },
 ]);
 await processFile([
     {
-        src: './../../src/content/docs/algokit/languages/py/index.md',
+        src: scriptLocation + '/../../src/content/docs/algokit/languages/py/index.md',
         transformations: [],
-        dest: './../../src/content/docs/algokit/languages/py/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/languages/py/overview.md'
     },
 ]);

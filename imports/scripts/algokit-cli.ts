@@ -12,11 +12,15 @@ import {
     processDirectories,
     processFile
 } from './src/functions';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const scriptLocation = path.dirname(fileURLToPath(import.meta.url));
 
 // Algokit-CLI
 await processDirectories([
     {
-        src: './../repos/algokit-cli/docs/features',
+        src: scriptLocation + '/../repos/algokit-cli/docs/features',
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
@@ -25,12 +29,12 @@ await processDirectories([
             correctTypo,
             removeLine('> For details on executing `algokit localnet` without `docker` or `podman` refer to the [codespaces](#codespaces) section.')
         ],
-        dest: './../../src/content/docs/algokit/algokit-cli'
+        dest: scriptLocation + '/../../src/content/docs/algokit/algokit-cli'
     },
 ]);
 await processFile([
     {
-        src: './../repos/algokit-cli/docs/cli/index.md',
+        src: scriptLocation + '/../repos/algokit-cli/docs/cli/index.md',
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
@@ -38,26 +42,26 @@ await processFile([
             changeReferenceLinks,
             removeToc,
         ],
-        dest: './../../src/content/docs/reference/algokit-cli/reference.md'
+        dest: scriptLocation + '/../../src/content/docs/reference/algokit-cli/reference.md'
     },
     {
-        src: './../repos/algokit-cli/docs/algokit.md',
+        src: scriptLocation + '/../repos/algokit-cli/docs/algokit.md',
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
             changeFeatureLinks,
             changeReferenceLinks,
         ],
-        dest: './../../src/content/docs/algokit/algokit-cli/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/overview.md'
     },
     {
-        src: './../../src/content/docs/algokit/algokit-cli/project.md',
+        src: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/project.md',
         transformations: [fromTo('./project/', './')],
-        dest: './../../src/content/docs/algokit/algokit-cli/project/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/project/overview.md'
     },
     {
-        src: './../../src/content/docs/algokit/algokit-cli/tasks.md',
+        src: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/tasks.md',
         transformations: [fromTo('./tasks/', './')],
-        dest: './../../src/content/docs/algokit/algokit-cli/tasks/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/tasks/overview.md'
     },
 ]);
