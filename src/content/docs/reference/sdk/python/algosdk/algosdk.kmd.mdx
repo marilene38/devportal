@@ -1,27 +1,27 @@
 ---
-title: "algosdk.kmd"
+title: 'algosdk.kmd'
 ---
 
-<a id="module-algosdk.kmd"></a>
+<a id='module-algosdk.kmd'></a>
 
-<a id="algosdk-kmd"></a>
+<a id='algosdk-kmd'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
-| [`KMDClient`](#algosdk.kmd.KMDClient)   | Client class for kmd. Handles all kmd requests.   |
-|-----------------------------------------|---------------------------------------------------|
+| [`KMDClient`](#algosdk.kmd.KMDClient) | Client class for kmd. Handles all kmd requests. |
+| ------------------------------------- | ----------------------------------------------- |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.kmd.KMDClient"></a>
+<a id='algosdk.kmd.KMDClient'></a>
 
-## *class* algosdk.kmd.KMDClient
+## _class_ algosdk.kmd.KMDClient
 
 KMDClient(kmd_token, kmd_address)
 
@@ -37,7 +37,7 @@ kmd_address (str)
 
 ## Initialization
 
-<a id="algosdk.kmd.KMDClient.create_wallet"></a>
+<a id='algosdk.kmd.KMDClient.create_wallet'></a>
 
 ### create_wallet
 
@@ -54,7 +54,7 @@ master_deriv_key (str, optional): if recovering a wallet, include
 Returns:
 dict: dictionary containing wallet information
 
-<a id="algosdk.kmd.KMDClient.delete_key"></a>
+<a id='algosdk.kmd.KMDClient.delete_key'></a>
 
 ### delete_key
 
@@ -70,7 +70,7 @@ address (str): base32 address of account to be deleted
 Returns:
 bool: True if the account has been deleted
 
-<a id="algosdk.kmd.KMDClient.delete_multisig"></a>
+<a id='algosdk.kmd.KMDClient.delete_multisig'></a>
 
 ### delete_multisig
 
@@ -86,7 +86,7 @@ address (str): base32 address of the multisig account to delete
 Returns:
 bool: True if the multisig account has been deleted
 
-<a id="algosdk.kmd.KMDClient.export_key"></a>
+<a id='algosdk.kmd.KMDClient.export_key'></a>
 
 ### export_key
 
@@ -102,7 +102,7 @@ address (str): base32 address of the account
 Returns:
 str: private key
 
-<a id="algosdk.kmd.KMDClient.export_master_derivation_key"></a>
+<a id='algosdk.kmd.KMDClient.export_master_derivation_key'></a>
 
 ### export_master_derivation_key
 
@@ -117,7 +117,7 @@ password (str): wallet password
 Returns:
 str: master derivation key
 
-<a id="algosdk.kmd.KMDClient.export_multisig"></a>
+<a id='algosdk.kmd.KMDClient.export_multisig'></a>
 
 ### export_multisig
 
@@ -132,7 +132,7 @@ address (str): base32 address of the multisig account
 Returns:
 Multisig: multisig object corresponding to the address
 
-<a id="algosdk.kmd.KMDClient.generate_key"></a>
+<a id='algosdk.kmd.KMDClient.generate_key'></a>
 
 ### generate_key
 
@@ -148,7 +148,7 @@ should be displayed
 Returns:
 str: base32 address of the generated account
 
-<a id="algosdk.kmd.KMDClient.get_wallet"></a>
+<a id='algosdk.kmd.KMDClient.get_wallet'></a>
 
 ### get_wallet
 
@@ -162,7 +162,7 @@ handle (str): wallet handle token
 Returns:
 dict: dictionary containing wallet handle and wallet information
 
-<a id="algosdk.kmd.KMDClient.import_key"></a>
+<a id='algosdk.kmd.KMDClient.import_key'></a>
 
 ### import_key
 
@@ -177,7 +177,7 @@ private_key (str): private key of account to be imported
 Returns:
 str: base32 address of the account
 
-<a id="algosdk.kmd.KMDClient.import_multisig"></a>
+<a id='algosdk.kmd.KMDClient.import_multisig'></a>
 
 ### import_multisig
 
@@ -192,7 +192,7 @@ multisig (Multisig): multisig account to be imported
 Returns:
 str: base32 address of the imported multisig account
 
-<a id="algosdk.kmd.KMDClient.init_wallet_handle"></a>
+<a id='algosdk.kmd.KMDClient.init_wallet_handle'></a>
 
 ### init_wallet_handle
 
@@ -207,7 +207,7 @@ password (str): wallet password
 Returns:
 str: wallet handle token
 
-<a id="algosdk.kmd.KMDClient.kmd_request"></a>
+<a id='algosdk.kmd.KMDClient.kmd_request'></a>
 
 ### kmd_request
 
@@ -225,7 +225,7 @@ timeout (int, optional): request timeout in seconds
 Returns:
 dict: loaded from json response body
 
-<a id="algosdk.kmd.KMDClient.list_keys"></a>
+<a id='algosdk.kmd.KMDClient.list_keys'></a>
 
 ### list_keys
 
@@ -239,7 +239,7 @@ handle (str): wallet handle token
 Returns:
 str[]: list of base32 addresses in the wallet
 
-<a id="algosdk.kmd.KMDClient.list_multisig"></a>
+<a id='algosdk.kmd.KMDClient.list_multisig'></a>
 
 ### list_multisig
 
@@ -253,7 +253,7 @@ handle (str): wallet handle token
 Returns:
 str[]: list of base32 multisig account addresses
 
-<a id="algosdk.kmd.KMDClient.list_wallets"></a>
+<a id='algosdk.kmd.KMDClient.list_wallets'></a>
 
 ### list_wallets
 
@@ -264,7 +264,7 @@ List all wallets hosted on node.
 Returns:
 dict[]: list of dictionaries containing wallet information
 
-<a id="algosdk.kmd.KMDClient.release_wallet_handle"></a>
+<a id='algosdk.kmd.KMDClient.release_wallet_handle'></a>
 
 ### release_wallet_handle
 
@@ -278,7 +278,7 @@ handle (str): wallet handle token
 Returns:
 bool: True if the handle has been deactivated
 
-<a id="algosdk.kmd.KMDClient.rename_wallet"></a>
+<a id='algosdk.kmd.KMDClient.rename_wallet'></a>
 
 ### rename_wallet
 
@@ -294,7 +294,7 @@ new_name (str): new name for the wallet
 Returns:
 dict: dictionary containing wallet information
 
-<a id="algosdk.kmd.KMDClient.renew_wallet_handle"></a>
+<a id='algosdk.kmd.KMDClient.renew_wallet_handle'></a>
 
 ### renew_wallet_handle
 
@@ -308,7 +308,7 @@ handle (str): wallet handle token
 Returns:
 dict: dictionary containing wallet handle and wallet information
 
-<a id="algosdk.kmd.KMDClient.sign_multisig_transaction"></a>
+<a id='algosdk.kmd.KMDClient.sign_multisig_transaction'></a>
 
 ### sign_multisig_transaction
 
@@ -326,7 +326,7 @@ unsigned or partially signed multisig
 Returns:
 MultisigTransaction: multisig transaction with added signature
 
-<a id="algosdk.kmd.KMDClient.sign_transaction"></a>
+<a id='algosdk.kmd.KMDClient.sign_transaction'></a>
 
 ### sign_transaction
 
@@ -344,7 +344,7 @@ signing_address, if provided, rather than SK corresponding to sender
 Returns:
 SignedTransaction: signed transaction with signature of sender
 
-<a id="algosdk.kmd.KMDClient.versions"></a>
+<a id='algosdk.kmd.KMDClient.versions'></a>
 
 ### versions
 

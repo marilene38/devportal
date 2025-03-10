@@ -1,10 +1,10 @@
 ---
-title: "AssetTransferFields"
+title: 'AssetTransferFields'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / AssetTransferFields
 
@@ -26,7 +26,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:130](https://github.com/algorandfounda
 
 The amount of the asset being transferred
 
-***
+---
 
 ### assetCloseTo?
 
@@ -36,7 +36,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:136](https://github.com/algorandfounda
 
 The address to close the asset to
 
-***
+---
 
 ### assetReceiver?
 
@@ -46,7 +46,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:134](https://github.com/algorandfounda
 
 The receiver of the asset
 
-***
+---
 
 ### assetSender?
 
@@ -56,7 +56,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:132](https://github.com/algorandfounda
 
 The clawback target
 
-***
+---
 
 ### fee?
 
@@ -70,7 +70,7 @@ microalgos
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`fee`](CommonTransactionFields.md#fee)
 
-***
+---
 
 ### firstValid?
 
@@ -84,7 +84,7 @@ round number
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValid`](CommonTransactionFields.md#firstvalid)
 
-***
+---
 
 ### firstValidTime?
 
@@ -98,7 +98,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValidTime`](CommonTransactionFields.md#firstvalidtime)
 
-***
+---
 
 ### lease?
 
@@ -112,7 +112,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:67](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`lease`](CommonTransactionFields.md#lease)
 
-***
+---
 
 ### note?
 
@@ -126,7 +126,7 @@ Any data up to 1024 bytes
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`note`](CommonTransactionFields.md#note)
 
-***
+---
 
 ### rekeyTo?
 
@@ -140,7 +140,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:72](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`rekeyTo`](CommonTransactionFields.md#rekeyto)
 
-***
+---
 
 ### sender?
 
@@ -154,7 +154,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:42](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`sender`](CommonTransactionFields.md#sender)
 
-***
+---
 
 ### xferAsset
 

@@ -1,10 +1,10 @@
 ---
-title: "Ec"
+title: 'Ec'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / Ec
 
@@ -14,25 +14,25 @@ Defined in: [packages/algo-ts/src/op.ts:10](https://github.com/algorandfoundatio
 
 ## Enumeration Members
 
-### BLS12\_381g1
+### BLS12_381g1
 
-> **BLS12\_381g1**: `"BLS12_381g1"`
+> **BLS12_381g1**: `"BLS12_381g1"`
 
 Defined in: [packages/algo-ts/src/op.ts:22](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/op.ts#L22)
 
 G1 of the BLS 12-381 curve. Points encoded as 48 byte X following by 48 byte Y
 
-***
+---
 
-### BLS12\_381g2
+### BLS12_381g2
 
-> **BLS12\_381g2**: `"BLS12_381g2"`
+> **BLS12_381g2**: `"BLS12_381g2"`
 
 Defined in: [packages/algo-ts/src/op.ts:26](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/op.ts#L26)
 
 G2 of the BLS 12-381 curve. Points encoded as 96 byte X following by 96 byte Y
 
-***
+---
 
 ### BN254g1
 
@@ -42,7 +42,7 @@ Defined in: [packages/algo-ts/src/op.ts:14](https://github.com/algorandfoundatio
 
 G1 of the BN254 curve. Points encoded as 32 byte X following by 32 byte Y
 
-***
+---
 
 ### BN254g2
 

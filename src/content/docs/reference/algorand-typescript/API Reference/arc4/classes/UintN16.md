@@ -1,10 +1,10 @@
 ---
-title: "UintN16"
+title: 'UintN16'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / UintN16
 
@@ -64,7 +64,7 @@ Retrieve the encoded bytes for this type
 
 [`UintN`](UintN.md).[`bytes`](UintN.md#bytes)
 
-***
+---
 
 ### native
 

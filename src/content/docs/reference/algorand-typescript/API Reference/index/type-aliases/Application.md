@@ -1,10 +1,10 @@
 ---
-title: "Application"
+title: 'Application'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / Application
 

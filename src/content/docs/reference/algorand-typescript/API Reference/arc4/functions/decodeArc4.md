@@ -1,10 +1,10 @@
 ---
-title: "decodeArc4"
+title: 'decodeArc4'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / decodeArc4
 

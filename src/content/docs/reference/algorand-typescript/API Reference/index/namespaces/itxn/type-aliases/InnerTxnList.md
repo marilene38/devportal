@@ -1,10 +1,10 @@
 ---
-title: "InnerTxnList"
+title: 'InnerTxnList'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / InnerTxnList
 

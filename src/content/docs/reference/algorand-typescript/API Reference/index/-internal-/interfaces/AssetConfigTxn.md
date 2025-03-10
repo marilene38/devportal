@@ -1,10 +1,10 @@
 ---
-title: "AssetConfigTxn"
+title: 'AssetConfigTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / AssetConfigTxn
 
@@ -31,7 +31,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:188](https://github.com/algora
 
 The asset name
 
-***
+---
 
 ### clawback
 
@@ -41,7 +41,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:218](https://github.com/algora
 
 32 byte address
 
-***
+---
 
 ### configAsset
 
@@ -51,7 +51,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:163](https://github.com/algora
 
 Asset ID in asset config transaction
 
-***
+---
 
 ### createdAsset
 
@@ -61,7 +61,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:222](https://github.com/algora
 
 Asset ID allocated by the creation of an ASA
 
-***
+---
 
 ### decimals
 
@@ -71,7 +71,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:173](https://github.com/algora
 
 Number of digits to display after the decimal place when displaying the asset
 
-***
+---
 
 ### defaultFrozen
 
@@ -81,7 +81,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:178](https://github.com/algora
 
 Whether the asset's slots are frozen by default or not, 0 or 1
 
-***
+---
 
 ### fee
 
@@ -95,7 +95,7 @@ microalgos
 
 [`TransactionBase`](TransactionBase.md).[`fee`](TransactionBase.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -109,7 +109,7 @@ round number
 
 [`TransactionBase`](TransactionBase.md).[`firstValid`](TransactionBase.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -123,7 +123,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`TransactionBase`](TransactionBase.md).[`firstValidTime`](TransactionBase.md#firstvalidtime)
 
-***
+---
 
 ### freeze
 
@@ -133,7 +133,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:213](https://github.com/algora
 
 32 byte address
 
-***
+---
 
 ### groupIndex
 
@@ -148,7 +148,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`TransactionBase`](TransactionBase.md).[`groupIndex`](TransactionBase.md#groupindex)
 
-***
+---
 
 ### lastValid
 
@@ -162,7 +162,7 @@ round number
 
 [`TransactionBase`](TransactionBase.md).[`lastValid`](TransactionBase.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -176,7 +176,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`lease`](TransactionBase.md#lease)
 
-***
+---
 
 ### manager
 
@@ -186,7 +186,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:203](https://github.com/algora
 
 32 byte address
 
-***
+---
 
 ### metadataHash
 
@@ -196,7 +196,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:198](https://github.com/algora
 
 32 byte commitment to unspecified asset metadata
 
-***
+---
 
 ### note
 
@@ -210,7 +210,7 @@ Any data up to 1024 bytes
 
 [`TransactionBase`](TransactionBase.md).[`note`](TransactionBase.md#note)
 
-***
+---
 
 ### rekeyTo
 
@@ -224,7 +224,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`rekeyTo`](TransactionBase.md#rekeyto)
 
-***
+---
 
 ### reserve
 
@@ -234,7 +234,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:208](https://github.com/algora
 
 32 byte address
 
-***
+---
 
 ### sender
 
@@ -248,7 +248,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`sender`](TransactionBase.md#sender)
 
-***
+---
 
 ### total
 
@@ -258,7 +258,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:168](https://github.com/algora
 
 Total number of units of this asset created
 
-***
+---
 
 ### txnId
 
@@ -272,7 +272,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`TransactionBase`](TransactionBase.md).[`txnId`](TransactionBase.md#txnid)
 
-***
+---
 
 ### type
 
@@ -282,7 +282,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:227](https://github.com/algora
 
 Transaction type as integer
 
-***
+---
 
 ### typeBytes
 
@@ -296,7 +296,7 @@ Transaction type as bytes
 
 [`TransactionBase`](TransactionBase.md).[`typeBytes`](TransactionBase.md#typebytes)
 
-***
+---
 
 ### unitName
 
@@ -306,7 +306,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:183](https://github.com/algora
 
 Unit name of the asset
 
-***
+---
 
 ### url
 

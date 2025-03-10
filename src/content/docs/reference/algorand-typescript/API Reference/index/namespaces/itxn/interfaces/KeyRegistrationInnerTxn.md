@@ -1,10 +1,10 @@
 ---
-title: "KeyRegistrationInnerTxn"
+title: 'KeyRegistrationInnerTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / KeyRegistrationInnerTxn
 
@@ -30,7 +30,7 @@ microalgos
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`fee`](../../../-internal-/interfaces/KeyRegistrationTxn.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -44,7 +44,7 @@ round number
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`firstValid`](../../../-internal-/interfaces/KeyRegistrationTxn.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -58,7 +58,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`firstValidTime`](../../../-internal-/interfaces/KeyRegistrationTxn.md#firstvalidtime)
 
-***
+---
 
 ### groupIndex
 
@@ -73,7 +73,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`groupIndex`](../../../-internal-/interfaces/KeyRegistrationTxn.md#groupindex)
 
-***
+---
 
 ### lastValid
 
@@ -87,7 +87,7 @@ round number
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`lastValid`](../../../-internal-/interfaces/KeyRegistrationTxn.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -101,7 +101,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`lease`](../../../-internal-/interfaces/KeyRegistrationTxn.md#lease)
 
-***
+---
 
 ### nonparticipation
 
@@ -115,7 +115,7 @@ Marks an account nonparticipating for rewards
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`nonparticipation`](../../../-internal-/interfaces/KeyRegistrationTxn.md#nonparticipation)
 
-***
+---
 
 ### note
 
@@ -129,7 +129,7 @@ Any data up to 1024 bytes
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`note`](../../../-internal-/interfaces/KeyRegistrationTxn.md#note)
 
-***
+---
 
 ### rekeyTo
 
@@ -143,7 +143,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`rekeyTo`](../../../-internal-/interfaces/KeyRegistrationTxn.md#rekeyto)
 
-***
+---
 
 ### selectionKey
 
@@ -157,7 +157,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:127](https://github.com/algora
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`selectionKey`](../../../-internal-/interfaces/KeyRegistrationTxn.md#selectionkey)
 
-***
+---
 
 ### sender
 
@@ -171,7 +171,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`sender`](../../../-internal-/interfaces/KeyRegistrationTxn.md#sender)
 
-***
+---
 
 ### stateProofKey
 
@@ -185,7 +185,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:152](https://github.com/algora
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`stateProofKey`](../../../-internal-/interfaces/KeyRegistrationTxn.md#stateproofkey)
 
-***
+---
 
 ### txnId
 
@@ -199,7 +199,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`txnId`](../../../-internal-/interfaces/KeyRegistrationTxn.md#txnid)
 
-***
+---
 
 ### type
 
@@ -213,7 +213,7 @@ Transaction type as integer
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`type`](../../../-internal-/interfaces/KeyRegistrationTxn.md#type)
 
-***
+---
 
 ### typeBytes
 
@@ -227,7 +227,7 @@ Transaction type as bytes
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`typeBytes`](../../../-internal-/interfaces/KeyRegistrationTxn.md#typebytes)
 
-***
+---
 
 ### voteFirst
 
@@ -241,7 +241,7 @@ The first round that the participation key is valid.
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`voteFirst`](../../../-internal-/interfaces/KeyRegistrationTxn.md#votefirst)
 
-***
+---
 
 ### voteKey
 
@@ -255,7 +255,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:122](https://github.com/algora
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`voteKey`](../../../-internal-/interfaces/KeyRegistrationTxn.md#votekey)
 
-***
+---
 
 ### voteKeyDilution
 
@@ -269,7 +269,7 @@ Dilution for the 2-level participation key
 
 [`KeyRegistrationTxn`](../../../-internal-/interfaces/KeyRegistrationTxn.md).[`voteKeyDilution`](../../../-internal-/interfaces/KeyRegistrationTxn.md#votekeydilution)
 
-***
+---
 
 ### voteLast
 

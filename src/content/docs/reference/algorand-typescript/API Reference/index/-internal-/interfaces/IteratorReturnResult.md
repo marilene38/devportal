@@ -1,16 +1,16 @@
 ---
-title: "IteratorReturnResult"
+title: 'IteratorReturnResult'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / IteratorReturnResult
 
 # Interface: IteratorReturnResult\<TReturn\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:34
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:34
 
 ## Type Parameters
 
@@ -22,12 +22,12 @@ Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:34
 
 > **done**: `true`
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:35
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:35
 
-***
+---
 
 ### value
 
 > **value**: `TReturn`
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:36
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:36

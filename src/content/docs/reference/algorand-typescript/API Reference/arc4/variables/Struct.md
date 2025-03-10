@@ -1,10 +1,10 @@
 ---
-title: "Struct"
+title: 'Struct'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / Struct
 
@@ -17,6 +17,7 @@ Defined in: [packages/algo-ts/src/arc4/encoded-types.ts:491](https://github.com/
 The base type of arc4 structs
 
 Usage:
+
 ```
 class MyStruct extends Struct<{ x: UintN8, y: Str, z: DynamicBytes }> {}
 ```

@@ -1,16 +1,16 @@
 ---
-title: "IterableIterator"
+title: 'IterableIterator'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [arc4](../../README.md) / [\<internal\>](../README.md) / IterableIterator
 
 # Interface: IterableIterator\<T, TReturn, TNext\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:55
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:55
 
 Describes a user-defined Iterator that is also iterable.
 
@@ -32,19 +32,19 @@ Describes a user-defined Iterator that is also iterable.
 
 > **\[iterator\]**(): [`IterableIterator`](IterableIterator.md)\<`T`, `TReturn`, `TNext`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:56
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:56
 
 #### Returns
 
 [`IterableIterator`](IterableIterator.md)\<`T`, `TReturn`, `TNext`\>
 
-***
+---
 
 ### next()
 
 > **next**(...`__namedParameters`): [`IteratorResult`](../../../index/-internal-/type-aliases/IteratorResult.md)\<`T`, `TReturn`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:43
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:43
 
 #### Parameters
 
@@ -60,13 +60,13 @@ Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:43
 
 `Iterator.next`
 
-***
+---
 
 ### return()?
 
 > `optional` **return**(`value`?): [`IteratorResult`](../../../index/-internal-/type-aliases/IteratorResult.md)\<`T`, `TReturn`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:44
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:44
 
 #### Parameters
 
@@ -82,13 +82,13 @@ Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:44
 
 `Iterator.return`
 
-***
+---
 
 ### throw()?
 
 > `optional` **throw**(`e`?): [`IteratorResult`](../../../index/-internal-/type-aliases/IteratorResult.md)\<`T`, `TReturn`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:45
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:45
 
 #### Parameters
 

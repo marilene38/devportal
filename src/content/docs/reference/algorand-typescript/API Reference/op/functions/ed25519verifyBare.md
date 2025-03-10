@@ -1,10 +1,10 @@
 ---
-title: "ed25519verifyBare"
+title: 'ed25519verifyBare'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / ed25519verifyBare
 

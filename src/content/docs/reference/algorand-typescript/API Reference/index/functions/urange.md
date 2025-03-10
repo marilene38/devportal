@@ -1,10 +1,10 @@
 ---
-title: "urange"
+title: 'urange'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / urange
 

@@ -1,10 +1,10 @@
 ---
-title: "AssetFreezeTxn"
+title: 'AssetFreezeTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / AssetFreezeTxn
 
@@ -35,7 +35,7 @@ microalgos
 
 [`TransactionBase`](TransactionBase.md).[`fee`](TransactionBase.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -49,7 +49,7 @@ round number
 
 [`TransactionBase`](TransactionBase.md).[`firstValid`](TransactionBase.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -63,7 +63,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`TransactionBase`](TransactionBase.md).[`firstValidTime`](TransactionBase.md#firstvalidtime)
 
-***
+---
 
 ### freezeAccount
 
@@ -73,7 +73,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:270](https://github.com/algora
 
 32 byte address of the account whose asset slot is being frozen or un-frozen
 
-***
+---
 
 ### freezeAsset
 
@@ -83,7 +83,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:265](https://github.com/algora
 
 Asset ID being frozen or un-frozen
 
-***
+---
 
 ### frozen
 
@@ -93,7 +93,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:275](https://github.com/algora
 
 The new frozen value
 
-***
+---
 
 ### groupIndex
 
@@ -108,7 +108,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`TransactionBase`](TransactionBase.md).[`groupIndex`](TransactionBase.md#groupindex)
 
-***
+---
 
 ### lastValid
 
@@ -122,7 +122,7 @@ round number
 
 [`TransactionBase`](TransactionBase.md).[`lastValid`](TransactionBase.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -136,7 +136,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`lease`](TransactionBase.md#lease)
 
-***
+---
 
 ### note
 
@@ -150,7 +150,7 @@ Any data up to 1024 bytes
 
 [`TransactionBase`](TransactionBase.md).[`note`](TransactionBase.md#note)
 
-***
+---
 
 ### rekeyTo
 
@@ -164,7 +164,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`rekeyTo`](TransactionBase.md#rekeyto)
 
-***
+---
 
 ### sender
 
@@ -178,7 +178,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`sender`](TransactionBase.md#sender)
 
-***
+---
 
 ### txnId
 
@@ -192,7 +192,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`TransactionBase`](TransactionBase.md).[`txnId`](TransactionBase.md#txnid)
 
-***
+---
 
 ### type
 
@@ -202,7 +202,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:279](https://github.com/algora
 
 Transaction type as integer
 
-***
+---
 
 ### typeBytes
 

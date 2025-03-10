@@ -1,10 +1,10 @@
 ---
-title: "InnerTransaction"
+title: 'InnerTransaction'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / InnerTransaction
 

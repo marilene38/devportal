@@ -1,10 +1,10 @@
 ---
-title: "AppParams"
+title: 'AppParams'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / AppParams
 

@@ -1,10 +1,10 @@
 ---
-title: "assetTransfer"
+title: 'assetTransfer'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / assetTransfer
 

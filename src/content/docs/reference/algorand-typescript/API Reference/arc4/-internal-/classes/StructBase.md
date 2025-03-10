@@ -1,10 +1,10 @@
 ---
-title: "StructBase"
+title: 'StructBase'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [arc4](../../README.md) / [\<internal\>](../README.md) / StructBase
 
@@ -56,7 +56,7 @@ Retrieve the encoded bytes for this type
 
 [`ARC4Encoded`](../../classes/ARC4Encoded.md).[`bytes`](../../classes/ARC4Encoded.md#bytes)
 
-***
+---
 
 ### native
 

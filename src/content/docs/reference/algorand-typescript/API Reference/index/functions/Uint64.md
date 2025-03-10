@@ -1,10 +1,10 @@
 ---
-title: "Uint64"
+title: 'Uint64'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / Uint64
 

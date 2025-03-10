@@ -1,10 +1,10 @@
 ---
-title: "gloadUint64"
+title: 'gloadUint64'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / gloadUint64
 

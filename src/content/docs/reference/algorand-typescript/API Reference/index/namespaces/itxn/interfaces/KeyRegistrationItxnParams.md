@@ -1,10 +1,10 @@
 ---
-title: "KeyRegistrationItxnParams"
+title: 'KeyRegistrationItxnParams'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / KeyRegistrationItxnParams
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:195](https://github.com/algorandfounda
 
 [`KeyRegistrationItxnParams`](KeyRegistrationItxnParams.md)
 
-***
+---
 
 ### set()
 
@@ -42,7 +42,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:194](https://github.com/algorandfounda
 
 `void`
 
-***
+---
 
 ### submit()
 

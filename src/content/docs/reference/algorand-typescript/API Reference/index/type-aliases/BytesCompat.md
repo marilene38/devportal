@@ -1,10 +1,10 @@
 ---
-title: "BytesCompat"
+title: 'BytesCompat'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / BytesCompat
 

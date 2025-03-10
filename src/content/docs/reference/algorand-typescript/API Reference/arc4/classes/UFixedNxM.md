@@ -1,10 +1,10 @@
 ---
-title: "UFixedNxM"
+title: 'UFixedNxM'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / UFixedNxM
 
@@ -20,9 +20,9 @@ A fixed bit size, fixed decimal unsigned value
 
 ## Type Parameters
 
-• **N** *extends* [`BitSize`](../type-aliases/BitSize.md)
+• **N** _extends_ [`BitSize`](../type-aliases/BitSize.md)
 
-• **M** *extends* `number`
+• **M** _extends_ `number`
 
 ## Constructors
 
@@ -70,7 +70,7 @@ Retrieve the encoded bytes for this type
 
 [`ARC4Encoded`](ARC4Encoded.md).[`bytes`](ARC4Encoded.md#bytes)
 
-***
+---
 
 ### native
 
@@ -80,7 +80,7 @@ Retrieve the encoded bytes for this type
 
 Defined in: [packages/algo-ts/src/arc4/encoded-types.ts:201](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/arc4/encoded-types.ts#L201)
 
-Retrieve the decoded native uint64 or biguint where the returned integer represents the fixed decimal value * (10 ^ M)
+Retrieve the decoded native uint64 or biguint where the returned integer represents the fixed decimal value \* (10 ^ M)
 
 ##### Returns
 

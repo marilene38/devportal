@@ -1,16 +1,16 @@
 ---
-title: "ArrayIterator"
+title: 'ArrayIterator'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / ArrayIterator
 
 # Interface: ArrayIterator\<T\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:72
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:72
 
 ## Extends
 
@@ -26,7 +26,7 @@ Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:72
 
 > `readonly` **\[toStringTag\]**: `string`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:134
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:134
 
 #### Inherited from
 
@@ -40,7 +40,7 @@ Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:134
 
 > **\[dispose\]**(): `void`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.disposable.d.ts:36
+Defined in: node_modules/typescript/lib/lib.esnext.disposable.d.ts:36
 
 ##### Returns
 
@@ -54,7 +54,7 @@ Defined in: node\_modules/typescript/lib/lib.esnext.disposable.d.ts:36
 
 > **\[dispose\]**(): `void`
 
-Defined in: node\_modules/@types/node/compatibility/disposable.d.ts:11
+Defined in: node_modules/@types/node/compatibility/disposable.d.ts:11
 
 ##### Returns
 
@@ -64,13 +64,13 @@ Defined in: node\_modules/@types/node/compatibility/disposable.d.ts:11
 
 `IteratorObject.[dispose]`
 
-***
+---
 
 ### \[iterator\]()
 
 > **\[iterator\]**(): [`ArrayIterator`](ArrayIterator.md)\<`T`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:73
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:73
 
 #### Returns
 
@@ -80,13 +80,13 @@ Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:73
 
 `IteratorObject.[iterator]`
 
-***
+---
 
 ### drop()
 
 > **drop**(`count`): `IteratorObject`\<`T`, `undefined`, `unknown`\>
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:74
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:74
 
 Creates an iterator whose values are the values from this iterator after skipping the provided count.
 
@@ -106,13 +106,13 @@ The number of values to drop.
 
 `IteratorObject.drop`
 
-***
+---
 
 ### every()
 
 > **every**(`predicate`): `boolean`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:122
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:122
 
 Determines whether all the members of this iterator satisfy the specified test.
 
@@ -134,7 +134,7 @@ false, or until the end of this iterator.
 
 `IteratorObject.every`
 
-***
+---
 
 ### filter()
 
@@ -142,7 +142,7 @@ false, or until the end of this iterator.
 
 > **filter**\<`S`\>(`predicate`): `IteratorObject`\<`S`, `undefined`, `unknown`\>
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:56
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:56
 
 Creates an iterator whose values are those from this iterator for which the provided predicate returns true.
 
@@ -170,7 +170,7 @@ A function that accepts up to two arguments to be used to test values from the u
 
 > **filter**(`predicate`): `IteratorObject`\<`T`, `undefined`, `unknown`\>
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:62
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:62
 
 Creates an iterator whose values are those from this iterator for which the provided predicate returns true.
 
@@ -190,7 +190,7 @@ A function that accepts up to two arguments to be used to test values from the u
 
 `IteratorObject.filter`
 
-***
+---
 
 ### find()
 
@@ -198,7 +198,7 @@ A function that accepts up to two arguments to be used to test values from the u
 
 > **find**\<`S`\>(`predicate`): `undefined` \| `S`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:131
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:131
 
 Returns the value of the first element in this iterator where predicate is true, and undefined
 otherwise.
@@ -229,7 +229,7 @@ immediately returns that element value. Otherwise, find returns undefined.
 
 > **find**(`predicate`): `undefined` \| `T`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:132
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:132
 
 ##### Parameters
 
@@ -245,13 +245,13 @@ Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:132
 
 `IteratorObject.find`
 
-***
+---
 
 ### flatMap()
 
 > **flatMap**\<`U`\>(`callback`): `IteratorObject`\<`U`, `undefined`, `unknown`\>
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:80
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:80
 
 Creates an iterator whose values are the result of applying the callback to the values from this iterator and then flattening the resulting iterators or iterables.
 
@@ -275,13 +275,13 @@ A function that accepts up to two arguments to be used to transform values from 
 
 `IteratorObject.flatMap`
 
-***
+---
 
 ### forEach()
 
 > **forEach**(`callbackfn`): `void`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:106
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:106
 
 Performs the specified action for each element in the iterator.
 
@@ -301,13 +301,13 @@ A function that accepts up to two arguments. forEach calls the callbackfn functi
 
 `IteratorObject.forEach`
 
-***
+---
 
 ### map()
 
 > **map**\<`U`\>(`callbackfn`): `IteratorObject`\<`U`, `undefined`, `unknown`\>
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:50
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:50
 
 Creates an iterator whose values are the result of applying the callback to the values from this iterator.
 
@@ -331,13 +331,13 @@ A function that accepts up to two arguments to be used to transform values from 
 
 `IteratorObject.map`
 
-***
+---
 
 ### next()
 
 > **next**(...`__namedParameters`): [`IteratorResult`](../type-aliases/IteratorResult.md)\<`T`, `undefined`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:43
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:43
 
 #### Parameters
 
@@ -353,7 +353,7 @@ Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:43
 
 `IteratorObject.next`
 
-***
+---
 
 ### reduce()
 
@@ -361,7 +361,7 @@ Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:43
 
 > **reduce**(`callbackfn`): `T`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:87
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:87
 
 Calls the specified callback function for all the elements in this iterator. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -385,7 +385,7 @@ A function that accepts up to three arguments. The reduce method calls the callb
 
 > **reduce**(`callbackfn`, `initialValue`): `T`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:88
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:88
 
 ##### Parameters
 
@@ -409,7 +409,7 @@ Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:88
 
 > **reduce**\<`U`\>(`callbackfn`, `initialValue`): `U`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:95
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:95
 
 Calls the specified callback function for all the elements in this iterator. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -439,13 +439,13 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 `IteratorObject.reduce`
 
-***
+---
 
 ### return()?
 
 > `optional` **return**(`value`?): [`IteratorResult`](../type-aliases/IteratorResult.md)\<`T`, `undefined`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:44
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:44
 
 #### Parameters
 
@@ -461,13 +461,13 @@ Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:44
 
 `IteratorObject.return`
 
-***
+---
 
 ### some()
 
 > **some**(`predicate`): `boolean`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:114
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:114
 
 Determines whether the specified callback function returns true for any element of this iterator.
 
@@ -489,13 +489,13 @@ true, or until the end of the iterator.
 
 `IteratorObject.some`
 
-***
+---
 
 ### take()
 
 > **take**(`limit`): `IteratorObject`\<`T`, `undefined`, `unknown`\>
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:68
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:68
 
 Creates an iterator whose values are the values from this iterator, stopping once the provided limit is reached.
 
@@ -515,13 +515,13 @@ The maximum number of values to yield.
 
 `IteratorObject.take`
 
-***
+---
 
 ### throw()?
 
 > `optional` **throw**(`e`?): [`IteratorResult`](../type-aliases/IteratorResult.md)\<`T`, `undefined`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:45
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:45
 
 #### Parameters
 
@@ -537,13 +537,13 @@ Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:45
 
 `IteratorObject.throw`
 
-***
+---
 
 ### toArray()
 
 > **toArray**(): `T`[]
 
-Defined in: node\_modules/typescript/lib/lib.esnext.iterator.d.ts:100
+Defined in: node_modules/typescript/lib/lib.esnext.iterator.d.ts:100
 
 Creates a new array from the values yielded by this iterator.
 

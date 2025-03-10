@@ -1,10 +1,10 @@
 ---
-title: "AssetTransferInnerTxn"
+title: 'AssetTransferInnerTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / AssetTransferInnerTxn
 
@@ -30,7 +30,7 @@ value in Asset's units
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`assetAmount`](../../../-internal-/interfaces/AssetTransferTxn.md#assetamount)
 
-***
+---
 
 ### assetCloseTo
 
@@ -44,7 +44,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:254](https://github.com/algora
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`assetCloseTo`](../../../-internal-/interfaces/AssetTransferTxn.md#assetcloseto)
 
-***
+---
 
 ### assetReceiver
 
@@ -58,7 +58,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:249](https://github.com/algora
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`assetReceiver`](../../../-internal-/interfaces/AssetTransferTxn.md#assetreceiver)
 
-***
+---
 
 ### assetSender
 
@@ -72,7 +72,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:244](https://github.com/algora
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`assetSender`](../../../-internal-/interfaces/AssetTransferTxn.md#assetsender)
 
-***
+---
 
 ### fee
 
@@ -86,7 +86,7 @@ microalgos
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`fee`](../../../-internal-/interfaces/AssetTransferTxn.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -100,7 +100,7 @@ round number
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`firstValid`](../../../-internal-/interfaces/AssetTransferTxn.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -114,7 +114,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`firstValidTime`](../../../-internal-/interfaces/AssetTransferTxn.md#firstvalidtime)
 
-***
+---
 
 ### groupIndex
 
@@ -129,7 +129,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`groupIndex`](../../../-internal-/interfaces/AssetTransferTxn.md#groupindex)
 
-***
+---
 
 ### lastValid
 
@@ -143,7 +143,7 @@ round number
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`lastValid`](../../../-internal-/interfaces/AssetTransferTxn.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -157,7 +157,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`lease`](../../../-internal-/interfaces/AssetTransferTxn.md#lease)
 
-***
+---
 
 ### note
 
@@ -171,7 +171,7 @@ Any data up to 1024 bytes
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`note`](../../../-internal-/interfaces/AssetTransferTxn.md#note)
 
-***
+---
 
 ### rekeyTo
 
@@ -185,7 +185,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`rekeyTo`](../../../-internal-/interfaces/AssetTransferTxn.md#rekeyto)
 
-***
+---
 
 ### sender
 
@@ -199,7 +199,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`sender`](../../../-internal-/interfaces/AssetTransferTxn.md#sender)
 
-***
+---
 
 ### txnId
 
@@ -213,7 +213,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`txnId`](../../../-internal-/interfaces/AssetTransferTxn.md#txnid)
 
-***
+---
 
 ### type
 
@@ -227,7 +227,7 @@ Transaction type as integer
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`type`](../../../-internal-/interfaces/AssetTransferTxn.md#type)
 
-***
+---
 
 ### typeBytes
 
@@ -241,7 +241,7 @@ Transaction type as bytes
 
 [`AssetTransferTxn`](../../../-internal-/interfaces/AssetTransferTxn.md).[`typeBytes`](../../../-internal-/interfaces/AssetTransferTxn.md#typebytes)
 
-***
+---
 
 ### xferAsset
 

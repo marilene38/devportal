@@ -1,27 +1,27 @@
 ---
-title: "algosdk.wallet"
+title: 'algosdk.wallet'
 ---
 
-<a id="module-algosdk.wallet"></a>
+<a id='module-algosdk.wallet'></a>
 
-<a id="algosdk-wallet"></a>
+<a id='algosdk-wallet'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
-| [`Wallet`](#algosdk.wallet.Wallet)   | Represents a wallet.   |
-|--------------------------------------|------------------------|
+| [`Wallet`](#algosdk.wallet.Wallet) | Represents a wallet. |
+| ---------------------------------- | -------------------- |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.wallet.Wallet"></a>
+<a id='algosdk.wallet.Wallet'></a>
 
-## *class* algosdk.wallet.Wallet
+## _class_ algosdk.wallet.Wallet
 
 Wallet(wallet_name, wallet_pswd, kmd_client, driver_name='sqlite', mdk=None)
 
@@ -46,7 +46,7 @@ handle (str)
 
 ## Initialization
 
-<a id="algosdk.wallet.Wallet.automate_handle"></a>
+<a id='algosdk.wallet.Wallet.automate_handle'></a>
 
 ### automate_handle
 
@@ -57,7 +57,7 @@ Get a new handle or renews the current one.
 Returns:
 bool: True if a handle is active
 
-<a id="algosdk.wallet.Wallet.delete_key"></a>
+<a id='algosdk.wallet.Wallet.delete_key'></a>
 
 ### delete_key
 
@@ -71,7 +71,7 @@ address (str): base32 address of account to be deleted
 Returns:
 bool: True if the account has been deleted
 
-<a id="algosdk.wallet.Wallet.delete_multisig"></a>
+<a id='algosdk.wallet.Wallet.delete_multisig'></a>
 
 ### delete_multisig
 
@@ -85,7 +85,7 @@ address (str): base32 address of the multisig account to delete
 Returns:
 bool: True if the multisig account has been deleted
 
-<a id="algosdk.wallet.Wallet.export_key"></a>
+<a id='algosdk.wallet.Wallet.export_key'></a>
 
 ### export_key
 
@@ -99,7 +99,7 @@ address (str): base32 address of the account
 Returns:
 str: private key
 
-<a id="algosdk.wallet.Wallet.export_master_derivation_key"></a>
+<a id='algosdk.wallet.Wallet.export_master_derivation_key'></a>
 
 ### export_master_derivation_key
 
@@ -110,7 +110,7 @@ Get the wallet’s master derivation key.
 Returns:
 str: master derivation key
 
-<a id="algosdk.wallet.Wallet.export_multisig"></a>
+<a id='algosdk.wallet.Wallet.export_multisig'></a>
 
 ### export_multisig
 
@@ -124,7 +124,7 @@ address (str): base32 address of the multisig account
 Returns:
 Multisig: multisig object corresponding to the address
 
-<a id="algosdk.wallet.Wallet.generate_key"></a>
+<a id='algosdk.wallet.Wallet.generate_key'></a>
 
 ### generate_key
 
@@ -139,7 +139,7 @@ should be displayed
 Returns:
 str: base32 address of the generated account
 
-<a id="algosdk.wallet.Wallet.get_mnemonic"></a>
+<a id='algosdk.wallet.Wallet.get_mnemonic'></a>
 
 ### get_mnemonic
 
@@ -150,7 +150,7 @@ Get recovery phrase mnemonic for the wallet.
 Returns:
 str: mnemonic converted from the wallet’s master derivation key
 
-<a id="algosdk.wallet.Wallet.import_key"></a>
+<a id='algosdk.wallet.Wallet.import_key'></a>
 
 ### import_key
 
@@ -164,7 +164,7 @@ private_key (str): private key of account to be imported
 Returns:
 str: base32 address of the account
 
-<a id="algosdk.wallet.Wallet.import_multisig"></a>
+<a id='algosdk.wallet.Wallet.import_multisig'></a>
 
 ### import_multisig
 
@@ -178,7 +178,7 @@ multisig (Multisig): multisig account to be imported
 Returns:
 str: base32 address of the imported multisig account
 
-<a id="algosdk.wallet.Wallet.info"></a>
+<a id='algosdk.wallet.Wallet.info'></a>
 
 ### info
 
@@ -189,7 +189,7 @@ Get wallet information.
 Returns:
 dict: dictionary containing wallet handle and wallet information
 
-<a id="algosdk.wallet.Wallet.init_handle"></a>
+<a id='algosdk.wallet.Wallet.init_handle'></a>
 
 ### init_handle
 
@@ -200,7 +200,7 @@ Get a new handle.
 Returns:
 bool: True if a handle is active
 
-<a id="algosdk.wallet.Wallet.list_keys"></a>
+<a id='algosdk.wallet.Wallet.list_keys'></a>
 
 ### list_keys
 
@@ -211,7 +211,7 @@ List all keys in the wallet.
 Returns:
 str[]: list of base32 addresses in the wallet
 
-<a id="algosdk.wallet.Wallet.list_multisig"></a>
+<a id='algosdk.wallet.Wallet.list_multisig'></a>
 
 ### list_multisig
 
@@ -222,7 +222,7 @@ List all multisig accounts in the wallet.
 Returns:
 str[]: list of base32 multisig account addresses
 
-<a id="algosdk.wallet.Wallet.release_handle"></a>
+<a id='algosdk.wallet.Wallet.release_handle'></a>
 
 ### release_handle
 
@@ -233,7 +233,7 @@ Deactivate the current handle.
 Returns:
 bool: True if the handle has been deactivated
 
-<a id="algosdk.wallet.Wallet.rename"></a>
+<a id='algosdk.wallet.Wallet.rename'></a>
 
 ### rename
 
@@ -247,7 +247,7 @@ new_name (str) : new name for the wallet
 Returns:
 dict: dictionary containing wallet information
 
-<a id="algosdk.wallet.Wallet.renew_handle"></a>
+<a id='algosdk.wallet.Wallet.renew_handle'></a>
 
 ### renew_handle
 
@@ -258,7 +258,7 @@ Renew the current handle.
 Returns:
 dict: dictionary containing wallet handle and wallet information
 
-<a id="algosdk.wallet.Wallet.sign_multisig_transaction"></a>
+<a id='algosdk.wallet.Wallet.sign_multisig_transaction'></a>
 
 ### sign_multisig_transaction
 
@@ -274,7 +274,7 @@ partially signed multisig
 Returns:
 MultisigTransaction: multisig transaction with added signature
 
-<a id="algosdk.wallet.Wallet.sign_transaction"></a>
+<a id='algosdk.wallet.Wallet.sign_transaction'></a>
 
 ### sign_transaction
 

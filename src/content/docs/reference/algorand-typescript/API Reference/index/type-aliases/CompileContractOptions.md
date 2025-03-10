@@ -1,10 +1,10 @@
 ---
-title: "CompileContractOptions"
+title: 'CompileContractOptions'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / CompileContractOptions
 
@@ -59,4 +59,4 @@ and match the type of the template var declaration
 
 > `optional` **templateVarsPrefix**: `string`
 
-Prefix to add to provided template vars, defaults to the prefix supplied on command line (which defaults to TMPL_)
+Prefix to add to provided template vars, defaults to the prefix supplied on command line (which defaults to TMPL\_)

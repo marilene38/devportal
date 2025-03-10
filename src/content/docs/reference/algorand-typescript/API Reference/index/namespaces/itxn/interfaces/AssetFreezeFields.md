@@ -1,10 +1,10 @@
 ---
-title: "AssetFreezeFields"
+title: 'AssetFreezeFields'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / AssetFreezeFields
 
@@ -30,7 +30,7 @@ microalgos
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`fee`](CommonTransactionFields.md#fee)
 
-***
+---
 
 ### firstValid?
 
@@ -44,7 +44,7 @@ round number
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValid`](CommonTransactionFields.md#firstvalid)
 
-***
+---
 
 ### firstValidTime?
 
@@ -58,7 +58,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValidTime`](CommonTransactionFields.md#firstvalidtime)
 
-***
+---
 
 ### freezeAccount?
 
@@ -66,7 +66,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 Defined in: [packages/algo-ts/src/itxn.ts:154](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L154)
 
-***
+---
 
 ### freezeAsset
 
@@ -74,7 +74,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:154](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:153](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L153)
 
-***
+---
 
 ### frozen?
 
@@ -82,7 +82,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:153](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:155](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L155)
 
-***
+---
 
 ### lease?
 
@@ -96,7 +96,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:67](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`lease`](CommonTransactionFields.md#lease)
 
-***
+---
 
 ### note?
 
@@ -110,7 +110,7 @@ Any data up to 1024 bytes
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`note`](CommonTransactionFields.md#note)
 
-***
+---
 
 ### rekeyTo?
 
@@ -124,7 +124,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:72](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`rekeyTo`](CommonTransactionFields.md#rekeyto)
 
-***
+---
 
 ### sender?
 

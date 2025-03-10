@@ -1,11 +1,10 @@
 ---
-title: "biguint"
+title: 'biguint'
 ---
-
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / biguint
 

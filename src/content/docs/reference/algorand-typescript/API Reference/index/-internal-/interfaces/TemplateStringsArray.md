@@ -1,16 +1,16 @@
 ---
-title: "TemplateStringsArray"
+title: 'TemplateStringsArray'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / TemplateStringsArray
 
 # Interface: TemplateStringsArray
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:621
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:621
 
 ## Extends
 
@@ -26,7 +26,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:621
 
 > `readonly` **\[unscopables\]**: `object`
 
-Defined in: node\_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:107
+Defined in: node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:107
 
 Is an object whose properties have the value 'true'
 when they will be absent when used in a 'with' statement.
@@ -172,13 +172,13 @@ Gets the length of the array. This is a number one higher than the highest eleme
 
 `ReadonlyArray.[unscopables]`
 
-***
+---
 
 ### length
 
 > `readonly` **length**: `number`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1192
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1192
 
 Gets the length of the array. This is a number one higher than the highest element defined in an array.
 
@@ -186,13 +186,13 @@ Gets the length of the array. This is a number one higher than the highest eleme
 
 `ReadonlyArray.length`
 
-***
+---
 
 ### raw
 
 > `readonly` **raw**: readonly `string`[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:622
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:622
 
 ## Methods
 
@@ -200,7 +200,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:622
 
 > **\[iterator\]**(): [`ArrayIterator`](ArrayIterator.md)\<`string`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:114
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:114
 
 Iterator of values in the array.
 
@@ -212,13 +212,13 @@ Iterator of values in the array.
 
 `ReadonlyArray.[iterator]`
 
-***
+---
 
 ### at()
 
 > **at**(`index`): `undefined` \| `string`
 
-Defined in: node\_modules/typescript/lib/lib.es2022.array.d.ts:32
+Defined in: node_modules/typescript/lib/lib.es2022.array.d.ts:32
 
 Returns the item located at the specified index.
 
@@ -238,7 +238,7 @@ The zero-based index of the desired code unit. A negative index will count back 
 
 `ReadonlyArray.at`
 
-***
+---
 
 ### concat()
 
@@ -246,7 +246,7 @@ The zero-based index of the desired code unit. A negative index will count back 
 
 > **concat**(...`items`): `string`[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1205
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1205
 
 Combines two or more arrays.
 
@@ -270,7 +270,7 @@ Additional items to add to the end of array1.
 
 > **concat**(...`items`): `string`[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1210
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1210
 
 Combines two or more arrays.
 
@@ -290,13 +290,13 @@ Additional items to add to the end of array1.
 
 `ReadonlyArray.concat`
 
-***
+---
 
 ### entries()
 
 > **entries**(): [`ArrayIterator`](ArrayIterator.md)\<\[`number`, `string`\]\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:119
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:119
 
 Returns an iterable of key, value pairs for every entry in the array
 
@@ -308,7 +308,7 @@ Returns an iterable of key, value pairs for every entry in the array
 
 `ReadonlyArray.entries`
 
-***
+---
 
 ### every()
 
@@ -316,13 +316,13 @@ Returns an iterable of key, value pairs for every entry in the array
 
 > **every**\<`S`\>(`predicate`, `thisArg`?): `this is readonly S[]`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1242
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1242
 
 Determines whether all the members of an array satisfy the specified test.
 
 ##### Type Parameters
 
-• **S** *extends* `string`
+• **S** _extends_ `string`
 
 ##### Parameters
 
@@ -353,7 +353,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 > **every**(`predicate`, `thisArg`?): `boolean`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1251
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1251
 
 Determines whether all the members of an array satisfy the specified test.
 
@@ -382,7 +382,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 `ReadonlyArray.every`
 
-***
+---
 
 ### filter()
 
@@ -390,13 +390,13 @@ If thisArg is omitted, undefined is used as the this value.
 
 > **filter**\<`S`\>(`predicate`, `thisArg`?): `S`[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1278
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1278
 
 Returns the elements of an array that meet the condition specified in a callback function.
 
 ##### Type Parameters
 
-• **S** *extends* `string`
+• **S** _extends_ `string`
 
 ##### Parameters
 
@@ -424,7 +424,7 @@ An object to which the this keyword can refer in the predicate function. If this
 
 > **filter**(`predicate`, `thisArg`?): `string`[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1284
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1284
 
 Returns the elements of an array that meet the condition specified in a callback function.
 
@@ -450,7 +450,7 @@ An object to which the this keyword can refer in the predicate function. If this
 
 `ReadonlyArray.filter`
 
-***
+---
 
 ### find()
 
@@ -458,14 +458,14 @@ An object to which the this keyword can refer in the predicate function. If this
 
 > **find**\<`S`\>(`predicate`, `thisArg`?): `undefined` \| `S`
 
-Defined in: node\_modules/typescript/lib/lib.es2015.core.d.ts:352
+Defined in: node_modules/typescript/lib/lib.es2015.core.d.ts:352
 
 Returns the value of the first element in the array where predicate is true, and undefined
 otherwise.
 
 ##### Type Parameters
 
-• **S** *extends* `string`
+• **S** _extends_ `string`
 
 ##### Parameters
 
@@ -496,7 +496,7 @@ predicate. If it is not provided, undefined is used instead.
 
 > **find**(`predicate`, `thisArg`?): `undefined` \| `string`
 
-Defined in: node\_modules/typescript/lib/lib.es2015.core.d.ts:353
+Defined in: node_modules/typescript/lib/lib.es2015.core.d.ts:353
 
 ##### Parameters
 
@@ -516,13 +516,13 @@ Defined in: node\_modules/typescript/lib/lib.es2015.core.d.ts:353
 
 `ReadonlyArray.find`
 
-***
+---
 
 ### findIndex()
 
 > **findIndex**(`predicate`, `thisArg`?): `number`
 
-Defined in: node\_modules/typescript/lib/lib.es2015.core.d.ts:364
+Defined in: node_modules/typescript/lib/lib.es2015.core.d.ts:364
 
 Returns the index of the first element in the array where predicate is true, and -1
 otherwise.
@@ -552,7 +552,7 @@ predicate. If it is not provided, undefined is used instead.
 
 `ReadonlyArray.findIndex`
 
-***
+---
 
 ### findLast()
 
@@ -560,14 +560,14 @@ predicate. If it is not provided, undefined is used instead.
 
 > **findLast**\<`S`\>(`predicate`, `thisArg`?): `undefined` \| `S`
 
-Defined in: node\_modules/typescript/lib/lib.es2023.array.d.ts:98
+Defined in: node_modules/typescript/lib/lib.es2023.array.d.ts:98
 
 Returns the value of the last element in the array where predicate is true, and undefined
 otherwise.
 
 ##### Type Parameters
 
-• **S** *extends* `string`
+• **S** _extends_ `string`
 
 ##### Parameters
 
@@ -598,7 +598,7 @@ predicate. If it is not provided, undefined is used instead.
 
 > **findLast**(`predicate`, `thisArg`?): `undefined` \| `string`
 
-Defined in: node\_modules/typescript/lib/lib.es2023.array.d.ts:102
+Defined in: node_modules/typescript/lib/lib.es2023.array.d.ts:102
 
 ##### Parameters
 
@@ -618,13 +618,13 @@ Defined in: node\_modules/typescript/lib/lib.es2023.array.d.ts:102
 
 `ReadonlyArray.findLast`
 
-***
+---
 
 ### findLastIndex()
 
 > **findLastIndex**(`predicate`, `thisArg`?): `number`
 
-Defined in: node\_modules/typescript/lib/lib.es2023.array.d.ts:116
+Defined in: node_modules/typescript/lib/lib.es2023.array.d.ts:116
 
 Returns the index of the last element in the array where predicate is true, and -1
 otherwise.
@@ -654,13 +654,13 @@ predicate. If it is not provided, undefined is used instead.
 
 `ReadonlyArray.findLastIndex`
 
-***
+---
 
 ### flat()
 
 > **flat**\<`A`, `D`\>(`this`, `depth`?): [`FlatArray`](../type-aliases/FlatArray.md)\<`A`, `D`\>[]
 
-Defined in: node\_modules/typescript/lib/lib.es2019.array.d.ts:47
+Defined in: node_modules/typescript/lib/lib.es2019.array.d.ts:47
 
 Returns a new array with all sub-array elements concatenated into it recursively up to the
 specified depth.
@@ -669,7 +669,7 @@ specified depth.
 
 • **A**
 
-• **D** *extends* `number` = `1`
+• **D** _extends_ `number` = `1`
 
 #### Parameters
 
@@ -691,13 +691,13 @@ The maximum recursion depth
 
 `ReadonlyArray.flat`
 
-***
+---
 
 ### flatMap()
 
 > **flatMap**\<`U`, `This`\>(`callback`, `thisArg`?): `U`[]
 
-Defined in: node\_modules/typescript/lib/lib.es2019.array.d.ts:36
+Defined in: node_modules/typescript/lib/lib.es2019.array.d.ts:36
 
 Calls a defined callback function on each element of an array. Then, flattens the result into
 a new array.
@@ -733,13 +733,13 @@ thisArg is omitted, undefined is used as the this value.
 
 `ReadonlyArray.flatMap`
 
-***
+---
 
 ### forEach()
 
 > **forEach**(`callbackfn`, `thisArg`?): `void`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1266
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1266
 
 Performs the specified action for each element in an array.
 
@@ -765,13 +765,13 @@ An object to which the this keyword can refer in the callbackfn function. If thi
 
 `ReadonlyArray.forEach`
 
-***
+---
 
 ### includes()
 
 > **includes**(`searchElement`, `fromIndex`?): `boolean`
 
-Defined in: node\_modules/typescript/lib/lib.es2016.array.include.d.ts:34
+Defined in: node_modules/typescript/lib/lib.es2016.array.include.d.ts:34
 
 Determines whether an array includes a certain element, returning true or false as appropriate.
 
@@ -797,13 +797,13 @@ The position in this array at which to begin searching for searchElement.
 
 `ReadonlyArray.includes`
 
-***
+---
 
 ### indexOf()
 
 > **indexOf**(`searchElement`, `fromIndex`?): `number`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1227
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1227
 
 Returns the index of the first occurrence of a value in an array.
 
@@ -829,13 +829,13 @@ The array index at which to begin the search. If fromIndex is omitted, the searc
 
 `ReadonlyArray.indexOf`
 
-***
+---
 
 ### join()
 
 > **join**(`separator`?): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1215
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1215
 
 Adds all the elements of an array separated by the specified separator string.
 
@@ -855,13 +855,13 @@ A string used to separate one element of an array from the next in the resulting
 
 `ReadonlyArray.join`
 
-***
+---
 
 ### keys()
 
 > **keys**(): [`ArrayIterator`](ArrayIterator.md)\<`number`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:124
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:124
 
 Returns an iterable of keys in the array
 
@@ -873,13 +873,13 @@ Returns an iterable of keys in the array
 
 `ReadonlyArray.keys`
 
-***
+---
 
 ### lastIndexOf()
 
 > **lastIndexOf**(`searchElement`, `fromIndex`?): `number`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1233
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1233
 
 Returns the index of the last occurrence of a specified value in an array.
 
@@ -905,13 +905,13 @@ The array index at which to begin the search. If fromIndex is omitted, the searc
 
 `ReadonlyArray.lastIndexOf`
 
-***
+---
 
 ### map()
 
 > **map**\<`U`\>(`callbackfn`, `thisArg`?): `U`[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1272
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1272
 
 Calls a defined callback function on each element of an array, and returns an array that contains the results.
 
@@ -941,7 +941,7 @@ An object to which the this keyword can refer in the callbackfn function. If thi
 
 `ReadonlyArray.map`
 
-***
+---
 
 ### reduce()
 
@@ -949,7 +949,7 @@ An object to which the this keyword can refer in the callbackfn function. If thi
 
 > **reduce**(`callbackfn`): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1290
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1290
 
 Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -973,7 +973,7 @@ A function that accepts up to four arguments. The reduce method calls the callba
 
 > **reduce**(`callbackfn`, `initialValue`): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1291
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1291
 
 ##### Parameters
 
@@ -997,7 +997,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1291
 
 > **reduce**\<`U`\>(`callbackfn`, `initialValue`): `U`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1297
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1297
 
 Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1027,7 +1027,7 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 `ReadonlyArray.reduce`
 
-***
+---
 
 ### reduceRight()
 
@@ -1035,7 +1035,7 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 > **reduceRight**(`callbackfn`): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1303
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1303
 
 Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1059,7 +1059,7 @@ A function that accepts up to four arguments. The reduceRight method calls the c
 
 > **reduceRight**(`callbackfn`, `initialValue`): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1304
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1304
 
 ##### Parameters
 
@@ -1083,7 +1083,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1304
 
 > **reduceRight**\<`U`\>(`callbackfn`, `initialValue`): `U`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1310
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1310
 
 Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
 
@@ -1113,13 +1113,13 @@ If initialValue is specified, it is used as the initial value to start the accum
 
 `ReadonlyArray.reduceRight`
 
-***
+---
 
 ### slice()
 
 > **slice**(`start`?, `end`?): `string`[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1221
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1221
 
 Returns a section of an array.
 
@@ -1145,13 +1145,13 @@ The end of the specified portion of the array. This is exclusive of the element 
 
 `ReadonlyArray.slice`
 
-***
+---
 
 ### some()
 
 > **some**(`predicate`, `thisArg`?): `boolean`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1260
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1260
 
 Determines whether the specified callback function returns true for any element of an array.
 
@@ -1180,7 +1180,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 `ReadonlyArray.some`
 
-***
+---
 
 ### toLocaleString()
 
@@ -1188,7 +1188,7 @@ If thisArg is omitted, undefined is used as the this value.
 
 > **toLocaleString**(): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1200
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1200
 
 Returns a string representation of an array. The elements are converted to string using their toLocaleString methods.
 
@@ -1204,7 +1204,7 @@ Returns a string representation of an array. The elements are converted to strin
 
 > **toLocaleString**(`locales`, `options`?): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es2015.core.d.ts:366
+Defined in: node_modules/typescript/lib/lib.es2015.core.d.ts:366
 
 ##### Parameters
 
@@ -1224,13 +1224,13 @@ Defined in: node\_modules/typescript/lib/lib.es2015.core.d.ts:366
 
 `ReadonlyArray.toLocaleString`
 
-***
+---
 
 ### toReversed()
 
 > **toReversed**(): `string`[]
 
-Defined in: node\_modules/typescript/lib/lib.es2023.array.d.ts:124
+Defined in: node_modules/typescript/lib/lib.es2023.array.d.ts:124
 
 Copies the array and returns the copied array with all of its elements reversed.
 
@@ -1242,13 +1242,13 @@ Copies the array and returns the copied array with all of its elements reversed.
 
 `ReadonlyArray.toReversed`
 
-***
+---
 
 ### toSorted()
 
 > **toSorted**(`compareFn`?): `string`[]
 
-Defined in: node\_modules/typescript/lib/lib.es2023.array.d.ts:135
+Defined in: node_modules/typescript/lib/lib.es2023.array.d.ts:135
 
 Copies and sorts the array.
 
@@ -1261,8 +1261,9 @@ Copies and sorts the array.
 Function used to determine the order of the elements. It is expected to return
 a negative value if the first argument is less than the second argument, zero if they're equal, and a positive
 value otherwise. If omitted, the elements are sorted in ascending, ASCII character order.
+
 ```ts
-[11, 2, 22, 1].toSorted((a, b) => a - b) // [1, 2, 11, 22]
+[11, 2, 22, 1].toSorted((a, b) => a - b); // [1, 2, 11, 22]
 ```
 
 #### Returns
@@ -1273,7 +1274,7 @@ value otherwise. If omitted, the elements are sorted in ascending, ASCII charact
 
 `ReadonlyArray.toSorted`
 
-***
+---
 
 ### toSpliced()
 
@@ -1281,7 +1282,7 @@ value otherwise. If omitted, the elements are sorted in ascending, ASCII charact
 
 > **toSpliced**(`start`, `deleteCount`, ...`items`): `string`[]
 
-Defined in: node\_modules/typescript/lib/lib.es2023.array.d.ts:144
+Defined in: node_modules/typescript/lib/lib.es2023.array.d.ts:144
 
 Copies an array and removes elements while, if necessary, inserting new elements in their place, returning the remaining elements.
 
@@ -1319,7 +1320,7 @@ A copy of the original array with the remaining elements.
 
 > **toSpliced**(`start`, `deleteCount`?): `string`[]
 
-Defined in: node\_modules/typescript/lib/lib.es2023.array.d.ts:152
+Defined in: node_modules/typescript/lib/lib.es2023.array.d.ts:152
 
 Copies an array and removes elements while returning the remaining elements.
 
@@ -1347,13 +1348,13 @@ A copy of the original array with the remaining elements.
 
 `ReadonlyArray.toSpliced`
 
-***
+---
 
 ### toString()
 
 > **toString**(): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1196
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1196
 
 Returns a string representation of an array.
 
@@ -1365,13 +1366,13 @@ Returns a string representation of an array.
 
 `ReadonlyArray.toString`
 
-***
+---
 
 ### values()
 
 > **values**(): [`ArrayIterator`](ArrayIterator.md)\<`string`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:129
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:129
 
 Returns an iterable of values in the array
 
@@ -1383,13 +1384,13 @@ Returns an iterable of values in the array
 
 `ReadonlyArray.values`
 
-***
+---
 
 ### with()
 
 > **with**(`index`, `value`): `string`[]
 
-Defined in: node\_modules/typescript/lib/lib.es2023.array.d.ts:163
+Defined in: node_modules/typescript/lib/lib.es2023.array.d.ts:163
 
 Copies an array, then overwrites the value at the provided index with the
 given value. If the index is negative, then it replaces from the end

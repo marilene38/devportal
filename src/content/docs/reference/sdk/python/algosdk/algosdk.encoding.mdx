@@ -1,19 +1,19 @@
 ---
-title: "algosdk.encoding"
+title: 'algosdk.encoding'
 ---
 
-<a id="module-algosdk.encoding"></a>
+<a id='module-algosdk.encoding'></a>
 
-<a id="algosdk-encoding"></a>
+<a id='algosdk-encoding'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="functions"></a>
+<a id='functions'></a>
 
 ## Functions
 
 | [`checksum`](#algosdk.encoding.checksum)                 | Compute the checksum of arbitrary binary input.                                         |
-|----------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| -------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | [`decode_address`](#algosdk.encoding.decode_address)     | Decode a string address into its address bytes and checksum.                            |
 | [`encode_address`](#algosdk.encoding.encode_address)     | Encode a byte address into a string composed of the encoded bytes and the<br/>checksum. |
 | [`encode_as_bytes`](#algosdk.encoding.encode_as_bytes)   | Confirm or coerce element to bytes.                                                     |
@@ -21,11 +21,11 @@ title: "algosdk.encoding"
 | [`msgpack_decode`](#algosdk.encoding.msgpack_decode)     | Decode a msgpack encoded object from a string.                                          |
 | [`msgpack_encode`](#algosdk.encoding.msgpack_encode)     | Encode the object using canonical msgpack.                                              |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.encoding.checksum"></a>
+<a id='algosdk.encoding.checksum'></a>
 
 ## algosdk.encoding.checksum
 
@@ -39,7 +39,7 @@ data (bytes): data as bytes
 Returns:
 bytes: checksum of the data
 
-<a id="algosdk.encoding.decode_address"></a>
+<a id='algosdk.encoding.decode_address'></a>
 
 ## algosdk.encoding.decode_address
 
@@ -53,7 +53,7 @@ addr (str): base32 address
 Returns:
 bytes: address decoded into bytes
 
-<a id="algosdk.encoding.encode_address"></a>
+<a id='algosdk.encoding.encode_address'></a>
 
 ## algosdk.encoding.encode_address
 
@@ -68,7 +68,7 @@ addr_bytes (bytes): address in bytes
 Returns:
 str: base32 encoded address
 
-<a id="algosdk.encoding.encode_as_bytes"></a>
+<a id='algosdk.encoding.encode_as_bytes'></a>
 
 ## algosdk.encoding.encode_as_bytes
 
@@ -76,7 +76,7 @@ encode_as_bytes(e: Union[bytes, bytearray, str, int]) → Union[bytes, bytearray
 
 Confirm or coerce element to bytes.
 
-<a id="algosdk.encoding.is_valid_address"></a>
+<a id='algosdk.encoding.is_valid_address'></a>
 
 ## algosdk.encoding.is_valid_address
 
@@ -90,7 +90,7 @@ addr (str): base32 address
 Returns:
 bool: whether or not the address is valid
 
-<a id="algosdk.encoding.msgpack_decode"></a>
+<a id='algosdk.encoding.msgpack_decode'></a>
 
 ## algosdk.encoding.msgpack_decode
 
@@ -102,9 +102,9 @@ Args:
 enc (str): string to be decoded
 
 Returns:
-Transaction, SignedTransaction, Multisig, Bid, or SignedBid:            decoded object
+Transaction, SignedTransaction, Multisig, Bid, or SignedBid: decoded object
 
-<a id="algosdk.encoding.msgpack_encode"></a>
+<a id='algosdk.encoding.msgpack_encode'></a>
 
 ## algosdk.encoding.msgpack_encode
 
@@ -113,7 +113,7 @@ msgpack_encode(obj)
 Encode the object using canonical msgpack.
 
 Args:
-obj (Transaction, SignedTransaction, MultisigTransaction, Multisig,            Bid, or SignedBid): object to be encoded
+obj (Transaction, SignedTransaction, MultisigTransaction, Multisig, Bid, or SignedBid): object to be encoded
 
 Returns:
 str: msgpack encoded object

@@ -1,10 +1,10 @@
 ---
-title: "BuiltinIteratorReturn"
+title: 'BuiltinIteratorReturn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / BuiltinIteratorReturn
 
@@ -12,7 +12,7 @@ title: "BuiltinIteratorReturn"
 
 > **BuiltinIteratorReturn**: `intrinsic`
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:70
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:70
 
 Defines the `TReturn` type used for built-in iterators produced by `Array`, `Map`, `Set`, and others.
 This is `undefined` when `strictBuiltInIteratorReturn` is `true`; otherwise, this is `any`.

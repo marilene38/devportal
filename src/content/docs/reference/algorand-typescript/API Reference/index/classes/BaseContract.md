@@ -1,10 +1,10 @@
 ---
-title: "BaseContract"
+title: 'BaseContract'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / BaseContract
 
@@ -42,7 +42,7 @@ The program to be run when the On Completion Action is != ClearState (3)
 
 `boolean` \| [`uint64`](../type-aliases/uint64.md)
 
-***
+---
 
 ### clearStateProgram()
 

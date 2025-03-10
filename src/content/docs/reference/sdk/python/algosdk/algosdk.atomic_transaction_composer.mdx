@@ -1,40 +1,40 @@
 ---
-title: "algosdk.atomic_transaction_composer"
+title: 'algosdk.atomic_transaction_composer'
 ---
 
-<a id="module-algosdk.atomic_transaction_composer"></a>
+<a id='module-algosdk.atomic_transaction_composer'></a>
 
-<a id="algosdk-atomic-transaction-composer"></a>
+<a id='algosdk-atomic-transaction-composer'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
-| [`AccountTransactionSigner`](#algosdk.atomic_transaction_composer.AccountTransactionSigner)               | Represents a Transaction Signer for an account that can sign transactions from an<br/>atomic transaction group.   |
-|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| [`AtomicTransactionComposer`](#algosdk.atomic_transaction_composer.AtomicTransactionComposer)             | Constructs an atomic transaction group which may contain a combination of<br/>Transactions and ABI Method calls.  |
-| [`AtomicTransactionComposerStatus`](#algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus) | Enum where members are also (and must be) ints                                                                    |
-| [`EmptySigner`](#algosdk.atomic_transaction_composer.EmptySigner)                                         | Represents an object which can sign transactions from an atomic transaction group.                                |
-| [`LogicSigTransactionSigner`](#algosdk.atomic_transaction_composer.LogicSigTransactionSigner)             | Represents a Transaction Signer for a LogicSig that can sign transactions from an<br/>atomic transaction group.   |
-| [`MultisigTransactionSigner`](#algosdk.atomic_transaction_composer.MultisigTransactionSigner)             | Represents a Transaction Signer for a Multisig that can sign transactions from an<br/>atomic transaction group.   |
-| [`TransactionSigner`](#algosdk.atomic_transaction_composer.TransactionSigner)                             | Represents an object which can sign transactions from an atomic transaction group.                                |
+| [`AccountTransactionSigner`](#algosdk.atomic_transaction_composer.AccountTransactionSigner)               | Represents a Transaction Signer for an account that can sign transactions from an<br/>atomic transaction group.  |
+| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| [`AtomicTransactionComposer`](#algosdk.atomic_transaction_composer.AtomicTransactionComposer)             | Constructs an atomic transaction group which may contain a combination of<br/>Transactions and ABI Method calls. |
+| [`AtomicTransactionComposerStatus`](#algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus) | Enum where members are also (and must be) ints                                                                   |
+| [`EmptySigner`](#algosdk.atomic_transaction_composer.EmptySigner)                                         | Represents an object which can sign transactions from an atomic transaction group.                               |
+| [`LogicSigTransactionSigner`](#algosdk.atomic_transaction_composer.LogicSigTransactionSigner)             | Represents a Transaction Signer for a LogicSig that can sign transactions from an<br/>atomic transaction group.  |
+| [`MultisigTransactionSigner`](#algosdk.atomic_transaction_composer.MultisigTransactionSigner)             | Represents a Transaction Signer for a Multisig that can sign transactions from an<br/>atomic transaction group.  |
+| [`TransactionSigner`](#algosdk.atomic_transaction_composer.TransactionSigner)                             | Represents an object which can sign transactions from an atomic transaction group.                               |
 
-<a id="functions"></a>
+<a id='functions'></a>
 
 ## Functions
 
-| [`populate_foreign_array`](#algosdk.atomic_transaction_composer.populate_foreign_array)   | Add a value to an application call’s foreign array. The addition will be as<br/>compact as possible, and this function will return an index used to<br/>reference `value_to_add` in the `foreign_array`.   |
-|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`populate_foreign_array`](#algosdk.atomic_transaction_composer.populate_foreign_array) | Add a value to an application call’s foreign array. The addition will be as<br/>compact as possible, and this function will return an index used to<br/>reference `value_to_add` in the `foreign_array`. |
+| --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.atomic_transaction_composer.AccountTransactionSigner"></a>
+<a id='algosdk.atomic_transaction_composer.AccountTransactionSigner'></a>
 
-## *class* algosdk.atomic_transaction_composer.AccountTransactionSigner
+## _class_ algosdk.atomic_transaction_composer.AccountTransactionSigner
 
 AccountTransactionSigner(private_key: str)
 
@@ -46,7 +46,7 @@ private_key (str): private key of signing account
 
 ## Initialization
 
-<a id="algosdk.atomic_transaction_composer.AccountTransactionSigner.sign_transactions"></a>
+<a id='algosdk.atomic_transaction_composer.AccountTransactionSigner.sign_transactions'></a>
 
 ### sign_transactions
 
@@ -62,9 +62,9 @@ Args:
 txn_group (list[Transaction]): atomic group of transactions
 indexes (list[int]): array of indexes in the atomic transaction group that should be signed
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer'></a>
 
-## *class* algosdk.atomic_transaction_composer.AtomicTransactionComposer
+## _class_ algosdk.atomic_transaction_composer.AtomicTransactionComposer
 
 AtomicTransactionComposer
 
@@ -80,7 +80,7 @@ tx_ids (list[str]): list of individual transaction IDs in this atomic group
 
 ## Initialization
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer.add_method_call"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer.add_method_call'></a>
 
 ### add_method_call
 
@@ -123,7 +123,7 @@ transaction’s valid rounds
 rekey_to (str, optional): additionally rekey the sender to this address
 boxes (list[(int, bytes)], optional): list of tuples specifying app id and key for boxes the app may access
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer.add_transaction"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer.add_transaction'></a>
 
 ### add_transaction
 
@@ -138,7 +138,7 @@ MAX_GROUP_SIZE.
 Args:
 txn_and_signer (TransactionWithSigner)
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer.build_group"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer.build_group'></a>
 
 ### build_group
 
@@ -150,7 +150,7 @@ The composer’s status will be at least BUILT after executing this method.
 Returns:
 list[TransactionWithSigner]: list of transactions with signers
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer.clone"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer.clone'></a>
 
 ### clone
 
@@ -160,7 +160,7 @@ Creates a new composer with the same underlying transactions.
 The new composer’s status will be BUILDING, so additional transactions
 may be added to it.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer.execute"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer.execute'></a>
 
 ### execute
 
@@ -186,7 +186,7 @@ results for each method call transaction in this group. If a
 method has no return value (void), then the method results array
 will contain None for that method’s return value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer.gather_signatures"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer.gather_signatures'></a>
 
 ### gather_signatures
 
@@ -200,7 +200,7 @@ An error will be thrown if signing any of the transactions fails.
 Returns:
 List[GenericSignedTransaction]: list of signed transactions
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer.get_status"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer.get_status'></a>
 
 ### get_status
 
@@ -208,7 +208,7 @@ get_status() → [algosdk.atomic_transaction_composer.AtomicTransactionComposerS
 
 Returns the status of this composer’s transaction group.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer.get_tx_count"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer.get_tx_count'></a>
 
 ### get_tx_count
 
@@ -216,7 +216,7 @@ get_tx_count() → int
 
 Returns the number of transactions currently in this atomic group.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer.simulate"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer.simulate'></a>
 
 ### simulate
 
@@ -239,7 +239,7 @@ an array of results for each method call transaction in this group.
 If a method has no return value (void), then the method results array
 will contain None for that method’s return value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposer.submit"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposer.submit'></a>
 
 ### submit
 
@@ -258,9 +258,9 @@ client (AlgodClient): Algod V2 client
 Returns:
 List[str]: list of submitted transaction IDs
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus'></a>
 
-## *class* algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus
+## _class_ algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus
 
 AtomicTransactionComposerStatus
 
@@ -268,467 +268,467 @@ Enum where members are also (and must be) ints
 
 ## Initialization
 
-Initialize self.  See help(type(self)) for accurate signature.
+Initialize self. See help(type(self)) for accurate signature.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__abs__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__abs__'></a>
 
-### \_\_abs_\_
+### \_\_abs\_\_
 
-__abs__()
+**abs**()
 
 abs(self)
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__add__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__add__'></a>
 
-### \_\_add_\_
+### \_\_add\_\_
 
-__add__()
+**add**()
 
 Return self+value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__and__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__and__'></a>
 
-### \_\_and_\_
+### \_\_and\_\_
 
-__and__()
+**and**()
 
 Return self&value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__bool__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__bool__'></a>
 
-### \_\_bool_\_
+### \_\_bool\_\_
 
-__bool__()
+**bool**()
 
 True if self else False
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__ceil__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__ceil__'></a>
 
-### \_\_ceil_\_
+### \_\_ceil\_\_
 
-__ceil__()
+**ceil**()
 
 Ceiling of an Integral returns itself.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__delattr__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__delattr__'></a>
 
-### \_\_delattr_\_
+### \_\_delattr\_\_
 
-__delattr__()
+**delattr**()
 
 Implement delattr(self, name).
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__dir__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__dir__'></a>
 
-### \_\_dir_\_
+### \_\_dir\_\_
 
-__dir__()
+**dir**()
 
 Default dir() implementation.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__divmod__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__divmod__'></a>
 
-### \_\_divmod_\_
+### \_\_divmod\_\_
 
-__divmod__()
+**divmod**()
 
 Return divmod(self, value).
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__eq__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__()
+**eq**()
 
 Return self==value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__float__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__float__'></a>
 
-### \_\_float_\_
+### \_\_float\_\_
 
-__float__()
+**float**()
 
 float(self)
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__floor__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__floor__'></a>
 
-### \_\_floor_\_
+### \_\_floor\_\_
 
-__floor__()
+**floor**()
 
 Flooring an Integral returns itself.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__floordiv__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__floordiv__'></a>
 
-### \_\_floordiv_\_
+### \_\_floordiv\_\_
 
-__floordiv__()
+**floordiv**()
 
 Return self//value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__format__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__format__'></a>
 
-### \_\_format_\_
+### \_\_format\_\_
 
-__format__()
+**format**()
 
 Convert to a string according to format_spec.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__ge__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__ge__'></a>
 
-### \_\_ge_\_
+### \_\_ge\_\_
 
-__ge__()
+**ge**()
 
 Return self\>=value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__getattribute__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__getattribute__'></a>
 
-### \_\_getattribute_\_
+### \_\_getattribute\_\_
 
-__getattribute__()
+**getattribute**()
 
 Return getattr(self, name).
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__getstate__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__getstate__'></a>
 
-### \_\_getstate_\_
+### \_\_getstate\_\_
 
-__getstate__()
+**getstate**()
 
 Helper for pickle.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__gt__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__gt__'></a>
 
-### \_\_gt_\_
+### \_\_gt\_\_
 
-__gt__()
+**gt**()
 
 Return self\>value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__hash__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__hash__'></a>
 
-### \_\_hash_\_
+### \_\_hash\_\_
 
-__hash__()
+**hash**()
 
 Return hash(self).
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__index__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__index__'></a>
 
-### \_\_index_\_
+### \_\_index\_\_
 
-__index__()
+**index**()
 
 Return self converted to an integer, if self is suitable for use as an index into a list.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__int__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__int__'></a>
 
-### \_\_int_\_
+### \_\_int\_\_
 
-__int__()
+**int**()
 
 int(self)
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__invert__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__invert__'></a>
 
-### \_\_invert_\_
+### \_\_invert\_\_
 
-__invert__()
+**invert**()
 
 ~self
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__le__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__le__'></a>
 
-### \_\_le_\_
+### \_\_le\_\_
 
-__le__()
+**le**()
 
 Return self\<=value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__lshift__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__lshift__'></a>
 
-### \_\_lshift_\_
+### \_\_lshift\_\_
 
-__lshift__()
+**lshift**()
 
 Return self\<\<value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__lt__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__lt__'></a>
 
-### \_\_lt_\_
+### \_\_lt\_\_
 
-__lt__()
+**lt**()
 
 Return self\<value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__mod__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__mod__'></a>
 
-### \_\_mod_\_
+### \_\_mod\_\_
 
-__mod__()
+**mod**()
 
 Return self%value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__mul__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__mul__'></a>
 
-### \_\_mul_\_
+### \_\_mul\_\_
 
-__mul__()
+**mul**()
 
 Return self\*value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__ne__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__ne__'></a>
 
-### \_\_ne_\_
+### \_\_ne\_\_
 
-__ne__()
+**ne**()
 
 Return self!=value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__neg__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__neg__'></a>
 
-### \_\_neg_\_
+### \_\_neg\_\_
 
-__neg__()
+**neg**()
 
 -self
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__new__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__new__'></a>
 
-### \_\_new_\_
+### \_\_new\_\_
 
-__new__()
+**new**()
 
-Create and return a new object.  See help(type) for accurate signature.
+Create and return a new object. See help(type) for accurate signature.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__or__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__or__'></a>
 
-### \_\_or_\_
+### \_\_or\_\_
 
-__or__()
+**or**()
 
 Return self|value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__pos__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__pos__'></a>
 
-### \_\_pos_\_
+### \_\_pos\_\_
 
-__pos__()
+**pos**()
 
 +self
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__pow__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__pow__'></a>
 
-### \_\_pow_\_
+### \_\_pow\_\_
 
-__pow__()
+**pow**()
 
 Return pow(self, value, mod).
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__radd__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__radd__'></a>
 
-### \_\_radd_\_
+### \_\_radd\_\_
 
-__radd__()
+**radd**()
 
 Return value+self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rand__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rand__'></a>
 
-### \_\_rand_\_
+### \_\_rand\_\_
 
-__rand__()
+**rand**()
 
 Return value&self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rdivmod__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rdivmod__'></a>
 
-### \_\_rdivmod_\_
+### \_\_rdivmod\_\_
 
-__rdivmod__()
+**rdivmod**()
 
 Return divmod(value, self).
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__reduce__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__reduce__'></a>
 
-### \_\_reduce_\_
+### \_\_reduce\_\_
 
-__reduce__()
-
-Helper for pickle.
-
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__reduce_ex__"></a>
-
-### \_\_reduce_ex_\_
-
-__reduce_ex__()
+**reduce**()
 
 Helper for pickle.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__repr__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__reduce_ex__'></a>
 
-### \_\_repr_\_
+### \_\_reduce*ex*\_
 
-__repr__()
+**reduce_ex**()
+
+Helper for pickle.
+
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__repr__'></a>
+
+### \_\_repr\_\_
+
+**repr**()
 
 Return repr(self).
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rfloordiv__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rfloordiv__'></a>
 
-### \_\_rfloordiv_\_
+### \_\_rfloordiv\_\_
 
-__rfloordiv__()
+**rfloordiv**()
 
 Return value//self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rlshift__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rlshift__'></a>
 
-### \_\_rlshift_\_
+### \_\_rlshift\_\_
 
-__rlshift__()
+**rlshift**()
 
 Return value\<\<self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rmod__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rmod__'></a>
 
-### \_\_rmod_\_
+### \_\_rmod\_\_
 
-__rmod__()
+**rmod**()
 
 Return value%self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rmul__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rmul__'></a>
 
-### \_\_rmul_\_
+### \_\_rmul\_\_
 
-__rmul__()
+**rmul**()
 
 Return value\*self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__ror__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__ror__'></a>
 
-### \_\_ror_\_
+### \_\_ror\_\_
 
-__ror__()
+**ror**()
 
 Return value|self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__round__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__round__'></a>
 
-### \_\_round_\_
+### \_\_round\_\_
 
-__round__()
+**round**()
 
 Rounding an Integral returns itself.
 
 Rounding with an ndigits argument also returns an integer.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rpow__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rpow__'></a>
 
-### \_\_rpow_\_
+### \_\_rpow\_\_
 
-__rpow__()
+**rpow**()
 
 Return pow(value, self, mod).
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rrshift__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rrshift__'></a>
 
-### \_\_rrshift_\_
+### \_\_rrshift\_\_
 
-__rrshift__()
+**rrshift**()
 
 Return value\>\>self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rshift__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rshift__'></a>
 
-### \_\_rshift_\_
+### \_\_rshift\_\_
 
-__rshift__()
+**rshift**()
 
 Return self\>\>value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rsub__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rsub__'></a>
 
-### \_\_rsub_\_
+### \_\_rsub\_\_
 
-__rsub__()
+**rsub**()
 
 Return value-self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rtruediv__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rtruediv__'></a>
 
-### \_\_rtruediv_\_
+### \_\_rtruediv\_\_
 
-__rtruediv__()
+**rtruediv**()
 
 Return value/self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rxor__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__rxor__'></a>
 
-### \_\_rxor_\_
+### \_\_rxor\_\_
 
-__rxor__()
+**rxor**()
 
 Return value^self.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__setattr__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__setattr__'></a>
 
-### \_\_setattr_\_
+### \_\_setattr\_\_
 
-__setattr__()
+**setattr**()
 
 Implement setattr(self, name, value).
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__sizeof__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__sizeof__'></a>
 
-### \_\_sizeof_\_
+### \_\_sizeof\_\_
 
-__sizeof__()
+**sizeof**()
 
 Returns size in memory, in bytes.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__str__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__sub__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__sub__'></a>
 
-### \_\_sub_\_
+### \_\_sub\_\_
 
-__sub__()
+**sub**()
 
 Return self-value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__truediv__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__truediv__'></a>
 
-### \_\_truediv_\_
+### \_\_truediv\_\_
 
-__truediv__()
+**truediv**()
 
 Return self/value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__trunc__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__trunc__'></a>
 
-### \_\_trunc_\_
+### \_\_trunc\_\_
 
-__trunc__()
+**trunc**()
 
 Truncating an Integral returns itself.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__xor__"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.__xor__'></a>
 
-### \_\_xor_\_
+### \_\_xor\_\_
 
-__xor__()
+**xor**()
 
 Return self^value.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.as_integer_ratio"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.as_integer_ratio'></a>
 
 ### as_integer_ratio
 
@@ -745,7 +745,7 @@ The ratio is in lowest terms and has a positive denominator.
 > > > (0).as_integer_ratio()
 > > > (0, 1)
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.bit_count"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.bit_count'></a>
 
 ### bit_count
 
@@ -760,7 +760,7 @@ Also known as the population count.
 > > > (13).bit_count()
 > > > 3
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.bit_length"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.bit_length'></a>
 
 ### bit_length
 
@@ -773,7 +773,7 @@ Number of bits necessary to represent self in binary.
 > > > (37).bit_length()
 > > > 6
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.conjugate"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.conjugate'></a>
 
 ### conjugate
 
@@ -781,23 +781,23 @@ conjugate()
 
 Returns self, the complex conjugate of any int.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.denominator"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.denominator'></a>
 
-### *class* denominator
+### _class_ denominator
 
 denominator
 
 the denominator of a rational number in lowest terms
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.imag"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.imag'></a>
 
-### *class* imag
+### _class_ imag
 
 imag
 
 the imaginary part of a complex number
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.is_integer"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.is_integer'></a>
 
 ### is_integer
 
@@ -805,7 +805,7 @@ is_integer()
 
 Returns True. Exists for duck type compatibility with float.is_integer.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.name"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.name'></a>
 
 ### name
 
@@ -813,23 +813,23 @@ name()
 
 The name of the Enum member.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.numerator"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.numerator'></a>
 
-### *class* numerator
+### _class_ numerator
 
 numerator
 
 the numerator of a rational number in lowest terms
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.real"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.real'></a>
 
-### *class* real
+### _class_ real
 
 real
 
 the real part of a complex number
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.to_bytes"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.to_bytes'></a>
 
 ### to_bytes
 
@@ -838,21 +838,21 @@ to_bytes()
 Return an array of bytes representing an integer.
 
 length
-Length of bytes object to use.  An OverflowError is raised if the
-integer is not representable with the given number of bytes.  Default
+Length of bytes object to use. An OverflowError is raised if the
+integer is not representable with the given number of bytes. Default
 is length 1.
 byteorder
-The byte order used to represent the integer.  If byteorder is ‘big’,
-the most significant byte is at the beginning of the byte array.  If
+The byte order used to represent the integer. If byteorder is ‘big’,
+the most significant byte is at the beginning of the byte array. If
 byteorder is ‘little’, the most significant byte is at the end of the
-byte array.  To request the native byte order of the host system, use
-\`sys.byteorder’ as the byte order value.  Default is to use ‘big’.
+byte array. To request the native byte order of the host system, use
+\`sys.byteorder’ as the byte order value. Default is to use ‘big’.
 signed
 Determines whether two’s complement is used to represent the integer.
 If signed is False and a negative integer is given, an OverflowError
 is raised.
 
-<a id="algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.value"></a>
+<a id='algosdk.atomic_transaction_composer.AtomicTransactionComposerStatus.value'></a>
 
 ### value
 
@@ -860,9 +860,9 @@ value()
 
 The value of the Enum member.
 
-<a id="algosdk.atomic_transaction_composer.EmptySigner"></a>
+<a id='algosdk.atomic_transaction_composer.EmptySigner'></a>
 
-## *class* algosdk.atomic_transaction_composer.EmptySigner
+## _class_ algosdk.atomic_transaction_composer.EmptySigner
 
 EmptySigner
 
@@ -870,9 +870,9 @@ Represents an object which can sign transactions from an atomic transaction grou
 
 ## Initialization
 
-<a id="algosdk.atomic_transaction_composer.LogicSigTransactionSigner"></a>
+<a id='algosdk.atomic_transaction_composer.LogicSigTransactionSigner'></a>
 
-## *class* algosdk.atomic_transaction_composer.LogicSigTransactionSigner
+## _class_ algosdk.atomic_transaction_composer.LogicSigTransactionSigner
 
 LogicSigTransactionSigner(lsig: [algosdk.transaction.LogicSigAccount](algosdk.transaction.mdx#algosdk.transaction.LogicSigAccount))
 
@@ -884,7 +884,7 @@ lsig (LogicSigAccount): LogicSig account
 
 ## Initialization
 
-<a id="algosdk.atomic_transaction_composer.LogicSigTransactionSigner.sign_transactions"></a>
+<a id='algosdk.atomic_transaction_composer.LogicSigTransactionSigner.sign_transactions'></a>
 
 ### sign_transactions
 
@@ -900,9 +900,9 @@ Args:
 txn_group (list[Transaction]): atomic group of transactions
 indexes (list[int]): array of indexes in the atomic transaction group that should be signed
 
-<a id="algosdk.atomic_transaction_composer.MultisigTransactionSigner"></a>
+<a id='algosdk.atomic_transaction_composer.MultisigTransactionSigner'></a>
 
-## *class* algosdk.atomic_transaction_composer.MultisigTransactionSigner
+## _class_ algosdk.atomic_transaction_composer.MultisigTransactionSigner
 
 MultisigTransactionSigner(msig: [algosdk.transaction.Multisig](algosdk.transaction.mdx#algosdk.transaction.Multisig), sks: List[str])
 
@@ -915,7 +915,7 @@ sks (str): private keys of multisig
 
 ## Initialization
 
-<a id="algosdk.atomic_transaction_composer.MultisigTransactionSigner.sign_transactions"></a>
+<a id='algosdk.atomic_transaction_composer.MultisigTransactionSigner.sign_transactions'></a>
 
 ### sign_transactions
 
@@ -931,9 +931,9 @@ Args:
 txn_group (list[Transaction]): atomic group of transactions
 indexes (list[int]): array of indexes in the atomic transaction group that should be signed
 
-<a id="algosdk.atomic_transaction_composer.TransactionSigner"></a>
+<a id='algosdk.atomic_transaction_composer.TransactionSigner'></a>
 
-## *class* algosdk.atomic_transaction_composer.TransactionSigner
+## _class_ algosdk.atomic_transaction_composer.TransactionSigner
 
 TransactionSigner
 
@@ -941,7 +941,7 @@ Represents an object which can sign transactions from an atomic transaction grou
 
 ## Initialization
 
-<a id="algosdk.atomic_transaction_composer.populate_foreign_array"></a>
+<a id='algosdk.atomic_transaction_composer.populate_foreign_array'></a>
 
 ## algosdk.atomic_transaction_composer.populate_foreign_array
 

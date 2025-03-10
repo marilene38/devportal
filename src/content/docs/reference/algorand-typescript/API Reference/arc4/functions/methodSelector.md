@@ -1,10 +1,10 @@
 ---
-title: "methodSelector"
+title: 'methodSelector'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / methodSelector
 
@@ -21,7 +21,7 @@ Returns the ARC4 method selector for a given ARC4 method signature. The method s
 
 ### methodSignature
 
-An ARC4 method signature string ( Eg. `hello(string)string`.  Must be a compile time constant), or a contract method reference. (Eg. `MyContract.prototype.myMethod`)
+An ARC4 method signature string ( Eg. `hello(string)string`. Must be a compile time constant), or a contract method reference. (Eg. `MyContract.prototype.myMethod`)
 
 `string` | [`ContractMethod`](../-internal-/type-aliases/ContractMethod.md)
 

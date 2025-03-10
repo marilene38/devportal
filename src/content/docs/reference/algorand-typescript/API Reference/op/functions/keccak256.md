@@ -1,10 +1,10 @@
 ---
-title: "keccak256"
+title: 'keccak256'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / keccak256
 

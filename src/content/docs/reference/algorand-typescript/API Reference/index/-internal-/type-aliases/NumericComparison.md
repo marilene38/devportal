@@ -1,10 +1,10 @@
 ---
-title: "NumericComparison"
+title: 'NumericComparison'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / NumericComparison
 

@@ -1,10 +1,10 @@
 ---
-title: "shr"
+title: 'shr'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / shr
 

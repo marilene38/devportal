@@ -1,10 +1,10 @@
 ---
-title: "AssetTransferTxn"
+title: 'AssetTransferTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / AssetTransferTxn
 
@@ -31,7 +31,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:239](https://github.com/algora
 
 value in Asset's units
 
-***
+---
 
 ### assetCloseTo
 
@@ -41,7 +41,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:254](https://github.com/algora
 
 32 byte address
 
-***
+---
 
 ### assetReceiver
 
@@ -51,7 +51,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:249](https://github.com/algora
 
 32 byte address
 
-***
+---
 
 ### assetSender
 
@@ -61,7 +61,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:244](https://github.com/algora
 
 32 byte address. Source of assets if Sender is the Asset's Clawback address.
 
-***
+---
 
 ### fee
 
@@ -75,7 +75,7 @@ microalgos
 
 [`TransactionBase`](TransactionBase.md).[`fee`](TransactionBase.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -89,7 +89,7 @@ round number
 
 [`TransactionBase`](TransactionBase.md).[`firstValid`](TransactionBase.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -103,7 +103,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`TransactionBase`](TransactionBase.md).[`firstValidTime`](TransactionBase.md#firstvalidtime)
 
-***
+---
 
 ### groupIndex
 
@@ -118,7 +118,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`TransactionBase`](TransactionBase.md).[`groupIndex`](TransactionBase.md#groupindex)
 
-***
+---
 
 ### lastValid
 
@@ -132,7 +132,7 @@ round number
 
 [`TransactionBase`](TransactionBase.md).[`lastValid`](TransactionBase.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -146,7 +146,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`lease`](TransactionBase.md#lease)
 
-***
+---
 
 ### note
 
@@ -160,7 +160,7 @@ Any data up to 1024 bytes
 
 [`TransactionBase`](TransactionBase.md).[`note`](TransactionBase.md#note)
 
-***
+---
 
 ### rekeyTo
 
@@ -174,7 +174,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`rekeyTo`](TransactionBase.md#rekeyto)
 
-***
+---
 
 ### sender
 
@@ -188,7 +188,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`sender`](TransactionBase.md#sender)
 
-***
+---
 
 ### txnId
 
@@ -202,7 +202,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`TransactionBase`](TransactionBase.md).[`txnId`](TransactionBase.md#txnid)
 
-***
+---
 
 ### type
 
@@ -212,7 +212,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:258](https://github.com/algora
 
 Transaction type as integer
 
-***
+---
 
 ### typeBytes
 
@@ -226,7 +226,7 @@ Transaction type as bytes
 
 [`TransactionBase`](TransactionBase.md).[`typeBytes`](TransactionBase.md#typebytes)
 
-***
+---
 
 ### xferAsset
 

@@ -1,28 +1,28 @@
 ---
-title: "algosdk.logic"
+title: 'algosdk.logic'
 ---
 
-<a id="module-algosdk.logic"></a>
+<a id='module-algosdk.logic'></a>
 
-<a id="algosdk-logic"></a>
+<a id='algosdk-logic'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="functions"></a>
+<a id='functions'></a>
 
 ## Functions
 
 | [`address`](#algosdk.logic.address)                                 | Return the address of the program.                          |
-|---------------------------------------------------------------------|-------------------------------------------------------------|
+| ------------------------------------------------------------------- | ----------------------------------------------------------- |
 | [`get_application_address`](#algosdk.logic.get_application_address) | Return the escrow address of an application.                |
 | [`teal_sign`](#algosdk.logic.teal_sign)                             | Return the signature suitable for ed25519verify TEAL opcode |
 | [`teal_sign_from_program`](#algosdk.logic.teal_sign_from_program)   | Return the signature suitable for ed25519verify TEAL opcode |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.logic.address"></a>
+<a id='algosdk.logic.address'></a>
 
 ## algosdk.logic.address
 
@@ -36,7 +36,7 @@ program (bytes): compiled program
 Returns:
 str: program address
 
-<a id="algosdk.logic.get_application_address"></a>
+<a id='algosdk.logic.get_application_address'></a>
 
 ## algosdk.logic.get_application_address
 
@@ -50,7 +50,7 @@ appID (int): The ID of the application.
 Returns:
 str: The address corresponding to that application’s escrow account.
 
-<a id="algosdk.logic.teal_sign"></a>
+<a id='algosdk.logic.teal_sign'></a>
 
 ## algosdk.logic.teal_sign
 
@@ -66,7 +66,7 @@ contract_addr (str): program hash (contract address) to sign for
 Return:
 bytes: signature
 
-<a id="algosdk.logic.teal_sign_from_program"></a>
+<a id='algosdk.logic.teal_sign_from_program'></a>
 
 ## algosdk.logic.teal_sign_from_program
 

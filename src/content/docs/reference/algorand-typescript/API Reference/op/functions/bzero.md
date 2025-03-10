@@ -1,10 +1,10 @@
 ---
-title: "bzero"
+title: 'bzero'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / bzero
 

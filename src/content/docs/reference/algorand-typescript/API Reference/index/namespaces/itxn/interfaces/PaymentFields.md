@@ -1,10 +1,10 @@
 ---
-title: "PaymentFields"
+title: 'PaymentFields'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / PaymentFields
 
@@ -26,7 +26,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:80](https://github.com/algorandfoundat
 
 The amount, in microALGO, to transfer
 
-***
+---
 
 ### closeRemainderTo?
 
@@ -36,7 +36,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:88](https://github.com/algorandfoundat
 
 If set, bring the sender balance to 0 and send all remaining balance to this address
 
-***
+---
 
 ### fee?
 
@@ -50,7 +50,7 @@ microalgos
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`fee`](CommonTransactionFields.md#fee)
 
-***
+---
 
 ### firstValid?
 
@@ -64,7 +64,7 @@ round number
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValid`](CommonTransactionFields.md#firstvalid)
 
-***
+---
 
 ### firstValidTime?
 
@@ -78,7 +78,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValidTime`](CommonTransactionFields.md#firstvalidtime)
 
-***
+---
 
 ### lease?
 
@@ -92,7 +92,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:67](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`lease`](CommonTransactionFields.md#lease)
 
-***
+---
 
 ### note?
 
@@ -106,7 +106,7 @@ Any data up to 1024 bytes
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`note`](CommonTransactionFields.md#note)
 
-***
+---
 
 ### receiver?
 
@@ -116,7 +116,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:84](https://github.com/algorandfoundat
 
 The address of the receiver
 
-***
+---
 
 ### rekeyTo?
 
@@ -130,7 +130,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:72](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`rekeyTo`](CommonTransactionFields.md#rekeyto)
 
-***
+---
 
 ### sender?
 

@@ -1,10 +1,10 @@
 ---
-title: "KeyRegistrationTxn"
+title: 'KeyRegistrationTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / KeyRegistrationTxn
 
@@ -35,7 +35,7 @@ microalgos
 
 [`TransactionBase`](TransactionBase.md).[`fee`](TransactionBase.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -49,7 +49,7 @@ round number
 
 [`TransactionBase`](TransactionBase.md).[`firstValid`](TransactionBase.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -63,7 +63,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`TransactionBase`](TransactionBase.md).[`firstValidTime`](TransactionBase.md#firstvalidtime)
 
-***
+---
 
 ### groupIndex
 
@@ -78,7 +78,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`TransactionBase`](TransactionBase.md).[`groupIndex`](TransactionBase.md#groupindex)
 
-***
+---
 
 ### lastValid
 
@@ -92,7 +92,7 @@ round number
 
 [`TransactionBase`](TransactionBase.md).[`lastValid`](TransactionBase.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -106,7 +106,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`lease`](TransactionBase.md#lease)
 
-***
+---
 
 ### nonparticipation
 
@@ -116,7 +116,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:147](https://github.com/algora
 
 Marks an account nonparticipating for rewards
 
-***
+---
 
 ### note
 
@@ -130,7 +130,7 @@ Any data up to 1024 bytes
 
 [`TransactionBase`](TransactionBase.md).[`note`](TransactionBase.md#note)
 
-***
+---
 
 ### rekeyTo
 
@@ -144,7 +144,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`rekeyTo`](TransactionBase.md#rekeyto)
 
-***
+---
 
 ### selectionKey
 
@@ -154,7 +154,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:127](https://github.com/algora
 
 32 byte address
 
-***
+---
 
 ### sender
 
@@ -168,7 +168,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`sender`](TransactionBase.md#sender)
 
-***
+---
 
 ### stateProofKey
 
@@ -178,7 +178,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:152](https://github.com/algora
 
 64 byte state proof public key
 
-***
+---
 
 ### txnId
 
@@ -192,7 +192,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`TransactionBase`](TransactionBase.md).[`txnId`](TransactionBase.md#txnid)
 
-***
+---
 
 ### type
 
@@ -202,7 +202,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:156](https://github.com/algora
 
 Transaction type as integer
 
-***
+---
 
 ### typeBytes
 
@@ -216,7 +216,7 @@ Transaction type as bytes
 
 [`TransactionBase`](TransactionBase.md).[`typeBytes`](TransactionBase.md#typebytes)
 
-***
+---
 
 ### voteFirst
 
@@ -226,7 +226,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:132](https://github.com/algora
 
 The first round that the participation key is valid.
 
-***
+---
 
 ### voteKey
 
@@ -236,7 +236,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:122](https://github.com/algora
 
 32 byte address
 
-***
+---
 
 ### voteKeyDilution
 
@@ -246,7 +246,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:142](https://github.com/algora
 
 Dilution for the 2-level participation key
 
-***
+---
 
 ### voteLast
 

@@ -1,29 +1,29 @@
 ---
-title: "algosdk.util"
+title: 'algosdk.util'
 ---
 
-<a id="module-algosdk.util"></a>
+<a id='module-algosdk.util'></a>
 
-<a id="algosdk-util"></a>
+<a id='algosdk-util'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="functions"></a>
+<a id='functions'></a>
 
 ## Functions
 
-| [`algos_to_microalgos`](#algosdk.util.algos_to_microalgos)   | Convert algos to microalgos.                                                              |
-|--------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| [`build_headers_from`](#algosdk.util.build_headers_from)     | Build correct headers for `AlgodClient.algod_request`.                                    |
-| [`microalgos_to_algos`](#algosdk.util.microalgos_to_algos)   | Convert microalgos to algos.                                                              |
-| [`sign_bytes`](#algosdk.util.sign_bytes)                     | Sign arbitrary bytes after prepending with “MX” for domain separation.                    |
-| [`verify_bytes`](#algosdk.util.verify_bytes)                 | Verify the signature of a message that was prepended with “MX” for domain<br/>separation. |
+| [`algos_to_microalgos`](#algosdk.util.algos_to_microalgos) | Convert algos to microalgos.                                                              |
+| ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| [`build_headers_from`](#algosdk.util.build_headers_from)   | Build correct headers for `AlgodClient.algod_request`.                                    |
+| [`microalgos_to_algos`](#algosdk.util.microalgos_to_algos) | Convert microalgos to algos.                                                              |
+| [`sign_bytes`](#algosdk.util.sign_bytes)                   | Sign arbitrary bytes after prepending with “MX” for domain separation.                    |
+| [`verify_bytes`](#algosdk.util.verify_bytes)               | Verify the signature of a message that was prepended with “MX” for domain<br/>separation. |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.util.algos_to_microalgos"></a>
+<a id='algosdk.util.algos_to_microalgos'></a>
 
 ## algosdk.util.algos_to_microalgos
 
@@ -37,7 +37,7 @@ algos (int or decimal): how many algos
 Returns:
 int: how many microalgos
 
-<a id="algosdk.util.build_headers_from"></a>
+<a id='algosdk.util.build_headers_from'></a>
 
 ## algosdk.util.build_headers_from
 
@@ -52,7 +52,7 @@ additional_headers (Dict[str, Any]): additional headers to pass to `AlgodClient.
 Returns:
 Dict[str, any]: final version of headers dictionary to be used for `AlgodClient.algod_request`
 
-<a id="algosdk.util.microalgos_to_algos"></a>
+<a id='algosdk.util.microalgos_to_algos'></a>
 
 ## algosdk.util.microalgos_to_algos
 
@@ -66,7 +66,7 @@ microalgos (int): how many microalgos
 Returns:
 int or decimal: how many algos
 
-<a id="algosdk.util.sign_bytes"></a>
+<a id='algosdk.util.sign_bytes'></a>
 
 ## algosdk.util.sign_bytes
 
@@ -80,7 +80,7 @@ to_sign (bytes): bytes to sign
 Returns:
 str: base64 signature
 
-<a id="algosdk.util.verify_bytes"></a>
+<a id='algosdk.util.verify_bytes'></a>
 
 ## algosdk.util.verify_bytes
 

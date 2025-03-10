@@ -1,10 +1,10 @@
 ---
-title: "LocalStateForAccount"
+title: 'LocalStateForAccount'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / LocalStateForAccount
 

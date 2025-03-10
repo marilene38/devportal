@@ -1,10 +1,10 @@
 ---
-title: "setBit"
+title: 'setBit'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / setBit
 

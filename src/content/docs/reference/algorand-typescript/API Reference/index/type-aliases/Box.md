@@ -1,10 +1,10 @@
 ---
-title: "Box"
+title: 'Box'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / Box
 

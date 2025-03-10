@@ -1,16 +1,16 @@
 ---
-title: "ClassMethodDecorator"
+title: 'ClassMethodDecorator'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [arc4](../../README.md) / [\<internal\>](../README.md) / ClassMethodDecoratorContext
 
 # Interface: ClassMethodDecoratorContext\<This, Value\>
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:81
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:81
 
 Context provided to a class method decorator.
 
@@ -21,7 +21,7 @@ Context provided to a class method decorator.
 The type on which the class element will be defined. For a static class element, this will be
 the type of the constructor. For a non-static class element, this will be the type of the instance.
 
-• **Value** *extends* (`this`, ...`args`) => `any` = (`this`, ...`args`) => `any`
+• **Value** _extends_ (`this`, ...`args`) => `any` = (`this`, ...`args`) => `any`
 
 The type of the decorated class method.
 
@@ -31,7 +31,7 @@ The type of the decorated class method.
 
 > `readonly` **access**: `object`
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:98
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:98
 
 An object that can be used to access the current value of the class element at runtime.
 
@@ -69,51 +69,51 @@ Determines whether an object has a property with the same name as the decorated 
 
 `boolean`
 
-***
+---
 
 ### kind
 
 > `readonly` **kind**: `"method"`
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:86
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:86
 
 The kind of class element that was decorated.
 
-***
+---
 
 ### metadata
 
 > `readonly` **metadata**: [`DecoratorMetadataObject`](../../../index/-internal-/type-aliases/DecoratorMetadataObject.md)
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:138
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:138
 
-***
+---
 
 ### name
 
 > `readonly` **name**: `string` \| `symbol`
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:89
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:89
 
 The name of the decorated class element.
 
-***
+---
 
 ### private
 
 > `readonly` **private**: `boolean`
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:95
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:95
 
 A value indicating whether the class element has a private name.
 
-***
+---
 
 ### static
 
 > `readonly` **static**: `boolean`
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:92
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:92
 
 A value indicating whether the class element is a static (`true`) or instance (`false`) element.
 
@@ -123,7 +123,7 @@ A value indicating whether the class element is a static (`true`) or instance (`
 
 > **addInitializer**(`initializer`): `void`
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:136
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:136
 
 Adds a callback to be invoked either after static methods are defined but before
 static initializers are run (when decorating a `static` element), or before instance

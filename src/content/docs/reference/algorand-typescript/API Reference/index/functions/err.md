@@ -1,10 +1,10 @@
 ---
-title: "err"
+title: 'err'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / err
 

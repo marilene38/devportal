@@ -1,10 +1,10 @@
 ---
-title: "AssetFreezeItxnParams"
+title: 'AssetFreezeItxnParams'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / AssetFreezeItxnParams
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:210](https://github.com/algorandfounda
 
 [`AssetFreezeItxnParams`](AssetFreezeItxnParams.md)
 
-***
+---
 
 ### set()
 
@@ -42,7 +42,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:209](https://github.com/algorandfounda
 
 `void`
 
-***
+---
 
 ### submit()
 

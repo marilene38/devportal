@@ -1,10 +1,10 @@
 ---
-title: "CompileContract"
+title: 'CompileContract'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / CompiledContract
 
@@ -52,7 +52,7 @@ By default, provides global num uints based on contract state totals, can be ove
 
 > **localBytes**: [`uint64`](uint64.md)
 
-By default, provides local num bytes based on contract state totals, can be overridden  when calling `compile(ExampleContractType, { localBytes: ... })`
+By default, provides local num bytes based on contract state totals, can be overridden when calling `compile(ExampleContractType, { localBytes: ... })`
 
 ### localUints
 

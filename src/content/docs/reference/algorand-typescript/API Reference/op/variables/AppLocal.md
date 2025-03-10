@@ -1,10 +1,10 @@
 ---
-title: "AppLocal"
+title: 'AppLocal'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / AppLocal
 

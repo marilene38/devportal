@@ -1,10 +1,10 @@
 ---
-title: "UintN"
+title: 'UintN'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / UintN
 
@@ -30,7 +30,7 @@ A fixed bit size unsigned int
 
 ## Type Parameters
 
-• **N** *extends* [`BitSize`](../type-aliases/BitSize.md)
+• **N** _extends_ [`BitSize`](../type-aliases/BitSize.md)
 
 ## Constructors
 
@@ -78,7 +78,7 @@ Retrieve the encoded bytes for this type
 
 [`ARC4Encoded`](ARC4Encoded.md).[`bytes`](ARC4Encoded.md#bytes)
 
-***
+---
 
 ### native
 

@@ -1,16 +1,16 @@
 ---
-title: "ConcatArray"
+title: 'ConcatArray'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / ConcatArray
 
 # Interface: ConcatArray\<T\>
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1315
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1315
 
 ## Type Parameters
 
@@ -26,7 +26,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1315
 
 > `readonly` **length**: `number`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1316
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1316
 
 ## Methods
 
@@ -34,7 +34,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1316
 
 > **join**(`separator`?): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1318
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1318
 
 #### Parameters
 
@@ -46,13 +46,13 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1318
 
 `string`
 
-***
+---
 
 ### slice()
 
 > **slice**(`start`?, `end`?): `T`[]
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1319
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1319
 
 #### Parameters
 

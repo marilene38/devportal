@@ -1,10 +1,10 @@
 ---
-title: "assertMatch"
+title: 'assertMatch'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / assertMatch
 

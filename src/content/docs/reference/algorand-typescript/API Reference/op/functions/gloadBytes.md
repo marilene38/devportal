@@ -1,10 +1,10 @@
 ---
-title: "gloadBytes"
+title: 'gloadBytes'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / gloadBytes
 

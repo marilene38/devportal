@@ -1,10 +1,10 @@
 ---
-title: "TemplateVar"
+title: 'TemplateVar'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / TemplateVar
 
@@ -34,7 +34,7 @@ The key used to identify the variable.
 
 `string` = `'TMPL_'`
 
-The prefix to apply the variable name (Defaults to 'TMPL_')
+The prefix to apply the variable name (Defaults to 'TMPL\_')
 
 ## Returns
 

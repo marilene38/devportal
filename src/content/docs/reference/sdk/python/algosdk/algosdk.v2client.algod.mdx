@@ -1,27 +1,27 @@
 ---
-title: "algosdk.v2client.algod"
+title: 'algosdk.v2client.algod'
 ---
 
-<a id="module-algosdk.v2client.algod"></a>
+<a id='module-algosdk.v2client.algod'></a>
 
-<a id="algosdk-v2client-algod"></a>
+<a id='algosdk-v2client-algod'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
-| [`AlgodClient`](#algosdk.v2client.algod.AlgodClient)   | Client class for algod. Handles all algod requests.   |
-|--------------------------------------------------------|-------------------------------------------------------|
+| [`AlgodClient`](#algosdk.v2client.algod.AlgodClient) | Client class for algod. Handles all algod requests. |
+| ---------------------------------------------------- | --------------------------------------------------- |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.v2client.algod.AlgodClient"></a>
+<a id='algosdk.v2client.algod.AlgodClient'></a>
 
-## *class* algosdk.v2client.algod.AlgodClient
+## _class_ algosdk.v2client.algod.AlgodClient
 
 AlgodClient(algod_token: str, algod_address: str, headers: Optional[Dict[str, str]] = None)
 
@@ -39,7 +39,7 @@ headers (dict)
 
 ## Initialization
 
-<a id="algosdk.v2client.algod.AlgodClient.account_application_info"></a>
+<a id='algosdk.v2client.algod.AlgodClient.account_application_info'></a>
 
 ### account_application_info
 
@@ -51,7 +51,7 @@ Args:
 address (str): account public key
 application_id (int): The ID of the application to look up.
 
-<a id="algosdk.v2client.algod.AlgodClient.account_asset_info"></a>
+<a id='algosdk.v2client.algod.AlgodClient.account_asset_info'></a>
 
 ### account_asset_info
 
@@ -63,7 +63,7 @@ Args:
 address (str): account public key
 asset_id (int): The ID of the asset to look up.
 
-<a id="algosdk.v2client.algod.AlgodClient.account_info"></a>
+<a id='algosdk.v2client.algod.AlgodClient.account_info'></a>
 
 ### account_info
 
@@ -74,7 +74,7 @@ Return account information.
 Args:
 address (str): account public key
 
-<a id="algosdk.v2client.algod.AlgodClient.algod_request"></a>
+<a id='algosdk.v2client.algod.AlgodClient.algod_request'></a>
 
 ### algod_request
 
@@ -95,7 +95,7 @@ Returns:
 dict loaded from json response body when response_format == “json”
 otherwise returns the response body as bytes
 
-<a id="algosdk.v2client.algod.AlgodClient.application_box_by_name"></a>
+<a id='algosdk.v2client.algod.AlgodClient.application_box_by_name'></a>
 
 ### application_box_by_name
 
@@ -109,7 +109,7 @@ Args:
 application_id (int): The ID of the application to look up.
 box_name (bytes): The name or key of the box.
 
-<a id="algosdk.v2client.algod.AlgodClient.application_boxes"></a>
+<a id='algosdk.v2client.algod.AlgodClient.application_boxes'></a>
 
 ### application_boxes
 
@@ -124,7 +124,7 @@ application_id (int): The ID of the application to look up.
 limit (int, optional): Max number of box names to return.
 If max is not set, or max == 0, returns all box-names up to the maximum configured by the algod server being queried.
 
-<a id="algosdk.v2client.algod.AlgodClient.application_info"></a>
+<a id='algosdk.v2client.algod.AlgodClient.application_info'></a>
 
 ### application_info
 
@@ -135,7 +135,7 @@ Return information about a specific application.
 Args:
 application_id (int): The ID of the application to look up.
 
-<a id="algosdk.v2client.algod.AlgodClient.asset_info"></a>
+<a id='algosdk.v2client.algod.AlgodClient.asset_info'></a>
 
 ### asset_info
 
@@ -146,7 +146,7 @@ Return information about a specific asset.
 Args:
 asset_id (int): The ID of the asset to look up.
 
-<a id="algosdk.v2client.algod.AlgodClient.block_info"></a>
+<a id='algosdk.v2client.algod.AlgodClient.block_info'></a>
 
 ### block_info
 
@@ -160,7 +160,7 @@ response_format (str): the format in which the response is
 returned: either “json” or “msgpack”
 round_num (int, optional): alias for block; specify one of these
 
-<a id="algosdk.v2client.algod.AlgodClient.compile"></a>
+<a id='algosdk.v2client.algod.AlgodClient.compile'></a>
 
 ### compile
 
@@ -175,7 +175,7 @@ request_header (dict, optional): additional header for request
 Returns:
 dict: loaded from json response body. “result” property contains compiled bytes, “hash” - program hash (escrow address)
 
-<a id="algosdk.v2client.algod.AlgodClient.disassemble"></a>
+<a id='algosdk.v2client.algod.AlgodClient.disassemble'></a>
 
 ### disassemble
 
@@ -189,7 +189,7 @@ Returns:
 dict: response dictionary containing disassembled TEAL source code
 in plain text as the value of the unique “result” key.
 
-<a id="algosdk.v2client.algod.AlgodClient.dryrun"></a>
+<a id='algosdk.v2client.algod.AlgodClient.dryrun'></a>
 
 ### dryrun
 
@@ -204,7 +204,7 @@ request_header (dict, optional): additional header for request
 Returns:
 dict: loaded from json response body
 
-<a id="algosdk.v2client.algod.AlgodClient.genesis"></a>
+<a id='algosdk.v2client.algod.AlgodClient.genesis'></a>
 
 ### genesis
 
@@ -212,7 +212,7 @@ genesis(\*\*kwargs: Any) → algosdk.v2client.algod.AlgodResponseType
 
 Returns the entire genesis file.
 
-<a id="algosdk.v2client.algod.AlgodClient.get_block_hash"></a>
+<a id='algosdk.v2client.algod.AlgodClient.get_block_hash'></a>
 
 ### get_block_hash
 
@@ -223,7 +223,7 @@ Get the block hash for the block on the given round.
 Args:
 round_num (int): The round in which the transaction appears.
 
-<a id="algosdk.v2client.algod.AlgodClient.get_block_txids"></a>
+<a id='algosdk.v2client.algod.AlgodClient.get_block_txids'></a>
 
 ### get_block_txids
 
@@ -238,7 +238,7 @@ round_num (int): The round in which the transaction appears.
 Returns:
 Dict[str, Any]: Response from algod
 
-<a id="algosdk.v2client.algod.AlgodClient.get_ledger_state_delta"></a>
+<a id='algosdk.v2client.algod.AlgodClient.get_ledger_state_delta'></a>
 
 ### get_ledger_state_delta
 
@@ -254,7 +254,7 @@ response_format (str): The format in which the response is returned: either
 Returns:
 Dict[str, Any]: Response from algod
 
-<a id="algosdk.v2client.algod.AlgodClient.get_ledger_state_delta_for_transaction_group"></a>
+<a id='algosdk.v2client.algod.AlgodClient.get_ledger_state_delta_for_transaction_group'></a>
 
 ### get_ledger_state_delta_for_transaction_group
 
@@ -271,7 +271,7 @@ response_format (str): The format in which the response is returned: either
 Returns:
 Dict[str, Any]: Response from algod
 
-<a id="algosdk.v2client.algod.AlgodClient.get_sync_round"></a>
+<a id='algosdk.v2client.algod.AlgodClient.get_sync_round'></a>
 
 ### get_sync_round
 
@@ -282,7 +282,7 @@ Get the minimum sync round for the ledger.
 Returns:
 Dict[str, Any]: Response from algod
 
-<a id="algosdk.v2client.algod.AlgodClient.get_timestamp_offset"></a>
+<a id='algosdk.v2client.algod.AlgodClient.get_timestamp_offset'></a>
 
 ### get_timestamp_offset
 
@@ -294,7 +294,7 @@ This feature is only available in dev mode networks.
 Returns:
 Dict[str, Any]: Response from algod
 
-<a id="algosdk.v2client.algod.AlgodClient.get_transaction_group_ledger_state_deltas_for_round"></a>
+<a id='algosdk.v2client.algod.AlgodClient.get_transaction_group_ledger_state_deltas_for_round'></a>
 
 ### get_transaction_group_ledger_state_deltas_for_round
 
@@ -310,7 +310,7 @@ response_format (str): The format in which the response is returned: either
 Returns:
 Dict[str, Any]: Response from algod
 
-<a id="algosdk.v2client.algod.AlgodClient.health"></a>
+<a id='algosdk.v2client.algod.AlgodClient.health'></a>
 
 ### health
 
@@ -318,7 +318,7 @@ health(\*\*kwargs: Any) → algosdk.v2client.algod.AlgodResponseType
 
 Return null if the node is running.
 
-<a id="algosdk.v2client.algod.AlgodClient.ledger_supply"></a>
+<a id='algosdk.v2client.algod.AlgodClient.ledger_supply'></a>
 
 ### ledger_supply
 
@@ -326,7 +326,7 @@ ledger_supply(\*\*kwargs: Any) → algosdk.v2client.algod.AlgodResponseType
 
 Return supply details for node’s ledger.
 
-<a id="algosdk.v2client.algod.AlgodClient.lightblockheader_proof"></a>
+<a id='algosdk.v2client.algod.AlgodClient.lightblockheader_proof'></a>
 
 ### lightblockheader_proof
 
@@ -337,7 +337,7 @@ Gets a proof for a given light block header inside a state proof commitment.
 Args:
 round_num (int): The round to which the light block header belongs.
 
-<a id="algosdk.v2client.algod.AlgodClient.pending_transaction_info"></a>
+<a id='algosdk.v2client.algod.AlgodClient.pending_transaction_info'></a>
 
 ### pending_transaction_info
 
@@ -350,7 +350,7 @@ transaction_id (str): transaction ID
 response_format (str): the format in which the response is returned: either
 “json” or “msgpack”
 
-<a id="algosdk.v2client.algod.AlgodClient.pending_transactions"></a>
+<a id='algosdk.v2client.algod.AlgodClient.pending_transactions'></a>
 
 ### pending_transactions
 
@@ -364,7 +364,7 @@ if max_txns is 0, return all pending transactions
 response_format (str): the format in which the response is returned: either
 “json” or “msgpack”
 
-<a id="algosdk.v2client.algod.AlgodClient.pending_transactions_by_address"></a>
+<a id='algosdk.v2client.algod.AlgodClient.pending_transactions_by_address'></a>
 
 ### pending_transactions_by_address
 
@@ -380,7 +380,7 @@ limit (int, optional): maximum number of transactions to return
 response_format (str): the format in which the response is returned: either
 “json” or “msgpack”
 
-<a id="algosdk.v2client.algod.AlgodClient.ready"></a>
+<a id='algosdk.v2client.algod.AlgodClient.ready'></a>
 
 ### ready
 
@@ -391,7 +391,7 @@ Returns OK if the node is healthy and fully caught up.
 Returns:
 Dict[str, Any]: Response from algod
 
-<a id="algosdk.v2client.algod.AlgodClient.send_raw_transaction"></a>
+<a id='algosdk.v2client.algod.AlgodClient.send_raw_transaction'></a>
 
 ### send_raw_transaction
 
@@ -406,7 +406,7 @@ request_header (dict, optional): additional header for request
 Returns:
 str: transaction ID
 
-<a id="algosdk.v2client.algod.AlgodClient.send_transaction"></a>
+<a id='algosdk.v2client.algod.AlgodClient.send_transaction'></a>
 
 ### send_transaction
 
@@ -421,7 +421,7 @@ request_header (dict, optional): additional header for request
 Returns:
 str: transaction ID
 
-<a id="algosdk.v2client.algod.AlgodClient.send_transactions"></a>
+<a id='algosdk.v2client.algod.AlgodClient.send_transactions'></a>
 
 ### send_transactions
 
@@ -437,7 +437,7 @@ request_header (dict, optional): additional header for request
 Returns:
 str: first transaction ID
 
-<a id="algosdk.v2client.algod.AlgodClient.set_sync_round"></a>
+<a id='algosdk.v2client.algod.AlgodClient.set_sync_round'></a>
 
 ### set_sync_round
 
@@ -451,7 +451,7 @@ round (int): Sync round
 Returns:
 Dict[str, Any]: Response from algod
 
-<a id="algosdk.v2client.algod.AlgodClient.set_timestamp_offset"></a>
+<a id='algosdk.v2client.algod.AlgodClient.set_timestamp_offset'></a>
 
 ### set_timestamp_offset
 
@@ -466,7 +466,7 @@ offset (int): Block timestamp offset
 Returns:
 Dict[str, Any]: Response from algod
 
-<a id="algosdk.v2client.algod.AlgodClient.simulate_raw_transactions"></a>
+<a id='algosdk.v2client.algod.AlgodClient.simulate_raw_transactions'></a>
 
 ### simulate_raw_transactions
 
@@ -481,7 +481,7 @@ headers (dict, optional): additional header for request
 Returns:
 Dict[str, Any]: results from simulation of transactions
 
-<a id="algosdk.v2client.algod.AlgodClient.simulate_transactions"></a>
+<a id='algosdk.v2client.algod.AlgodClient.simulate_transactions'></a>
 
 ### simulate_transactions
 
@@ -496,7 +496,7 @@ headers (dict, optional): additional header for request
 Returns:
 Dict[str, Any]: results from simulation of transactions
 
-<a id="algosdk.v2client.algod.AlgodClient.stateproofs"></a>
+<a id='algosdk.v2client.algod.AlgodClient.stateproofs'></a>
 
 ### stateproofs
 
@@ -507,7 +507,7 @@ Get a state proof that covers a given round
 Args:
 round_num (int): The round for which a state proof is desired.
 
-<a id="algosdk.v2client.algod.AlgodClient.status"></a>
+<a id='algosdk.v2client.algod.AlgodClient.status'></a>
 
 ### status
 
@@ -515,7 +515,7 @@ status(\*\*kwargs: Any) → algosdk.v2client.algod.AlgodResponseType
 
 Return node status.
 
-<a id="algosdk.v2client.algod.AlgodClient.status_after_block"></a>
+<a id='algosdk.v2client.algod.AlgodClient.status_after_block'></a>
 
 ### status_after_block
 
@@ -528,7 +528,7 @@ block_num: block number
 round_num (int, optional): alias for block_num; specify one of
 these
 
-<a id="algosdk.v2client.algod.AlgodClient.suggested_params"></a>
+<a id='algosdk.v2client.algod.AlgodClient.suggested_params'></a>
 
 ### suggested_params
 
@@ -536,7 +536,7 @@ suggested_params(\*\*kwargs: Any) → [algosdk.transaction.SuggestedParams](algo
 
 Return suggested transaction parameters.
 
-<a id="algosdk.v2client.algod.AlgodClient.transaction_proof"></a>
+<a id='algosdk.v2client.algod.AlgodClient.transaction_proof'></a>
 
 ### transaction_proof
 
@@ -549,7 +549,7 @@ round_num (int): The round in which the transaction appears.
 txid (str): The transaction ID for which to generate a proof.
 hashtype (str): The type of hash function used to create the proof, must be either sha512_256 or sha256.
 
-<a id="algosdk.v2client.algod.AlgodClient.unset_sync_round"></a>
+<a id='algosdk.v2client.algod.AlgodClient.unset_sync_round'></a>
 
 ### unset_sync_round
 
@@ -560,7 +560,7 @@ Unset the minimum sync round for the ledger.
 Returns:
 Dict[str, Any]: Response from algod
 
-<a id="algosdk.v2client.algod.AlgodClient.versions"></a>
+<a id='algosdk.v2client.algod.AlgodClient.versions'></a>
 
 ### versions
 

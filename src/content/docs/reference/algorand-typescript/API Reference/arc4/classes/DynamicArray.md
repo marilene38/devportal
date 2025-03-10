@@ -1,10 +1,10 @@
 ---
-title: "DynamicArray"
+title: 'DynamicArray'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / DynamicArray
 
@@ -20,7 +20,7 @@ A dynamic sized array of arc4 items
 
 ## Type Parameters
 
-• **TItem** *extends* [`ARC4Encoded`](ARC4Encoded.md)
+• **TItem** _extends_ [`ARC4Encoded`](ARC4Encoded.md)
 
 The type of a single item in the array
 
@@ -74,7 +74,7 @@ Retrieve the encoded bytes for this type
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`bytes`](../-internal-/classes/Arc4ArrayBase.md#bytes)
 
-***
+---
 
 ### length
 
@@ -112,7 +112,7 @@ Returns an iterator for the items in this array
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`[iterator]`](../-internal-/classes/Arc4ArrayBase.md#iterator)
 
-***
+---
 
 ### at()
 
@@ -139,7 +139,7 @@ The index of the item to retrieve
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`at`](../-internal-/classes/Arc4ArrayBase.md#at)
 
-***
+---
 
 ### concat()
 
@@ -161,7 +161,7 @@ Another array to concat with this one
 
 [`DynamicArray`](DynamicArray.md)\<`TItem`\>
 
-***
+---
 
 ### copy()
 
@@ -175,7 +175,7 @@ Returns a copy of this array
 
 [`DynamicArray`](DynamicArray.md)\<`TItem`\>
 
-***
+---
 
 ### entries()
 
@@ -193,7 +193,7 @@ Returns an iterator for a tuple of the indexes and items in this array
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`entries`](../-internal-/classes/Arc4ArrayBase.md#entries)
 
-***
+---
 
 ### keys()
 
@@ -211,7 +211,7 @@ Returns an iterator for the indexes in this array
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`keys`](../-internal-/classes/Arc4ArrayBase.md#keys)
 
-***
+---
 
 ### pop()
 
@@ -225,7 +225,7 @@ Pop a single item from this array
 
 `TItem`
 
-***
+---
 
 ### push()
 
@@ -247,7 +247,7 @@ The items to be added to this array
 
 `void`
 
-***
+---
 
 ### slice()
 

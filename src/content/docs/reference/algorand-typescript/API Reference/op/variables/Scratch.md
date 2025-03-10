@@ -1,10 +1,10 @@
 ---
-title: "Scratch"
+title: 'Scratch'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / Scratch
 
@@ -20,7 +20,7 @@ Load or store scratch values
 
 ### loadBytes()
 
-Ath scratch space value.  All scratch spaces are 0 at program start.
+Ath scratch space value. All scratch spaces are 0 at program start.
 
 #### Parameters
 
@@ -39,7 +39,7 @@ Min AVM version: 5
 
 ### loadUint64()
 
-Ath scratch space value.  All scratch spaces are 0 at program start.
+Ath scratch space value. All scratch spaces are 0 at program start.
 
 #### Parameters
 

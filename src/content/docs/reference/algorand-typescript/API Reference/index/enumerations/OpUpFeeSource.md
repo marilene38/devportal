@@ -1,10 +1,10 @@
 ---
-title: "OpUpFeeSource"
+title: 'OpUpFeeSource'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / OpUpFeeSource
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/util.ts:119](https://github.com/algorandfounda
 
 First the excess will be used, then remaining fees taken from the app account
 
-***
+---
 
 ### AppAccount
 
@@ -34,7 +34,7 @@ Defined in: [packages/algo-ts/src/util.ts:115](https://github.com/algorandfounda
 
 The app's account will cover all fees (itxn.fee = Global.minTxFee)
 
-***
+---
 
 ### GroupCredit
 

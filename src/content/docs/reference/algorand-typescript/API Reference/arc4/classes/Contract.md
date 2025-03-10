@@ -1,10 +1,10 @@
 ---
-title: "Contract"
+title: 'Contract'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / Contract
 
@@ -51,7 +51,7 @@ args and on completion actions
 
 [`BaseContract`](../../index/classes/BaseContract.md).[`approvalProgram`](../../index/classes/BaseContract.md#approvalprogram)
 
-***
+---
 
 ### clearStateProgram()
 

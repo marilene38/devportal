@@ -1,10 +1,10 @@
 ---
-title: "logicsig"
+title: 'logicsig'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / logicsig
 
@@ -30,7 +30,7 @@ An object containing the configuration options
 
 ### Type Parameters
 
-• **T** *extends* [`ConstructorFor`](../-internal-/type-aliases/ConstructorFor.md)\<[`LogicSig`](../classes/LogicSig.md)\>
+• **T** _extends_ [`ConstructorFor`](../-internal-/type-aliases/ConstructorFor.md)\<[`LogicSig`](../classes/LogicSig.md)\>
 
 ### Parameters
 

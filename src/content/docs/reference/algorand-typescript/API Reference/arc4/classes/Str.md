@@ -1,10 +1,10 @@
 ---
-title: "Str"
+title: 'Str'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / Str
 
@@ -64,7 +64,7 @@ Retrieve the encoded bytes for this type
 
 [`ARC4Encoded`](ARC4Encoded.md).[`bytes`](ARC4Encoded.md#bytes)
 
-***
+---
 
 ### native
 

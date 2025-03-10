@@ -1,10 +1,10 @@
 ---
-title: "emit"
+title: 'emit'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / emit
 
@@ -23,7 +23,7 @@ Anonymous types cannot be used as the type name is used to determine the event p
 
 ### Type Parameters
 
-• **TEvent** *extends* [`Record`](../-internal-/type-aliases/Record.md)\<`string`, `any`\>
+• **TEvent** _extends_ [`Record`](../-internal-/type-aliases/Record.md)\<`string`, `any`\>
 
 ### Parameters
 
@@ -41,15 +41,15 @@ An ARC4Struct instance, or a plain object with a named type
 
 ```ts
 class Demo extends Struct<{ a: UintN64 }> {}
-emit(new Demo({ a: new UintN64(123) }))
+emit(new Demo({ a: new UintN64(123) }));
 ```
 
 ```ts
-type Demo = { a: uint64 }
-emit<Demo>({a: 123})
+type Demo = { a: uint64 };
+emit<Demo>({ a: 123 });
 // or
-const d: Demo = { a: 123 }
-emit(d)
+const d: Demo = { a: 123 };
+emit(d);
 ```
 
 ## Call Signature
@@ -63,7 +63,7 @@ Property types must be ARC4 or have an ARC4 equivalent type.
 
 ### Type Parameters
 
-• **TProps** *extends* `any`[]
+• **TProps** _extends_ `any`[]
 
 ### Parameters
 
@@ -86,10 +86,10 @@ A set of event properties (order is significant)
 ### Examples
 
 ```ts
-emit("Demo", new UintN64(123))
+emit('Demo', new UintN64(123));
 ```
 
 ```ts
-const a: uint64 = 123
-emit("Demo", a)
+const a: uint64 = 123;
+emit('Demo', a);
 ```

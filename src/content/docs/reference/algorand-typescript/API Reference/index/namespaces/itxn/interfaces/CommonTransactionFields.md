@@ -1,10 +1,10 @@
 ---
-title: "CommonTransactionFields"
+title: 'CommonTransactionFields'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / CommonTransactionFields
 
@@ -31,7 +31,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:47](https://github.com/algorandfoundat
 
 microalgos
 
-***
+---
 
 ### firstValid?
 
@@ -41,7 +41,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:52](https://github.com/algorandfoundat
 
 round number
 
-***
+---
 
 ### firstValidTime?
 
@@ -51,7 +51,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:57](https://github.com/algorandfoundat
 
 UNIX timestamp of block before txn.FirstValid. Fails if negative
 
-***
+---
 
 ### lease?
 
@@ -61,7 +61,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:67](https://github.com/algorandfoundat
 
 32 byte lease value
 
-***
+---
 
 ### note?
 
@@ -71,7 +71,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:62](https://github.com/algorandfoundat
 
 Any data up to 1024 bytes
 
-***
+---
 
 ### rekeyTo?
 
@@ -81,7 +81,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:72](https://github.com/algorandfoundat
 
 32 byte Sender's new AuthAddr
 
-***
+---
 
 ### sender?
 

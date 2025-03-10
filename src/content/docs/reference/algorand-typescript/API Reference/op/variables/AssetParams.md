@@ -1,10 +1,10 @@
 ---
-title: "AssetParams"
+title: 'AssetParams'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / AssetParams
 

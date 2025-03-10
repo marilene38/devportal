@@ -1,10 +1,10 @@
 ---
-title: "AssetConfigFields"
+title: 'AssetConfigFields'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / AssetConfigFields
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:138](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:144](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L144)
 
-***
+---
 
 ### clawback?
 
@@ -32,7 +32,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:144](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:143](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L143)
 
-***
+---
 
 ### configAsset?
 
@@ -40,7 +40,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:143](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:139](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L139)
 
-***
+---
 
 ### decimals?
 
@@ -48,7 +48,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:139](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:147](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L147)
 
-***
+---
 
 ### defaultFrozen?
 
@@ -56,7 +56,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:147](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:148](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L148)
 
-***
+---
 
 ### fee?
 
@@ -70,7 +70,7 @@ microalgos
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`fee`](CommonTransactionFields.md#fee)
 
-***
+---
 
 ### firstValid?
 
@@ -84,7 +84,7 @@ round number
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValid`](CommonTransactionFields.md#firstvalid)
 
-***
+---
 
 ### firstValidTime?
 
@@ -98,7 +98,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValidTime`](CommonTransactionFields.md#firstvalidtime)
 
-***
+---
 
 ### freeze?
 
@@ -106,7 +106,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 Defined in: [packages/algo-ts/src/itxn.ts:142](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L142)
 
-***
+---
 
 ### lease?
 
@@ -120,7 +120,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:67](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`lease`](CommonTransactionFields.md#lease)
 
-***
+---
 
 ### manager?
 
@@ -128,7 +128,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:67](https://github.com/algorandfoundat
 
 Defined in: [packages/algo-ts/src/itxn.ts:140](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L140)
 
-***
+---
 
 ### metadataHash?
 
@@ -136,7 +136,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:140](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:150](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L150)
 
-***
+---
 
 ### note?
 
@@ -150,7 +150,7 @@ Any data up to 1024 bytes
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`note`](CommonTransactionFields.md#note)
 
-***
+---
 
 ### rekeyTo?
 
@@ -164,7 +164,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:72](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`rekeyTo`](CommonTransactionFields.md#rekeyto)
 
-***
+---
 
 ### reserve?
 
@@ -172,7 +172,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:72](https://github.com/algorandfoundat
 
 Defined in: [packages/algo-ts/src/itxn.ts:141](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L141)
 
-***
+---
 
 ### sender?
 
@@ -186,7 +186,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:42](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`sender`](CommonTransactionFields.md#sender)
 
-***
+---
 
 ### total?
 
@@ -194,7 +194,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:42](https://github.com/algorandfoundat
 
 Defined in: [packages/algo-ts/src/itxn.ts:146](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L146)
 
-***
+---
 
 ### unitName?
 
@@ -202,7 +202,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:146](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:145](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L145)
 
-***
+---
 
 ### url?
 

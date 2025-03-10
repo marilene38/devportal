@@ -1,22 +1,22 @@
 ---
-title: "ClassDecoratorContext"
+title: 'ClassDecoratorContext'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / ClassDecoratorContext
 
 # Interface: ClassDecoratorContext\<Class\>
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:44
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:44
 
 Context provided to a class decorator.
 
 ## Type Parameters
 
-• **Class** *extends* (...`args`) => `any` = (...`args`) => `any`
+• **Class** _extends_ (...`args`) => `any` = (...`args`) => `any`
 
 The type of the decorated class associated with this context.
 
@@ -26,25 +26,25 @@ The type of the decorated class associated with this context.
 
 > `readonly` **kind**: `"class"`
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:48
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:48
 
 The kind of element that was decorated.
 
-***
+---
 
 ### metadata
 
 > `readonly` **metadata**: [`DecoratorMetadataObject`](../type-aliases/DecoratorMetadataObject.md)
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:72
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:72
 
-***
+---
 
 ### name
 
 > `readonly` **name**: `undefined` \| `string`
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:51
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:51
 
 The name of the decorated class.
 
@@ -54,7 +54,7 @@ The name of the decorated class.
 
 > **addInitializer**(`initializer`): `void`
 
-Defined in: node\_modules/typescript/lib/lib.decorators.d.ts:70
+Defined in: node_modules/typescript/lib/lib.decorators.d.ts:70
 
 Adds a callback to be invoked after the class definition has been finalized.
 
@@ -76,9 +76,9 @@ function customElement(name: string): ClassDecoratorFunction {
     context.addInitializer(function () {
       customElements.define(name, this);
     });
-  }
+  };
 }
 
-@customElement("my-element")
+@customElement('my-element')
 class MyElement {}
 ```

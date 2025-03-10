@@ -1,10 +1,10 @@
 ---
-title: "Byte"
+title: 'Byte'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / Byte
 
@@ -64,7 +64,7 @@ Retrieve the encoded bytes for this type
 
 [`UintN`](UintN.md).[`bytes`](UintN.md#bytes)
 
-***
+---
 
 ### native
 

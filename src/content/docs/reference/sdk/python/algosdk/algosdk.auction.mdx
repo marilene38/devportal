@@ -1,29 +1,29 @@
 ---
-title: "algosdk.auction"
+title: 'algosdk.auction'
 ---
 
-<a id="module-algosdk.auction"></a>
+<a id='module-algosdk.auction'></a>
 
-<a id="algosdk-auction"></a>
+<a id='algosdk-auction'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
 | [`Bid`](#algosdk.auction.Bid)             | Represents a bid in an auction.            |
-|-------------------------------------------|--------------------------------------------|
+| ----------------------------------------- | ------------------------------------------ |
 | [`NoteField`](#algosdk.auction.NoteField) | Can be encoded and added to a transaction. |
 | [`SignedBid`](#algosdk.auction.SignedBid) | Represents a signed bid in an auction.     |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.auction.Bid"></a>
+<a id='algosdk.auction.Bid'></a>
 
-## *class* algosdk.auction.Bid
+## _class_ algosdk.auction.Bid
 
 Bid(bidder, bid_currency, max_price, bid_id, auction_key, auction_id)
 
@@ -47,15 +47,15 @@ auction_id (int)
 
 ## Initialization
 
-<a id="algosdk.auction.Bid.__eq__"></a>
+<a id='algosdk.auction.Bid.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.auction.Bid.sign"></a>
+<a id='algosdk.auction.Bid.sign'></a>
 
 ### sign
 
@@ -69,9 +69,9 @@ private_key (str): private_key of the bidder
 Returns:
 SignedBid: signed bid with the signature
 
-<a id="algosdk.auction.NoteField"></a>
+<a id='algosdk.auction.NoteField'></a>
 
-## *class* algosdk.auction.NoteField
+## _class_ algosdk.auction.NoteField
 
 NoteField(signed_bid, note_field_type)
 
@@ -88,17 +88,17 @@ note_field_type (str)
 
 ## Initialization
 
-<a id="algosdk.auction.NoteField.__eq__"></a>
+<a id='algosdk.auction.NoteField.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.auction.SignedBid"></a>
+<a id='algosdk.auction.SignedBid'></a>
 
-## *class* algosdk.auction.SignedBid
+## _class_ algosdk.auction.SignedBid
 
 SignedBid(bid, signature)
 
@@ -114,10 +114,10 @@ signature (str)
 
 ## Initialization
 
-<a id="algosdk.auction.SignedBid.__eq__"></a>
+<a id='algosdk.auction.SignedBid.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.

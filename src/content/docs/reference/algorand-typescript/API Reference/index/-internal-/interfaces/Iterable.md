@@ -1,16 +1,16 @@
 ---
-title: "Iterable"
+title: 'Iterable'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / Iterable
 
 # Interface: Iterable\<T, TReturn, TNext\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:48
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:48
 
 ## Type Parameters
 
@@ -26,7 +26,7 @@ Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:48
 
 > **\[iterator\]**(): `Iterator`\<`T`, `TReturn`, `TNext`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:49
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:49
 
 #### Returns
 

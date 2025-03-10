@@ -1,10 +1,10 @@
 ---
-title: "TransactionBase"
+title: 'TransactionBase'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / TransactionBase
 
@@ -31,7 +31,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:44](https://github.com/algoran
 
 microalgos
 
-***
+---
 
 ### firstValid
 
@@ -41,7 +41,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:49](https://github.com/algoran
 
 round number
 
-***
+---
 
 ### firstValidTime
 
@@ -51,7 +51,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:54](https://github.com/algoran
 
 UNIX timestamp of block before txn.FirstValid. Fails if negative
 
-***
+---
 
 ### groupIndex
 
@@ -62,7 +62,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:80](https://github.com/algoran
 Position of this transaction within an atomic group
 A stand-alone transaction is implicitly element 0 in a group of 1
 
-***
+---
 
 ### lastValid
 
@@ -72,7 +72,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:59](https://github.com/algoran
 
 round number
 
-***
+---
 
 ### lease
 
@@ -82,7 +82,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 32 byte lease value
 
-***
+---
 
 ### note
 
@@ -92,7 +92,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:64](https://github.com/algoran
 
 Any data up to 1024 bytes
 
-***
+---
 
 ### rekeyTo
 
@@ -102,7 +102,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 32 byte Sender's new AuthAddr
 
-***
+---
 
 ### sender
 
@@ -112,7 +112,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 32 byte address
 
-***
+---
 
 ### txnId
 
@@ -122,7 +122,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:85](https://github.com/algoran
 
 The computed ID for this transaction. 32 bytes.
 
-***
+---
 
 ### typeBytes
 

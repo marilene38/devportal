@@ -1,38 +1,38 @@
 ---
-title: "algosdk.testing.dryrun"
+title: 'algosdk.testing.dryrun'
 ---
 
-<a id="module-algosdk.testing.dryrun"></a>
+<a id='module-algosdk.testing.dryrun'></a>
 
-<a id="algosdk-testing-dryrun"></a>
+<a id='algosdk-testing-dryrun'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
 | [`App`](#algosdk.testing.dryrun.App)                                 | Application program parameters    |
-|----------------------------------------------------------------------|-----------------------------------|
+| -------------------------------------------------------------------- | --------------------------------- |
 | [`DryrunTestCaseMixin`](#algosdk.testing.dryrun.DryrunTestCaseMixin) | Mixin class for unittest.TestCase |
 | [`Helper`](#algosdk.testing.dryrun.Helper)                           | Utility functions for dryrun      |
 | [`LSig`](#algosdk.testing.dryrun.LSig)                               | Logic Sig program parameters      |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.testing.dryrun.App"></a>
+<a id='algosdk.testing.dryrun.App'></a>
 
-## *class* algosdk.testing.dryrun.App
+## _class_ algosdk.testing.dryrun.App
 
 App
 
 Application program parameters
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin'></a>
 
-## *class* algosdk.testing.dryrun.DryrunTestCaseMixin
+## _class_ algosdk.testing.dryrun.DryrunTestCaseMixin
 
 DryrunTestCaseMixin
 
@@ -40,7 +40,7 @@ Mixin class for unittest.TestCase
 
 Expects self.algo_client to be initialized in TestCase.setUp
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin.assertError"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin.assertError'></a>
 
 ### assertError
 
@@ -62,7 +62,7 @@ Raises:
 unittest.TestCase.failureException (AssetionException): if not passed
 TypeError: program is not bytes or str
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin.assertGlobalStateContains"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin.assertGlobalStateContains'></a>
 
 ### assertGlobalStateContains
 
@@ -78,7 +78,7 @@ Raises:
 unittest.TestCase.failureException: if not passed
 TypeError: program is not bytes or str
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin.assertLocalStateContains"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin.assertLocalStateContains'></a>
 
 ### assertLocalStateContains
 
@@ -95,7 +95,7 @@ Raises:
 unittest.TestCase.failureException: if not passed
 TypeError: program is not bytes or str
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin.assertNoError"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin.assertNoError'></a>
 
 ### assertNoError
 
@@ -117,7 +117,7 @@ Raises:
 unittest.TestCase.failureException (AssetionException): if not passed
 TypeError: program is not bytes or str
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin.assertPass"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin.assertPass'></a>
 
 ### assertPass
 
@@ -138,7 +138,7 @@ Raises:
 unittest.TestCase.failureException: if not passed
 TypeError: program is not bytes or str
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin.assertReject"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin.assertReject'></a>
 
 ### assertReject
 
@@ -159,7 +159,7 @@ Raises:
 unittest.TestCase.failureException: if not passed
 TypeError: program is not bytes or str
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin.assertStatus"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin.assertStatus'></a>
 
 ### assertStatus
 
@@ -181,15 +181,15 @@ Raises:
 unittest.TestCase.failureException (AssetionException): if not passed
 TypeError: program is not bytes or str
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin.default_address"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin.default_address'></a>
 
-### *static* default_address
+### _static_ default_address
 
 default_address()
 
 Helper function returning default zero addr
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin.dryrun_request"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin.dryrun_request'></a>
 
 ### dryrun_request
 
@@ -210,7 +210,7 @@ dict: dryrun response object
 Raises:
 TypeError: program is not bytes or str
 
-<a id="algosdk.testing.dryrun.DryrunTestCaseMixin.dryrun_request_from_txn"></a>
+<a id='algosdk.testing.dryrun.DryrunTestCaseMixin.dryrun_request_from_txn'></a>
 
 ### dryrun_request_from_txn
 
@@ -228,17 +228,17 @@ dict: dryrun response object
 Raises:
 TypeError: program is not bytes or str
 
-<a id="algosdk.testing.dryrun.Helper"></a>
+<a id='algosdk.testing.dryrun.Helper'></a>
 
-## *class* algosdk.testing.dryrun.Helper
+## _class_ algosdk.testing.dryrun.Helper
 
 Helper
 
 Utility functions for dryrun
 
-<a id="algosdk.testing.dryrun.Helper.build_dryrun_request"></a>
+<a id='algosdk.testing.dryrun.Helper.build_dryrun_request'></a>
 
-### *classmethod* build_dryrun_request
+### _classmethod_ build_dryrun_request
 
 build_dryrun_request(program, lsig=None, app=None, sender=ZERO_ADDRESS)
 
@@ -258,41 +258,41 @@ Raises:
 TypeError: program is not bytes or str
 ValueError: both lsig and app parameters provided or unknown type
 
-<a id="algosdk.testing.dryrun.Helper.find_error"></a>
+<a id='algosdk.testing.dryrun.Helper.find_error'></a>
 
-### *static* find_error
+### _static_ find_error
 
 find_error(drr, txn_index=None)
 
 Helper function to find error in dryrun response
 
-<a id="algosdk.testing.dryrun.Helper.pprint"></a>
+<a id='algosdk.testing.dryrun.Helper.pprint'></a>
 
-### *classmethod* pprint
+### _classmethod_ pprint
 
 pprint(drr)
 
 Helper function to pretty print dryrun response
 
-<a id="algosdk.testing.dryrun.Helper.sample_app"></a>
+<a id='algosdk.testing.dryrun.Helper.sample_app'></a>
 
-### *static* sample_app
+### _static_ sample_app
 
 sample_app(sender, app, program=None)
 
 Helper function for creation Application description for dryrun
 
-<a id="algosdk.testing.dryrun.Helper.sample_txn"></a>
+<a id='algosdk.testing.dryrun.Helper.sample_txn'></a>
 
-### *classmethod* sample_txn
+### _classmethod_ sample_txn
 
 sample_txn(sender, txn_type)
 
 Helper function for creation Transaction for dryrun
 
-<a id="algosdk.testing.dryrun.Helper.save_dryrun_request"></a>
+<a id='algosdk.testing.dryrun.Helper.save_dryrun_request'></a>
 
-### *static* save_dryrun_request
+### _static_ save_dryrun_request
 
 save_dryrun_request(name_or_fp, req)
 
@@ -302,9 +302,9 @@ Args:
 name_or_fp (str, file-like): filename or fp to save the request to
 req (DryrunRequest): dryrun request object to save
 
-<a id="algosdk.testing.dryrun.LSig"></a>
+<a id='algosdk.testing.dryrun.LSig'></a>
 
-## *class* algosdk.testing.dryrun.LSig
+## _class_ algosdk.testing.dryrun.LSig
 
 LSig
 

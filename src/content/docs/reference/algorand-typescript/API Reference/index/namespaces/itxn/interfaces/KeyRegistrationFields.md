@@ -1,10 +1,10 @@
 ---
-title: "KeyRegistrationFields"
+title: 'KeyRegistrationFields'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / KeyRegistrationFields
 
@@ -30,7 +30,7 @@ microalgos
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`fee`](CommonTransactionFields.md#fee)
 
-***
+---
 
 ### firstValid?
 
@@ -44,7 +44,7 @@ round number
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValid`](CommonTransactionFields.md#firstvalid)
 
-***
+---
 
 ### firstValidTime?
 
@@ -58,7 +58,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValidTime`](CommonTransactionFields.md#firstvalidtime)
 
-***
+---
 
 ### lease?
 
@@ -72,7 +72,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:67](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`lease`](CommonTransactionFields.md#lease)
 
-***
+---
 
 ### nonparticipation?
 
@@ -82,7 +82,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:119](https://github.com/algorandfounda
 
 Marks an account nonparticipating for rewards
 
-***
+---
 
 ### note?
 
@@ -96,7 +96,7 @@ Any data up to 1024 bytes
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`note`](CommonTransactionFields.md#note)
 
-***
+---
 
 ### rekeyTo?
 
@@ -110,7 +110,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:72](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`rekeyTo`](CommonTransactionFields.md#rekeyto)
 
-***
+---
 
 ### selectionKey?
 
@@ -120,7 +120,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:99](https://github.com/algorandfoundat
 
 32 byte address
 
-***
+---
 
 ### sender?
 
@@ -134,7 +134,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:42](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`sender`](CommonTransactionFields.md#sender)
 
-***
+---
 
 ### stateProofKey?
 
@@ -144,7 +144,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:124](https://github.com/algorandfounda
 
 64 byte state proof public key
 
-***
+---
 
 ### voteFirst?
 
@@ -154,7 +154,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:104](https://github.com/algorandfounda
 
 The first round that the participation key is valid.
 
-***
+---
 
 ### voteKey?
 
@@ -164,7 +164,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:94](https://github.com/algorandfoundat
 
 32 byte address
 
-***
+---
 
 ### voteKeyDilution?
 
@@ -174,7 +174,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:114](https://github.com/algorandfounda
 
 Dilution for the 2-level participation key
 
-***
+---
 
 ### voteLast?
 

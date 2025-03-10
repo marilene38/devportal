@@ -1,10 +1,10 @@
 ---
-title: "AssetConfigInnerTxn"
+title: 'AssetConfigInnerTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / AssetConfigInnerTxn
 
@@ -30,7 +30,7 @@ The asset name
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`assetName`](../../../-internal-/interfaces/AssetConfigTxn.md#assetname)
 
-***
+---
 
 ### clawback
 
@@ -44,7 +44,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:218](https://github.com/algora
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`clawback`](../../../-internal-/interfaces/AssetConfigTxn.md#clawback)
 
-***
+---
 
 ### configAsset
 
@@ -58,7 +58,7 @@ Asset ID in asset config transaction
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`configAsset`](../../../-internal-/interfaces/AssetConfigTxn.md#configasset)
 
-***
+---
 
 ### createdAsset
 
@@ -72,7 +72,7 @@ Asset ID allocated by the creation of an ASA
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`createdAsset`](../../../-internal-/interfaces/AssetConfigTxn.md#createdasset)
 
-***
+---
 
 ### decimals
 
@@ -86,7 +86,7 @@ Number of digits to display after the decimal place when displaying the asset
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`decimals`](../../../-internal-/interfaces/AssetConfigTxn.md#decimals)
 
-***
+---
 
 ### defaultFrozen
 
@@ -100,7 +100,7 @@ Whether the asset's slots are frozen by default or not, 0 or 1
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`defaultFrozen`](../../../-internal-/interfaces/AssetConfigTxn.md#defaultfrozen)
 
-***
+---
 
 ### fee
 
@@ -114,7 +114,7 @@ microalgos
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`fee`](../../../-internal-/interfaces/AssetConfigTxn.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -128,7 +128,7 @@ round number
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`firstValid`](../../../-internal-/interfaces/AssetConfigTxn.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -142,7 +142,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`firstValidTime`](../../../-internal-/interfaces/AssetConfigTxn.md#firstvalidtime)
 
-***
+---
 
 ### freeze
 
@@ -156,7 +156,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:213](https://github.com/algora
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`freeze`](../../../-internal-/interfaces/AssetConfigTxn.md#freeze)
 
-***
+---
 
 ### groupIndex
 
@@ -171,7 +171,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`groupIndex`](../../../-internal-/interfaces/AssetConfigTxn.md#groupindex)
 
-***
+---
 
 ### lastValid
 
@@ -185,7 +185,7 @@ round number
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`lastValid`](../../../-internal-/interfaces/AssetConfigTxn.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -199,7 +199,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`lease`](../../../-internal-/interfaces/AssetConfigTxn.md#lease)
 
-***
+---
 
 ### manager
 
@@ -213,7 +213,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:203](https://github.com/algora
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`manager`](../../../-internal-/interfaces/AssetConfigTxn.md#manager)
 
-***
+---
 
 ### metadataHash
 
@@ -227,7 +227,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:198](https://github.com/algora
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`metadataHash`](../../../-internal-/interfaces/AssetConfigTxn.md#metadatahash)
 
-***
+---
 
 ### note
 
@@ -241,7 +241,7 @@ Any data up to 1024 bytes
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`note`](../../../-internal-/interfaces/AssetConfigTxn.md#note)
 
-***
+---
 
 ### rekeyTo
 
@@ -255,7 +255,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`rekeyTo`](../../../-internal-/interfaces/AssetConfigTxn.md#rekeyto)
 
-***
+---
 
 ### reserve
 
@@ -269,7 +269,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:208](https://github.com/algora
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`reserve`](../../../-internal-/interfaces/AssetConfigTxn.md#reserve)
 
-***
+---
 
 ### sender
 
@@ -283,7 +283,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`sender`](../../../-internal-/interfaces/AssetConfigTxn.md#sender)
 
-***
+---
 
 ### total
 
@@ -297,7 +297,7 @@ Total number of units of this asset created
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`total`](../../../-internal-/interfaces/AssetConfigTxn.md#total)
 
-***
+---
 
 ### txnId
 
@@ -311,7 +311,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`txnId`](../../../-internal-/interfaces/AssetConfigTxn.md#txnid)
 
-***
+---
 
 ### type
 
@@ -325,7 +325,7 @@ Transaction type as integer
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`type`](../../../-internal-/interfaces/AssetConfigTxn.md#type)
 
-***
+---
 
 ### typeBytes
 
@@ -339,7 +339,7 @@ Transaction type as bytes
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`typeBytes`](../../../-internal-/interfaces/AssetConfigTxn.md#typebytes)
 
-***
+---
 
 ### unitName
 
@@ -353,7 +353,7 @@ Unit name of the asset
 
 [`AssetConfigTxn`](../../../-internal-/interfaces/AssetConfigTxn.md).[`unitName`](../../../-internal-/interfaces/AssetConfigTxn.md#unitname)
 
-***
+---
 
 ### url
 

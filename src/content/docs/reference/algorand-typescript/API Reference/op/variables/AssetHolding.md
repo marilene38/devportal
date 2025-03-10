@@ -1,10 +1,10 @@
 ---
-title: "AssetHolding"
+title: 'AssetHolding'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / AssetHolding
 

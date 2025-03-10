@@ -1,10 +1,10 @@
 ---
-title: "AssetTransferItxnParams"
+title: 'AssetTransferItxnParams'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / AssetTransferItxnParams
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:205](https://github.com/algorandfounda
 
 [`AssetTransferItxnParams`](AssetTransferItxnParams.md)
 
-***
+---
 
 ### set()
 
@@ -42,7 +42,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:204](https://github.com/algorandfounda
 
 `void`
 
-***
+---
 
 ### submit()
 

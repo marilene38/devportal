@@ -1,10 +1,10 @@
 ---
-title: "AssetConfigItxnParams"
+title: 'AssetConfigItxnParams'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / AssetConfigItxnParams
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:200](https://github.com/algorandfounda
 
 [`AssetConfigItxnParams`](AssetConfigItxnParams.md)
 
-***
+---
 
 ### set()
 
@@ -42,7 +42,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:199](https://github.com/algorandfounda
 
 `void`
 
-***
+---
 
 ### submit()
 

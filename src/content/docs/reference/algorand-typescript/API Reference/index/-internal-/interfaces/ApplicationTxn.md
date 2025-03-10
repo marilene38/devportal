@@ -1,10 +1,10 @@
 ---
-title: "ApplicationTxn"
+title: 'ApplicationTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / ApplicationTxn
 
@@ -31,7 +31,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:286](https://github.com/algora
 
 ApplicationID from ApplicationCall transaction
 
-***
+---
 
 ### approvalProgram
 
@@ -41,7 +41,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:306](https://github.com/algora
 
 Approval program
 
-***
+---
 
 ### clearStateProgram
 
@@ -51,7 +51,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:311](https://github.com/algora
 
 Clear State program
 
-***
+---
 
 ### createdApp
 
@@ -61,7 +61,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:366](https://github.com/algora
 
 ApplicationID allocated by the creation of an application
 
-***
+---
 
 ### extraProgramPages
 
@@ -71,7 +71,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:346](https://github.com/algora
 
 Number of additional pages for each of the application's approval and clear state programs. An ExtraProgramPages of 1 means 2048 more total bytes, or 1024 for each program.
 
-***
+---
 
 ### fee
 
@@ -85,7 +85,7 @@ microalgos
 
 [`TransactionBase`](TransactionBase.md).[`fee`](TransactionBase.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -99,7 +99,7 @@ round number
 
 [`TransactionBase`](TransactionBase.md).[`firstValid`](TransactionBase.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -113,7 +113,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`TransactionBase`](TransactionBase.md).[`firstValidTime`](TransactionBase.md#firstvalidtime)
 
-***
+---
 
 ### globalNumBytes
 
@@ -123,7 +123,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:331](https://github.com/algora
 
 Number of global state byteslices in ApplicationCall
 
-***
+---
 
 ### globalNumUint
 
@@ -133,7 +133,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:326](https://github.com/algora
 
 Number of global state integers in ApplicationCall
 
-***
+---
 
 ### groupIndex
 
@@ -148,7 +148,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`TransactionBase`](TransactionBase.md).[`groupIndex`](TransactionBase.md#groupindex)
 
-***
+---
 
 ### lastLog
 
@@ -158,7 +158,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:351](https://github.com/algora
 
 The last message emitted. Empty bytes if none were emitted. Application mode only
 
-***
+---
 
 ### lastValid
 
@@ -172,7 +172,7 @@ round number
 
 [`TransactionBase`](TransactionBase.md).[`lastValid`](TransactionBase.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -186,7 +186,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`lease`](TransactionBase.md#lease)
 
-***
+---
 
 ### localNumBytes
 
@@ -196,7 +196,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:341](https://github.com/algora
 
 Number of local state byteslices in ApplicationCall
 
-***
+---
 
 ### localNumUint
 
@@ -206,7 +206,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:336](https://github.com/algora
 
 Number of local state integers in ApplicationCall
 
-***
+---
 
 ### note
 
@@ -220,7 +220,7 @@ Any data up to 1024 bytes
 
 [`TransactionBase`](TransactionBase.md).[`note`](TransactionBase.md#note)
 
-***
+---
 
 ### numAccounts
 
@@ -230,7 +230,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:301](https://github.com/algora
 
 Number of ApplicationArgs
 
-***
+---
 
 ### numAppArgs
 
@@ -240,7 +240,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:296](https://github.com/algora
 
 Number of ApplicationArgs
 
-***
+---
 
 ### numApprovalProgramPages
 
@@ -250,7 +250,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:371](https://github.com/algora
 
 Number of Approval Program pages
 
-***
+---
 
 ### numApps
 
@@ -260,7 +260,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:321](https://github.com/algora
 
 Number of Applications
 
-***
+---
 
 ### numAssets
 
@@ -270,7 +270,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:316](https://github.com/algora
 
 Number of Assets
 
-***
+---
 
 ### numClearStateProgramPages
 
@@ -280,7 +280,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:376](https://github.com/algora
 
 Number of Clear State Program pages
 
-***
+---
 
 ### numLogs
 
@@ -290,7 +290,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:361](https://github.com/algora
 
 Number of logs
 
-***
+---
 
 ### onCompletion
 
@@ -300,7 +300,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:291](https://github.com/algora
 
 ApplicationCall transaction on completion action
 
-***
+---
 
 ### rekeyTo
 
@@ -314,7 +314,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`rekeyTo`](TransactionBase.md#rekeyto)
 
-***
+---
 
 ### sender
 
@@ -328,7 +328,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`TransactionBase`](TransactionBase.md).[`sender`](TransactionBase.md#sender)
 
-***
+---
 
 ### txnId
 
@@ -342,7 +342,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`TransactionBase`](TransactionBase.md).[`txnId`](TransactionBase.md#txnid)
 
-***
+---
 
 ### type
 
@@ -352,7 +352,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:411](https://github.com/algora
 
 Transaction type as integer
 
-***
+---
 
 ### typeBytes
 
@@ -386,7 +386,7 @@ Accounts listed in the ApplicationCall transaction
 
 [`Account`](../../type-aliases/Account.md)
 
-***
+---
 
 ### appArgs()
 
@@ -406,7 +406,7 @@ Arguments passed to the application in the ApplicationCall transaction
 
 [`bytes`](../../type-aliases/bytes.md)
 
-***
+---
 
 ### approvalProgramPages()
 
@@ -426,7 +426,7 @@ Approval Program as an array of pages
 
 [`bytes`](../../type-aliases/bytes.md)
 
-***
+---
 
 ### apps()
 
@@ -446,7 +446,7 @@ Foreign Apps listed in the ApplicationCall transaction
 
 [`Application`](../../type-aliases/Application.md)
 
-***
+---
 
 ### assets()
 
@@ -466,7 +466,7 @@ Foreign Assets listed in the ApplicationCall transaction
 
 [`Asset`](../../type-aliases/Asset.md)
 
-***
+---
 
 ### clearStateProgramPages()
 
@@ -486,7 +486,7 @@ Clear State Program as an array of pages
 
 [`bytes`](../../type-aliases/bytes.md)
 
-***
+---
 
 ### logs()
 

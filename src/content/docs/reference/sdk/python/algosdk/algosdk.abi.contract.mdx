@@ -1,31 +1,31 @@
 ---
-title: "algosdk.abi.contract"
+title: 'algosdk.abi.contract'
 ---
 
-<a id="module-algosdk.abi.contract"></a>
+<a id='module-algosdk.abi.contract'></a>
 
-<a id="algosdk-abi-contract"></a>
+<a id='algosdk-abi-contract'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
-| [`Contract`](#algosdk.abi.contract.Contract)                           | Represents a ABI contract description.                                                                                                                                                                                                                                                                                                                                                             |
-|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`ContractDict`](#algosdk.abi.contract.ContractDict)                   | dict() -\> new empty dictionary<br/>dict(mapping) -\> new dictionary initialized from a mapping object’s<br/>(key, value) pairs<br/>dict(iterable) -\> new dictionary initialized as if via:<br/>d = \{\}<br/>for k, v in iterable:<br/>d[k] = v<br/>dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs<br/>in the keyword argument list.  For example:  dict(one=1, two=2) |
-| [`ContractDict_Optional`](#algosdk.abi.contract.ContractDict_Optional) | dict() -\> new empty dictionary<br/>dict(mapping) -\> new dictionary initialized from a mapping object’s<br/>(key, value) pairs<br/>dict(iterable) -\> new dictionary initialized as if via:<br/>d = \{\}<br/>for k, v in iterable:<br/>d[k] = v<br/>dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs<br/>in the keyword argument list.  For example:  dict(one=1, two=2) |
-| [`NetworkInfo`](#algosdk.abi.contract.NetworkInfo)                     | Represents network information.                                                                                                                                                                                                                                                                                                                                                                    |
-| [`NetworkInfoDict`](#algosdk.abi.contract.NetworkInfoDict)             | dict() -\> new empty dictionary<br/>dict(mapping) -\> new dictionary initialized from a mapping object’s<br/>(key, value) pairs<br/>dict(iterable) -\> new dictionary initialized as if via:<br/>d = \{\}<br/>for k, v in iterable:<br/>d[k] = v<br/>dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs<br/>in the keyword argument list.  For example:  dict(one=1, two=2) |
+| [`Contract`](#algosdk.abi.contract.Contract)                           | Represents a ABI contract description.                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`ContractDict`](#algosdk.abi.contract.ContractDict)                   | dict() -\> new empty dictionary<br/>dict(mapping) -\> new dictionary initialized from a mapping object’s<br/>(key, value) pairs<br/>dict(iterable) -\> new dictionary initialized as if via:<br/>d = \{\}<br/>for k, v in iterable:<br/>d[k] = v<br/>dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs<br/>in the keyword argument list. For example: dict(one=1, two=2) |
+| [`ContractDict_Optional`](#algosdk.abi.contract.ContractDict_Optional) | dict() -\> new empty dictionary<br/>dict(mapping) -\> new dictionary initialized from a mapping object’s<br/>(key, value) pairs<br/>dict(iterable) -\> new dictionary initialized as if via:<br/>d = \{\}<br/>for k, v in iterable:<br/>d[k] = v<br/>dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs<br/>in the keyword argument list. For example: dict(one=1, two=2) |
+| [`NetworkInfo`](#algosdk.abi.contract.NetworkInfo)                     | Represents network information.                                                                                                                                                                                                                                                                                                                                                                  |
+| [`NetworkInfoDict`](#algosdk.abi.contract.NetworkInfoDict)             | dict() -\> new empty dictionary<br/>dict(mapping) -\> new dictionary initialized from a mapping object’s<br/>(key, value) pairs<br/>dict(iterable) -\> new dictionary initialized as if via:<br/>d = \{\}<br/>for k, v in iterable:<br/>d[k] = v<br/>dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs<br/>in the keyword argument list. For example: dict(one=1, two=2) |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.abi.contract.Contract"></a>
+<a id='algosdk.abi.contract.Contract'></a>
 
-## *class* algosdk.abi.contract.Contract
+## _class_ algosdk.abi.contract.Contract
 
 Contract(name: str, methods: List[[algosdk.abi.method.Method](algosdk.abi.method.mdx#algosdk.abi.method.Method)], desc: Optional[str] = None, networks: Optional[Dict[str, [algosdk.abi.contract.NetworkInfo](#algosdk.abi.contract.NetworkInfo)]] = None)
 
@@ -40,17 +40,17 @@ particular network, such as an app-id.
 
 ## Initialization
 
-<a id="algosdk.abi.contract.Contract.__eq__"></a>
+<a id='algosdk.abi.contract.Contract.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(o: object) → bool
+**eq**(o: object) → bool
 
 Return self==value.
 
-<a id="algosdk.abi.contract.ContractDict"></a>
+<a id='algosdk.abi.contract.ContractDict'></a>
 
-## *class* algosdk.abi.contract.ContractDict
+## _class_ algosdk.abi.contract.ContractDict
 
 ContractDict
 
@@ -62,247 +62,247 @@ d = \{\}
 for k, v in iterable:
 d[k] = v
 dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs
-in the keyword argument list.  For example:  dict(one=1, two=2)
+in the keyword argument list. For example: dict(one=1, two=2)
 
 ## Initialization
 
-Initialize self.  See help(type(self)) for accurate signature.
+Initialize self. See help(type(self)) for accurate signature.
 
-<a id="algosdk.abi.contract.ContractDict.__contains__"></a>
+<a id='algosdk.abi.contract.ContractDict.__contains__'></a>
 
-### \_\_contains_\_
+### \_\_contains\_\_
 
-__contains__()
+**contains**()
 
 True if the dictionary has the specified key, else False.
 
-<a id="algosdk.abi.contract.ContractDict.__delattr__"></a>
+<a id='algosdk.abi.contract.ContractDict.__delattr__'></a>
 
-### \_\_delattr_\_
+### \_\_delattr\_\_
 
-__delattr__()
+**delattr**()
 
 Implement delattr(self, name).
 
-<a id="algosdk.abi.contract.ContractDict.__delitem__"></a>
+<a id='algosdk.abi.contract.ContractDict.__delitem__'></a>
 
-### \_\_delitem_\_
+### \_\_delitem\_\_
 
-__delitem__()
+**delitem**()
 
 Delete self[key].
 
-<a id="algosdk.abi.contract.ContractDict.__dir__"></a>
+<a id='algosdk.abi.contract.ContractDict.__dir__'></a>
 
-### \_\_dir_\_
+### \_\_dir\_\_
 
-__dir__()
+**dir**()
 
 Default dir() implementation.
 
-<a id="algosdk.abi.contract.ContractDict.__eq__"></a>
+<a id='algosdk.abi.contract.ContractDict.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__()
+**eq**()
 
 Return self==value.
 
-<a id="algosdk.abi.contract.ContractDict.__format__"></a>
+<a id='algosdk.abi.contract.ContractDict.__format__'></a>
 
-### \_\_format_\_
+### \_\_format\_\_
 
-__format__()
+**format**()
 
 Default object formatter.
 
 Return str(self) if format_spec is empty. Raise TypeError otherwise.
 
-<a id="algosdk.abi.contract.ContractDict.__ge__"></a>
+<a id='algosdk.abi.contract.ContractDict.__ge__'></a>
 
-### \_\_ge_\_
+### \_\_ge\_\_
 
-__ge__()
+**ge**()
 
 Return self\>=value.
 
-<a id="algosdk.abi.contract.ContractDict.__getattribute__"></a>
+<a id='algosdk.abi.contract.ContractDict.__getattribute__'></a>
 
-### \_\_getattribute_\_
+### \_\_getattribute\_\_
 
-__getattribute__()
+**getattribute**()
 
 Return getattr(self, name).
 
-<a id="algosdk.abi.contract.ContractDict.__getitem__"></a>
+<a id='algosdk.abi.contract.ContractDict.__getitem__'></a>
 
-### \_\_getitem_\_
+### \_\_getitem\_\_
 
-__getitem__()
+**getitem**()
 
 Return self[key].
 
-<a id="algosdk.abi.contract.ContractDict.__getstate__"></a>
+<a id='algosdk.abi.contract.ContractDict.__getstate__'></a>
 
-### \_\_getstate_\_
+### \_\_getstate\_\_
 
-__getstate__()
+**getstate**()
 
 Helper for pickle.
 
-<a id="algosdk.abi.contract.ContractDict.__gt__"></a>
+<a id='algosdk.abi.contract.ContractDict.__gt__'></a>
 
-### \_\_gt_\_
+### \_\_gt\_\_
 
-__gt__()
+**gt**()
 
 Return self\>value.
 
-<a id="algosdk.abi.contract.ContractDict.__ior__"></a>
+<a id='algosdk.abi.contract.ContractDict.__ior__'></a>
 
-### \_\_ior_\_
+### \_\_ior\_\_
 
-__ior__()
+**ior**()
 
 Return self|=value.
 
-<a id="algosdk.abi.contract.ContractDict.__iter__"></a>
+<a id='algosdk.abi.contract.ContractDict.__iter__'></a>
 
-### \_\_iter_\_
+### \_\_iter\_\_
 
-__iter__()
+**iter**()
 
 Implement iter(self).
 
-<a id="algosdk.abi.contract.ContractDict.__le__"></a>
+<a id='algosdk.abi.contract.ContractDict.__le__'></a>
 
-### \_\_le_\_
+### \_\_le\_\_
 
-__le__()
+**le**()
 
 Return self\<=value.
 
-<a id="algosdk.abi.contract.ContractDict.__len__"></a>
+<a id='algosdk.abi.contract.ContractDict.__len__'></a>
 
-### \_\_len_\_
+### \_\_len\_\_
 
-__len__()
+**len**()
 
 Return len(self).
 
-<a id="algosdk.abi.contract.ContractDict.__lt__"></a>
+<a id='algosdk.abi.contract.ContractDict.__lt__'></a>
 
-### \_\_lt_\_
+### \_\_lt\_\_
 
-__lt__()
+**lt**()
 
 Return self\<value.
 
-<a id="algosdk.abi.contract.ContractDict.__ne__"></a>
+<a id='algosdk.abi.contract.ContractDict.__ne__'></a>
 
-### \_\_ne_\_
+### \_\_ne\_\_
 
-__ne__()
+**ne**()
 
 Return self!=value.
 
-<a id="algosdk.abi.contract.ContractDict.__new__"></a>
+<a id='algosdk.abi.contract.ContractDict.__new__'></a>
 
-### \_\_new_\_
+### \_\_new\_\_
 
-__new__()
+**new**()
 
-Create and return a new object.  See help(type) for accurate signature.
+Create and return a new object. See help(type) for accurate signature.
 
-<a id="algosdk.abi.contract.ContractDict.__or__"></a>
+<a id='algosdk.abi.contract.ContractDict.__or__'></a>
 
-### \_\_or_\_
+### \_\_or\_\_
 
-__or__()
+**or**()
 
 Return self|value.
 
-<a id="algosdk.abi.contract.ContractDict.__reduce__"></a>
+<a id='algosdk.abi.contract.ContractDict.__reduce__'></a>
 
-### \_\_reduce_\_
+### \_\_reduce\_\_
 
-__reduce__()
-
-Helper for pickle.
-
-<a id="algosdk.abi.contract.ContractDict.__reduce_ex__"></a>
-
-### \_\_reduce_ex_\_
-
-__reduce_ex__()
+**reduce**()
 
 Helper for pickle.
 
-<a id="algosdk.abi.contract.ContractDict.__repr__"></a>
+<a id='algosdk.abi.contract.ContractDict.__reduce_ex__'></a>
 
-### \_\_repr_\_
+### \_\_reduce*ex*\_
 
-__repr__()
+**reduce_ex**()
+
+Helper for pickle.
+
+<a id='algosdk.abi.contract.ContractDict.__repr__'></a>
+
+### \_\_repr\_\_
+
+**repr**()
 
 Return repr(self).
 
-<a id="algosdk.abi.contract.ContractDict.__reversed__"></a>
+<a id='algosdk.abi.contract.ContractDict.__reversed__'></a>
 
-### \_\_reversed_\_
+### \_\_reversed\_\_
 
-__reversed__()
+**reversed**()
 
 Return a reverse iterator over the dict keys.
 
-<a id="algosdk.abi.contract.ContractDict.__ror__"></a>
+<a id='algosdk.abi.contract.ContractDict.__ror__'></a>
 
-### \_\_ror_\_
+### \_\_ror\_\_
 
-__ror__()
+**ror**()
 
 Return value|self.
 
-<a id="algosdk.abi.contract.ContractDict.__setattr__"></a>
+<a id='algosdk.abi.contract.ContractDict.__setattr__'></a>
 
-### \_\_setattr_\_
+### \_\_setattr\_\_
 
-__setattr__()
+**setattr**()
 
 Implement setattr(self, name, value).
 
-<a id="algosdk.abi.contract.ContractDict.__setitem__"></a>
+<a id='algosdk.abi.contract.ContractDict.__setitem__'></a>
 
-### \_\_setitem_\_
+### \_\_setitem\_\_
 
-__setitem__()
+**setitem**()
 
 Set self[key] to value.
 
-<a id="algosdk.abi.contract.ContractDict.__sizeof__"></a>
+<a id='algosdk.abi.contract.ContractDict.__sizeof__'></a>
 
-### \_\_sizeof_\_
+### \_\_sizeof\_\_
 
-__sizeof__()
+**sizeof**()
 
 D.**sizeof**() -\> size of D in memory, in bytes
 
-<a id="algosdk.abi.contract.ContractDict.__str__"></a>
+<a id='algosdk.abi.contract.ContractDict.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.abi.contract.ContractDict.clear"></a>
+<a id='algosdk.abi.contract.ContractDict.clear'></a>
 
 ### clear
 
 clear()
 
-D.clear() -\> None.  Remove all items from D.
+D.clear() -\> None. Remove all items from D.
 
-<a id="algosdk.abi.contract.ContractDict.copy"></a>
+<a id='algosdk.abi.contract.ContractDict.copy'></a>
 
 ### copy
 
@@ -310,7 +310,7 @@ copy()
 
 D.copy() -\> a shallow copy of D
 
-<a id="algosdk.abi.contract.ContractDict.get"></a>
+<a id='algosdk.abi.contract.ContractDict.get'></a>
 
 ### get
 
@@ -318,7 +318,7 @@ get()
 
 Return the value for key if key is in the dictionary, else default.
 
-<a id="algosdk.abi.contract.ContractDict.items"></a>
+<a id='algosdk.abi.contract.ContractDict.items'></a>
 
 ### items
 
@@ -326,7 +326,7 @@ items()
 
 D.items() -\> a set-like object providing a view on D’s items
 
-<a id="algosdk.abi.contract.ContractDict.keys"></a>
+<a id='algosdk.abi.contract.ContractDict.keys'></a>
 
 ### keys
 
@@ -334,7 +334,7 @@ keys()
 
 D.keys() -\> a set-like object providing a view on D’s keys
 
-<a id="algosdk.abi.contract.ContractDict.pop"></a>
+<a id='algosdk.abi.contract.ContractDict.pop'></a>
 
 ### pop
 
@@ -345,7 +345,7 @@ D.pop(k[,d]) -\> v, remove specified key and return the corresponding value.
 If the key is not found, return the default if given; otherwise,
 raise a KeyError.
 
-<a id="algosdk.abi.contract.ContractDict.popitem"></a>
+<a id='algosdk.abi.contract.ContractDict.popitem'></a>
 
 ### popitem
 
@@ -356,7 +356,7 @@ Remove and return a (key, value) pair as a 2-tuple.
 Pairs are returned in LIFO (last-in, first-out) order.
 Raises KeyError if the dict is empty.
 
-<a id="algosdk.abi.contract.ContractDict.setdefault"></a>
+<a id='algosdk.abi.contract.ContractDict.setdefault'></a>
 
 ### setdefault
 
@@ -366,18 +366,18 @@ Insert key with a value of default if key is not in the dictionary.
 
 Return the value for key if key is in the dictionary, else default.
 
-<a id="algosdk.abi.contract.ContractDict.update"></a>
+<a id='algosdk.abi.contract.ContractDict.update'></a>
 
 ### update
 
 update()
 
-D.update([E, ]\*\*F) -\> None.  Update D from mapping/iterable E and F.
-If E is present and has a .keys() method, then does:  for k in E.keys(): D[k] = E[k]
-If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
-In either case, this is followed by: for k in F:  D[k] = F[k]
+D.update([E, ]\*\*F) -\> None. Update D from mapping/iterable E and F.
+If E is present and has a .keys() method, then does: for k in E.keys(): D[k] = E[k]
+If E is present and lacks a .keys() method, then does: for k, v in E: D[k] = v
+In either case, this is followed by: for k in F: D[k] = F[k]
 
-<a id="algosdk.abi.contract.ContractDict.values"></a>
+<a id='algosdk.abi.contract.ContractDict.values'></a>
 
 ### values
 
@@ -385,9 +385,9 @@ values()
 
 D.values() -\> an object providing a view on D’s values
 
-<a id="algosdk.abi.contract.ContractDict_Optional"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional'></a>
 
-## *class* algosdk.abi.contract.ContractDict_Optional
+## _class_ algosdk.abi.contract.ContractDict_Optional
 
 ContractDict_Optional
 
@@ -399,247 +399,247 @@ d = \{\}
 for k, v in iterable:
 d[k] = v
 dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs
-in the keyword argument list.  For example:  dict(one=1, two=2)
+in the keyword argument list. For example: dict(one=1, two=2)
 
 ## Initialization
 
-Initialize self.  See help(type(self)) for accurate signature.
+Initialize self. See help(type(self)) for accurate signature.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__contains__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__contains__'></a>
 
-### \_\_contains_\_
+### \_\_contains\_\_
 
-__contains__()
+**contains**()
 
 True if the dictionary has the specified key, else False.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__delattr__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__delattr__'></a>
 
-### \_\_delattr_\_
+### \_\_delattr\_\_
 
-__delattr__()
+**delattr**()
 
 Implement delattr(self, name).
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__delitem__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__delitem__'></a>
 
-### \_\_delitem_\_
+### \_\_delitem\_\_
 
-__delitem__()
+**delitem**()
 
 Delete self[key].
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__dir__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__dir__'></a>
 
-### \_\_dir_\_
+### \_\_dir\_\_
 
-__dir__()
+**dir**()
 
 Default dir() implementation.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__eq__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__()
+**eq**()
 
 Return self==value.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__format__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__format__'></a>
 
-### \_\_format_\_
+### \_\_format\_\_
 
-__format__()
+**format**()
 
 Default object formatter.
 
 Return str(self) if format_spec is empty. Raise TypeError otherwise.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__ge__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__ge__'></a>
 
-### \_\_ge_\_
+### \_\_ge\_\_
 
-__ge__()
+**ge**()
 
 Return self\>=value.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__getattribute__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__getattribute__'></a>
 
-### \_\_getattribute_\_
+### \_\_getattribute\_\_
 
-__getattribute__()
+**getattribute**()
 
 Return getattr(self, name).
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__getitem__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__getitem__'></a>
 
-### \_\_getitem_\_
+### \_\_getitem\_\_
 
-__getitem__()
+**getitem**()
 
 Return self[key].
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__getstate__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__getstate__'></a>
 
-### \_\_getstate_\_
+### \_\_getstate\_\_
 
-__getstate__()
+**getstate**()
 
 Helper for pickle.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__gt__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__gt__'></a>
 
-### \_\_gt_\_
+### \_\_gt\_\_
 
-__gt__()
+**gt**()
 
 Return self\>value.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__ior__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__ior__'></a>
 
-### \_\_ior_\_
+### \_\_ior\_\_
 
-__ior__()
+**ior**()
 
 Return self|=value.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__iter__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__iter__'></a>
 
-### \_\_iter_\_
+### \_\_iter\_\_
 
-__iter__()
+**iter**()
 
 Implement iter(self).
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__le__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__le__'></a>
 
-### \_\_le_\_
+### \_\_le\_\_
 
-__le__()
+**le**()
 
 Return self\<=value.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__len__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__len__'></a>
 
-### \_\_len_\_
+### \_\_len\_\_
 
-__len__()
+**len**()
 
 Return len(self).
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__lt__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__lt__'></a>
 
-### \_\_lt_\_
+### \_\_lt\_\_
 
-__lt__()
+**lt**()
 
 Return self\<value.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__ne__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__ne__'></a>
 
-### \_\_ne_\_
+### \_\_ne\_\_
 
-__ne__()
+**ne**()
 
 Return self!=value.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__new__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__new__'></a>
 
-### \_\_new_\_
+### \_\_new\_\_
 
-__new__()
+**new**()
 
-Create and return a new object.  See help(type) for accurate signature.
+Create and return a new object. See help(type) for accurate signature.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__or__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__or__'></a>
 
-### \_\_or_\_
+### \_\_or\_\_
 
-__or__()
+**or**()
 
 Return self|value.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__reduce__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__reduce__'></a>
 
-### \_\_reduce_\_
+### \_\_reduce\_\_
 
-__reduce__()
-
-Helper for pickle.
-
-<a id="algosdk.abi.contract.ContractDict_Optional.__reduce_ex__"></a>
-
-### \_\_reduce_ex_\_
-
-__reduce_ex__()
+**reduce**()
 
 Helper for pickle.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__repr__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__reduce_ex__'></a>
 
-### \_\_repr_\_
+### \_\_reduce*ex*\_
 
-__repr__()
+**reduce_ex**()
+
+Helper for pickle.
+
+<a id='algosdk.abi.contract.ContractDict_Optional.__repr__'></a>
+
+### \_\_repr\_\_
+
+**repr**()
 
 Return repr(self).
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__reversed__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__reversed__'></a>
 
-### \_\_reversed_\_
+### \_\_reversed\_\_
 
-__reversed__()
+**reversed**()
 
 Return a reverse iterator over the dict keys.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__ror__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__ror__'></a>
 
-### \_\_ror_\_
+### \_\_ror\_\_
 
-__ror__()
+**ror**()
 
 Return value|self.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__setattr__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__setattr__'></a>
 
-### \_\_setattr_\_
+### \_\_setattr\_\_
 
-__setattr__()
+**setattr**()
 
 Implement setattr(self, name, value).
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__setitem__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__setitem__'></a>
 
-### \_\_setitem_\_
+### \_\_setitem\_\_
 
-__setitem__()
+**setitem**()
 
 Set self[key] to value.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__sizeof__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__sizeof__'></a>
 
-### \_\_sizeof_\_
+### \_\_sizeof\_\_
 
-__sizeof__()
+**sizeof**()
 
 D.**sizeof**() -\> size of D in memory, in bytes
 
-<a id="algosdk.abi.contract.ContractDict_Optional.__str__"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.abi.contract.ContractDict_Optional.clear"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.clear'></a>
 
 ### clear
 
 clear()
 
-D.clear() -\> None.  Remove all items from D.
+D.clear() -\> None. Remove all items from D.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.copy"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.copy'></a>
 
 ### copy
 
@@ -647,7 +647,7 @@ copy()
 
 D.copy() -\> a shallow copy of D
 
-<a id="algosdk.abi.contract.ContractDict_Optional.get"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.get'></a>
 
 ### get
 
@@ -655,7 +655,7 @@ get()
 
 Return the value for key if key is in the dictionary, else default.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.items"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.items'></a>
 
 ### items
 
@@ -663,7 +663,7 @@ items()
 
 D.items() -\> a set-like object providing a view on D’s items
 
-<a id="algosdk.abi.contract.ContractDict_Optional.keys"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.keys'></a>
 
 ### keys
 
@@ -671,7 +671,7 @@ keys()
 
 D.keys() -\> a set-like object providing a view on D’s keys
 
-<a id="algosdk.abi.contract.ContractDict_Optional.pop"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.pop'></a>
 
 ### pop
 
@@ -682,7 +682,7 @@ D.pop(k[,d]) -\> v, remove specified key and return the corresponding value.
 If the key is not found, return the default if given; otherwise,
 raise a KeyError.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.popitem"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.popitem'></a>
 
 ### popitem
 
@@ -693,7 +693,7 @@ Remove and return a (key, value) pair as a 2-tuple.
 Pairs are returned in LIFO (last-in, first-out) order.
 Raises KeyError if the dict is empty.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.setdefault"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.setdefault'></a>
 
 ### setdefault
 
@@ -703,18 +703,18 @@ Insert key with a value of default if key is not in the dictionary.
 
 Return the value for key if key is in the dictionary, else default.
 
-<a id="algosdk.abi.contract.ContractDict_Optional.update"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.update'></a>
 
 ### update
 
 update()
 
-D.update([E, ]\*\*F) -\> None.  Update D from mapping/iterable E and F.
-If E is present and has a .keys() method, then does:  for k in E.keys(): D[k] = E[k]
-If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
-In either case, this is followed by: for k in F:  D[k] = F[k]
+D.update([E, ]\*\*F) -\> None. Update D from mapping/iterable E and F.
+If E is present and has a .keys() method, then does: for k in E.keys(): D[k] = E[k]
+If E is present and lacks a .keys() method, then does: for k, v in E: D[k] = v
+In either case, this is followed by: for k in F: D[k] = F[k]
 
-<a id="algosdk.abi.contract.ContractDict_Optional.values"></a>
+<a id='algosdk.abi.contract.ContractDict_Optional.values'></a>
 
 ### values
 
@@ -722,9 +722,9 @@ values()
 
 D.values() -\> an object providing a view on D’s values
 
-<a id="algosdk.abi.contract.NetworkInfo"></a>
+<a id='algosdk.abi.contract.NetworkInfo'></a>
 
-## *class* algosdk.abi.contract.NetworkInfo
+## _class_ algosdk.abi.contract.NetworkInfo
 
 NetworkInfo(app_id: int)
 
@@ -735,17 +735,17 @@ app_id (int): application ID on a particular network
 
 ## Initialization
 
-<a id="algosdk.abi.contract.NetworkInfo.__eq__"></a>
+<a id='algosdk.abi.contract.NetworkInfo.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(o: object) → bool
+**eq**(o: object) → bool
 
 Return self==value.
 
-<a id="algosdk.abi.contract.NetworkInfoDict"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict'></a>
 
-## *class* algosdk.abi.contract.NetworkInfoDict
+## _class_ algosdk.abi.contract.NetworkInfoDict
 
 NetworkInfoDict
 
@@ -757,247 +757,247 @@ d = \{\}
 for k, v in iterable:
 d[k] = v
 dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs
-in the keyword argument list.  For example:  dict(one=1, two=2)
+in the keyword argument list. For example: dict(one=1, two=2)
 
 ## Initialization
 
-Initialize self.  See help(type(self)) for accurate signature.
+Initialize self. See help(type(self)) for accurate signature.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__contains__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__contains__'></a>
 
-### \_\_contains_\_
+### \_\_contains\_\_
 
-__contains__()
+**contains**()
 
 True if the dictionary has the specified key, else False.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__delattr__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__delattr__'></a>
 
-### \_\_delattr_\_
+### \_\_delattr\_\_
 
-__delattr__()
+**delattr**()
 
 Implement delattr(self, name).
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__delitem__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__delitem__'></a>
 
-### \_\_delitem_\_
+### \_\_delitem\_\_
 
-__delitem__()
+**delitem**()
 
 Delete self[key].
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__dir__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__dir__'></a>
 
-### \_\_dir_\_
+### \_\_dir\_\_
 
-__dir__()
+**dir**()
 
 Default dir() implementation.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__eq__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__()
+**eq**()
 
 Return self==value.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__format__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__format__'></a>
 
-### \_\_format_\_
+### \_\_format\_\_
 
-__format__()
+**format**()
 
 Default object formatter.
 
 Return str(self) if format_spec is empty. Raise TypeError otherwise.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__ge__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__ge__'></a>
 
-### \_\_ge_\_
+### \_\_ge\_\_
 
-__ge__()
+**ge**()
 
 Return self\>=value.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__getattribute__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__getattribute__'></a>
 
-### \_\_getattribute_\_
+### \_\_getattribute\_\_
 
-__getattribute__()
+**getattribute**()
 
 Return getattr(self, name).
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__getitem__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__getitem__'></a>
 
-### \_\_getitem_\_
+### \_\_getitem\_\_
 
-__getitem__()
+**getitem**()
 
 Return self[key].
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__getstate__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__getstate__'></a>
 
-### \_\_getstate_\_
+### \_\_getstate\_\_
 
-__getstate__()
+**getstate**()
 
 Helper for pickle.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__gt__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__gt__'></a>
 
-### \_\_gt_\_
+### \_\_gt\_\_
 
-__gt__()
+**gt**()
 
 Return self\>value.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__ior__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__ior__'></a>
 
-### \_\_ior_\_
+### \_\_ior\_\_
 
-__ior__()
+**ior**()
 
 Return self|=value.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__iter__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__iter__'></a>
 
-### \_\_iter_\_
+### \_\_iter\_\_
 
-__iter__()
+**iter**()
 
 Implement iter(self).
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__le__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__le__'></a>
 
-### \_\_le_\_
+### \_\_le\_\_
 
-__le__()
+**le**()
 
 Return self\<=value.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__len__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__len__'></a>
 
-### \_\_len_\_
+### \_\_len\_\_
 
-__len__()
+**len**()
 
 Return len(self).
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__lt__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__lt__'></a>
 
-### \_\_lt_\_
+### \_\_lt\_\_
 
-__lt__()
+**lt**()
 
 Return self\<value.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__ne__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__ne__'></a>
 
-### \_\_ne_\_
+### \_\_ne\_\_
 
-__ne__()
+**ne**()
 
 Return self!=value.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__new__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__new__'></a>
 
-### \_\_new_\_
+### \_\_new\_\_
 
-__new__()
+**new**()
 
-Create and return a new object.  See help(type) for accurate signature.
+Create and return a new object. See help(type) for accurate signature.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__or__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__or__'></a>
 
-### \_\_or_\_
+### \_\_or\_\_
 
-__or__()
+**or**()
 
 Return self|value.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__reduce__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__reduce__'></a>
 
-### \_\_reduce_\_
+### \_\_reduce\_\_
 
-__reduce__()
-
-Helper for pickle.
-
-<a id="algosdk.abi.contract.NetworkInfoDict.__reduce_ex__"></a>
-
-### \_\_reduce_ex_\_
-
-__reduce_ex__()
+**reduce**()
 
 Helper for pickle.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__repr__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__reduce_ex__'></a>
 
-### \_\_repr_\_
+### \_\_reduce*ex*\_
 
-__repr__()
+**reduce_ex**()
+
+Helper for pickle.
+
+<a id='algosdk.abi.contract.NetworkInfoDict.__repr__'></a>
+
+### \_\_repr\_\_
+
+**repr**()
 
 Return repr(self).
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__reversed__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__reversed__'></a>
 
-### \_\_reversed_\_
+### \_\_reversed\_\_
 
-__reversed__()
+**reversed**()
 
 Return a reverse iterator over the dict keys.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__ror__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__ror__'></a>
 
-### \_\_ror_\_
+### \_\_ror\_\_
 
-__ror__()
+**ror**()
 
 Return value|self.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__setattr__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__setattr__'></a>
 
-### \_\_setattr_\_
+### \_\_setattr\_\_
 
-__setattr__()
+**setattr**()
 
 Implement setattr(self, name, value).
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__setitem__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__setitem__'></a>
 
-### \_\_setitem_\_
+### \_\_setitem\_\_
 
-__setitem__()
+**setitem**()
 
 Set self[key] to value.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__sizeof__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__sizeof__'></a>
 
-### \_\_sizeof_\_
+### \_\_sizeof\_\_
 
-__sizeof__()
+**sizeof**()
 
 D.**sizeof**() -\> size of D in memory, in bytes
 
-<a id="algosdk.abi.contract.NetworkInfoDict.__str__"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.abi.contract.NetworkInfoDict.clear"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.clear'></a>
 
 ### clear
 
 clear()
 
-D.clear() -\> None.  Remove all items from D.
+D.clear() -\> None. Remove all items from D.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.copy"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.copy'></a>
 
 ### copy
 
@@ -1005,7 +1005,7 @@ copy()
 
 D.copy() -\> a shallow copy of D
 
-<a id="algosdk.abi.contract.NetworkInfoDict.get"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.get'></a>
 
 ### get
 
@@ -1013,7 +1013,7 @@ get()
 
 Return the value for key if key is in the dictionary, else default.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.items"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.items'></a>
 
 ### items
 
@@ -1021,7 +1021,7 @@ items()
 
 D.items() -\> a set-like object providing a view on D’s items
 
-<a id="algosdk.abi.contract.NetworkInfoDict.keys"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.keys'></a>
 
 ### keys
 
@@ -1029,7 +1029,7 @@ keys()
 
 D.keys() -\> a set-like object providing a view on D’s keys
 
-<a id="algosdk.abi.contract.NetworkInfoDict.pop"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.pop'></a>
 
 ### pop
 
@@ -1040,7 +1040,7 @@ D.pop(k[,d]) -\> v, remove specified key and return the corresponding value.
 If the key is not found, return the default if given; otherwise,
 raise a KeyError.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.popitem"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.popitem'></a>
 
 ### popitem
 
@@ -1051,7 +1051,7 @@ Remove and return a (key, value) pair as a 2-tuple.
 Pairs are returned in LIFO (last-in, first-out) order.
 Raises KeyError if the dict is empty.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.setdefault"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.setdefault'></a>
 
 ### setdefault
 
@@ -1061,18 +1061,18 @@ Insert key with a value of default if key is not in the dictionary.
 
 Return the value for key if key is in the dictionary, else default.
 
-<a id="algosdk.abi.contract.NetworkInfoDict.update"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.update'></a>
 
 ### update
 
 update()
 
-D.update([E, ]\*\*F) -\> None.  Update D from mapping/iterable E and F.
-If E is present and has a .keys() method, then does:  for k in E.keys(): D[k] = E[k]
-If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
-In either case, this is followed by: for k in F:  D[k] = F[k]
+D.update([E, ]\*\*F) -\> None. Update D from mapping/iterable E and F.
+If E is present and has a .keys() method, then does: for k in E.keys(): D[k] = E[k]
+If E is present and lacks a .keys() method, then does: for k, v in E: D[k] = v
+In either case, this is followed by: for k in F: D[k] = F[k]
 
-<a id="algosdk.abi.contract.NetworkInfoDict.values"></a>
+<a id='algosdk.abi.contract.NetworkInfoDict.values'></a>
 
 ### values
 

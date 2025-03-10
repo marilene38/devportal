@@ -1,10 +1,10 @@
 ---
-title: "MutableArray"
+title: 'MutableArray'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / MutableArray
 
@@ -74,7 +74,7 @@ Returns an iterator for the items in this array
 
 [`IterableIterator`](../../arc4/-internal-/interfaces/IterableIterator.md)\<`TItem`\>
 
-***
+---
 
 ### at()
 
@@ -97,7 +97,7 @@ The index of the item to retrieve
 
 `TItem`
 
-***
+---
 
 ### copy()
 
@@ -111,7 +111,7 @@ Create a copy of this array
 
 [`MutableArray`](MutableArray.md)\<`TItem`\>
 
-***
+---
 
 ### entries()
 
@@ -125,7 +125,7 @@ Returns an iterator for a tuple of the indexes and items in this array
 
 [`IterableIterator`](../../arc4/-internal-/interfaces/IterableIterator.md)\<readonly \[[`uint64`](../type-aliases/uint64.md), `TItem`\]\>
 
-***
+---
 
 ### keys()
 
@@ -139,7 +139,7 @@ Returns an iterator for the indexes in this array
 
 [`IterableIterator`](../../arc4/-internal-/interfaces/IterableIterator.md)\<[`uint64`](../type-aliases/uint64.md)\>
 
-***
+---
 
 ### pop()
 
@@ -153,7 +153,7 @@ Pop a single item from this array
 
 `TItem`
 
-***
+---
 
 ### push()
 
@@ -175,7 +175,7 @@ The items to be added to this array
 
 `void`
 
-***
+---
 
 ### slice()
 
@@ -188,7 +188,7 @@ Defined in: [packages/algo-ts/src/mutable-array.ts:34](https://github.com/algora
 **`Internal`**
 
 Create a new Dynamic array with all items from this array
- Not supported yet
+Not supported yet
 
 ##### Returns
 
@@ -212,7 +212,7 @@ Negative indexes are taken from the end.
 [`Uint64Compat`](../type-aliases/Uint64Compat.md)
 
 An index in which to stop copying items.
- Not supported yet
+Not supported yet
 
 ##### Returns
 
@@ -242,7 +242,7 @@ An index in which to start copying items.
 [`Uint64Compat`](../type-aliases/Uint64Compat.md)
 
 An index in which to stop copying items
- Not supported yet
+Not supported yet
 
 ##### Returns
 

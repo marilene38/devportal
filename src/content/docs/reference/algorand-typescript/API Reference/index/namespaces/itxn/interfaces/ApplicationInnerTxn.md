@@ -1,10 +1,10 @@
 ---
-title: "ApplicationInnerTxn"
+title: 'ApplicationInnerTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / ApplicationInnerTxn
 
@@ -30,7 +30,7 @@ ApplicationID from ApplicationCall transaction
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`appId`](../../../-internal-/interfaces/ApplicationTxn.md#appid)
 
-***
+---
 
 ### approvalProgram
 
@@ -44,7 +44,7 @@ Approval program
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`approvalProgram`](../../../-internal-/interfaces/ApplicationTxn.md#approvalprogram)
 
-***
+---
 
 ### clearStateProgram
 
@@ -58,7 +58,7 @@ Clear State program
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`clearStateProgram`](../../../-internal-/interfaces/ApplicationTxn.md#clearstateprogram)
 
-***
+---
 
 ### createdApp
 
@@ -72,7 +72,7 @@ ApplicationID allocated by the creation of an application
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`createdApp`](../../../-internal-/interfaces/ApplicationTxn.md#createdapp)
 
-***
+---
 
 ### extraProgramPages
 
@@ -86,7 +86,7 @@ Number of additional pages for each of the application's approval and clear stat
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`extraProgramPages`](../../../-internal-/interfaces/ApplicationTxn.md#extraprogrampages)
 
-***
+---
 
 ### fee
 
@@ -100,7 +100,7 @@ microalgos
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`fee`](../../../-internal-/interfaces/ApplicationTxn.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -114,7 +114,7 @@ round number
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`firstValid`](../../../-internal-/interfaces/ApplicationTxn.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -128,7 +128,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`firstValidTime`](../../../-internal-/interfaces/ApplicationTxn.md#firstvalidtime)
 
-***
+---
 
 ### globalNumBytes
 
@@ -142,7 +142,7 @@ Number of global state byteslices in ApplicationCall
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`globalNumBytes`](../../../-internal-/interfaces/ApplicationTxn.md#globalnumbytes)
 
-***
+---
 
 ### globalNumUint
 
@@ -156,7 +156,7 @@ Number of global state integers in ApplicationCall
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`globalNumUint`](../../../-internal-/interfaces/ApplicationTxn.md#globalnumuint)
 
-***
+---
 
 ### groupIndex
 
@@ -171,7 +171,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`groupIndex`](../../../-internal-/interfaces/ApplicationTxn.md#groupindex)
 
-***
+---
 
 ### lastLog
 
@@ -185,7 +185,7 @@ The last message emitted. Empty bytes if none were emitted. Application mode onl
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`lastLog`](../../../-internal-/interfaces/ApplicationTxn.md#lastlog)
 
-***
+---
 
 ### lastValid
 
@@ -199,7 +199,7 @@ round number
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`lastValid`](../../../-internal-/interfaces/ApplicationTxn.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -213,7 +213,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`lease`](../../../-internal-/interfaces/ApplicationTxn.md#lease)
 
-***
+---
 
 ### localNumBytes
 
@@ -227,7 +227,7 @@ Number of local state byteslices in ApplicationCall
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`localNumBytes`](../../../-internal-/interfaces/ApplicationTxn.md#localnumbytes)
 
-***
+---
 
 ### localNumUint
 
@@ -241,7 +241,7 @@ Number of local state integers in ApplicationCall
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`localNumUint`](../../../-internal-/interfaces/ApplicationTxn.md#localnumuint)
 
-***
+---
 
 ### note
 
@@ -255,7 +255,7 @@ Any data up to 1024 bytes
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`note`](../../../-internal-/interfaces/ApplicationTxn.md#note)
 
-***
+---
 
 ### numAccounts
 
@@ -269,7 +269,7 @@ Number of ApplicationArgs
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`numAccounts`](../../../-internal-/interfaces/ApplicationTxn.md#numaccounts)
 
-***
+---
 
 ### numAppArgs
 
@@ -283,7 +283,7 @@ Number of ApplicationArgs
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`numAppArgs`](../../../-internal-/interfaces/ApplicationTxn.md#numappargs)
 
-***
+---
 
 ### numApprovalProgramPages
 
@@ -297,7 +297,7 @@ Number of Approval Program pages
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`numApprovalProgramPages`](../../../-internal-/interfaces/ApplicationTxn.md#numapprovalprogrampages)
 
-***
+---
 
 ### numApps
 
@@ -311,7 +311,7 @@ Number of Applications
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`numApps`](../../../-internal-/interfaces/ApplicationTxn.md#numapps)
 
-***
+---
 
 ### numAssets
 
@@ -325,7 +325,7 @@ Number of Assets
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`numAssets`](../../../-internal-/interfaces/ApplicationTxn.md#numassets)
 
-***
+---
 
 ### numClearStateProgramPages
 
@@ -339,7 +339,7 @@ Number of Clear State Program pages
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`numClearStateProgramPages`](../../../-internal-/interfaces/ApplicationTxn.md#numclearstateprogrampages)
 
-***
+---
 
 ### numLogs
 
@@ -353,7 +353,7 @@ Number of logs
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`numLogs`](../../../-internal-/interfaces/ApplicationTxn.md#numlogs)
 
-***
+---
 
 ### onCompletion
 
@@ -367,7 +367,7 @@ ApplicationCall transaction on completion action
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`onCompletion`](../../../-internal-/interfaces/ApplicationTxn.md#oncompletion)
 
-***
+---
 
 ### rekeyTo
 
@@ -381,7 +381,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`rekeyTo`](../../../-internal-/interfaces/ApplicationTxn.md#rekeyto)
 
-***
+---
 
 ### sender
 
@@ -395,7 +395,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`sender`](../../../-internal-/interfaces/ApplicationTxn.md#sender)
 
-***
+---
 
 ### txnId
 
@@ -409,7 +409,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`txnId`](../../../-internal-/interfaces/ApplicationTxn.md#txnid)
 
-***
+---
 
 ### type
 
@@ -423,7 +423,7 @@ Transaction type as integer
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`type`](../../../-internal-/interfaces/ApplicationTxn.md#type)
 
-***
+---
 
 ### typeBytes
 
@@ -461,7 +461,7 @@ Accounts listed in the ApplicationCall transaction
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`accounts`](../../../-internal-/interfaces/ApplicationTxn.md#accounts)
 
-***
+---
 
 ### appArgs()
 
@@ -485,7 +485,7 @@ Arguments passed to the application in the ApplicationCall transaction
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`appArgs`](../../../-internal-/interfaces/ApplicationTxn.md#appargs)
 
-***
+---
 
 ### approvalProgramPages()
 
@@ -509,7 +509,7 @@ Approval Program as an array of pages
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`approvalProgramPages`](../../../-internal-/interfaces/ApplicationTxn.md#approvalprogrampages)
 
-***
+---
 
 ### apps()
 
@@ -533,7 +533,7 @@ Foreign Apps listed in the ApplicationCall transaction
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`apps`](../../../-internal-/interfaces/ApplicationTxn.md#apps)
 
-***
+---
 
 ### assets()
 
@@ -557,7 +557,7 @@ Foreign Assets listed in the ApplicationCall transaction
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`assets`](../../../-internal-/interfaces/ApplicationTxn.md#assets)
 
-***
+---
 
 ### clearStateProgramPages()
 
@@ -581,7 +581,7 @@ Clear State Program as an array of pages
 
 [`ApplicationTxn`](../../../-internal-/interfaces/ApplicationTxn.md).[`clearStateProgramPages`](../../../-internal-/interfaces/ApplicationTxn.md#clearstateprogrampages)
 
-***
+---
 
 ### logs()
 

@@ -1,27 +1,27 @@
 ---
-title: "algosdk.box_reference"
+title: 'algosdk.box_reference'
 ---
 
-<a id="module-algosdk.box_reference"></a>
+<a id='module-algosdk.box_reference'></a>
 
-<a id="algosdk-box-reference"></a>
+<a id='algosdk-box-reference'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
-| [`BoxReference`](#algosdk.box_reference.BoxReference)   | Represents a box reference with a foreign app index and the box name.   |
-|---------------------------------------------------------|-------------------------------------------------------------------------|
+| [`BoxReference`](#algosdk.box_reference.BoxReference) | Represents a box reference with a foreign app index and the box name. |
+| ----------------------------------------------------- | --------------------------------------------------------------------- |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.box_reference.BoxReference"></a>
+<a id='algosdk.box_reference.BoxReference'></a>
 
-## *class* algosdk.box_reference.BoxReference
+## _class_ algosdk.box_reference.BoxReference
 
 BoxReference(app_index: int, name: bytes)
 
@@ -33,17 +33,17 @@ name (bytes): key for the box in bytes
 
 ## Initialization
 
-<a id="algosdk.box_reference.BoxReference.__eq__"></a>
+<a id='algosdk.box_reference.BoxReference.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.box_reference.BoxReference.translate_box_references"></a>
+<a id='algosdk.box_reference.BoxReference.translate_box_references'></a>
 
-### *static* translate_box_references
+### _static_ translate_box_references
 
 translate_box_references(references: List[Tuple[int, Union[bytes, bytearray, str, int]]], foreign_apps: List[int], this_app_id: int) → List[[algosdk.box_reference.BoxReference](#algosdk.box_reference.BoxReference)]
 

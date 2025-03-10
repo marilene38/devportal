@@ -1,10 +1,10 @@
 ---
-title: "AssetFreezeTxn"
+title: 'AssetFreezeTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [gtxn](../README.md) / AssetFreezeTxn
 
@@ -32,7 +32,7 @@ microalgos
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`fee`](../../../-internal-/interfaces/AssetFreezeTxn.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -46,7 +46,7 @@ round number
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`firstValid`](../../../-internal-/interfaces/AssetFreezeTxn.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -60,7 +60,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`firstValidTime`](../../../-internal-/interfaces/AssetFreezeTxn.md#firstvalidtime)
 
-***
+---
 
 ### freezeAccount
 
@@ -74,7 +74,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:270](https://github.com/algora
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`freezeAccount`](../../../-internal-/interfaces/AssetFreezeTxn.md#freezeaccount)
 
-***
+---
 
 ### freezeAsset
 
@@ -88,7 +88,7 @@ Asset ID being frozen or un-frozen
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`freezeAsset`](../../../-internal-/interfaces/AssetFreezeTxn.md#freezeasset)
 
-***
+---
 
 ### frozen
 
@@ -102,7 +102,7 @@ The new frozen value
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`frozen`](../../../-internal-/interfaces/AssetFreezeTxn.md#frozen)
 
-***
+---
 
 ### groupIndex
 
@@ -117,7 +117,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`groupIndex`](../../../-internal-/interfaces/AssetFreezeTxn.md#groupindex)
 
-***
+---
 
 ### lastValid
 
@@ -131,7 +131,7 @@ round number
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`lastValid`](../../../-internal-/interfaces/AssetFreezeTxn.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -145,7 +145,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`lease`](../../../-internal-/interfaces/AssetFreezeTxn.md#lease)
 
-***
+---
 
 ### note
 
@@ -159,7 +159,7 @@ Any data up to 1024 bytes
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`note`](../../../-internal-/interfaces/AssetFreezeTxn.md#note)
 
-***
+---
 
 ### rekeyTo
 
@@ -173,7 +173,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`rekeyTo`](../../../-internal-/interfaces/AssetFreezeTxn.md#rekeyto)
 
-***
+---
 
 ### sender
 
@@ -187,7 +187,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`sender`](../../../-internal-/interfaces/AssetFreezeTxn.md#sender)
 
-***
+---
 
 ### txnId
 
@@ -201,7 +201,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`txnId`](../../../-internal-/interfaces/AssetFreezeTxn.md#txnid)
 
-***
+---
 
 ### type
 
@@ -215,7 +215,7 @@ Transaction type as integer
 
 [`AssetFreezeTxn`](../../../-internal-/interfaces/AssetFreezeTxn.md).[`type`](../../../-internal-/interfaces/AssetFreezeTxn.md#type)
 
-***
+---
 
 ### typeBytes
 

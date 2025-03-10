@@ -1,10 +1,10 @@
 ---
-title: "AbiMethodConfig"
+title: 'AbiMethodConfig'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / AbiMethodConfig
 
@@ -18,7 +18,7 @@ Configuration options for an abi method
 
 ## Type Parameters
 
-• **TContract** *extends* [`Contract`](../classes/Contract.md)
+• **TContract** _extends_ [`Contract`](../classes/Contract.md)
 
 the type of the contract this method is a part of
 
@@ -33,7 +33,7 @@ Which on complete action(s) are allowed when invoking this method.
 #### Default
 
 ```ts
-'NoOp'
+'NoOp';
 ```
 
 ### defaultArguments?
@@ -59,7 +59,7 @@ Whether this method should be callable when creating the application.
 #### Default
 
 ```ts
-'disallow'
+'disallow';
 ```
 
 ### readonly?
@@ -71,5 +71,5 @@ Does the method only perform read operations (no mutation of chain state)
 #### Default
 
 ```ts
-false
+false;
 ```

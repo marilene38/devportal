@@ -1,10 +1,10 @@
 ---
-title: "btoi"
+title: 'btoi'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / btoi
 

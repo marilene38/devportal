@@ -1,10 +1,10 @@
 ---
-title: "LogicSigOptions"
+title: 'LogicSigOptions'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / LogicSigOptions
 

@@ -1,27 +1,27 @@
 ---
-title: "algosdk.v2client.indexer"
+title: 'algosdk.v2client.indexer'
 ---
 
-<a id="module-algosdk.v2client.indexer"></a>
+<a id='module-algosdk.v2client.indexer'></a>
 
-<a id="algosdk-v2client-indexer"></a>
+<a id='algosdk-v2client-indexer'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
-| [`IndexerClient`](#algosdk.v2client.indexer.IndexerClient)   | Client class for indexer. Handles all indexer requests.   |
-|--------------------------------------------------------------|-----------------------------------------------------------|
+| [`IndexerClient`](#algosdk.v2client.indexer.IndexerClient) | Client class for indexer. Handles all indexer requests. |
+| ---------------------------------------------------------- | ------------------------------------------------------- |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.v2client.indexer.IndexerClient"></a>
+<a id='algosdk.v2client.indexer.IndexerClient'></a>
 
-## *class* algosdk.v2client.indexer.IndexerClient
+## _class_ algosdk.v2client.indexer.IndexerClient
 
 IndexerClient(indexer_token, indexer_address, headers=None)
 
@@ -39,7 +39,7 @@ headers (dict)
 
 ## Initialization
 
-<a id="algosdk.v2client.indexer.IndexerClient.account_info"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.account_info'></a>
 
 ### account_info
 
@@ -60,7 +60,7 @@ exclude (str optional): Exclude additional items such as asset holdings,
 application local data stored for this account, asset parameters created by this account,
 and application parameters created by this account.
 
-<a id="algosdk.v2client.indexer.IndexerClient.accounts"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.accounts'></a>
 
 ### accounts
 
@@ -102,7 +102,7 @@ application local data stored for this account,
 asset parameters created by this account,
 and application parameters created by this account.
 
-<a id="algosdk.v2client.indexer.IndexerClient.application_box_by_name"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.application_box_by_name'></a>
 
 ### application_box_by_name
 
@@ -116,7 +116,7 @@ Args:
 application_id (int): application index
 box_name (bytes): The name (key) of the box.
 
-<a id="algosdk.v2client.indexer.IndexerClient.application_boxes"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.application_boxes'></a>
 
 ### application_boxes
 
@@ -132,7 +132,7 @@ limit (int, optional): Max number of box names to return.
 If max is not set, or max == 0, returns all box-names up to queried indexer’s `defaultBoxesLimit`.
 next_page (str, optional): used for pagination
 
-<a id="algosdk.v2client.indexer.IndexerClient.application_logs"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.application_logs'></a>
 
 ### application_logs
 
@@ -149,7 +149,7 @@ next_page (str, optional): used for pagination
 sender_addr (str, optional): only include transactions with this sender address
 txid (str, optional): only include results with this transaction ID
 
-<a id="algosdk.v2client.indexer.IndexerClient.applications"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.applications'></a>
 
 ### applications
 
@@ -166,7 +166,7 @@ accounts, deleted applications, destroyed assets, opted-out
 asset holdings, and closed-out application localstates. Defaults
 to false.
 
-<a id="algosdk.v2client.indexer.IndexerClient.asset_balances"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.asset_balances'></a>
 
 ### asset_balances
 
@@ -192,7 +192,7 @@ accounts, deleted applications, destroyed assets, opted-out
 asset holdings, and closed-out application localstates. Defaults
 to false.
 
-<a id="algosdk.v2client.indexer.IndexerClient.asset_info"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.asset_info'></a>
 
 ### asset_info
 
@@ -207,7 +207,7 @@ accounts, deleted applications, destroyed assets, opted-out
 asset holdings, and closed-out application localstates. Defaults
 to false.
 
-<a id="algosdk.v2client.indexer.IndexerClient.block_info"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.block_info'></a>
 
 ### block_info
 
@@ -220,7 +220,7 @@ block (int, optional): block number
 round_num (int, optional): alias for block; specify one of these
 header_only (bool, optional):
 
-<a id="algosdk.v2client.indexer.IndexerClient.health"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.health'></a>
 
 ### health
 
@@ -228,7 +228,7 @@ health(\*\*kwargs)
 
 Return 200 and a simple status message if the node is running.
 
-<a id="algosdk.v2client.indexer.IndexerClient.indexer_request"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.indexer_request'></a>
 
 ### indexer_request
 
@@ -247,7 +247,7 @@ timeout (int, optional): request timeout in seconds
 Returns:
 dict: loaded from json response body
 
-<a id="algosdk.v2client.indexer.IndexerClient.lookup_account_application_by_creator"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.lookup_account_application_by_creator'></a>
 
 ### lookup_account_application_by_creator
 
@@ -270,7 +270,7 @@ accounts, deleted applications, destroyed assets, opted-out
 asset holdings, and closed-out application localstates. Defaults
 to false.
 
-<a id="algosdk.v2client.indexer.IndexerClient.lookup_account_application_local_state"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.lookup_account_application_local_state'></a>
 
 ### lookup_account_application_local_state
 
@@ -293,7 +293,7 @@ accounts, deleted applications, destroyed assets, opted-out
 asset holdings, and closed-out application localstates. Defaults
 to false.
 
-<a id="algosdk.v2client.indexer.IndexerClient.lookup_account_asset_by_creator"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.lookup_account_asset_by_creator'></a>
 
 ### lookup_account_asset_by_creator
 
@@ -317,7 +317,7 @@ accounts, deleted applications, destroyed assets, opted-out
 asset holdings, and closed-out application localstates. Defaults
 to false.
 
-<a id="algosdk.v2client.indexer.IndexerClient.lookup_account_assets"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.lookup_account_assets'></a>
 
 ### lookup_account_assets
 
@@ -341,7 +341,7 @@ accounts, deleted applications, destroyed assets, opted-out
 asset holdings, and closed-out application localstates. Defaults
 to false.
 
-<a id="algosdk.v2client.indexer.IndexerClient.search_applications"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.search_applications'></a>
 
 ### search_applications
 
@@ -362,7 +362,7 @@ accounts, deleted applications, destroyed assets, opted-out
 asset holdings, and closed-out application localstates. Defaults
 to false.
 
-<a id="algosdk.v2client.indexer.IndexerClient.search_asset_transactions"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.search_asset_transactions'></a>
 
 ### search_asset_transactions
 
@@ -414,7 +414,7 @@ rekey-to field
 round_num (int, optional): Include results for the specified round.
 If specified, do not include block
 
-<a id="algosdk.v2client.indexer.IndexerClient.search_assets"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.search_assets'></a>
 
 ### search_assets
 
@@ -436,7 +436,7 @@ accounts, deleted applications, destroyed assets, opted-out
 asset holdings, and closed-out application localstates. Defaults
 to false.
 
-<a id="algosdk.v2client.indexer.IndexerClient.search_transactions"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.search_transactions'></a>
 
 ### search_transactions
 
@@ -489,7 +489,7 @@ rekey-to field
 round_num (int, optional): alias for block; only specify one of
 these
 
-<a id="algosdk.v2client.indexer.IndexerClient.search_transactions_by_address"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.search_transactions_by_address'></a>
 
 ### search_transactions_by_address
 
@@ -533,7 +533,7 @@ rekey-to field
 round_num (int, optional): Include results for the specified round.
 If specified, do not include block
 
-<a id="algosdk.v2client.indexer.IndexerClient.transaction"></a>
+<a id='algosdk.v2client.indexer.IndexerClient.transaction'></a>
 
 ### transaction
 

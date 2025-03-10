@@ -1,10 +1,10 @@
 ---
-title: "ApplicationCallItxnParams"
+title: 'ApplicationCallItxnParams'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / ApplicationCallItxnParams
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:215](https://github.com/algorandfounda
 
 [`ApplicationCallItxnParams`](ApplicationCallItxnParams.md)
 
-***
+---
 
 ### set()
 
@@ -42,7 +42,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:214](https://github.com/algorandfounda
 
 `void`
 
-***
+---
 
 ### submit()
 

@@ -1,10 +1,10 @@
 ---
-title: "sumhash512"
+title: 'sumhash512'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / sumhash512
 

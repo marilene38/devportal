@@ -1,10 +1,10 @@
 ---
-title: "abimethod"
+title: 'abimethod'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / abimethod
 
@@ -18,7 +18,7 @@ Declares the decorated method as an abimethod that is called when the first tran
 
 ## Type Parameters
 
-• **TContract** *extends* [`Contract`](../classes/Contract.md)
+• **TContract** _extends_ [`Contract`](../classes/Contract.md)
 
 the type of the contract this method is a part of
 
@@ -36,7 +36,7 @@ The config for this abi method
 
 ### Type Parameters
 
-• **TArgs** *extends* `any`[]
+• **TArgs** _extends_ `any`[]
 
 • **TReturn**
 

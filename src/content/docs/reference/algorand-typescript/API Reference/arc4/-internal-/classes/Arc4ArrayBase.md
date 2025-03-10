@@ -1,10 +1,10 @@
 ---
-title: "Arc4ArrayBase"
+title: 'Arc4ArrayBase'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [arc4](../../README.md) / [\<internal\>](../README.md) / Arc4ArrayBase
 
@@ -28,7 +28,7 @@ A base type for arc4 array types
 
 ## Type Parameters
 
-• **TItem** *extends* [`ARC4Encoded`](../../classes/ARC4Encoded.md)
+• **TItem** _extends_ [`ARC4Encoded`](../../classes/ARC4Encoded.md)
 
 ## Indexable
 
@@ -70,7 +70,7 @@ Retrieve the encoded bytes for this type
 
 [`ARC4Encoded`](../../classes/ARC4Encoded.md).[`bytes`](../../classes/ARC4Encoded.md#bytes)
 
-***
+---
 
 ### length
 
@@ -100,7 +100,7 @@ Returns an iterator for the items in this array
 
 [`IterableIterator`](../interfaces/IterableIterator.md)\<`TItem`\>
 
-***
+---
 
 ### at()
 
@@ -123,7 +123,7 @@ The index of the item to retrieve
 
 `TItem`
 
-***
+---
 
 ### entries()
 
@@ -137,7 +137,7 @@ Returns an iterator for a tuple of the indexes and items in this array
 
 [`IterableIterator`](../interfaces/IterableIterator.md)\<readonly \[[`uint64`](../../../index/type-aliases/uint64.md), `TItem`\]\>
 
-***
+---
 
 ### keys()
 
@@ -151,7 +151,7 @@ Returns an iterator for the indexes in this array
 
 [`IterableIterator`](../interfaces/IterableIterator.md)\<[`uint64`](../../../index/type-aliases/uint64.md)\>
 
-***
+---
 
 ### slice()
 

@@ -1,10 +1,10 @@
 ---
-title: "PaymentInnerTxn"
+title: 'PaymentInnerTxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / PaymentInnerTxn
 
@@ -32,7 +32,7 @@ microalgos
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`amount`](../../../-internal-/interfaces/PaymentTxn.md#amount)
 
-***
+---
 
 ### closeRemainderTo
 
@@ -46,7 +46,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:110](https://github.com/algora
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`closeRemainderTo`](../../../-internal-/interfaces/PaymentTxn.md#closeremainderto)
 
-***
+---
 
 ### fee
 
@@ -60,7 +60,7 @@ microalgos
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`fee`](../../../-internal-/interfaces/PaymentTxn.md#fee)
 
-***
+---
 
 ### firstValid
 
@@ -74,7 +74,7 @@ round number
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`firstValid`](../../../-internal-/interfaces/PaymentTxn.md#firstvalid)
 
-***
+---
 
 ### firstValidTime
 
@@ -88,7 +88,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`firstValidTime`](../../../-internal-/interfaces/PaymentTxn.md#firstvalidtime)
 
-***
+---
 
 ### groupIndex
 
@@ -103,7 +103,7 @@ A stand-alone transaction is implicitly element 0 in a group of 1
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`groupIndex`](../../../-internal-/interfaces/PaymentTxn.md#groupindex)
 
-***
+---
 
 ### lastValid
 
@@ -117,7 +117,7 @@ round number
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`lastValid`](../../../-internal-/interfaces/PaymentTxn.md#lastvalid)
 
-***
+---
 
 ### lease
 
@@ -131,7 +131,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:69](https://github.com/algoran
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`lease`](../../../-internal-/interfaces/PaymentTxn.md#lease)
 
-***
+---
 
 ### note
 
@@ -145,7 +145,7 @@ Any data up to 1024 bytes
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`note`](../../../-internal-/interfaces/PaymentTxn.md#note)
 
-***
+---
 
 ### receiver
 
@@ -159,7 +159,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:100](https://github.com/algora
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`receiver`](../../../-internal-/interfaces/PaymentTxn.md#receiver)
 
-***
+---
 
 ### rekeyTo
 
@@ -173,7 +173,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:90](https://github.com/algoran
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`rekeyTo`](../../../-internal-/interfaces/PaymentTxn.md#rekeyto)
 
-***
+---
 
 ### sender
 
@@ -187,7 +187,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:39](https://github.com/algoran
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`sender`](../../../-internal-/interfaces/PaymentTxn.md#sender)
 
-***
+---
 
 ### txnId
 
@@ -201,7 +201,7 @@ The computed ID for this transaction. 32 bytes.
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`txnId`](../../../-internal-/interfaces/PaymentTxn.md#txnid)
 
-***
+---
 
 ### type
 
@@ -215,7 +215,7 @@ Transaction type as integer
 
 [`PaymentTxn`](../../../-internal-/interfaces/PaymentTxn.md).[`type`](../../../-internal-/interfaces/PaymentTxn.md#type)
 
-***
+---
 
 ### typeBytes
 

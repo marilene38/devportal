@@ -1,10 +1,10 @@
 ---
-title: "baremethod"
+title: 'baremethod'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / baremethod
 
@@ -18,7 +18,7 @@ Declares the decorated method as a baremethod that can only be called with no tr
 
 ## Type Parameters
 
-• **TContract** *extends* [`Contract`](../classes/Contract.md)
+• **TContract** _extends_ [`Contract`](../classes/Contract.md)
 
 the type of the contract this method is a part of
 
@@ -36,7 +36,7 @@ The config for this bare method
 
 ### Type Parameters
 
-• **TArgs** *extends* `any`[]
+• **TArgs** _extends_ `any`[]
 
 • **TReturn**
 

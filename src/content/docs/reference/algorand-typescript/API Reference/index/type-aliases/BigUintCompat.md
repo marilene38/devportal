@@ -1,10 +1,10 @@
 ---
-title: "BigUintCompat"
+title: 'BigUintCompat'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / BigUintCompat
 

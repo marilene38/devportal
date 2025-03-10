@@ -1,10 +1,10 @@
 ---
-title: "extractUint64"
+title: 'extractUint64'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / extractUint64
 

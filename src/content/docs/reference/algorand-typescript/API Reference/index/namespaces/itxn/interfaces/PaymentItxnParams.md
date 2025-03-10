@@ -1,10 +1,10 @@
 ---
-title: "PaymentItxnParams"
+title: 'PaymentItxnParams'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / PaymentItxnParams
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:190](https://github.com/algorandfounda
 
 [`PaymentItxnParams`](PaymentItxnParams.md)
 
-***
+---
 
 ### set()
 
@@ -42,7 +42,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:189](https://github.com/algorandfounda
 
 `void`
 
-***
+---
 
 ### submit()
 

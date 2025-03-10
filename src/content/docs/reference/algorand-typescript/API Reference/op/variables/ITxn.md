@@ -1,10 +1,10 @@
 ---
-title: "ITxn"
+title: 'ITxn'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / ITxn
 

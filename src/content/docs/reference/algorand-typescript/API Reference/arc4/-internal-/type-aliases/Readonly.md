@@ -1,10 +1,10 @@
 ---
-title: "Readonly"
+title: 'Readonly'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [arc4](../../README.md) / [\<internal\>](../README.md) / Readonly
 
@@ -12,7 +12,7 @@ title: "Readonly"
 
 > **Readonly**\<`T`\>: `{ readonly [P in keyof T]: T[P] }`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1592
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1592
 
 Make all properties in T readonly
 

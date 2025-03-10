@@ -1,10 +1,10 @@
 ---
-title: "StaticBytes"
+title: 'StaticBytes'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / StaticBytes
 
@@ -20,7 +20,7 @@ A fixed length sequence of bytes
 
 ## Type Parameters
 
-• **TLength** *extends* `number` = `0`
+• **TLength** _extends_ `number` = `0`
 
 ## Indexable
 
@@ -72,7 +72,7 @@ Retrieve the encoded bytes for this type
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`bytes`](../-internal-/classes/Arc4ArrayBase.md#bytes)
 
-***
+---
 
 ### length
 
@@ -92,7 +92,7 @@ Returns the current length of this array
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`length`](../-internal-/classes/Arc4ArrayBase.md#length)
 
-***
+---
 
 ### native
 
@@ -126,7 +126,7 @@ Returns an iterator for the items in this array
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`[iterator]`](../-internal-/classes/Arc4ArrayBase.md#iterator)
 
-***
+---
 
 ### at()
 
@@ -153,7 +153,7 @@ The index of the item to retrieve
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`at`](../-internal-/classes/Arc4ArrayBase.md#at)
 
-***
+---
 
 ### concat()
 
@@ -175,7 +175,7 @@ Another array of bytes to concat with this one
 
 [`DynamicBytes`](DynamicBytes.md)
 
-***
+---
 
 ### entries()
 
@@ -193,7 +193,7 @@ Returns an iterator for a tuple of the indexes and items in this array
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`entries`](../-internal-/classes/Arc4ArrayBase.md#entries)
 
-***
+---
 
 ### keys()
 
@@ -211,7 +211,7 @@ Returns an iterator for the indexes in this array
 
 [`Arc4ArrayBase`](../-internal-/classes/Arc4ArrayBase.md).[`keys`](../-internal-/classes/Arc4ArrayBase.md#keys)
 
-***
+---
 
 ### slice()
 

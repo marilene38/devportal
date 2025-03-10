@@ -1,31 +1,31 @@
 ---
-title: "algosdk.abi.method"
+title: 'algosdk.abi.method'
 ---
 
-<a id="module-algosdk.abi.method"></a>
+<a id='module-algosdk.abi.method'></a>
 
-<a id="algosdk-abi-method"></a>
+<a id='algosdk-abi-method'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
-| [`Argument`](#algosdk.abi.method.Argument)                       | Represents an argument for a ABI method                                                                                                                                                                                                                                                                                                                                                            |
-|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`Method`](#algosdk.abi.method.Method)                           | Represents a ABI method description.                                                                                                                                                                                                                                                                                                                                                               |
-| [`MethodDict`](#algosdk.abi.method.MethodDict)                   | dict() -\> new empty dictionary<br/>dict(mapping) -\> new dictionary initialized from a mapping object’s<br/>(key, value) pairs<br/>dict(iterable) -\> new dictionary initialized as if via:<br/>d = \{\}<br/>for k, v in iterable:<br/>d[k] = v<br/>dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs<br/>in the keyword argument list.  For example:  dict(one=1, two=2) |
-| [`MethodDict_Optional`](#algosdk.abi.method.MethodDict_Optional) | dict() -\> new empty dictionary<br/>dict(mapping) -\> new dictionary initialized from a mapping object’s<br/>(key, value) pairs<br/>dict(iterable) -\> new dictionary initialized as if via:<br/>d = \{\}<br/>for k, v in iterable:<br/>d[k] = v<br/>dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs<br/>in the keyword argument list.  For example:  dict(one=1, two=2) |
-| [`Returns`](#algosdk.abi.method.Returns)                         | Represents a return type for a ABI method                                                                                                                                                                                                                                                                                                                                                          |
+| [`Argument`](#algosdk.abi.method.Argument)                       | Represents an argument for a ABI method                                                                                                                                                                                                                                                                                                                                                          |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`Method`](#algosdk.abi.method.Method)                           | Represents a ABI method description.                                                                                                                                                                                                                                                                                                                                                             |
+| [`MethodDict`](#algosdk.abi.method.MethodDict)                   | dict() -\> new empty dictionary<br/>dict(mapping) -\> new dictionary initialized from a mapping object’s<br/>(key, value) pairs<br/>dict(iterable) -\> new dictionary initialized as if via:<br/>d = \{\}<br/>for k, v in iterable:<br/>d[k] = v<br/>dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs<br/>in the keyword argument list. For example: dict(one=1, two=2) |
+| [`MethodDict_Optional`](#algosdk.abi.method.MethodDict_Optional) | dict() -\> new empty dictionary<br/>dict(mapping) -\> new dictionary initialized from a mapping object’s<br/>(key, value) pairs<br/>dict(iterable) -\> new dictionary initialized as if via:<br/>d = \{\}<br/>for k, v in iterable:<br/>d[k] = v<br/>dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs<br/>in the keyword argument list. For example: dict(one=1, two=2) |
+| [`Returns`](#algosdk.abi.method.Returns)                         | Represents a return type for a ABI method                                                                                                                                                                                                                                                                                                                                                        |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.abi.method.Argument"></a>
+<a id='algosdk.abi.method.Argument'></a>
 
-## *class* algosdk.abi.method.Argument
+## _class_ algosdk.abi.method.Argument
 
 Argument(arg_type: str, name: Optional[str] = None, desc: Optional[str] = None)
 
@@ -38,25 +38,25 @@ desc (string, optional): description of this method argument
 
 ## Initialization
 
-<a id="algosdk.abi.method.Argument.__eq__"></a>
+<a id='algosdk.abi.method.Argument.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(o: object) → bool
+**eq**(o: object) → bool
 
 Return self==value.
 
-<a id="algosdk.abi.method.Argument.__str__"></a>
+<a id='algosdk.abi.method.Argument.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__() → str
+**str**() → str
 
 Return str(self).
 
-<a id="algosdk.abi.method.Method"></a>
+<a id='algosdk.abi.method.Method'></a>
 
-## *class* algosdk.abi.method.Method
+## _class_ algosdk.abi.method.Method
 
 Method(name: str, args: List[[algosdk.abi.method.Argument](#algosdk.abi.method.Argument)], returns: [algosdk.abi.method.Returns](#algosdk.abi.method.Returns), desc: Optional[str] = None)
 
@@ -71,15 +71,15 @@ desc (string, optional): optional description of the method
 
 ## Initialization
 
-<a id="algosdk.abi.method.Method.__eq__"></a>
+<a id='algosdk.abi.method.Method.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(o: object) → bool
+**eq**(o: object) → bool
 
 Return self==value.
 
-<a id="algosdk.abi.method.Method.get_selector"></a>
+<a id='algosdk.abi.method.Method.get_selector'></a>
 
 ### get_selector
 
@@ -91,7 +91,7 @@ SHA-512/256 hash of the method signature.
 Returns:
 bytes: first four bytes of the method signature hash
 
-<a id="algosdk.abi.method.Method.get_txn_calls"></a>
+<a id='algosdk.abi.method.Method.get_txn_calls'></a>
 
 ### get_txn_calls
 
@@ -99,9 +99,9 @@ get_txn_calls() → int
 
 Returns the number of transactions needed to invoke this ABI method.
 
-<a id="algosdk.abi.method.MethodDict"></a>
+<a id='algosdk.abi.method.MethodDict'></a>
 
-## *class* algosdk.abi.method.MethodDict
+## _class_ algosdk.abi.method.MethodDict
 
 MethodDict
 
@@ -113,247 +113,247 @@ d = \{\}
 for k, v in iterable:
 d[k] = v
 dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs
-in the keyword argument list.  For example:  dict(one=1, two=2)
+in the keyword argument list. For example: dict(one=1, two=2)
 
 ## Initialization
 
-Initialize self.  See help(type(self)) for accurate signature.
+Initialize self. See help(type(self)) for accurate signature.
 
-<a id="algosdk.abi.method.MethodDict.__contains__"></a>
+<a id='algosdk.abi.method.MethodDict.__contains__'></a>
 
-### \_\_contains_\_
+### \_\_contains\_\_
 
-__contains__()
+**contains**()
 
 True if the dictionary has the specified key, else False.
 
-<a id="algosdk.abi.method.MethodDict.__delattr__"></a>
+<a id='algosdk.abi.method.MethodDict.__delattr__'></a>
 
-### \_\_delattr_\_
+### \_\_delattr\_\_
 
-__delattr__()
+**delattr**()
 
 Implement delattr(self, name).
 
-<a id="algosdk.abi.method.MethodDict.__delitem__"></a>
+<a id='algosdk.abi.method.MethodDict.__delitem__'></a>
 
-### \_\_delitem_\_
+### \_\_delitem\_\_
 
-__delitem__()
+**delitem**()
 
 Delete self[key].
 
-<a id="algosdk.abi.method.MethodDict.__dir__"></a>
+<a id='algosdk.abi.method.MethodDict.__dir__'></a>
 
-### \_\_dir_\_
+### \_\_dir\_\_
 
-__dir__()
+**dir**()
 
 Default dir() implementation.
 
-<a id="algosdk.abi.method.MethodDict.__eq__"></a>
+<a id='algosdk.abi.method.MethodDict.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__()
+**eq**()
 
 Return self==value.
 
-<a id="algosdk.abi.method.MethodDict.__format__"></a>
+<a id='algosdk.abi.method.MethodDict.__format__'></a>
 
-### \_\_format_\_
+### \_\_format\_\_
 
-__format__()
+**format**()
 
 Default object formatter.
 
 Return str(self) if format_spec is empty. Raise TypeError otherwise.
 
-<a id="algosdk.abi.method.MethodDict.__ge__"></a>
+<a id='algosdk.abi.method.MethodDict.__ge__'></a>
 
-### \_\_ge_\_
+### \_\_ge\_\_
 
-__ge__()
+**ge**()
 
 Return self\>=value.
 
-<a id="algosdk.abi.method.MethodDict.__getattribute__"></a>
+<a id='algosdk.abi.method.MethodDict.__getattribute__'></a>
 
-### \_\_getattribute_\_
+### \_\_getattribute\_\_
 
-__getattribute__()
+**getattribute**()
 
 Return getattr(self, name).
 
-<a id="algosdk.abi.method.MethodDict.__getitem__"></a>
+<a id='algosdk.abi.method.MethodDict.__getitem__'></a>
 
-### \_\_getitem_\_
+### \_\_getitem\_\_
 
-__getitem__()
+**getitem**()
 
 Return self[key].
 
-<a id="algosdk.abi.method.MethodDict.__getstate__"></a>
+<a id='algosdk.abi.method.MethodDict.__getstate__'></a>
 
-### \_\_getstate_\_
+### \_\_getstate\_\_
 
-__getstate__()
+**getstate**()
 
 Helper for pickle.
 
-<a id="algosdk.abi.method.MethodDict.__gt__"></a>
+<a id='algosdk.abi.method.MethodDict.__gt__'></a>
 
-### \_\_gt_\_
+### \_\_gt\_\_
 
-__gt__()
+**gt**()
 
 Return self\>value.
 
-<a id="algosdk.abi.method.MethodDict.__ior__"></a>
+<a id='algosdk.abi.method.MethodDict.__ior__'></a>
 
-### \_\_ior_\_
+### \_\_ior\_\_
 
-__ior__()
+**ior**()
 
 Return self|=value.
 
-<a id="algosdk.abi.method.MethodDict.__iter__"></a>
+<a id='algosdk.abi.method.MethodDict.__iter__'></a>
 
-### \_\_iter_\_
+### \_\_iter\_\_
 
-__iter__()
+**iter**()
 
 Implement iter(self).
 
-<a id="algosdk.abi.method.MethodDict.__le__"></a>
+<a id='algosdk.abi.method.MethodDict.__le__'></a>
 
-### \_\_le_\_
+### \_\_le\_\_
 
-__le__()
+**le**()
 
 Return self\<=value.
 
-<a id="algosdk.abi.method.MethodDict.__len__"></a>
+<a id='algosdk.abi.method.MethodDict.__len__'></a>
 
-### \_\_len_\_
+### \_\_len\_\_
 
-__len__()
+**len**()
 
 Return len(self).
 
-<a id="algosdk.abi.method.MethodDict.__lt__"></a>
+<a id='algosdk.abi.method.MethodDict.__lt__'></a>
 
-### \_\_lt_\_
+### \_\_lt\_\_
 
-__lt__()
+**lt**()
 
 Return self\<value.
 
-<a id="algosdk.abi.method.MethodDict.__ne__"></a>
+<a id='algosdk.abi.method.MethodDict.__ne__'></a>
 
-### \_\_ne_\_
+### \_\_ne\_\_
 
-__ne__()
+**ne**()
 
 Return self!=value.
 
-<a id="algosdk.abi.method.MethodDict.__new__"></a>
+<a id='algosdk.abi.method.MethodDict.__new__'></a>
 
-### \_\_new_\_
+### \_\_new\_\_
 
-__new__()
+**new**()
 
-Create and return a new object.  See help(type) for accurate signature.
+Create and return a new object. See help(type) for accurate signature.
 
-<a id="algosdk.abi.method.MethodDict.__or__"></a>
+<a id='algosdk.abi.method.MethodDict.__or__'></a>
 
-### \_\_or_\_
+### \_\_or\_\_
 
-__or__()
+**or**()
 
 Return self|value.
 
-<a id="algosdk.abi.method.MethodDict.__reduce__"></a>
+<a id='algosdk.abi.method.MethodDict.__reduce__'></a>
 
-### \_\_reduce_\_
+### \_\_reduce\_\_
 
-__reduce__()
-
-Helper for pickle.
-
-<a id="algosdk.abi.method.MethodDict.__reduce_ex__"></a>
-
-### \_\_reduce_ex_\_
-
-__reduce_ex__()
+**reduce**()
 
 Helper for pickle.
 
-<a id="algosdk.abi.method.MethodDict.__repr__"></a>
+<a id='algosdk.abi.method.MethodDict.__reduce_ex__'></a>
 
-### \_\_repr_\_
+### \_\_reduce*ex*\_
 
-__repr__()
+**reduce_ex**()
+
+Helper for pickle.
+
+<a id='algosdk.abi.method.MethodDict.__repr__'></a>
+
+### \_\_repr\_\_
+
+**repr**()
 
 Return repr(self).
 
-<a id="algosdk.abi.method.MethodDict.__reversed__"></a>
+<a id='algosdk.abi.method.MethodDict.__reversed__'></a>
 
-### \_\_reversed_\_
+### \_\_reversed\_\_
 
-__reversed__()
+**reversed**()
 
 Return a reverse iterator over the dict keys.
 
-<a id="algosdk.abi.method.MethodDict.__ror__"></a>
+<a id='algosdk.abi.method.MethodDict.__ror__'></a>
 
-### \_\_ror_\_
+### \_\_ror\_\_
 
-__ror__()
+**ror**()
 
 Return value|self.
 
-<a id="algosdk.abi.method.MethodDict.__setattr__"></a>
+<a id='algosdk.abi.method.MethodDict.__setattr__'></a>
 
-### \_\_setattr_\_
+### \_\_setattr\_\_
 
-__setattr__()
+**setattr**()
 
 Implement setattr(self, name, value).
 
-<a id="algosdk.abi.method.MethodDict.__setitem__"></a>
+<a id='algosdk.abi.method.MethodDict.__setitem__'></a>
 
-### \_\_setitem_\_
+### \_\_setitem\_\_
 
-__setitem__()
+**setitem**()
 
 Set self[key] to value.
 
-<a id="algosdk.abi.method.MethodDict.__sizeof__"></a>
+<a id='algosdk.abi.method.MethodDict.__sizeof__'></a>
 
-### \_\_sizeof_\_
+### \_\_sizeof\_\_
 
-__sizeof__()
+**sizeof**()
 
 D.**sizeof**() -\> size of D in memory, in bytes
 
-<a id="algosdk.abi.method.MethodDict.__str__"></a>
+<a id='algosdk.abi.method.MethodDict.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.abi.method.MethodDict.clear"></a>
+<a id='algosdk.abi.method.MethodDict.clear'></a>
 
 ### clear
 
 clear()
 
-D.clear() -\> None.  Remove all items from D.
+D.clear() -\> None. Remove all items from D.
 
-<a id="algosdk.abi.method.MethodDict.copy"></a>
+<a id='algosdk.abi.method.MethodDict.copy'></a>
 
 ### copy
 
@@ -361,7 +361,7 @@ copy()
 
 D.copy() -\> a shallow copy of D
 
-<a id="algosdk.abi.method.MethodDict.get"></a>
+<a id='algosdk.abi.method.MethodDict.get'></a>
 
 ### get
 
@@ -369,7 +369,7 @@ get()
 
 Return the value for key if key is in the dictionary, else default.
 
-<a id="algosdk.abi.method.MethodDict.items"></a>
+<a id='algosdk.abi.method.MethodDict.items'></a>
 
 ### items
 
@@ -377,7 +377,7 @@ items()
 
 D.items() -\> a set-like object providing a view on D’s items
 
-<a id="algosdk.abi.method.MethodDict.keys"></a>
+<a id='algosdk.abi.method.MethodDict.keys'></a>
 
 ### keys
 
@@ -385,7 +385,7 @@ keys()
 
 D.keys() -\> a set-like object providing a view on D’s keys
 
-<a id="algosdk.abi.method.MethodDict.pop"></a>
+<a id='algosdk.abi.method.MethodDict.pop'></a>
 
 ### pop
 
@@ -396,7 +396,7 @@ D.pop(k[,d]) -\> v, remove specified key and return the corresponding value.
 If the key is not found, return the default if given; otherwise,
 raise a KeyError.
 
-<a id="algosdk.abi.method.MethodDict.popitem"></a>
+<a id='algosdk.abi.method.MethodDict.popitem'></a>
 
 ### popitem
 
@@ -407,7 +407,7 @@ Remove and return a (key, value) pair as a 2-tuple.
 Pairs are returned in LIFO (last-in, first-out) order.
 Raises KeyError if the dict is empty.
 
-<a id="algosdk.abi.method.MethodDict.setdefault"></a>
+<a id='algosdk.abi.method.MethodDict.setdefault'></a>
 
 ### setdefault
 
@@ -417,18 +417,18 @@ Insert key with a value of default if key is not in the dictionary.
 
 Return the value for key if key is in the dictionary, else default.
 
-<a id="algosdk.abi.method.MethodDict.update"></a>
+<a id='algosdk.abi.method.MethodDict.update'></a>
 
 ### update
 
 update()
 
-D.update([E, ]\*\*F) -\> None.  Update D from mapping/iterable E and F.
-If E is present and has a .keys() method, then does:  for k in E.keys(): D[k] = E[k]
-If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
-In either case, this is followed by: for k in F:  D[k] = F[k]
+D.update([E, ]\*\*F) -\> None. Update D from mapping/iterable E and F.
+If E is present and has a .keys() method, then does: for k in E.keys(): D[k] = E[k]
+If E is present and lacks a .keys() method, then does: for k, v in E: D[k] = v
+In either case, this is followed by: for k in F: D[k] = F[k]
 
-<a id="algosdk.abi.method.MethodDict.values"></a>
+<a id='algosdk.abi.method.MethodDict.values'></a>
 
 ### values
 
@@ -436,9 +436,9 @@ values()
 
 D.values() -\> an object providing a view on D’s values
 
-<a id="algosdk.abi.method.MethodDict_Optional"></a>
+<a id='algosdk.abi.method.MethodDict_Optional'></a>
 
-## *class* algosdk.abi.method.MethodDict_Optional
+## _class_ algosdk.abi.method.MethodDict_Optional
 
 MethodDict_Optional
 
@@ -450,247 +450,247 @@ d = \{\}
 for k, v in iterable:
 d[k] = v
 dict(\*\*kwargs) -\> new dictionary initialized with the name=value pairs
-in the keyword argument list.  For example:  dict(one=1, two=2)
+in the keyword argument list. For example: dict(one=1, two=2)
 
 ## Initialization
 
-Initialize self.  See help(type(self)) for accurate signature.
+Initialize self. See help(type(self)) for accurate signature.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__contains__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__contains__'></a>
 
-### \_\_contains_\_
+### \_\_contains\_\_
 
-__contains__()
+**contains**()
 
 True if the dictionary has the specified key, else False.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__delattr__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__delattr__'></a>
 
-### \_\_delattr_\_
+### \_\_delattr\_\_
 
-__delattr__()
+**delattr**()
 
 Implement delattr(self, name).
 
-<a id="algosdk.abi.method.MethodDict_Optional.__delitem__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__delitem__'></a>
 
-### \_\_delitem_\_
+### \_\_delitem\_\_
 
-__delitem__()
+**delitem**()
 
 Delete self[key].
 
-<a id="algosdk.abi.method.MethodDict_Optional.__dir__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__dir__'></a>
 
-### \_\_dir_\_
+### \_\_dir\_\_
 
-__dir__()
+**dir**()
 
 Default dir() implementation.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__eq__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__()
+**eq**()
 
 Return self==value.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__format__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__format__'></a>
 
-### \_\_format_\_
+### \_\_format\_\_
 
-__format__()
+**format**()
 
 Default object formatter.
 
 Return str(self) if format_spec is empty. Raise TypeError otherwise.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__ge__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__ge__'></a>
 
-### \_\_ge_\_
+### \_\_ge\_\_
 
-__ge__()
+**ge**()
 
 Return self\>=value.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__getattribute__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__getattribute__'></a>
 
-### \_\_getattribute_\_
+### \_\_getattribute\_\_
 
-__getattribute__()
+**getattribute**()
 
 Return getattr(self, name).
 
-<a id="algosdk.abi.method.MethodDict_Optional.__getitem__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__getitem__'></a>
 
-### \_\_getitem_\_
+### \_\_getitem\_\_
 
-__getitem__()
+**getitem**()
 
 Return self[key].
 
-<a id="algosdk.abi.method.MethodDict_Optional.__getstate__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__getstate__'></a>
 
-### \_\_getstate_\_
+### \_\_getstate\_\_
 
-__getstate__()
+**getstate**()
 
 Helper for pickle.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__gt__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__gt__'></a>
 
-### \_\_gt_\_
+### \_\_gt\_\_
 
-__gt__()
+**gt**()
 
 Return self\>value.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__ior__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__ior__'></a>
 
-### \_\_ior_\_
+### \_\_ior\_\_
 
-__ior__()
+**ior**()
 
 Return self|=value.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__iter__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__iter__'></a>
 
-### \_\_iter_\_
+### \_\_iter\_\_
 
-__iter__()
+**iter**()
 
 Implement iter(self).
 
-<a id="algosdk.abi.method.MethodDict_Optional.__le__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__le__'></a>
 
-### \_\_le_\_
+### \_\_le\_\_
 
-__le__()
+**le**()
 
 Return self\<=value.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__len__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__len__'></a>
 
-### \_\_len_\_
+### \_\_len\_\_
 
-__len__()
+**len**()
 
 Return len(self).
 
-<a id="algosdk.abi.method.MethodDict_Optional.__lt__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__lt__'></a>
 
-### \_\_lt_\_
+### \_\_lt\_\_
 
-__lt__()
+**lt**()
 
 Return self\<value.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__ne__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__ne__'></a>
 
-### \_\_ne_\_
+### \_\_ne\_\_
 
-__ne__()
+**ne**()
 
 Return self!=value.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__new__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__new__'></a>
 
-### \_\_new_\_
+### \_\_new\_\_
 
-__new__()
+**new**()
 
-Create and return a new object.  See help(type) for accurate signature.
+Create and return a new object. See help(type) for accurate signature.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__or__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__or__'></a>
 
-### \_\_or_\_
+### \_\_or\_\_
 
-__or__()
+**or**()
 
 Return self|value.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__reduce__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__reduce__'></a>
 
-### \_\_reduce_\_
+### \_\_reduce\_\_
 
-__reduce__()
-
-Helper for pickle.
-
-<a id="algosdk.abi.method.MethodDict_Optional.__reduce_ex__"></a>
-
-### \_\_reduce_ex_\_
-
-__reduce_ex__()
+**reduce**()
 
 Helper for pickle.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__repr__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__reduce_ex__'></a>
 
-### \_\_repr_\_
+### \_\_reduce*ex*\_
 
-__repr__()
+**reduce_ex**()
+
+Helper for pickle.
+
+<a id='algosdk.abi.method.MethodDict_Optional.__repr__'></a>
+
+### \_\_repr\_\_
+
+**repr**()
 
 Return repr(self).
 
-<a id="algosdk.abi.method.MethodDict_Optional.__reversed__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__reversed__'></a>
 
-### \_\_reversed_\_
+### \_\_reversed\_\_
 
-__reversed__()
+**reversed**()
 
 Return a reverse iterator over the dict keys.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__ror__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__ror__'></a>
 
-### \_\_ror_\_
+### \_\_ror\_\_
 
-__ror__()
+**ror**()
 
 Return value|self.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__setattr__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__setattr__'></a>
 
-### \_\_setattr_\_
+### \_\_setattr\_\_
 
-__setattr__()
+**setattr**()
 
 Implement setattr(self, name, value).
 
-<a id="algosdk.abi.method.MethodDict_Optional.__setitem__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__setitem__'></a>
 
-### \_\_setitem_\_
+### \_\_setitem\_\_
 
-__setitem__()
+**setitem**()
 
 Set self[key] to value.
 
-<a id="algosdk.abi.method.MethodDict_Optional.__sizeof__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__sizeof__'></a>
 
-### \_\_sizeof_\_
+### \_\_sizeof\_\_
 
-__sizeof__()
+**sizeof**()
 
 D.**sizeof**() -\> size of D in memory, in bytes
 
-<a id="algosdk.abi.method.MethodDict_Optional.__str__"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.abi.method.MethodDict_Optional.clear"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.clear'></a>
 
 ### clear
 
 clear()
 
-D.clear() -\> None.  Remove all items from D.
+D.clear() -\> None. Remove all items from D.
 
-<a id="algosdk.abi.method.MethodDict_Optional.copy"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.copy'></a>
 
 ### copy
 
@@ -698,7 +698,7 @@ copy()
 
 D.copy() -\> a shallow copy of D
 
-<a id="algosdk.abi.method.MethodDict_Optional.get"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.get'></a>
 
 ### get
 
@@ -706,7 +706,7 @@ get()
 
 Return the value for key if key is in the dictionary, else default.
 
-<a id="algosdk.abi.method.MethodDict_Optional.items"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.items'></a>
 
 ### items
 
@@ -714,7 +714,7 @@ items()
 
 D.items() -\> a set-like object providing a view on D’s items
 
-<a id="algosdk.abi.method.MethodDict_Optional.keys"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.keys'></a>
 
 ### keys
 
@@ -722,7 +722,7 @@ keys()
 
 D.keys() -\> a set-like object providing a view on D’s keys
 
-<a id="algosdk.abi.method.MethodDict_Optional.pop"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.pop'></a>
 
 ### pop
 
@@ -733,7 +733,7 @@ D.pop(k[,d]) -\> v, remove specified key and return the corresponding value.
 If the key is not found, return the default if given; otherwise,
 raise a KeyError.
 
-<a id="algosdk.abi.method.MethodDict_Optional.popitem"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.popitem'></a>
 
 ### popitem
 
@@ -744,7 +744,7 @@ Remove and return a (key, value) pair as a 2-tuple.
 Pairs are returned in LIFO (last-in, first-out) order.
 Raises KeyError if the dict is empty.
 
-<a id="algosdk.abi.method.MethodDict_Optional.setdefault"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.setdefault'></a>
 
 ### setdefault
 
@@ -754,18 +754,18 @@ Insert key with a value of default if key is not in the dictionary.
 
 Return the value for key if key is in the dictionary, else default.
 
-<a id="algosdk.abi.method.MethodDict_Optional.update"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.update'></a>
 
 ### update
 
 update()
 
-D.update([E, ]\*\*F) -\> None.  Update D from mapping/iterable E and F.
-If E is present and has a .keys() method, then does:  for k in E.keys(): D[k] = E[k]
-If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
-In either case, this is followed by: for k in F:  D[k] = F[k]
+D.update([E, ]\*\*F) -\> None. Update D from mapping/iterable E and F.
+If E is present and has a .keys() method, then does: for k in E.keys(): D[k] = E[k]
+If E is present and lacks a .keys() method, then does: for k, v in E: D[k] = v
+In either case, this is followed by: for k in F: D[k] = F[k]
 
-<a id="algosdk.abi.method.MethodDict_Optional.values"></a>
+<a id='algosdk.abi.method.MethodDict_Optional.values'></a>
 
 ### values
 
@@ -773,9 +773,9 @@ values()
 
 D.values() -\> an object providing a view on D’s values
 
-<a id="algosdk.abi.method.Returns"></a>
+<a id='algosdk.abi.method.Returns'></a>
 
-## *class* algosdk.abi.method.Returns
+## _class_ algosdk.abi.method.Returns
 
 Returns(arg_type: str, desc: Optional[str] = None)
 
@@ -787,18 +787,18 @@ desc (string, optional): description of this return argument
 
 ## Initialization
 
-<a id="algosdk.abi.method.Returns.__eq__"></a>
+<a id='algosdk.abi.method.Returns.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(o: object) → bool
+**eq**(o: object) → bool
 
 Return self==value.
 
-<a id="algosdk.abi.method.Returns.__str__"></a>
+<a id='algosdk.abi.method.Returns.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__() → str
+**str**() → str
 
 Return str(self).

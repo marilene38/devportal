@@ -1,10 +1,10 @@
 ---
-title: "GlobalStateOptions"
+title: 'GlobalStateOptions'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / GlobalStateOptions
 

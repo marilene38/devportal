@@ -1,10 +1,10 @@
 ---
-title: "TransactionType"
+title: 'TransactionType'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / TransactionType
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:32](https://github.com/algoran
 
 An Application Call transaction
 
-***
+---
 
 ### AssetConfig
 
@@ -34,7 +34,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:20](https://github.com/algoran
 
 An Asset Config transaction
 
-***
+---
 
 ### AssetFreeze
 
@@ -44,7 +44,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:28](https://github.com/algoran
 
 An Asset Freeze transaction
 
-***
+---
 
 ### AssetTransfer
 
@@ -54,7 +54,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:24](https://github.com/algoran
 
 An Asset Transfer transaction
 
-***
+---
 
 ### KeyRegistration
 
@@ -64,7 +64,7 @@ Defined in: [packages/algo-ts/src/transactions.ts:16](https://github.com/algoran
 
 A Key Registration transaction
 
-***
+---
 
 ### Payment
 

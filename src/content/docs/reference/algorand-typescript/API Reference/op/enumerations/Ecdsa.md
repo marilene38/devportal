@@ -1,10 +1,10 @@
 ---
-title: "Ecdsa"
+title: 'Ecdsa'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [op](../README.md) / Ecdsa
 
@@ -22,7 +22,7 @@ Defined in: [packages/algo-ts/src/op.ts:32](https://github.com/algorandfoundatio
 
 secp256k1 curve, used in Bitcoin
 
-***
+---
 
 ### Secp256r1
 

@@ -1,10 +1,10 @@
 ---
-title: "interpretAsArc4"
+title: 'interpretAsArc4'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / interpretAsArc4
 
@@ -18,7 +18,7 @@ Interpret the provided bytes as an ARC4 encoded type with no validation
 
 ## Type Parameters
 
-• **T** *extends* [`ARC4Encoded`](../classes/ARC4Encoded.md)
+• **T** _extends_ [`ARC4Encoded`](../classes/ARC4Encoded.md)
 
 ## Parameters
 

@@ -1,10 +1,10 @@
 ---
-title: "log"
+title: 'log'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / log
 

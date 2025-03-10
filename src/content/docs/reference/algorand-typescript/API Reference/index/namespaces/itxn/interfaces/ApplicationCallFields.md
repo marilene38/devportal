@@ -1,10 +1,10 @@
 ---
-title: "ApplicationCallFields"
+title: 'ApplicationCallFields'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / ApplicationCallFields
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:157](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:168](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L168)
 
-***
+---
 
 ### appArgs?
 
@@ -32,7 +32,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:168](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:167](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L167)
 
-***
+---
 
 ### appId?
 
@@ -40,7 +40,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:167](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:158](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L158)
 
-***
+---
 
 ### approvalProgram?
 
@@ -48,7 +48,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:158](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:159](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L159)
 
-***
+---
 
 ### apps?
 
@@ -56,7 +56,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:159](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:170](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L170)
 
-***
+---
 
 ### assets?
 
@@ -64,7 +64,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:170](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:169](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L169)
 
-***
+---
 
 ### clearStateProgram?
 
@@ -72,7 +72,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:169](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:160](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L160)
 
-***
+---
 
 ### extraProgramPages?
 
@@ -80,7 +80,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:160](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:166](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L166)
 
-***
+---
 
 ### fee?
 
@@ -94,7 +94,7 @@ microalgos
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`fee`](CommonTransactionFields.md#fee)
 
-***
+---
 
 ### firstValid?
 
@@ -108,7 +108,7 @@ round number
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValid`](CommonTransactionFields.md#firstvalid)
 
-***
+---
 
 ### firstValidTime?
 
@@ -122,7 +122,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`firstValidTime`](CommonTransactionFields.md#firstvalidtime)
 
-***
+---
 
 ### globalNumBytes?
 
@@ -130,7 +130,7 @@ UNIX timestamp of block before txn.FirstValid. Fails if negative
 
 Defined in: [packages/algo-ts/src/itxn.ts:163](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L163)
 
-***
+---
 
 ### globalNumUint?
 
@@ -138,7 +138,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:163](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:162](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L162)
 
-***
+---
 
 ### lease?
 
@@ -152,7 +152,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:67](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`lease`](CommonTransactionFields.md#lease)
 
-***
+---
 
 ### localNumBytes?
 
@@ -160,7 +160,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:67](https://github.com/algorandfoundat
 
 Defined in: [packages/algo-ts/src/itxn.ts:165](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L165)
 
-***
+---
 
 ### localNumUint?
 
@@ -168,7 +168,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:165](https://github.com/algorandfounda
 
 Defined in: [packages/algo-ts/src/itxn.ts:164](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L164)
 
-***
+---
 
 ### note?
 
@@ -182,7 +182,7 @@ Any data up to 1024 bytes
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`note`](CommonTransactionFields.md#note)
 
-***
+---
 
 ### onCompletion?
 
@@ -190,7 +190,7 @@ Any data up to 1024 bytes
 
 Defined in: [packages/algo-ts/src/itxn.ts:161](https://github.com/algorandfoundation/puya-ts/blob/main/packages/algo-ts/src/itxn.ts#L161)
 
-***
+---
 
 ### rekeyTo?
 
@@ -204,7 +204,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:72](https://github.com/algorandfoundat
 
 [`CommonTransactionFields`](CommonTransactionFields.md).[`rekeyTo`](CommonTransactionFields.md#rekeyto)
 
-***
+---
 
 ### sender?
 

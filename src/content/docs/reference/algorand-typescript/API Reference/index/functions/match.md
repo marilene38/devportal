@@ -1,10 +1,10 @@
 ---
-title: "match"
+title: 'match'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [index](../README.md) / match
 

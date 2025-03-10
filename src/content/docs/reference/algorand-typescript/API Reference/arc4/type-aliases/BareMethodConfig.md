@@ -1,10 +1,10 @@
 ---
-title: "BareMethodConfig"
+title: 'BareMethodConfig'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / BareMethodConfig
 
@@ -27,7 +27,7 @@ Which on complete action(s) are allowed when invoking this method.
 #### Default
 
 ```ts
-'NoOp'
+'NoOp';
 ```
 
 ### onCreate?
@@ -39,5 +39,5 @@ Whether this method should be callable when creating the application.
 #### Default
 
 ```ts
-'disallow'
+'disallow';
 ```

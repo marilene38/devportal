@@ -1,10 +1,10 @@
 ---
-title: "ContractOptions"
+title: 'ContractOptions'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / ContractOptions
 

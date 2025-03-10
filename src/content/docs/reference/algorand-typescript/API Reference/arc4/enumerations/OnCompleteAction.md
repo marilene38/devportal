@@ -1,10 +1,10 @@
 ---
-title: "OnCompleteAction"
+title: 'OnCompleteAction'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / OnCompleteAction
 
@@ -24,7 +24,7 @@ Defined in: [packages/algo-ts/src/arc4/index.ts:53](https://github.com/algorandf
 
 Run the clear state program and forcibly close the user out of the contract
 
-***
+---
 
 ### CloseOut
 
@@ -34,7 +34,7 @@ Defined in: [packages/algo-ts/src/arc4/index.ts:49](https://github.com/algorandf
 
 Close the calling user out of the contract
 
-***
+---
 
 ### DeleteApplication
 
@@ -44,7 +44,7 @@ Defined in: [packages/algo-ts/src/arc4/index.ts:61](https://github.com/algorandf
 
 Delete the application
 
-***
+---
 
 ### NoOp
 
@@ -54,7 +54,7 @@ Defined in: [packages/algo-ts/src/arc4/index.ts:41](https://github.com/algorandf
 
 Do nothing after the transaction has completed
 
-***
+---
 
 ### OptIn
 
@@ -64,7 +64,7 @@ Defined in: [packages/algo-ts/src/arc4/index.ts:45](https://github.com/algorandf
 
 Opt the calling user into the contract
 
-***
+---
 
 ### UpdateApplication
 

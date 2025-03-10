@@ -1,10 +1,10 @@
 ---
-title: "IteratorResult"
+title: 'IteratorResult'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / IteratorResult
 
@@ -12,7 +12,7 @@ title: "IteratorResult"
 
 > **IteratorResult**\<`T`, `TReturn`\>: [`IteratorYieldResult`](../interfaces/IteratorYieldResult.md)\<`T`\> \| [`IteratorReturnResult`](../interfaces/IteratorReturnResult.md)\<`TReturn`\>
 
-Defined in: node\_modules/typescript/lib/lib.es2015.iterable.d.ts:39
+Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:39
 
 ## Type Parameters
 

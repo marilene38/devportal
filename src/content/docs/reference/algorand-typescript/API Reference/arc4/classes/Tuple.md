@@ -1,10 +1,10 @@
 ---
-title: "Tuple"
+title: 'Tuple'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / Tuple
 
@@ -20,7 +20,7 @@ An arc4 encoded tuple of values
 
 ## Type Parameters
 
-• **TTuple** *extends* \[[`ARC4Encoded`](ARC4Encoded.md), `...ARC4Encoded[]`\]
+• **TTuple** _extends_ \[[`ARC4Encoded`](ARC4Encoded.md), `...ARC4Encoded[]`\]
 
 A type representing the native tuple of item types
 
@@ -70,7 +70,7 @@ Retrieve the encoded bytes for this type
 
 [`ARC4Encoded`](ARC4Encoded.md).[`bytes`](ARC4Encoded.md#bytes)
 
-***
+---
 
 ### length
 
@@ -86,7 +86,7 @@ Returns the length of this tuple
 
 `TTuple`\[`"length"`\] & `object` & `number`
 
-***
+---
 
 ### native
 
@@ -114,7 +114,7 @@ Returns the item at the specified index
 
 #### Type Parameters
 
-• **TIndex** *extends* `string` \| `number` \| `symbol`
+• **TIndex** _extends_ `string` \| `number` \| `symbol`
 
 #### Parameters
 

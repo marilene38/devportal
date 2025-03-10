@@ -1,10 +1,10 @@
 ---
-title: "submitGroup"
+title: 'submitGroup'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../../README.md) / [index](../../../README.md) / [itxn](../README.md) / submitGroup
 
@@ -16,7 +16,7 @@ Defined in: [packages/algo-ts/src/itxn.ts:218](https://github.com/algorandfounda
 
 ## Type Parameters
 
-• **TFields** *extends* [`InnerTxnList`](../type-aliases/InnerTxnList.md)
+• **TFields** _extends_ [`InnerTxnList`](../type-aliases/InnerTxnList.md)
 
 ## Parameters
 

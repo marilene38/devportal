@@ -1,10 +1,10 @@
 ---
-title: "DefaultArguments"
+title: 'DefaultArguments'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../README.md) / [arc4](../README.md) / DefaultArgument
 
@@ -18,7 +18,7 @@ Type alias for a default argument schema
 
 ## Type Parameters
 
-• **TContract** *extends* [`Contract`](../classes/Contract.md)
+• **TContract** _extends_ [`Contract`](../classes/Contract.md)
 
 The type of the contract containing the method this default argument is for
 

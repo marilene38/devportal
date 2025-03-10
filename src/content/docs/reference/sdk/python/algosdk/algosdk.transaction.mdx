@@ -1,19 +1,19 @@
 ---
-title: "algosdk.transaction"
+title: 'algosdk.transaction'
 ---
 
-<a id="module-algosdk.transaction"></a>
+<a id='module-algosdk.transaction'></a>
 
-<a id="algosdk-transaction"></a>
+<a id='algosdk-transaction'></a>
 
-<a id="module-contents"></a>
+<a id='module-contents'></a>
 
-<a id="classes"></a>
+<a id='classes'></a>
 
 ## Classes
 
 | [`ApplicationCallTxn`](#algosdk.transaction.ApplicationCallTxn)               | Represents a transaction that interacts with the application system.                                                               |
-|-------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | [`ApplicationClearStateTxn`](#algosdk.transaction.ApplicationClearStateTxn)   | Make a transaction that will clear a user’s state for an application                                                               |
 | [`ApplicationCloseOutTxn`](#algosdk.transaction.ApplicationCloseOutTxn)       | Make a transaction that will close out a user’s state in an application                                                            |
 | [`ApplicationCreateTxn`](#algosdk.transaction.ApplicationCreateTxn)           | Make a transaction that will create an application.                                                                                |
@@ -47,25 +47,25 @@ title: "algosdk.transaction"
 | [`SuggestedParams`](#algosdk.transaction.SuggestedParams)                     | Contains various fields common to all transaction types.                                                                           |
 | [`Transaction`](#algosdk.transaction.Transaction)                             | Superclass for various transaction types.                                                                                          |
 
-<a id="functions"></a>
+<a id='functions'></a>
 
 ## Functions
 
 | [`assign_group_id`](#algosdk.transaction.assign_group_id)             | Assign group id to a given list of unsigned transactions                  |
-|-----------------------------------------------------------------------|---------------------------------------------------------------------------|
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | [`calculate_group_id`](#algosdk.transaction.calculate_group_id)       | Calculate group id for a given list of unsigned transactions              |
 | [`create_dryrun`](#algosdk.transaction.create_dryrun)                 | Create DryrunRequest object from a client and list of signed transactions |
 | [`retrieve_from_file`](#algosdk.transaction.retrieve_from_file)       | Retrieve signed or unsigned transactions from a file.                     |
 | [`wait_for_confirmation`](#algosdk.transaction.wait_for_confirmation) | Block until a pending transaction is confirmed by the network.            |
 | [`write_to_file`](#algosdk.transaction.write_to_file)                 | Write signed or unsigned transactions to a file.                          |
 
-<a id="api"></a>
+<a id='api'></a>
 
 ## API
 
-<a id="algosdk.transaction.ApplicationCallTxn"></a>
+<a id='algosdk.transaction.ApplicationCallTxn'></a>
 
-## *class* algosdk.transaction.ApplicationCallTxn
+## _class_ algosdk.transaction.ApplicationCallTxn
 
 ApplicationCallTxn(sender, sp, index, on_complete, local_schema=None, global_schema=None, approval_program=None, clear_program=None, app_args=None, accounts=None, foreign_apps=None, foreign_assets=None, note=None, lease=None, rekey_to=None, extra_pages=0, boxes=None)
 
@@ -88,7 +88,7 @@ app_args (list[bytes], optional): list of arguments to the application, each arg
 accounts (list[string], optional): list of additional accounts involved in call
 foreign_apps (list[int], optional): list of other applications (identified by index) involved in call
 foreign_assets (list[int], optional): list of assets involved in call
-extra_pages (int, optional): additional program space for supporting larger programs.  A page is 1024 bytes.
+extra_pages (int, optional): additional program space for supporting larger programs. A page is 1024 bytes.
 boxes(list[(int, bytes)], optional): list of tuples specifying app id and key for boxes the app may access
 
 Attributes:
@@ -112,41 +112,41 @@ boxes (list[(int, bytes)])
 
 ## Initialization
 
-<a id="algosdk.transaction.ApplicationCallTxn.__eq__"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.ApplicationCallTxn.__str__"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.ApplicationCallTxn.as_hash"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.ApplicationCallTxn.bytes_list"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.bytes_list'></a>
 
-### *static* bytes_list
+### _static_ bytes_list
 
 bytes_list(lst)
 
 Confirm or coerce list elements to bytes. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationCallTxn.creatable_index"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -157,7 +157,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.ApplicationCallTxn.get_txid"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.get_txid'></a>
 
 ### get_txid
 
@@ -168,15 +168,15 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.ApplicationCallTxn.int_list"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.int_list'></a>
 
-### *static* int_list
+### _static_ int_list
 
 int_list(lst)
 
 Confirm or coerce list elements to int. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationCallTxn.raw_sign"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -190,7 +190,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.ApplicationCallTxn.sign"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.sign'></a>
 
 ### sign
 
@@ -204,25 +204,25 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.ApplicationCallTxn.state_schema"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.state_schema'></a>
 
-### *static* state_schema
+### _static_ state_schema
 
 state_schema(schema)
 
 Confirm the argument is a StateSchema, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationCallTxn.teal_bytes"></a>
+<a id='algosdk.transaction.ApplicationCallTxn.teal_bytes'></a>
 
-### *static* teal_bytes
+### _static_ teal_bytes
 
 teal_bytes(teal)
 
 Confirm the argument is bytes-like, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationClearStateTxn"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn'></a>
 
-## *class* algosdk.transaction.ApplicationClearStateTxn
+## _class_ algosdk.transaction.ApplicationClearStateTxn
 
 ApplicationClearStateTxn(sender, sp, index, app_args=None, accounts=None, foreign_apps=None, foreign_assets=None, note=None, lease=None, rekey_to=None, boxes=None)
 
@@ -246,41 +246,41 @@ See ApplicationCallTxn
 
 ## Initialization
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.__eq__"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.__str__"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.as_hash"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.bytes_list"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.bytes_list'></a>
 
-### *static* bytes_list
+### _static_ bytes_list
 
 bytes_list(lst)
 
 Confirm or coerce list elements to bytes. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.creatable_index"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -291,7 +291,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.get_txid"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.get_txid'></a>
 
 ### get_txid
 
@@ -302,15 +302,15 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.int_list"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.int_list'></a>
 
-### *static* int_list
+### _static_ int_list
 
 int_list(lst)
 
 Confirm or coerce list elements to int. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.raw_sign"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -324,7 +324,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.sign"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.sign'></a>
 
 ### sign
 
@@ -338,25 +338,25 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.state_schema"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.state_schema'></a>
 
-### *static* state_schema
+### _static_ state_schema
 
 state_schema(schema)
 
 Confirm the argument is a StateSchema, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationClearStateTxn.teal_bytes"></a>
+<a id='algosdk.transaction.ApplicationClearStateTxn.teal_bytes'></a>
 
-### *static* teal_bytes
+### _static_ teal_bytes
 
 teal_bytes(teal)
 
 Confirm the argument is bytes-like, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn'></a>
 
-## *class* algosdk.transaction.ApplicationCloseOutTxn
+## _class_ algosdk.transaction.ApplicationCloseOutTxn
 
 ApplicationCloseOutTxn(sender, sp, index, app_args=None, accounts=None, foreign_apps=None, foreign_assets=None, note=None, lease=None, rekey_to=None, boxes=None)
 
@@ -380,41 +380,41 @@ See ApplicationCallTxn
 
 ## Initialization
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.__eq__"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.__str__"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.as_hash"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.bytes_list"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.bytes_list'></a>
 
-### *static* bytes_list
+### _static_ bytes_list
 
 bytes_list(lst)
 
 Confirm or coerce list elements to bytes. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.creatable_index"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -425,7 +425,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.get_txid"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.get_txid'></a>
 
 ### get_txid
 
@@ -436,15 +436,15 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.int_list"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.int_list'></a>
 
-### *static* int_list
+### _static_ int_list
 
 int_list(lst)
 
 Confirm or coerce list elements to int. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.raw_sign"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -458,7 +458,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.sign"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.sign'></a>
 
 ### sign
 
@@ -472,25 +472,25 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.state_schema"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.state_schema'></a>
 
-### *static* state_schema
+### _static_ state_schema
 
 state_schema(schema)
 
 Confirm the argument is a StateSchema, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationCloseOutTxn.teal_bytes"></a>
+<a id='algosdk.transaction.ApplicationCloseOutTxn.teal_bytes'></a>
 
-### *static* teal_bytes
+### _static_ teal_bytes
 
 teal_bytes(teal)
 
 Confirm the argument is bytes-like, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationCreateTxn"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn'></a>
 
-## *class* algosdk.transaction.ApplicationCreateTxn
+## _class_ algosdk.transaction.ApplicationCreateTxn
 
 ApplicationCreateTxn(sender, sp, on_complete, approval_program, clear_program, global_schema, local_schema, app_args=None, accounts=None, foreign_apps=None, foreign_assets=None, note=None, lease=None, rekey_to=None, extra_pages=0, boxes=None)
 
@@ -519,41 +519,41 @@ See ApplicationCallTxn
 
 ## Initialization
 
-<a id="algosdk.transaction.ApplicationCreateTxn.__eq__"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.ApplicationCreateTxn.__str__"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.ApplicationCreateTxn.as_hash"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.ApplicationCreateTxn.bytes_list"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.bytes_list'></a>
 
-### *static* bytes_list
+### _static_ bytes_list
 
 bytes_list(lst)
 
 Confirm or coerce list elements to bytes. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationCreateTxn.creatable_index"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -564,7 +564,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.ApplicationCreateTxn.get_txid"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.get_txid'></a>
 
 ### get_txid
 
@@ -575,15 +575,15 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.ApplicationCreateTxn.int_list"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.int_list'></a>
 
-### *static* int_list
+### _static_ int_list
 
 int_list(lst)
 
 Confirm or coerce list elements to int. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationCreateTxn.raw_sign"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -597,7 +597,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.ApplicationCreateTxn.sign"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.sign'></a>
 
 ### sign
 
@@ -611,25 +611,25 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.ApplicationCreateTxn.state_schema"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.state_schema'></a>
 
-### *static* state_schema
+### _static_ state_schema
 
 state_schema(schema)
 
 Confirm the argument is a StateSchema, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationCreateTxn.teal_bytes"></a>
+<a id='algosdk.transaction.ApplicationCreateTxn.teal_bytes'></a>
 
-### *static* teal_bytes
+### _static_ teal_bytes
 
 teal_bytes(teal)
 
 Confirm the argument is bytes-like, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationDeleteTxn"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn'></a>
 
-## *class* algosdk.transaction.ApplicationDeleteTxn
+## _class_ algosdk.transaction.ApplicationDeleteTxn
 
 ApplicationDeleteTxn(sender, sp, index, app_args=None, accounts=None, foreign_apps=None, foreign_assets=None, note=None, lease=None, rekey_to=None, boxes=None)
 
@@ -653,41 +653,41 @@ See ApplicationCallTxn
 
 ## Initialization
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.__eq__"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.__str__"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.as_hash"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.bytes_list"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.bytes_list'></a>
 
-### *static* bytes_list
+### _static_ bytes_list
 
 bytes_list(lst)
 
 Confirm or coerce list elements to bytes. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.creatable_index"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -698,7 +698,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.get_txid"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.get_txid'></a>
 
 ### get_txid
 
@@ -709,15 +709,15 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.int_list"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.int_list'></a>
 
-### *static* int_list
+### _static_ int_list
 
 int_list(lst)
 
 Confirm or coerce list elements to int. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.raw_sign"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -731,7 +731,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.sign"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.sign'></a>
 
 ### sign
 
@@ -745,25 +745,25 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.state_schema"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.state_schema'></a>
 
-### *static* state_schema
+### _static_ state_schema
 
 state_schema(schema)
 
 Confirm the argument is a StateSchema, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationDeleteTxn.teal_bytes"></a>
+<a id='algosdk.transaction.ApplicationDeleteTxn.teal_bytes'></a>
 
-### *static* teal_bytes
+### _static_ teal_bytes
 
 teal_bytes(teal)
 
 Confirm the argument is bytes-like, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationNoOpTxn"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn'></a>
 
-## *class* algosdk.transaction.ApplicationNoOpTxn
+## _class_ algosdk.transaction.ApplicationNoOpTxn
 
 ApplicationNoOpTxn(sender, sp, index, app_args=None, accounts=None, foreign_apps=None, foreign_assets=None, note=None, lease=None, rekey_to=None, boxes=None)
 
@@ -788,41 +788,41 @@ See ApplicationCallTxn
 
 ## Initialization
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.__eq__"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.__str__"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.as_hash"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.bytes_list"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.bytes_list'></a>
 
-### *static* bytes_list
+### _static_ bytes_list
 
 bytes_list(lst)
 
 Confirm or coerce list elements to bytes. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.creatable_index"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -833,7 +833,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.get_txid"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.get_txid'></a>
 
 ### get_txid
 
@@ -844,15 +844,15 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.int_list"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.int_list'></a>
 
-### *static* int_list
+### _static_ int_list
 
 int_list(lst)
 
 Confirm or coerce list elements to int. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.raw_sign"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -866,7 +866,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.sign"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.sign'></a>
 
 ### sign
 
@@ -880,25 +880,25 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.state_schema"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.state_schema'></a>
 
-### *static* state_schema
+### _static_ state_schema
 
 state_schema(schema)
 
 Confirm the argument is a StateSchema, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationNoOpTxn.teal_bytes"></a>
+<a id='algosdk.transaction.ApplicationNoOpTxn.teal_bytes'></a>
 
-### *static* teal_bytes
+### _static_ teal_bytes
 
 teal_bytes(teal)
 
 Confirm the argument is bytes-like, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationOptInTxn"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn'></a>
 
-## *class* algosdk.transaction.ApplicationOptInTxn
+## _class_ algosdk.transaction.ApplicationOptInTxn
 
 ApplicationOptInTxn(sender, sp, index, app_args=None, accounts=None, foreign_apps=None, foreign_assets=None, note=None, lease=None, rekey_to=None, boxes=None)
 
@@ -922,41 +922,41 @@ See ApplicationCallTxn
 
 ## Initialization
 
-<a id="algosdk.transaction.ApplicationOptInTxn.__eq__"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.ApplicationOptInTxn.__str__"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.ApplicationOptInTxn.as_hash"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.ApplicationOptInTxn.bytes_list"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.bytes_list'></a>
 
-### *static* bytes_list
+### _static_ bytes_list
 
 bytes_list(lst)
 
 Confirm or coerce list elements to bytes. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationOptInTxn.creatable_index"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -967,7 +967,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.ApplicationOptInTxn.get_txid"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.get_txid'></a>
 
 ### get_txid
 
@@ -978,15 +978,15 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.ApplicationOptInTxn.int_list"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.int_list'></a>
 
-### *static* int_list
+### _static_ int_list
 
 int_list(lst)
 
 Confirm or coerce list elements to int. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationOptInTxn.raw_sign"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -1000,7 +1000,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.ApplicationOptInTxn.sign"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.sign'></a>
 
 ### sign
 
@@ -1014,25 +1014,25 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.ApplicationOptInTxn.state_schema"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.state_schema'></a>
 
-### *static* state_schema
+### _static_ state_schema
 
 state_schema(schema)
 
 Confirm the argument is a StateSchema, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationOptInTxn.teal_bytes"></a>
+<a id='algosdk.transaction.ApplicationOptInTxn.teal_bytes'></a>
 
-### *static* teal_bytes
+### _static_ teal_bytes
 
 teal_bytes(teal)
 
 Confirm the argument is bytes-like, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationUpdateTxn"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn'></a>
 
-## *class* algosdk.transaction.ApplicationUpdateTxn
+## _class_ algosdk.transaction.ApplicationUpdateTxn
 
 ApplicationUpdateTxn(sender, sp, index, approval_program, clear_program, app_args=None, accounts=None, foreign_apps=None, foreign_assets=None, note=None, lease=None, rekey_to=None, boxes=None)
 
@@ -1058,41 +1058,41 @@ See ApplicationCallTxn
 
 ## Initialization
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.__eq__"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.__str__"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.as_hash"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.bytes_list"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.bytes_list'></a>
 
-### *static* bytes_list
+### _static_ bytes_list
 
 bytes_list(lst)
 
 Confirm or coerce list elements to bytes. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.creatable_index"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -1103,7 +1103,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.get_txid"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.get_txid'></a>
 
 ### get_txid
 
@@ -1114,15 +1114,15 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.int_list"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.int_list'></a>
 
-### *static* int_list
+### _static_ int_list
 
 int_list(lst)
 
 Confirm or coerce list elements to int. Return None for empty/false lst.
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.raw_sign"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -1136,7 +1136,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.sign"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.sign'></a>
 
 ### sign
 
@@ -1150,25 +1150,25 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.state_schema"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.state_schema'></a>
 
-### *static* state_schema
+### _static_ state_schema
 
 state_schema(schema)
 
 Confirm the argument is a StateSchema, or false which is coerced to None
 
-<a id="algosdk.transaction.ApplicationUpdateTxn.teal_bytes"></a>
+<a id='algosdk.transaction.ApplicationUpdateTxn.teal_bytes'></a>
 
-### *static* teal_bytes
+### _static_ teal_bytes
 
 teal_bytes(teal)
 
 Confirm the argument is bytes-like, or false which is coerced to None
 
-<a id="algosdk.transaction.AssetCloseOutTxn"></a>
+<a id='algosdk.transaction.AssetCloseOutTxn'></a>
 
-## *class* algosdk.transaction.AssetCloseOutTxn
+## _class_ algosdk.transaction.AssetCloseOutTxn
 
 AssetCloseOutTxn(sender, sp, receiver, index, note=None, lease=None, rekey_to=None)
 
@@ -1188,33 +1188,33 @@ See AssetTransferTxn
 
 ## Initialization
 
-<a id="algosdk.transaction.AssetCloseOutTxn.__eq__"></a>
+<a id='algosdk.transaction.AssetCloseOutTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.AssetCloseOutTxn.__str__"></a>
+<a id='algosdk.transaction.AssetCloseOutTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.AssetCloseOutTxn.as_hash"></a>
+<a id='algosdk.transaction.AssetCloseOutTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.AssetCloseOutTxn.creatable_index"></a>
+<a id='algosdk.transaction.AssetCloseOutTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -1225,7 +1225,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.AssetCloseOutTxn.get_txid"></a>
+<a id='algosdk.transaction.AssetCloseOutTxn.get_txid'></a>
 
 ### get_txid
 
@@ -1236,7 +1236,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.AssetCloseOutTxn.raw_sign"></a>
+<a id='algosdk.transaction.AssetCloseOutTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -1250,7 +1250,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.AssetCloseOutTxn.sign"></a>
+<a id='algosdk.transaction.AssetCloseOutTxn.sign'></a>
 
 ### sign
 
@@ -1264,9 +1264,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.AssetConfigTxn"></a>
+<a id='algosdk.transaction.AssetConfigTxn'></a>
 
-## *class* algosdk.transaction.AssetConfigTxn
+## _class_ algosdk.transaction.AssetConfigTxn
 
 AssetConfigTxn(sender, sp, index=None, total=None, default_frozen=None, unit_name=None, asset_name=None, manager=None, reserve=None, freeze=None, clawback=None, url=None, metadata_hash=None, note=None, lease=None, strict_empty_address_check=True, decimals=0, rekey_to=None)
 
@@ -1347,33 +1347,33 @@ rekey (str)
 
 ## Initialization
 
-<a id="algosdk.transaction.AssetConfigTxn.__eq__"></a>
+<a id='algosdk.transaction.AssetConfigTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.AssetConfigTxn.__str__"></a>
+<a id='algosdk.transaction.AssetConfigTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.AssetConfigTxn.as_hash"></a>
+<a id='algosdk.transaction.AssetConfigTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.AssetConfigTxn.creatable_index"></a>
+<a id='algosdk.transaction.AssetConfigTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -1384,7 +1384,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.AssetConfigTxn.get_txid"></a>
+<a id='algosdk.transaction.AssetConfigTxn.get_txid'></a>
 
 ### get_txid
 
@@ -1395,7 +1395,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.AssetConfigTxn.raw_sign"></a>
+<a id='algosdk.transaction.AssetConfigTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -1409,7 +1409,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.AssetConfigTxn.sign"></a>
+<a id='algosdk.transaction.AssetConfigTxn.sign'></a>
 
 ### sign
 
@@ -1423,9 +1423,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.AssetCreateTxn"></a>
+<a id='algosdk.transaction.AssetCreateTxn'></a>
 
-## *class* algosdk.transaction.AssetCreateTxn
+## _class_ algosdk.transaction.AssetCreateTxn
 
 AssetCreateTxn(sender, sp, total, decimals, default_frozen, \*, manager=None, reserve=None, freeze=None, clawback=None, unit_name='', asset_name='', url='', metadata_hash=None, note=None, lease=None, rekey_to=None)
 
@@ -1468,33 +1468,33 @@ rekey_to (str, optional): additionally rekey the sender to this address
 
 ## Initialization
 
-<a id="algosdk.transaction.AssetCreateTxn.__eq__"></a>
+<a id='algosdk.transaction.AssetCreateTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.AssetCreateTxn.__str__"></a>
+<a id='algosdk.transaction.AssetCreateTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.AssetCreateTxn.as_hash"></a>
+<a id='algosdk.transaction.AssetCreateTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.AssetCreateTxn.creatable_index"></a>
+<a id='algosdk.transaction.AssetCreateTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -1505,7 +1505,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.AssetCreateTxn.get_txid"></a>
+<a id='algosdk.transaction.AssetCreateTxn.get_txid'></a>
 
 ### get_txid
 
@@ -1516,7 +1516,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.AssetCreateTxn.raw_sign"></a>
+<a id='algosdk.transaction.AssetCreateTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -1530,7 +1530,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.AssetCreateTxn.sign"></a>
+<a id='algosdk.transaction.AssetCreateTxn.sign'></a>
 
 ### sign
 
@@ -1544,9 +1544,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.AssetDestroyTxn"></a>
+<a id='algosdk.transaction.AssetDestroyTxn'></a>
 
-## *class* algosdk.transaction.AssetDestroyTxn
+## _class_ algosdk.transaction.AssetDestroyTxn
 
 AssetDestroyTxn(sender, sp, index, note=None, lease=None, rekey_to=None)
 
@@ -1558,33 +1558,33 @@ asset.
 
 ## Initialization
 
-<a id="algosdk.transaction.AssetDestroyTxn.__eq__"></a>
+<a id='algosdk.transaction.AssetDestroyTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.AssetDestroyTxn.__str__"></a>
+<a id='algosdk.transaction.AssetDestroyTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.AssetDestroyTxn.as_hash"></a>
+<a id='algosdk.transaction.AssetDestroyTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.AssetDestroyTxn.creatable_index"></a>
+<a id='algosdk.transaction.AssetDestroyTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -1595,7 +1595,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.AssetDestroyTxn.get_txid"></a>
+<a id='algosdk.transaction.AssetDestroyTxn.get_txid'></a>
 
 ### get_txid
 
@@ -1606,7 +1606,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.AssetDestroyTxn.raw_sign"></a>
+<a id='algosdk.transaction.AssetDestroyTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -1620,7 +1620,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.AssetDestroyTxn.sign"></a>
+<a id='algosdk.transaction.AssetDestroyTxn.sign'></a>
 
 ### sign
 
@@ -1634,9 +1634,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.AssetFreezeTxn"></a>
+<a id='algosdk.transaction.AssetFreezeTxn'></a>
 
-## *class* algosdk.transaction.AssetFreezeTxn
+## _class_ algosdk.transaction.AssetFreezeTxn
 
 AssetFreezeTxn(sender, sp, index, target, new_freeze_state, note=None, lease=None, rekey_to=None)
 
@@ -1674,33 +1674,33 @@ rekey_to (str)
 
 ## Initialization
 
-<a id="algosdk.transaction.AssetFreezeTxn.__eq__"></a>
+<a id='algosdk.transaction.AssetFreezeTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.AssetFreezeTxn.__str__"></a>
+<a id='algosdk.transaction.AssetFreezeTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.AssetFreezeTxn.as_hash"></a>
+<a id='algosdk.transaction.AssetFreezeTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.AssetFreezeTxn.creatable_index"></a>
+<a id='algosdk.transaction.AssetFreezeTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -1711,7 +1711,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.AssetFreezeTxn.get_txid"></a>
+<a id='algosdk.transaction.AssetFreezeTxn.get_txid'></a>
 
 ### get_txid
 
@@ -1722,7 +1722,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.AssetFreezeTxn.raw_sign"></a>
+<a id='algosdk.transaction.AssetFreezeTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -1736,7 +1736,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.AssetFreezeTxn.sign"></a>
+<a id='algosdk.transaction.AssetFreezeTxn.sign'></a>
 
 ### sign
 
@@ -1750,9 +1750,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.AssetOptInTxn"></a>
+<a id='algosdk.transaction.AssetOptInTxn'></a>
 
-## *class* algosdk.transaction.AssetOptInTxn
+## _class_ algosdk.transaction.AssetOptInTxn
 
 AssetOptInTxn(sender, sp, index, note=None, lease=None, rekey_to=None)
 
@@ -1771,33 +1771,33 @@ See AssetTransferTxn
 
 ## Initialization
 
-<a id="algosdk.transaction.AssetOptInTxn.__eq__"></a>
+<a id='algosdk.transaction.AssetOptInTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.AssetOptInTxn.__str__"></a>
+<a id='algosdk.transaction.AssetOptInTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.AssetOptInTxn.as_hash"></a>
+<a id='algosdk.transaction.AssetOptInTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.AssetOptInTxn.creatable_index"></a>
+<a id='algosdk.transaction.AssetOptInTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -1808,7 +1808,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.AssetOptInTxn.get_txid"></a>
+<a id='algosdk.transaction.AssetOptInTxn.get_txid'></a>
 
 ### get_txid
 
@@ -1819,7 +1819,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.AssetOptInTxn.raw_sign"></a>
+<a id='algosdk.transaction.AssetOptInTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -1833,7 +1833,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.AssetOptInTxn.sign"></a>
+<a id='algosdk.transaction.AssetOptInTxn.sign'></a>
 
 ### sign
 
@@ -1847,9 +1847,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.AssetTransferTxn"></a>
+<a id='algosdk.transaction.AssetTransferTxn'></a>
 
-## *class* algosdk.transaction.AssetTransferTxn
+## _class_ algosdk.transaction.AssetTransferTxn
 
 AssetTransferTxn(sender, sp, receiver, amt, index, close_assets_to=None, revocation_target=None, note=None, lease=None, rekey_to=None)
 
@@ -1897,33 +1897,33 @@ rekey_to (str)
 
 ## Initialization
 
-<a id="algosdk.transaction.AssetTransferTxn.__eq__"></a>
+<a id='algosdk.transaction.AssetTransferTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.AssetTransferTxn.__str__"></a>
+<a id='algosdk.transaction.AssetTransferTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.AssetTransferTxn.as_hash"></a>
+<a id='algosdk.transaction.AssetTransferTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.AssetTransferTxn.creatable_index"></a>
+<a id='algosdk.transaction.AssetTransferTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -1934,7 +1934,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.AssetTransferTxn.get_txid"></a>
+<a id='algosdk.transaction.AssetTransferTxn.get_txid'></a>
 
 ### get_txid
 
@@ -1945,7 +1945,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.AssetTransferTxn.raw_sign"></a>
+<a id='algosdk.transaction.AssetTransferTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -1959,7 +1959,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.AssetTransferTxn.sign"></a>
+<a id='algosdk.transaction.AssetTransferTxn.sign'></a>
 
 ### sign
 
@@ -1973,9 +1973,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.AssetUpdateTxn"></a>
+<a id='algosdk.transaction.AssetUpdateTxn'></a>
 
-## *class* algosdk.transaction.AssetUpdateTxn
+## _class_ algosdk.transaction.AssetUpdateTxn
 
 AssetUpdateTxn(sender, sp, index, \*, manager, reserve, freeze, clawback, note=None, lease=None, rekey_to=None)
 
@@ -2009,33 +2009,33 @@ rekey_to (str, optional): additionally rekey the sender to this address
 
 ## Initialization
 
-<a id="algosdk.transaction.AssetUpdateTxn.__eq__"></a>
+<a id='algosdk.transaction.AssetUpdateTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.AssetUpdateTxn.__str__"></a>
+<a id='algosdk.transaction.AssetUpdateTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.AssetUpdateTxn.as_hash"></a>
+<a id='algosdk.transaction.AssetUpdateTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.AssetUpdateTxn.creatable_index"></a>
+<a id='algosdk.transaction.AssetUpdateTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -2046,7 +2046,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.AssetUpdateTxn.get_txid"></a>
+<a id='algosdk.transaction.AssetUpdateTxn.get_txid'></a>
 
 ### get_txid
 
@@ -2057,7 +2057,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.AssetUpdateTxn.raw_sign"></a>
+<a id='algosdk.transaction.AssetUpdateTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -2071,7 +2071,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.AssetUpdateTxn.sign"></a>
+<a id='algosdk.transaction.AssetUpdateTxn.sign'></a>
 
 ### sign
 
@@ -2085,9 +2085,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.KeyregNonparticipatingTxn"></a>
+<a id='algosdk.transaction.KeyregNonparticipatingTxn'></a>
 
-## *class* algosdk.transaction.KeyregNonparticipatingTxn
+## _class_ algosdk.transaction.KeyregNonparticipatingTxn
 
 KeyregNonparticipatingTxn(sender, sp, note=None, lease=None, rekey_to=None)
 
@@ -2118,33 +2118,33 @@ rekey_to (str)
 
 ## Initialization
 
-<a id="algosdk.transaction.KeyregNonparticipatingTxn.__eq__"></a>
+<a id='algosdk.transaction.KeyregNonparticipatingTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.KeyregNonparticipatingTxn.__str__"></a>
+<a id='algosdk.transaction.KeyregNonparticipatingTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.KeyregNonparticipatingTxn.as_hash"></a>
+<a id='algosdk.transaction.KeyregNonparticipatingTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.KeyregNonparticipatingTxn.creatable_index"></a>
+<a id='algosdk.transaction.KeyregNonparticipatingTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -2155,7 +2155,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.KeyregNonparticipatingTxn.get_txid"></a>
+<a id='algosdk.transaction.KeyregNonparticipatingTxn.get_txid'></a>
 
 ### get_txid
 
@@ -2166,7 +2166,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.KeyregNonparticipatingTxn.raw_sign"></a>
+<a id='algosdk.transaction.KeyregNonparticipatingTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -2180,7 +2180,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.KeyregNonparticipatingTxn.sign"></a>
+<a id='algosdk.transaction.KeyregNonparticipatingTxn.sign'></a>
 
 ### sign
 
@@ -2194,9 +2194,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.KeyregOfflineTxn"></a>
+<a id='algosdk.transaction.KeyregOfflineTxn'></a>
 
-## *class* algosdk.transaction.KeyregOfflineTxn
+## _class_ algosdk.transaction.KeyregOfflineTxn
 
 KeyregOfflineTxn(sender, sp, note=None, lease=None, rekey_to=None)
 
@@ -2227,33 +2227,33 @@ rekey_to (str)
 
 ## Initialization
 
-<a id="algosdk.transaction.KeyregOfflineTxn.__eq__"></a>
+<a id='algosdk.transaction.KeyregOfflineTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.KeyregOfflineTxn.__str__"></a>
+<a id='algosdk.transaction.KeyregOfflineTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.KeyregOfflineTxn.as_hash"></a>
+<a id='algosdk.transaction.KeyregOfflineTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.KeyregOfflineTxn.creatable_index"></a>
+<a id='algosdk.transaction.KeyregOfflineTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -2264,7 +2264,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.KeyregOfflineTxn.get_txid"></a>
+<a id='algosdk.transaction.KeyregOfflineTxn.get_txid'></a>
 
 ### get_txid
 
@@ -2275,7 +2275,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.KeyregOfflineTxn.raw_sign"></a>
+<a id='algosdk.transaction.KeyregOfflineTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -2289,7 +2289,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.KeyregOfflineTxn.sign"></a>
+<a id='algosdk.transaction.KeyregOfflineTxn.sign'></a>
 
 ### sign
 
@@ -2303,9 +2303,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.KeyregOnlineTxn"></a>
+<a id='algosdk.transaction.KeyregOnlineTxn'></a>
 
-## *class* algosdk.transaction.KeyregOnlineTxn
+## _class_ algosdk.transaction.KeyregOnlineTxn
 
 KeyregOnlineTxn(sender, sp, votekey, selkey, votefst, votelst, votekd, note=None, lease=None, rekey_to=None, sprfkey=None)
 
@@ -2348,33 +2348,33 @@ sprfkey (str)
 
 ## Initialization
 
-<a id="algosdk.transaction.KeyregOnlineTxn.__eq__"></a>
+<a id='algosdk.transaction.KeyregOnlineTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.KeyregOnlineTxn.__str__"></a>
+<a id='algosdk.transaction.KeyregOnlineTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.KeyregOnlineTxn.as_hash"></a>
+<a id='algosdk.transaction.KeyregOnlineTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.KeyregOnlineTxn.creatable_index"></a>
+<a id='algosdk.transaction.KeyregOnlineTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -2385,7 +2385,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.KeyregOnlineTxn.get_txid"></a>
+<a id='algosdk.transaction.KeyregOnlineTxn.get_txid'></a>
 
 ### get_txid
 
@@ -2396,7 +2396,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.KeyregOnlineTxn.raw_sign"></a>
+<a id='algosdk.transaction.KeyregOnlineTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -2410,7 +2410,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.KeyregOnlineTxn.sign"></a>
+<a id='algosdk.transaction.KeyregOnlineTxn.sign'></a>
 
 ### sign
 
@@ -2424,9 +2424,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.KeyregTxn"></a>
+<a id='algosdk.transaction.KeyregTxn'></a>
 
-## *class* algosdk.transaction.KeyregTxn
+## _class_ algosdk.transaction.KeyregTxn
 
 KeyregTxn(sender, sp, votekey, selkey, votefst, votelst, votekd, note=None, lease=None, rekey_to=None, nonpart=None, sprfkey=None)
 
@@ -2470,33 +2470,33 @@ sprfkey (str)
 
 ## Initialization
 
-<a id="algosdk.transaction.KeyregTxn.__eq__"></a>
+<a id='algosdk.transaction.KeyregTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.KeyregTxn.__str__"></a>
+<a id='algosdk.transaction.KeyregTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.KeyregTxn.as_hash"></a>
+<a id='algosdk.transaction.KeyregTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.KeyregTxn.creatable_index"></a>
+<a id='algosdk.transaction.KeyregTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -2507,7 +2507,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.KeyregTxn.get_txid"></a>
+<a id='algosdk.transaction.KeyregTxn.get_txid'></a>
 
 ### get_txid
 
@@ -2518,7 +2518,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.KeyregTxn.raw_sign"></a>
+<a id='algosdk.transaction.KeyregTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -2532,7 +2532,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.KeyregTxn.sign"></a>
+<a id='algosdk.transaction.KeyregTxn.sign'></a>
 
 ### sign
 
@@ -2546,15 +2546,15 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.LogicSig"></a>
+<a id='algosdk.transaction.LogicSig'></a>
 
-## *class* algosdk.transaction.LogicSig
+## _class_ algosdk.transaction.LogicSig
 
 LogicSig(program, args=None)
 
 Represents a logic signature
 
-NOTE: LogicSig cannot sign transactions in all cases.  Instead, use LogicSigAccount as a safe, general purpose signing mechanism.  Since LogicSig does not track the provided signature’s public key, LogicSig cannot sign transactions when delegated to a non-multisig account *and* the sender is not the delegating account.
+NOTE: LogicSig cannot sign transactions in all cases. Instead, use LogicSigAccount as a safe, general purpose signing mechanism. Since LogicSig does not track the provided signature’s public key, LogicSig cannot sign transactions when delegated to a non-multisig account _and_ the sender is not the delegating account.
 
 Arguments:
 logic (bytes): compiled program
@@ -2568,15 +2568,15 @@ args (list[bytes])
 
 ## Initialization
 
-<a id="algosdk.transaction.LogicSig.__eq__"></a>
+<a id='algosdk.transaction.LogicSig.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.LogicSig.address"></a>
+<a id='algosdk.transaction.LogicSig.address'></a>
 
 ### address
 
@@ -2588,7 +2588,7 @@ account address) as string address
 Returns:
 str: program address
 
-<a id="algosdk.transaction.LogicSig.append_to_multisig"></a>
+<a id='algosdk.transaction.LogicSig.append_to_multisig'></a>
 
 ### append_to_multisig
 
@@ -2600,9 +2600,9 @@ Args:
 private_key (str): private key of signing account
 
 Raises:
-InvalidSecretKeyError: if no matching private key in multisig                object
+InvalidSecretKeyError: if no matching private key in multisig object
 
-<a id="algosdk.transaction.LogicSig.sign"></a>
+<a id='algosdk.transaction.LogicSig.sign'></a>
 
 ### sign
 
@@ -2616,11 +2616,11 @@ multisig (Multisig): optional multisig account without signatures
 to sign with
 
 Raises:
-InvalidSecretKeyError: if no matching private key in multisig                object
+InvalidSecretKeyError: if no matching private key in multisig object
 LogicSigOverspecifiedSignature: if the opposite signature type has
 already been provided
 
-<a id="algosdk.transaction.LogicSig.verify"></a>
+<a id='algosdk.transaction.LogicSig.verify'></a>
 
 ### verify
 
@@ -2632,11 +2632,11 @@ Args:
 public_key (bytes): sender address
 
 Returns:
-bool: true if the signature is valid (the sender address matches                the logic hash or the signature is valid against the sender                address), false otherwise
+bool: true if the signature is valid (the sender address matches the logic hash or the signature is valid against the sender address), false otherwise
 
-<a id="algosdk.transaction.LogicSigAccount"></a>
+<a id='algosdk.transaction.LogicSigAccount'></a>
 
-## *class* algosdk.transaction.LogicSigAccount
+## _class_ algosdk.transaction.LogicSigAccount
 
 LogicSigAccount(program: bytes, args: Optional[List[bytes]] = None)
 
@@ -2654,15 +2654,15 @@ for this LogicSig.
 args (List[bytes], optional): An optional array of arguments for the
 program.
 
-<a id="algosdk.transaction.LogicSigAccount.__eq__"></a>
+<a id='algosdk.transaction.LogicSigAccount.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other) → bool
+**eq**(other) → bool
 
 Return self==value.
 
-<a id="algosdk.transaction.LogicSigAccount.address"></a>
+<a id='algosdk.transaction.LogicSigAccount.address'></a>
 
 ### address
 
@@ -2676,7 +2676,7 @@ address of that account.
 If the LogicSig is not delegated to another account, this will return an
 escrow address that is the hash of the LogicSig’s program code.
 
-<a id="algosdk.transaction.LogicSigAccount.append_to_multisig"></a>
+<a id='algosdk.transaction.LogicSigAccount.append_to_multisig'></a>
 
 ### append_to_multisig
 
@@ -2693,7 +2693,7 @@ Raises:
 InvalidSecretKeyError: if no matching private key in multisig
 object
 
-<a id="algosdk.transaction.LogicSigAccount.is_delegated"></a>
+<a id='algosdk.transaction.LogicSigAccount.is_delegated'></a>
 
 ### is_delegated
 
@@ -2705,7 +2705,7 @@ a signature.
 Returns:
 bool: True if and only if this is a delegated LogicSigAccount.
 
-<a id="algosdk.transaction.LogicSigAccount.sign"></a>
+<a id='algosdk.transaction.LogicSigAccount.sign'></a>
 
 ### sign
 
@@ -2724,7 +2724,7 @@ Raises:
 LogicSigOverspecifiedSignature: if this LogicSigAccount has already
 been signed by a multisig account.
 
-<a id="algosdk.transaction.LogicSigAccount.sign_multisig"></a>
+<a id='algosdk.transaction.LogicSigAccount.sign_multisig'></a>
 
 ### sign_multisig
 
@@ -2748,7 +2748,7 @@ object
 LogicSigOverspecifiedSignature: if this LogicSigAccount has already
 been signed with a single private key.
 
-<a id="algosdk.transaction.LogicSigAccount.verify"></a>
+<a id='algosdk.transaction.LogicSigAccount.verify'></a>
 
 ### verify
 
@@ -2760,9 +2760,9 @@ Returns:
 bool: True if and only if the LogicSig program and signatures are
 valid.
 
-<a id="algosdk.transaction.LogicSigTransaction"></a>
+<a id='algosdk.transaction.LogicSigTransaction'></a>
 
-## *class* algosdk.transaction.LogicSigTransaction
+## _class_ algosdk.transaction.LogicSigTransaction
 
 LogicSigTransaction(transaction: [algosdk.transaction.Transaction](#algosdk.transaction.Transaction), lsig: Union[[algosdk.transaction.LogicSig](#algosdk.transaction.LogicSig), [algosdk.transaction.LogicSigAccount](#algosdk.transaction.LogicSigAccount)])
 
@@ -2779,15 +2779,15 @@ auth_addr (str, optional)
 
 ## Initialization
 
-<a id="algosdk.transaction.LogicSigTransaction.__eq__"></a>
+<a id='algosdk.transaction.LogicSigTransaction.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.LogicSigTransaction.get_txid"></a>
+<a id='algosdk.transaction.LogicSigTransaction.get_txid'></a>
 
 ### get_txid
 
@@ -2798,7 +2798,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.LogicSigTransaction.verify"></a>
+<a id='algosdk.transaction.LogicSigTransaction.verify'></a>
 
 ### verify
 
@@ -2809,9 +2809,9 @@ Verify the LogicSig used to sign the transaction
 Returns:
 bool: true if the signature is valid, false otherwise
 
-<a id="algosdk.transaction.Multisig"></a>
+<a id='algosdk.transaction.Multisig'></a>
 
-## *class* algosdk.transaction.Multisig
+## _class_ algosdk.transaction.Multisig
 
 Multisig(version, threshold, addresses)
 
@@ -2829,15 +2829,15 @@ subsigs (MultisigSubsig[])
 
 ## Initialization
 
-<a id="algosdk.transaction.Multisig.__eq__"></a>
+<a id='algosdk.transaction.Multisig.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.Multisig.address"></a>
+<a id='algosdk.transaction.Multisig.address'></a>
 
 ### address
 
@@ -2845,7 +2845,7 @@ address()
 
 Return the multisig account address.
 
-<a id="algosdk.transaction.Multisig.get_multisig_account"></a>
+<a id='algosdk.transaction.Multisig.get_multisig_account'></a>
 
 ### get_multisig_account
 
@@ -2853,7 +2853,7 @@ get_multisig_account()
 
 Return a Multisig object without signatures.
 
-<a id="algosdk.transaction.Multisig.get_public_keys"></a>
+<a id='algosdk.transaction.Multisig.get_public_keys'></a>
 
 ### get_public_keys
 
@@ -2861,7 +2861,7 @@ get_public_keys()
 
 Return the base32 encoded addresses for the multisig account.
 
-<a id="algosdk.transaction.Multisig.validate"></a>
+<a id='algosdk.transaction.Multisig.validate'></a>
 
 ### validate
 
@@ -2869,7 +2869,7 @@ validate()
 
 Check if the multisig account is valid.
 
-<a id="algosdk.transaction.Multisig.verify"></a>
+<a id='algosdk.transaction.Multisig.verify'></a>
 
 ### verify
 
@@ -2877,9 +2877,9 @@ verify(message)
 
 Verify that the multisig is valid for the message.
 
-<a id="algosdk.transaction.MultisigSubsig"></a>
+<a id='algosdk.transaction.MultisigSubsig'></a>
 
-## *class* algosdk.transaction.MultisigSubsig
+## _class_ algosdk.transaction.MultisigSubsig
 
 MultisigSubsig(public_key, signature=None)
 
@@ -2889,17 +2889,17 @@ signature (bytes)
 
 ## Initialization
 
-<a id="algosdk.transaction.MultisigSubsig.__eq__"></a>
+<a id='algosdk.transaction.MultisigSubsig.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.MultisigTransaction"></a>
+<a id='algosdk.transaction.MultisigTransaction'></a>
 
-## *class* algosdk.transaction.MultisigTransaction
+## _class_ algosdk.transaction.MultisigTransaction
 
 MultisigTransaction(transaction: [algosdk.transaction.Transaction](#algosdk.transaction.Transaction), multisig: [algosdk.transaction.Multisig](#algosdk.transaction.Multisig))
 
@@ -2916,15 +2916,15 @@ auth_addr (str, optional)
 
 ## Initialization
 
-<a id="algosdk.transaction.MultisigTransaction.__eq__"></a>
+<a id='algosdk.transaction.MultisigTransaction.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.MultisigTransaction.get_txid"></a>
+<a id='algosdk.transaction.MultisigTransaction.get_txid'></a>
 
 ### get_txid
 
@@ -2935,9 +2935,9 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.MultisigTransaction.merge"></a>
+<a id='algosdk.transaction.MultisigTransaction.merge'></a>
 
-### *static* merge
+### _static_ merge
 
 merge(part_stxs: List[[algosdk.transaction.MultisigTransaction](#algosdk.transaction.MultisigTransaction)]) → Optional[[algosdk.transaction.MultisigTransaction](#algosdk.transaction.MultisigTransaction)]
 
@@ -2955,7 +2955,7 @@ Only use this if you are given two partially signed multisig
 transactions. To append a signature to a multisig transaction, just
 use MultisigTransaction.sign()
 
-<a id="algosdk.transaction.MultisigTransaction.sign"></a>
+<a id='algosdk.transaction.MultisigTransaction.sign'></a>
 
 ### sign
 
@@ -2973,9 +2973,9 @@ either overwrite the signatures in the current Multisig, or you
 can use Multisig.get_multisig_account() to get a new multisig
 object with the same addresses.
 
-<a id="algosdk.transaction.OnComplete"></a>
+<a id='algosdk.transaction.OnComplete'></a>
 
-## *class* algosdk.transaction.OnComplete
+## _class_ algosdk.transaction.OnComplete
 
 OnComplete
 
@@ -2983,467 +2983,467 @@ Enum where members are also (and must be) ints
 
 ## Initialization
 
-Initialize self.  See help(type(self)) for accurate signature.
+Initialize self. See help(type(self)) for accurate signature.
 
-<a id="algosdk.transaction.OnComplete.__abs__"></a>
+<a id='algosdk.transaction.OnComplete.__abs__'></a>
 
-### \_\_abs_\_
+### \_\_abs\_\_
 
-__abs__()
+**abs**()
 
 abs(self)
 
-<a id="algosdk.transaction.OnComplete.__add__"></a>
+<a id='algosdk.transaction.OnComplete.__add__'></a>
 
-### \_\_add_\_
+### \_\_add\_\_
 
-__add__()
+**add**()
 
 Return self+value.
 
-<a id="algosdk.transaction.OnComplete.__and__"></a>
+<a id='algosdk.transaction.OnComplete.__and__'></a>
 
-### \_\_and_\_
+### \_\_and\_\_
 
-__and__()
+**and**()
 
 Return self&value.
 
-<a id="algosdk.transaction.OnComplete.__bool__"></a>
+<a id='algosdk.transaction.OnComplete.__bool__'></a>
 
-### \_\_bool_\_
+### \_\_bool\_\_
 
-__bool__()
+**bool**()
 
 True if self else False
 
-<a id="algosdk.transaction.OnComplete.__ceil__"></a>
+<a id='algosdk.transaction.OnComplete.__ceil__'></a>
 
-### \_\_ceil_\_
+### \_\_ceil\_\_
 
-__ceil__()
+**ceil**()
 
 Ceiling of an Integral returns itself.
 
-<a id="algosdk.transaction.OnComplete.__delattr__"></a>
+<a id='algosdk.transaction.OnComplete.__delattr__'></a>
 
-### \_\_delattr_\_
+### \_\_delattr\_\_
 
-__delattr__()
+**delattr**()
 
 Implement delattr(self, name).
 
-<a id="algosdk.transaction.OnComplete.__dir__"></a>
+<a id='algosdk.transaction.OnComplete.__dir__'></a>
 
-### \_\_dir_\_
+### \_\_dir\_\_
 
-__dir__()
+**dir**()
 
 Default dir() implementation.
 
-<a id="algosdk.transaction.OnComplete.__divmod__"></a>
+<a id='algosdk.transaction.OnComplete.__divmod__'></a>
 
-### \_\_divmod_\_
+### \_\_divmod\_\_
 
-__divmod__()
+**divmod**()
 
 Return divmod(self, value).
 
-<a id="algosdk.transaction.OnComplete.__eq__"></a>
+<a id='algosdk.transaction.OnComplete.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__()
+**eq**()
 
 Return self==value.
 
-<a id="algosdk.transaction.OnComplete.__float__"></a>
+<a id='algosdk.transaction.OnComplete.__float__'></a>
 
-### \_\_float_\_
+### \_\_float\_\_
 
-__float__()
+**float**()
 
 float(self)
 
-<a id="algosdk.transaction.OnComplete.__floor__"></a>
+<a id='algosdk.transaction.OnComplete.__floor__'></a>
 
-### \_\_floor_\_
+### \_\_floor\_\_
 
-__floor__()
+**floor**()
 
 Flooring an Integral returns itself.
 
-<a id="algosdk.transaction.OnComplete.__floordiv__"></a>
+<a id='algosdk.transaction.OnComplete.__floordiv__'></a>
 
-### \_\_floordiv_\_
+### \_\_floordiv\_\_
 
-__floordiv__()
+**floordiv**()
 
 Return self//value.
 
-<a id="algosdk.transaction.OnComplete.__format__"></a>
+<a id='algosdk.transaction.OnComplete.__format__'></a>
 
-### \_\_format_\_
+### \_\_format\_\_
 
-__format__()
+**format**()
 
 Convert to a string according to format_spec.
 
-<a id="algosdk.transaction.OnComplete.__ge__"></a>
+<a id='algosdk.transaction.OnComplete.__ge__'></a>
 
-### \_\_ge_\_
+### \_\_ge\_\_
 
-__ge__()
+**ge**()
 
 Return self\>=value.
 
-<a id="algosdk.transaction.OnComplete.__getattribute__"></a>
+<a id='algosdk.transaction.OnComplete.__getattribute__'></a>
 
-### \_\_getattribute_\_
+### \_\_getattribute\_\_
 
-__getattribute__()
+**getattribute**()
 
 Return getattr(self, name).
 
-<a id="algosdk.transaction.OnComplete.__getstate__"></a>
+<a id='algosdk.transaction.OnComplete.__getstate__'></a>
 
-### \_\_getstate_\_
+### \_\_getstate\_\_
 
-__getstate__()
+**getstate**()
 
 Helper for pickle.
 
-<a id="algosdk.transaction.OnComplete.__gt__"></a>
+<a id='algosdk.transaction.OnComplete.__gt__'></a>
 
-### \_\_gt_\_
+### \_\_gt\_\_
 
-__gt__()
+**gt**()
 
 Return self\>value.
 
-<a id="algosdk.transaction.OnComplete.__hash__"></a>
+<a id='algosdk.transaction.OnComplete.__hash__'></a>
 
-### \_\_hash_\_
+### \_\_hash\_\_
 
-__hash__()
+**hash**()
 
 Return hash(self).
 
-<a id="algosdk.transaction.OnComplete.__index__"></a>
+<a id='algosdk.transaction.OnComplete.__index__'></a>
 
-### \_\_index_\_
+### \_\_index\_\_
 
-__index__()
+**index**()
 
 Return self converted to an integer, if self is suitable for use as an index into a list.
 
-<a id="algosdk.transaction.OnComplete.__int__"></a>
+<a id='algosdk.transaction.OnComplete.__int__'></a>
 
-### \_\_int_\_
+### \_\_int\_\_
 
-__int__()
+**int**()
 
 int(self)
 
-<a id="algosdk.transaction.OnComplete.__invert__"></a>
+<a id='algosdk.transaction.OnComplete.__invert__'></a>
 
-### \_\_invert_\_
+### \_\_invert\_\_
 
-__invert__()
+**invert**()
 
 ~self
 
-<a id="algosdk.transaction.OnComplete.__le__"></a>
+<a id='algosdk.transaction.OnComplete.__le__'></a>
 
-### \_\_le_\_
+### \_\_le\_\_
 
-__le__()
+**le**()
 
 Return self\<=value.
 
-<a id="algosdk.transaction.OnComplete.__lshift__"></a>
+<a id='algosdk.transaction.OnComplete.__lshift__'></a>
 
-### \_\_lshift_\_
+### \_\_lshift\_\_
 
-__lshift__()
+**lshift**()
 
 Return self\<\<value.
 
-<a id="algosdk.transaction.OnComplete.__lt__"></a>
+<a id='algosdk.transaction.OnComplete.__lt__'></a>
 
-### \_\_lt_\_
+### \_\_lt\_\_
 
-__lt__()
+**lt**()
 
 Return self\<value.
 
-<a id="algosdk.transaction.OnComplete.__mod__"></a>
+<a id='algosdk.transaction.OnComplete.__mod__'></a>
 
-### \_\_mod_\_
+### \_\_mod\_\_
 
-__mod__()
+**mod**()
 
 Return self%value.
 
-<a id="algosdk.transaction.OnComplete.__mul__"></a>
+<a id='algosdk.transaction.OnComplete.__mul__'></a>
 
-### \_\_mul_\_
+### \_\_mul\_\_
 
-__mul__()
+**mul**()
 
 Return self\*value.
 
-<a id="algosdk.transaction.OnComplete.__ne__"></a>
+<a id='algosdk.transaction.OnComplete.__ne__'></a>
 
-### \_\_ne_\_
+### \_\_ne\_\_
 
-__ne__()
+**ne**()
 
 Return self!=value.
 
-<a id="algosdk.transaction.OnComplete.__neg__"></a>
+<a id='algosdk.transaction.OnComplete.__neg__'></a>
 
-### \_\_neg_\_
+### \_\_neg\_\_
 
-__neg__()
+**neg**()
 
 -self
 
-<a id="algosdk.transaction.OnComplete.__new__"></a>
+<a id='algosdk.transaction.OnComplete.__new__'></a>
 
-### \_\_new_\_
+### \_\_new\_\_
 
-__new__()
+**new**()
 
-Create and return a new object.  See help(type) for accurate signature.
+Create and return a new object. See help(type) for accurate signature.
 
-<a id="algosdk.transaction.OnComplete.__or__"></a>
+<a id='algosdk.transaction.OnComplete.__or__'></a>
 
-### \_\_or_\_
+### \_\_or\_\_
 
-__or__()
+**or**()
 
 Return self|value.
 
-<a id="algosdk.transaction.OnComplete.__pos__"></a>
+<a id='algosdk.transaction.OnComplete.__pos__'></a>
 
-### \_\_pos_\_
+### \_\_pos\_\_
 
-__pos__()
+**pos**()
 
 +self
 
-<a id="algosdk.transaction.OnComplete.__pow__"></a>
+<a id='algosdk.transaction.OnComplete.__pow__'></a>
 
-### \_\_pow_\_
+### \_\_pow\_\_
 
-__pow__()
+**pow**()
 
 Return pow(self, value, mod).
 
-<a id="algosdk.transaction.OnComplete.__radd__"></a>
+<a id='algosdk.transaction.OnComplete.__radd__'></a>
 
-### \_\_radd_\_
+### \_\_radd\_\_
 
-__radd__()
+**radd**()
 
 Return value+self.
 
-<a id="algosdk.transaction.OnComplete.__rand__"></a>
+<a id='algosdk.transaction.OnComplete.__rand__'></a>
 
-### \_\_rand_\_
+### \_\_rand\_\_
 
-__rand__()
+**rand**()
 
 Return value&self.
 
-<a id="algosdk.transaction.OnComplete.__rdivmod__"></a>
+<a id='algosdk.transaction.OnComplete.__rdivmod__'></a>
 
-### \_\_rdivmod_\_
+### \_\_rdivmod\_\_
 
-__rdivmod__()
+**rdivmod**()
 
 Return divmod(value, self).
 
-<a id="algosdk.transaction.OnComplete.__reduce__"></a>
+<a id='algosdk.transaction.OnComplete.__reduce__'></a>
 
-### \_\_reduce_\_
+### \_\_reduce\_\_
 
-__reduce__()
-
-Helper for pickle.
-
-<a id="algosdk.transaction.OnComplete.__reduce_ex__"></a>
-
-### \_\_reduce_ex_\_
-
-__reduce_ex__()
+**reduce**()
 
 Helper for pickle.
 
-<a id="algosdk.transaction.OnComplete.__repr__"></a>
+<a id='algosdk.transaction.OnComplete.__reduce_ex__'></a>
 
-### \_\_repr_\_
+### \_\_reduce*ex*\_
 
-__repr__()
+**reduce_ex**()
+
+Helper for pickle.
+
+<a id='algosdk.transaction.OnComplete.__repr__'></a>
+
+### \_\_repr\_\_
+
+**repr**()
 
 Return repr(self).
 
-<a id="algosdk.transaction.OnComplete.__rfloordiv__"></a>
+<a id='algosdk.transaction.OnComplete.__rfloordiv__'></a>
 
-### \_\_rfloordiv_\_
+### \_\_rfloordiv\_\_
 
-__rfloordiv__()
+**rfloordiv**()
 
 Return value//self.
 
-<a id="algosdk.transaction.OnComplete.__rlshift__"></a>
+<a id='algosdk.transaction.OnComplete.__rlshift__'></a>
 
-### \_\_rlshift_\_
+### \_\_rlshift\_\_
 
-__rlshift__()
+**rlshift**()
 
 Return value\<\<self.
 
-<a id="algosdk.transaction.OnComplete.__rmod__"></a>
+<a id='algosdk.transaction.OnComplete.__rmod__'></a>
 
-### \_\_rmod_\_
+### \_\_rmod\_\_
 
-__rmod__()
+**rmod**()
 
 Return value%self.
 
-<a id="algosdk.transaction.OnComplete.__rmul__"></a>
+<a id='algosdk.transaction.OnComplete.__rmul__'></a>
 
-### \_\_rmul_\_
+### \_\_rmul\_\_
 
-__rmul__()
+**rmul**()
 
 Return value\*self.
 
-<a id="algosdk.transaction.OnComplete.__ror__"></a>
+<a id='algosdk.transaction.OnComplete.__ror__'></a>
 
-### \_\_ror_\_
+### \_\_ror\_\_
 
-__ror__()
+**ror**()
 
 Return value|self.
 
-<a id="algosdk.transaction.OnComplete.__round__"></a>
+<a id='algosdk.transaction.OnComplete.__round__'></a>
 
-### \_\_round_\_
+### \_\_round\_\_
 
-__round__()
+**round**()
 
 Rounding an Integral returns itself.
 
 Rounding with an ndigits argument also returns an integer.
 
-<a id="algosdk.transaction.OnComplete.__rpow__"></a>
+<a id='algosdk.transaction.OnComplete.__rpow__'></a>
 
-### \_\_rpow_\_
+### \_\_rpow\_\_
 
-__rpow__()
+**rpow**()
 
 Return pow(value, self, mod).
 
-<a id="algosdk.transaction.OnComplete.__rrshift__"></a>
+<a id='algosdk.transaction.OnComplete.__rrshift__'></a>
 
-### \_\_rrshift_\_
+### \_\_rrshift\_\_
 
-__rrshift__()
+**rrshift**()
 
 Return value\>\>self.
 
-<a id="algosdk.transaction.OnComplete.__rshift__"></a>
+<a id='algosdk.transaction.OnComplete.__rshift__'></a>
 
-### \_\_rshift_\_
+### \_\_rshift\_\_
 
-__rshift__()
+**rshift**()
 
 Return self\>\>value.
 
-<a id="algosdk.transaction.OnComplete.__rsub__"></a>
+<a id='algosdk.transaction.OnComplete.__rsub__'></a>
 
-### \_\_rsub_\_
+### \_\_rsub\_\_
 
-__rsub__()
+**rsub**()
 
 Return value-self.
 
-<a id="algosdk.transaction.OnComplete.__rtruediv__"></a>
+<a id='algosdk.transaction.OnComplete.__rtruediv__'></a>
 
-### \_\_rtruediv_\_
+### \_\_rtruediv\_\_
 
-__rtruediv__()
+**rtruediv**()
 
 Return value/self.
 
-<a id="algosdk.transaction.OnComplete.__rxor__"></a>
+<a id='algosdk.transaction.OnComplete.__rxor__'></a>
 
-### \_\_rxor_\_
+### \_\_rxor\_\_
 
-__rxor__()
+**rxor**()
 
 Return value^self.
 
-<a id="algosdk.transaction.OnComplete.__setattr__"></a>
+<a id='algosdk.transaction.OnComplete.__setattr__'></a>
 
-### \_\_setattr_\_
+### \_\_setattr\_\_
 
-__setattr__()
+**setattr**()
 
 Implement setattr(self, name, value).
 
-<a id="algosdk.transaction.OnComplete.__sizeof__"></a>
+<a id='algosdk.transaction.OnComplete.__sizeof__'></a>
 
-### \_\_sizeof_\_
+### \_\_sizeof\_\_
 
-__sizeof__()
+**sizeof**()
 
 Returns size in memory, in bytes.
 
-<a id="algosdk.transaction.OnComplete.__str__"></a>
+<a id='algosdk.transaction.OnComplete.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.OnComplete.__sub__"></a>
+<a id='algosdk.transaction.OnComplete.__sub__'></a>
 
-### \_\_sub_\_
+### \_\_sub\_\_
 
-__sub__()
+**sub**()
 
 Return self-value.
 
-<a id="algosdk.transaction.OnComplete.__truediv__"></a>
+<a id='algosdk.transaction.OnComplete.__truediv__'></a>
 
-### \_\_truediv_\_
+### \_\_truediv\_\_
 
-__truediv__()
+**truediv**()
 
 Return self/value.
 
-<a id="algosdk.transaction.OnComplete.__trunc__"></a>
+<a id='algosdk.transaction.OnComplete.__trunc__'></a>
 
-### \_\_trunc_\_
+### \_\_trunc\_\_
 
-__trunc__()
+**trunc**()
 
 Truncating an Integral returns itself.
 
-<a id="algosdk.transaction.OnComplete.__xor__"></a>
+<a id='algosdk.transaction.OnComplete.__xor__'></a>
 
-### \_\_xor_\_
+### \_\_xor\_\_
 
-__xor__()
+**xor**()
 
 Return self^value.
 
-<a id="algosdk.transaction.OnComplete.as_integer_ratio"></a>
+<a id='algosdk.transaction.OnComplete.as_integer_ratio'></a>
 
 ### as_integer_ratio
 
@@ -3460,7 +3460,7 @@ The ratio is in lowest terms and has a positive denominator.
 > > > (0).as_integer_ratio()
 > > > (0, 1)
 
-<a id="algosdk.transaction.OnComplete.bit_count"></a>
+<a id='algosdk.transaction.OnComplete.bit_count'></a>
 
 ### bit_count
 
@@ -3475,7 +3475,7 @@ Also known as the population count.
 > > > (13).bit_count()
 > > > 3
 
-<a id="algosdk.transaction.OnComplete.bit_length"></a>
+<a id='algosdk.transaction.OnComplete.bit_length'></a>
 
 ### bit_length
 
@@ -3488,7 +3488,7 @@ Number of bits necessary to represent self in binary.
 > > > (37).bit_length()
 > > > 6
 
-<a id="algosdk.transaction.OnComplete.conjugate"></a>
+<a id='algosdk.transaction.OnComplete.conjugate'></a>
 
 ### conjugate
 
@@ -3496,23 +3496,23 @@ conjugate()
 
 Returns self, the complex conjugate of any int.
 
-<a id="algosdk.transaction.OnComplete.denominator"></a>
+<a id='algosdk.transaction.OnComplete.denominator'></a>
 
-### *class* denominator
+### _class_ denominator
 
 denominator
 
 the denominator of a rational number in lowest terms
 
-<a id="algosdk.transaction.OnComplete.imag"></a>
+<a id='algosdk.transaction.OnComplete.imag'></a>
 
-### *class* imag
+### _class_ imag
 
 imag
 
 the imaginary part of a complex number
 
-<a id="algosdk.transaction.OnComplete.is_integer"></a>
+<a id='algosdk.transaction.OnComplete.is_integer'></a>
 
 ### is_integer
 
@@ -3520,7 +3520,7 @@ is_integer()
 
 Returns True. Exists for duck type compatibility with float.is_integer.
 
-<a id="algosdk.transaction.OnComplete.name"></a>
+<a id='algosdk.transaction.OnComplete.name'></a>
 
 ### name
 
@@ -3528,23 +3528,23 @@ name()
 
 The name of the Enum member.
 
-<a id="algosdk.transaction.OnComplete.numerator"></a>
+<a id='algosdk.transaction.OnComplete.numerator'></a>
 
-### *class* numerator
+### _class_ numerator
 
 numerator
 
 the numerator of a rational number in lowest terms
 
-<a id="algosdk.transaction.OnComplete.real"></a>
+<a id='algosdk.transaction.OnComplete.real'></a>
 
-### *class* real
+### _class_ real
 
 real
 
 the real part of a complex number
 
-<a id="algosdk.transaction.OnComplete.to_bytes"></a>
+<a id='algosdk.transaction.OnComplete.to_bytes'></a>
 
 ### to_bytes
 
@@ -3553,21 +3553,21 @@ to_bytes()
 Return an array of bytes representing an integer.
 
 length
-Length of bytes object to use.  An OverflowError is raised if the
-integer is not representable with the given number of bytes.  Default
+Length of bytes object to use. An OverflowError is raised if the
+integer is not representable with the given number of bytes. Default
 is length 1.
 byteorder
-The byte order used to represent the integer.  If byteorder is ‘big’,
-the most significant byte is at the beginning of the byte array.  If
+The byte order used to represent the integer. If byteorder is ‘big’,
+the most significant byte is at the beginning of the byte array. If
 byteorder is ‘little’, the most significant byte is at the end of the
-byte array.  To request the native byte order of the host system, use
-\`sys.byteorder’ as the byte order value.  Default is to use ‘big’.
+byte array. To request the native byte order of the host system, use
+\`sys.byteorder’ as the byte order value. Default is to use ‘big’.
 signed
 Determines whether two’s complement is used to represent the integer.
 If signed is False and a negative integer is given, an OverflowError
 is raised.
 
-<a id="algosdk.transaction.OnComplete.value"></a>
+<a id='algosdk.transaction.OnComplete.value'></a>
 
 ### value
 
@@ -3575,9 +3575,9 @@ value()
 
 The value of the Enum member.
 
-<a id="algosdk.transaction.PaymentTxn"></a>
+<a id='algosdk.transaction.PaymentTxn'></a>
 
-## *class* algosdk.transaction.PaymentTxn
+## _class_ algosdk.transaction.PaymentTxn
 
 PaymentTxn(sender, sp, receiver, amt, close_remainder_to=None, note=None, lease=None, rekey_to=None)
 
@@ -3614,33 +3614,33 @@ rekey_to (str)
 
 ## Initialization
 
-<a id="algosdk.transaction.PaymentTxn.__eq__"></a>
+<a id='algosdk.transaction.PaymentTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.PaymentTxn.__str__"></a>
+<a id='algosdk.transaction.PaymentTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.PaymentTxn.as_hash"></a>
+<a id='algosdk.transaction.PaymentTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.PaymentTxn.creatable_index"></a>
+<a id='algosdk.transaction.PaymentTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -3651,7 +3651,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.PaymentTxn.get_txid"></a>
+<a id='algosdk.transaction.PaymentTxn.get_txid'></a>
 
 ### get_txid
 
@@ -3662,7 +3662,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.PaymentTxn.raw_sign"></a>
+<a id='algosdk.transaction.PaymentTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -3676,7 +3676,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.PaymentTxn.sign"></a>
+<a id='algosdk.transaction.PaymentTxn.sign'></a>
 
 ### sign
 
@@ -3690,9 +3690,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.SignedTransaction"></a>
+<a id='algosdk.transaction.SignedTransaction'></a>
 
-## *class* algosdk.transaction.SignedTransaction
+## _class_ algosdk.transaction.SignedTransaction
 
 SignedTransaction(transaction: [algosdk.transaction.Transaction](#algosdk.transaction.Transaction), signature, authorizing_address=None)
 
@@ -3710,15 +3710,15 @@ authorizing_address (str)
 
 ## Initialization
 
-<a id="algosdk.transaction.SignedTransaction.__eq__"></a>
+<a id='algosdk.transaction.SignedTransaction.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.SignedTransaction.get_txid"></a>
+<a id='algosdk.transaction.SignedTransaction.get_txid'></a>
 
 ### get_txid
 
@@ -3729,9 +3729,9 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.StateProofTxn"></a>
+<a id='algosdk.transaction.StateProofTxn'></a>
 
-## *class* algosdk.transaction.StateProofTxn
+## _class_ algosdk.transaction.StateProofTxn
 
 StateProofTxn(sender, sp, state_proof=None, state_proof_message=None, state_proof_type=None)
 
@@ -3757,33 +3757,33 @@ type (str)
 
 ## Initialization
 
-<a id="algosdk.transaction.StateProofTxn.__eq__"></a>
+<a id='algosdk.transaction.StateProofTxn.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.StateProofTxn.__str__"></a>
+<a id='algosdk.transaction.StateProofTxn.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.StateProofTxn.as_hash"></a>
+<a id='algosdk.transaction.StateProofTxn.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.StateProofTxn.creatable_index"></a>
+<a id='algosdk.transaction.StateProofTxn.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -3794,7 +3794,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.StateProofTxn.get_txid"></a>
+<a id='algosdk.transaction.StateProofTxn.get_txid'></a>
 
 ### get_txid
 
@@ -3805,7 +3805,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.StateProofTxn.raw_sign"></a>
+<a id='algosdk.transaction.StateProofTxn.raw_sign'></a>
 
 ### raw_sign
 
@@ -3819,7 +3819,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.StateProofTxn.sign"></a>
+<a id='algosdk.transaction.StateProofTxn.sign'></a>
 
 ### sign
 
@@ -3833,9 +3833,9 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.StateSchema"></a>
+<a id='algosdk.transaction.StateSchema'></a>
 
-## *class* algosdk.transaction.StateSchema
+## _class_ algosdk.transaction.StateSchema
 
 StateSchema(num_uints=None, num_byte_slices=None)
 
@@ -3851,17 +3851,17 @@ num_byte_slices (int)
 
 ## Initialization
 
-<a id="algosdk.transaction.StateSchema.__eq__"></a>
+<a id='algosdk.transaction.StateSchema.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.SuggestedParams"></a>
+<a id='algosdk.transaction.SuggestedParams'></a>
 
-## *class* algosdk.transaction.SuggestedParams
+## _class_ algosdk.transaction.SuggestedParams
 
 SuggestedParams(fee, first, last, gh, gen=None, flat_fee=False, consensus_version=None, min_fee=None)
 
@@ -3891,9 +3891,9 @@ min_fee (int)
 
 ## Initialization
 
-<a id="algosdk.transaction.Transaction"></a>
+<a id='algosdk.transaction.Transaction'></a>
 
-## *class* algosdk.transaction.Transaction
+## _class_ algosdk.transaction.Transaction
 
 Transaction(sender, sp, note, lease, txn_type, rekey_to)
 
@@ -3901,33 +3901,33 @@ Superclass for various transaction types.
 
 ## Initialization
 
-<a id="algosdk.transaction.Transaction.__eq__"></a>
+<a id='algosdk.transaction.Transaction.__eq__'></a>
 
-### \_\_eq_\_
+### \_\_eq\_\_
 
-__eq__(other)
+**eq**(other)
 
 Return self==value.
 
-<a id="algosdk.transaction.Transaction.__str__"></a>
+<a id='algosdk.transaction.Transaction.__str__'></a>
 
-### \_\_str_\_
+### \_\_str\_\_
 
-__str__()
+**str**()
 
 Return str(self).
 
-<a id="algosdk.transaction.Transaction.as_hash"></a>
+<a id='algosdk.transaction.Transaction.as_hash'></a>
 
-### *static* as_hash
+### _static_ as_hash
 
 as_hash(hash)
 
 Confirm that a value is 32 bytes. If all zeros, or a falsy value, return None
 
-<a id="algosdk.transaction.Transaction.creatable_index"></a>
+<a id='algosdk.transaction.Transaction.creatable_index'></a>
 
-### *static* creatable_index
+### _static_ creatable_index
 
 creatable_index(index, required=False)
 
@@ -3938,7 +3938,7 @@ strings as indexes, check our convenience Txn types to ensure
 index is set, and ensure that 0 is always used internally for
 an unset id, not None, so **eq** works properly.
 
-<a id="algosdk.transaction.Transaction.get_txid"></a>
+<a id='algosdk.transaction.Transaction.get_txid'></a>
 
 ### get_txid
 
@@ -3949,7 +3949,7 @@ Get the transaction’s ID.
 Returns:
 str: transaction ID
 
-<a id="algosdk.transaction.Transaction.raw_sign"></a>
+<a id='algosdk.transaction.Transaction.raw_sign'></a>
 
 ### raw_sign
 
@@ -3963,7 +3963,7 @@ private_key (str): the private key of the signing account
 Returns:
 bytes: signature
 
-<a id="algosdk.transaction.Transaction.sign"></a>
+<a id='algosdk.transaction.Transaction.sign'></a>
 
 ### sign
 
@@ -3977,7 +3977,7 @@ private_key (str): the private key of the signing account
 Returns:
 SignedTransaction: signed transaction with the signature
 
-<a id="algosdk.transaction.assign_group_id"></a>
+<a id='algosdk.transaction.assign_group_id'></a>
 
 ## algosdk.transaction.assign_group_id
 
@@ -3993,7 +3993,7 @@ return
 Returns:
 txns (list): list of unsigned transactions with group property set
 
-<a id="algosdk.transaction.calculate_group_id"></a>
+<a id='algosdk.transaction.calculate_group_id'></a>
 
 ## algosdk.transaction.calculate_group_id
 
@@ -4007,7 +4007,7 @@ txns (list): list of unsigned transactions
 Returns:
 bytes: checksum value representing the group id
 
-<a id="algosdk.transaction.create_dryrun"></a>
+<a id='algosdk.transaction.create_dryrun'></a>
 
 ## algosdk.transaction.create_dryrun
 
@@ -4022,7 +4022,7 @@ protocol_version (string, optional): The protocol version to evaluate against
 latest_timestamp (int, optional): The latest timestamp to evaluate against
 round (int, optional): The round to evaluate against
 
-<a id="algosdk.transaction.retrieve_from_file"></a>
+<a id='algosdk.transaction.retrieve_from_file'></a>
 
 ## algosdk.transaction.retrieve_from_file
 
@@ -4034,9 +4034,9 @@ Args:
 path (str): file to read from
 
 Returns:
-Transaction[], SignedTransaction[], or MultisigTransaction[]:            can be a mix of the three
+Transaction[], SignedTransaction[], or MultisigTransaction[]: can be a mix of the three
 
-<a id="algosdk.transaction.wait_for_confirmation"></a>
+<a id='algosdk.transaction.wait_for_confirmation'></a>
 
 ## algosdk.transaction.wait_for_confirmation
 
@@ -4050,7 +4050,7 @@ txid (str): transaction ID
 wait_rounds (int, optional): The number of rounds to block for before
 exiting with an Exception. If not supplied, this will be 1000.
 
-<a id="algosdk.transaction.write_to_file"></a>
+<a id='algosdk.transaction.write_to_file'></a>
 
 ## algosdk.transaction.write_to_file
 
@@ -4059,7 +4059,7 @@ write_to_file(txns, path, overwrite=True)
 Write signed or unsigned transactions to a file.
 
 Args:
-txns (Transaction[], SignedTransaction[], or MultisigTransaction[]):            can be a mix of the three
+txns (Transaction[], SignedTransaction[], or MultisigTransaction[]): can be a mix of the three
 path (str): file to write to
 overwrite (bool): whether or not to overwrite what’s already in the
 file; if False, transactions will be appended to the file

@@ -1,10 +1,10 @@
 ---
-title: "ConstructorFor"
+title: 'ConstructorFor'
 ---
 
 [**@algorandfoundation/algorand-typescript**](../../../README.md)
 
-***
+---
 
 [@algorandfoundation/algorand-typescript](../../../README.md) / [index](../../README.md) / [\<internal\>](../README.md) / ConstructorFor
 
@@ -18,7 +18,7 @@ Defined in: [packages/algo-ts/src/internal/typescript-helpers.ts:5](https://gith
 
 • **T**
 
-• **TArgs** *extends* [`DeliberateAny`](DeliberateAny.md)[] = [`DeliberateAny`](DeliberateAny.md)[]
+• **TArgs** _extends_ [`DeliberateAny`](DeliberateAny.md)[] = [`DeliberateAny`](DeliberateAny.md)[]
 
 ## Parameters
 
