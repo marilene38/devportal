@@ -2345,10 +2345,6 @@ export default defineConfig({
                   label: 'Opcodes List',
                   link: 'reference/algorand-teal/opcodes-list'
                 },
-                {
-                  label: 'Overview',
-                  link: 'reference/algorand-teal/overview',
-                }
               ],
             },
             {

@@ -1,3 +1,66 @@
 ---
 title: 'Opcodes List'
 ---
+
+import opcodes from "./opcodes.json";
+
+This page contains a reference for all available opcodes v11.
+
+<div className="grid grid-cols-4 w-full p-3 font-medium border-b">
+    <div className="cursor-pointer p-4 flex items-center">OPCODE</div>
+    <div>NAME</div>
+    <div>STACK INPUT</div>
+    <div>STACK OUTPUT</div>
+</div>
+
+
+{opcodes.map(({ Opcode, Name, Args, Returns, Doc, Groups, Size, IntroducedVersion, DocCost, DocExtra }) => (
+  <details key={Opcode}>
+    <summary className="cursor-pointer p-1 border dark:border-gray-700 rounded flex justify-between items-center">
+      <div className="grid grid-cols-4 w-full">
+        <div className="cursor-pointer p-4 flex items-center font-normal">0x{Opcode.toString(16).padStart(2, "0")}
+        </div>
+        <div className="flex items-center">{Name}</div>
+        <div className="items-center flex font-normal">
+        <div>{Array.isArray(Args) && Args.length > 0
+            ? Args.map((arg, index) => <div key={index}>{arg}</div>)
+            : "-"}
+            </div>
+        </div>
+        <div className="items-center flex font-normal">
+            <div>{Array.isArray(Returns) && Returns.length > 0 
+            ? Returns.map((arg, index) => <div key={index}>{arg}</div>)
+            : "-"}
+            </div>
+        </div>
+      </div>
+    </summary>
+
+    <div className="p-2 border dark:border-gray-700 rounded-b bg-gray-1 flex justify-between">
+      <div className="flex-1">
+        <h6 className="p2 text-gray-400">Description</h6>
+        <p>{Doc}</p>
+        <h6 className="p2 text-gray-400">Groups</h6>
+        <p>{Groups}</p>
+        {DocExtra && (
+          <>
+            <h6 className="p2 text-gray-400">Notes</h6>
+            <p>{DocExtra}</p>
+          </>
+        )}
+      </div>
+      
+      <div className="flex-1">
+        <h6>Details</h6>
+        <table>
+          <tbody>
+            <tr><td className="text-gray-600 dark:text-gray-400 p-2" style={{border: "none", padding: "4px 8px 4px 0"}}>Size</td><td style={{border: "none", padding: "4px 8px 4px 0"}}>{Size}</td></tr>
+            <tr><td className="text-gray-600 dark:text-gray-400 p-2" style={{border: "none", padding: "4px 8px 4px 0"}}>Availability</td><td style={{border: "none", padding: "4px 8px 4px 0"}}>v{IntroducedVersion}</td></tr>
+            <tr><td className="text-gray-600 dark:text-gray-400 p-2" style={{border: "none", padding: "4px 8px 4px 0"}}>Doc Cost</td><td style={{border: "none", padding: "4px 8px 4px 0"}}>{DocCost}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+))}
+
