@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import LaptopWhite from '@images/laptop-white.png';
+import LaptopLavender from '@images/laptop-lavender.png';
+import CtaButton from './CtaButton.astro';
+
+const heroData = {
+  heading: 'Unleash the power',
+  description:
+    'Everything you need to build solutions powered by the Algorand blockchain network. Currently a work in progress!',
+  ctaLabel: 'Get started',
+};
+---
+
+<section class='homepage-hero bg-white dark:bg-algo-navy py-[75px]'>
+  <div
+    class='max-w-screen-2xl lg:flex lg:flex-row-reverse lg:items-center mx-auto px-4'
+  >
+    <div class='max-w-[1393px]'>
+      <Image
+        src={LaptopWhite}
+        alt='laptop drawing in white outline'
+        class='!hidden dark:!block !mt-0 w-full'
+      />
+      <Image
+        src={LaptopLavender}
+        alt='laptop drawing in lavender outline'
+        class='dark:hidden !mt-0 w-full'
+      />
+    </div>
+    <div class='!mt-0'>
+      <h1
+        class='lg:!text-[115px] lg:!leading-[0.9] min-w-[568px] !text-algo-navy dark:!text-white'
+      >
+        {heroData.heading}
+      </h1>
+      <p
+        class='text-algo-navy dark:text-white lg:text-[25px] lg:leading-none max-w-[524px] !mt-[50px]'
+      >
+        {heroData.description}
+      </p>
+      <CtaButton label={heroData.ctaLabel} classList='lg:!mt-[45px]' />
+    </div>
+  </div>
+</section>

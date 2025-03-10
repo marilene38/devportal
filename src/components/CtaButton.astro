@@ -1,5 +1,6 @@
 ---
 import { LinkButton } from '@astrojs/starlight/components';
+import LongRightArrow from '../icons/shapes/LongRightArrow.astro';
 
 interface Props {
   label: string;
@@ -12,9 +13,8 @@ const { label, classList, alt } = Astro.props;
 
 <LinkButton
   href={'/'}
-  icon='right-arrow'
   class:list={[
-    'cta-button',
+    'cta-button inline-flex items-center gap-x-[11px]',
     alt
       ? '!bg-algo-lavender-400 dark:!bg-white text-[20px] lg:text-[29px] py-[11px] px-[34px]'
       : '!bg-algo-lavender-200 dark:!bg-algo-teal-300 text-[25px] py-[10px] px-[28px]',
@@ -24,4 +24,7 @@ const { label, classList, alt } = Astro.props;
   {...Astro.props}
 >
   {label}
+  <span class:list={[alt ? 'w-[33px] h-[28px]' : 'w-[28px] h-[24px]']}>
+    <LongRightArrow />
+  </span>
 </LinkButton>
