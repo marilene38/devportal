@@ -2496,71 +2496,70 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: '.net',
-                  items: [],
-                  badge: 'Community',
+                  label: 'Algorand SDK List',
+                  link: 'reference/sdk/sdk-list'
                 },
-                {
-                  label: 'C#',
-                  items: [],
-                  badge: 'Community',
-                },
-                {
-                  label: 'C++',
-                  items: [],
-                  badge: 'Community',
-                },
-                {
-                  label: 'Dart',
-                  items: [],
-                  badge: 'Community',
-                },
-                {
-                  label: 'Engine',
-                  items: [],
-                  badge: 'Community',
-                },
-                {
-                  label: 'GO',
-                  items: [],
-                },
-                {
-                  label: 'Java',
-                  items: [],
-                },
-                {
-                  label: 'JS',
-                  items: [],
-                },
-                {
-                  label: 'PHP',
-                  items: [],
-                  badge: 'Community',
-                },
-                {
-                  label: 'Python',
-                  items: [],
-                },
-                {
-                  label: 'Rust',
-                  items: [],
-                  badge: 'Community',
-                },
-                {
-                  label: 'Swift',
-                  items: [],
-                  badge: 'Community',
-                },
-                {
-                  label: 'Unity',
-                  items: [],
-                  badge: 'Community',
-                },
-                {
-                  label: 'Unreal',
-                  items: [],
-                  badge: 'Community',
-                },
+                // {
+                //   label: '.net',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'C#',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'C++',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'Dart',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'GO',
+                //   items: [],
+                // },
+                // {
+                //   label: 'Java',
+                //   items: [],
+                // },
+                // {
+                //   label: 'JS',
+                //   items: [],
+                // },
+                // {
+                //   label: 'PHP',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'Python',
+                //   items: [],
+                // },
+                // {
+                //   label: 'Rust',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'Swift',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'Unity',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'Unreal',
+                //   items: [],
+                //   badge: 'Community',
+                // },
               ],
             },
             {
