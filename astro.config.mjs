@@ -2493,7 +2493,7 @@ export default defineConfig({
             },
             {
               label: 'SDK',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: '.net',
