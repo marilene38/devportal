@@ -20,9 +20,6 @@ await processDirectories([
             convertH1ToFrontmatter,
             stripLinkExtensions,
             removeLine('![App deployment lifecycle](../images/lifecycle.jpg)')
-            // changeFeatureLinks,
-            // changeReferenceLinks,
-            // correctTypo,
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/utils/ts'
     },
@@ -33,9 +30,6 @@ await processFile([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
-            // changeFeatureLinks,
-            // changeReferenceLinks,
-            // removeToc,
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/utils/ts/overview.md'
     },
@@ -49,9 +43,6 @@ await processDirectories([
             convertH1ToFrontmatter,
             stripLinkExtensions,
             removeLine('![App deployment lifecycle](../images/lifecycle.jpg)')
-            // changeFeatureLinks,
-            // changeReferenceLinks,
-            // correctTypo,
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/utils/py'
     },
@@ -62,9 +53,6 @@ await processFile([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
-            // changeFeatureLinks,
-            // changeReferenceLinks,
-            // removeToc,
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/utils/py/overview.md'
     },

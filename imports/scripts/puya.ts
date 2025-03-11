@@ -1,6 +1,7 @@
 import {
     convertH1ToFrontmatter,
     stripLinkExtensions,
+    replaceTitleColon,
 } from './src/transformers';
 import {
     processDirectories,
@@ -15,9 +16,11 @@ const scriptLocation = path.dirname(fileURLToPath(import.meta.url));
 await processDirectories([
     {
         src: scriptLocation + '/../repos/puya-ts/docs/',
+        pattern: /^lg-/,
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            replaceTitleColon,
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/languages/ts'
     },
@@ -25,7 +28,11 @@ await processDirectories([
 await processFile([
     {
         src: scriptLocation + '/../repos/puya-ts/README.md',
-        transformations: [],
+        transformations: [
+            convertH1ToFrontmatter,
+            stripLinkExtensions,
+            replaceTitleColon,
+        ],
         dest: scriptLocation + '/../../src/content/docs/algokit/languages/ts/overview.md'
     },
 ]);
@@ -34,17 +41,32 @@ await processFile([
 await processDirectories([
     {
         src: scriptLocation + '/../repos/puya/docs/',
+        pattern: /^lg-/,
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            replaceTitleColon,
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/languages/py'
     },
 ]);
 await processFile([
     {
-        src: scriptLocation + '/../../src/content/docs/algokit/languages/py/index.md',
-        transformations: [],
+        src: scriptLocation + '/../repos/puya/docs/index.md',
+        transformations: [
+            convertH1ToFrontmatter,
+            stripLinkExtensions,
+            replaceTitleColon,
+        ],
         dest: scriptLocation + '/../../src/content/docs/algokit/languages/py/overview.md'
+    },
+    {
+        src: scriptLocation + '/../repos/puya/docs/language-guide.md',
+        transformations: [
+            convertH1ToFrontmatter,
+            stripLinkExtensions,
+            replaceTitleColon,
+        ],
+        dest: scriptLocation + '/../../src/content/docs/algokit/languages/py/language-guide.md'
     },
 ]);

@@ -49,6 +49,14 @@ const removeToc: FileTransformer = (content: string): string => {
     return content.replaceAll(/^ *- \[.+$/gm, '');
 }
 
+const removeTitleBackticks: FileTransformer = (content: string): string => {
+    return content.replaceAll(/title: `(.+)`/g, 'title: $1');
+}
+
+const replaceTitleColon: FileTransformer = (content: string): string => {
+    return content.replace(/title: (.+):(.*)/g, 'title: $1 -$2');
+}
+
 export {
     convertH1ToFrontmatter,
     correctTypo,
@@ -57,5 +65,7 @@ export {
     changeReferenceLinks,
     removeLine,
     fromTo,
-    removeToc
+    removeToc,
+    removeTitleBackticks,
+    replaceTitleColon,
 };

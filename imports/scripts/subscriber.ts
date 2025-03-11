@@ -1,11 +1,9 @@
 import {
     convertH1ToFrontmatter,
+    removeTitleBackticks,
     stripLinkExtensions,
 } from './src/transformers';
-import {
-    processDirectories,
-    processFile
-} from './src/functions';
+import { processFile } from './src/functions';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
@@ -18,6 +16,7 @@ await processFile([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            removeTitleBackticks,
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/ts/subscriber.md'
     },
@@ -28,6 +27,7 @@ await processFile([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            removeTitleBackticks,
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/ts/subscriptions.md'
     },
@@ -38,6 +38,7 @@ await processFile([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            removeTitleBackticks,
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/ts/overview.md'
     },
@@ -50,8 +51,9 @@ await processFile([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            removeTitleBackticks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/ts/subscriber.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/py/subscriber.md'
     },
 ]);
 await processFile([
@@ -60,8 +62,9 @@ await processFile([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            removeTitleBackticks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/ts/subscriptions.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/py/subscriptions.md'
     },
 ]);
 await processFile([
@@ -70,7 +73,8 @@ await processFile([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            removeTitleBackticks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/ts/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/py/overview.md'
     },
 ]);

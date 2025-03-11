@@ -25,10 +25,7 @@ await processDirectories([
 await processFile([
     {
         src: scriptLocation + '/../../src/content/docs/algokit/unit-testing/ts/index.md',
-        transformations: [
-            convertH1ToFrontmatter,
-            stripLinkExtensions,
-        ],
+        transformations: [],
         dest: scriptLocation + '/../../src/content/docs/algokit/unit-testing/ts/overview.md'
     },
 ]);
@@ -36,7 +33,7 @@ await processFile([
 // AlgoKit Python Testing
 await processDirectories([
     {
-        src: scriptLocation + '/../repos/algorand-python-testing/docs',
+        src: scriptLocation + '/../repos/algorand-python-testing/docs/testing-guide',
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,

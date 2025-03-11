@@ -2,6 +2,7 @@ type FileTransformer = (content: string) => string;
 
 interface DirectoryTransformation {
     src: string;
+    pattern?: RegExp,
     transformations: FileTransformer[];
     dest: string;
 }
