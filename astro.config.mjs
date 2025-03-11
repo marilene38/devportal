@@ -294,10 +294,21 @@ export default defineConfig({
                   label: 'Deployment',
                   link: 'concepts/smart-contracts/deployment',
                 },
+                {
+                  label: 'Expert Cryptography',
+                  collapsed: true,
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'concepts/smart-contracts/expert-cryptography/overview',
+                    },
+
+                  ],
+                },
               ],
             },
           ],
-        },        
+        },
         {
           label: 'Build With AlgoKit',
           collapsed: false,
