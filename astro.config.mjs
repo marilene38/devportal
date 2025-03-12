@@ -477,7 +477,7 @@ export default defineConfig({
                                             link: "algokit/utils/typescript/overview",
                                         },
                                         {
-                                            label: "Account",
+                                            label: "Account Management",
                                             link: "algokit/utils/typescript/account",
                                         },
                                         {
@@ -519,6 +519,10 @@ export default defineConfig({
                                         {
                                             label: "Indexer",
                                             link: "algokit/utils/typescript/indexer",
+                                        },
+                                        {
+                                            label: "Testnet Dispenser Client",
+                                            link: "algokit/utils/typescript/dispenser-client",
                                         },
                                         {
                                             label: "Testing",
