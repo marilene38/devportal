@@ -4,8 +4,8 @@ import config from 'virtual:starlight/user-config';
 import type { Props } from '@astrojs/starlight/props';
 import LanguageSelect from '@astrojs/starlight/components/LanguageSelect.astro';
 import Search from '@astrojs/starlight/components/Search.astro';
-import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
-import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
+import SiteTitle from './SiteTitle.astro';
+import SocialIcons from './SocialIcons.astro';
 import ThemeSelect from './ThemeSelect.astro';
 import DropDown from './DropDown.astro';
 import { type Group } from '../utils/navigation.ts';
@@ -20,40 +20,44 @@ const shouldRenderSearch =
 
 <div class='header sl-flex'>
   <div class='title-wrapper sl-flex'>
-    <SiteTitle {...Astro.props} />
+    <SiteTitle />
   </div>
   <div class='sl-flex'>
     {shouldRenderSearch && <Search {...Astro.props} />}
-    <nav class='sl-hidden lg:sl-flex'>
-      <DropDown
-        label='Concepts'
-        items={(Astro.props.sidebar[0] as Group).entries}
-      />
-      <DropDown
-        label='Protocol'
-        items={(Astro.props.sidebar[1] as Group).entries}
-      />
-      <DropDown
-        label='Running a Node'
-        items={(Astro.props.sidebar[2] as Group).entries}
-      />
-      <DropDown
-        label='How-To'
-        items={(Astro.props.sidebar[3] as Group).entries}
-      />
-      <DropDown
-        label='Tutorial'
-        items={(Astro.props.sidebar[4] as Group).entries}
-      />
-      <DropDown
-        label='Reference'
-        items={(Astro.props.sidebar[5] as Group).entries}
-      />
-    </nav>
+    {
+      Astro.props.hasSidebar && (
+        <nav class='sl-hidden lg:sl-flex'>
+          <DropDown
+            label='Concepts'
+            items={(Astro.props.sidebar[0] as Group).entries}
+          />
+          <DropDown
+            label='Protocol'
+            items={(Astro.props.sidebar[1] as Group).entries}
+          />
+          <DropDown
+            label='Running a Node'
+            items={(Astro.props.sidebar[2] as Group).entries}
+          />
+          <DropDown
+            label='How-To'
+            items={(Astro.props.sidebar[3] as Group).entries}
+          />
+          <DropDown
+            label='Tutorial'
+            items={(Astro.props.sidebar[4] as Group).entries}
+          />
+          <DropDown
+            label='Reference'
+            items={(Astro.props.sidebar[5] as Group).entries}
+          />
+        </nav>
+      )
+    }
   </div>
   <div class='sl-hidden md:sl-flex right-group'>
-    <div class='sl-flex social-icons'>
-      <SocialIcons {...Astro.props} />
+    <div class=`sl-flex social-icons`>
+      <SocialIcons {...Astro.props} singleDisplayedSocial='github' />
     </div>
     <ThemeSelect {...Astro.props} />
     <LanguageSelect {...Astro.props} />
