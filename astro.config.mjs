@@ -79,6 +79,8 @@ export default defineConfig({
       },
       social: {
         github: 'https://github.com/algorandfoundation/devportal',
+        'x.com': 'https://twitter.com/Algorand/',
+        youtube: 'https://www.youtube.com/algorand/',
       },
       favicon: '/favicon.png',
       customCss: ['/src/styles/global.css'],

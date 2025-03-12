@@ -5,7 +5,7 @@ template: splash
 prev: false
 next: false
 hero:
-  title: Unleash <span><br/></span> the power
+  title: Algorand Developer Portal
   tagline: Everything you need to build solutions powered by the Algorand blockchain network. Currently a work in progress!
   image:
     alt: Algorand logo
@@ -18,12 +18,16 @@ hero:
       variant: primary
 ---
 
-import HomepageHero from '/src/components/HomepageHero.astro';
-import FeatureCta from '/src/components/FeatureCta.astro';
-import IconCardGrid from '/src/components/IconCardGrid.astro';
-import FeatureDetailCta from '/src/components/FeatureDetailCta.astro';
+import HomepageHeader from '/src/components/homepage/HomepageHeader.astro';
+import HomepageHero from '/src/components/homepage/HomepageHero.astro';
+import FeatureCta from '/src/components/homepage/FeatureCta.astro';
+import IconCardGrid from '/src/components/homepage/IconCardGrid.astro';
+import FeatureDetailCta from '/src/components/homepage/FeatureDetailCta.astro';
+import HomepageFooter from '/src/components/homepage/HomepageFooter.astro';
 
+<HomepageHeader />
 <HomepageHero />
 <FeatureCta />
 <IconCardGrid />
 <FeatureDetailCta />
+<HomepageFooter />
