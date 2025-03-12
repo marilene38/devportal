@@ -1,8 +1,5 @@
 ---
-import SquareBrackets from '../../icons/shapes/SquareBrackets.astro';
-import LongRightArrow from '../../icons/shapes/LongRightArrow.astro';
-import Block from '../../icons/shapes/Block.astro';
-import Network from '../../icons/shapes/Network.astro';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
   heading: string;
@@ -22,14 +19,15 @@ const { heading, description, icon } = Astro.props;
   <div
     class='grid place-content-center place-items-center w-[70px] h-[70px] bg-algo-lavender-200 dark:bg-algo-teal-500 rounded-[10px] mb-auto ml-auto'
   >
-    {icon === 'square-brackets' && <SquareBrackets classList='w-full' />}
-    {
-      icon === 'long-right-arrow' && (
-        <LongRightArrow classList='w-[56px] transform -rotate-45' />
-      )
-    }
-    {icon === 'block' && <Block classList='w-full' />}
-    {icon === 'network' && <Network classList='w-full' />}
+    <Icon
+      name={`${icon}-icon`}
+      class:list={[
+        icon === 'long-right-arrow'
+          ? 'w-[56px] transform -rotate-45'
+          : 'w-[70px]',
+        '!text-white dark:!text-algo-navy',
+      ]}
+    />
   </div>
   <div>
     <h3
