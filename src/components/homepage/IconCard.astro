@@ -17,14 +17,17 @@ const { heading, description, icon } = Astro.props;
   ]}
 >
   <div
-    class='grid place-content-center place-items-center w-[70px] h-[70px] bg-algo-lavender-200 dark:bg-algo-teal-500 rounded-[10px] mb-auto ml-auto'
+    class:list={[
+      'grid place-content-center place-items-center  bg-algo-lavender-200 dark:bg-algo-teal-500',
+      'w-[55px] h-[55px] lg:w-[70px] lg:h-[70px] rounded-[10px] mb-auto ml-auto',
+    ]}
   >
     <Icon
       name={`${icon}-icon`}
       class:list={[
         icon === 'long-right-arrow'
-          ? 'w-[56px] transform -rotate-45'
-          : 'w-[70px]',
+          ? 'w-[45px] lg:w-[56px] transform -rotate-45'
+          : 'w-[55px] lg:w-[70px]',
         '!text-white dark:!text-algo-navy',
       ]}
     />

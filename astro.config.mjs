@@ -68,8 +68,9 @@ export default defineConfig({
         },
       ],
       components: {
-        Header: './src/components/Header.astro',
         Footer: './src/components/Footer.astro',
+        Header: './src/components/Header.astro',
+        Hero: './src/components/Hero.astro',
         SiteTitle: './src/components/SiteTitle.astro',
         SocialIcons: './src/components/SocialIcons.astro',
         ThemeProvider: './src/components/CustomThemeProvider.astro',
