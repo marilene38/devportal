@@ -2,6 +2,9 @@ import {
     convertH1ToFrontmatter,
     stripLinkExtensions,
     replaceTitleColon,
+    lowercaseInternalLinks,
+    changeFromToRegExp,
+    changeFromTo,
 } from './src/transformers';
 import {
     processDirectories,
@@ -21,8 +24,9 @@ await processDirectories([
             convertH1ToFrontmatter,
             stripLinkExtensions,
             replaceTitleColon,
+            lowercaseInternalLinks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/languages/ts'
+        dest: scriptLocation + '/../../src/content/docs/algokit/languages/typescript'
     },
 ]);
 await processFile([
@@ -32,8 +36,9 @@ await processFile([
             convertH1ToFrontmatter,
             stripLinkExtensions,
             replaceTitleColon,
+            lowercaseInternalLinks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/languages/ts/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/languages/typescript/overview.md'
     },
 ]);
 
@@ -46,8 +51,12 @@ await processDirectories([
             convertH1ToFrontmatter,
             stripLinkExtensions,
             replaceTitleColon,
+            lowercaseInternalLinks,
+            changeFromTo('[template variables](#within-other-contracts)', 'template variables'),
+            changeFromTo('[ARC4](#arc4-contracts)', 'ARC4'),
+            changeFromToRegExp(/\[(.+?)\]\(.*?#algopy\..*?\)/g, '$1'),
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/languages/py'
+        dest: scriptLocation + '/../../src/content/docs/algokit/languages/python'
     },
 ]);
 await processFile([
@@ -57,8 +66,10 @@ await processFile([
             convertH1ToFrontmatter,
             stripLinkExtensions,
             replaceTitleColon,
+            lowercaseInternalLinks,
+            changeFromToRegExp(/\[(.+?)\]\(.*?#algopy\..*?\)/g, '$1'),
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/languages/py/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/languages/python/overview.md'
     },
     {
         src: scriptLocation + '/../repos/puya/docs/language-guide.md',
@@ -66,7 +77,9 @@ await processFile([
             convertH1ToFrontmatter,
             stripLinkExtensions,
             replaceTitleColon,
+            lowercaseInternalLinks,
+            changeFromToRegExp(/\[(.+?)\]\(.*?#algopy\..*?\)/g, '$1')
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/languages/py/language-guide.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/languages/python/language-guide.md'
     },
 ]);

@@ -39,7 +39,13 @@ const removeLine = (line: string): FileTransformer => {
     }
 };
 
-const fromTo = (from: string, to: string): FileTransformer => {
+const changeFromTo = (from: string, to: string): FileTransformer => {
+    return (content: string): string => {
+        return content.replaceAll(from, to);
+    }
+}
+
+const changeFromToRegExp = (from: RegExp, to: string): FileTransformer => {
     return (content: string): string => {
         return content.replaceAll(from, to);
     }
@@ -57,6 +63,12 @@ const replaceTitleColon: FileTransformer = (content: string): string => {
     return content.replace(/title: (.+):(.*)/g, 'title: $1 -$2');
 }
 
+const lowercaseInternalLinks: FileTransformer = (content: string): string => {
+    return content.replace(/\]\(#(.+?)\)/g, (match, p1) => {
+        return `](#${p1.toLowerCase()})`;
+    });
+}
+
 export {
     convertH1ToFrontmatter,
     correctTypo,
@@ -64,8 +76,10 @@ export {
     changeFeatureLinks,
     changeReferenceLinks,
     removeLine,
-    fromTo,
+    changeFromTo,
     removeToc,
     removeTitleBackticks,
     replaceTitleColon,
+    lowercaseInternalLinks,
+    changeFromToRegExp,
 };

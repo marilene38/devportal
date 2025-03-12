@@ -5,7 +5,7 @@ import {
     changeReferenceLinks,
     correctTypo,
     removeLine,
-    fromTo,
+    changeFromTo,
     removeToc
 } from './src/transformers';
 import {
@@ -56,12 +56,12 @@ await processFile([
     },
     {
         src: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/project.md',
-        transformations: [fromTo('./project/', './')],
+        transformations: [changeFromTo('./project/', './')],
         dest: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/project/overview.md'
     },
     {
         src: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/tasks.md',
-        transformations: [fromTo('./tasks/', './')],
+        transformations: [changeFromTo('./tasks/', './')],
         dest: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/tasks/overview.md'
     },
 ]);

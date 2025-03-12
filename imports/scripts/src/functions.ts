@@ -60,5 +60,5 @@ async function processFile(configs: FileTransformation[]) {
 
 export {
     processDirectories,
-    processFile
+    processFile,
 };

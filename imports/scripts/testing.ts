@@ -19,14 +19,14 @@ await processDirectories([
             convertH1ToFrontmatter,
             stripLinkExtensions,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/unit-testing/ts'
+        dest: scriptLocation + '/../../src/content/docs/algokit/unit-testing/typescript'
     },
 ]);
 await processFile([
     {
-        src: scriptLocation + '/../../src/content/docs/algokit/unit-testing/ts/index.md',
+        src: scriptLocation + '/../../src/content/docs/algokit/unit-testing/typescript/index.md',
         transformations: [],
-        dest: scriptLocation + '/../../src/content/docs/algokit/unit-testing/ts/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/unit-testing/typescript/overview.md'
     },
 ]);
 
@@ -38,13 +38,13 @@ await processDirectories([
             convertH1ToFrontmatter,
             stripLinkExtensions,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/unit-testing/py'
+        dest: scriptLocation + '/../../src/content/docs/algokit/unit-testing/python'
     },
 ]);
 await processFile([
     {
-        src: scriptLocation + '/../../src/content/docs/algokit/unit-testing/py/index.md',
+        src: scriptLocation + '/../../src/content/docs/algokit/unit-testing/python/index.md',
         transformations: [],
-        dest: scriptLocation + '/../../src/content/docs/algokit/unit-testing/py/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/unit-testing/python/overview.md'
     },
 ]);

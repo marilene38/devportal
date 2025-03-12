@@ -18,7 +18,7 @@ await processFile([
             stripLinkExtensions,
             removeTitleBackticks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/ts/subscriber.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/typescript/subscriber.md'
     },
 ]);
 await processFile([
@@ -29,7 +29,7 @@ await processFile([
             stripLinkExtensions,
             removeTitleBackticks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/ts/subscriptions.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/typescript/subscriptions.md'
     },
 ]);
 await processFile([
@@ -40,7 +40,7 @@ await processFile([
             stripLinkExtensions,
             removeTitleBackticks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/ts/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/typescript/overview.md'
     },
 ]);
 
@@ -53,7 +53,7 @@ await processFile([
             stripLinkExtensions,
             removeTitleBackticks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/py/subscriber.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/python/subscriber.md'
     },
 ]);
 await processFile([
@@ -64,7 +64,7 @@ await processFile([
             stripLinkExtensions,
             removeTitleBackticks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/py/subscriptions.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/python/subscriptions.md'
     },
 ]);
 await processFile([
@@ -75,6 +75,6 @@ await processFile([
             stripLinkExtensions,
             removeTitleBackticks,
         ],
-        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/py/overview.md'
+        dest: scriptLocation + '/../../src/content/docs/algokit/subscribers/python/overview.md'
     },
 ]);
