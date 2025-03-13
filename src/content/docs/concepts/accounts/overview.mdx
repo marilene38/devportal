@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Overview of Accounts
 ---
 
 import { Image } from 'astro:assets';
@@ -8,22 +8,9 @@ import privKeyMnemonic from '@images/account-overview-Private-Key-Mnemonic.png';
 import base64PrivateKey from '@images/account-overview-Base64-Private-Key.png';
 import pubPrivKey from '@images/account-overview-public-private-key.png';
 import pubKeyAlgorandAddr from '@images/account-Overview-Public-Key-Algorand-Address.png';
+import initAccountDiagram from '@diagrams/accounts-overview-initialize-account.svg';
 
 An Algorand Account is a fundamental entity on the Algorand blockchain, representing an individual user or entity capable of holding assets, authorizing transactions, and participating in blockchain activities. Accounts on the Algorand blockchain serve several purposes, including managing balances of Algos (Algorand’s native cryptocurrency), interacting with smart contracts, and holding Algorand Standard Assets (ASAs).
-
-## Quick start videos
-
-If you prefer videos, take a look at this 6 minute guide to Learn How to Manage Private / Public Algorand Account Keys.
-
-<iframe
-  width='100%'
-  style='aspect-ratio:16/9'
-  src='https://www.youtube-nocookie.com/embed/SewNDCBvk58'
-  title='YouTube video player'
-  frameborder='0'
-  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-  allowfullscreen
-></iframe>
 
 An Algorand account is the foundation of user interaction on the Algorand blockchain. It starts with the creation of a cryptographic key pair:
 
@@ -42,9 +29,10 @@ Accounts are entities on the Algorand blockchain associated with specific on-cha
 
 After generating a private key and corresponding address, sending Algos to the address on Algorand will initialize its state on the Algorand blockchain.
 
-<Image src={initAccount} alt='Initializing an Account' />
-
-Figure: Initializing an Account
+<figure>
+  <Image src={initAccountDiagram} alt='Initializing an Account' />
+  <figcaption>Figure: Initializing an Account</figcaption>
+</figure>
 
 ### Attributes
 
@@ -63,8 +51,8 @@ By default, Algorand accounts are set to offline. An online account participates
 Algorand supports different types of accounts beyond standard accounts:
 
 - Logic Accounts: Logic accounts are signed by their logic instead of signing with private keys. So when a logic account sends a transaction, the blockchain checks for the logic, if the logic passes the transaction will succeed. These accounts differ in how they authorize spending, but they look like any other account on Algorand
-  - Smart Signature Accounts (Contract Accounts) The transactions are approved only when the logic is evaluated at submission. These accounts have limited access to on-chain data, with logic stored off-chain until execution.
-  - Application Accounts (Smart Contracts) are created when an application is deployed on Algorand and persist on the network indefinitely. These accounts can hold assets, Algos, and maintain on-chain state, operating autonomously through user interactions.
+- Smart Signature Accounts (Contract Accounts) The transactions are approved only when the logic is evaluated at submission. These accounts have limited access to on-chain data, with logic stored off-chain until execution.
+- Application Accounts (Smart Contracts) are created when an application is deployed on Algorand and persist on the network indefinitely. These accounts can hold assets, Algos, and maintain on-chain state, operating autonomously through user interactions.
 - Multisignature Accounts: accounts enhance security by requiring multiple authorized signers to validate transactions. They are created from a predefined set of accounts, with a required signature threshold (e.g., X out of N signers). These accounts have all the features of standard accounts. For more details, refer [here](/concepts/accounts/multisig).
 
 #### Special Accounts
@@ -86,3 +74,7 @@ It allows private key and mnemonic-based account generation, enabling determinis
 :::note
 More details coming soon
 :::
+
+```
+
+```

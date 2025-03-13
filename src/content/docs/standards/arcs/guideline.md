@@ -7,13 +7,11 @@ sidebar:
 ---
 
 Welcome to the Guideline. Here you'll find information on which ARCs to use for your project.
-
 ## General ARCs
 
 ### ARC 0 - ARC Purpose and Guidelines
 
 #### What is an ARC?
-
 ARC stands for Algorand Request for Comments. An ARC is a design document providing information to the Algorand community or describing a new feature for Algorand or its processes or environment.
 The ARC should provide a concise technical specification and a rationale for the feature.
 The ARC author is responsible for building consensus within the community and documenting dissenting opinions.
@@ -23,6 +21,21 @@ We maintain ARCs as text files in a versioned repository. Their revision history
 ### ARC 26 - URI scheme
 
 This URI specification represents a standardized way for applications and websites to send requests and information through deeplinks, QR codes, etc. It is heavily based on Bitcoin’s <a href="https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki">BIP-0021</a> and should be seen as derivative of it. The decision to base it on BIP-0021 was made to make it easy and compatible as possible for any other application.
+
+### ARC 78 - URI scheme, keyreg Transactions extension
+
+This URI specification represents an extension to the base Algorand URI encoding standard ([ARC-26](/standards/arcs/arc-0026)) that specifies encoding of key registration transactions through deeplinks, QR codes, etc.
+
+### ARC 79 - URI scheme, App NoOp call extension
+
+NoOp calls are Generic application calls to execute the Algorand smart contract ApprovalPrograms.
+This URI specification proposes an extension to the base Algorand URI encoding standard ([ARC-26](/standards/arcs/arc-0026)) that specifies encoding of application NoOp transactions into <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a> standard URIs.
+
+### ARC 82 - URI scheme blockchain information
+
+This URI specification defines a standardized method for querying application and asset data on Algorand.
+It enables applications, websites, and QR code implementations to construct URIs that allow users to retrieve data such as application state and asset metadata in a structured format.
+This specification is inspired by [ARC-26](/standards/arcs/arc-0026) and follows similar principles, with adjustments specific to read-only queries for applications and assets.
 
 ## Asa ARCs
 
@@ -38,11 +51,9 @@ The goal is to establish a standard for how traits are declared inside a non-fun
 
 This ARC describes a template substitution for URLs in ASAs, initially for ipfs:// scheme URLs allowing mutable CID replacement in rendered URLs.
 The proposed template-XXX scheme has substitutions like:
-
 ```
 template-ipfs://{ipfscid:<version>:<multicodec>:<field name containing 32-byte digest, ie reserve>:<hash type>}[/...]
 ```
-
 This will allow modifying the 32-byte 'Reserve address' in an ASA to represent a new IPFS content-id hash. Changing of the reserve address via an asset-config transaction will be all that is needed to point an ASA URL to new IPFS content. The client reading this URL, will compose a fully formed IPFS Content-ID based on the version, multicodec, and hash arguments provided in the ipfscid substitution.
 
 ### ARC 20 - Smart ASA
@@ -50,7 +61,7 @@ This will allow modifying the 32-byte 'Reserve address' in an ASA to represent a
 A "Smart ASA" is an Algorand Standard Asset (ASA) controlled by a Smart Contract
 that exposes methods to create, configure, transfer, freeze, and destroy the
 asset.
-This ARC defines the ABI interface of such Smart Contract, the required
+This ARC defines the ABI interface of such a Smart Contract, the required
 metadata, and suggests a reference implementation.
 
 ### ARC 36 - Convention for declaring filters of an NFT
@@ -79,18 +90,16 @@ The goal is to allow clients, such as wallets and
 dapp frontends, to properly encode call transactions based on a description
 of the interface. Further, explorers will be able to show details of
 these method invocations.
-
 #### Definitions
-
-- **Application:** an Algorand Application, aka "smart contract",
+* **Application:** an Algorand Application, aka "smart contract",
   "stateful contract", "contract", or "app".
-- **HLL:** a higher level language that compiles to TEAL bytecode.
-- **dapp (frontend)**: a decentralized application frontend, interpreted here to
+* **HLL:** a higher level language that compiles to TEAL bytecode.
+* **dapp (frontend)**: a decentralized application frontend, interpreted here to
   mean an off-chain frontend (a webapp, native app, etc.) that interacts with
   Applications on the blockchain.
-- **wallet**: an off-chain application that stores secret keys for on-chain
+* **wallet**: an off-chain application that stores secret keys for on-chain
   accounts and can display and sign transactions for these accounts.
-- **explorer**: an off-chain application that allows browsing the blockchain,
+* **explorer**: an off-chain application that allows browsing the blockchain,
   showing details of transactions.
 
 ### ARC 18 - Royalty Enforcement Specification
@@ -115,14 +124,14 @@ The minimum required file is `contract.json` representing the contract metadata 
 
 ### ARC 28 - Algorand Event Log Spec
 
-Algorand dapps can use the <a href="https://developer.algorand.org/docs/get-details/dapps/avm/teal/opcodes/#log">`log`</a> primitive to attach information about an application call. This ARC proposes the concept of Events, which are merely a way in which data contained in these logs may be categorized and structured.
+Algorand dapps can use the <a href="https://developer.algorand.org/docs/get-details/dapps/avm/teal/opcodes/#log">`log`</a>  primitive to attach information about an application call. This ARC proposes the concept of Events, which are merely a way in which data contained in these logs may be categorized and structured.
 In short: to emit an Event, a dapp calls `log` with ABI formatting of the log data, and a 4-byte prefix to indicate which Event it is.
 
 ### ARC 32 - Application Specification
 
 > [!NOTE]
 > This specification will be eventually deprecated by the <a href="https://github.com/algorandfoundation/ARCs/pull/258">`ARC-56`</a> specification.
-> An Application is partially defined by it's [methods](/standards/arcs/arc-0004) but further information about the Application should be available. Other descriptive elements of an application may include it's State Schema, the original TEAL source programs, default method arguments, and custom data types. This specification defines the descriptive elements of an Application that should be available to clients to provide useful information for an Application Client.
+An Application is partially defined by it's [methods](/standards/arcs/arc-0004) but further information about the Application should be available.  Other descriptive elements of an application may include it's State Schema, the original TEAL source programs, default method arguments, and custom data types.  This specification defines the descriptive elements of an Application that should be available to clients to provide useful information for an Application Client.
 
 ### ARC 54 - ASA Burning App
 
@@ -187,3 +196,4 @@ This ARC proposes the utilization of on-chain smart contracts to facilitate the 
 The goal of this standard is to establish a standard in the Algorand ecosystem by which ASAs can be sent to an intended receiver even if their account is not opted in to the ASA.
 A wallet custodied by an application will be used to custody assets on behalf of a given user, with only that user being able to withdraw assets. A master application will be used to map inbox addresses to user address. This master application can route ASAs to users performing whatever actions are necessary.
 If integrated into ecosystem technologies including wallets, explorers, and dApps, this standard can provide enhanced capabilities around ASAs which are otherwise strictly bound at the protocol level to require opting in to be received.
+

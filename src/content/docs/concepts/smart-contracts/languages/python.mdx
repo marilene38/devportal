@@ -21,7 +21,7 @@ To install and start writing Algorand Python smart contracts refer to this [page
 
 ## Python Implementation for AVM
 
-Algorand Python maintains the syntax and semantics of Python, supporting a subset of the language that will grow over time. However, due to the restricted nature of the AVM, it will never be a complete implementation. For example, `async` and `await` keywords are not supported as they don't make sense in the AVM context. To learn more refer to AVM Docs(/build/core-concepts/AVM).
+Algorand Python maintains the syntax and semantics of Python, supporting a subset of the language that will grow over time. However, due to the restricted nature of the AVM, it will never be a complete implementation. For example, `async` and `await` keywords are not supported as they don't make sense in the AVM context. To learn more refer to AVM Docs(/core-concepts/AVM).
 
 This partial implementation allows existing developer tools like IDE syntax highlighting, static type checkers, linters, and auto-formatters to work out of the box. This approach differs from other partial language implementations that add or alter language elements, which require custom tooling support and force developers to learn non-obvious differences from regular Python.
 
@@ -77,13 +77,13 @@ The PuyaPy compiler is a multi-stage, optimizing compiler that takes Algorand Py
 
 The PuyaPy compiler is based on the Puya compiler architecture, which allows for multiple frontend languages to leverage the majority of the compiler logic. This makes adding new frontend languages for execution on Algorand relatively easy.
 
-For more details, refer to [Algokit installation page](/concepts/algokit-intro)
+For more details, refer to [Algokit installation page](/algokit/algokit-intro)
 
 ## Testing and Debugging
 
 The `algorand-python-testing` package allows for efficient unit testing of Algorand Python smart contracts in an offline environment. It emulates key AVM behaviors without requiring a network connection, offering fast and reliable testing capabilities with a familiar Pythonic interface.
 
-For more details, refer to [Algokit Python Test](/build/algokit/utils/python/testing) and [Algokit Python Debugging](/build/algokit/utils/python/debugging)
+For more details, refer to [Algokit Python Test](/algokit/utils/python/testing) and [Algokit Python Debugging](/algokit/utils/python/debugging)
 
 ## Best Practices
 
