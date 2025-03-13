@@ -14,7 +14,9 @@ Blockchains like Algorand are decentralized networks with finite computational r
 The minimum fee for each transaction on Algorand is 1000 microAlgo or 0.001 Algo, and it is **fixed** to this amount when the network is not congested.
 
 ## Fee Calculation Formula
+
 The total fee of a transaction is calculated using the following formula where:
+
 - `txn_in_bytes` is the size of the transaction in bytes
 - `fee_per_byte` is the current network's congestion-based fee per byte
 - `min_fee` is the minimum fee for a transaction
@@ -48,8 +50,7 @@ This is why standard Algorand transactions cost **0.001 ALGO** or **1000 microAl
 Here is an example of how to get suggested parameters using the Algorand Client.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-  </TabItem>
+  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
   <TabItem label='Python' icon='seti:python'>
     {/* <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
@@ -60,7 +61,6 @@ Here is an example of how to get suggested parameters using the Algorand Client.
     />   */}
   </TabItem>
 </Tabs>
-
 
 ### Algorand Client Suggested Params Configuration
 
@@ -75,8 +75,7 @@ The [Algorand Client](FUTURELINK:link_to_algorand_client_page) caches suggested 
 When using suggested fees, always set a maximum fee limit. During network congestion, fees become variable and could increase significantly based on network conditions.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-  </TabItem>
+  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
   <TabItem label='Python' icon='seti:python'>
     {/* <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
@@ -103,8 +102,7 @@ If you choose this method, ensure your specified fee meets at least the minimum 
 - Handling non-urgent transactions that can be retried if rejected
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-  </TabItem>
+  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
   <TabItem label='Python' icon='seti:python'>
     {/* <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
@@ -128,8 +126,7 @@ For atomic transactions, the fees set on all transactions in the group are summe
 Below is an example of setting a pooled fee on an atomic group of two transactions. Here transaction B's fee is directly set to be 2x the minimum fee and transaction A's fee is set to zero. This atomic group will successfully execute because the sum of the fees is greater than or equal to the required fee for the group.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-  </TabItem>
+  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
   <TabItem label='Python' icon='seti:python'>
     {/* <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
@@ -162,7 +159,7 @@ Inner transaction fees are **fixed at 1,000 microAlgo** per transaction, regardl
 
 Here is an example of calling a smart contract with an inner transaction and covering the inner transaction fee with the outer transaction.
 
-This is the `payment` contract method that will be called and it has one inner payment transaction. 
+This is the `payment` contract method that will be called and it has one inner payment transaction.
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
@@ -178,8 +175,7 @@ This is the `payment` contract method that will be called and it has one inner p
 </Tabs>
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-  </TabItem>
+  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
   <TabItem label='Python' icon='seti:python'>
     {/* <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
