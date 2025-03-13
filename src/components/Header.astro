@@ -9,6 +9,7 @@ import SocialIcons from './SocialIcons.astro';
 import ThemeSelect from './ThemeSelect.astro';
 import DropDown from './DropDown.astro';
 import { type Group } from '../utils/navigation.ts';
+import Default from '@astrojs/starlight/components/Header.astro';
 
 /**
  * Render the `Search` component if Pagefind is enabled or the default search component has been overridden.
@@ -16,59 +17,64 @@ import { type Group } from '../utils/navigation.ts';
 const shouldRenderSearch =
   config.pagefind ||
   config.components.Search !== '@astrojs/starlight/components/Search.astro';
+const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
 ---
 
-<div class='header sl-flex max-w-screen-2xl mx-auto px-4'>
-  <div class='title-wrapper sl-flex'>
-    <SiteTitle />
-  </div>
-  <div class='sl-flex'>
-    {shouldRenderSearch && <Search {...Astro.props} />}
-    {
-      Astro.props.hasSidebar && (
-        <nav class='sl-hidden lg:sl-flex'>
-          <DropDown
-            label='Concepts'
-            items={(Astro.props.sidebar[0] as Group).entries}
+{
+  isHomepage ? (
+    <div class='header sl-flex max-w-screen-2xl mx-auto px-4'>
+      <div class='title-wrapper sl-flex h-[42px] lg:h-[67px]'>
+        <SiteTitle />
+      </div>
+      <div class='sl-flex justify-end'>
+        {shouldRenderSearch && <Search {...Astro.props} />}
+        {Astro.props.hasSidebar && (
+          <nav class='sl-hidden lg:sl-flex'>
+            <DropDown
+              label='Concepts'
+              items={(Astro.props.sidebar[0] as Group).entries}
+            />
+            <DropDown
+              label='Protocol'
+              items={(Astro.props.sidebar[1] as Group).entries}
+            />
+            <DropDown
+              label='Running a Node'
+              items={(Astro.props.sidebar[2] as Group).entries}
+            />
+            <DropDown
+              label='How-To'
+              items={(Astro.props.sidebar[3] as Group).entries}
+            />
+            <DropDown
+              label='Tutorial'
+              items={(Astro.props.sidebar[4] as Group).entries}
+            />
+            <DropDown
+              label='Reference'
+              items={(Astro.props.sidebar[5] as Group).entries}
+            />
+          </nav>
+        )}
+      </div>
+      <div class='sl-hidden md:sl-flex right-group'>
+        <div class='sl-flex social-icons text-algo-lavender-400 dark:text-algo-teal-700'>
+          <SocialIcons
+            {...Astro.props}
+            singleDisplayedSocial='github'
+            size='34px'
           />
-          <DropDown
-            label='Protocol'
-            items={(Astro.props.sidebar[1] as Group).entries}
-          />
-          <DropDown
-            label='Running a Node'
-            items={(Astro.props.sidebar[2] as Group).entries}
-          />
-          <DropDown
-            label='How-To'
-            items={(Astro.props.sidebar[3] as Group).entries}
-          />
-          <DropDown
-            label='Tutorial'
-            items={(Astro.props.sidebar[4] as Group).entries}
-          />
-          <DropDown
-            label='Reference'
-            items={(Astro.props.sidebar[5] as Group).entries}
-          />
-        </nav>
-      )
-    }
-  </div>
-  <div class='sl-hidden md:sl-flex right-group'>
-    <div
-      class='sl-flex social-icons text-algo-lavender-400 dark:text-algo-teal-700'
-    >
-      <SocialIcons
-        {...Astro.props}
-        singleDisplayedSocial='github'
-        size='34px'
-      />
+        </div>
+        <ThemeSelect classList='text-algo-lavender-200 dark:text-algo-teal-300' />
+        <LanguageSelect {...Astro.props} />
+      </div>
     </div>
-    <ThemeSelect classList='text-algo-lavender-200 dark:text-algo-teal-300' />
-    <LanguageSelect {...Astro.props} />
-  </div>
-</div>
+  ) : (
+    <Default>
+      <slot />
+    </Default>
+  )
+}
 
 <style>
   .header {

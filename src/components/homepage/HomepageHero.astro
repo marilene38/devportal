@@ -15,7 +15,7 @@ const heroData = {
 };
 ---
 
-<section class='homepage-hero bg-white dark:bg-algo-navy py-[75px]'>
+<section class='homepage-hero bg-white dark:bg-algo-navy my-8 lg:my-[80px]'>
   <div
     class='max-w-screen-2xl lg:flex lg:flex-row-reverse lg:items-center mx-auto px-4'
   >
@@ -38,14 +38,14 @@ const heroData = {
         {heroData.heading}
       </h1>
       <p
-        class='text-algo-navy dark:text-white lg:text-[25px] lg:leading-none max-w-[524px] !mt-[50px]'
+        class='text-algo-navy dark:text-white lg:text-[25px] lg:leading-none max-w-[524px] !mt-4 lg:!mt-[50px]'
       >
         {heroData.description}
       </p>
       <CtaButton
         label={heroData.cta.label}
         url={heroData.cta.url}
-        classList='lg:!mt-[45px]'
+        classList='!mt-4 lg:!mt-[45px]'
       />
     </div>
   </div>

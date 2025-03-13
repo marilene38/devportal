@@ -1,4 +1,5 @@
 ---
+// @ts-expect-error unusual error
 import { logos } from 'virtual:starlight/user-images';
 import config from 'virtual:starlight/user-config';
 import AltDarkLogo from '../assets/images/portal-logo-dark-mode-alt.svg';
@@ -10,6 +11,7 @@ interface Props {
 const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
 
 const { isFooter } = Astro.props;
+const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
 ---
 
 <a href={siteTitleHref} class='site-title sl-flex'>
@@ -19,7 +21,7 @@ const { isFooter } = Astro.props;
         <img
           class:list={{
             'light:sl-hidden print:hidden': !('src' in config.logo),
-            '!h-full': isFooter,
+            '!h-full': isFooter || isHomepage,
           }}
           alt={config.logo.alt}
           src={isFooter ? AltDarkLogo.src : logos.dark.src}
@@ -29,7 +31,12 @@ const { isFooter } = Astro.props;
         {/* Show light alternate if a user configure both light and dark logos. */}
         {!('src' in config.logo) && (
           <img
-            class:list={['dark:sl-hidden print:block', isFooter && '!h-full']}
+            class:list={[
+              'dark:sl-hidden print:block',
+              {
+                '!h-full': isFooter || isHomepage,
+              },
+            ]}
             alt={config.logo.alt}
             src={isFooter ? logos.dark.src : logos.light?.src}
             width={isFooter ? logos.dark.width : logos.light?.width}

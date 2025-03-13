@@ -147,3 +147,34 @@ header.header {
 /* :root .sl-markdown-content a {
   color: #17cac6 !important;
 } */
+
+html:has(.homepage-hero) {
+  body,
+  header {
+    @apply !bg-white dark:!bg-algo-navy;
+  }
+
+  main,
+  .content-panel {
+    padding: 0 !important;
+  }
+
+  header {
+    @apply !py-4 lg:!py-[25px] !px-0 !h-auto;
+  }
+
+  site-search button[data-open-modal] {
+    width: unset !important;
+    max-width: unset !important;
+    border: unset !important;
+    border-radius: unset !important;
+    display: block !important;
+    background-color: transparent !important;
+
+    @apply !text-algo-lavender-400 dark:!text-algo-teal-700 !text-[20px] !h-[40px] lg:!text-[34px] lg:!h-[48px];
+
+    .sl-hidden {
+      display: none !important;
+    }
+  }
+}

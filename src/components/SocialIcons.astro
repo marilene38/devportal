@@ -7,11 +7,13 @@ interface Props {
   singleDisplayedSocial?: Platform;
 }
 
-const { size, singleDisplayedSocial } = Astro.props;
+let { size, singleDisplayedSocial } = Astro.props;
 
 type Platform = keyof NonNullable<typeof config.social>;
 type SocialConfig = NonNullable<NonNullable<typeof config.social>[Platform]>;
 const links = Object.entries(config.social || {}) as [Platform, SocialConfig][];
+const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
+singleDisplayedSocial = !isHomepage ? 'github' : singleDisplayedSocial;
 ---
 
 {
