@@ -28,6 +28,12 @@ export default defineConfig({
             schema:
               'https://raw.githubusercontent.com/algorand/go-algorand/refs/heads/master/daemon/algod/api/algod.oas3.yml',
             collapsed: true,
+            sidebar: {
+              operations: {
+                sort: "alphabetical",
+                labels: "operationId",
+              },
+            },
           },
           {
             base: 'reference/rest-api/indexer',
@@ -35,6 +41,12 @@ export default defineConfig({
             schema:
               'https://raw.githubusercontent.com/algorand/indexer/refs/heads/main/api/indexer.oas3.yml',
             collapsed: true,
+            sidebar: {
+              operations: {
+                sort: "alphabetical",
+                labels: "operationId",
+              },
+            },
           },
           {
             base: 'reference/rest-api/kmd',
@@ -42,6 +54,12 @@ export default defineConfig({
             schema:
               'https://raw.githubusercontent.com/algorand/go-algorand/ad578576ab5f5bfe58a590164903617ecef379e4/daemon/kmd/api/swagger.json',
             collapsed: true,
+            sidebar: {
+              operations: {
+                sort: "alphabetical",
+                labels: "operationId",
+              },
+            },
           },
         ]),
       ],
