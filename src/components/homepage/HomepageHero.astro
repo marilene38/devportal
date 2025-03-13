@@ -8,7 +8,10 @@ const heroData = {
   heading: 'Unleash the power',
   description:
     'Everything you need to build solutions powered by the Algorand blockchain network. Currently a work in progress!',
-  ctaLabel: 'Get started',
+  cta: {
+    label: 'Get started',
+    url: '/nodes/overview/',
+  },
 };
 ---
 
@@ -39,7 +42,11 @@ const heroData = {
       >
         {heroData.description}
       </p>
-      <CtaButton label={heroData.ctaLabel} classList='lg:!mt-[45px]' />
+      <CtaButton
+        label={heroData.cta.label}
+        url={heroData.cta.url}
+        classList='lg:!mt-[45px]'
+      />
     </div>
   </div>
 </section>

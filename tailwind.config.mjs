@@ -47,9 +47,11 @@ export default {
         'algo-teal': {
           100: '#e7faf9',
           200: '#d1f4f4',
-          300: '#74dfdd',
-          400: '#45d5d1',
-          500: '#17cac6',
+          300: '#b9efee',
+          400: '#74dfdd',
+          500: '#45d5d1',
+          600: '#17cac6',
+          700: '#5cdad7',
         },
         'algo-lavender': {
           100: '#e9e9fd',

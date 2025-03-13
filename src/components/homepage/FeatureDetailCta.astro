@@ -6,7 +6,10 @@ const featureDetailCtaData = {
   heading: 'Lorem ipsum dolor sit amet, consectetur adip',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur. Pellentesque sit amet sapien fringilla, mattis ligula consectetur. Pellentesque sit amet sapien fringilla, mattis ligula consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi.',
-  ctaLabel: 'Get started',
+  cta: {
+    label: 'Get started',
+    url: '/nodes/overview/',
+  },
 };
 ---
 
@@ -27,7 +30,10 @@ const featureDetailCtaData = {
         {featureDetailCtaData.heading}
       </h2>
       <div class='mt-[43px]'>
-        <CtaButton label={featureDetailCtaData.ctaLabel} />
+        <CtaButton
+          label={featureDetailCtaData.cta.label}
+          url={featureDetailCtaData.cta.url}
+        />
       </div>
     </div>
     <p

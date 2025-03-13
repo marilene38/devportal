@@ -6,12 +6,15 @@ const featureCtaData = {
   heading: 'Lorem ipsum dolor sit amet, consectetur adip',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur.',
-  ctaLabel: 'Get started',
+  cta: {
+    label: 'Get started',
+    url: '/nodes/overview/',
+  },
 };
 ---
 
 <section
-  class='feature-cta bg-algo-lavender-100 dark:bg-algo-teal-400 bg-[url(grid-lavender.png)] dark:bg-[url(grid-white.png)] bg-repeat bg-cover bg-center rounded-[21px] !my-[120px] lg:!my-[140px]'
+  class='feature-cta bg-algo-lavender-100 dark:bg-algo-teal-500 bg-[url(grid-lavender.png)] dark:bg-[url(grid-white.png)] bg-repeat bg-cover bg-center rounded-[21px] !my-[120px] lg:!my-[140px]'
 >
   <div
     class:list={[
@@ -34,7 +37,11 @@ const featureCtaData = {
     </div>
 
     <div class='flex-shrink-0 !mt-0'>
-      <CtaButton label={featureCtaData.ctaLabel} alt={true} />
+      <CtaButton
+        label={featureCtaData.cta.label}
+        url={featureCtaData.cta.url}
+        alt={true}
+      />
     </div>
   </div>
 </section>

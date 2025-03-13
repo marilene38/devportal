@@ -18,7 +18,7 @@ const shouldRenderSearch =
   config.components.Search !== '@astrojs/starlight/components/Search.astro';
 ---
 
-<div class='header sl-flex'>
+<div class='header sl-flex max-w-screen-2xl mx-auto px-4'>
   <div class='title-wrapper sl-flex'>
     <SiteTitle />
   </div>
@@ -56,10 +56,16 @@ const shouldRenderSearch =
     }
   </div>
   <div class='sl-hidden md:sl-flex right-group'>
-    <div class=`sl-flex social-icons`>
-      <SocialIcons {...Astro.props} singleDisplayedSocial='github' />
+    <div
+      class='sl-flex social-icons text-algo-lavender-400 dark:text-algo-teal-700'
+    >
+      <SocialIcons
+        {...Astro.props}
+        singleDisplayedSocial='github'
+        size='34px'
+      />
     </div>
-    <ThemeSelect {...Astro.props} />
+    <ThemeSelect classList='text-algo-lavender-200 dark:text-algo-teal-300' />
     <LanguageSelect {...Astro.props} />
   </div>
 </div>
@@ -81,11 +87,6 @@ const shouldRenderSearch =
   .social-icons {
     gap: 1rem;
     align-items: center;
-  }
-  .social-icons::after {
-    content: '';
-    height: 2rem;
-    border-inline-end: 1px solid var(--sl-color-gray-5);
   }
 
   @media (min-width: 50rem) {
