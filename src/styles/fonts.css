@@ -33,3 +33,30 @@
   font-weight: bold;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src:
+    url('/src/assets/fonts/SourceCodePro-Regular.woff2') format('woff2'),
+    url('/src/assets/fonts/SourceCodePro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src:
+    url('/src/assets/fonts/SourceCodePro-Bold.woff2') format('woff2'),
+    url('/src/assets/fonts/SourceCodePro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src:
+    url('/src/assets/fonts/SourceCodePro-Italic.woff2') format('woff2'),
+    url('/src/assets/fonts/SourceCodePro-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
