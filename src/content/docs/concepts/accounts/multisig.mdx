@@ -8,20 +8,6 @@ import RemoteCode from '/src/components/RemoteCode.astro';
 
 Multisignature accounts, are a logical representation of an ordered set of addresses with a threshold and version. Multisignature accounts can perform the same operations as other accounts, including sending transactions and participating in consensus. The address for a multisignature account is essentially a hash of the ordered list of accounts, the threshold and version values. The threshold determines how many signatures are required to process any transaction from this multisignature account.
 
-## Quick start video
-
-If you prefer videos, take a look at this 4 minute guide to Learn About Multisig Algorand Account.
-
-<iframe
-  width='100%'
-  style='aspect-ratio:16/9'
-  src='https://www.youtube-nocookie.com/embed/kOugNkk4HuE'
-  title='YouTube video player'
-  frameborder='0'
-  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-  allowfullscreen
-></iframe>
-
 Multisignature accounts cannot nest other multisignature accounts.
 
 Creating a multisignature account with Address A, Address B, and Address C will not produce the same address as one with Address B, Address A, and Address C. However, signing a multisignature transaction does not require any specific order.
