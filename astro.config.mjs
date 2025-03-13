@@ -178,6 +178,10 @@ export default defineConfig({
                   label: 'URI Scheme',
                   link: 'concepts/transactions/uri-scheme',
                 },
+                {
+                  label: 'Transaction Reference',
+                  link: 'concepts/transactions/transactions',
+                },
               ],
             },
             {
