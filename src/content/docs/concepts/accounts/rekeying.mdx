@@ -22,7 +22,6 @@ Rekeying an account only affects the authorizing address for that account. Note 
 Using the `--close-to` parameter on any transaction from a rekeyed account will remove the auth-addr field, thus reverting signing authority to the original address. The `--close-to` parameter should be used with caution by keyholder(s) of auth-addr as the effects remove their authority to access this account thereafter.
 :::
 
-
 The result of a confirmed rekey-to transaction will be the "auth-addr" field of the account object is defined, modified, or removed. Defining or modifying means only the corresponding authorized address's private spending key(s) may authorize future transactions for this public address. Removing the "auth-addr" field is an explicit assignment of the authorized address back to the “addr" field of the account object (observed implicitly because the field is not displayed).
 
 To provide maximum flexibility in key management options, the "auth-addr" may be specified within a rekey-to transaction as a distinct foreign address representing a single key address, MultiSig address, or LogicSig program address. The protocol does not validate control of the required spending key(s) associated with the authorized address defined by `--rekey-to` parameter when the rekey-to transaction is sent. This is by design and affords additional privacy features to the new authorized address. It is incumbent upon the user to ensure proper key management practices and `--rekey-to` assignments.
@@ -145,7 +144,6 @@ Once all required signatures are gathered into a single signed transaction, it m
     [...]
 }
 ```
-
 
 ## Use Case Scenarios
 
