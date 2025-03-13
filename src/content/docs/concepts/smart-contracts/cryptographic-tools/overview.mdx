@@ -11,9 +11,9 @@ The Algorand Virtual Machine (AVM) contains opcodes allowing for use-cases utili
 
 While the AVM is Turing-Complete and can compute any kind of arbitrary computation, given enough Algo to pay for fees and blocks to spread the computation over, certain commonly used operations have been added directly into the node software and are exposed for direct usage.
 
-> **vFuture**
->
-> **Opcodes flagged with "vFuture" have been implemented in the node software in draft, but have not been pushed out to production.**
+:::note
+Opcodes flagged with "vFuture" have been implemented in the node software in draft, but have not been pushed out to production.
+:::
 
 Each transaction interacting with a stateful smart contract is allocated a budget of 700 units. Given that a group transaction can contain 16 transactions, that creates a limit of 11200 opcode budget at the first level of nesting.
 
