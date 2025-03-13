@@ -253,6 +253,10 @@ export default defineConfig({
                   link: 'concepts/smart-contracts/control-flow',
                 },
                 {
+                  label: 'Inner Transactions',
+                  link: 'concepts/smart-contracts/inner-txn',
+                },
+                {
                   label: 'Resource Usage',
                   link: 'concepts/smart-contracts/resource-usage',
                 },
