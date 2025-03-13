@@ -170,8 +170,9 @@ html:has(.homepage-hero) {
     border-radius: unset !important;
     display: block !important;
     background-color: transparent !important;
+    padding: unset !important;
 
-    @apply !text-algo-lavender-400 dark:!text-algo-teal-700 !text-[20px] !h-[40px] lg:!text-[34px] lg:!h-[48px];
+    @apply !text-algo-lavender-400 dark:!text-algo-teal-700 !text-[20px] !h-[40px] md:!text-[34px] md:!h-[48px];
 
     .sl-hidden {
       display: none !important;
