@@ -75,8 +75,8 @@ importers:
         specifier: ^0.12.1
         version: 0.12.4(@astrojs/starlight@0.32.1(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0)))(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0))
       starlight-openapi:
-        specifier: ^0.13.0
-        version: 0.13.0(@astrojs/markdown-remark@6.1.0)(@astrojs/starlight@0.32.1(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0)))(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0))(openapi-types@12.1.3)
+        specifier: ^0.14.1
+        version: 0.14.1(@astrojs/markdown-remark@6.1.0)(@astrojs/starlight@0.32.1(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0)))(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0))(openapi-types@12.1.3)
       starlight-typedoc:
         specifier: ^0.17.0
         version: 0.17.0(@astrojs/starlight@0.32.1(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0)))(typedoc-plugin-markdown@4.4.1(typedoc@0.27.6(typescript@5.5.2)))(typedoc@0.27.6(typescript@5.5.2))
@@ -912,8 +912,8 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@readme/better-ajv-errors@2.2.2':
-    resolution: {integrity: sha512-YBWor3QZhavGHqTEHJfYfk2e0UczQaImc0MIIJ5JNJrns4HKm94pwUdjkPVZO2eZJBt/Rzs/D8ZrdvFFwRh0zQ==}
+  '@readme/better-ajv-errors@2.3.2':
+    resolution: {integrity: sha512-T4GGnRAlY3C339NhoUpgJJFsMYko9vIgFAlhgV+/vEGFw66qEY4a4TRJIAZBcX/qT1pq5DvXSme+SQODHOoBrw==}
     engines: {node: '>=18'}
     peerDependencies:
       ajv: 4.11.8 - 8
@@ -3331,8 +3331,8 @@ packages:
       '@astrojs/starlight': '>=0.15.0'
       astro: '>=4.0.0'
 
-  starlight-openapi@0.13.0:
-    resolution: {integrity: sha512-X2QrMFaNuLiURABwSVdU/XgpQgXE1lBKLpci16aJywkYpgcUHDJwVVIQIEMYDWsApxd8ElVsv3AtzTVlWbNOlA==}
+  starlight-openapi@0.14.1:
+    resolution: {integrity: sha512-hCmeNR2KA0RrvJMjewPmqmHSY470TobyU1PDKDbwbHMbP0OcYxD36pTOTXkWFxdSnIQc7WPC0jc8trMNzb3/tw==}
     engines: {node: '>=18.17.1'}
     peerDependencies:
       '@astrojs/markdown-remark': '>=6.0.1'
@@ -4768,7 +4768,7 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@readme/better-ajv-errors@2.2.2(ajv@8.17.1)':
+  '@readme/better-ajv-errors@2.3.2(ajv@8.17.1)':
     dependencies:
       '@babel/code-frame': 7.24.7
       '@babel/runtime': 7.26.0
@@ -4789,7 +4789,7 @@ snapshots:
     dependencies:
       '@apidevtools/swagger-methods': 3.0.2
       '@jsdevtools/ono': 7.1.3
-      '@readme/better-ajv-errors': 2.2.2(ajv@8.17.1)
+      '@readme/better-ajv-errors': 2.3.2(ajv@8.17.1)
       '@readme/json-schema-ref-parser': 1.2.0
       '@readme/openapi-schemas': 3.1.0
       ajv: 8.17.1
@@ -7939,7 +7939,7 @@ snapshots:
       picomatch: 4.0.2
       unist-util-visit: 5.0.0
 
-  starlight-openapi@0.13.0(@astrojs/markdown-remark@6.1.0)(@astrojs/starlight@0.32.1(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0)))(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0))(openapi-types@12.1.3):
+  starlight-openapi@0.14.1(@astrojs/markdown-remark@6.1.0)(@astrojs/starlight@0.32.1(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0)))(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0))(openapi-types@12.1.3):
     dependencies:
       '@astrojs/markdown-remark': 6.1.0
       '@astrojs/starlight': 0.32.1(astro@5.3.1(@types/node@22.12.0)(jiti@2.3.3)(rollup@4.34.8)(tsx@4.19.2)(typescript@5.5.2)(yaml@2.7.0))
