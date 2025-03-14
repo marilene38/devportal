@@ -19,7 +19,7 @@ const { heading, description, icon } = Astro.props;
   <div
     class:list={[
       'grid place-content-center place-items-center bg-algo-lavender-200 dark:bg-algo-teal-600',
-      'w-[55px] h-[55px] lg:w-[70px] lg:h-[70px] rounded-[10px] mb-auto ml-auto',
+      'w-[55px] h-[55px] lg:w-[70px] lg:h-[70px] rounded-[10px] mb-4! ml-auto!',
     ]}
   >
     <Icon
@@ -32,9 +32,9 @@ const { heading, description, icon } = Astro.props;
       ]}
     />
   </div>
-  <div>
+  <div class='mt-auto!'>
     <h3
-      class='text-white! dark:text-algo-navy! lg:text-5xl font-bold leading-none'
+      class='text-white! dark:text-algo-navy! lg:text-4xl! 2xl:text-5xl! font-bold leading-none'
     >
       {heading}
     </h3>

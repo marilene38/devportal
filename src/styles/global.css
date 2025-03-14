@@ -203,6 +203,16 @@ header.header {
   /* --sl-color-banner-text: #dfe1e5; */
 }
 
+html:has(.homepage-hero)[data-theme='light'] {
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-nav: #ffffff;
+}
+
+html:has(.homepage-hero)[data-theme='dark'] {
+  --sl-color-bg: #001324;
+  --sl-color-bg-nav: #001324;
+}
+
 html:has(.homepage-hero) {
   main,
   .content-panel {

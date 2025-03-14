@@ -13,11 +13,11 @@ const featureDetailCtaData = {
 };
 ---
 
-<section class='feature-detail-cta my-10! lg:my-[140px]! px-4 md:px-9'>
+<section class='feature-detail-cta my-10! lg:my-[140px]!'>
   <div
     class:list={[
       'max-w-(--breakpoint-2xl) lg:flex md:justify-between md:items-center text-algo-navy dark:text-white',
-      'mx-auto lg:gap-x-[80px] xl:gap-x-[135px] text-center md:text-left',
+      'mx-auto! px-4 md:px-9 lg:gap-x-[80px] xl:gap-x-[135px] text-center md:text-left',
     ]}
   >
     <div class='max-w-[805px]'>
@@ -25,7 +25,7 @@ const featureDetailCtaData = {
         {featureDetailCtaData.highlight}
       </div>
       <h2
-        class='text-algo-navy dark:text-white lg:text-[52px]! mt-[10px]! leading-none!'
+        class='text-algo-navy! dark:text-white! lg:text-[52px]! mt-[10px]! leading-none!'
       >
         {featureDetailCtaData.heading}
       </h2>
