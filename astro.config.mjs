@@ -9,6 +9,8 @@ import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
 import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi';
 
+import tailwindcss from '@tailwindcss/vite';
+
 export default defineConfig({
   output: 'static',
   viewTransitions: true,
@@ -2621,9 +2623,6 @@ export default defineConfig({
         },
       ],
     }),
-    tailwind({
-      applyBaseStyles: false,
-    }),
     icon(),
     // https://astro-d2.vercel.app/configuration
     d2({
@@ -2644,5 +2643,7 @@ export default defineConfig({
         '@diagrams': resolve('./src/assets/diagrams/svg'),
       },
     },
+
+    plugins: [tailwindcss()],
   },
 });

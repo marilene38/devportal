@@ -13,7 +13,7 @@ const { heading, description, icon } = Astro.props;
 <div
   class:list={[
     'icon-card bg-algo-lavender-300 dark:bg-algo-teal-100 text-white dark:text-algo-navy px-8 py-[34px] rounded-2xl',
-    'flex flex-col !mt-0',
+    'flex flex-col mt-0!',
   ]}
 >
   <div
@@ -28,13 +28,13 @@ const { heading, description, icon } = Astro.props;
         icon === 'long-right-arrow'
           ? 'w-[45px] lg:w-[56px] transform -rotate-45'
           : 'w-[55px] lg:w-[70px]',
-        '!text-white dark:!text-algo-navy',
+        'text-white! dark:text-algo-navy!',
       ]}
     />
   </div>
   <div>
     <h3
-      class='!text-white dark:!text-algo-navy lg:text-5xl font-bold leading-none'
+      class='text-white! dark:text-algo-navy! lg:text-5xl font-bold leading-none'
     >
       {heading}
     </h3>

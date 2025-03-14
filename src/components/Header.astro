@@ -19,7 +19,7 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
 
 {
   isHomepage ? (
-    <div class='header sl-flex max-w-screen-2xl mx-auto px-4 md:px-9 !gap-0'>
+    <div class='header sl-flex max-w-(--breakpoint-2xl) mx-auto px-4 md:px-9 gap-0!'>
       <div class='title-wrapper sl-flex h-[42px] lg:h-[67px]'>
         <SiteTitle />
       </div>
@@ -34,7 +34,7 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
             size='34px'
           />
         </div>
-        <ThemeSelect classList='text-algo-lavender-200 dark:text-algo-teal-300 !p-0 !m-0' />
+        <ThemeSelect classList='text-algo-lavender-200 dark:text-algo-teal-300 p-0! m-0!' />
         <LanguageSelect {...Astro.props} />
       </div>
     </div>
