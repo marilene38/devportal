@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @plugin '@astrojs/starlight-tailwind';
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
   --text-xxs: 0.625rem;
@@ -200,4 +201,31 @@ header.header {
   --sl-color-black: #f6f6f6;
   --sl-color-banner-bg: #2d2df1 !important;
   /* --sl-color-banner-text: #dfe1e5; */
+}
+
+html:has(.homepage-hero) {
+  main,
+  .content-panel {
+    padding: 0 !important;
+  }
+
+  header {
+    @apply py-4! lg:py-[25px]! px-0! h-auto!;
+  }
+
+  site-search button[data-open-modal] {
+    width: unset !important;
+    max-width: unset !important;
+    border: unset !important;
+    border-radius: unset !important;
+    display: block !important;
+    background-color: transparent !important;
+    padding: unset !important;
+
+    @apply text-algo-lavender-400! dark:text-algo-teal-700! text-[20px]! h-[40px]! md:text-[34px]! md:h-[48px]!;
+
+    .sl-hidden {
+      display: none !important;
+    }
+  }
 }
