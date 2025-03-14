@@ -2,6 +2,7 @@
 title: Overview of Accounts
 ---
 
+import { LinkCard } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 import initAccount from '@images/account-overview-Initializing-an-Account.png';
 import privKeyMnemonic from '@images/account-overview-Private-Key-Mnemonic.png';
@@ -10,7 +11,7 @@ import pubPrivKey from '@images/account-overview-public-private-key.png';
 import pubKeyAlgorandAddr from '@images/account-Overview-Public-Key-Algorand-Address.png';
 import initAccountDiagram from '@images/account-overview-Initializing-an-Account.png';
 
-An Algorand Account is a fundamental entity on the Algorand blockchain, representing an individual user or entity capable of holding assets, authorizing transactions, and participating in blockchain activities. Accounts on the Algorand blockchain serve several purposes, including managing balances of Algos (Algorand’s native cryptocurrency), interacting with smart contracts, and holding Algorand Standard Assets (ASAs).
+An Algorand Account is a fundamental entity on the Algorand blockchain, representing an individual user or entity capable of holding assets, authorizing transactions, and participating in blockchain activities. Accounts on the Algorand blockchain serve several purposes, including managing balances of Algos, interacting with smart contracts, and holding Algorand Standard Assets.
 
 An Algorand account is the foundation of user interaction on the Algorand blockchain. It starts with the creation of a cryptographic key pair:
 
@@ -19,9 +20,7 @@ An Algorand account is the foundation of user interaction on the Algorand blockc
 
 The public key is transformed into a user-friendly Algorand address — a 58-character string you use for transactions and other blockchain interactions. For convenience, the private key can also be represented as a 25-word mnemonic, which serves as a human-readable backup for restoring account access. Refer to [Keys and Signing](/concepts/accounts/keys-signing) to understand on how transformation happened from public key to algorand address.
 
-:::note
 An address is just an identifier, while an account represents the full state and capabilities on the blockchain. An address is always associated with one account, but an account can have multiple addresses through rekeying.
-:::
 
 ## Accounts
 
@@ -38,22 +37,38 @@ After generating a private key and corresponding address, sending Algos to the a
 
 #### Minimum Balance
 
-Every account on Algorand must have a minimum balance of 100,000 microAlgos. If a transaction is sent that would result in a balance lower than the minimum, the transaction will fail. The minimum balance increases with each asset holding the account (whether the asset was created or owned by the account) and with each application, the account created or opted in. Destroying a created asset, opting out/closing out an owned asset, destroying a created app, or opting out of an opted-in app decreases the minimum balance accordingly.
+Every account on Algorand must have a minimum balance of 100,000 microAlgos. If a transaction is sent that would result in a balance lower than the minimum, the transaction will fail. The minimum balance increases with each asset holding the account whether the asset was created or owned by the account and with each application, the account created or opted in. Destroying a created asset, opting out/closing out an owned asset, destroying a created app, or opting out of an opted-in app decreases the minimum balance accordingly.
 
-Read more about assets, applications, and changes to the minimum balance requirement in the [Costs and Constraints](/concepts/smart-contracts/costs-constraints) section.
+<LinkCard
+  title='Costs and Constraints'
+  href='/concepts/smart-contracts/costs-constraints'
+  description='More about assets, applications, and changes to the minimum balance requirement'
+/>
 
 #### Account Status
 
 By default, Algorand accounts are set to offline. An online account participates in Algorand consensus. For an account to go online, it must generate a participation key and send a special key registration transaction. Read more about [Registering an account online](/protocol/registration).
 
+### Logic Accounts
+
+Logic accounts are signed by their logic instead of signing with private keys. So when a logic account sends a transaction, the blockchain checks for the logic, if the logic passes the transaction will succeed. These accounts differ in how they authorize spending, but they look like any other account on Algorand.
+
+### Multisignature Accounts
+
+accounts enhance security by requiring multiple authorized signers to validate transactions. They are created from a predefined set of accounts, with a required signature threshold e.g., X out of N signers. These accounts have all the features of standard accounts.
+
+<LinkCard
+  title='Multisignature Accounts'
+  href='/concepts/accounts/multisig'
+  description='More details about multisignature accounts'
+/>
+
 ### Other Account Types
 
 Algorand supports different types of accounts beyond standard accounts:
 
-- Logic Accounts: Logic accounts are signed by their logic instead of signing with private keys. So when a logic account sends a transaction, the blockchain checks for the logic, if the logic passes the transaction will succeed. These accounts differ in how they authorize spending, but they look like any other account on Algorand
 - Smart Signature Accounts (Contract Accounts) The transactions are approved only when the logic is evaluated at submission. These accounts have limited access to on-chain data, with logic stored off-chain until execution.
-- Application Accounts (Smart Contracts) are created when an application is deployed on Algorand and persist on the network indefinitely. These accounts can hold assets, Algos, and maintain on-chain state, operating autonomously through user interactions.
-- Multisignature Accounts: accounts enhance security by requiring multiple authorized signers to validate transactions. They are created from a predefined set of accounts, with a required signature threshold (e.g., X out of N signers). These accounts have all the features of standard accounts. For more details, refer [here](/concepts/accounts/multisig).
+- Application Accounts (Smart Contracts) are created when an application is deployed on Algorand and persist on the network indefinitely. These accounts can hold assets, Algos, and maintain on-chain state, operating through user interactions.
 
 #### Special Accounts
 
@@ -64,11 +79,13 @@ Check the fee sink and reward pool addresses in [Network](/protocol/networks) se
 
 ### Wallets
 
-In the context of Algorand developer tools, wallets refer to wallets generated and managed by the Key Management Daemon (kmd) process. A wallet stores a collection of keys. kmd stores collections of wallets and allows users to perform operations using the keys stored within these wallets. Every wallet is associated with a master key, represented as a 25-word mnemonic, from which all accounts in that wallet are derived. This allows the wallet owner only to need to remember a single passphrase for all of their accounts. Wallets are stored encrypted on disk. See [Wallet-derived (kmd)](/concepts/accounts/create) accounts for more details.
+In the context of Algorand developer tools, wallets refer to wallets generated and managed by the Key Management Daemon process. A wallet stores a collection of keys. kmd stores collections of wallets and allows users to perform operations using the keys stored within these wallets. Every wallet is associated with a master key, represented as a 25-word mnemonic, from which all accounts in that wallet are derived. This allows the wallet owner only to need to remember a single passphrase for all of their accounts. Wallets are stored encrypted on disk.
 
-### HD wallets
+<LinkCard title='Wallet-derived (kmd)' href='/concepts/accounts/create' />
 
-Hierarchical Deterministic (HD) wallets, following the ARC-0052 standard, provide an advanced method for key management. HD wallets derive keys deterministically from a single master seed, ensuring consistent addresses across different implementations. Using the Ed25519 algorithm for key generation and signing, they support BIP-44 derivation paths.
+### HD Wallets
+
+Hierarchical Deterministic wallets, following the ARC-0052 standard, provide an advanced method for key management. HD wallets derive keys deterministically from a single master seed, ensuring consistent addresses across different implementations. Using the Ed25519 algorithm for key generation and signing, they support BIP-44 derivation paths.
 It allows private key and mnemonic-based account generation, enabling deterministic recovery, automated address creation, and compatibility with Algorand’s address formats.
 
 :::note
