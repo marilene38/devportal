@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import d2 from 'astro-d2';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -8,6 +7,8 @@ import { resolve } from 'path';
 import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
 import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi';
+
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: 'static',
@@ -926,7 +927,7 @@ export default defineConfig({
                               link: 'reference/algorand-typescript/api-reference/arc4/enumerations/oncompleteaction',
                             }
                           ],
-                        }, 
+                        },
                         {
                           label: 'functions',
                           items: [
@@ -1834,7 +1835,7 @@ export default defineConfig({
                               label: '',
                               link: 'reference/algorand-typescript/api-reference/op/functions/'
                             },
-                            
+
                           ]
                         },
                         {
@@ -2614,9 +2615,6 @@ export default defineConfig({
         },
       ],
     }),
-    tailwind({
-      applyBaseStyles: false,
-    }),
     icon(),
     // https://astro-d2.vercel.app/configuration
     d2({
@@ -2637,5 +2635,7 @@ export default defineConfig({
         '@diagrams': resolve('./src/assets/diagrams/svg'),
       },
     },
+
+    plugins: [tailwindcss()],
   },
 });
