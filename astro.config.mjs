@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import d2 from 'astro-d2';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -935,7 +934,7 @@ export default defineConfig({
                               link: 'reference/algorand-typescript/api-reference/arc4/enumerations/oncompleteaction',
                             }
                           ],
-                        }, 
+                        },
                         {
                           label: 'functions',
                           items: [
@@ -1843,7 +1842,7 @@ export default defineConfig({
                               label: '',
                               link: 'reference/algorand-typescript/api-reference/op/functions/'
                             },
-                            
+
                           ]
                         },
                         {
