@@ -41,9 +41,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Install Sharp explicitly
-        run: pnpm add sharp
-
       - name: Build the project
         run: pnpm run build
         env:

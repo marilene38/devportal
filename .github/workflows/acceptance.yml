@@ -65,8 +65,6 @@ jobs:
         uses: snok/install-poetry@v1
       - name: Install Dependencies
         run: pnpm install
-      - name: Install Sharp explicitly
-        run: pnpm add sharp
       - name: Run Build
         run: pnpm run build
         env:
