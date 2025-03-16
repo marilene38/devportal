@@ -23,7 +23,7 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
             'light:sl-hidden print:hidden': !('src' in config.logo),
             'h-full!': isFooter || isHomepage,
           }}
-          alt={config.logo.alt}
+          alt={`light theme ${config.logo.alt}`}
           src={isFooter ? AltDarkLogo.src : logos.dark.src}
           width={logos.dark.width}
           height={logos.dark.height}
@@ -37,7 +37,7 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
                 'h-full!': isFooter || isHomepage,
               },
             ]}
-            alt={config.logo.alt}
+            alt={`dark theme ${config.logo.alt}`}
             src={isFooter ? logos.dark.src : logos.light?.src}
             width={isFooter ? logos.dark.width : logos.light?.width}
             height={isFooter ? logos.dark.height : logos.light?.height}
