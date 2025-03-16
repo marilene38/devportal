@@ -2605,10 +2605,6 @@ export default defineConfig({
                   label: 'Overview',
                   link: 'reference/rest-api/overview',
                 },
-                {
-                  label: 'Overview-test',
-                  link: 'reference/rest-api/output',
-                },
                 ...openAPISidebarGroups,
               ],
             },
