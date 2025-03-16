@@ -14,21 +14,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Install Dependencies
       - name: Install D2
         run: curl -fsSL https://d2lang.com/install.sh | sh -s -- --tala
 
-      # Step 3: Set up Node.js (used by Astro)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Specify the required Node.js version
+          node-version: '18'
 
-      # Step 4: Setup Python for importing docs
       - name: Setup Python for importing docs
         uses: actions/setup-python@v5
         with:
@@ -37,23 +33,22 @@ jobs:
       - name: Install Poetry
         uses: snok/install-poetry@v1
 
-      # Step 5: Install pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10.6.3
 
-      # Step 6: Install dependencies using pnpm
       - name: Install dependencies
         run: pnpm install
 
-      # Step 7: Build the Astro project
+      - name: Install Sharp explicitly
+        run: pnpm add sharp
+
       - name: Build the project
         run: pnpm run build
         env:
           TSTRUCT_TOKEN: ${{ secrets.TSTRUCT_TOKEN }}
 
-      # Step 8: Deploy to Cloudflare Pages and capture the Preview URL
       - name: Publish to Cloudflare Pages
         id: deploy
         uses: cloudflare/pages-action@v1
@@ -62,12 +57,9 @@ jobs:
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           projectName: ${{ secrets.CF_PROJECT_NAME }}
           directory: dist
-          # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
           wranglerVersion: '3'
 
-      # Step 9: Capture PR Information (PR ID and Title)
       - name: Capture PR Information
         id: pr_info
         if: github.event_name == 'pull_request'
@@ -75,7 +67,6 @@ jobs:
           echo "::set-output name=pr_id::${{ github.event.pull_request.number }}"
           echo "::set-output name=pr_title::${{ github.event.pull_request.title }}"
 
-      # Step 10: Post the Preview URL, PR ID, and PR Title to Slack
       - name: Post to Slack
         id: slack
         if: github.event_name == 'pull_request'
