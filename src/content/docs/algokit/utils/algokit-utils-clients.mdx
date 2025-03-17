@@ -4,7 +4,9 @@ title: AlgoKit Utils Clients
 
 import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import RemoteCode from '/src/components/RemoteCode.astro';
 import { Image } from 'astro:assets';
+import { LinkCard, BulletList } from '@astrojs/starlight/components';
 
 import networkConfig from '/examples/algokit/ts/algokit-utils-ts-clients-overview-network-config.ts?raw';
 import sdkclients from '/examples/algokit/ts/algokit-utils-ts-clients-overview-sdk-clients.ts?raw';
@@ -26,35 +28,51 @@ a transaction, building atomic transfers, calling smart contracts, and more.
 
 ## Types of AlgoKit Clients
 
-Currently, there are two AlgoKit clients available for interacting with the Algorand blockchain:
+There are two AlgoKit clients available for interacting with the Algorand blockchain:
 
 ### Algorand Client
 
 The Algorand client is the default entry point for interacting with the Algorand blockchain. This includes:
 
-- Crafting and Sending [10 different types](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_algorand_client.AlgorandClient.md#send) of transactions
-- Accessing algod, indexer, kmd clients
-- Setting various configuration parameters
+<li>Crafting and sending [10 different types](/concepts/transactions/types) of transactions</li>
+<li>Accessing `algod`, `indexer`, `kmd` clients</li>
+<li>Setting various configuration parameters</li>
 
 ### Typed Application Client
 
-The typed application client is a smart contract client that wraps an [ARC-0032](https://arc.algorand.foundation/ARCs/arc-0032) app spec-defined smart contract and provides high-productivity
-methods for deploying and calling smart contracts.
-
-:::note
-We are currently working to integrate the typed app client into `AlgorandClient`, thus making it the single entry point for all Algorand client functionalities.
-:::
+Typed application clients are automatically generated, typed TypeScript deployment and invocation clients for smart contracts that have a defined [ARC-56](/standards/arcs/arc-0056) or [ARC-32](/standards/arcs/arc-0032) application specification so that the development experience is easier with less upskill ramp-up and less deployment errors. These clients give you a type-safe, intellisense-driven experience for invoking the smart contract.
 
 ## AlgorandClient
 
-The `AlgorandClient` class included in AlgoKit Utils for TypeScript (and coming soon to Python Utils) is the default entry point for all Algorand functionalities.
+The `AlgorandClient` class included in AlgoKit Utils for TypeScript and Python is the default entry point for all Algorand functionalities.
 Use it to craft and send transactions individually or bundled as atomic transaction groups, access SDK clients (`algod`, `indexer`, `kmd`), and quickly set configuration parameters, with sensible defaults.
 
 ### Instantiating the AlgorandClient
 
-To use the `AlgorandClient` in your codebase, you can use various methods provided by the class to configure the network connection:
+To use the `AlgorandClient` in your codebase, you can use various methods provided by the class to instantiate the client and configure the network connection:
 
 <Code code={networkConfig} lang='ts' />
+
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+      snippet='INSTANTIATE_ALGORAND_CLIENT'
+      lang='ts'
+      title='Instantiate Algorand Client'
+      frame='none'
+    /> */}
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='INSTANTIATE_ALGORAND_CLIENT'
+      lang='py'
+      title='Instantiate Algorand Client'
+      frame='none'
+    /> */}
+  </TabItem>
+</Tabs>
 
 ### Accessing the SDK Clients
 
@@ -62,58 +80,153 @@ Once you have an `AlgorandClient` instance, you can access the SDK clients for t
 
 <Code code={sdkclients} lang='ts' />
 
-For more information about the functionalities of the SDK clients, refer to the following pages:
-
-- [algod](https://developer.algorand.org/docs/rest-apis/algod/)
-- [Indexer](https://developer.algorand.org/docs/rest-apis/indexer/)
-- [kmd](https://developer.algorand.org/docs/rest-apis/kmd/)
-
-### Crafting Transactions with the AlgorandClient
-
-Sometimes you may need to craft a transaction before sending it. The `AlgorandClient` provides a method to build transactions. The following example demonstrates how to build an `assetTransfer` transaction:
-
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={buildTxn} lang='ts' />
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+      snippet='SDK_CLIENTS'
+      lang='ts'
+      title='SDK Clients'
+      frame='none'
+    /> */}
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='SDK_CLIENTS'
+      lang='py'
+      title='SDK Clients'
+      frame='none'
+    /> */}
   </TabItem>
 </Tabs>
-To learn about all properties, accessors, and methods available in the AlgorandClient, refer to the
-[AlgorandClient reference page](
-https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/code/classes/types_algorand_client.AlgorandClient.md)
 
-### Sending Transactions with the AlgorandClient
+For more information about the functionalities of the SDK clients, refer to the following pages:
 
-With the AlgorandClient you can easily send transactions on the Algorand blockchain. The following example demonstrates how to send a `payment` transaction:
+<LinkCard title='algod' href='/reference/rest-api/algod' description='algod API reference' />
+<LinkCard title='Indexer' href='/reference/rest-api/indexer' description='Indexer API reference' />
+<LinkCard title='kmd' href='/reference/rest-api/kmd' description='kmd API reference' />
+
+### Understanding Algorand Client Statefulness
+
+The `AlgorandClient` is stateful, meaning that it caches various information that are reused multiple times. This allows the AlgorandClient to avoid redundant requests to the blockchain and to provide a more efficient interface for interacting with the blockchain. This is an important concept to understand before using the AlgorandClient.
+
+#### Account Signers Can Be Cached
+
+The `AlgorandClient` can caches account signers for each account. This means you can sign and send transactions using the Algorand client without having to pass in the signer for each transaction.
+
+When the Algorand client is not tracking an account's signer, you would normally have to pass in the signer for each transaction.
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={sendTxn} lang='ts' />
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+      snippet='TXN_WITHOUT_SIGNER_CACHE'
+      lang='ts'
+      title='Transaction without signer cache'
+      frame='none'
+    /> */}
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='TXN_WITHOUT_SIGNER_CACHE'
+      lang='py'
+      title='Transaction without signer cache'
+      frame='none'
+    /> */}
+  </TabItem>
+</Tabs>
+
+To remove the need to pass in the signer for each transaction, you can cache the signer for an account using the following methods:
+
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+      snippet='SIGNER_CONFIG'
+      lang='ts'
+      title='Signer configuration'
+      frame='none'
+    /> */}
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='SIGNER_CONFIG'
+      lang='py'
+      title='Signer configuration'
+      frame='none'
+    /> */}
+  </TabItem>
+</Tabs>
+
+After setting the signer, you can send transactions without having to pass in the signer for each transaction like above.
+
+#### Suggested Parameters Are Cached
+
+AlgorandClient caches network provided transaction values ([suggested parameters](/reference/rest-api/algod/operations/transactionparams)) for you automatically to reduce network traffic. It has a set of default configurations that control this behavior, but you have the ability to override and change the configuration of this behavior:
+
+<li>
+  `algorand.setDefaultValidityWindow(validityWindow)` - Set the default validity window (number of
+  rounds from the current known round that the transaction will be valid to be accepted for), having
+  a smallish value for this is usually ideal to avoid transactions that are valid for a long future
+  period and may be submitted even after you think it failed to submit if waiting for a particular
+  number of rounds for the transaction to be successfully submitted. The validity window defaults to
+  10, except in automated testing where it's set to 1000 when targeting LocalNet.
+</li>
+<li>
+  `algorand.setSuggestedParams(suggestedParams, until?)` - Set the suggested network parameters to
+  use (optionally until the given time)
+</li>
+<li>
+  `algorand.setSuggestedParamsTimeout(timeout)` - Set the timeout that is used to cache the
+  suggested network parameters (by default 3 seconds)
+</li>
+<li>
+  `algorand.getSuggestedParams()` - Get the current suggested network parameters object, either the
+  cached value, or if the cache has expired a fresh value
+</li>
+
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+      snippet='SUGGESTED_PARAMS_CONFIG'
+      lang='ts'
+      title='Suggested params configuration'
+      frame='none'
+    /> */}
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='SUGGESTED_PARAMS_CONFIG'
+      lang='py'
+      title='Suggested params configuration'
+      frame='none'
+    /> */}
   </TabItem>
 </Tabs>
 
 ## Typed Application Client
 
-:::note
-Soon, the application client will be integrated into the Algorand Client, which will become the single interface for all Algorand functionalities, including deploying and calling smart contracts.
-:::
+Typed application clients are automatically generated, typed TypeScript deployment and invocation clients for smart contracts that have a defined `ARC-56` or `ARC-32` application specification so that the development experience is easier with less upskill ramp-up and less deployment errors. These clients give you a type-safe, intellisense-driven experience for invoking the smart contract.
 
-The `ApplicationClient` class within AlgoKit Utils for TypeScript and Python wraps an ARC-0032 app spec and provides high-productivity methods for
-deploying and calling the app. Use the `ApplicationClient` for all smart contract interactions, including deploying, calling, and reading smart contracts.
+Typed application clients are the recommended way of interacting with smart contracts. If you don't have/want a typed client, but have an `ARC-56` or `ARC-32` app spec then you can use the non-typed application clients and if you want to call a smart contract you don't have an app spec file for you can use the underlying app management and app deployment functionality to manually construct transactions.
 
 ### Generating the ApplicationClient Class
 
-When compiled, all ARC4 smart contracts generate an `arc32.json` file. This file contains the smart contract's extended ABI,
-which follows the [ARC-0032](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0032.md) standard.
+When compiled, all ARC4 smart contracts generate an `arc56.json` or `arc32.json` file depending on what app spec was used. This file contains the smart contract's extended ABI,
+which follows the [ARC-0032](/standards/arcs/arc-0032) standard.
 
-The relevant smart contract's application client is generated using the ARC32 ABI file. There are two different ways to
-generate an application client for a smart contract:
+The relevant smart contract's application client is generated using the ARC56/ARC32 ABI file. There are two different ways to generate an application client for a smart contract:
 
-#### Using the AlgoKit Build CLI command
+#### 1. Using the AlgoKit Build CLI command
 
-When you are using AlgoKit smart contract templates for your project, compiling your ARC4 smart contract written in either Python or TypeScript
-will automatically generate the TypeScript or Python application client for you depending on what language you chose for contract interaction. Simply run the following command to generate four artifacts including the application client:
+When you are using the AlgoKit smart contract template for your project, compiling your ARC4 smart contract written in either Python or TypeScript will automatically generate the TypeScript or Python application client for you depending on what language you chose for contract interaction. Simply run the following command to generate the artifacts including the typed application client:
 
-```shell showLineNumbers=false frame=terminal
+```shell showLineNumbers=false frame=none
 algokit project run build
 ```
 
@@ -121,7 +234,7 @@ After running the command, you should see the following artifacts generated in t
 
 <Image src={artifacts} alt='Image of generated artifacts' />
 
-#### Using the AlgoKit Generate CLI command
+#### 2. Using the AlgoKit Generate CLI command
 
 There is also an AlgoKit CLI command to generate the application client for a smart contract. You can also use it to define custom commands inside of the `.algokit.toml` file in your project directory.
 Note that you can specify what language you want for the application clients with the file extensions `.ts` for TypeScript and `.py` for Python.
@@ -137,29 +250,55 @@ algokit generate client smart_contracts/artifacts --output {contract_name}.ts
 algokit generate client smart_contracts/artifacts --output {app_spec_path}/client.py
 ```
 
-### Creating an ApplicationClient
+### Getting a Typed App Client Instance
 
-To create an instance of an `ApplicationClient`, import the file containing the auto-generated `ApplicationClient` class and proceed as follows:
+To get an instance of a typed client you can use an `AlgorandClient` instance or a typed app `Factory` instance.
+
+The approach to obtaining a client instance depends on how many app clients you require for a given app spec and if the app has already been deployed, which is summarised below:
+
+#### App is already deployed
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={instantiateAppclient} lang='ts' />
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+      snippet='SUGGESTED_PARAMS_CONFIG'
+      lang='ts'
+      title='Suggested params configuration'
+      frame='none'
+    /> */}
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={instantiate_appclient} lang='py' />
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='SUGGESTED_PARAMS_CONFIG'
+      lang='py'
+      title='Suggested params configuration'
+      frame='none'
+    /> */}
   </TabItem>
 </Tabs>
 
-### Deploying a Smart Contract
-
-To deploy a smart contract to a network using the application client instance, follow these steps:
+#### App is not deployed
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={deployContract} lang='ts' />
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+      snippet='SUGGESTED_PARAMS_CONFIG'
+      lang='ts'
+      title='Suggested params configuration'
+      frame='none'
+    /> */}
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={deploy_contract} lang='py' />
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='SUGGESTED_PARAMS_CONFIG'
+      lang='py'
+      title='Suggested params configuration'
+      frame='none'
+    /> */}
   </TabItem>
 </Tabs>
 
@@ -169,9 +308,46 @@ To call a smart contract method using the application client instance, follow th
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={callMethod} lang='ts' />
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+      snippet='SUGGESTED_PARAMS_CONFIG'
+      lang='ts'
+      title='Suggested params configuration'
+      frame='none'
+    /> */}
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
-    <Code code={call_method} lang='py' />
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='SUGGESTED_PARAMS_CONFIG'
+      lang='py'
+      title='Suggested params configuration'
+      frame='none'
+    /> */}
+  </TabItem>
+</Tabs>
+
+### Simple Deploy and Call Example
+
+For a simple example that deploys a contract and calls a `hello` method, see below:
+
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+      snippet='SUGGESTED_PARAMS_CONFIG'
+      lang='ts'
+      title='Suggested params configuration'
+      frame='none'
+    /> */}
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    {/* <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='SUGGESTED_PARAMS_CONFIG'
+      lang='py'
+      title='Suggested params configuration'
+      frame='none'
+    /> */}
   </TabItem>
 </Tabs>

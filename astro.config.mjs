@@ -495,6 +495,10 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
+                  label: 'Algorand Client',
+                  link: 'algokit/utils/algokit-utils-clients',
+                },
+                {
                   label: 'AlgoKit Utils TypeScript',
                   link: '',
                 },
