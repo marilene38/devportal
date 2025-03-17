@@ -7,6 +7,8 @@ title: "getAccountAssetInformation"
 
 > **getAccountAssetInformation**(`sender`, `assetId`, `algod`): `Promise`\<`AccountAssetInformation`\>
 
+Defined in: [src/account/account.ts:201](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/account.ts#L201)
+
 :::caution[Deprecated]
 Use `algorand.asset.getAccountInformation(sender, assetId)` or `new AssetManager(...).getAccountInformation(sender, assetId)` instead.
 
@@ -48,7 +50,3 @@ const accountInfo = await account.getAccountAssetInformation(address, assetId, a
 ```
 
 [Response data schema details](https://developer.algorand.org/docs/rest-apis/algod/#get-v2accountsaddressassetsasset-id)
-
-## Defined in
-
-[src/account/account.ts:201](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/account.ts#L201)

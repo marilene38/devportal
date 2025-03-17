@@ -7,6 +7,10 @@ import { resolve } from 'path';
 import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
 import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi';
+import starlightTypeDoc from 'starlight-typedoc';
+import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -21,6 +25,12 @@ export default defineConfig({
         starlightLinksValidator({
           errorOnRelativeLinks: false,
           exclude: ['**[FUTURELINK]*', '**/reference/**'],
+        }),
+        starlightTypeDoc({
+          entryPoints: ['./imports/repos/algokit-utils-ts/src/index.ts'],
+          tsconfig: './imports/repos/algokit-utils-ts/tsconfig.json',
+          output: 'reference/algokit-utils-ts/API Reference',
+          exclude: ['**[FUTURELINK]*'],
         }),
         starlightOpenAPI([
           {
@@ -2634,8 +2644,20 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    // Rehype plugin that adds target="_blank" and rel="noopener noreferrer" to external links
-    rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }]],
+    rehypePlugins: [
+      [rehypeAstroRelativeMarkdownLinks, { collectionBase: false }],
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'wrap',
+          properties: {
+            className: ['anchor-link'],
+          },
+        },
+      ],
+      [rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }],
+    ],
   },
   vite: {
     resolve: {
@@ -2645,7 +2667,6 @@ export default defineConfig({
         '@diagrams': resolve('./src/assets/diagrams/svg'),
       },
     },
-
     plugins: [tailwindcss()],
   },
 });

@@ -7,6 +7,8 @@ title: "ensureFunded"
 
 > **ensureFunded**\<`T`\>(`funding`, `algod`, `kmd`?): `Promise`\<`EnsureFundedReturnType` \| `undefined`\>
 
+Defined in: [src/transfer/transfer.ts:26](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/transfer/transfer.ts#L26)
+
 :::caution[Deprecated]
 Use `algorand.account.ensureFunded()` / `algorand.account.ensureFundedFromEnvironment()`
 / `algorand.account.ensureFundedFromTestNetDispenserApi()` instead
@@ -46,7 +48,3 @@ An optional instance of the Kmd client.
 
 - `EnsureFundedReturnType` if funds were transferred.
 - `undefined` if no funds were needed.
-
-## Defined in
-
-[src/transfer/transfer.ts:26](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/transfer/transfer.ts#L26)

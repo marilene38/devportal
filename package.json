@@ -34,7 +34,7 @@
     "astro": "^5.3.1",
     "astro-d2": "^0.3.0",
     "astro-icon": "^1.1.0",
-    "astro-rehype-relative-markdown-links": "^0.17.0",
+    "astro-rehype-relative-markdown-links": "^0.17.3",
     "astro-remote": "^0.3.3",
     "marked": "^13.0.1",
     "prismjs": "^1.29.0",
@@ -75,7 +75,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild", "sharp"
+      "esbuild",
+      "sharp"
     ]
   }
 }
