@@ -15,14 +15,18 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
   <button
     aria-label='Toggle Theme'
     aria-live='polite'
-    class:list={['sl-flex', classList]}
+    class:list={[
+      'theme-select sl-flex',
+      isHomepage ? 'w-[23px] h-[23px] md:w-[38px] md:h-[38px] pt-2! pb-4!' : '',
+      classList,
+    ]}
     title='Toggle Theme'
   >
     <svg
       aria-hidden='true'
-      height={isHomepage ? '38' : '16'}
+      height={!isHomepage ? '16' : '100%'}
       viewBox='0 0 24 24'
-      width={isHomepage ? '38' : '16'}
+      width={!isHomepage ? '16' : '100%'}
     >
       <mask class='moon' id={id}>
         <rect x='0' y='0' width='100%' height='100%' fill='white'></rect>
