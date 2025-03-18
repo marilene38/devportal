@@ -1,6 +1,76 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer theme, base, components, utilities,;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@plugin '@astrojs/starlight-tailwind';
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --text-xxs: 0.625rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+  --text-9xl: 8rem;
+
+  --font-sans: Inter, sans-serif;
+  --font-mono: Source Code Pro, monospace;
+
+  --color-icon-dark: #ffffff;
+  --color-icon-light: #000000;
+
+  --color-code-light-bg: #f5f5f5;
+  --color-code-light-text: #333333;
+  --color-code-light-keyword: #c678dd;
+  --color-code-light-string: #98c379;
+
+  --color-code-dark-bg: #2d2d2d;
+  --color-code-dark-text: #ffffff;
+  --color-code-dark-keyword: #c678dd;
+  --color-code-dark-string: #98c379;
+
+  --color-algo-teal-100: #e7faf9;
+  --color-algo-teal-200: #d1f4f4;
+  --color-algo-teal-300: #b9efee;
+  --color-algo-teal-400: #74dfdd;
+  --color-algo-teal-500: #45d5d1;
+  --color-algo-teal-600: #17cac6;
+  --color-algo-teal-700: #5cdad7;
+
+  --color-algo-lavender-100: #e9e9fd;
+  --color-algo-lavender-200: #8080f3;
+  --color-algo-lavender-300: #4444ed;
+  --color-algo-lavender-400: #2d2df1;
+
+  --color-algo-navy: #001324;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 pre,
 code {
@@ -16,18 +86,18 @@ table.reference-table code {
 
 :root[data-theme='dark'] {
   [data-icon] {
-    color: theme('colors.icon.dark');
+    color: var(--color-icon-dark);
   }
   article.card {
-    background-color: theme('colors.gray.800');
+    background-color: var(--color-gray-800);
   }
 }
 :root[data-theme='light'] {
   [data-icon] {
-    color: theme('colors.icon.light');
+    color: var(--color-icon-light);
   }
   article.card {
-    background-color: '#edf2ff';
+    background-color: #edf2ff;
   }
 }
 
@@ -126,7 +196,7 @@ header.header {
   --sl-color-white: #282930;
   --sl-color-gray-1: #24272f;
   --sl-color-gray-2: #353841;
-  --sl-color-gray-3: #545861;
+  --sl-color-gray-3: #c0c2c7;
   --sl-color-gray-4: #888b96;
   --sl-color-gray-5: #c0c2c7;
   --sl-color-gray-6: #ccd0d3;
@@ -136,14 +206,39 @@ header.header {
   /* --sl-color-banner-text: #dfe1e5; */
 }
 
-/* :root[data-theme='light'] .sl-markdown-content a {
-  color: #17cac6 !important;
+html:has(.homepage-hero)[data-theme='light'] {
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-nav: #ffffff;
 }
 
-:root[data-theme='light'] .sl-markdown-content a:hover {
-  color: #c0c2c7 !important;
-} */
+html:has(.homepage-hero)[data-theme='dark'] {
+  --sl-color-bg: #001324;
+  --sl-color-bg-nav: #001324;
+}
 
-/* :root .sl-markdown-content a {
-  color: #17cac6 !important;
-} */
+html:has(.homepage-hero) {
+  main,
+  .content-panel {
+    padding: 0 !important;
+  }
+
+  header {
+    @apply py-4! lg:py-[25px]! px-0! h-auto!;
+  }
+
+  site-search button[data-open-modal] {
+    width: unset !important;
+    max-width: unset !important;
+    border: unset !important;
+    border-radius: unset !important;
+    display: block !important;
+    background-color: transparent !important;
+    padding: unset !important;
+
+    @apply text-algo-lavender-400! dark:text-algo-teal-700! text-[20px]! h-[40px]! md:text-[34px]! md:h-[48px]!;
+
+    .sl-hidden {
+      display: none !important;
+    }
+  }
+}

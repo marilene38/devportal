@@ -16,6 +16,18 @@
 [submodule "imports/repos/algokit-cli"]
 	path = imports/repos/algokit-cli
 	url = https://github.com/algorandfoundation/algokit-cli
+[submodule "imports/repos/sdk-go"]
+	path = imports/repos/sdk-go
+	url = https://github.com/algorand/go-algorand-sdk
+[submodule "imports/repos/sdk-py"]
+	path = imports/repos/sdk-py
+	url = https://github.com/algorand/py-algorand-sdk
+[submodule "imports/repos/sdk-js"]
+	path = imports/repos/sdk-js
+	url = https://github.com/algorand/js-algorand-sdk
+[submodule "imports/repos/sdk-java"]
+	path = imports/repos/sdk-java
+	url = https://github.com/algorand/java-algorand-sdk
 [submodule "imports/repos/puya-ts"]
 	path = imports/repos/puya-ts
 	url = https://github.com/algorandfoundation/puya-ts.git

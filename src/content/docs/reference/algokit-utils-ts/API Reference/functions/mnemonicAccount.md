@@ -7,6 +7,8 @@ title: "mnemonicAccount"
 
 > **mnemonicAccount**(`mnemonicSecret`): `Account`
 
+Defined in: [src/account/mnemonic-account.ts:14](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/mnemonic-account.ts#L14)
+
 :::caution[Deprecated]
 Use `algorand.account.fromMnemonic(mnemonicSecret)` or `algosdk.mnemonicToSecretKey(mnemonicSecret)` instead.
 
@@ -27,7 +29,3 @@ The mnemonic secret representing the private key of an account; **Note: Be caref
 ## Returns
 
 `Account`
-
-## Defined in
-
-[src/account/mnemonic-account.ts:14](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/mnemonic-account.ts#L14)

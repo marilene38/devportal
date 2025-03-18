@@ -15,30 +15,32 @@ jobs:
     steps:
       - name: Checkout Actions Repository
         uses: actions/checkout@v4
-      - name: Check Typos
-        uses: crate-ci/typos@master
-        with:
-          files: ./src/*
-          config: ./typos.toml
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10.6.3
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+
       - name: Setup Python for importing docs
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Install Poetry
         uses: snok/install-poetry@v1
+
       - name: Setup submodules
         run: git submodule update --init && pnpm run import:utils-ts
+
       - name: Install Dependencies
         run: pnpm install
+
       - name: Lint Codebase
         run: pnpm run lint
   build:
@@ -51,24 +53,36 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10.6.3
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+
       - name: Install D2
-        run: curl -fsSL https://d2lang.com/install.sh | sh -s --
+        run: curl -fsSL https://d2lang.com/install.sh | sh -s -- --tala
+
       - name: Setup Python for importing docs
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Install Poetry
         uses: snok/install-poetry@v1
+
+      - name: Setup submodules
+        run: git submodule update --init && pnpm run import:utils-ts
+
       - name: Install Dependencies
         run: pnpm install
+
       - name: Run Build
         run: pnpm run build
+        env:
+          TSTRUCT_TOKEN: ${{ secrets.TSTRUCT_TOKEN }}

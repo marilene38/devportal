@@ -7,6 +7,8 @@ title: "getAppClientById"
 
 > **getAppClientById**(`appDetails`, `algod`): `ApplicationClient`
 
+Defined in: [src/app-client.ts:66](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app-client.ts#L66)
+
 :::caution[Deprecated]
 Use `AppClient` instead e.g. via `algorand.client.getAppClientById`.
 If you want to `create` or `deploy` then use `AppFactory` e.g. via `algorand.client.getAppFactory`,
@@ -47,7 +49,3 @@ const client = algokit.getAppClientById(
     algodClient,
   )
 ```
-
-## Defined in
-
-[src/app-client.ts:66](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app-client.ts#L66)

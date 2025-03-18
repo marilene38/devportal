@@ -1,0 +1,27 @@
+---
+title: 'Opcodes Overview'
+---
+
+import { LinkCard } from '@astrojs/starlight/components';
+
+TEAL is an assembly language syntax used to write programs that are executed by the Algorand Virtual Machine (AVM). These programs can function as either Smart Signatures or Smart Contracts. The AVM is a bytecode-based stack interpreter that processes TEAL programs. Each opcode in TEAL performs a specific operation, manipulating data on the stack or interacting with the blockchain's state.
+
+Algorand periodically updates TEAL to introduce new features and opcodes. A comprehensive list of opcodes, organized by TEAL version, is available in the [Opcodes List](/reference/algorand-teal/opcodes-list).
+
+TEAL opcodes are categorized based on their functionality:
+
+1. Stack Manipulation: Opcodes such as `push` and `pop` help manipulate values on the stack.
+2. Arithmetic Operations: Opcodes such as `add`, `subtract`, and `multiply` perform mathematical computations.
+3. Bitwise Operations: Opcodes such as `getbit` and `setbit` allow for bit-level data manipulation.
+4. Control Flow: Opcodes such as `bz` (branch if zero) and `bnz` (branch if not zero) enable conditional logic.
+5. Cryptographic Operations: Opcodes such as `ed25519verify` provide signature verification capabilities.
+
+## High-Level Languages
+
+While TEAL provides a low-level approach to writing smart contracts, developers often prefer using high-level languages (HLLs) that compile down to TEAL bytecode. This abstraction simplifies the development process and reduces the potential for errors.​
+
+Algorand provides high level languages like [Algorand Python](/concepts/smart-contracts/languages/python) and [Algorand Typescript](/concepts/smart-contracts/languages/typescript) which allows developers to write smart contract logic in in a more familiar syntax, which is then compiled into TEAL for execution on the Algorand Virtual Machine (AVM).
+
+Additionally, Algokit gives a way for easier development and deployment of these smart contracts.
+
+<LinkCard title='Algokit Quick Start' href='/getting-started/algokit-quick-start' />

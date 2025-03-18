@@ -7,6 +7,8 @@ title: "getTransactionWithSigner"
 
 > **getTransactionWithSigner**(`transaction`, `defaultSender`?): `Promise`\<`TransactionWithSigner`\>
 
+Defined in: [src/transaction/transaction.ts:125](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/transaction/transaction.ts#L125)
+
 :::caution[Deprecated]
 Use `AlgorandClient` / `TransactionComposer` to construct transactions instead or
 construct an `algosdk.TransactionWithSigner` manually instead.
@@ -37,7 +39,3 @@ include a signer.
 `Promise`\<`TransactionWithSigner`\>
 
 A TransactionWithSigner object.
-
-## Defined in
-
-[src/transaction/transaction.ts:125](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/transaction/transaction.ts#L125)

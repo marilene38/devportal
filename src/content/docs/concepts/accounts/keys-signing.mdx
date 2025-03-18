@@ -2,6 +2,7 @@
 title: Keys and signing
 ---
 
+import { LinkCard } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 import Figure from '/src/components/Figure.astro';
 import { Code } from '@astrojs/starlight/components';
@@ -45,7 +46,7 @@ This representation is called the private key mnemonic. You may also see it refe
 <Figure src={privKeyMnemonic} alt='Private Key Mnemonic' />
 
 :::note
-Both the base64 representation of a private key and the private key mnemonic are considered private keys. Disambiguating them in contexts where the representation is important is important.
+Both the base64 representation of a private key and the private key mnemonic are considered private keys. Disambiguating them in contexts where the representation is important.
 :::
 
 To manage keys of an Algorand account and use them for signing, there are several methods and tools available. Here's an overview of key management and signing processes:
@@ -60,7 +61,7 @@ Algokey is a command-line tool provided by Algorand for managing cryptographic k
 algokey sign -t transaction.txn -k private_key.key -o signed_transaction.stxn
 ```
 
-For more details refer [here]().
+<LinkCard title='Algokey' href='' />
 
 ### Using Algokit utils
 
@@ -71,7 +72,16 @@ AlgoKit Utils simplifies the management of standalone Algorand accounts, signing
 A default signer is used when no specific signer is provided. This helps streamline transaction signing processes, making it easier for developers to handle transactions without manually specifying signers each time.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/keys_and_signing.py'
+      snippet='DEFAULT_SIGNER'
+      lang='py'
+      title='Default Signer'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/keys-and-signing.ts'
       snippet='DEFAULT_SIGNER'
@@ -80,7 +90,6 @@ A default signer is used when no specific signer is provided. This helps streaml
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 #### Multiple signers
@@ -88,7 +97,16 @@ A default signer is used when no specific signer is provided. This helps streaml
 In certain use cases, multiple signers may be required to approve a transaction. This is particularly relevant in scenarios involving multi-signature accounts, where different parties must authorize transactions before they can be executed.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/keys_and_signing.py'
+      snippet='MULTIPLE_SIGNERS'
+      lang='py'
+      title='Multiple Signers'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/keys-and-signing.ts'
       snippet='MULTIPLE_SIGNERS'
@@ -97,7 +115,6 @@ In certain use cases, multiple signers may be required to approve a transaction.
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 #### Get signer
@@ -105,7 +122,16 @@ In certain use cases, multiple signers may be required to approve a transaction.
 When working with transactions, it is often necessary to retrieve a specific signer for an account. This ensures that only authorized entities can sign and approve transactions. If a signer is not registered, an error may be thrown to prevent unauthorized transaction execution.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/keys_and_signing.py'
+      snippet='GET_SIGNER'
+      lang='py'
+      title='Get Signer'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/keys-and-signing.ts'
       snippet='GET_SIGNER'
@@ -114,7 +140,6 @@ When working with transactions, it is often necessary to retrieve a specific sig
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 #### Override signer
@@ -122,7 +147,16 @@ When working with transactions, it is often necessary to retrieve a specific sig
 Create an unsigned payment transaction and manually sign it.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/keys_and_signing.py'
+      snippet='OVERRIDE_SIGNER'
+      lang='py'
+      title='Override Signer'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/keys-and-signing.ts'
       snippet='OVERRIDE_SIGNER'
@@ -131,7 +165,6 @@ Create an unsigned payment transaction and manually sign it.
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ## Signing using wallets

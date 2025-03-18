@@ -49,6 +49,8 @@ This allows you to write code that will work seamlessly in production and local 
 
 > **getAccount**(`account`, `algod`, `kmdClient`?): `Promise`\<`Account` \| `SigningAccount`\>
 
+Defined in: [src/account/get-account.ts:41](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/get-account.ts#L41)
+
 :::caution[Deprecated]
 use `algorand.account.fromEnvironment()` instead
 Returns an Algorand account with private key loaded by convention based on the given name identifier.
@@ -88,7 +90,7 @@ The details of the account to get, either the name identifier (string) or an obj
   * `name`: The name identifier of the account
   * `fundWith`: The amount to fund the account with when it gets created (when targeting LocalNet), if not specified then 1000 ALGO will be funded from the dispenser account
 
-`string` | \{`fundWith`: `AlgoAmount`;`name`: `string`; \}
+`string` | \{ `fundWith`: `AlgoAmount`; `name`: `string`; \}
 
 #### algod
 
@@ -142,13 +144,11 @@ An algod client
 
 An optional KMD client to use to create an account (when targeting LocalNet), if not specified then a default KMD client will be loaded from environment variables
 
-### Defined in
-
-[src/account/get-account.ts:41](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/get-account.ts#L41)
-
 ## Call Signature
 
 > **getAccount**(`account`, `algod`, `kmdClient`?): `Promise`\<`Account` \| `SigningAccount`\>
+
+Defined in: [src/account/get-account.ts:68](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/get-account.ts#L68)
 
 :::caution[Deprecated]
 use `algorand.account.fromEnvironment()` instead
@@ -239,7 +239,3 @@ An algod client
 ### Param
 
 An optional KMD client to use to create an account (when targeting LocalNet), if not specified then a default KMD client will be loaded from environment variables
-
-### Defined in
-
-[src/account/get-account.ts:68](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/get-account.ts#L68)
