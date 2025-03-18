@@ -17,7 +17,7 @@ There are different transactions signatures to be described in the following par
 
 ## Single Signatures
 
-A single signature corresponds to a signature from the private key of an [Algorand public/private key pair](/FUTURE_LINK).
+A single signature corresponds to a signature from the private key of an [Algorand public/private key pair](/concepts/accounts/keys-signing).
 
 This is an example of a transaction signed by an Algorand private key displayed with `goal clerk inspect` command:
 
@@ -41,12 +41,12 @@ This is an example of a transaction signed by an Algorand private key displayed 
 This transaction sends 10 Algo from `"EW64GC..."` to `"QC7XT7..."` on TestNet. The transaction was signed with the private key that corresponds to the `"snd"` address of `"EW64GC..."`. The base64 encoded signature is shown as the value of the `"sig"` field.
 
 ### How to
-
+The following example will demonstrate how to sign a transaction with an account whiwh originally doesn't have a signer. 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/transactions/signing-transactions.ts'
-      snippet='SIGN_TRANSACTION'
+      snippet='TRANSACTION_WITH_NO_SIGNER'
       lang='ts'
       title='Signing-Transactions'
       frame='none'
@@ -55,7 +55,7 @@ This transaction sends 10 Algo from `"EW64GC..."` to `"QC7XT7..."` on TestNet. T
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/transactions/signing_transactions.py'
-      snippet='SIGNING_TRANSACTIONS'
+      snippet='TRANSACTION_WITH_NO_SIGNER'
       lang='py'
       title='Signing-Transactions'
       frame='none'
@@ -63,9 +63,31 @@ This transaction sends 10 Algo from `"EW64GC..."` to `"QC7XT7..."` on TestNet. T
   </TabItem>
 </Tabs>
 
+Now let's dive into an example where the given account has a signer in it.
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/transactions/signing-transactions.ts'
+      snippet='TRANSACTION_WITH_SIGNER'
+      lang='ts'
+      title='Signing-Transactions-with-signer'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/transactions/signing_transactions.py'
+      snippet='TRANSACTION_WITH_SIGNER'
+      lang='py'
+      title='Signing-Transactions-with-signer'
+      frame='none'
+    />
+  </TabItem>
+</Tabs>
+
 ## Multisignatures
 
-When the [sender](/concepts/transactions/transactions#sender) of a transaction is the address of a [multisignature account](./FUTURE_LINK) then authorization requires a subset of signatures, _equal to or greater than the threshold value_, from the associated private keys of the addresses that multisignature account is composed of. See [Multisignature Accounts](./FUTURE_LINK) for details on how to configure a multisignature account.
+When the [sender](/concepts/transactions/transactions#sender) of a transaction is the address of a [multisignature account](/concepts/accounts/overview) then authorization requires a subset of signatures, _equal to or greater than the threshold value_, from the associated private keys of the addresses that multisignature account is composed of. See [Multisignature Accounts](/concepts/accounts/overview) for details on how to configure a multisignature account.
 
 :::caution
 Upon signing, either the signing agent or the transaction needs to know the composition of the multisignature account, i.e. the ordered addresses, threshold, and version.
@@ -151,3 +173,27 @@ Adding more sub-signatures than the threshold requires is unnecessary but perfec
 :::
 
 ### How-To
+
+The following code example contains a demonstration of how to execute a transaction signed by a multisig account.
+
+
+<Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/transactions/signing-transactions.ts'
+      snippet='MULTISIG_SIGNING_TRANSACTIONS'
+      lang='ts'
+      title='Signing-Transactions-multisig'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/transactions/signing_transactions.py'
+      snippet='MULTISIG_SIGNING_TRANSACTIONS'
+      lang='py'
+      title='Signing-Transactions-multisig'
+      frame='none'
+    />
+  </TabItem>
+</Tabs>
