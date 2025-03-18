@@ -9,8 +9,6 @@ import starlightLinksValidator from 'starlight-links-validator';
 import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi';
 import starlightTypeDoc from 'starlight-typedoc';
 import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -2646,16 +2644,6 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [
       [rehypeAstroRelativeMarkdownLinks, { collectionBase: false }],
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'wrap',
-          properties: {
-            className: ['anchor-link'],
-          },
-        },
-      ],
       [rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }],
     ],
   },
