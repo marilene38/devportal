@@ -41,7 +41,9 @@ This is an example of a transaction signed by an Algorand private key displayed 
 This transaction sends 10 Algo from `"EW64GC..."` to `"QC7XT7..."` on TestNet. The transaction was signed with the private key that corresponds to the `"snd"` address of `"EW64GC..."`. The base64 encoded signature is shown as the value of the `"sig"` field.
 
 ### How to
-The following example will demonstrate how to sign a transaction with an account whiwh originally doesn't have a signer. 
+
+The following example will demonstrate how to sign a transaction with an account whiwh originally doesn't have a signer.
+
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <RemoteCode
@@ -64,6 +66,7 @@ The following example will demonstrate how to sign a transaction with an account
 </Tabs>
 
 Now let's dive into an example where the given account has a signer in it.
+
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <RemoteCode
@@ -175,7 +178,6 @@ Adding more sub-signatures than the threshold requires is unnecessary but perfec
 ### How-To
 
 The following code example contains a demonstration of how to execute a transaction signed by a multisig account.
-
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
