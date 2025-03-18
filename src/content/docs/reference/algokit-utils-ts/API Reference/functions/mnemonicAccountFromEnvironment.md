@@ -7,6 +7,8 @@ title: "mnemonicAccountFromEnvironment"
 
 > **mnemonicAccountFromEnvironment**(`account`, `algod`, `kmdClient`?): `Promise`\<`Account` \| `SigningAccount`\>
 
+Defined in: [src/account/account.ts:97](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/account.ts#L97)
+
 :::caution[Deprecated]
 Use `algorand.account.fromEnvironment(name, fundWith)` or `new AccountManager(clientManager).fromEnvironment()` instead.
 
@@ -31,7 +33,7 @@ The details of the account to get, either the name identifier (string) or an obj
   * `name`: string: The name identifier of the account
   * `fundWith`: The amount to fund the account with when it gets created (when targeting LocalNet), if not specified then 1000 ALGO will be funded from the dispenser account
 
-`string` | \{`fundWith`: `AlgoAmount`;`name`: `string`; \}
+`string` | \{ `fundWith`: `AlgoAmount`; `name`: `string`; \}
 
 ### algod
 
@@ -60,7 +62,3 @@ const account = await mnemonicAccountFromEnvironment('MY_ACCOUNT', algod)
 
 If that code runs against LocalNet then a wallet called `MY_ACCOUNT` will automatically be created with an account that is automatically funded with 1000 (default) ALGO from the default LocalNet dispenser.
 If not running against LocalNet then it will use proces.env.MY_ACCOUNT_MNEMONIC as the private key and (if present) process.env.MY_ACCOUNT_SENDER as the sender address.
-
-## Defined in
-
-[src/account/account.ts:97](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/account.ts#L97)
