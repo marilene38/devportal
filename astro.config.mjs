@@ -266,6 +266,10 @@ export default defineConfig({
                   link: 'concepts/smart-contracts/resource-usage',
                 },
                 {
+                  label: 'Opcodes Overview',
+                  link: 'concepts/smart-contracts/opcodes-overview',
+                },
+                {
                   label: 'Costs & Constraints',
                   link: 'concepts/smart-contracts/costs-constraints',
                 },
