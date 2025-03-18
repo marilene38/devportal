@@ -52,21 +52,6 @@ async function downloadSchema(url: string): Promise<string> {
   return response.text();
 }
 
-async function addTitleToMarkdown(filePath: string, title: string) {
-  try {
-    let content = await fs.readFile(filePath, 'utf-8');
-
-    // Ensure title is added properly
-    const titleBlock = `---\ntitle: ${title}\n---\n\n`;
-    content = titleBlock + content;
-
-    await fs.writeFile(filePath, content, 'utf-8');
-    console.log(`✅ Added title to ${filePath}`);
-  } catch (error) {
-    console.error(`❌ Error adding title to ${filePath}:`, error);
-  }
-}
-
 async function sortMarkdownFile(filePath: string) {
   try {
     const content = await fs.readFile(filePath, 'utf-8');
@@ -118,6 +103,22 @@ async function sortMarkdownFile(filePath: string) {
     console.error(`❌ Error sorting ${filePath}:`, error);
   }
 }
+
+async function addTitleToMarkdown(filePath: string, title: string) {
+  try {
+    let content = await fs.readFile(filePath, 'utf-8');
+
+    // Ensure title is added properly
+    const titleBlock = `---\ntitle: ${title}\n---\n\n`;
+    content = titleBlock + content;
+
+    await fs.writeFile(filePath, content, 'utf-8');
+    console.log(`✅ Added title to ${filePath}`);
+  } catch (error) {
+    console.error(`❌ Error adding title to ${filePath}:`, error);
+  }
+}
+
 async function groupMarkdownSections(filePath: string) {
   try {
     let content = await fs.readFile(filePath, 'utf-8');
@@ -161,7 +162,7 @@ async function generateDocs() {
 
         // Run Widdershins with collapsible TOC enabled
         await execAsync(
-          `npx widdershins --omitHeader ${tempSchemaFile} -o ${outputFile}`,
+          `npx widdershins --omitHeader true ${tempSchemaFile} -o ${outputFile}`,
         );
 
         // Add custom title block
