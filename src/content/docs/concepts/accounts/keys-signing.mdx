@@ -13,6 +13,12 @@ import base64PrivateKey from '@images/account-overview-Base64-Private-Key.png';
 import pubPrivKey from '@images/account-overview-public-private-key.png';
 import pubKeyAlgorandAddr from '@images/account-Overview-Public-Key-Algorand-Address.png';
 
+Algorand uses **Ed25519 elliptic-curve signatures** to ensure high-speed, secure cryptographic operations. Every account in Algorand is built upon a **public/private key pair**, which plays a crucial role in signing and verifying transactions. To simplify key management and enhance security, Algorand provides various tools and transformations to make key handling more accessible to developers and end users.
+
+This guide explores how public and private key pairs are generated and transformed into user-friendly formats like Algorand addresses, base64 private keys, and mnemonics. It also covers various methods for signing transactions, including direct key management through command-line tools like Algokey, programmatic signing using AlgoKit Utils in Python and TypeScript, and wallet-based signing with Pera Wallet integration.
+
+By understanding these key management and signing methods, developers can ensure secure and efficient transactions on the Algorand network.
+
 ### Keys and Addresses
 
 Algorand uses Ed25519 high-speed, high-security elliptic-curve signatures. The keys are produced through standard, open-source cryptographic libraries packaged with each of the SDKs. The key generation algorithm takes a random value as input and outputs two 32-byte arrays, representing a public key and its associated private key. These are also referred to as a public/private key pair. These keys perform essential cryptographic functions like signing data and verifying signatures.
@@ -61,7 +67,7 @@ Algokey is a command-line tool provided by Algorand for managing cryptographic k
 algokey sign -t transaction.txn -k private_key.key -o signed_transaction.stxn
 ```
 
-<LinkCard title='Algokey' href='' />
+<LinkCard title='Algokey' href='/nodes/reference/artifacts#algokey' />
 
 ### Using Algokit utils
 
@@ -95,6 +101,7 @@ A default signer is used when no specific signer is provided. This helps streaml
 #### Multiple signers
 
 In certain use cases, multiple signers may be required to approve a transaction. This is particularly relevant in scenarios involving multi-signature accounts, where different parties must authorize transactions before they can be executed.
+The below code registers multiple transaction signers at once. The `setSignerFromAccount` function tracks the given account for later signing. However, if you are generating accounts via the various methods on AccountManager (like random, fromMnemonic, logicsig, etc.) then they automatically get tracked.
 
 <Tabs syncKey='lang'>
   <TabItem label='Utils (Python)' icon='seti:python'>
@@ -119,7 +126,7 @@ In certain use cases, multiple signers may be required to approve a transaction.
 
 #### Get signer
 
-When working with transactions, it is often necessary to retrieve a specific signer for an account. This ensures that only authorized entities can sign and approve transactions. If a signer is not registered, an error may be thrown to prevent unauthorized transaction execution.
+Get signer helps to retrieve the Transaction Signer for the given sender address, ready to sign a transaction for that sender.If no signer has been registered for that address then the default signer is used if registered and if not then an error is thrown.
 
 <Tabs syncKey='lang'>
   <TabItem label='Utils (Python)' icon='seti:python'>
@@ -144,7 +151,7 @@ When working with transactions, it is often necessary to retrieve a specific sig
 
 #### Override signer
 
-Create an unsigned payment transaction and manually sign it.
+Create an unsigned payment transaction and manually sign it. The transaction signer can be specified in the second argument to `addTransaction`.
 
 <Tabs syncKey='lang'>
   <TabItem label='Utils (Python)' icon='seti:python'>
@@ -177,7 +184,8 @@ To sign a transaction using Pera Wallet:
 2. Generate a QR code or deep link: Instead of signing the transaction directly with a private key, you'll need to generate either a QR code or a deep link that contains the transaction details.
 3. User interaction: The user will then use the Pera Wallet app to scan the QR code or click the deep link. This will open the transaction in the Pera Wallet app.
 4. Review and sign: In the Pera Wallet app, the user will see the transaction details and can choose to sign it.
-   For more details, refer to [Transferring Assets](/concepts/assets/transfer).
+
+For more details, refer to [Transferring Assets](/concepts/assets/transfer).
 
 ### HD wallet
 

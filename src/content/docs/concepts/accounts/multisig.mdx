@@ -6,15 +6,11 @@ import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
 
-Multisignature accounts, are a logical representation of an ordered set of addresses with a threshold and version. Multisignature accounts can perform the same operations as other accounts, including sending transactions and participating in consensus. The address for a multisignature account is essentially a hash of the ordered list of accounts, the threshold and version values. The threshold determines how many signatures are required to process any transaction from this multisignature account.
+Multisignature accounts, are a logical representation of an ordered set of addresses with a threshold and version. The version is a parameter that specifies the multisignature protocol version being used. Multisignature accounts can perform the same operations as other accounts, including sending transactions and participating in consensus. The address for a multisignature account is essentially a hash of the ordered list of accounts, the threshold and version values. The threshold determines how many signatures are required to process any transaction from this multisignature account.
 
 Multisignature accounts cannot nest other multisignature accounts.
 
-Creating a multisignature account with Address A, Address B, and Address C will not produce the same address as one with Address B, Address A, and Address C. However, signing a multisignature transaction does not require any specific order.
-
-:::tip
-You can use the fact that order matters to generate multiple addresses that can be signed by the same set of keys.
-:::
+Creating a multisignature account with Address A, Address B, and Address C will not produce the same address as one with Address B, Address A, and Address C. However, signing a multisignature transaction does not require any specific order. You can use the fact that order matters to generate multiple addresses that can be signed by the same set of keys.
 
 [Send Algos](/concepts/accounts/funding) to the address to initialize its state on the blockchain as you would any other address.
 
@@ -33,13 +29,7 @@ You can use the fact that order matters to generate multiple addresses that can 
 
 ## How to Generate a Multisig Account
 
-There are different ways to generate a multisig account. The following ways show how to generate a multisignature account composed of three Algorand addresses, with a signing threshold of 2. Hardcode the mnemonics in the code samples below to recreate a specific multisignature address or create new accounts.
-
-:::tip
-Since multisignature accounts are just logical representations of the data defined above, anyone can "create" the same Algorand address if they know how it is composed. This information is public and included in a signed transaction from a multisignature account.
-:::
-
-AlgoKit Utils simplifies the creation and management of standalone Algorand accounts in Python and TypeScript by abstracting Algorand SDK complexities. Handle multisignature accounts efficiently by managing signing processes and transaction approvals. With AlgoKit Utils, developers can seamlessly create and fund multisignature accounts, ensuring secure and flexible transaction authorization.
+There are different ways to generate a multisig account. The following example demonstrates how to create a multisignature account using AlgoKit Utils and also using goal, which simplifies multisig account creation and transaction signing in TypeScript. In this example, only 2 signatures from the 3 possible signers to authorize transactions. The multisig account is then funded using a developer-managed dispenser, ensuring it has sufficient Algos for transactions. Finally, a payment transaction is sent from the multisig account, and AlgoKit Utils automatically gathers the required signatures from the provided signers, streamlining the signing process.
 
 <Tabs syncKey='lang'>
   <TabItem label='Utils (Python)' icon='seti:python'>
