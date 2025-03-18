@@ -260,6 +260,10 @@ export default defineConfig({
                   link: 'concepts/smart-contracts/overview',
                 },
                 {
+                  label: 'Algorand Virtual Machine',
+                  link: 'concepts/smart-contracts/avm',
+                },
+                {
                   label: 'Languages',
                   collapsed: false,
                   items: [
