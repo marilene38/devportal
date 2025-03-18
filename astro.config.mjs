@@ -98,7 +98,7 @@ export default defineConfig({
             },
             {
               label: 'Deploy Your First Smart Contract',
-              link: 'getting-started/algokit-quick-start',
+              link: 'getting-started/first-contract-guide',
             },
           ],
         },
