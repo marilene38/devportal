@@ -10,37 +10,21 @@ import rekeySingleMulti from '@images/account-rekey-single-multisig.png';
 import rekeySingleSingle from '@images/account-rekey-single-single.png';
 import rekeyStandardAccount from '@images/accounts-rekey-standard-account.png';
 
-Rekeying is a powerful protocol feature that enables an Algorand account holder to maintain a static public address while dynamically rotating the authoritative private spending key(s). This is accomplished by issuing a `rekey-to transaction` which sets the authorized address field within the account object. Future transaction authorization using the account's public address must be provided by the spending key(s) associated with the authorized address, which may be a single key address, MultiSig address, or LogicSig program address. Key management is a critical concept, and Algorand provides tools to securely accomplish relevant tasks.
+Rekeying is a powerful protocol feature that enables an Algorand account holder to maintain a static public address while dynamically rotating the authoritative private spending key(s). This is accomplished by issuing a transaction with the rekey-to field set the authorized address field within the account object. Future transaction authorization using the account's public address must be provided by the spending key(s) associated with the authorized address, which may be a single key address, MultiSig address, or LogicSig program address. The term “spending key(s)” is used throughout this document to signify that a single key or a set of keys from a MultiSig account may be authorized from a given public address. The address itself cannot distinguish how many spending keys are specifically required.
 
-## Quick start videos
-
-If you prefer videos, watch this 4-minute Learn About Algorand Account Rekeying guide.
-
-<iframe
-  width='100%'
-  style='aspect-ratio:16/9'
-  src='https://www.youtube-nocookie.com/embed/TnpGO0P0BA0'
-  title='YouTube video player'
-  frameborder='0'
-  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-  allowfullscreen
-></iframe>
-
-:::note
-The term “spending key(s)” is used throughout this document to signify that a single key or a set of keys from a MultiSig account may be authorized from a given public address. The address itself cannot distinguish how many spending keys are specifically required.
-:::
-
-:::caution
-Using the `--close-to` parameter on any transaction from a rekeyed account will remove the auth-addr field, thus reverting signing authority to the original address. The `--close-to` parameter should be used with caution by keyholder(s) of auth-addr as the effects remove their authority to access this account thereafter.
-:::
-
-:::caution
 Rekeying an account only affects the authorizing address for that account. Note that an Account is distinct from an address, so several essential points may not be obvious:
 
 1. If an account is closed (balance to 0), the rekey setting is lost (see previous caution).
 2. Rekeys are not recursively resolved. If A is rekeyed to B and B rekeyed to C, B will authorize A's transactions, not C.
 3. Rekeying members of a Multisig does not affect the Multisig authorization since it's composed of Addresses, not accounts. If necessary, the Multisig account would need to be rekeyed.
-   :::
+
+:::caution
+Using the `--close-to` parameter on any transaction from a rekeyed account will remove the auth-addr field, thus reverting signing authority to the original address. The `--close-to` parameter should be used with caution by keyholder(s) of auth-addr as the effects remove their authority to access this account thereafter.
+:::
+
+The result of a confirmed rekey-to transaction will be the "auth-addr" field of the account object is defined, modified, or removed. Defining or modifying means only the corresponding authorized address's private spending key(s) may authorize future transactions for this public address. Removing the "auth-addr" field is an explicit assignment of the authorized address back to the “addr" field of the account object (observed implicitly because the field is not displayed).
+
+To provide maximum flexibility in key management options, the "auth-addr" may be specified within a rekey-to transaction as a distinct foreign address representing a single key address, MultiSig address, or LogicSig program address. The protocol does not validate control of the required spending key(s) associated with the authorized address defined by `--rekey-to` parameter when the rekey-to transaction is sent. This is by design and affords additional privacy features to the new authorized address. It is incumbent upon the user to ensure proper key management practices and `--rekey-to` assignments.
 
 ## Account Review
 
@@ -160,16 +144,6 @@ Once all required signatures are gathered into a single signed transaction, it m
     [...]
 }
 ```
-
-## Conclusion
-
-The result of a confirmed rekey-to transaction will be the "auth-addr" field of the account object is defined, modified, or removed. Defining or modifying means only the corresponding authorized address's private spending key(s) may authorize future transactions for this public address. Removing the "auth-addr" field is an explicit assignment of the authorized address back to the “addr" field of the account object (observed implicitly because the field is not displayed).
-
-To provide maximum flexibility in key management options, the "auth-addr" may be specified within a rekey-to transaction as a distinct foreign address representing a single key address, MultiSig address, or LogicSig program address.
-
-:::caution
-The protocol does not validate control of the required spending key(s) associated with the authorized address defined by `--rekey-to` parameter when the rekey-to transaction is sent. This is by design and affords additional privacy features to the new authorized address. It is incumbent upon the user to ensure proper key management practices and `--rekey-to` assignments.
-:::
 
 ## Use Case Scenarios
 
@@ -345,23 +319,23 @@ This transaction will succeed as a private spending key for `$ADDR_C` provided t
 
 ### Utils Example
 
-In the following example, Account 1 is rekeyed to Account 2\. The code then illustrates that signing a transaction from Account 1 will fail if signed with Account 1’s private key and succeed if signed with Account 2’s private key.
+In the following example, account_a is rekeyed to account_b. The code then illustrates that signing a transaction from account_a will fail if signed with account_a’s private key and succeed if signed with Aaccount_b’s private key.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'>
-    <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/rekeying-accounts.ts'
-      snippet='REKEY_ACCOUNT'
-      lang='ts'
-      title='Rekey Accounts'
-      frame='none'
-    />
-  </TabItem>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Utils (Python)' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/rekeying_accounts.py'
       snippet='REKEY_ACCOUNT'
       lang='py'
+      title='Rekey Accounts'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/rekeying-accounts.ts'
+      snippet='REKEY_ACCOUNT'
+      lang='ts'
       title='Rekey Accounts'
       frame='none'
     />
