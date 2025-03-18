@@ -2570,15 +2570,15 @@ export default defineConfig({
                   link: 'reference/rest-api/overview',
                 },
                 {
-                  label: 'Algod API',
+                  label: 'algod',
                   link: 'reference/rest-api/algod',
                 },
                 {
-                  label: 'Indexer API',
+                  label: 'indexer',
                   link: 'reference/rest-api/indexer',
                 },
                 {
-                  label: 'KMD API',
+                  label: 'kmd',
                   link: 'reference/rest-api/kmd',
                 },
               ],
