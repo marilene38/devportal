@@ -38,6 +38,9 @@ jobs:
         with:
           version: 10.6.3
 
+      - name: Setup submodules
+        run: git submodule update --init && pnpm run import:utils-ts
+
       - name: Install dependencies
         run: pnpm install
 

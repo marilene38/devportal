@@ -7,6 +7,8 @@ title: "getAlgoNodeConfig"
 
 > **getAlgoNodeConfig**(`network`, `config`): `AlgoClientConfig`
 
+Defined in: [src/network-client.ts:43](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/network-client.ts#L43)
+
 :::caution[Deprecated]
 Use `ClientManager.getAlgoNodeConfig(network, config)` instead.
 
@@ -30,7 +32,3 @@ Which algod config to return - Algod or Indexer
 ## Returns
 
 `AlgoClientConfig`
-
-## Defined in
-
-[src/network-client.ts:43](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/network-client.ts#L43)

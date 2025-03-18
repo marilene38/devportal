@@ -7,6 +7,8 @@ title: "deployApp"
 
 > **deployApp**(`deployment`, `algod`, `indexer`?): `Promise`\<`Partial`\<`AppCompilationResult`\> & `ConfirmedTransactionResults` & `AppMetadata` & `object` \| `ConfirmedTransactionResults` & `AppMetadata` & `object` \| `AppMetadata` & `object`\>
 
+Defined in: [src/app-deploy.ts:51](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app-deploy.ts#L51)
+
 :::caution[Deprecated]
 Use `algorand.appDeployer.deploy` instead.
 
@@ -46,7 +48,3 @@ An indexer client, needed if `existingDeployments` not passed in
 `Promise`\<`Partial`\<`AppCompilationResult`\> & `ConfirmedTransactionResults` & `AppMetadata` & `object` \| `ConfirmedTransactionResults` & `AppMetadata` & `object` \| `AppMetadata` & `object`\>
 
 The app reference of the new/existing app
-
-## Defined in
-
-[src/app-deploy.ts:51](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app-deploy.ts#L51)

@@ -7,6 +7,8 @@ title: "rekeyedAccount"
 
 > **rekeyedAccount**(`signer`, `sender`): `SigningAccount`
 
+Defined in: [src/account/account.ts:36](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/account.ts#L36)
+
 :::caution[Deprecated]
 Use `algorand.account.rekeyed(sender, account)` or `new SigningAccount(account, sender)` instead.
 
@@ -32,7 +34,3 @@ The address of the rekeyed account that will act as a sender
 `SigningAccount`
 
 The SigningAccount wrapper
-
-## Defined in
-
-[src/account/account.ts:36](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/account/account.ts#L36)

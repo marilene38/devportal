@@ -7,6 +7,8 @@ title: "decodeAppState"
 
 > **decodeAppState**(`state`): `AppState`
 
+Defined in: [src/app.ts:345](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L345)
+
 :::caution[Deprecated]
 Use `AppManager.decodeAppState` instead.
 
@@ -27,7 +29,3 @@ A `global-state`, `local-state`, `global-state-deltas` or `local-state-deltas`
 `AppState`
 
 An object keyeed by the UTF-8 representation of the key with various parsings of the values
-
-## Defined in
-
-[src/app.ts:345](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L345)
