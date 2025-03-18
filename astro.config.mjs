@@ -6,6 +6,8 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { resolve } from 'path';
 import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
+import starlightTypeDoc from 'starlight-typedoc';
+import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -20,6 +22,12 @@ export default defineConfig({
         starlightLinksValidator({
           errorOnRelativeLinks: false,
           exclude: ['**[FUTURELINK]*', '**/reference/**'],
+        }),
+        starlightTypeDoc({
+          entryPoints: ['./imports/repos/algokit-utils-ts/src/index.ts'],
+          tsconfig: './imports/repos/algokit-utils-ts/tsconfig.json',
+          output: 'reference/algokit-utils-ts/API Reference',
+          exclude: ['**[FUTURELINK]*'],
         }),
       ],
       head: [
@@ -216,6 +224,10 @@ export default defineConfig({
                   link: 'concepts/smart-contracts/overview',
                 },
                 {
+                  label: 'Algorand Virtual Machine',
+                  link: 'concepts/smart-contracts/avm',
+                },
+                {
                   label: 'Languages',
                   collapsed: false,
                   items: [
@@ -285,6 +297,17 @@ export default defineConfig({
                       label: 'Encoding/Decoding',
                       link: 'concepts/smart-contracts/storage/encoding-decoding',
                     },
+                  ],
+                },
+                {
+                  label: 'Cryptographic Tools',
+                  collapsed: true,
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'concepts/smart-contracts/cryptographic-tools/overview',
+                    },
+
                   ],
                 },
                 {
@@ -2609,8 +2632,10 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    // Rehype plugin that adds target="_blank" and rel="noopener noreferrer" to external links
-    rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }]],
+    rehypePlugins: [
+      [rehypeAstroRelativeMarkdownLinks, { collectionBase: false }],
+      [rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }],
+    ],
   },
   vite: {
     resolve: {
@@ -2620,7 +2645,6 @@ export default defineConfig({
         '@diagrams': resolve('./src/assets/diagrams/svg'),
       },
     },
-
     plugins: [tailwindcss()],
   },
 });

@@ -7,6 +7,8 @@ title: "getABIReturn"
 
 > **getABIReturn**(`args`?, `confirmation`?): `ABIReturn` \| `undefined`
 
+Defined in: [src/app.ts:235](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L235)
+
 :::caution[Deprecated]
 Use `AppManager.getABIReturn` instead.
 
@@ -32,7 +34,3 @@ The transaction confirmation from algod
 `ABIReturn` \| `undefined`
 
 The return value for the method call
-
-## Defined in
-
-[src/app.ts:235](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L235)
