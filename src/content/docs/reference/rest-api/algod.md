@@ -4,33 +4,28 @@ title: Algod API
 
 <!-- Generator: Widdershins v4.0.1 -->
 
-
-
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
 API endpoint for algod operations.
 
 Base URLs:
 
-* <a href="http://localhost/">http://localhost/</a>
+- <a href='http://localhost/'>http://localhost/</a>
 
-* <a href="https://localhost/">https://localhost/</a>
+- <a href='https://localhost/'>https://localhost/</a>
 
-Email: <a href="mailto:contact@algorand.com">algorand</a> Web: <a href="https://www.algorand.com/get-in-touch/contact">algorand</a> 
-
+Email: <a href="mailto:contact@algorand.com">algorand</a> Web: <a href="https://www.algorand.com/get-in-touch/contact">algorand</a>
 
 ## Authentication
 
-* API Key (api_key)
-    - Parameter Name: **X-Algo-API-Token**, in: header. Generated header parameter. This token can be generated using the Goal command line tool. Example value ='b7e384d0317b8050ce45900a94a1931e28540e1f69b2d242b424659c341b4697'
-
+- API Key (api_key)
+  - Parameter Name: **X-Algo-API-Token**, in: header. Generated header parameter. This token can be generated using the Goal command line tool. Example value ='b7e384d0317b8050ce45900a94a1931e28540e1f69b2d242b424659c341b4697'
 
 ## private
 
-
 ### AbortCatchup
 
-<a id="opIdAbortCatchup"></a>
+<a id='opIdAbortCatchup'></a>
 
 > Code samples
 
@@ -50,24 +45,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/catchup/{catchpoint}',
-{
+fetch('http://localhost/v2/catchup/{catchpoint}', {
   method: 'DELETE',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -177,15 +170,15 @@ func main() {
 
 `DELETE /v2/catchup/{catchpoint}`
 
-*Aborts a catchpoint catchup.*
+_Aborts a catchpoint catchup._
 
 Given a catchpoint, it aborts catching up to this catchpoint
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|catchpoint|path|string(catchpoint)|true|A catch point|
+| Name       | In   | Type               | Required | Description   |
+| ---------- | ---- | ------------------ | -------- | ------------- |
+| catchpoint | path | string(catchpoint) | true     | A catch point |
 
 > Example responses
 
@@ -199,33 +192,32 @@ Given a catchpoint, it aborts catching up to this catchpoint
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description       | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | none              | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request       | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error    | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error     | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-*An catchpoint abort response.*
+_An catchpoint abort response._
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» catchup-message|string|true|none|Catchup abort response string|
+| Name              | Type   | Required | Restrictions | Description                   |
+| ----------------- | ------ | -------- | ------------ | ----------------------------- |
+| » catchup-message | string | true     | none         | Catchup abort response string |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### AddParticipationKey
 
-<a id="opIdAddParticipationKey"></a>
+<a id='opIdAddParticipationKey'></a>
 
 > Code samples
 
@@ -249,23 +241,22 @@ Accept: application/json
 ```javascript
 const inputBody = 'string';
 const headers = {
-  'Content-Type':'application/msgpack',
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  'Content-Type': 'application/msgpack',
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/participation',
-{
+fetch('http://localhost/v2/participation', {
   method: 'POST',
   body: inputBody,
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -379,15 +370,15 @@ func main() {
 
 `POST /v2/participation`
 
-*Add a participation key to the node*
+_Add a participation key to the node_
 
 > Body parameter
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|string(binary)|true|The participation key to add to the node|
+| Name | In   | Type           | Required | Description                              |
+| ---- | ---- | -------------- | -------- | ---------------------------------------- |
+| body | body | string(binary) | true     | The participation key to add to the node |
 
 > Example responses
 
@@ -401,33 +392,32 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Participation ID of the submission|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Participation Key Not Found|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                        | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Participation ID of the submission | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request                        | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                  | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Participation Key Not Found        | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                     | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable    | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                      | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» partId|string|true|none|encoding of the participation ID.|
+| Name     | Type   | Required | Restrictions | Description                       |
+| -------- | ------ | -------- | ------------ | --------------------------------- |
+| » partId | string | true     | none         | encoding of the participation ID. |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### AppendKeys
 
-<a id="opIdAppendKeys"></a>
+<a id='opIdAppendKeys'></a>
 
 > Code samples
 
@@ -451,23 +441,22 @@ Accept: application/json
 ```javascript
 const inputBody = 'string';
 const headers = {
-  'Content-Type':'application/msgpack',
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  'Content-Type': 'application/msgpack',
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/participation/{participation-id}',
-{
+fetch('http://localhost/v2/participation/{participation-id}', {
   method: 'POST',
   body: inputBody,
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -581,7 +570,7 @@ func main() {
 
 `POST /v2/participation/{participation-id}`
 
-*Append state proof keys to a participation key*
+_Append state proof keys to a participation key_
 
 Given a participation ID, append state proof keys to a particular set of participation keys
 
@@ -589,10 +578,10 @@ Given a participation ID, append state proof keys to a particular set of partici
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|participation-id|path|string|true|none|
-|body|body|string(binary)|true|The state proof keys to add to an existing participation ID|
+| Name             | In   | Type           | Required | Description                                                 |
+| ---------------- | ---- | -------------- | -------- | ----------------------------------------------------------- |
+| participation-id | path | string         | true     | none                                                        |
+| body             | body | string(binary) | true     | The state proof keys to add to an existing participation ID |
 
 > Example responses
 
@@ -620,26 +609,25 @@ Given a participation ID, append state proof keys to a particular set of partici
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A detailed description of a participation ID|[ParticipationKey](#schemaparticipationkey)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Participation Key Not Found|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                  | Schema                                      |
+| ------- | -------------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | A detailed description of a participation ID | [ParticipationKey](#schemaparticipationkey) |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request                                  | [ErrorResponse](#schemaerrorresponse)       |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                            | [ErrorResponse](#schemaerrorresponse)       |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Participation Key Not Found                  | [ErrorResponse](#schemaerrorresponse)       |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                               | [ErrorResponse](#schemaerrorresponse)       |
+| default | Default                                                                    | Unknown Error                                | None                                        |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### DeleteParticipationKeyByID
 
-<a id="opIdDeleteParticipationKeyByID"></a>
+<a id='opIdDeleteParticipationKeyByID'></a>
 
 > Code samples
 
@@ -659,24 +647,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/participation/{participation-id}',
-{
+fetch('http://localhost/v2/participation/{participation-id}', {
   method: 'DELETE',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -786,15 +772,15 @@ func main() {
 
 `DELETE /v2/participation/{participation-id}`
 
-*Delete a given participation key by ID*
+_Delete a given participation key by ID_
 
 Delete a given participation key by ID
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|participation-id|path|string|true|none|
+| Name             | In   | Type   | Required | Description |
+| ---------------- | ---- | ------ | -------- | ----------- |
+| participation-id | path | string | true     | none        |
 
 > Example responses
 
@@ -809,26 +795,25 @@ Delete a given participation key by ID
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Participation key got deleted by ID|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Participation Key Not Found|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                         | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Participation key got deleted by ID | None                                  |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request                         | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                   | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Participation Key Not Found         | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                      | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                       | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GenerateParticipationKeys
 
-<a id="opIdGenerateParticipationKeys"></a>
+<a id='opIdGenerateParticipationKeys'></a>
 
 > Code samples
 
@@ -848,24 +833,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/participation/generate/{address}?first=0&last=0',
-{
+fetch('http://localhost/v2/participation/generate/{address}?first=0&last=0', {
   method: 'POST',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -979,16 +962,16 @@ func main() {
 
 `POST /v2/participation/generate/{address}`
 
-*Generate and install participation keys to the node.*
+_Generate and install participation keys to the node._
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|address|path|string|true|An account public key|
-|dilution|query|integer|false|Key dilution for two-level participation keys (defaults to sqrt of validity window).|
-|first|query|integer|true|First round for participation key.|
-|last|query|integer|true|Last round for participation key.|
+| Name     | In    | Type    | Required | Description                                                                          |
+| -------- | ----- | ------- | -------- | ------------------------------------------------------------------------------------ |
+| address  | path  | string  | true     | An account public key                                                                |
+| dilution | query | integer | false    | Key dilution for two-level participation keys (defaults to sqrt of validity window). |
+| first    | query | integer | true     | First round for participation key.                                                   |
+| last     | query | integer | true     | Last round for participation key.                                                    |
 
 > Example responses
 
@@ -1000,26 +983,25 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|An empty JSON object is returned if the generation process was started. Currently no status is available.|string|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                                                               | Schema                                |
+| ------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | An empty JSON object is returned if the generation process was started. Currently no status is available. | string                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request                                                                                               | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                                                         | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                                                            | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable                                                                           | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                                                                             | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetConfig
 
-<a id="opIdGetConfig"></a>
+<a id='opIdGetConfig'></a>
 
 > Code samples
 
@@ -1039,24 +1021,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/debug/settings/config',
-{
+fetch('http://localhost/debug/settings/config', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -1166,7 +1146,7 @@ func main() {
 
 `GET /debug/settings/config`
 
-*Gets the merged config file.*
+_Gets the merged config file._
 
 Returns the merged (defaults + overrides) config file in json.
 
@@ -1180,22 +1160,21 @@ Returns the merged (defaults + overrides) config file in json.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The merged config file in json.|string|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                 | Description                     | Schema |
+| ------- | ------------------------------------------------------- | ------------------------------- | ------ |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | The merged config file in json. | string |
+| default | Default                                                 | Unknown Error                   | None   |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetDebugSettingsProf
 
-<a id="opIdGetDebugSettingsProf"></a>
+<a id='opIdGetDebugSettingsProf'></a>
 
 > Code samples
 
@@ -1215,24 +1194,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/debug/settings/pprof',
-{
+fetch('http://localhost/debug/settings/pprof', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -1357,19 +1334,18 @@ Retrieves the current settings for blocking and mutex profiles
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|DebugPprof is the response to the /debug/extra/pprof endpoint|[DebugSettingsProf](#schemadebugsettingsprof)|
+| Status | Meaning                                                 | Description                                                   | Schema                                        |
+| ------ | ------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | DebugPprof is the response to the /debug/extra/pprof endpoint | [DebugSettingsProf](#schemadebugsettingsprof) |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetParticipationKeyByID
 
-<a id="opIdGetParticipationKeyByID"></a>
+<a id='opIdGetParticipationKeyByID'></a>
 
 > Code samples
 
@@ -1389,24 +1365,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/participation/{participation-id}',
-{
+fetch('http://localhost/v2/participation/{participation-id}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -1516,15 +1490,15 @@ func main() {
 
 `GET /v2/participation/{participation-id}`
 
-*Get participation key info given a participation ID*
+_Get participation key info given a participation ID_
 
 Given a participation ID, return information about that participation key
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|participation-id|path|string|true|none|
+| Name             | In   | Type   | Required | Description |
+| ---------------- | ---- | ------ | -------- | ----------- |
+| participation-id | path | string | true     | none        |
 
 > Example responses
 
@@ -1552,26 +1526,25 @@ Given a participation ID, return information about that participation key
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A detailed description of a participation ID|[ParticipationKey](#schemaparticipationkey)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Participation Key Not Found|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                  | Schema                                      |
+| ------- | -------------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | A detailed description of a participation ID | [ParticipationKey](#schemaparticipationkey) |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request                                  | [ErrorResponse](#schemaerrorresponse)       |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                            | [ErrorResponse](#schemaerrorresponse)       |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Participation Key Not Found                  | [ErrorResponse](#schemaerrorresponse)       |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                               | [ErrorResponse](#schemaerrorresponse)       |
+| default | Default                                                                    | Unknown Error                                | None                                        |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetParticipationKeys
 
-<a id="opIdGetParticipationKeys"></a>
+<a id='opIdGetParticipationKeys'></a>
 
 > Code samples
 
@@ -1591,24 +1564,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/participation',
-{
+fetch('http://localhost/v2/participation', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -1718,7 +1689,7 @@ func main() {
 
 `GET /v2/participation`
 
-*Return a list of participation keys*
+_Return a list of participation keys_
 
 Return a list of participation keys
 
@@ -1750,46 +1721,45 @@ Return a list of participation keys
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A list of participation keys|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Participation Key Not Found|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                  | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ---------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | A list of participation keys | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request                  | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token            | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Participation Key Not Found  | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error               | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[ParticipationKey](#schemaparticipationkey)]|false|none|[Represents a participation key used by the node.]|
-|» address|string|true|none|Address the key was generated for.|
-|» effective-first-valid|integer|false|none|When registered, this is the first round it may be used.|
-|» effective-last-valid|integer|false|none|When registered, this is the last round it may be used.|
-|» id|string|true|none|The key's ParticipationID.|
-|» key|[AccountParticipation](#schemaaccountparticipation)|true|none|AccountParticipation describes the parameters used by this account in consensus protocol.|
-|»» selection-participation-key|string(byte)|true|none|\[sel\] Selection public key (if any) currently registered for this round.|
-|»» state-proof-key|string(byte)|false|none|\[stprf\] Root of the state proof key (if any)|
-|»» vote-first-valid|integer|true|none|\[voteFst\] First round for which this participation is valid.|
-|»» vote-key-dilution|integer|true|none|\[voteKD\] Number of subkeys in each batch of participation keys.|
-|»» vote-last-valid|integer|true|none|\[voteLst\] Last round for which this participation is valid.|
-|»» vote-participation-key|string(byte)|true|none|\[vote\] root participation public key (if any) currently registered for this round.|
-|» last-block-proposal|integer|false|none|Round when this key was last used to propose a block.|
-|» last-state-proof|integer|false|none|Round when this key was last used to generate a state proof.|
-|» last-vote|integer|false|none|Round when this key was last used to vote.|
+| Name                           | Type                                                | Required | Restrictions | Description                                                                               |
+| ------------------------------ | --------------------------------------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------- |
+| _anonymous_                    | [[ParticipationKey](#schemaparticipationkey)]       | false    | none         | [Represents a participation key used by the node.]                                        |
+| » address                      | string                                              | true     | none         | Address the key was generated for.                                                        |
+| » effective-first-valid        | integer                                             | false    | none         | When registered, this is the first round it may be used.                                  |
+| » effective-last-valid         | integer                                             | false    | none         | When registered, this is the last round it may be used.                                   |
+| » id                           | string                                              | true     | none         | The key's ParticipationID.                                                                |
+| » key                          | [AccountParticipation](#schemaaccountparticipation) | true     | none         | AccountParticipation describes the parameters used by this account in consensus protocol. |
+| »» selection-participation-key | string(byte)                                        | true     | none         | \[sel\] Selection public key (if any) currently registered for this round.                |
+| »» state-proof-key             | string(byte)                                        | false    | none         | \[stprf\] Root of the state proof key (if any)                                            |
+| »» vote-first-valid            | integer                                             | true     | none         | \[voteFst\] First round for which this participation is valid.                            |
+| »» vote-key-dilution           | integer                                             | true     | none         | \[voteKD\] Number of subkeys in each batch of participation keys.                         |
+| »» vote-last-valid             | integer                                             | true     | none         | \[voteLst\] Last round for which this participation is valid.                             |
+| »» vote-participation-key      | string(byte)                                        | true     | none         | \[vote\] root participation public key (if any) currently registered for this round.      |
+| » last-block-proposal          | integer                                             | false    | none         | Round when this key was last used to propose a block.                                     |
+| » last-state-proof             | integer                                             | false    | none         | Round when this key was last used to generate a state proof.                              |
+| » last-vote                    | integer                                             | false    | none         | Round when this key was last used to vote.                                                |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### PutDebugSettingsProf
 
-<a id="opIdPutDebugSettingsProf"></a>
+<a id='opIdPutDebugSettingsProf'></a>
 
 > Code samples
 
@@ -1809,24 +1779,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/debug/settings/pprof',
-{
+fetch('http://localhost/debug/settings/pprof', {
   method: 'PUT',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -1951,19 +1919,18 @@ Enables blocking and mutex profiles, and returns the old settings
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|DebugPprof is the response to the /debug/extra/pprof endpoint|[DebugSettingsProf](#schemadebugsettingsprof)|
+| Status | Meaning                                                 | Description                                                   | Schema                                        |
+| ------ | ------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | DebugPprof is the response to the /debug/extra/pprof endpoint | [DebugSettingsProf](#schemadebugsettingsprof) |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### ShutdownNode
 
-<a id="opIdShutdownNode"></a>
+<a id='opIdShutdownNode'></a>
 
 > Code samples
 
@@ -1983,24 +1950,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/shutdown',
-{
+fetch('http://localhost/v2/shutdown', {
   method: 'POST',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -2114,9 +2079,9 @@ Special management endpoint to shutdown the node. Optionally provide a timeout p
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|timeout|query|integer|false|none|
+| Name    | In    | Type    | Required | Description |
+| ------- | ----- | ------- | -------- | ----------- |
+| timeout | query | integer | false    | none        |
 
 > Example responses
 
@@ -2128,21 +2093,20 @@ Special management endpoint to shutdown the node. Optionally provide a timeout p
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+| Status | Meaning                                                 | Description | Schema |
+| ------ | ------------------------------------------------------- | ----------- | ------ |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | none        | Inline |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### StartCatchup
 
-<a id="opIdStartCatchup"></a>
+<a id='opIdStartCatchup'></a>
 
 > Code samples
 
@@ -2162,24 +2126,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/catchup/{catchpoint}',
-{
+fetch('http://localhost/v2/catchup/{catchpoint}', {
   method: 'POST',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -2289,16 +2251,16 @@ func main() {
 
 `POST /v2/catchup/{catchpoint}`
 
-*Starts a catchpoint catchup.*
+_Starts a catchpoint catchup._
 
 Given a catchpoint, it starts catching up to this catchpoint
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|catchpoint|path|string(catchpoint)|true|A catch point|
-|min|query|integer|false|Specify the minimum number of blocks which the ledger must be advanced by in order to start the catchup. This is useful for simplifying tools which support fast catchup, they can run the catchup unconditionally and the node will skip the catchup if it is not needed.|
+| Name       | In    | Type               | Required | Description                                                                                                                                                                                                                                                                |
+| ---------- | ----- | ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| catchpoint | path  | string(catchpoint) | true     | A catch point                                                                                                                                                                                                                                                              |
+| min        | query | integer            | false    | Specify the minimum number of blocks which the ledger must be advanced by in order to start the catchup. This is useful for simplifying tools which support fast catchup, they can run the catchup unconditionally and the node will skip the catchup if it is not needed. |
 
 > Example responses
 
@@ -2312,46 +2274,44 @@ Given a catchpoint, it starts catching up to this catchpoint
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|none|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|408|[Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)|Request Timeout|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description       | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | none              | Inline                                |
+| 201     | [Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)               | none              | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request       | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token | [ErrorResponse](#schemaerrorresponse) |
+| 408     | [Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)       | Request Timeout   | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error    | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error     | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-*An catchpoint start response.*
+_An catchpoint start response._
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» catchup-message|string|true|none|Catchup start response string|
+| Name              | Type   | Required | Restrictions | Description                   |
+| ----------------- | ------ | -------- | ------------ | ----------------------------- |
+| » catchup-message | string | true     | none         | Catchup start response string |
 
 Status Code **201**
 
-*An catchpoint start response.*
+_An catchpoint start response._
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» catchup-message|string|true|none|Catchup start response string|
+| Name              | Type   | Required | Restrictions | Description                   |
+| ----------------- | ------ | -------- | ------------ | ----------------------------- |
+| » catchup-message | string | true     | none         | Catchup start response string |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ## public
 
-
 ### AccountApplicationInformation
 
-<a id="opIdAccountApplicationInformation"></a>
+<a id='opIdAccountApplicationInformation'></a>
 
 > Code samples
 
@@ -2371,24 +2331,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/accounts/{address}/applications/{application-id}',
-{
+fetch('http://localhost/v2/accounts/{address}/applications/{application-id}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -2498,24 +2456,24 @@ func main() {
 
 `GET /v2/accounts/{address}/applications/{application-id}`
 
-*Get account information about a given app.*
+_Get account information about a given app._
 
 Given a specific account public key and application ID, this call returns the account's application local state and global state (AppLocalState and AppParams, if either exists). Global state will only be returned if the provided address is the application's creator.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
-|address|path|string|true|An account public key|
-|application-id|path|integer|true|An application identifier|
+| Name           | In    | Type    | Required | Description                                                                                               |
+| -------------- | ----- | ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| format         | query | string  | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
+| address        | path  | string  | true     | An account public key                                                                                     |
+| application-id | path  | integer | true     | An application identifier                                                                                 |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
 
 > Example responses
 
@@ -2570,50 +2528,49 @@ Given a specific account public key and application ID, this call returns the ac
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|AccountApplicationResponse describes the account's application local state and global state (AppLocalState and AppParams, if either exists) for a specific application ID. Global state will only be returned if the provided address is the application's creator.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Malformed address or application ID|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                                                                                                                                                                                                                         | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | AccountApplicationResponse describes the account's application local state and global state (AppLocalState and AppParams, if either exists) for a specific application ID. Global state will only be returned if the provided address is the application's creator. | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Malformed address or application ID                                                                                                                                                                                                                                 | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                                                                                                                                                                                                                   | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                                                                                                                                                                                                                      | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                                                                                                                                                                                                                                       | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» app-local-state|[ApplicationLocalState](#schemaapplicationlocalstate)|false|none|Stores local state associated with an application.|
-|»» id|integer|true|none|The application which this local state is for.|
-|»» key-value|[[TealKeyValue](#schematealkeyvalue)]|false|none|Represents a key-value store for use in an application.|
-|»»» key|string|true|none|none|
-|»»» value|[TealValue](#schematealvalue)|true|none|Represents a TEAL value.|
-|»»»» bytes|string|true|none|\[tb\] bytes value.|
-|»»»» type|integer|true|none|\[tt\] value type. Value `1` refers to **bytes**, value `2` refers to **uint**|
-|»»»» uint|integer|true|none|\[ui\] uint value.|
-|»» schema|[ApplicationStateSchema](#schemaapplicationstateschema)|true|none|Specifies maximums on the number of each type that may be stored.|
-|»»» num-byte-slice|integer|true|none|\[nbs\] num of byte slices.|
-|»»» num-uint|integer|true|none|\[nui\] num of uints.|
-|» created-app|[ApplicationParams](#schemaapplicationparams)|false|none|Stores the global information associated with an application.|
-|»» approval-program|string(byte)|true|none|\[approv\] approval program.|
-|»» clear-state-program|string(byte)|true|none|\[clearp\] approval program.|
-|»» creator|string|true|none|The address that created this application. This is the address where the parameters and global state for this application can be found.|
-|»» extra-program-pages|integer|false|none|\[epp\] the amount of extra program pages available to this app.|
-|»» global-state|[[TealKeyValue](#schematealkeyvalue)]|false|none|Represents a key-value store for use in an application.|
-|»» global-state-schema|[ApplicationStateSchema](#schemaapplicationstateschema)|false|none|Specifies maximums on the number of each type that may be stored.|
-|»» local-state-schema|[ApplicationStateSchema](#schemaapplicationstateschema)|false|none|Specifies maximums on the number of each type that may be stored.|
-|» round|integer|true|none|The round for which this information is relevant.|
+| Name                   | Type                                                    | Required | Restrictions | Description                                                                                                                             |
+| ---------------------- | ------------------------------------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| » app-local-state      | [ApplicationLocalState](#schemaapplicationlocalstate)   | false    | none         | Stores local state associated with an application.                                                                                      |
+| »» id                  | integer                                                 | true     | none         | The application which this local state is for.                                                                                          |
+| »» key-value           | [[TealKeyValue](#schematealkeyvalue)]                   | false    | none         | Represents a key-value store for use in an application.                                                                                 |
+| »»» key                | string                                                  | true     | none         | none                                                                                                                                    |
+| »»» value              | [TealValue](#schematealvalue)                           | true     | none         | Represents a TEAL value.                                                                                                                |
+| »»»» bytes             | string                                                  | true     | none         | \[tb\] bytes value.                                                                                                                     |
+| »»»» type              | integer                                                 | true     | none         | \[tt\] value type. Value `1` refers to **bytes**, value `2` refers to **uint**                                                          |
+| »»»» uint              | integer                                                 | true     | none         | \[ui\] uint value.                                                                                                                      |
+| »» schema              | [ApplicationStateSchema](#schemaapplicationstateschema) | true     | none         | Specifies maximums on the number of each type that may be stored.                                                                       |
+| »»» num-byte-slice     | integer                                                 | true     | none         | \[nbs\] num of byte slices.                                                                                                             |
+| »»» num-uint           | integer                                                 | true     | none         | \[nui\] num of uints.                                                                                                                   |
+| » created-app          | [ApplicationParams](#schemaapplicationparams)           | false    | none         | Stores the global information associated with an application.                                                                           |
+| »» approval-program    | string(byte)                                            | true     | none         | \[approv\] approval program.                                                                                                            |
+| »» clear-state-program | string(byte)                                            | true     | none         | \[clearp\] approval program.                                                                                                            |
+| »» creator             | string                                                  | true     | none         | The address that created this application. This is the address where the parameters and global state for this application can be found. |
+| »» extra-program-pages | integer                                                 | false    | none         | \[epp\] the amount of extra program pages available to this app.                                                                        |
+| »» global-state        | [[TealKeyValue](#schematealkeyvalue)]                   | false    | none         | Represents a key-value store for use in an application.                                                                                 |
+| »» global-state-schema | [ApplicationStateSchema](#schemaapplicationstateschema) | false    | none         | Specifies maximums on the number of each type that may be stored.                                                                       |
+| »» local-state-schema  | [ApplicationStateSchema](#schemaapplicationstateschema) | false    | none         | Specifies maximums on the number of each type that may be stored.                                                                       |
+| » round                | integer                                                 | true     | none         | The round for which this information is relevant.                                                                                       |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### AccountAssetInformation
 
-<a id="opIdAccountAssetInformation"></a>
+<a id='opIdAccountAssetInformation'></a>
 
 > Code samples
 
@@ -2633,24 +2590,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/accounts/{address}/assets/{asset-id}',
-{
+fetch('http://localhost/v2/accounts/{address}/assets/{asset-id}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -2760,24 +2715,24 @@ func main() {
 
 `GET /v2/accounts/{address}/assets/{asset-id}`
 
-*Get account information about a given asset.*
+_Get account information about a given asset._
 
 Given a specific account public key and asset ID, this call returns the account's asset holding and asset parameters (if either exist). Asset parameters will only be returned if the provided address is the asset's creator.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
-|address|path|string|true|An account public key|
-|asset-id|path|integer|true|An asset identifier|
+| Name     | In    | Type    | Required | Description                                                                                               |
+| -------- | ----- | ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| format   | query | string  | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
+| address  | path  | string  | true     | An account public key                                                                                     |
+| asset-id | path  | integer | true     | An asset identifier                                                                                       |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
 
 > Example responses
 
@@ -2813,51 +2768,50 @@ Given a specific account public key and asset ID, this call returns the account'
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|AccountAssetResponse describes the account's asset holding and asset parameters (if either exist) for a specific asset ID. Asset parameters will only be returned if the provided address is the asset's creator.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Malformed address or asset ID|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                                                                                                                                                                       | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | AccountAssetResponse describes the account's asset holding and asset parameters (if either exist) for a specific asset ID. Asset parameters will only be returned if the provided address is the asset's creator. | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Malformed address or asset ID                                                                                                                                                                                     | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                                                                                                                                                                 | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                                                                                                                                                                    | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                                                                                                                                                                                     | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» asset-holding|[AssetHolding](#schemaassetholding)|false|none|Describes an asset held by an account.<br><br>Definition:<br>data/basics/userBalance.go : AssetHolding|
-|»» amount|integer|true|none|\[a\] number of units held.|
-|»» asset-id|integer|true|none|Asset ID of the holding.|
-|»» is-frozen|boolean|true|none|\[f\] whether or not the holding is frozen.|
-|» created-asset|[AssetParams](#schemaassetparams)|false|none|AssetParams specifies the parameters for an asset.<br><br>\[apar\] when part of an AssetConfig transaction.<br><br>Definition:<br>data/transactions/asset.go : AssetParams|
-|»» clawback|string|false|none|\[c\] Address of account used to clawback holdings of this asset.  If empty, clawback is not permitted.|
-|»» creator|string|true|none|The address that created this asset. This is the address where the parameters for this asset can be found, and also the address where unwanted asset units can be sent in the worst case.|
-|»» decimals|integer|true|none|\[dc\] The number of digits to use after the decimal point when displaying this asset. If 0, the asset is not divisible. If 1, the base unit of the asset is in tenths. If 2, the base unit of the asset is in hundredths, and so on. This value must be between 0 and 19 (inclusive).|
-|»» default-frozen|boolean|false|none|\[df\] Whether holdings of this asset are frozen by default.|
-|»» freeze|string|false|none|\[f\] Address of account used to freeze holdings of this asset.  If empty, freezing is not permitted.|
-|»» manager|string|false|none|\[m\] Address of account used to manage the keys of this asset and to destroy it.|
-|»» metadata-hash|string(byte)|false|none|\[am\] A commitment to some unspecified asset metadata. The format of this metadata is up to the application.|
-|»» name|string|false|none|\[an\] Name of this asset, as supplied by the creator. Included only when the asset name is composed of printable utf-8 characters.|
-|»» name-b64|string(byte)|false|none|Base64 encoded name of this asset, as supplied by the creator.|
-|»» reserve|string|false|none|\[r\] Address of account holding reserve (non-minted) units of this asset.|
-|»» total|integer|true|none|\[t\] The total number of units of this asset.|
-|»» unit-name|string|false|none|\[un\] Name of a unit of this asset, as supplied by the creator. Included only when the name of a unit of this asset is composed of printable utf-8 characters.|
-|»» unit-name-b64|string(byte)|false|none|Base64 encoded name of a unit of this asset, as supplied by the creator.|
-|»» url|string|false|none|\[au\] URL where more information about the asset can be retrieved. Included only when the URL is composed of printable utf-8 characters.|
-|»» url-b64|string(byte)|false|none|Base64 encoded URL where more information about the asset can be retrieved.|
-|» round|integer|true|none|The round for which this information is relevant.|
+| Name              | Type                                | Required | Restrictions | Description                                                                                                                                                                                                                                                                            |
+| ----------------- | ----------------------------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| » asset-holding   | [AssetHolding](#schemaassetholding) | false    | none         | Describes an asset held by an account.<br><br>Definition:<br>data/basics/userBalance.go : AssetHolding                                                                                                                                                                                 |
+| »» amount         | integer                             | true     | none         | \[a\] number of units held.                                                                                                                                                                                                                                                            |
+| »» asset-id       | integer                             | true     | none         | Asset ID of the holding.                                                                                                                                                                                                                                                               |
+| »» is-frozen      | boolean                             | true     | none         | \[f\] whether or not the holding is frozen.                                                                                                                                                                                                                                            |
+| » created-asset   | [AssetParams](#schemaassetparams)   | false    | none         | AssetParams specifies the parameters for an asset.<br><br>\[apar\] when part of an AssetConfig transaction.<br><br>Definition:<br>data/transactions/asset.go : AssetParams                                                                                                             |
+| »» clawback       | string                              | false    | none         | \[c\] Address of account used to clawback holdings of this asset. If empty, clawback is not permitted.                                                                                                                                                                                 |
+| »» creator        | string                              | true     | none         | The address that created this asset. This is the address where the parameters for this asset can be found, and also the address where unwanted asset units can be sent in the worst case.                                                                                              |
+| »» decimals       | integer                             | true     | none         | \[dc\] The number of digits to use after the decimal point when displaying this asset. If 0, the asset is not divisible. If 1, the base unit of the asset is in tenths. If 2, the base unit of the asset is in hundredths, and so on. This value must be between 0 and 19 (inclusive). |
+| »» default-frozen | boolean                             | false    | none         | \[df\] Whether holdings of this asset are frozen by default.                                                                                                                                                                                                                           |
+| »» freeze         | string                              | false    | none         | \[f\] Address of account used to freeze holdings of this asset. If empty, freezing is not permitted.                                                                                                                                                                                   |
+| »» manager        | string                              | false    | none         | \[m\] Address of account used to manage the keys of this asset and to destroy it.                                                                                                                                                                                                      |
+| »» metadata-hash  | string(byte)                        | false    | none         | \[am\] A commitment to some unspecified asset metadata. The format of this metadata is up to the application.                                                                                                                                                                          |
+| »» name           | string                              | false    | none         | \[an\] Name of this asset, as supplied by the creator. Included only when the asset name is composed of printable utf-8 characters.                                                                                                                                                    |
+| »» name-b64       | string(byte)                        | false    | none         | Base64 encoded name of this asset, as supplied by the creator.                                                                                                                                                                                                                         |
+| »» reserve        | string                              | false    | none         | \[r\] Address of account holding reserve (non-minted) units of this asset.                                                                                                                                                                                                             |
+| »» total          | integer                             | true     | none         | \[t\] The total number of units of this asset.                                                                                                                                                                                                                                         |
+| »» unit-name      | string                              | false    | none         | \[un\] Name of a unit of this asset, as supplied by the creator. Included only when the name of a unit of this asset is composed of printable utf-8 characters.                                                                                                                        |
+| »» unit-name-b64  | string(byte)                        | false    | none         | Base64 encoded name of a unit of this asset, as supplied by the creator.                                                                                                                                                                                                               |
+| »» url            | string                              | false    | none         | \[au\] URL where more information about the asset can be retrieved. Included only when the URL is composed of printable utf-8 characters.                                                                                                                                              |
+| »» url-b64        | string(byte)                        | false    | none         | Base64 encoded URL where more information about the asset can be retrieved.                                                                                                                                                                                                            |
+| » round           | integer                             | true     | none         | The round for which this information is relevant.                                                                                                                                                                                                                                      |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### AccountAssetsInformation
 
-<a id="opIdAccountAssetsInformation"></a>
+<a id='opIdAccountAssetsInformation'></a>
 
 > Code samples
 
@@ -2877,24 +2831,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/accounts/{address}/assets',
-{
+fetch('http://localhost/v2/accounts/{address}/assets', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -3004,17 +2956,17 @@ func main() {
 
 `GET /v2/accounts/{address}/assets`
 
-*Get a list of assets held by an account, inclusive of asset params.*
+_Get a list of assets held by an account, inclusive of asset params._
 
 Lookup an account's asset holdings.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|address|path|string|true|An account public key|
-|limit|query|integer|false|Maximum number of results to return.|
-|next|query|string|false|The next page of results. Use the next token provided by the previous results.|
+| Name    | In    | Type    | Required | Description                                                                    |
+| ------- | ----- | ------- | -------- | ------------------------------------------------------------------------------ |
+| address | path  | string  | true     | An account public key                                                          |
+| limit   | query | integer | false    | Maximum number of results to return.                                           |
+| next    | query | string  | false    | The next page of results. Use the next token provided by the previous results. |
 
 > Example responses
 
@@ -3055,53 +3007,52 @@ Lookup an account's asset holdings.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|AccountAssetsInformationResponse contains a list of assets held by an account.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Malformed address|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                                    | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | AccountAssetsInformationResponse contains a list of assets held by an account. | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Malformed address                                                              | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                              | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                                 | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                                                  | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» asset-holdings|[[AccountAssetHolding](#schemaaccountassetholding)]|false|none|[AccountAssetHolding describes the account's asset holding and asset parameters (if either exist) for a specific asset ID.]|
-|»» asset-holding|[AssetHolding](#schemaassetholding)|true|none|Describes an asset held by an account.<br><br>Definition:<br>data/basics/userBalance.go : AssetHolding|
-|»»» amount|integer|true|none|\[a\] number of units held.|
-|»»» asset-id|integer|true|none|Asset ID of the holding.|
-|»»» is-frozen|boolean|true|none|\[f\] whether or not the holding is frozen.|
-|»» asset-params|[AssetParams](#schemaassetparams)|false|none|AssetParams specifies the parameters for an asset.<br><br>\[apar\] when part of an AssetConfig transaction.<br><br>Definition:<br>data/transactions/asset.go : AssetParams|
-|»»» clawback|string|false|none|\[c\] Address of account used to clawback holdings of this asset.  If empty, clawback is not permitted.|
-|»»» creator|string|true|none|The address that created this asset. This is the address where the parameters for this asset can be found, and also the address where unwanted asset units can be sent in the worst case.|
-|»»» decimals|integer|true|none|\[dc\] The number of digits to use after the decimal point when displaying this asset. If 0, the asset is not divisible. If 1, the base unit of the asset is in tenths. If 2, the base unit of the asset is in hundredths, and so on. This value must be between 0 and 19 (inclusive).|
-|»»» default-frozen|boolean|false|none|\[df\] Whether holdings of this asset are frozen by default.|
-|»»» freeze|string|false|none|\[f\] Address of account used to freeze holdings of this asset.  If empty, freezing is not permitted.|
-|»»» manager|string|false|none|\[m\] Address of account used to manage the keys of this asset and to destroy it.|
-|»»» metadata-hash|string(byte)|false|none|\[am\] A commitment to some unspecified asset metadata. The format of this metadata is up to the application.|
-|»»» name|string|false|none|\[an\] Name of this asset, as supplied by the creator. Included only when the asset name is composed of printable utf-8 characters.|
-|»»» name-b64|string(byte)|false|none|Base64 encoded name of this asset, as supplied by the creator.|
-|»»» reserve|string|false|none|\[r\] Address of account holding reserve (non-minted) units of this asset.|
-|»»» total|integer|true|none|\[t\] The total number of units of this asset.|
-|»»» unit-name|string|false|none|\[un\] Name of a unit of this asset, as supplied by the creator. Included only when the name of a unit of this asset is composed of printable utf-8 characters.|
-|»»» unit-name-b64|string(byte)|false|none|Base64 encoded name of a unit of this asset, as supplied by the creator.|
-|»»» url|string|false|none|\[au\] URL where more information about the asset can be retrieved. Included only when the URL is composed of printable utf-8 characters.|
-|»»» url-b64|string(byte)|false|none|Base64 encoded URL where more information about the asset can be retrieved.|
-|» next-token|string|false|none|Used for pagination, when making another request provide this token with the next parameter.|
-|» round|integer|true|none|The round for which this information is relevant.|
+| Name               | Type                                                | Required | Restrictions | Description                                                                                                                                                                                                                                                                            |
+| ------------------ | --------------------------------------------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| » asset-holdings   | [[AccountAssetHolding](#schemaaccountassetholding)] | false    | none         | [AccountAssetHolding describes the account's asset holding and asset parameters (if either exist) for a specific asset ID.]                                                                                                                                                            |
+| »» asset-holding   | [AssetHolding](#schemaassetholding)                 | true     | none         | Describes an asset held by an account.<br><br>Definition:<br>data/basics/userBalance.go : AssetHolding                                                                                                                                                                                 |
+| »»» amount         | integer                                             | true     | none         | \[a\] number of units held.                                                                                                                                                                                                                                                            |
+| »»» asset-id       | integer                                             | true     | none         | Asset ID of the holding.                                                                                                                                                                                                                                                               |
+| »»» is-frozen      | boolean                                             | true     | none         | \[f\] whether or not the holding is frozen.                                                                                                                                                                                                                                            |
+| »» asset-params    | [AssetParams](#schemaassetparams)                   | false    | none         | AssetParams specifies the parameters for an asset.<br><br>\[apar\] when part of an AssetConfig transaction.<br><br>Definition:<br>data/transactions/asset.go : AssetParams                                                                                                             |
+| »»» clawback       | string                                              | false    | none         | \[c\] Address of account used to clawback holdings of this asset. If empty, clawback is not permitted.                                                                                                                                                                                 |
+| »»» creator        | string                                              | true     | none         | The address that created this asset. This is the address where the parameters for this asset can be found, and also the address where unwanted asset units can be sent in the worst case.                                                                                              |
+| »»» decimals       | integer                                             | true     | none         | \[dc\] The number of digits to use after the decimal point when displaying this asset. If 0, the asset is not divisible. If 1, the base unit of the asset is in tenths. If 2, the base unit of the asset is in hundredths, and so on. This value must be between 0 and 19 (inclusive). |
+| »»» default-frozen | boolean                                             | false    | none         | \[df\] Whether holdings of this asset are frozen by default.                                                                                                                                                                                                                           |
+| »»» freeze         | string                                              | false    | none         | \[f\] Address of account used to freeze holdings of this asset. If empty, freezing is not permitted.                                                                                                                                                                                   |
+| »»» manager        | string                                              | false    | none         | \[m\] Address of account used to manage the keys of this asset and to destroy it.                                                                                                                                                                                                      |
+| »»» metadata-hash  | string(byte)                                        | false    | none         | \[am\] A commitment to some unspecified asset metadata. The format of this metadata is up to the application.                                                                                                                                                                          |
+| »»» name           | string                                              | false    | none         | \[an\] Name of this asset, as supplied by the creator. Included only when the asset name is composed of printable utf-8 characters.                                                                                                                                                    |
+| »»» name-b64       | string(byte)                                        | false    | none         | Base64 encoded name of this asset, as supplied by the creator.                                                                                                                                                                                                                         |
+| »»» reserve        | string                                              | false    | none         | \[r\] Address of account holding reserve (non-minted) units of this asset.                                                                                                                                                                                                             |
+| »»» total          | integer                                             | true     | none         | \[t\] The total number of units of this asset.                                                                                                                                                                                                                                         |
+| »»» unit-name      | string                                              | false    | none         | \[un\] Name of a unit of this asset, as supplied by the creator. Included only when the name of a unit of this asset is composed of printable utf-8 characters.                                                                                                                        |
+| »»» unit-name-b64  | string(byte)                                        | false    | none         | Base64 encoded name of a unit of this asset, as supplied by the creator.                                                                                                                                                                                                               |
+| »»» url            | string                                              | false    | none         | \[au\] URL where more information about the asset can be retrieved. Included only when the URL is composed of printable utf-8 characters.                                                                                                                                              |
+| »»» url-b64        | string(byte)                                        | false    | none         | Base64 encoded URL where more information about the asset can be retrieved.                                                                                                                                                                                                            |
+| » next-token       | string                                              | false    | none         | Used for pagination, when making another request provide this token with the next parameter.                                                                                                                                                                                           |
+| » round            | integer                                             | true     | none         | The round for which this information is relevant.                                                                                                                                                                                                                                      |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### AccountInformation
 
-<a id="opIdAccountInformation"></a>
+<a id='opIdAccountInformation'></a>
 
 > Code samples
 
@@ -3121,24 +3072,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/accounts/{address}',
-{
+fetch('http://localhost/v2/accounts/{address}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -3248,26 +3197,26 @@ func main() {
 
 `GET /v2/accounts/{address}`
 
-*Get account information.*
+_Get account information._
 
 Given a specific account public key, this call returns the account's status, balance and spendable amounts
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
-|address|path|string|true|An account public key|
-|exclude|query|string|false|When set to `all` will exclude asset holdings, application local state, created asset parameters, any created application parameters. Defaults to `none`.|
+| Name    | In    | Type   | Required | Description                                                                                                                                               |
+| ------- | ----- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| format  | query | string | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.                                                 |
+| address | path  | string | true     | An account public key                                                                                                                                     |
+| exclude | query | string | false    | When set to `all` will exclude asset holdings, application local state, created asset parameters, any created application parameters. Defaults to `none`. |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
-|exclude|all|
-|exclude|none|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
+| exclude   | all     |
+| exclude   | none    |
 
 > Example responses
 
@@ -3390,25 +3339,24 @@ Given a specific account public key, this call returns the account's status, bal
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|AccountResponse wraps the Account type in a response.|[Account](#schemaaccount)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                           | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | AccountResponse wraps the Account type in a response. | [Account](#schemaaccount)             |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad request                                           | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                     | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                        | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                         | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### ExperimentalCheck
 
-<a id="opIdExperimentalCheck"></a>
+<a id='opIdExperimentalCheck'></a>
 
 > Code samples
 
@@ -3426,23 +3374,21 @@ Host: localhost
 ```
 
 ```javascript
-
 const headers = {
-  'X-Algo-API-Token':'API_KEY'
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/experimental',
-{
+fetch('http://localhost/v2/experimental', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -3548,29 +3494,28 @@ func main() {
 
 `GET /v2/experimental`
 
-*Returns OK if experimental API is enabled.*
+_Returns OK if experimental API is enabled._
 
 > Example responses
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Experimental API enabled|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Experimental API not enabled|None|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                        | Description                  | Schema |
+| ------- | -------------------------------------------------------------- | ---------------------------- | ------ |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | Experimental API enabled     | None   |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | Experimental API not enabled | None   |
+| default | Default                                                        | Unknown Error                | None   |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetApplicationBoxByName
 
-<a id="opIdGetApplicationBoxByName"></a>
+<a id='opIdGetApplicationBoxByName'></a>
 
 > Code samples
 
@@ -3590,24 +3535,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/applications/{application-id}/box?name=string',
-{
+fetch('http://localhost/v2/applications/{application-id}/box?name=string', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -3720,16 +3663,16 @@ func main() {
 
 `GET /v2/applications/{application-id}/box`
 
-*Get box information for a given application.*
+_Get box information for a given application._
 
 Given an application ID and box name, it returns the round, box name, and value (each base64 encoded). Box names must be in the goal app call arg encoding form 'encoding:value'. For ints, use the form 'int:1234'. For raw bytes, use the form 'b64:A=='. For printable strings, use the form 'str:hello'. For addresses, use the form 'addr:XYZ...'.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|application-id|path|integer|true|An application identifier|
-|name|query|string|true|A box name, in the goal app call arg form 'encoding:value'. For ints, use the form 'int:1234'. For raw bytes, use the form 'b64:A=='. For printable strings, use the form 'str:hello'. For addresses, use the form 'addr:XYZ...'.|
+| Name           | In    | Type    | Required | Description                                                                                                                                                                                                                       |
+| -------------- | ----- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| application-id | path  | integer | true     | An application identifier                                                                                                                                                                                                         |
+| name           | query | string  | true     | A box name, in the goal app call arg form 'encoding:value'. For ints, use the form 'int:1234'. For raw bytes, use the form 'b64:A=='. For printable strings, use the form 'str:hello'. For addresses, use the form 'addr:XYZ...'. |
 
 > Example responses
 
@@ -3745,26 +3688,25 @@ Given an application ID and box name, it returns the round, box name, and value 
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Box information|[Box](#schemabox)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Box Not Found|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description       | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Box information   | [Box](#schemabox)                     |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request       | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Box Not Found     | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error    | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error     | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetApplicationBoxes
 
-<a id="opIdGetApplicationBoxes"></a>
+<a id='opIdGetApplicationBoxes'></a>
 
 > Code samples
 
@@ -3784,24 +3726,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/applications/{application-id}/boxes',
-{
+fetch('http://localhost/v2/applications/{application-id}/boxes', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -3911,16 +3851,16 @@ func main() {
 
 `GET /v2/applications/{application-id}/boxes`
 
-*Get all box names for a given application.*
+_Get all box names for a given application._
 
 Given an application ID, return all Box names. No particular ordering is guaranteed. Request fails when client or server-side configured limits prevent returning all Box names.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|application-id|path|integer|true|An application identifier|
-|max|query|integer|false|Max number of box names to return. If max is not set, or max == 0, returns all box-names.|
+| Name           | In    | Type    | Required | Description                                                                               |
+| -------------- | ----- | ------- | -------- | ----------------------------------------------------------------------------------------- |
+| application-id | path  | integer | true     | An application identifier                                                                 |
+| max            | query | integer | false    | Max number of box names to return. If max is not set, or max == 0, returns all box-names. |
 
 > Example responses
 
@@ -3938,32 +3878,31 @@ Given an application ID, return all Box names. No particular ordering is guarant
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Box names of an application|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                 | Schema                                |
+| ------- | -------------------------------------------------------------------------- | --------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Box names of an application | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request                 | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token           | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error              | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error               | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» boxes|[[BoxDescriptor](#schemaboxdescriptor)]|true|none|[Box descriptor describes a Box.]|
-|»» name|string(byte)|true|none|Base64 encoded box name|
+| Name    | Type                                    | Required | Restrictions | Description                       |
+| ------- | --------------------------------------- | -------- | ------------ | --------------------------------- |
+| » boxes | [[BoxDescriptor](#schemaboxdescriptor)] | true     | none         | [Box descriptor describes a Box.] |
+| »» name | string(byte)                            | true     | none         | Base64 encoded box name           |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetApplicationByID
 
-<a id="opIdGetApplicationByID"></a>
+<a id='opIdGetApplicationByID'></a>
 
 > Code samples
 
@@ -3983,24 +3922,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/applications/{application-id}',
-{
+fetch('http://localhost/v2/applications/{application-id}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -4110,15 +4047,15 @@ func main() {
 
 `GET /v2/applications/{application-id}`
 
-*Get application information.*
+_Get application information._
 
 Given a application ID, it returns application information including creator, approval and clear programs, global and local schemas, and global state.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|application-id|path|integer|true|An application identifier|
+| Name           | In   | Type    | Required | Description               |
+| -------------- | ---- | ------- | -------- | ------------------------- |
+| application-id | path | integer | true     | An application identifier |
 
 > Example responses
 
@@ -4156,26 +4093,25 @@ Given a application ID, it returns application information including creator, ap
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Application information|[Application](#schemaapplication)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Application Not Found|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description             | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Application information | [Application](#schemaapplication)     |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request             | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token       | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Application Not Found   | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error          | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error           | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetAssetByID
 
-<a id="opIdGetAssetByID"></a>
+<a id='opIdGetAssetByID'></a>
 
 > Code samples
 
@@ -4195,24 +4131,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/assets/{asset-id}',
-{
+fetch('http://localhost/v2/assets/{asset-id}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -4322,15 +4256,15 @@ func main() {
 
 `GET /v2/assets/{asset-id}`
 
-*Get asset information.*
+_Get asset information._
 
 Given a asset ID, it returns asset information including creator, name, total supply and special addresses.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|asset-id|path|integer|true|An asset identifier|
+| Name     | In   | Type    | Required | Description         |
+| -------- | ---- | ------- | -------- | ------------------- |
+| asset-id | path | integer | true     | An asset identifier |
 
 > Example responses
 
@@ -4361,26 +4295,25 @@ Given a asset ID, it returns asset information including creator, name, total su
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Asset information|[Asset](#schemaasset)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Application Not Found|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description           | Schema                                |
+| ------- | -------------------------------------------------------------------------- | --------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Asset information     | [Asset](#schemaasset)                 |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request           | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token     | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Application Not Found | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error        | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error         | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetBlock
 
-<a id="opIdGetBlock"></a>
+<a id='opIdGetBlock'></a>
 
 > Code samples
 
@@ -4400,24 +4333,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/blocks/{round}',
-{
+fetch('http://localhost/v2/blocks/{round}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -4527,22 +4458,22 @@ func main() {
 
 `GET /v2/blocks/{round}`
 
-*Get the block for the given round.*
+_Get the block for the given round._
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
-|round|path|integer|true|The round from which to fetch block information.|
-|header-only|query|boolean|false|If true, only the block header (exclusive of payset or certificate) may be included in response.|
+| Name        | In    | Type    | Required | Description                                                                                               |
+| ----------- | ----- | ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| format      | query | string  | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
+| round       | path  | integer | true     | The round from which to fetch block information.                                                          |
+| header-only | query | boolean | false    | If true, only the block header (exclusive of payset or certificate) may be included in response.          |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
 
 > Example responses
 
@@ -4557,33 +4488,32 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Encoded block object.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request - Non integer number|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|None existing block|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                      | Schema                                |
+| ------- | -------------------------------------------------------------------------- | -------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Encoded block object.            | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request - Non integer number | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | None existing block              | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                   | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                    | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» block|object|true|none|Block header data.|
-|» cert|object|false|none|Optional certificate object. This is only included when the format is set to message pack.|
+| Name    | Type   | Required | Restrictions | Description                                                                                |
+| ------- | ------ | -------- | ------------ | ------------------------------------------------------------------------------------------ |
+| » block | object | true     | none         | Block header data.                                                                         |
+| » cert  | object | false    | none         | Optional certificate object. This is only included when the format is set to message pack. |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetBlockHash
 
-<a id="opIdGetBlockHash"></a>
+<a id='opIdGetBlockHash'></a>
 
 > Code samples
 
@@ -4603,24 +4533,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/blocks/{round}/hash',
-{
+fetch('http://localhost/v2/blocks/{round}/hash', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -4730,13 +4658,13 @@ func main() {
 
 `GET /v2/blocks/{round}/hash`
 
-*Get the block hash for the block on the given round.*
+_Get the block hash for the block on the given round._
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|round|path|integer|true|The round from which to fetch block hash information.|
+| Name  | In   | Type    | Required | Description                                           |
+| ----- | ---- | ------- | -------- | ----------------------------------------------------- |
+| round | path | integer | true     | The round from which to fetch block hash information. |
 
 > Example responses
 
@@ -4750,32 +4678,31 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Hash of a block header.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request - Non integer number|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|None existing block|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                      | Schema                                |
+| ------- | -------------------------------------------------------------------------- | -------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Hash of a block header.          | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request - Non integer number | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | None existing block              | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                   | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                    | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» blockHash|string|true|none|Block header hash.|
+| Name        | Type   | Required | Restrictions | Description        |
+| ----------- | ------ | -------- | ------------ | ------------------ |
+| » blockHash | string | true     | none         | Block header hash. |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetBlockLogs
 
-<a id="opIdGetBlockLogs"></a>
+<a id='opIdGetBlockLogs'></a>
 
 > Code samples
 
@@ -4795,24 +4722,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/blocks/{round}/logs',
-{
+fetch('http://localhost/v2/blocks/{round}/logs', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -4922,15 +4847,15 @@ func main() {
 
 `GET /v2/blocks/{round}/logs`
 
-*Get all of the logs from outer and inner app calls in the given round*
+_Get all of the logs from outer and inner app calls in the given round_
 
 Get all of the logs from outer and inner app calls in the given round
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|round|path|integer|true|The round from which to fetch block log information.|
+| Name  | In   | Type    | Required | Description                                          |
+| ----- | ---- | ------- | -------- | ---------------------------------------------------- |
+| round | path | integer | true     | The round from which to fetch block log information. |
 
 > Example responses
 
@@ -4941,9 +4866,7 @@ Get all of the logs from outer and inner app calls in the given round
   "logs": [
     {
       "application-index": 0,
-      "logs": [
-        "string"
-      ],
+      "logs": ["string"],
       "txId": "string"
     }
   ]
@@ -4952,34 +4875,33 @@ Get all of the logs from outer and inner app calls in the given round
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|All logs emitted in the given round. Each app call, whether top-level or inner, that contains logs results in a separate AppCallLogs object. Therefore there may be multiple AppCallLogs with the same application ID and outer transaction ID in the event of multiple inner app calls to the same app. App calls with no logs are not included in the response. AppCallLogs are returned in the same order that their corresponding app call appeared in the block (pre-order traversal of inner app calls)|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request - Non integer number|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Nonexistent block|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
+| Status | Meaning                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Schema                                |
+| ------ | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | All logs emitted in the given round. Each app call, whether top-level or inner, that contains logs results in a separate AppCallLogs object. Therefore there may be multiple AppCallLogs with the same application ID and outer transaction ID in the event of multiple inner app calls to the same app. App calls with no logs are not included in the response. AppCallLogs are returned in the same order that their corresponding app call appeared in the block (pre-order traversal of inner app calls) | Inline                                |
+| 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request - Non integer number                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [ErrorResponse](#schemaerrorresponse) |
+| 401    | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [ErrorResponse](#schemaerrorresponse) |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Nonexistent block                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [ErrorResponse](#schemaerrorresponse) |
+| 500    | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | [ErrorResponse](#schemaerrorresponse) |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» logs|[[AppCallLogs](#schemaappcalllogs)]|true|none|[The logged messages from an app call along with the app ID and outer transaction ID. Logs appear in the same order that they were emitted.]|
-|»» application-index|integer|true|none|The application from which the logs were generated|
-|»» logs|[string]|true|none|An array of logs|
-|»» txId|string|true|none|The transaction ID of the outer app call that lead to these logs|
+| Name                 | Type                                | Required | Restrictions | Description                                                                                                                                  |
+| -------------------- | ----------------------------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| » logs               | [[AppCallLogs](#schemaappcalllogs)] | true     | none         | [The logged messages from an app call along with the app ID and outer transaction ID. Logs appear in the same order that they were emitted.] |
+| »» application-index | integer                             | true     | none         | The application from which the logs were generated                                                                                           |
+| »» logs              | [string]                            | true     | none         | An array of logs                                                                                                                             |
+| »» txId              | string                              | true     | none         | The transaction ID of the outer app call that lead to these logs                                                                             |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetBlockTimeStampOffset
 
-<a id="opIdGetBlockTimeStampOffset"></a>
+<a id='opIdGetBlockTimeStampOffset'></a>
 
 > Code samples
 
@@ -4999,24 +4921,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/devmode/blocks/offset',
-{
+fetch('http://localhost/v2/devmode/blocks/offset', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -5126,7 +5046,7 @@ func main() {
 
 `GET /v2/devmode/blocks/offset`
 
-*Returns the timestamp offset. Timestamp offsets can only be set in dev mode.*
+_Returns the timestamp offset. Timestamp offsets can only be set in dev mode._
 
 Gets the current timestamp offset.
 
@@ -5142,29 +5062,28 @@ Gets the current timestamp offset.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Response containing the timestamp offset in seconds|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|TimeStamp offset not set.|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                          | Description                                         | Schema                                |
+| ------- | ---------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)          | Response containing the timestamp offset in seconds | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) | TimeStamp offset not set.                           | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                          | Unknown Error                                       | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» offset|integer|true|none|Timestamp offset in seconds.|
+| Name     | Type    | Required | Restrictions | Description                  |
+| -------- | ------- | -------- | ------------ | ---------------------------- |
+| » offset | integer | true     | none         | Timestamp offset in seconds. |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetBlockTxids
 
-<a id="opIdGetBlockTxids"></a>
+<a id='opIdGetBlockTxids'></a>
 
 > Code samples
 
@@ -5184,24 +5103,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/blocks/{round}/txids',
-{
+fetch('http://localhost/v2/blocks/{round}/txids', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -5311,13 +5228,13 @@ func main() {
 
 `GET /v2/blocks/{round}/txids`
 
-*Get the top level transaction IDs for the block on the given round.*
+_Get the top level transaction IDs for the block on the given round._
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|round|path|integer|true|The round from which to fetch block transaction IDs.|
+| Name  | In   | Type    | Required | Description                                          |
+| ----- | ---- | ------- | -------- | ---------------------------------------------------- |
+| round | path | integer | true     | The round from which to fetch block transaction IDs. |
 
 > Example responses
 
@@ -5325,40 +5242,37 @@ func main() {
 
 ```json
 {
-  "blockTxids": [
-    "string"
-  ]
+  "blockTxids": ["string"]
 }
 ```
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Top level transaction IDs in a block.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request - Non integer number|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Non existing block|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                           | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Top level transaction IDs in a block. | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request - Non integer number      | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                     | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Non existing block                    | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                        | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                         | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» blockTxids|[string]|true|none|Block transaction IDs.|
+| Name         | Type     | Required | Restrictions | Description            |
+| ------------ | -------- | -------- | ------------ | ---------------------- |
+| » blockTxids | [string] | true     | none         | Block transaction IDs. |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetGenesis
 
-<a id="opIdGetGenesis"></a>
+<a id='opIdGetGenesis'></a>
 
 > Code samples
 
@@ -5378,24 +5292,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/genesis',
-{
+fetch('http://localhost/genesis', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -5505,7 +5417,7 @@ func main() {
 
 `GET /genesis`
 
-*Gets the genesis information.*
+_Gets the genesis information._
 
 Returns the entire genesis file in json.
 
@@ -5519,22 +5431,21 @@ Returns the entire genesis file in json.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The genesis file in json.|string|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                 | Description               | Schema |
+| ------- | ------------------------------------------------------- | ------------------------- | ------ |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | The genesis file in json. | string |
+| default | Default                                                 | Unknown Error             | None   |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetLedgerStateDelta
 
-<a id="opIdGetLedgerStateDelta"></a>
+<a id='opIdGetLedgerStateDelta'></a>
 
 > Code samples
 
@@ -5554,24 +5465,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/deltas/{round}',
-{
+fetch('http://localhost/v2/deltas/{round}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -5681,23 +5590,23 @@ func main() {
 
 `GET /v2/deltas/{round}`
 
-*Get a LedgerStateDelta object for a given round*
+_Get a LedgerStateDelta object for a given round_
 
 Get ledger deltas for a round.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|round|path|integer|true|The round for which the deltas are desired.|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
+| Name   | In    | Type    | Required | Description                                                                                               |
+| ------ | ----- | ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| round  | path  | integer | true     | The round for which the deltas are desired.                                                               |
+| format | query | string  | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
 
 > Example responses
 
@@ -5709,27 +5618,26 @@ Get ledger deltas for a round.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Contains ledger deltas|[LedgerStateDelta](#schemaledgerstatedelta)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Could not find a delta for round|[ErrorResponse](#schemaerrorresponse)|
-|408|[Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)|timed out on request|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                      | Schema                                      |
+| ------- | -------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Contains ledger deltas           | [LedgerStateDelta](#schemaledgerstatedelta) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                | [ErrorResponse](#schemaerrorresponse)       |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Could not find a delta for round | [ErrorResponse](#schemaerrorresponse)       |
+| 408     | [Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)       | timed out on request             | [ErrorResponse](#schemaerrorresponse)       |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                   | [ErrorResponse](#schemaerrorresponse)       |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable  | [ErrorResponse](#schemaerrorresponse)       |
+| default | Default                                                                    | Unknown Error                    | None                                        |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetLedgerStateDeltaForTransactionGroup
 
-<a id="opIdGetLedgerStateDeltaForTransactionGroup"></a>
+<a id='opIdGetLedgerStateDeltaForTransactionGroup'></a>
 
 > Code samples
 
@@ -5749,24 +5657,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/deltas/txn/group/{id}',
-{
+fetch('http://localhost/v2/deltas/txn/group/{id}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -5876,23 +5782,23 @@ func main() {
 
 `GET /v2/deltas/txn/group/{id}`
 
-*Get a LedgerStateDelta object for a given transaction group*
+_Get a LedgerStateDelta object for a given transaction group_
 
 Get a ledger delta for a given transaction group.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|A transaction ID, or transaction group ID|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
+| Name   | In    | Type   | Required | Description                                                                                               |
+| ------ | ----- | ------ | -------- | --------------------------------------------------------------------------------------------------------- |
+| id     | path  | string | true     | A transaction ID, or transaction group ID                                                                 |
+| format | query | string | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
 
 > Example responses
 
@@ -5904,27 +5810,26 @@ Get a ledger delta for a given transaction group.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Response containing a ledger state delta for a single transaction group.|[LedgerStateDelta](#schemaledgerstatedelta)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Could not find a delta for transaction ID or group ID|[ErrorResponse](#schemaerrorresponse)|
-|408|[Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)|timed out on request|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|501|[Not Implemented](https://tools.ietf.org/html/rfc7231#section-6.6.2)|Not Implemented|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                              | Schema                                      |
+| ------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Response containing a ledger state delta for a single transaction group. | [LedgerStateDelta](#schemaledgerstatedelta) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                        | [ErrorResponse](#schemaerrorresponse)       |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Could not find a delta for transaction ID or group ID                    | [ErrorResponse](#schemaerrorresponse)       |
+| 408     | [Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)       | timed out on request                                                     | [ErrorResponse](#schemaerrorresponse)       |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                           | [ErrorResponse](#schemaerrorresponse)       |
+| 501     | [Not Implemented](https://tools.ietf.org/html/rfc7231#section-6.6.2)       | Not Implemented                                                          | [ErrorResponse](#schemaerrorresponse)       |
+| default | Default                                                                    | Unknown Error                                                            | None                                        |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetLightBlockHeaderProof
 
-<a id="opIdGetLightBlockHeaderProof"></a>
+<a id='opIdGetLightBlockHeaderProof'></a>
 
 > Code samples
 
@@ -5944,24 +5849,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/blocks/{round}/lightheader/proof',
-{
+fetch('http://localhost/v2/blocks/{round}/lightheader/proof', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -6071,13 +5974,13 @@ func main() {
 
 `GET /v2/blocks/{round}/lightheader/proof`
 
-*Gets a proof for a given light block header inside a state proof commitment*
+_Gets a proof for a given light block header inside a state proof commitment_
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|round|path|integer|true|The round to which the light block header belongs.|
+| Name  | In   | Type    | Required | Description                                        |
+| ----- | ---- | ------- | -------- | -------------------------------------------------- |
+| round | path | integer | true     | The round to which the light block header belongs. |
 
 > Example responses
 
@@ -6093,27 +5996,26 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Proof of a light block header.|[LightBlockHeaderProof](#schemalightblockheaderproof)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Could not create proof since some data is missing|[ErrorResponse](#schemaerrorresponse)|
-|408|[Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)|timed out on request|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                       | Schema                                                |
+| ------- | -------------------------------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Proof of a light block header.                    | [LightBlockHeaderProof](#schemalightblockheaderproof) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                 | [ErrorResponse](#schemaerrorresponse)                 |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Could not create proof since some data is missing | [ErrorResponse](#schemaerrorresponse)                 |
+| 408     | [Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)       | timed out on request                              | [ErrorResponse](#schemaerrorresponse)                 |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                    | [ErrorResponse](#schemaerrorresponse)                 |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable                   | [ErrorResponse](#schemaerrorresponse)                 |
+| default | Default                                                                    | Unknown Error                                     | None                                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetPendingTransactions
 
-<a id="opIdGetPendingTransactions"></a>
+<a id='opIdGetPendingTransactions'></a>
 
 > Code samples
 
@@ -6133,24 +6035,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/transactions/pending',
-{
+fetch('http://localhost/v2/transactions/pending', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -6260,23 +6160,23 @@ func main() {
 
 `GET /v2/transactions/pending`
 
-*Get a list of unconfirmed transactions currently in the transaction pool.*
+_Get a list of unconfirmed transactions currently in the transaction pool._
 
 Get the list of pending transactions, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX = 0, returns all pending transactions.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|max|query|integer|false|Truncated number of transactions to display. If max=0, returns all pending txns.|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
+| Name   | In    | Type    | Required | Description                                                                                               |
+| ------ | ----- | ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| max    | query | integer | false    | Truncated number of transactions to display. If max=0, returns all pending txns.                          |
+| format | query | string  | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
 
 > Example responses
 
@@ -6284,43 +6184,40 @@ Get the list of pending transactions, sorted by priority, in decreasing order, t
 
 ```json
 {
-  "top-transactions": [
-    {}
-  ],
+  "top-transactions": [{}],
   "total-transactions": 0
 }
 ```
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A potentially truncated list of transactions currently in the node's transaction pool. You can compute whether or not the list is truncated if the number of elements in the **top-transactions** array is fewer than **total-transactions**.|Inline|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                                                                                                                                                                                                   | Schema                                |
+| ------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | A potentially truncated list of transactions currently in the node's transaction pool. You can compute whether or not the list is truncated if the number of elements in the **top-transactions** array is fewer than **total-transactions**. | Inline                                |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                                                                                                                                                                                             | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                                                                                                                                                                                                | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable                                                                                                                                                                                                               | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                                                                                                                                                                                                                 | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-*PendingTransactions is an array of signed transactions exactly as they were submitted.*
+_PendingTransactions is an array of signed transactions exactly as they were submitted._
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» top-transactions|[object]|true|none|An array of signed transaction objects.|
-|» total-transactions|integer|true|none|Total number of transactions in the pool.|
+| Name                 | Type     | Required | Restrictions | Description                               |
+| -------------------- | -------- | -------- | ------------ | ----------------------------------------- |
+| » top-transactions   | [object] | true     | none         | An array of signed transaction objects.   |
+| » total-transactions | integer  | true     | none         | Total number of transactions in the pool. |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetPendingTransactionsByAddress
 
-<a id="opIdGetPendingTransactionsByAddress"></a>
+<a id='opIdGetPendingTransactionsByAddress'></a>
 
 > Code samples
 
@@ -6340,24 +6237,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/accounts/{address}/transactions/pending',
-{
+fetch('http://localhost/v2/accounts/{address}/transactions/pending', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -6467,24 +6362,24 @@ func main() {
 
 `GET /v2/accounts/{address}/transactions/pending`
 
-*Get a list of unconfirmed transactions currently in the transaction pool by address.*
+_Get a list of unconfirmed transactions currently in the transaction pool by address._
 
 Get the list of pending transactions by address, sorted by priority, in decreasing order, truncated at the end at MAX. If MAX = 0, returns all pending transactions.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|address|path|string|true|An account public key|
-|max|query|integer|false|Truncated number of transactions to display. If max=0, returns all pending txns.|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
+| Name    | In    | Type    | Required | Description                                                                                               |
+| ------- | ----- | ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| address | path  | string  | true     | An account public key                                                                                     |
+| max     | query | integer | false    | Truncated number of transactions to display. If max=0, returns all pending txns.                          |
+| format  | query | string  | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
 
 > Example responses
 
@@ -6492,44 +6387,41 @@ Get the list of pending transactions by address, sorted by priority, in decreasi
 
 ```json
 {
-  "top-transactions": [
-    {}
-  ],
+  "top-transactions": [{}],
   "total-transactions": 0
 }
 ```
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A potentially truncated list of transactions currently in the node's transaction pool. You can compute whether or not the list is truncated if the number of elements in the **top-transactions** array is fewer than **total-transactions**.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Max must be a non-negative integer|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                                                                                                                                                                                                   | Schema                                |
+| ------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | A potentially truncated list of transactions currently in the node's transaction pool. You can compute whether or not the list is truncated if the number of elements in the **top-transactions** array is fewer than **total-transactions**. | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Max must be a non-negative integer                                                                                                                                                                                                            | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                                                                                                                                                                                             | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                                                                                                                                                                                                | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable                                                                                                                                                                                                               | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                                                                                                                                                                                                                 | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-*PendingTransactions is an array of signed transactions exactly as they were submitted.*
+_PendingTransactions is an array of signed transactions exactly as they were submitted._
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» top-transactions|[object]|true|none|An array of signed transaction objects.|
-|» total-transactions|integer|true|none|Total number of transactions in the pool.|
+| Name                 | Type     | Required | Restrictions | Description                               |
+| -------------------- | -------- | -------- | ------------ | ----------------------------------------- |
+| » top-transactions   | [object] | true     | none         | An array of signed transaction objects.   |
+| » total-transactions | integer  | true     | none         | Total number of transactions in the pool. |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetReady
 
-<a id="opIdGetReady"></a>
+<a id='opIdGetReady'></a>
 
 > Code samples
 
@@ -6547,23 +6439,21 @@ Host: localhost
 ```
 
 ```javascript
-
 const headers = {
-  'X-Algo-API-Token':'API_KEY'
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/ready',
-{
+fetch('http://localhost/ready', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -6669,30 +6559,29 @@ func main() {
 
 `GET /ready`
 
-*Returns OK if healthy and fully caught up.*
+_Returns OK if healthy and fully caught up._
 
 > Example responses
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK.|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|None|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Node not ready yet|None|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description        | Schema |
+| ------- | -------------------------------------------------------------------------- | ------------------ | ------ |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | OK.                | None   |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error     | None   |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Node not ready yet | None   |
+| default | Default                                                                    | Unknown Error      | None   |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetStateProof
 
-<a id="opIdGetStateProof"></a>
+<a id='opIdGetStateProof'></a>
 
 > Code samples
 
@@ -6712,24 +6601,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/stateproofs/{round}',
-{
+fetch('http://localhost/v2/stateproofs/{round}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -6839,13 +6726,13 @@ func main() {
 
 `GET /v2/stateproofs/{round}`
 
-*Get a state proof that covers a given round*
+_Get a state proof that covers a given round_
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|round|path|integer|true|The round for which a state proof is desired.|
+| Name  | In   | Type    | Required | Description                                   |
+| ----- | ---- | ------- | -------- | --------------------------------------------- |
+| round | path | integer | true     | The round for which a state proof is desired. |
 
 > Example responses
 
@@ -6866,27 +6753,26 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|StateProofResponse wraps the StateProof type in a response.|[StateProof](#schemastateproof)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Could not find a state proof that covers a given round|[ErrorResponse](#schemaerrorresponse)|
-|408|[Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)|timed out on request|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                 | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | StateProofResponse wraps the StateProof type in a response. | [StateProof](#schemastateproof)       |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                           | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Could not find a state proof that covers a given round      | [ErrorResponse](#schemaerrorresponse) |
+| 408     | [Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)       | timed out on request                                        | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                              | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable                             | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                               | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetStatus
 
-<a id="opIdGetStatus"></a>
+<a id='opIdGetStatus'></a>
 
 > Code samples
 
@@ -6906,24 +6792,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/status',
-{
+fetch('http://localhost/v2/status', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -7033,7 +6917,7 @@ func main() {
 
 `GET /v2/status`
 
-*Gets the current node status.*
+_Gets the current node status._
 
 > Example responses
 
@@ -7072,57 +6956,56 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|string|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description       | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | none              | Inline                                |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error    | string                                |
+| default | Default                                                                    | Unknown Error     | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-*NodeStatus contains the information about a node status*
+_NodeStatus contains the information about a node status_
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» catchpoint|string|false|none|The current catchpoint that is being caught up to|
-|» catchpoint-acquired-blocks|integer|false|none|The number of blocks that have already been obtained by the node as part of the catchup|
-|» catchpoint-processed-accounts|integer|false|none|The number of accounts from the current catchpoint that have been processed so far as part of the catchup|
-|» catchpoint-processed-kvs|integer|false|none|The number of key-values (KVs) from the current catchpoint that have been processed so far as part of the catchup|
-|» catchpoint-total-accounts|integer|false|none|The total number of accounts included in the current catchpoint|
-|» catchpoint-total-blocks|integer|false|none|The total number of blocks that are required to complete the current catchpoint catchup|
-|» catchpoint-total-kvs|integer|false|none|The total number of key-values (KVs) included in the current catchpoint|
-|» catchpoint-verified-accounts|integer|false|none|The number of accounts from the current catchpoint that have been verified so far as part of the catchup|
-|» catchpoint-verified-kvs|integer|false|none|The number of key-values (KVs) from the current catchpoint that have been verified so far as part of the catchup|
-|» catchup-time|integer|true|none|CatchupTime in nanoseconds|
-|» last-catchpoint|string|false|none|The last catchpoint seen by the node|
-|» last-round|integer|true|none|LastRound indicates the last round seen|
-|» last-version|string|true|none|LastVersion indicates the last consensus version supported|
-|» next-version|string|true|none|NextVersion of consensus protocol to use|
-|» next-version-round|integer|true|none|NextVersionRound is the round at which the next consensus version will apply|
-|» next-version-supported|boolean|true|none|NextVersionSupported indicates whether the next consensus version is supported by this node|
-|» stopped-at-unsupported-round|boolean|true|none|StoppedAtUnsupportedRound indicates that the node does not support the new rounds and has stopped making progress|
-|» time-since-last-round|integer|true|none|TimeSinceLastRound in nanoseconds|
-|» upgrade-delay|integer|false|none|Upgrade delay|
-|» upgrade-next-protocol-vote-before|integer|false|none|Next protocol round|
-|» upgrade-no-votes|integer|false|none|No votes cast for consensus upgrade|
-|» upgrade-node-vote|boolean|false|none|This node's upgrade vote|
-|» upgrade-vote-rounds|integer|false|none|Total voting rounds for current upgrade|
-|» upgrade-votes|integer|false|none|Total votes cast for consensus upgrade|
-|» upgrade-votes-required|integer|false|none|Yes votes required for consensus upgrade|
-|» upgrade-yes-votes|integer|false|none|Yes votes cast for consensus upgrade|
+| Name                                | Type    | Required | Restrictions | Description                                                                                                       |
+| ----------------------------------- | ------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+| » catchpoint                        | string  | false    | none         | The current catchpoint that is being caught up to                                                                 |
+| » catchpoint-acquired-blocks        | integer | false    | none         | The number of blocks that have already been obtained by the node as part of the catchup                           |
+| » catchpoint-processed-accounts     | integer | false    | none         | The number of accounts from the current catchpoint that have been processed so far as part of the catchup         |
+| » catchpoint-processed-kvs          | integer | false    | none         | The number of key-values (KVs) from the current catchpoint that have been processed so far as part of the catchup |
+| » catchpoint-total-accounts         | integer | false    | none         | The total number of accounts included in the current catchpoint                                                   |
+| » catchpoint-total-blocks           | integer | false    | none         | The total number of blocks that are required to complete the current catchpoint catchup                           |
+| » catchpoint-total-kvs              | integer | false    | none         | The total number of key-values (KVs) included in the current catchpoint                                           |
+| » catchpoint-verified-accounts      | integer | false    | none         | The number of accounts from the current catchpoint that have been verified so far as part of the catchup          |
+| » catchpoint-verified-kvs           | integer | false    | none         | The number of key-values (KVs) from the current catchpoint that have been verified so far as part of the catchup  |
+| » catchup-time                      | integer | true     | none         | CatchupTime in nanoseconds                                                                                        |
+| » last-catchpoint                   | string  | false    | none         | The last catchpoint seen by the node                                                                              |
+| » last-round                        | integer | true     | none         | LastRound indicates the last round seen                                                                           |
+| » last-version                      | string  | true     | none         | LastVersion indicates the last consensus version supported                                                        |
+| » next-version                      | string  | true     | none         | NextVersion of consensus protocol to use                                                                          |
+| » next-version-round                | integer | true     | none         | NextVersionRound is the round at which the next consensus version will apply                                      |
+| » next-version-supported            | boolean | true     | none         | NextVersionSupported indicates whether the next consensus version is supported by this node                       |
+| » stopped-at-unsupported-round      | boolean | true     | none         | StoppedAtUnsupportedRound indicates that the node does not support the new rounds and has stopped making progress |
+| » time-since-last-round             | integer | true     | none         | TimeSinceLastRound in nanoseconds                                                                                 |
+| » upgrade-delay                     | integer | false    | none         | Upgrade delay                                                                                                     |
+| » upgrade-next-protocol-vote-before | integer | false    | none         | Next protocol round                                                                                               |
+| » upgrade-no-votes                  | integer | false    | none         | No votes cast for consensus upgrade                                                                               |
+| » upgrade-node-vote                 | boolean | false    | none         | This node's upgrade vote                                                                                          |
+| » upgrade-vote-rounds               | integer | false    | none         | Total voting rounds for current upgrade                                                                           |
+| » upgrade-votes                     | integer | false    | none         | Total votes cast for consensus upgrade                                                                            |
+| » upgrade-votes-required            | integer | false    | none         | Yes votes required for consensus upgrade                                                                          |
+| » upgrade-yes-votes                 | integer | false    | none         | Yes votes cast for consensus upgrade                                                                              |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetSupply
 
-<a id="opIdGetSupply"></a>
+<a id='opIdGetSupply'></a>
 
 > Code samples
 
@@ -7142,24 +7025,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/ledger/supply',
-{
+fetch('http://localhost/v2/ledger/supply', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -7269,7 +7150,7 @@ func main() {
 
 `GET /v2/ledger/supply`
 
-*Get the current supply reported by the ledger.*
+_Get the current supply reported by the ledger._
 
 > Example responses
 
@@ -7285,33 +7166,32 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Supply represents the current supply of MicroAlgos in the system.|Inline|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                         | Description                                                       | Schema                                |
+| ------- | --------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)         | Supply represents the current supply of MicroAlgos in the system. | Inline                                |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1) | Invalid API Token                                                 | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                         | Unknown Error                                                     | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-*Supply represents the current supply of MicroAlgos in the system*
+_Supply represents the current supply of MicroAlgos in the system_
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» current_round|integer|true|none|Round|
-|» online-money|integer|true|none|OnlineMoney|
-|» total-money|integer|true|none|TotalMoney|
+| Name            | Type    | Required | Restrictions | Description |
+| --------------- | ------- | -------- | ------------ | ----------- |
+| » current_round | integer | true     | none         | Round       |
+| » online-money  | integer | true     | none         | OnlineMoney |
+| » total-money   | integer | true     | none         | TotalMoney  |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetSyncRound
 
-<a id="opIdGetSyncRound"></a>
+<a id='opIdGetSyncRound'></a>
 
 > Code samples
 
@@ -7331,24 +7211,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/ledger/sync',
-{
+fetch('http://localhost/v2/ledger/sync', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -7458,7 +7336,7 @@ func main() {
 
 `GET /v2/ledger/sync`
 
-*Returns the minimum sync round the ledger is keeping in cache.*
+_Returns the minimum sync round the ledger is keeping in cache._
 
 Gets the minimum sync round for the ledger.
 
@@ -7474,32 +7352,31 @@ Gets the minimum sync round for the ledger.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Response containing the ledger's minimum sync round|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Sync round not set.|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                         | Schema                                |
+| ------- | -------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Response containing the ledger's minimum sync round | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Sync round not set.                                 | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                   | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                      | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable                     | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                       | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» round|integer|true|none|The minimum sync round for the ledger.|
+| Name    | Type    | Required | Restrictions | Description                            |
+| ------- | ------- | -------- | ------------ | -------------------------------------- |
+| » round | integer | true     | none         | The minimum sync round for the ledger. |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetTransactionGroupLedgerStateDeltasForRound
 
-<a id="opIdGetTransactionGroupLedgerStateDeltasForRound"></a>
+<a id='opIdGetTransactionGroupLedgerStateDeltasForRound'></a>
 
 > Code samples
 
@@ -7519,24 +7396,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/deltas/{round}/txn/group',
-{
+fetch('http://localhost/v2/deltas/{round}/txn/group', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -7646,23 +7521,23 @@ func main() {
 
 `GET /v2/deltas/{round}/txn/group`
 
-*Get LedgerStateDelta objects for all transaction groups in a given round*
+_Get LedgerStateDelta objects for all transaction groups in a given round_
 
 Get ledger deltas for transaction groups in a given round.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|round|path|integer|true|The round for which the deltas are desired.|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
+| Name   | In    | Type    | Required | Description                                                                                               |
+| ------ | ----- | ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| round  | path  | integer | true     | The round for which the deltas are desired.                                                               |
+| format | query | string  | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
 
 > Example responses
 
@@ -7673,9 +7548,7 @@ Get ledger deltas for transaction groups in a given round.
   "Deltas": [
     {
       "Delta": {},
-      "Ids": [
-        "string"
-      ]
+      "Ids": ["string"]
     }
   ]
 }
@@ -7683,35 +7556,34 @@ Get ledger deltas for transaction groups in a given round.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Response containing all ledger state deltas for transaction groups, with their associated Ids, in a single round.|Inline|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Could not find deltas for round|[ErrorResponse](#schemaerrorresponse)|
-|408|[Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)|timed out on request|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|501|[Not Implemented](https://tools.ietf.org/html/rfc7231#section-6.6.2)|Not Implemented|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                                                                       | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Response containing all ledger state deltas for transaction groups, with their associated Ids, in a single round. | Inline                                |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                                                                 | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Could not find deltas for round                                                                                   | [ErrorResponse](#schemaerrorresponse) |
+| 408     | [Request Timeout](https://tools.ietf.org/html/rfc7231#section-6.5.7)       | timed out on request                                                                                              | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                                                                    | [ErrorResponse](#schemaerrorresponse) |
+| 501     | [Not Implemented](https://tools.ietf.org/html/rfc7231#section-6.6.2)       | Not Implemented                                                                                                   | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                                                                                     | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» Deltas|[[LedgerStateDeltaForTransactionGroup](#schemaledgerstatedeltafortransactiongroup)]|true|none|[Contains a ledger delta for a single transaction group]|
-|»» Delta|[LedgerStateDelta](#schemaledgerstatedelta)|true|none|Ledger StateDelta object|
-|»» Ids|[string]|true|none|none|
+| Name     | Type                                                                                | Required | Restrictions | Description                                              |
+| -------- | ----------------------------------------------------------------------------------- | -------- | ------------ | -------------------------------------------------------- |
+| » Deltas | [[LedgerStateDeltaForTransactionGroup](#schemaledgerstatedeltafortransactiongroup)] | true     | none         | [Contains a ledger delta for a single transaction group] |
+| »» Delta | [LedgerStateDelta](#schemaledgerstatedelta)                                         | true     | none         | Ledger StateDelta object                                 |
+| »» Ids   | [string]                                                                            | true     | none         | none                                                     |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetTransactionProof
 
-<a id="opIdGetTransactionProof"></a>
+<a id='opIdGetTransactionProof'></a>
 
 > Code samples
 
@@ -7731,24 +7603,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/blocks/{round}/transactions/{txid}/proof',
-{
+fetch('http://localhost/v2/blocks/{round}/transactions/{txid}/proof', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -7858,31 +7728,32 @@ func main() {
 
 `GET /v2/blocks/{round}/transactions/{txid}/proof`
 
-*Get a proof for a transaction in a block.*
+_Get a proof for a transaction in a block._
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|round|path|integer|true|The round in which the transaction appears.|
-|txid|path|string|true|The transaction ID for which to generate a proof.|
-|hashtype|query|string|false|The type of hash function used to create the proof, must be one of: |
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
+| Name     | In    | Type    | Required | Description                                                                                               |
+| -------- | ----- | ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| round    | path  | integer | true     | The round in which the transaction appears.                                                               |
+| txid     | path  | string  | true     | The transaction ID for which to generate a proof.                                                         |
+| hashtype | query | string  | false    | The type of hash function used to create the proof, must be one of:                                       |
+| format   | query | string  | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
 
 #### Detailed descriptions
 
-**hashtype**: The type of hash function used to create the proof, must be one of: 
-* sha512_256 
-* sha256
+**hashtype**: The type of hash function used to create the proof, must be one of:
+
+- sha512_256
+- sha256
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|hashtype|sha512_256|
-|hashtype|sha256|
-|format|json|
-|format|msgpack|
+| Parameter | Value      |
+| --------- | ---------- |
+| hashtype  | sha512_256 |
+| hashtype  | sha256     |
+| format    | json       |
+| format    | msgpack    |
 
 > Example responses
 
@@ -7900,43 +7771,42 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Proof of transaction in a block.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Malformed round number or transaction ID|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Non-existent block or transaction|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal error, including protocol not supporting proofs.|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown error|None|
+| Status  | Meaning                                                                    | Description                                               | Schema                                |
+| ------- | -------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Proof of transaction in a block.                          | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Malformed round number or transaction ID                  | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API token                                         | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Non-existent block or transaction                         | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal error, including protocol not supporting proofs. | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown error                                             | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» hashtype|string|true|none|The type of hash function used to create the proof, must be one of: <br>* sha512_256 <br>* sha256|
-|» idx|integer|true|none|Index of the transaction in the block's payset.|
-|» proof|string(byte)|true|none|Proof of transaction membership.|
-|» stibhash|string(byte)|true|none|Hash of SignedTxnInBlock for verifying proof.|
-|» treedepth|integer|true|none|Represents the depth of the tree that is being proven, i.e. the number of edges from a leaf to the root.|
+| Name        | Type         | Required | Restrictions | Description                                                                                              |
+| ----------- | ------------ | -------- | ------------ | -------------------------------------------------------------------------------------------------------- |
+| » hashtype  | string       | true     | none         | The type of hash function used to create the proof, must be one of: <br>_ sha512_256 <br>_ sha256        |
+| » idx       | integer      | true     | none         | Index of the transaction in the block's payset.                                                          |
+| » proof     | string(byte) | true     | none         | Proof of transaction membership.                                                                         |
+| » stibhash  | string(byte) | true     | none         | Hash of SignedTxnInBlock for verifying proof.                                                            |
+| » treedepth | integer      | true     | none         | Represents the depth of the tree that is being proven, i.e. the number of edges from a leaf to the root. |
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|hashtype|sha512_256|
-|hashtype|sha256|
+| Property | Value      |
+| -------- | ---------- |
+| hashtype | sha512_256 |
+| hashtype | sha256     |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### GetVersion
 
-<a id="opIdGetVersion"></a>
+<a id='opIdGetVersion'></a>
 
 > Code samples
 
@@ -7956,24 +7826,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/versions',
-{
+fetch('http://localhost/versions', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -8101,27 +7969,24 @@ Retrieves the supported API versions, binary build versions, and genesis informa
   },
   "genesis_hash_b64": "string",
   "genesis_id": "string",
-  "versions": [
-    "string"
-  ]
+  "versions": ["string"]
 }
 ```
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|VersionsResponse is the response to 'GET /versions'|[Version](#schemaversion)|
+| Status | Meaning                                                 | Description                                         | Schema                    |
+| ------ | ------------------------------------------------------- | --------------------------------------------------- | ------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | VersionsResponse is the response to 'GET /versions' | [Version](#schemaversion) |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### HealthCheck
 
-<a id="opIdHealthCheck"></a>
+<a id='opIdHealthCheck'></a>
 
 > Code samples
 
@@ -8139,23 +8004,21 @@ Host: localhost
 ```
 
 ```javascript
-
 const headers = {
-  'X-Algo-API-Token':'API_KEY'
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/health',
-{
+fetch('http://localhost/health', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -8261,28 +8124,27 @@ func main() {
 
 `GET /health`
 
-*Returns OK if healthy.*
+_Returns OK if healthy._
 
 > Example responses
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK.|None|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                 | Description   | Schema |
+| ------- | ------------------------------------------------------- | ------------- | ------ |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | OK.           | None   |
+| default | Default                                                 | Unknown Error | None   |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### Metrics
 
-<a id="opIdMetrics"></a>
+<a id='opIdMetrics'></a>
 
 > Code samples
 
@@ -8300,23 +8162,21 @@ Host: localhost
 ```
 
 ```javascript
-
 const headers = {
-  'X-Algo-API-Token':'API_KEY'
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/metrics',
-{
+fetch('http://localhost/metrics', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -8422,28 +8282,27 @@ func main() {
 
 `GET /metrics`
 
-*Return metrics about algod functioning.*
+_Return metrics about algod functioning._
 
 > Example responses
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|text with \#-comments and key:value lines|None|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|metrics were compiled out|None|
+| Status | Meaning                                                        | Description                               | Schema |
+| ------ | -------------------------------------------------------------- | ----------------------------------------- | ------ |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)        | text with \#-comments and key:value lines | None   |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) | metrics were compiled out                 | None   |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### PendingTransactionInformation
 
-<a id="opIdPendingTransactionInformation"></a>
+<a id='opIdPendingTransactionInformation'></a>
 
 > Code samples
 
@@ -8463,24 +8322,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/transactions/pending/{txid}',
-{
+fetch('http://localhost/v2/transactions/pending/{txid}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -8590,27 +8447,28 @@ func main() {
 
 `GET /v2/transactions/pending/{txid}`
 
-*Get a specific pending transaction.*
+_Get a specific pending transaction._
 
-Given a transaction ID of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed:
+Given a transaction ID of a recently submitted transaction, it returns information about it. There are several cases when this might succeed:
+
 - transaction committed (committed round > 0)
 - transaction still in the pool (committed round = 0, pool error = "")
 - transaction removed from pool due to error (committed round = 0, pool error != "")
-Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error.
+  Or the transaction may have happened sufficiently long ago that the node no longer remembers it, and this will return an error.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|txid|path|string|true|A transaction ID|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
+| Name   | In    | Type   | Required | Description                                                                                               |
+| ------ | ----- | ------ | -------- | --------------------------------------------------------------------------------------------------------- |
+| txid   | path  | string | true     | A transaction ID                                                                                          |
+| format | query | string | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
 
 > Example responses
 
@@ -8668,9 +8526,7 @@ Or the transaction may have happened sufficiently long ago that the node no long
           ]
         }
       ],
-      "logs": [
-        "string"
-      ],
+      "logs": ["string"],
       "pool-error": "string",
       "receiver-rewards": 0,
       "sender-rewards": 0,
@@ -8692,9 +8548,7 @@ Or the transaction may have happened sufficiently long ago that the node no long
       ]
     }
   ],
-  "logs": [
-    "string"
-  ],
+  "logs": ["string"],
   "pool-error": "string",
   "receiver-rewards": 0,
   "sender-rewards": 0,
@@ -8704,9 +8558,10 @@ Or the transaction may have happened sufficiently long ago that the node no long
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Given a transaction ID of a recently submitted transaction, it returns information about it.  There are several cases when this might succeed:
+| Status | Meaning                                                 | Description                                                                                                                                   | Schema |
+| ------ | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Given a transaction ID of a recently submitted transaction, it returns information about it. There are several cases when this might succeed: |
+
 - transaction committed (committed round > 0)
 - transaction still in the pool (committed round = 0, pool error = "")
 - transaction removed from pool due to error (committed round = 0, pool error != "")
@@ -8719,15 +8574,14 @@ Or the transaction may have happened sufficiently long ago that the node no long
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### RawTransaction
 
-<a id="opIdRawTransaction"></a>
+<a id='opIdRawTransaction'></a>
 
 > Code samples
 
@@ -8751,23 +8605,22 @@ Accept: application/json
 ```javascript
 const inputBody = 'string';
 const headers = {
-  'Content-Type':'application/x-binary',
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  'Content-Type': 'application/x-binary',
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/transactions',
-{
+fetch('http://localhost/v2/transactions', {
   method: 'POST',
   body: inputBody,
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -8881,15 +8734,15 @@ func main() {
 
 `POST /v2/transactions`
 
-*Broadcasts a raw transaction or transaction group to the network.*
+_Broadcasts a raw transaction or transaction group to the network._
 
 > Body parameter
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|string(binary)|true|The byte encoded signed transaction to broadcast to network|
+| Name | In   | Type           | Required | Description                                                 |
+| ---- | ---- | -------------- | -------- | ----------------------------------------------------------- |
+| body | body | string(binary) | true     | The byte encoded signed transaction to broadcast to network |
 
 > Example responses
 
@@ -8903,32 +8756,31 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Transaction ID of the submission.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request - Malformed Algorand transaction|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                  | Schema                                |
+| ------- | -------------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Transaction ID of the submission.            | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request - Malformed Algorand transaction | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                            | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                               | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable              | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» txId|string|true|none|encoding of the transaction hash.|
+| Name   | Type   | Required | Restrictions | Description                       |
+| ------ | ------ | -------- | ------------ | --------------------------------- |
+| » txId | string | true     | none         | encoding of the transaction hash. |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### RawTransactionAsync
 
-<a id="opIdRawTransactionAsync"></a>
+<a id='opIdRawTransactionAsync'></a>
 
 > Code samples
 
@@ -8952,23 +8804,22 @@ Accept: application/json
 ```javascript
 const inputBody = 'string';
 const headers = {
-  'Content-Type':'application/x-binary',
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  'Content-Type': 'application/x-binary',
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/transactions/async',
-{
+fetch('http://localhost/v2/transactions/async', {
   method: 'POST',
   body: inputBody,
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -9082,15 +8933,15 @@ func main() {
 
 `POST /v2/transactions/async`
 
-*Fast track for broadcasting a raw transaction or transaction group to the network through the tx handler without performing most of the checks and reporting detailed errors. Should be only used for development and performance testing.*
+_Fast track for broadcasting a raw transaction or transaction group to the network through the tx handler without performing most of the checks and reporting detailed errors. Should be only used for development and performance testing._
 
 > Body parameter
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|string(binary)|true|The byte encoded signed transaction to broadcast to network|
+| Name | In   | Type           | Required | Description                                                 |
+| ---- | ---- | -------------- | -------- | ----------------------------------------------------------- |
+| body | body | string(binary) | true     | The byte encoded signed transaction to broadcast to network |
 
 > Example responses
 
@@ -9105,27 +8956,26 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request - Malformed Algorand transaction|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Developer or Experimental API not enabled|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                  | Schema                                |
+| ------- | -------------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | none                                         | None                                  |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request - Malformed Algorand transaction | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                            | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Developer or Experimental API not enabled    | None                                  |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                               | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable              | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### SetBlockTimeStampOffset
 
-<a id="opIdSetBlockTimeStampOffset"></a>
+<a id='opIdSetBlockTimeStampOffset'></a>
 
 > Code samples
 
@@ -9145,24 +8995,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/devmode/blocks/offset/{offset}',
-{
+fetch('http://localhost/v2/devmode/blocks/offset/{offset}', {
   method: 'POST',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -9272,15 +9120,15 @@ func main() {
 
 `POST /v2/devmode/blocks/offset/{offset}`
 
-*Given a timestamp offset in seconds, adds the offset to every subsequent block header's timestamp.*
+_Given a timestamp offset in seconds, adds the offset to every subsequent block header's timestamp._
 
 Sets the timestamp offset (seconds) for blocks in dev mode. Providing an offset of 0 will unset this value and try to use the real clock for the timestamp.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|offset|path|integer|true|The timestamp offset for blocks in dev mode.|
+| Name   | In   | Type    | Required | Description                                  |
+| ------ | ---- | ------- | -------- | -------------------------------------------- |
+| offset | path | integer | true     | The timestamp offset for blocks in dev mode. |
 
 > Example responses
 
@@ -9295,25 +9143,24 @@ Sets the timestamp offset (seconds) for blocks in dev mode. Providing an offset 
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Cannot set timestamp offset to a negative integer.|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                        | Schema                                |
+| ------- | -------------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | OK                                                 | None                                  |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Cannot set timestamp offset to a negative integer. | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                  | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                     | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                      | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### SetSyncRound
 
-<a id="opIdSetSyncRound"></a>
+<a id='opIdSetSyncRound'></a>
 
 > Code samples
 
@@ -9333,24 +9180,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/ledger/sync/{round}',
-{
+fetch('http://localhost/v2/ledger/sync/{round}', {
   method: 'POST',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -9460,15 +9305,15 @@ func main() {
 
 `POST /v2/ledger/sync/{round}`
 
-*Given a round, tells the ledger to keep that round in its cache.*
+_Given a round, tells the ledger to keep that round in its cache._
 
 Sets the minimum sync round on the ledger.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|round|path|integer|true|The round for which the deltas are desired.|
+| Name  | In   | Type    | Required | Description                                 |
+| ----- | ---- | ------- | -------- | ------------------------------------------- |
+| round | path | integer | true     | The round for which the deltas are desired. |
 
 > Example responses
 
@@ -9483,26 +9328,25 @@ Sets the minimum sync round on the ledger.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Can not set sync round to an earlier round than the current round.|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                        | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | none                                                               | None                                  |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Can not set sync round to an earlier round than the current round. | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                  | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                     | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable                                    | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                                      | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### SimulateTransaction
 
-<a id="opIdSimulateTransaction"></a>
+<a id='opIdSimulateTransaction'></a>
 
 > Code samples
 
@@ -9676,7 +9520,7 @@ func main() {
 
 `POST /v2/transactions/simulate`
 
-*Simulates a raw transaction or transaction group as it would be evaluated on the network. The simulation will use blockchain state from the latest committed round.*
+_Simulates a raw transaction or transaction group as it would be evaluated on the network. The simulation will use blockchain state from the latest committed round._
 
 > Body parameter
 
@@ -9696,9 +9540,7 @@ func main() {
   "round": 0,
   "txn-groups": [
     {
-      "txns": [
-        "string"
-      ]
+      "txns": ["string"]
     }
   ]
 }
@@ -9706,17 +9548,17 @@ func main() {
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|format|query|string|false|Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON.|
-|body|body|[SimulateRequest](#schemasimulaterequest)|true|The transactions to simulate, along with any other inputs.|
+| Name   | In    | Type                                      | Required | Description                                                                                               |
+| ------ | ----- | ----------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| format | query | string                                    | false    | Configures whether the response object is JSON or MessagePack encoded. If not provided, defaults to JSON. |
+| body   | body  | [SimulateRequest](#schemasimulaterequest) | true     | The transactions to simulate, along with any other inputs.                                                |
 
 #### Enumerated Values
 
-|Parameter|Value|
-|---|---|
-|format|json|
-|format|msgpack|
+| Parameter | Value   |
+| --------- | ------- |
+| format    | json    |
+| format    | msgpack |
 
 > Example responses
 
@@ -9791,9 +9633,7 @@ func main() {
     {
       "app-budget-added": 0,
       "app-budget-consumed": 0,
-      "failed-at": [
-        0
-      ],
+      "failed-at": [0],
       "failure-message": "string",
       "txn-results": [
         {
@@ -9809,9 +9649,7 @@ func main() {
                     "slot": 0
                   }
                 ],
-                "spawned-inners": [
-                  0
-                ],
+                "spawned-inners": [0],
                 "stack-additions": [
                   {
                     "bytes": "string",
@@ -9841,9 +9679,7 @@ func main() {
                     "slot": 0
                   }
                 ],
-                "spawned-inners": [
-                  0
-                ],
+                "spawned-inners": [0],
                 "stack-additions": [
                   {
                     "bytes": "string",
@@ -9865,9 +9701,7 @@ func main() {
             ],
             "clear-state-rollback": true,
             "clear-state-rollback-error": "string",
-            "inner-trace": [
-              {}
-            ],
+            "inner-trace": [{}],
             "logic-sig-hash": "string",
             "logic-sig-trace": [
               {
@@ -9878,9 +9712,7 @@ func main() {
                     "slot": 0
                   }
                 ],
-                "spawned-inners": [
-                  0
-                ],
+                "spawned-inners": [0],
                 "stack-additions": [
                   {
                     "bytes": "string",
@@ -9920,9 +9752,7 @@ func main() {
                 }
               }
             ],
-            "inner-txns": [
-              {}
-            ],
+            "inner-txns": [{}],
             "local-state-delta": [
               {
                 "address": "string",
@@ -9934,36 +9764,28 @@ func main() {
                 ]
               }
             ],
-            "logs": [
-              "string"
-            ],
+            "logs": ["string"],
             "pool-error": "string",
             "receiver-rewards": 0,
             "sender-rewards": 0,
             "txn": {}
           },
           "unnamed-resources-accessed": {
-            "accounts": [
-              "string"
-            ],
+            "accounts": ["string"],
             "app-locals": [
               {
                 "account": "string",
                 "app": 0
               }
             ],
-            "apps": [
-              0
-            ],
+            "apps": [0],
             "asset-holdings": [
               {
                 "account": "string",
                 "asset": 0
               }
             ],
-            "assets": [
-              0
-            ],
+            "assets": [0],
             "boxes": [
               {
                 "app": 0,
@@ -9975,27 +9797,21 @@ func main() {
         }
       ],
       "unnamed-resources-accessed": {
-        "accounts": [
-          "string"
-        ],
+        "accounts": ["string"],
         "app-locals": [
           {
             "account": "string",
             "app": 0
           }
         ],
-        "apps": [
-          0
-        ],
+        "apps": [0],
         "asset-holdings": [
           {
             "account": "string",
             "asset": 0
           }
         ],
-        "assets": [
-          0
-        ],
+        "assets": [0],
         "boxes": [
           {
             "app": 0,
@@ -10012,127 +9828,126 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Result of a transaction group simulation.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                               | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Result of a transaction group simulation. | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request                               | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                         | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                            | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable           | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                             | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» eval-overrides|[SimulationEvalOverrides](#schemasimulationevaloverrides)|false|none|The set of parameters and limits override during simulation. If this set of parameters is present, then evaluation parameters may differ from standard evaluation in certain ways.|
-|»» allow-empty-signatures|boolean|false|none|If true, transactions without signatures are allowed and simulated as if they were properly signed.|
-|»» allow-unnamed-resources|boolean|false|none|If true, allows access to unnamed resources during simulation.|
-|»» extra-opcode-budget|integer|false|none|The extra opcode budget added to each transaction group during simulation|
-|»» fix-signers|boolean|false|none|If true, signers for transactions that are missing signatures will be fixed during evaluation.|
-|»» max-log-calls|integer|false|none|The maximum log calls one can make during simulation|
-|»» max-log-size|integer|false|none|The maximum byte number to log during simulation|
-|» exec-trace-config|[SimulateTraceConfig](#schemasimulatetraceconfig)|false|none|An object that configures simulation execution trace.|
-|»» enable|boolean|false|none|A boolean option for opting in execution trace features simulation endpoint.|
-|»» scratch-change|boolean|false|none|A boolean option enabling returning scratch slot changes together with execution trace during simulation.|
-|»» stack-change|boolean|false|none|A boolean option enabling returning stack changes together with execution trace during simulation.|
-|»» state-change|boolean|false|none|A boolean option enabling returning application state changes (global, local, and box changes) with the execution trace during simulation.|
-|» initial-states|[SimulateInitialStates](#schemasimulateinitialstates)|false|none|Initial states of resources that were accessed during simulation.|
-|»» app-initial-states|[[ApplicationInitialStates](#schemaapplicationinitialstates)]|false|none|The initial states of accessed application before simulation. The order of this array is arbitrary.|
-|»»» app-boxes|[ApplicationKVStorage](#schemaapplicationkvstorage)|false|none|An application's global/local/box state.|
-|»»»» account|string|false|none|The address of the account associated with the local state.|
-|»»»» kvs|[[AvmKeyValue](#schemaavmkeyvalue)]|true|none|Key-Value pairs representing application states.|
-|»»»»» key|string(byte)|true|none|none|
-|»»»»» value|[AvmValue](#schemaavmvalue)|true|none|Represents an AVM value.|
-|»»»»»» bytes|string(byte)|false|none|bytes value.|
-|»»»»»» type|integer|true|none|value type. Value `1` refers to **bytes**, value `2` refers to **uint64**|
-|»»»»»» uint|integer|false|none|uint value.|
-|»»» app-globals|[ApplicationKVStorage](#schemaapplicationkvstorage)|false|none|An application's global/local/box state.|
-|»»» app-locals|[[ApplicationKVStorage](#schemaapplicationkvstorage)]|false|none|An application's initial local states tied to different accounts.|
-|»»» id|integer|true|none|Application index.|
-|» last-round|integer|true|none|The round immediately preceding this simulation. State changes through this round were used to run this simulation.|
-|» txn-groups|[[SimulateTransactionGroupResult](#schemasimulatetransactiongroupresult)]|true|none|A result object for each transaction group that was simulated.|
-|»» app-budget-added|integer|false|none|Total budget added during execution of app calls in the transaction group.|
-|»» app-budget-consumed|integer|false|none|Total budget consumed during execution of app calls in the transaction group.|
-|»» failed-at|[integer]|false|none|If present, indicates which transaction in this group caused the failure. This array represents the path to the failing transaction. Indexes are zero based, the first element indicates the top-level transaction, and successive elements indicate deeper inner transactions.|
-|»» failure-message|string|false|none|If present, indicates that the transaction group failed and specifies why that happened|
-|»» txn-results|[[SimulateTransactionResult](#schemasimulatetransactionresult)]|true|none|Simulation result for individual transactions|
-|»»» app-budget-consumed|integer|false|none|Budget used during execution of an app call transaction. This value includes budged used by inner app calls spawned by this transaction.|
-|»»» exec-trace|[SimulationTransactionExecTrace](#schemasimulationtransactionexectrace)|false|none|The execution trace of calling an app or a logic sig, containing the inner app call trace in a recursive way.|
-|»»»» approval-program-hash|string(byte)|false|none|SHA512_256 hash digest of the approval program executed in transaction.|
-|»»»» approval-program-trace|[[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]|false|none|Program trace that contains a trace of opcode effects in an approval program.|
-|»»»»» pc|integer|true|none|The program counter of the current opcode being evaluated.|
-|»»»»» scratch-changes|[[ScratchChange](#schemascratchchange)]|false|none|The writes into scratch slots.|
-|»»»»»» new-value|[AvmValue](#schemaavmvalue)|true|none|Represents an AVM value.|
-|»»»»»» slot|integer|true|none|The scratch slot written.|
-|»»»»» spawned-inners|[integer]|false|none|The indexes of the traces for inner transactions spawned by this opcode, if any.|
-|»»»»» stack-additions|[[AvmValue](#schemaavmvalue)]|false|none|The values added by this opcode to the stack.|
-|»»»»» stack-pop-count|integer|false|none|The number of deleted stack values by this opcode.|
-|»»»»» state-changes|[[ApplicationStateOperation](#schemaapplicationstateoperation)]|false|none|The operations against the current application's states.|
-|»»»»»» account|string|false|none|For local state changes, the address of the account associated with the local state.|
-|»»»»»» app-state-type|string|true|none|Type of application state. Value `g` is **global state**, `l` is **local state**, `b` is **boxes**.|
-|»»»»»» key|string(byte)|true|none|The key (name) of the global/local/box state.|
-|»»»»»» new-value|[AvmValue](#schemaavmvalue)|false|none|Represents an AVM value.|
-|»»»»»» operation|string|true|none|Operation type. Value `w` is **write**, `d` is **delete**.|
-|»»»» clear-state-program-hash|string(byte)|false|none|SHA512_256 hash digest of the clear state program executed in transaction.|
-|»»»» clear-state-program-trace|[[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]|false|none|Program trace that contains a trace of opcode effects in a clear state program.|
-|»»»» clear-state-rollback|boolean|false|none|If true, indicates that the clear state program failed and any persistent state changes it produced should be reverted once the program exits.|
-|»»»» clear-state-rollback-error|string|false|none|The error message explaining why the clear state program failed. This field will only be populated if clear-state-rollback is true and the failure was due to an execution error.|
-|»»»» inner-trace|[[SimulationTransactionExecTrace](#schemasimulationtransactionexectrace)]|false|none|An array of SimulationTransactionExecTrace representing the execution trace of any inner transactions executed.|
-|»»»» logic-sig-hash|string(byte)|false|none|SHA512_256 hash digest of the logic sig executed in transaction.|
-|»»»» logic-sig-trace|[[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]|false|none|Program trace that contains a trace of opcode effects in a logic sig.|
-|»»» fixed-signer|string|false|none|The account that needed to sign this transaction when no signature was provided and the provided signer was incorrect.|
-|»»» logic-sig-budget-consumed|integer|false|none|Budget used during execution of a logic sig transaction.|
-|»»» txn-result|[PendingTransactionResponse](#schemapendingtransactionresponse)|true|none|Details about a pending transaction. If the transaction was recently confirmed, includes confirmation details like the round and reward details.|
-|»»»» application-index|integer|false|none|The application index if the transaction was found and it created an application.|
-|»»»» asset-closing-amount|integer|false|none|The number of the asset's unit that were transferred to the close-to address.|
-|»»»» asset-index|integer|false|none|The asset index if the transaction was found and it created an asset.|
-|»»»» close-rewards|integer|false|none|Rewards in microalgos applied to the close remainder to account.|
-|»»»» closing-amount|integer|false|none|Closing amount for the transaction.|
-|»»»» confirmed-round|integer|false|none|The round where this transaction was confirmed, if present.|
-|»»»» global-state-delta|[[EvalDeltaKeyValue](#schemaevaldeltakeyvalue)]|false|none|Application state delta.|
-|»»»»» key|string|true|none|none|
-|»»»»» value|[EvalDelta](#schemaevaldelta)|true|none|Represents a TEAL value delta.|
-|»»»»»» action|integer|true|none|\[at\] delta action.|
-|»»»»»» bytes|string|false|none|\[bs\] bytes value.|
-|»»»»»» uint|integer|false|none|\[ui\] uint value.|
-|»»»» inner-txns|[[PendingTransactionResponse](#schemapendingtransactionresponse)]|false|none|Inner transactions produced by application execution.|
-|»»»» local-state-delta|[[AccountStateDelta](#schemaaccountstatedelta)]|false|none|Local state key/value changes for the application being executed by this transaction.|
-|»»»»» address|string|true|none|none|
-|»»»»» delta|[[EvalDeltaKeyValue](#schemaevaldeltakeyvalue)]|true|none|Application state delta.|
-|»»»» logs|[string]|false|none|Logs for the application being executed by this transaction.|
-|»»»» pool-error|string|true|none|Indicates that the transaction was kicked out of this node's transaction pool (and specifies why that happened).  An empty string indicates the transaction wasn't kicked out of this node's txpool due to an error.|
-|»»»» receiver-rewards|integer|false|none|Rewards in microalgos applied to the receiver account.|
-|»»»» sender-rewards|integer|false|none|Rewards in microalgos applied to the sender account.|
-|»»»» txn|object|true|none|The raw signed transaction.|
-|»»» unnamed-resources-accessed|[SimulateUnnamedResourcesAccessed](#schemasimulateunnamedresourcesaccessed)|false|none|These are resources that were accessed by this group that would normally have caused failure, but were allowed in simulation. Depending on where this object is in the response, the unnamed resources it contains may or may not qualify for group resource sharing. If this is a field in SimulateTransactionGroupResult, the resources do qualify, but if this is a field in SimulateTransactionResult, they do not qualify. In order to make this group valid for actual submission, resources that qualify for group sharing can be made available by any transaction of the group; otherwise, resources must be placed in the same transaction which accessed them.|
-|»»»» accounts|[string]|false|none|The unnamed accounts that were referenced. The order of this array is arbitrary.|
-|»»»» app-locals|[[ApplicationLocalReference](#schemaapplicationlocalreference)]|false|none|The unnamed application local states that were referenced. The order of this array is arbitrary.|
-|»»»»» account|string|true|none|Address of the account with the local state.|
-|»»»»» app|integer|true|none|Application ID of the local state application.|
-|»»»» apps|[integer]|false|none|The unnamed applications that were referenced. The order of this array is arbitrary.|
-|»»»» asset-holdings|[[AssetHoldingReference](#schemaassetholdingreference)]|false|none|The unnamed asset holdings that were referenced. The order of this array is arbitrary.|
-|»»»»» account|string|true|none|Address of the account holding the asset.|
-|»»»»» asset|integer|true|none|Asset ID of the holding.|
-|»»»» assets|[integer]|false|none|The unnamed assets that were referenced. The order of this array is arbitrary.|
-|»»»» boxes|[[BoxReference](#schemaboxreference)]|false|none|The unnamed boxes that were referenced. The order of this array is arbitrary.|
-|»»»»» app|integer|true|none|Application ID which this box belongs to|
-|»»»»» name|string(byte)|true|none|Base64 encoded box name|
-|»»»» extra-box-refs|integer|false|none|The number of extra box references used to increase the IO budget. This is in addition to the references defined in the input transaction group and any referenced to unnamed boxes.|
-|»» unnamed-resources-accessed|[SimulateUnnamedResourcesAccessed](#schemasimulateunnamedresourcesaccessed)|false|none|These are resources that were accessed by this group that would normally have caused failure, but were allowed in simulation. Depending on where this object is in the response, the unnamed resources it contains may or may not qualify for group resource sharing. If this is a field in SimulateTransactionGroupResult, the resources do qualify, but if this is a field in SimulateTransactionResult, they do not qualify. In order to make this group valid for actual submission, resources that qualify for group sharing can be made available by any transaction of the group; otherwise, resources must be placed in the same transaction which accessed them.|
-|» version|integer|true|none|The version of this response object.|
+| Name                            | Type                                                                        | Required | Restrictions | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------- | --------------------------------------------------------------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| » eval-overrides                | [SimulationEvalOverrides](#schemasimulationevaloverrides)                   | false    | none         | The set of parameters and limits override during simulation. If this set of parameters is present, then evaluation parameters may differ from standard evaluation in certain ways.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| »» allow-empty-signatures       | boolean                                                                     | false    | none         | If true, transactions without signatures are allowed and simulated as if they were properly signed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| »» allow-unnamed-resources      | boolean                                                                     | false    | none         | If true, allows access to unnamed resources during simulation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| »» extra-opcode-budget          | integer                                                                     | false    | none         | The extra opcode budget added to each transaction group during simulation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| »» fix-signers                  | boolean                                                                     | false    | none         | If true, signers for transactions that are missing signatures will be fixed during evaluation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| »» max-log-calls                | integer                                                                     | false    | none         | The maximum log calls one can make during simulation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| »» max-log-size                 | integer                                                                     | false    | none         | The maximum byte number to log during simulation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| » exec-trace-config             | [SimulateTraceConfig](#schemasimulatetraceconfig)                           | false    | none         | An object that configures simulation execution trace.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| »» enable                       | boolean                                                                     | false    | none         | A boolean option for opting in execution trace features simulation endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| »» scratch-change               | boolean                                                                     | false    | none         | A boolean option enabling returning scratch slot changes together with execution trace during simulation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| »» stack-change                 | boolean                                                                     | false    | none         | A boolean option enabling returning stack changes together with execution trace during simulation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| »» state-change                 | boolean                                                                     | false    | none         | A boolean option enabling returning application state changes (global, local, and box changes) with the execution trace during simulation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| » initial-states                | [SimulateInitialStates](#schemasimulateinitialstates)                       | false    | none         | Initial states of resources that were accessed during simulation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| »» app-initial-states           | [[ApplicationInitialStates](#schemaapplicationinitialstates)]               | false    | none         | The initial states of accessed application before simulation. The order of this array is arbitrary.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| »»» app-boxes                   | [ApplicationKVStorage](#schemaapplicationkvstorage)                         | false    | none         | An application's global/local/box state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»»» account                    | string                                                                      | false    | none         | The address of the account associated with the local state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| »»»» kvs                        | [[AvmKeyValue](#schemaavmkeyvalue)]                                         | true     | none         | Key-Value pairs representing application states.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| »»»»» key                       | string(byte)                                                                | true     | none         | none                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| »»»»» value                     | [AvmValue](#schemaavmvalue)                                                 | true     | none         | Represents an AVM value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»»»»» bytes                    | string(byte)                                                                | false    | none         | bytes value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| »»»»»» type                     | integer                                                                     | true     | none         | value type. Value `1` refers to **bytes**, value `2` refers to **uint64**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| »»»»»» uint                     | integer                                                                     | false    | none         | uint value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| »»» app-globals                 | [ApplicationKVStorage](#schemaapplicationkvstorage)                         | false    | none         | An application's global/local/box state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»» app-locals                  | [[ApplicationKVStorage](#schemaapplicationkvstorage)]                       | false    | none         | An application's initial local states tied to different accounts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| »»» id                          | integer                                                                     | true     | none         | Application index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| » last-round                    | integer                                                                     | true     | none         | The round immediately preceding this simulation. State changes through this round were used to run this simulation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| » txn-groups                    | [[SimulateTransactionGroupResult](#schemasimulatetransactiongroupresult)]   | true     | none         | A result object for each transaction group that was simulated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| »» app-budget-added             | integer                                                                     | false    | none         | Total budget added during execution of app calls in the transaction group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| »» app-budget-consumed          | integer                                                                     | false    | none         | Total budget consumed during execution of app calls in the transaction group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| »» failed-at                    | [integer]                                                                   | false    | none         | If present, indicates which transaction in this group caused the failure. This array represents the path to the failing transaction. Indexes are zero based, the first element indicates the top-level transaction, and successive elements indicate deeper inner transactions.                                                                                                                                                                                                                                                                                                                                                                                           |
+| »» failure-message              | string                                                                      | false    | none         | If present, indicates that the transaction group failed and specifies why that happened                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| »» txn-results                  | [[SimulateTransactionResult](#schemasimulatetransactionresult)]             | true     | none         | Simulation result for individual transactions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| »»» app-budget-consumed         | integer                                                                     | false    | none         | Budget used during execution of an app call transaction. This value includes budged used by inner app calls spawned by this transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»» exec-trace                  | [SimulationTransactionExecTrace](#schemasimulationtransactionexectrace)     | false    | none         | The execution trace of calling an app or a logic sig, containing the inner app call trace in a recursive way.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| »»»» approval-program-hash      | string(byte)                                                                | false    | none         | SHA512_256 hash digest of the approval program executed in transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| »»»» approval-program-trace     | [[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]             | false    | none         | Program trace that contains a trace of opcode effects in an approval program.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| »»»»» pc                        | integer                                                                     | true     | none         | The program counter of the current opcode being evaluated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| »»»»» scratch-changes           | [[ScratchChange](#schemascratchchange)]                                     | false    | none         | The writes into scratch slots.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| »»»»»» new-value                | [AvmValue](#schemaavmvalue)                                                 | true     | none         | Represents an AVM value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»»»»» slot                     | integer                                                                     | true     | none         | The scratch slot written.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| »»»»» spawned-inners            | [integer]                                                                   | false    | none         | The indexes of the traces for inner transactions spawned by this opcode, if any.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| »»»»» stack-additions           | [[AvmValue](#schemaavmvalue)]                                               | false    | none         | The values added by this opcode to the stack.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| »»»»» stack-pop-count           | integer                                                                     | false    | none         | The number of deleted stack values by this opcode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| »»»»» state-changes             | [[ApplicationStateOperation](#schemaapplicationstateoperation)]             | false    | none         | The operations against the current application's states.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»»»»» account                  | string                                                                      | false    | none         | For local state changes, the address of the account associated with the local state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| »»»»»» app-state-type           | string                                                                      | true     | none         | Type of application state. Value `g` is **global state**, `l` is **local state**, `b` is **boxes**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| »»»»»» key                      | string(byte)                                                                | true     | none         | The key (name) of the global/local/box state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| »»»»»» new-value                | [AvmValue](#schemaavmvalue)                                                 | false    | none         | Represents an AVM value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»»»»» operation                | string                                                                      | true     | none         | Operation type. Value `w` is **write**, `d` is **delete**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| »»»» clear-state-program-hash   | string(byte)                                                                | false    | none         | SHA512_256 hash digest of the clear state program executed in transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| »»»» clear-state-program-trace  | [[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]             | false    | none         | Program trace that contains a trace of opcode effects in a clear state program.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| »»»» clear-state-rollback       | boolean                                                                     | false    | none         | If true, indicates that the clear state program failed and any persistent state changes it produced should be reverted once the program exits.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| »»»» clear-state-rollback-error | string                                                                      | false    | none         | The error message explaining why the clear state program failed. This field will only be populated if clear-state-rollback is true and the failure was due to an execution error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| »»»» inner-trace                | [[SimulationTransactionExecTrace](#schemasimulationtransactionexectrace)]   | false    | none         | An array of SimulationTransactionExecTrace representing the execution trace of any inner transactions executed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| »»»» logic-sig-hash             | string(byte)                                                                | false    | none         | SHA512_256 hash digest of the logic sig executed in transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| »»»» logic-sig-trace            | [[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]             | false    | none         | Program trace that contains a trace of opcode effects in a logic sig.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| »»» fixed-signer                | string                                                                      | false    | none         | The account that needed to sign this transaction when no signature was provided and the provided signer was incorrect.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| »»» logic-sig-budget-consumed   | integer                                                                     | false    | none         | Budget used during execution of a logic sig transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»» txn-result                  | [PendingTransactionResponse](#schemapendingtransactionresponse)             | true     | none         | Details about a pending transaction. If the transaction was recently confirmed, includes confirmation details like the round and reward details.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| »»»» application-index          | integer                                                                     | false    | none         | The application index if the transaction was found and it created an application.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| »»»» asset-closing-amount       | integer                                                                     | false    | none         | The number of the asset's unit that were transferred to the close-to address.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| »»»» asset-index                | integer                                                                     | false    | none         | The asset index if the transaction was found and it created an asset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| »»»» close-rewards              | integer                                                                     | false    | none         | Rewards in microalgos applied to the close remainder to account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| »»»» closing-amount             | integer                                                                     | false    | none         | Closing amount for the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| »»»» confirmed-round            | integer                                                                     | false    | none         | The round where this transaction was confirmed, if present.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| »»»» global-state-delta         | [[EvalDeltaKeyValue](#schemaevaldeltakeyvalue)]                             | false    | none         | Application state delta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»»»» key                       | string                                                                      | true     | none         | none                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| »»»»» value                     | [EvalDelta](#schemaevaldelta)                                               | true     | none         | Represents a TEAL value delta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| »»»»»» action                   | integer                                                                     | true     | none         | \[at\] delta action.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| »»»»»» bytes                    | string                                                                      | false    | none         | \[bs\] bytes value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| »»»»»» uint                     | integer                                                                     | false    | none         | \[ui\] uint value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| »»»» inner-txns                 | [[PendingTransactionResponse](#schemapendingtransactionresponse)]           | false    | none         | Inner transactions produced by application execution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| »»»» local-state-delta          | [[AccountStateDelta](#schemaaccountstatedelta)]                             | false    | none         | Local state key/value changes for the application being executed by this transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| »»»»» address                   | string                                                                      | true     | none         | none                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| »»»»» delta                     | [[EvalDeltaKeyValue](#schemaevaldeltakeyvalue)]                             | true     | none         | Application state delta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»»» logs                       | [string]                                                                    | false    | none         | Logs for the application being executed by this transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| »»»» pool-error                 | string                                                                      | true     | none         | Indicates that the transaction was kicked out of this node's transaction pool (and specifies why that happened). An empty string indicates the transaction wasn't kicked out of this node's txpool due to an error.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| »»»» receiver-rewards           | integer                                                                     | false    | none         | Rewards in microalgos applied to the receiver account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| »»»» sender-rewards             | integer                                                                     | false    | none         | Rewards in microalgos applied to the sender account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| »»»» txn                        | object                                                                      | true     | none         | The raw signed transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| »»» unnamed-resources-accessed  | [SimulateUnnamedResourcesAccessed](#schemasimulateunnamedresourcesaccessed) | false    | none         | These are resources that were accessed by this group that would normally have caused failure, but were allowed in simulation. Depending on where this object is in the response, the unnamed resources it contains may or may not qualify for group resource sharing. If this is a field in SimulateTransactionGroupResult, the resources do qualify, but if this is a field in SimulateTransactionResult, they do not qualify. In order to make this group valid for actual submission, resources that qualify for group sharing can be made available by any transaction of the group; otherwise, resources must be placed in the same transaction which accessed them. |
+| »»»» accounts                   | [string]                                                                    | false    | none         | The unnamed accounts that were referenced. The order of this array is arbitrary.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| »»»» app-locals                 | [[ApplicationLocalReference](#schemaapplicationlocalreference)]             | false    | none         | The unnamed application local states that were referenced. The order of this array is arbitrary.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| »»»»» account                   | string                                                                      | true     | none         | Address of the account with the local state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| »»»»» app                       | integer                                                                     | true     | none         | Application ID of the local state application.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| »»»» apps                       | [integer]                                                                   | false    | none         | The unnamed applications that were referenced. The order of this array is arbitrary.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| »»»» asset-holdings             | [[AssetHoldingReference](#schemaassetholdingreference)]                     | false    | none         | The unnamed asset holdings that were referenced. The order of this array is arbitrary.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| »»»»» account                   | string                                                                      | true     | none         | Address of the account holding the asset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| »»»»» asset                     | integer                                                                     | true     | none         | Asset ID of the holding.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»»» assets                     | [integer]                                                                   | false    | none         | The unnamed assets that were referenced. The order of this array is arbitrary.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| »»»» boxes                      | [[BoxReference](#schemaboxreference)]                                       | false    | none         | The unnamed boxes that were referenced. The order of this array is arbitrary.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| »»»»» app                       | integer                                                                     | true     | none         | Application ID which this box belongs to                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| »»»»» name                      | string(byte)                                                                | true     | none         | Base64 encoded box name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| »»»» extra-box-refs             | integer                                                                     | false    | none         | The number of extra box references used to increase the IO budget. This is in addition to the references defined in the input transaction group and any referenced to unnamed boxes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| »» unnamed-resources-accessed   | [SimulateUnnamedResourcesAccessed](#schemasimulateunnamedresourcesaccessed) | false    | none         | These are resources that were accessed by this group that would normally have caused failure, but were allowed in simulation. Depending on where this object is in the response, the unnamed resources it contains may or may not qualify for group resource sharing. If this is a field in SimulateTransactionGroupResult, the resources do qualify, but if this is a field in SimulateTransactionResult, they do not qualify. In order to make this group valid for actual submission, resources that qualify for group sharing can be made available by any transaction of the group; otherwise, resources must be placed in the same transaction which accessed them. |
+| » version                       | integer                                                                     | true     | none         | The version of this response object.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### SwaggerJSON
 
-<a id="opIdSwaggerJSON"></a>
+<a id='opIdSwaggerJSON'></a>
 
 > Code samples
 
@@ -10152,24 +9967,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/swagger.json',
-{
+fetch('http://localhost/swagger.json', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -10279,7 +10092,7 @@ func main() {
 
 `GET /swagger.json`
 
-*Gets the current swagger spec.*
+_Gets the current swagger spec._
 
 Returns the entire swagger spec in json.
 
@@ -10293,22 +10106,21 @@ Returns the entire swagger spec in json.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The current swagger spec|string|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                 | Description              | Schema |
+| ------- | ------------------------------------------------------- | ------------------------ | ------ |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | The current swagger spec | string |
+| default | Default                                                 | Unknown Error            | None   |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### TealCompile
 
-<a id="opIdTealCompile"></a>
+<a id='opIdTealCompile'></a>
 
 > Code samples
 
@@ -10332,23 +10144,22 @@ Accept: application/json
 ```javascript
 const inputBody = 'string';
 const headers = {
-  'Content-Type':'text/plain',
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  'Content-Type': 'text/plain',
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/teal/compile',
-{
+fetch('http://localhost/v2/teal/compile', {
   method: 'POST',
   body: inputBody,
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -10462,7 +10273,7 @@ func main() {
 
 `POST /v2/teal/compile`
 
-*Compile TEAL source code to binary, produce its hash*
+_Compile TEAL source code to binary, produce its hash_
 
 Given TEAL source code in plain text, return base64 encoded program bytes and base32 SHA512_256 hash of program bytes (Address style). This endpoint is only enabled when a node's configuration file sets EnableDeveloperAPI to true.
 
@@ -10475,10 +10286,10 @@ string
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|sourcemap|query|boolean|false|When set to `true`, returns the source map of the program as a JSON. Defaults to `false`.|
-|body|body|string(binary)|true|TEAL source code to be compiled|
+| Name      | In    | Type           | Required | Description                                                                               |
+| --------- | ----- | -------------- | -------- | ----------------------------------------------------------------------------------------- |
+| sourcemap | query | boolean        | false    | When set to `true`, returns the source map of the program as a JSON. Defaults to `false`. |
+| body      | body  | string(binary) | true     | TEAL source code to be compiled                                                           |
 
 > Example responses
 
@@ -10494,34 +10305,33 @@ string
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Teal compile Result|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request - Teal Compile Error|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Developer API not enabled|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                      | Schema                                |
+| ------- | -------------------------------------------------------------------------- | -------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Teal compile Result              | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request - Teal Compile Error | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Developer API not enabled        | None                                  |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                   | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                    | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» hash|string|true|none|base32 SHA512_256 of program bytes (Address style)|
-|» result|string|true|none|base64 encoded program bytes|
-|» sourcemap|object|false|none|JSON of the source map|
+| Name        | Type   | Required | Restrictions | Description                                        |
+| ----------- | ------ | -------- | ------------ | -------------------------------------------------- |
+| » hash      | string | true     | none         | base32 SHA512_256 of program bytes (Address style) |
+| » result    | string | true     | none         | base64 encoded program bytes                       |
+| » sourcemap | object | false    | none         | JSON of the source map                             |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### TealDisassemble
 
-<a id="opIdTealDisassemble"></a>
+<a id='opIdTealDisassemble'></a>
 
 > Code samples
 
@@ -10545,23 +10355,22 @@ Accept: application/json
 ```javascript
 const inputBody = 'string';
 const headers = {
-  'Content-Type':'application/x-binary',
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  'Content-Type': 'application/x-binary',
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/teal/disassemble',
-{
+fetch('http://localhost/v2/teal/disassemble', {
   method: 'POST',
   body: inputBody,
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -10675,7 +10484,7 @@ func main() {
 
 `POST /v2/teal/disassemble`
 
-*Disassemble program bytes into the TEAL source code.*
+_Disassemble program bytes into the TEAL source code._
 
 Given the program bytes, return the TEAL source code in plain text. This endpoint is only enabled when a node's configuration file sets EnableDeveloperAPI to true.
 
@@ -10683,9 +10492,9 @@ Given the program bytes, return the TEAL source code in plain text. This endpoin
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|string(byte)|true|TEAL program binary to be disassembled|
+| Name | In   | Type         | Required | Description                            |
+| ---- | ---- | ------------ | -------- | -------------------------------------- |
+| body | body | string(byte) | true     | TEAL program binary to be disassembled |
 
 > Example responses
 
@@ -10699,32 +10508,31 @@ Given the program bytes, return the TEAL source code in plain text. This endpoin
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Teal disassembly Result|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request - Teal Compile Error|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Developer API not enabled|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                      | Schema                                |
+| ------- | -------------------------------------------------------------------------- | -------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Teal disassembly Result          | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request - Teal Compile Error | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Developer API not enabled        | None                                  |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                   | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                    | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» result|string|true|none|disassembled Teal code|
+| Name     | Type   | Required | Restrictions | Description            |
+| -------- | ------ | -------- | ------------ | ---------------------- |
+| » result | string | true     | none         | disassembled Teal code |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### TealDryrun
 
-<a id="opIdTealDryrun"></a>
+<a id='opIdTealDryrun'></a>
 
 > Code samples
 
@@ -11036,7 +10844,7 @@ func main() {
 
 `POST /v2/teal/dryrun`
 
-*Provide debugging information for a transaction (or group).*
+_Provide debugging information for a transaction (or group)._
 
 Executes TEAL program(s) in context and returns debugging information about the execution. This endpoint is only enabled when a node's configuration file sets EnableDeveloperAPI to true.
 
@@ -11198,17 +11006,15 @@ Executes TEAL program(s) in context and returns debugging information about the 
       "txn-index": 0
     }
   ],
-  "txns": [
-    "string"
-  ]
+  "txns": ["string"]
 }
 ```
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[DryrunRequest](#schemadryrunrequest)|false|Transaction (or group) and any accompanying state-simulation data.|
+| Name | In   | Type                                  | Required | Description                                                        |
+| ---- | ---- | ------------------------------------- | -------- | ------------------------------------------------------------------ |
+| body | body | [DryrunRequest](#schemadryrunrequest) | false    | Transaction (or group) and any accompanying state-simulation data. |
 
 > Example responses
 
@@ -11220,9 +11026,7 @@ Executes TEAL program(s) in context and returns debugging information about the 
   "protocol-version": "string",
   "txns": [
     {
-      "app-call-messages": [
-        "string"
-      ],
+      "app-call-messages": ["string"],
       "app-call-trace": [
         {
           "error": "string",
@@ -11246,9 +11050,7 @@ Executes TEAL program(s) in context and returns debugging information about the 
       ],
       "budget-added": 0,
       "budget-consumed": 0,
-      "disassembly": [
-        "string"
-      ],
+      "disassembly": ["string"],
       "global-delta": [
         {
           "key": "string",
@@ -11274,12 +11076,8 @@ Executes TEAL program(s) in context and returns debugging information about the 
           ]
         }
       ],
-      "logic-sig-disassembly": [
-        "string"
-      ],
-      "logic-sig-messages": [
-        "string"
-      ],
+      "logic-sig-disassembly": ["string"],
+      "logic-sig-messages": ["string"],
       "logic-sig-trace": [
         {
           "error": "string",
@@ -11301,9 +11099,7 @@ Executes TEAL program(s) in context and returns debugging information about the 
           ]
         }
       ],
-      "logs": [
-        "string"
-      ]
+      "logs": ["string"]
     }
   ]
 }
@@ -11311,60 +11107,59 @@ Executes TEAL program(s) in context and returns debugging information about the 
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|DryrunResponse contains per-txn debug information from a dryrun.|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Developer API not enabled|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                      | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | DryrunResponse contains per-txn debug information from a dryrun. | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request                                                      | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                | [ErrorResponse](#schemaerrorresponse) |
+| 404     | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Developer API not enabled                                        | None                                  |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                   | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                                    | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» error|string|true|none|none|
-|» protocol-version|string|true|none|Protocol version is the protocol version Dryrun was operated under.|
-|» txns|[[DryrunTxnResult](#schemadryruntxnresult)]|true|none|[DryrunTxnResult contains any LogicSig or ApplicationCall program debug information and state updates from a dryrun.]|
-|»» app-call-messages|[string]|false|none|none|
-|»» app-call-trace|[[DryrunState](#schemadryrunstate)]|false|none|[Stores the TEAL eval step data]|
-|»»» error|string|false|none|Evaluation error if any|
-|»»» line|integer|true|none|Line number|
-|»»» pc|integer|true|none|Program counter|
-|»»» scratch|[[TealValue](#schematealvalue)]|false|none|[Represents a TEAL value.]|
-|»»»» bytes|string|true|none|\[tb\] bytes value.|
-|»»»» type|integer|true|none|\[tt\] value type. Value `1` refers to **bytes**, value `2` refers to **uint**|
-|»»»» uint|integer|true|none|\[ui\] uint value.|
-|»»» stack|[[TealValue](#schematealvalue)]|true|none|[Represents a TEAL value.]|
-|»» budget-added|integer|false|none|Budget added during execution of app call transaction.|
-|»» budget-consumed|integer|false|none|Budget consumed during execution of app call transaction.|
-|»» disassembly|[string]|true|none|Disassembled program line by line.|
-|»» global-delta|[[EvalDeltaKeyValue](#schemaevaldeltakeyvalue)]|false|none|Application state delta.|
-|»»» key|string|true|none|none|
-|»»» value|[EvalDelta](#schemaevaldelta)|true|none|Represents a TEAL value delta.|
-|»»»» action|integer|true|none|\[at\] delta action.|
-|»»»» bytes|string|false|none|\[bs\] bytes value.|
-|»»»» uint|integer|false|none|\[ui\] uint value.|
-|»» local-deltas|[[AccountStateDelta](#schemaaccountstatedelta)]|false|none|[Application state delta.]|
-|»»» address|string|true|none|none|
-|»»» delta|[[EvalDeltaKeyValue](#schemaevaldeltakeyvalue)]|true|none|Application state delta.|
-|»» logic-sig-disassembly|[string]|false|none|Disassembled lsig program line by line.|
-|»» logic-sig-messages|[string]|false|none|none|
-|»» logic-sig-trace|[[DryrunState](#schemadryrunstate)]|false|none|[Stores the TEAL eval step data]|
-|»» logs|[string]|false|none|none|
+| Name                     | Type                                            | Required | Restrictions | Description                                                                                                           |
+| ------------------------ | ----------------------------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------- |
+| » error                  | string                                          | true     | none         | none                                                                                                                  |
+| » protocol-version       | string                                          | true     | none         | Protocol version is the protocol version Dryrun was operated under.                                                   |
+| » txns                   | [[DryrunTxnResult](#schemadryruntxnresult)]     | true     | none         | [DryrunTxnResult contains any LogicSig or ApplicationCall program debug information and state updates from a dryrun.] |
+| »» app-call-messages     | [string]                                        | false    | none         | none                                                                                                                  |
+| »» app-call-trace        | [[DryrunState](#schemadryrunstate)]             | false    | none         | [Stores the TEAL eval step data]                                                                                      |
+| »»» error                | string                                          | false    | none         | Evaluation error if any                                                                                               |
+| »»» line                 | integer                                         | true     | none         | Line number                                                                                                           |
+| »»» pc                   | integer                                         | true     | none         | Program counter                                                                                                       |
+| »»» scratch              | [[TealValue](#schematealvalue)]                 | false    | none         | [Represents a TEAL value.]                                                                                            |
+| »»»» bytes               | string                                          | true     | none         | \[tb\] bytes value.                                                                                                   |
+| »»»» type                | integer                                         | true     | none         | \[tt\] value type. Value `1` refers to **bytes**, value `2` refers to **uint**                                        |
+| »»»» uint                | integer                                         | true     | none         | \[ui\] uint value.                                                                                                    |
+| »»» stack                | [[TealValue](#schematealvalue)]                 | true     | none         | [Represents a TEAL value.]                                                                                            |
+| »» budget-added          | integer                                         | false    | none         | Budget added during execution of app call transaction.                                                                |
+| »» budget-consumed       | integer                                         | false    | none         | Budget consumed during execution of app call transaction.                                                             |
+| »» disassembly           | [string]                                        | true     | none         | Disassembled program line by line.                                                                                    |
+| »» global-delta          | [[EvalDeltaKeyValue](#schemaevaldeltakeyvalue)] | false    | none         | Application state delta.                                                                                              |
+| »»» key                  | string                                          | true     | none         | none                                                                                                                  |
+| »»» value                | [EvalDelta](#schemaevaldelta)                   | true     | none         | Represents a TEAL value delta.                                                                                        |
+| »»»» action              | integer                                         | true     | none         | \[at\] delta action.                                                                                                  |
+| »»»» bytes               | string                                          | false    | none         | \[bs\] bytes value.                                                                                                   |
+| »»»» uint                | integer                                         | false    | none         | \[ui\] uint value.                                                                                                    |
+| »» local-deltas          | [[AccountStateDelta](#schemaaccountstatedelta)] | false    | none         | [Application state delta.]                                                                                            |
+| »»» address              | string                                          | true     | none         | none                                                                                                                  |
+| »»» delta                | [[EvalDeltaKeyValue](#schemaevaldeltakeyvalue)] | true     | none         | Application state delta.                                                                                              |
+| »» logic-sig-disassembly | [string]                                        | false    | none         | Disassembled lsig program line by line.                                                                               |
+| »» logic-sig-messages    | [string]                                        | false    | none         | none                                                                                                                  |
+| »» logic-sig-trace       | [[DryrunState](#schemadryrunstate)]             | false    | none         | [Stores the TEAL eval step data]                                                                                      |
+| »» logs                  | [string]                                        | false    | none         | none                                                                                                                  |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### TransactionParams
 
-<a id="opIdTransactionParams"></a>
+<a id='opIdTransactionParams'></a>
 
 > Code samples
 
@@ -11384,24 +11179,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/transactions/params',
-{
+fetch('http://localhost/v2/transactions/params', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -11511,7 +11304,7 @@ func main() {
 
 `GET /v2/transactions/params`
 
-*Get parameters for constructing a new transaction*
+_Get parameters for constructing a new transaction_
 
 > Example responses
 
@@ -11530,39 +11323,38 @@ func main() {
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|TransactionParams contains the parameters that help a client construct a new transaction.|Inline|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                                                               | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | TransactionParams contains the parameters that help a client construct a new transaction. | Inline                                |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                                                         | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                                                            | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable                                                           | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                                                             | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-*TransactionParams contains the parameters that help a client construct
-a new transaction.*
+_TransactionParams contains the parameters that help a client construct
+a new transaction._
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» consensus-version|string|true|none|ConsensusVersion indicates the consensus protocol version<br>as of LastRound.|
-|» fee|integer|true|none|Fee is the suggested transaction fee<br>Fee is in units of micro-Algos per byte.<br>Fee may fall to zero but transactions must still have a fee of<br>at least MinTxnFee for the current network protocol.|
-|» genesis-hash|string(byte)|true|none|GenesisHash is the hash of the genesis block.|
-|» genesis-id|string|true|none|GenesisID is an ID listed in the genesis block.|
-|» last-round|integer|true|none|LastRound indicates the last round seen|
-|» min-fee|integer|true|none|The minimum transaction fee (not per byte) required for the<br>txn to validate for the current network protocol.|
+| Name                | Type         | Required | Restrictions | Description                                                                                                                                                                                                |
+| ------------------- | ------------ | -------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| » consensus-version | string       | true     | none         | ConsensusVersion indicates the consensus protocol version<br>as of LastRound.                                                                                                                              |
+| » fee               | integer      | true     | none         | Fee is the suggested transaction fee<br>Fee is in units of micro-Algos per byte.<br>Fee may fall to zero but transactions must still have a fee of<br>at least MinTxnFee for the current network protocol. |
+| » genesis-hash      | string(byte) | true     | none         | GenesisHash is the hash of the genesis block.                                                                                                                                                              |
+| » genesis-id        | string       | true     | none         | GenesisID is an ID listed in the genesis block.                                                                                                                                                            |
+| » last-round        | integer      | true     | none         | LastRound indicates the last round seen                                                                                                                                                                    |
+| » min-fee           | integer      | true     | none         | The minimum transaction fee (not per byte) required for the<br>txn to validate for the current network protocol.                                                                                           |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### UnsetSyncRound
 
-<a id="opIdUnsetSyncRound"></a>
+<a id='opIdUnsetSyncRound'></a>
 
 > Code samples
 
@@ -11582,24 +11374,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/ledger/sync',
-{
+fetch('http://localhost/v2/ledger/sync', {
   method: 'DELETE',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -11709,7 +11499,7 @@ func main() {
 
 `DELETE /v2/ledger/sync`
 
-*Removes minimum sync round restriction from the ledger.*
+_Removes minimum sync round restriction from the ledger._
 
 Unset the ledger sync round.
 
@@ -11726,26 +11516,25 @@ Unset the ledger sync round.
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Sync round not set.|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                     | Schema                                |
+| ------- | -------------------------------------------------------------------------- | ------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | none                            | None                                  |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Sync round not set.             | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token               | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                  | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                   | None                                  |
 
 #### Response Schema
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ### WaitForBlock
 
-<a id="opIdWaitForBlock"></a>
+<a id='opIdWaitForBlock'></a>
 
 > Code samples
 
@@ -11765,24 +11554,22 @@ Accept: application/json
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-Algo-API-Token':'API_KEY'
+  Accept: 'application/json',
+  'X-Algo-API-Token': 'API_KEY',
 };
 
-fetch('http://localhost/v2/status/wait-for-block-after/{round}',
-{
+fetch('http://localhost/v2/status/wait-for-block-after/{round}', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -11892,15 +11679,15 @@ func main() {
 
 `GET /v2/status/wait-for-block-after/{round}`
 
-*Gets the node status after waiting for a round after the given round.*
+_Gets the node status after waiting for a round after the given round._
 
 Waits for a block to appear after round {round} and returns the node's status at the time. There is a 1 minute timeout, when reached the current status is returned regardless of whether or not it is the round after the given round.
 
 #### Parameters
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|round|path|integer|true|The round to wait until returning status|
+| Name  | In   | Type    | Required | Description                              |
+| ----- | ---- | ------- | -------- | ---------------------------------------- |
+| round | path | integer | true     | The round to wait until returning status |
 
 > Example responses
 
@@ -11939,65 +11726,65 @@ Waits for a block to appear after round {round} and returns the node's status at
 
 #### Responses
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request -- number must be non-negative integer|[ErrorResponse](#schemaerrorresponse)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid API Token|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Error|[ErrorResponse](#schemaerrorresponse)|
-|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Service Temporarily Unavailable|[ErrorResponse](#schemaerrorresponse)|
-|default|Default|Unknown Error|None|
+| Status  | Meaning                                                                    | Description                                        | Schema                                |
+| ------- | -------------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------- |
+| 200     | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | none                                               | Inline                                |
+| 400     | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bad Request -- number must be non-negative integer | [ErrorResponse](#schemaerrorresponse) |
+| 401     | [Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)            | Invalid API Token                                  | [ErrorResponse](#schemaerrorresponse) |
+| 500     | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal Error                                     | [ErrorResponse](#schemaerrorresponse) |
+| 503     | [Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)   | Service Temporarily Unavailable                    | [ErrorResponse](#schemaerrorresponse) |
+| default | Default                                                                    | Unknown Error                                      | None                                  |
 
 #### Response Schema
 
 Status Code **200**
 
-*NodeStatus contains the information about a node status*
+_NodeStatus contains the information about a node status_
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|» catchpoint|string|false|none|The current catchpoint that is being caught up to|
-|» catchpoint-acquired-blocks|integer|false|none|The number of blocks that have already been obtained by the node as part of the catchup|
-|» catchpoint-processed-accounts|integer|false|none|The number of accounts from the current catchpoint that have been processed so far as part of the catchup|
-|» catchpoint-processed-kvs|integer|false|none|The number of key-values (KVs) from the current catchpoint that have been processed so far as part of the catchup|
-|» catchpoint-total-accounts|integer|false|none|The total number of accounts included in the current catchpoint|
-|» catchpoint-total-blocks|integer|false|none|The total number of blocks that are required to complete the current catchpoint catchup|
-|» catchpoint-total-kvs|integer|false|none|The total number of key-values (KVs) included in the current catchpoint|
-|» catchpoint-verified-accounts|integer|false|none|The number of accounts from the current catchpoint that have been verified so far as part of the catchup|
-|» catchpoint-verified-kvs|integer|false|none|The number of key-values (KVs) from the current catchpoint that have been verified so far as part of the catchup|
-|» catchup-time|integer|true|none|CatchupTime in nanoseconds|
-|» last-catchpoint|string|false|none|The last catchpoint seen by the node|
-|» last-round|integer|true|none|LastRound indicates the last round seen|
-|» last-version|string|true|none|LastVersion indicates the last consensus version supported|
-|» next-version|string|true|none|NextVersion of consensus protocol to use|
-|» next-version-round|integer|true|none|NextVersionRound is the round at which the next consensus version will apply|
-|» next-version-supported|boolean|true|none|NextVersionSupported indicates whether the next consensus version is supported by this node|
-|» stopped-at-unsupported-round|boolean|true|none|StoppedAtUnsupportedRound indicates that the node does not support the new rounds and has stopped making progress|
-|» time-since-last-round|integer|true|none|TimeSinceLastRound in nanoseconds|
-|» upgrade-delay|integer|false|none|Upgrade delay|
-|» upgrade-next-protocol-vote-before|integer|false|none|Next protocol round|
-|» upgrade-no-votes|integer|false|none|No votes cast for consensus upgrade|
-|» upgrade-node-vote|boolean|false|none|This node's upgrade vote|
-|» upgrade-vote-rounds|integer|false|none|Total voting rounds for current upgrade|
-|» upgrade-votes|integer|false|none|Total votes cast for consensus upgrade|
-|» upgrade-votes-required|integer|false|none|Yes votes required for consensus upgrade|
-|» upgrade-yes-votes|integer|false|none|Yes votes cast for consensus upgrade|
+| Name                                | Type    | Required | Restrictions | Description                                                                                                       |
+| ----------------------------------- | ------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+| » catchpoint                        | string  | false    | none         | The current catchpoint that is being caught up to                                                                 |
+| » catchpoint-acquired-blocks        | integer | false    | none         | The number of blocks that have already been obtained by the node as part of the catchup                           |
+| » catchpoint-processed-accounts     | integer | false    | none         | The number of accounts from the current catchpoint that have been processed so far as part of the catchup         |
+| » catchpoint-processed-kvs          | integer | false    | none         | The number of key-values (KVs) from the current catchpoint that have been processed so far as part of the catchup |
+| » catchpoint-total-accounts         | integer | false    | none         | The total number of accounts included in the current catchpoint                                                   |
+| » catchpoint-total-blocks           | integer | false    | none         | The total number of blocks that are required to complete the current catchpoint catchup                           |
+| » catchpoint-total-kvs              | integer | false    | none         | The total number of key-values (KVs) included in the current catchpoint                                           |
+| » catchpoint-verified-accounts      | integer | false    | none         | The number of accounts from the current catchpoint that have been verified so far as part of the catchup          |
+| » catchpoint-verified-kvs           | integer | false    | none         | The number of key-values (KVs) from the current catchpoint that have been verified so far as part of the catchup  |
+| » catchup-time                      | integer | true     | none         | CatchupTime in nanoseconds                                                                                        |
+| » last-catchpoint                   | string  | false    | none         | The last catchpoint seen by the node                                                                              |
+| » last-round                        | integer | true     | none         | LastRound indicates the last round seen                                                                           |
+| » last-version                      | string  | true     | none         | LastVersion indicates the last consensus version supported                                                        |
+| » next-version                      | string  | true     | none         | NextVersion of consensus protocol to use                                                                          |
+| » next-version-round                | integer | true     | none         | NextVersionRound is the round at which the next consensus version will apply                                      |
+| » next-version-supported            | boolean | true     | none         | NextVersionSupported indicates whether the next consensus version is supported by this node                       |
+| » stopped-at-unsupported-round      | boolean | true     | none         | StoppedAtUnsupportedRound indicates that the node does not support the new rounds and has stopped making progress |
+| » time-since-last-round             | integer | true     | none         | TimeSinceLastRound in nanoseconds                                                                                 |
+| » upgrade-delay                     | integer | false    | none         | Upgrade delay                                                                                                     |
+| » upgrade-next-protocol-vote-before | integer | false    | none         | Next protocol round                                                                                               |
+| » upgrade-no-votes                  | integer | false    | none         | No votes cast for consensus upgrade                                                                               |
+| » upgrade-node-vote                 | boolean | false    | none         | This node's upgrade vote                                                                                          |
+| » upgrade-vote-rounds               | integer | false    | none         | Total voting rounds for current upgrade                                                                           |
+| » upgrade-votes                     | integer | false    | none         | Total votes cast for consensus upgrade                                                                            |
+| » upgrade-votes-required            | integer | false    | none         | Yes votes required for consensus upgrade                                                                          |
+| » upgrade-yes-votes                 | integer | false    | none         | Yes votes cast for consensus upgrade                                                                              |
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+<aside class='warning'>
+  To perform this operation, you must be authenticated by means of one of the following methods:
+  api_key
 </aside>
-
 
 ## Schemas
 
-
 ### Account
+
 <!-- backwards compatibility -->
-<a id="schemaaccount"></a>
-<a id="schema_Account"></a>
-<a id="tocSaccount"></a>
-<a id="tocsaccount"></a>
+
+<a id='schemaaccount'></a>
+<a id='schema_Account'></a>
+<a id='tocSaccount'></a>
+<a id='tocsaccount'></a>
 
 ```json
 {
@@ -12112,7 +11899,6 @@ api_key
   "total-created-apps": 0,
   "total-created-assets": 0
 }
-
 ```
 
 Account information at a given round.
@@ -12122,51 +11908,52 @@ data/basics/userBalance.go : AccountData
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|address|string|true|none|the account public key|
-|amount|integer|true|none|\[algo\] total number of MicroAlgos in the account|
-|amount-without-pending-rewards|integer|true|none|specifies the amount of MicroAlgos in the account, without the pending rewards.|
-|apps-local-state|[[ApplicationLocalState](#schemaapplicationlocalstate)]|false|none|\[appl\] applications local data stored in this account.<br><br>Note the raw object uses `map[int] -> AppLocalState` for this type.|
-|apps-total-extra-pages|integer|false|none|\[teap\] the sum of all extra application program pages for this account.|
-|apps-total-schema|[ApplicationStateSchema](#schemaapplicationstateschema)|false|none|Specifies maximums on the number of each type that may be stored.|
-|assets|[[AssetHolding](#schemaassetholding)]|false|none|\[asset\] assets held by this account.<br><br>Note the raw object uses `map[int] -> AssetHolding` for this type.|
-|auth-addr|string|false|none|\[spend\] the address against which signing should be checked. If empty, the address of the current account is used. This field can be updated in any transaction by setting the RekeyTo field.|
-|created-apps|[[Application](#schemaapplication)]|false|none|\[appp\] parameters of applications created by this account including app global data.<br><br>Note: the raw account uses `map[int] -> AppParams` for this type.|
-|created-assets|[[Asset](#schemaasset)]|false|none|\[apar\] parameters of assets created by this account.<br><br>Note: the raw account uses `map[int] -> Asset` for this type.|
-|incentive-eligible|boolean|false|none|Whether or not the account can receive block incentives if its balance is in range at proposal time.|
-|last-heartbeat|integer|false|none|The round in which this account last went online, or explicitly renewed their online status.|
-|last-proposed|integer|false|none|The round in which this account last proposed the block.|
-|min-balance|integer|true|none|MicroAlgo balance required by the account.<br><br>The requirement grows based on asset and application usage.|
-|participation|[AccountParticipation](#schemaaccountparticipation)|false|none|AccountParticipation describes the parameters used by this account in consensus protocol.|
-|pending-rewards|integer|true|none|amount of MicroAlgos of pending rewards in this account.|
-|reward-base|integer|false|none|\[ebase\] used as part of the rewards computation. Only applicable to accounts which are participating.|
-|rewards|integer|true|none|\[ern\] total rewards of MicroAlgos the account has received, including pending rewards.|
-|round|integer|true|none|The round for which this information is relevant.|
-|sig-type|string|false|none|Indicates what type of signature is used by this account, must be one of:<br>* sig<br>* msig<br>* lsig|
-|status|string|true|none|\[onl\] delegation status of the account's MicroAlgos<br>* Offline - indicates that the associated account is delegated.<br>*  Online  - indicates that the associated account used as part of the delegation pool.<br>*   NotParticipating - indicates that the associated account is neither a delegator nor a delegate.|
-|total-apps-opted-in|integer|true|none|The count of all applications that have been opted in, equivalent to the count of application local data (AppLocalState objects) stored in this account.|
-|total-assets-opted-in|integer|true|none|The count of all assets that have been opted in, equivalent to the count of AssetHolding objects held by this account.|
-|total-box-bytes|integer|false|none|\[tbxb\] The total number of bytes used by this account's app's box keys and values.|
-|total-boxes|integer|false|none|\[tbx\] The number of existing boxes created by this account's app.|
-|total-created-apps|integer|true|none|The count of all apps (AppParams objects) created by this account.|
-|total-created-assets|integer|true|none|The count of all assets (AssetParams objects) created by this account.|
+| Name                           | Type                                                    | Required | Restrictions | Description                                                                                                                                                                                                                                                                                                             |
+| ------------------------------ | ------------------------------------------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address                        | string                                                  | true     | none         | the account public key                                                                                                                                                                                                                                                                                                  |
+| amount                         | integer                                                 | true     | none         | \[algo\] total number of MicroAlgos in the account                                                                                                                                                                                                                                                                      |
+| amount-without-pending-rewards | integer                                                 | true     | none         | specifies the amount of MicroAlgos in the account, without the pending rewards.                                                                                                                                                                                                                                         |
+| apps-local-state               | [[ApplicationLocalState](#schemaapplicationlocalstate)] | false    | none         | \[appl\] applications local data stored in this account.<br><br>Note the raw object uses `map[int] -> AppLocalState` for this type.                                                                                                                                                                                     |
+| apps-total-extra-pages         | integer                                                 | false    | none         | \[teap\] the sum of all extra application program pages for this account.                                                                                                                                                                                                                                               |
+| apps-total-schema              | [ApplicationStateSchema](#schemaapplicationstateschema) | false    | none         | Specifies maximums on the number of each type that may be stored.                                                                                                                                                                                                                                                       |
+| assets                         | [[AssetHolding](#schemaassetholding)]                   | false    | none         | \[asset\] assets held by this account.<br><br>Note the raw object uses `map[int] -> AssetHolding` for this type.                                                                                                                                                                                                        |
+| auth-addr                      | string                                                  | false    | none         | \[spend\] the address against which signing should be checked. If empty, the address of the current account is used. This field can be updated in any transaction by setting the RekeyTo field.                                                                                                                         |
+| created-apps                   | [[Application](#schemaapplication)]                     | false    | none         | \[appp\] parameters of applications created by this account including app global data.<br><br>Note: the raw account uses `map[int] -> AppParams` for this type.                                                                                                                                                         |
+| created-assets                 | [[Asset](#schemaasset)]                                 | false    | none         | \[apar\] parameters of assets created by this account.<br><br>Note: the raw account uses `map[int] -> Asset` for this type.                                                                                                                                                                                             |
+| incentive-eligible             | boolean                                                 | false    | none         | Whether or not the account can receive block incentives if its balance is in range at proposal time.                                                                                                                                                                                                                    |
+| last-heartbeat                 | integer                                                 | false    | none         | The round in which this account last went online, or explicitly renewed their online status.                                                                                                                                                                                                                            |
+| last-proposed                  | integer                                                 | false    | none         | The round in which this account last proposed the block.                                                                                                                                                                                                                                                                |
+| min-balance                    | integer                                                 | true     | none         | MicroAlgo balance required by the account.<br><br>The requirement grows based on asset and application usage.                                                                                                                                                                                                           |
+| participation                  | [AccountParticipation](#schemaaccountparticipation)     | false    | none         | AccountParticipation describes the parameters used by this account in consensus protocol.                                                                                                                                                                                                                               |
+| pending-rewards                | integer                                                 | true     | none         | amount of MicroAlgos of pending rewards in this account.                                                                                                                                                                                                                                                                |
+| reward-base                    | integer                                                 | false    | none         | \[ebase\] used as part of the rewards computation. Only applicable to accounts which are participating.                                                                                                                                                                                                                 |
+| rewards                        | integer                                                 | true     | none         | \[ern\] total rewards of MicroAlgos the account has received, including pending rewards.                                                                                                                                                                                                                                |
+| round                          | integer                                                 | true     | none         | The round for which this information is relevant.                                                                                                                                                                                                                                                                       |
+| sig-type                       | string                                                  | false    | none         | Indicates what type of signature is used by this account, must be one of:<br>_ sig<br>_ msig<br>\* lsig                                                                                                                                                                                                                 |
+| status                         | string                                                  | true     | none         | \[onl\] delegation status of the account's MicroAlgos<br>_ Offline - indicates that the associated account is delegated.<br>_ Online - indicates that the associated account used as part of the delegation pool.<br>\* NotParticipating - indicates that the associated account is neither a delegator nor a delegate. |
+| total-apps-opted-in            | integer                                                 | true     | none         | The count of all applications that have been opted in, equivalent to the count of application local data (AppLocalState objects) stored in this account.                                                                                                                                                                |
+| total-assets-opted-in          | integer                                                 | true     | none         | The count of all assets that have been opted in, equivalent to the count of AssetHolding objects held by this account.                                                                                                                                                                                                  |
+| total-box-bytes                | integer                                                 | false    | none         | \[tbxb\] The total number of bytes used by this account's app's box keys and values.                                                                                                                                                                                                                                    |
+| total-boxes                    | integer                                                 | false    | none         | \[tbx\] The number of existing boxes created by this account's app.                                                                                                                                                                                                                                                     |
+| total-created-apps             | integer                                                 | true     | none         | The count of all apps (AppParams objects) created by this account.                                                                                                                                                                                                                                                      |
+| total-created-assets           | integer                                                 | true     | none         | The count of all assets (AssetParams objects) created by this account.                                                                                                                                                                                                                                                  |
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|sig-type|sig|
-|sig-type|msig|
-|sig-type|lsig|
-
+| Property | Value |
+| -------- | ----- |
+| sig-type | sig   |
+| sig-type | msig  |
+| sig-type | lsig  |
 
 ### AccountAssetHolding
+
 <!-- backwards compatibility -->
-<a id="schemaaccountassetholding"></a>
-<a id="schema_AccountAssetHolding"></a>
-<a id="tocSaccountassetholding"></a>
-<a id="tocsaccountassetholding"></a>
+
+<a id='schemaaccountassetholding'></a>
+<a id='schema_AccountAssetHolding'></a>
+<a id='tocSaccountassetholding'></a>
+<a id='tocsaccountassetholding'></a>
 
 ```json
 {
@@ -12193,25 +11980,25 @@ data/basics/userBalance.go : AccountData
     "url-b64": "string"
   }
 }
-
 ```
 
 AccountAssetHolding describes the account's asset holding and asset parameters (if either exist) for a specific asset ID.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|asset-holding|[AssetHolding](#schemaassetholding)|true|none|Describes an asset held by an account.<br><br>Definition:<br>data/basics/userBalance.go : AssetHolding|
-|asset-params|[AssetParams](#schemaassetparams)|false|none|AssetParams specifies the parameters for an asset.<br><br>\[apar\] when part of an AssetConfig transaction.<br><br>Definition:<br>data/transactions/asset.go : AssetParams|
-
+| Name          | Type                                | Required | Restrictions | Description                                                                                                                                                                |
+| ------------- | ----------------------------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| asset-holding | [AssetHolding](#schemaassetholding) | true     | none         | Describes an asset held by an account.<br><br>Definition:<br>data/basics/userBalance.go : AssetHolding                                                                     |
+| asset-params  | [AssetParams](#schemaassetparams)   | false    | none         | AssetParams specifies the parameters for an asset.<br><br>\[apar\] when part of an AssetConfig transaction.<br><br>Definition:<br>data/transactions/asset.go : AssetParams |
 
 ### AccountParticipation
+
 <!-- backwards compatibility -->
-<a id="schemaaccountparticipation"></a>
-<a id="schema_AccountParticipation"></a>
-<a id="tocSaccountparticipation"></a>
-<a id="tocsaccountparticipation"></a>
+
+<a id='schemaaccountparticipation'></a>
+<a id='schema_AccountParticipation'></a>
+<a id='tocSaccountparticipation'></a>
+<a id='tocsaccountparticipation'></a>
 
 ```json
 {
@@ -12222,29 +12009,29 @@ AccountAssetHolding describes the account's asset holding and asset parameters (
   "vote-last-valid": 0,
   "vote-participation-key": "string"
 }
-
 ```
 
 AccountParticipation describes the parameters used by this account in consensus protocol.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|selection-participation-key|string(byte)|true|none|\[sel\] Selection public key (if any) currently registered for this round.|
-|state-proof-key|string(byte)|false|none|\[stprf\] Root of the state proof key (if any)|
-|vote-first-valid|integer|true|none|\[voteFst\] First round for which this participation is valid.|
-|vote-key-dilution|integer|true|none|\[voteKD\] Number of subkeys in each batch of participation keys.|
-|vote-last-valid|integer|true|none|\[voteLst\] Last round for which this participation is valid.|
-|vote-participation-key|string(byte)|true|none|\[vote\] root participation public key (if any) currently registered for this round.|
-
+| Name                        | Type         | Required | Restrictions | Description                                                                          |
+| --------------------------- | ------------ | -------- | ------------ | ------------------------------------------------------------------------------------ |
+| selection-participation-key | string(byte) | true     | none         | \[sel\] Selection public key (if any) currently registered for this round.           |
+| state-proof-key             | string(byte) | false    | none         | \[stprf\] Root of the state proof key (if any)                                       |
+| vote-first-valid            | integer      | true     | none         | \[voteFst\] First round for which this participation is valid.                       |
+| vote-key-dilution           | integer      | true     | none         | \[voteKD\] Number of subkeys in each batch of participation keys.                    |
+| vote-last-valid             | integer      | true     | none         | \[voteLst\] Last round for which this participation is valid.                        |
+| vote-participation-key      | string(byte) | true     | none         | \[vote\] root participation public key (if any) currently registered for this round. |
 
 ### AccountStateDelta
+
 <!-- backwards compatibility -->
-<a id="schemaaccountstatedelta"></a>
-<a id="schema_AccountStateDelta"></a>
-<a id="tocSaccountstatedelta"></a>
-<a id="tocsaccountstatedelta"></a>
+
+<a id='schemaaccountstatedelta'></a>
+<a id='schema_AccountStateDelta'></a>
+<a id='tocSaccountstatedelta'></a>
+<a id='tocsaccountstatedelta'></a>
 
 ```json
 {
@@ -12260,54 +12047,52 @@ AccountParticipation describes the parameters used by this account in consensus 
     }
   ]
 }
-
 ```
 
 Application state delta.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|address|string|true|none|none|
-|delta|[StateDelta](#schemastatedelta)|true|none|Application state delta.|
-
+| Name    | Type                            | Required | Restrictions | Description              |
+| ------- | ------------------------------- | -------- | ------------ | ------------------------ |
+| address | string                          | true     | none         | none                     |
+| delta   | [StateDelta](#schemastatedelta) | true     | none         | Application state delta. |
 
 ### AppCallLogs
+
 <!-- backwards compatibility -->
-<a id="schemaappcalllogs"></a>
-<a id="schema_AppCallLogs"></a>
-<a id="tocSappcalllogs"></a>
-<a id="tocsappcalllogs"></a>
+
+<a id='schemaappcalllogs'></a>
+<a id='schema_AppCallLogs'></a>
+<a id='tocSappcalllogs'></a>
+<a id='tocsappcalllogs'></a>
 
 ```json
 {
   "application-index": 0,
-  "logs": [
-    "string"
-  ],
+  "logs": ["string"],
   "txId": "string"
 }
-
 ```
 
 The logged messages from an app call along with the app ID and outer transaction ID. Logs appear in the same order that they were emitted.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|application-index|integer|true|none|The application from which the logs were generated|
-|logs|[string]|true|none|An array of logs|
-|txId|string|true|none|The transaction ID of the outer app call that lead to these logs|
-
+| Name              | Type     | Required | Restrictions | Description                                                      |
+| ----------------- | -------- | -------- | ------------ | ---------------------------------------------------------------- |
+| application-index | integer  | true     | none         | The application from which the logs were generated               |
+| logs              | [string] | true     | none         | An array of logs                                                 |
+| txId              | string   | true     | none         | The transaction ID of the outer app call that lead to these logs |
 
 ### Application
+
 <!-- backwards compatibility -->
-<a id="schemaapplication"></a>
-<a id="schema_Application"></a>
-<a id="tocSapplication"></a>
-<a id="tocsapplication"></a>
+
+<a id='schemaapplication'></a>
+<a id='schema_Application'></a>
+<a id='tocSapplication'></a>
+<a id='tocsapplication'></a>
 
 ```json
 {
@@ -12337,25 +12122,25 @@ The logged messages from an app call along with the app ID and outer transaction
     }
   }
 }
-
 ```
 
 Application index and its parameters
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|id|integer|true|none|\[appidx\] application index.|
-|params|[ApplicationParams](#schemaapplicationparams)|true|none|Stores the global information associated with an application.|
-
+| Name   | Type                                          | Required | Restrictions | Description                                                   |
+| ------ | --------------------------------------------- | -------- | ------------ | ------------------------------------------------------------- |
+| id     | integer                                       | true     | none         | \[appidx\] application index.                                 |
+| params | [ApplicationParams](#schemaapplicationparams) | true     | none         | Stores the global information associated with an application. |
 
 ### ApplicationInitialStates
+
 <!-- backwards compatibility -->
-<a id="schemaapplicationinitialstates"></a>
-<a id="schema_ApplicationInitialStates"></a>
-<a id="tocSapplicationinitialstates"></a>
-<a id="tocsapplicationinitialstates"></a>
+
+<a id='schemaapplicationinitialstates'></a>
+<a id='schema_ApplicationInitialStates'></a>
+<a id='tocSapplicationinitialstates'></a>
+<a id='tocsapplicationinitialstates'></a>
 
 ```json
 {
@@ -12402,27 +12187,27 @@ Application index and its parameters
   ],
   "id": 0
 }
-
 ```
 
 An application's initial global/local/box states that were accessed during simulation.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|app-boxes|[ApplicationKVStorage](#schemaapplicationkvstorage)|false|none|An application's global/local/box state.|
-|app-globals|[ApplicationKVStorage](#schemaapplicationkvstorage)|false|none|An application's global/local/box state.|
-|app-locals|[[ApplicationKVStorage](#schemaapplicationkvstorage)]|false|none|An application's initial local states tied to different accounts.|
-|id|integer|true|none|Application index.|
-
+| Name        | Type                                                  | Required | Restrictions | Description                                                       |
+| ----------- | ----------------------------------------------------- | -------- | ------------ | ----------------------------------------------------------------- |
+| app-boxes   | [ApplicationKVStorage](#schemaapplicationkvstorage)   | false    | none         | An application's global/local/box state.                          |
+| app-globals | [ApplicationKVStorage](#schemaapplicationkvstorage)   | false    | none         | An application's global/local/box state.                          |
+| app-locals  | [[ApplicationKVStorage](#schemaapplicationkvstorage)] | false    | none         | An application's initial local states tied to different accounts. |
+| id          | integer                                               | true     | none         | Application index.                                                |
 
 ### ApplicationKVStorage
+
 <!-- backwards compatibility -->
-<a id="schemaapplicationkvstorage"></a>
-<a id="schema_ApplicationKVStorage"></a>
-<a id="tocSapplicationkvstorage"></a>
-<a id="tocsapplicationkvstorage"></a>
+
+<a id='schemaapplicationkvstorage'></a>
+<a id='schema_ApplicationKVStorage'></a>
+<a id='tocSapplicationkvstorage'></a>
+<a id='tocsapplicationkvstorage'></a>
 
 ```json
 {
@@ -12438,50 +12223,50 @@ An application's initial global/local/box states that were accessed during simul
     }
   ]
 }
-
 ```
 
 An application's global/local/box state.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|account|string|false|none|The address of the account associated with the local state.|
-|kvs|[[AvmKeyValue](#schemaavmkeyvalue)]|true|none|Key-Value pairs representing application states.|
-
+| Name    | Type                                | Required | Restrictions | Description                                                 |
+| ------- | ----------------------------------- | -------- | ------------ | ----------------------------------------------------------- |
+| account | string                              | false    | none         | The address of the account associated with the local state. |
+| kvs     | [[AvmKeyValue](#schemaavmkeyvalue)] | true     | none         | Key-Value pairs representing application states.            |
 
 ### ApplicationLocalReference
+
 <!-- backwards compatibility -->
-<a id="schemaapplicationlocalreference"></a>
-<a id="schema_ApplicationLocalReference"></a>
-<a id="tocSapplicationlocalreference"></a>
-<a id="tocsapplicationlocalreference"></a>
+
+<a id='schemaapplicationlocalreference'></a>
+<a id='schema_ApplicationLocalReference'></a>
+<a id='tocSapplicationlocalreference'></a>
+<a id='tocsapplicationlocalreference'></a>
 
 ```json
 {
   "account": "string",
   "app": 0
 }
-
 ```
 
 References an account's local state for an application.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|account|string|true|none|Address of the account with the local state.|
-|app|integer|true|none|Application ID of the local state application.|
-
+| Name    | Type    | Required | Restrictions | Description                                    |
+| ------- | ------- | -------- | ------------ | ---------------------------------------------- |
+| account | string  | true     | none         | Address of the account with the local state.   |
+| app     | integer | true     | none         | Application ID of the local state application. |
 
 ### ApplicationLocalState
+
 <!-- backwards compatibility -->
-<a id="schemaapplicationlocalstate"></a>
-<a id="schema_ApplicationLocalState"></a>
-<a id="tocSapplicationlocalstate"></a>
-<a id="tocsapplicationlocalstate"></a>
+
+<a id='schemaapplicationlocalstate'></a>
+<a id='schema_ApplicationLocalState'></a>
+<a id='tocSapplicationlocalstate'></a>
+<a id='tocsapplicationlocalstate'></a>
 
 ```json
 {
@@ -12501,26 +12286,26 @@ References an account's local state for an application.
     "num-uint": 0
   }
 }
-
 ```
 
 Stores local state associated with an application.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|id|integer|true|none|The application which this local state is for.|
-|key-value|[TealKeyValueStore](#schematealkeyvaluestore)|false|none|Represents a key-value store for use in an application.|
-|schema|[ApplicationStateSchema](#schemaapplicationstateschema)|true|none|Specifies maximums on the number of each type that may be stored.|
-
+| Name      | Type                                                    | Required | Restrictions | Description                                                       |
+| --------- | ------------------------------------------------------- | -------- | ------------ | ----------------------------------------------------------------- |
+| id        | integer                                                 | true     | none         | The application which this local state is for.                    |
+| key-value | [TealKeyValueStore](#schematealkeyvaluestore)           | false    | none         | Represents a key-value store for use in an application.           |
+| schema    | [ApplicationStateSchema](#schemaapplicationstateschema) | true     | none         | Specifies maximums on the number of each type that may be stored. |
 
 ### ApplicationParams
+
 <!-- backwards compatibility -->
-<a id="schemaapplicationparams"></a>
-<a id="schema_ApplicationParams"></a>
-<a id="tocSapplicationparams"></a>
-<a id="tocsapplicationparams"></a>
+
+<a id='schemaapplicationparams'></a>
+<a id='schema_ApplicationParams'></a>
+<a id='tocSapplicationparams'></a>
+<a id='tocsapplicationparams'></a>
 
 ```json
 {
@@ -12547,30 +12332,30 @@ Stores local state associated with an application.
     "num-uint": 0
   }
 }
-
 ```
 
 Stores the global information associated with an application.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|approval-program|string(byte)|true|none|\[approv\] approval program.|
-|clear-state-program|string(byte)|true|none|\[clearp\] approval program.|
-|creator|string|true|none|The address that created this application. This is the address where the parameters and global state for this application can be found.|
-|extra-program-pages|integer|false|none|\[epp\] the amount of extra program pages available to this app.|
-|global-state|[TealKeyValueStore](#schematealkeyvaluestore)|false|none|Represents a key-value store for use in an application.|
-|global-state-schema|[ApplicationStateSchema](#schemaapplicationstateschema)|false|none|Specifies maximums on the number of each type that may be stored.|
-|local-state-schema|[ApplicationStateSchema](#schemaapplicationstateschema)|false|none|Specifies maximums on the number of each type that may be stored.|
-
+| Name                | Type                                                    | Required | Restrictions | Description                                                                                                                             |
+| ------------------- | ------------------------------------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| approval-program    | string(byte)                                            | true     | none         | \[approv\] approval program.                                                                                                            |
+| clear-state-program | string(byte)                                            | true     | none         | \[clearp\] approval program.                                                                                                            |
+| creator             | string                                                  | true     | none         | The address that created this application. This is the address where the parameters and global state for this application can be found. |
+| extra-program-pages | integer                                                 | false    | none         | \[epp\] the amount of extra program pages available to this app.                                                                        |
+| global-state        | [TealKeyValueStore](#schematealkeyvaluestore)           | false    | none         | Represents a key-value store for use in an application.                                                                                 |
+| global-state-schema | [ApplicationStateSchema](#schemaapplicationstateschema) | false    | none         | Specifies maximums on the number of each type that may be stored.                                                                       |
+| local-state-schema  | [ApplicationStateSchema](#schemaapplicationstateschema) | false    | none         | Specifies maximums on the number of each type that may be stored.                                                                       |
 
 ### ApplicationStateOperation
+
 <!-- backwards compatibility -->
-<a id="schemaapplicationstateoperation"></a>
-<a id="schema_ApplicationStateOperation"></a>
-<a id="tocSapplicationstateoperation"></a>
-<a id="tocsapplicationstateoperation"></a>
+
+<a id='schemaapplicationstateoperation'></a>
+<a id='schema_ApplicationStateOperation'></a>
+<a id='tocSapplicationstateoperation'></a>
+<a id='tocsapplicationstateoperation'></a>
 
 ```json
 {
@@ -12584,53 +12369,53 @@ Stores the global information associated with an application.
   },
   "operation": "string"
 }
-
 ```
 
 An operation against an application's global/local/box state.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|account|string|false|none|For local state changes, the address of the account associated with the local state.|
-|app-state-type|string|true|none|Type of application state. Value `g` is **global state**, `l` is **local state**, `b` is **boxes**.|
-|key|string(byte)|true|none|The key (name) of the global/local/box state.|
-|new-value|[AvmValue](#schemaavmvalue)|false|none|Represents an AVM value.|
-|operation|string|true|none|Operation type. Value `w` is **write**, `d` is **delete**.|
-
+| Name           | Type                        | Required | Restrictions | Description                                                                                         |
+| -------------- | --------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------- |
+| account        | string                      | false    | none         | For local state changes, the address of the account associated with the local state.                |
+| app-state-type | string                      | true     | none         | Type of application state. Value `g` is **global state**, `l` is **local state**, `b` is **boxes**. |
+| key            | string(byte)                | true     | none         | The key (name) of the global/local/box state.                                                       |
+| new-value      | [AvmValue](#schemaavmvalue) | false    | none         | Represents an AVM value.                                                                            |
+| operation      | string                      | true     | none         | Operation type. Value `w` is **write**, `d` is **delete**.                                          |
 
 ### ApplicationStateSchema
+
 <!-- backwards compatibility -->
-<a id="schemaapplicationstateschema"></a>
-<a id="schema_ApplicationStateSchema"></a>
-<a id="tocSapplicationstateschema"></a>
-<a id="tocsapplicationstateschema"></a>
+
+<a id='schemaapplicationstateschema'></a>
+<a id='schema_ApplicationStateSchema'></a>
+<a id='tocSapplicationstateschema'></a>
+<a id='tocsapplicationstateschema'></a>
 
 ```json
 {
   "num-byte-slice": 0,
   "num-uint": 0
 }
-
 ```
 
 Specifies maximums on the number of each type that may be stored.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|num-byte-slice|integer|true|none|\[nbs\] num of byte slices.|
-|num-uint|integer|true|none|\[nui\] num of uints.|
-
+| Name           | Type    | Required | Restrictions | Description                 |
+| -------------- | ------- | -------- | ------------ | --------------------------- |
+| num-byte-slice | integer | true     | none         | \[nbs\] num of byte slices. |
+| num-uint       | integer | true     | none         | \[nui\] num of uints.       |
 
 ### Asset
+
 <!-- backwards compatibility -->
-<a id="schemaasset"></a>
-<a id="schema_Asset"></a>
-<a id="tocSasset"></a>
-<a id="tocsasset"></a>
+
+<a id='schemaasset'></a>
+<a id='schema_Asset'></a>
+<a id='tocSasset'></a>
+<a id='tocsasset'></a>
 
 ```json
 {
@@ -12653,25 +12438,25 @@ Specifies maximums on the number of each type that may be stored.
     "url-b64": "string"
   }
 }
-
 ```
 
 Specifies both the unique identifier and the parameters for an asset
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|index|integer|true|none|unique asset identifier|
-|params|[AssetParams](#schemaassetparams)|true|none|AssetParams specifies the parameters for an asset.<br><br>\[apar\] when part of an AssetConfig transaction.<br><br>Definition:<br>data/transactions/asset.go : AssetParams|
-
+| Name   | Type                              | Required | Restrictions | Description                                                                                                                                                                |
+| ------ | --------------------------------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| index  | integer                           | true     | none         | unique asset identifier                                                                                                                                                    |
+| params | [AssetParams](#schemaassetparams) | true     | none         | AssetParams specifies the parameters for an asset.<br><br>\[apar\] when part of an AssetConfig transaction.<br><br>Definition:<br>data/transactions/asset.go : AssetParams |
 
 ### AssetHolding
+
 <!-- backwards compatibility -->
-<a id="schemaassetholding"></a>
-<a id="schema_AssetHolding"></a>
-<a id="tocSassetholding"></a>
-<a id="tocsassetholding"></a>
+
+<a id='schemaassetholding'></a>
+<a id='schema_AssetHolding'></a>
+<a id='tocSassetholding'></a>
+<a id='tocsassetholding'></a>
 
 ```json
 {
@@ -12679,7 +12464,6 @@ Specifies both the unique identifier and the parameters for an asset
   "asset-id": 0,
   "is-frozen": true
 }
-
 ```
 
 Describes an asset held by an account.
@@ -12689,44 +12473,45 @@ data/basics/userBalance.go : AssetHolding
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|amount|integer|true|none|\[a\] number of units held.|
-|asset-id|integer|true|none|Asset ID of the holding.|
-|is-frozen|boolean|true|none|\[f\] whether or not the holding is frozen.|
-
+| Name      | Type    | Required | Restrictions | Description                                 |
+| --------- | ------- | -------- | ------------ | ------------------------------------------- |
+| amount    | integer | true     | none         | \[a\] number of units held.                 |
+| asset-id  | integer | true     | none         | Asset ID of the holding.                    |
+| is-frozen | boolean | true     | none         | \[f\] whether or not the holding is frozen. |
 
 ### AssetHoldingReference
+
 <!-- backwards compatibility -->
-<a id="schemaassetholdingreference"></a>
-<a id="schema_AssetHoldingReference"></a>
-<a id="tocSassetholdingreference"></a>
-<a id="tocsassetholdingreference"></a>
+
+<a id='schemaassetholdingreference'></a>
+<a id='schema_AssetHoldingReference'></a>
+<a id='tocSassetholdingreference'></a>
+<a id='tocsassetholdingreference'></a>
 
 ```json
 {
   "account": "string",
   "asset": 0
 }
-
 ```
 
 References an asset held by an account.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|account|string|true|none|Address of the account holding the asset.|
-|asset|integer|true|none|Asset ID of the holding.|
-
+| Name    | Type    | Required | Restrictions | Description                               |
+| ------- | ------- | -------- | ------------ | ----------------------------------------- |
+| account | string  | true     | none         | Address of the account holding the asset. |
+| asset   | integer | true     | none         | Asset ID of the holding.                  |
 
 ### AssetParams
+
 <!-- backwards compatibility -->
-<a id="schemaassetparams"></a>
-<a id="schema_AssetParams"></a>
-<a id="tocSassetparams"></a>
-<a id="tocsassetparams"></a>
+
+<a id='schemaassetparams'></a>
+<a id='schema_AssetParams'></a>
+<a id='tocSassetparams'></a>
+<a id='tocsassetparams'></a>
 
 ```json
 {
@@ -12746,7 +12531,6 @@ References an asset held by an account.
   "url": "string",
   "url-b64": "string"
 }
-
 ```
 
 AssetParams specifies the parameters for an asset.
@@ -12758,31 +12542,32 @@ data/transactions/asset.go : AssetParams
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|clawback|string|false|none|\[c\] Address of account used to clawback holdings of this asset.  If empty, clawback is not permitted.|
-|creator|string|true|none|The address that created this asset. This is the address where the parameters for this asset can be found, and also the address where unwanted asset units can be sent in the worst case.|
-|decimals|integer|true|none|\[dc\] The number of digits to use after the decimal point when displaying this asset. If 0, the asset is not divisible. If 1, the base unit of the asset is in tenths. If 2, the base unit of the asset is in hundredths, and so on. This value must be between 0 and 19 (inclusive).|
-|default-frozen|boolean|false|none|\[df\] Whether holdings of this asset are frozen by default.|
-|freeze|string|false|none|\[f\] Address of account used to freeze holdings of this asset.  If empty, freezing is not permitted.|
-|manager|string|false|none|\[m\] Address of account used to manage the keys of this asset and to destroy it.|
-|metadata-hash|string(byte)|false|none|\[am\] A commitment to some unspecified asset metadata. The format of this metadata is up to the application.|
-|name|string|false|none|\[an\] Name of this asset, as supplied by the creator. Included only when the asset name is composed of printable utf-8 characters.|
-|name-b64|string(byte)|false|none|Base64 encoded name of this asset, as supplied by the creator.|
-|reserve|string|false|none|\[r\] Address of account holding reserve (non-minted) units of this asset.|
-|total|integer|true|none|\[t\] The total number of units of this asset.|
-|unit-name|string|false|none|\[un\] Name of a unit of this asset, as supplied by the creator. Included only when the name of a unit of this asset is composed of printable utf-8 characters.|
-|unit-name-b64|string(byte)|false|none|Base64 encoded name of a unit of this asset, as supplied by the creator.|
-|url|string|false|none|\[au\] URL where more information about the asset can be retrieved. Included only when the URL is composed of printable utf-8 characters.|
-|url-b64|string(byte)|false|none|Base64 encoded URL where more information about the asset can be retrieved.|
-
+| Name           | Type         | Required | Restrictions | Description                                                                                                                                                                                                                                                                            |
+| -------------- | ------------ | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| clawback       | string       | false    | none         | \[c\] Address of account used to clawback holdings of this asset. If empty, clawback is not permitted.                                                                                                                                                                                 |
+| creator        | string       | true     | none         | The address that created this asset. This is the address where the parameters for this asset can be found, and also the address where unwanted asset units can be sent in the worst case.                                                                                              |
+| decimals       | integer      | true     | none         | \[dc\] The number of digits to use after the decimal point when displaying this asset. If 0, the asset is not divisible. If 1, the base unit of the asset is in tenths. If 2, the base unit of the asset is in hundredths, and so on. This value must be between 0 and 19 (inclusive). |
+| default-frozen | boolean      | false    | none         | \[df\] Whether holdings of this asset are frozen by default.                                                                                                                                                                                                                           |
+| freeze         | string       | false    | none         | \[f\] Address of account used to freeze holdings of this asset. If empty, freezing is not permitted.                                                                                                                                                                                   |
+| manager        | string       | false    | none         | \[m\] Address of account used to manage the keys of this asset and to destroy it.                                                                                                                                                                                                      |
+| metadata-hash  | string(byte) | false    | none         | \[am\] A commitment to some unspecified asset metadata. The format of this metadata is up to the application.                                                                                                                                                                          |
+| name           | string       | false    | none         | \[an\] Name of this asset, as supplied by the creator. Included only when the asset name is composed of printable utf-8 characters.                                                                                                                                                    |
+| name-b64       | string(byte) | false    | none         | Base64 encoded name of this asset, as supplied by the creator.                                                                                                                                                                                                                         |
+| reserve        | string       | false    | none         | \[r\] Address of account holding reserve (non-minted) units of this asset.                                                                                                                                                                                                             |
+| total          | integer      | true     | none         | \[t\] The total number of units of this asset.                                                                                                                                                                                                                                         |
+| unit-name      | string       | false    | none         | \[un\] Name of a unit of this asset, as supplied by the creator. Included only when the name of a unit of this asset is composed of printable utf-8 characters.                                                                                                                        |
+| unit-name-b64  | string(byte) | false    | none         | Base64 encoded name of a unit of this asset, as supplied by the creator.                                                                                                                                                                                                               |
+| url            | string       | false    | none         | \[au\] URL where more information about the asset can be retrieved. Included only when the URL is composed of printable utf-8 characters.                                                                                                                                              |
+| url-b64        | string(byte) | false    | none         | Base64 encoded URL where more information about the asset can be retrieved.                                                                                                                                                                                                            |
 
 ### AvmKeyValue
+
 <!-- backwards compatibility -->
-<a id="schemaavmkeyvalue"></a>
-<a id="schema_AvmKeyValue"></a>
-<a id="tocSavmkeyvalue"></a>
-<a id="tocsavmkeyvalue"></a>
+
+<a id='schemaavmkeyvalue'></a>
+<a id='schema_AvmKeyValue'></a>
+<a id='tocSavmkeyvalue'></a>
+<a id='tocsavmkeyvalue'></a>
 
 ```json
 {
@@ -12793,25 +12578,25 @@ data/transactions/asset.go : AssetParams
     "uint": 0
   }
 }
-
 ```
 
 Represents an AVM key-value pair in an application store.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|key|string(byte)|true|none|none|
-|value|[AvmValue](#schemaavmvalue)|true|none|Represents an AVM value.|
-
+| Name  | Type                        | Required | Restrictions | Description              |
+| ----- | --------------------------- | -------- | ------------ | ------------------------ |
+| key   | string(byte)                | true     | none         | none                     |
+| value | [AvmValue](#schemaavmvalue) | true     | none         | Represents an AVM value. |
 
 ### AvmValue
+
 <!-- backwards compatibility -->
-<a id="schemaavmvalue"></a>
-<a id="schema_AvmValue"></a>
-<a id="tocSavmvalue"></a>
-<a id="tocsavmvalue"></a>
+
+<a id='schemaavmvalue'></a>
+<a id='schema_AvmValue'></a>
+<a id='tocSavmvalue'></a>
+<a id='tocsavmvalue'></a>
 
 ```json
 {
@@ -12819,26 +12604,26 @@ Represents an AVM key-value pair in an application store.
   "type": 0,
   "uint": 0
 }
-
 ```
 
 Represents an AVM value.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|bytes|string(byte)|false|none|bytes value.|
-|type|integer|true|none|value type. Value `1` refers to **bytes**, value `2` refers to **uint64**|
-|uint|integer|false|none|uint value.|
-
+| Name  | Type         | Required | Restrictions | Description                                                               |
+| ----- | ------------ | -------- | ------------ | ------------------------------------------------------------------------- |
+| bytes | string(byte) | false    | none         | bytes value.                                                              |
+| type  | integer      | true     | none         | value type. Value `1` refers to **bytes**, value `2` refers to **uint64** |
+| uint  | integer      | false    | none         | uint value.                                                               |
 
 ### Box
+
 <!-- backwards compatibility -->
-<a id="schemabox"></a>
-<a id="schema_Box"></a>
-<a id="tocSbox"></a>
-<a id="tocsbox"></a>
+
+<a id='schemabox'></a>
+<a id='schema_Box'></a>
+<a id='tocSbox'></a>
+<a id='tocsbox'></a>
 
 ```json
 {
@@ -12846,74 +12631,74 @@ Represents an AVM value.
   "round": 0,
   "value": "string"
 }
-
 ```
 
 Box name and its content.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|name|string(byte)|true|none|\[name\] box name, base64 encoded|
-|round|integer|true|none|The round for which this information is relevant|
-|value|string(byte)|true|none|\[value\] box value, base64 encoded.|
-
+| Name  | Type         | Required | Restrictions | Description                                      |
+| ----- | ------------ | -------- | ------------ | ------------------------------------------------ |
+| name  | string(byte) | true     | none         | \[name\] box name, base64 encoded                |
+| round | integer      | true     | none         | The round for which this information is relevant |
+| value | string(byte) | true     | none         | \[value\] box value, base64 encoded.             |
 
 ### BoxDescriptor
+
 <!-- backwards compatibility -->
-<a id="schemaboxdescriptor"></a>
-<a id="schema_BoxDescriptor"></a>
-<a id="tocSboxdescriptor"></a>
-<a id="tocsboxdescriptor"></a>
+
+<a id='schemaboxdescriptor'></a>
+<a id='schema_BoxDescriptor'></a>
+<a id='tocSboxdescriptor'></a>
+<a id='tocsboxdescriptor'></a>
 
 ```json
 {
   "name": "string"
 }
-
 ```
 
 Box descriptor describes a Box.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|name|string(byte)|true|none|Base64 encoded box name|
-
+| Name | Type         | Required | Restrictions | Description             |
+| ---- | ------------ | -------- | ------------ | ----------------------- |
+| name | string(byte) | true     | none         | Base64 encoded box name |
 
 ### BoxReference
+
 <!-- backwards compatibility -->
-<a id="schemaboxreference"></a>
-<a id="schema_BoxReference"></a>
-<a id="tocSboxreference"></a>
-<a id="tocsboxreference"></a>
+
+<a id='schemaboxreference'></a>
+<a id='schema_BoxReference'></a>
+<a id='tocSboxreference'></a>
+<a id='tocsboxreference'></a>
 
 ```json
 {
   "app": 0,
   "name": "string"
 }
-
 ```
 
 References a box of an application.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|app|integer|true|none|Application ID which this box belongs to|
-|name|string(byte)|true|none|Base64 encoded box name|
-
+| Name | Type         | Required | Restrictions | Description                              |
+| ---- | ------------ | -------- | ------------ | ---------------------------------------- |
+| app  | integer      | true     | none         | Application ID which this box belongs to |
+| name | string(byte) | true     | none         | Base64 encoded box name                  |
 
 ### BuildVersion
+
 <!-- backwards compatibility -->
-<a id="schemabuildversion"></a>
-<a id="schema_BuildVersion"></a>
-<a id="tocSbuildversion"></a>
-<a id="tocsbuildversion"></a>
+
+<a id='schemabuildversion'></a>
+<a id='schema_BuildVersion'></a>
+<a id='tocSbuildversion'></a>
+<a id='tocsbuildversion'></a>
 
 ```json
 {
@@ -12924,54 +12709,54 @@ References a box of an application.
   "major": 0,
   "minor": 0
 }
-
 ```
 
 BuildVersion contains the current algod build version information.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|branch|string|true|none|none|
-|build_number|integer(int64)|true|none|none|
-|channel|string|true|none|none|
-|commit_hash|string|true|none|none|
-|major|integer(int64)|true|none|none|
-|minor|integer(int64)|true|none|none|
-
+| Name         | Type           | Required | Restrictions | Description |
+| ------------ | -------------- | -------- | ------------ | ----------- |
+| branch       | string         | true     | none         | none        |
+| build_number | integer(int64) | true     | none         | none        |
+| channel      | string         | true     | none         | none        |
+| commit_hash  | string         | true     | none         | none        |
+| major        | integer(int64) | true     | none         | none        |
+| minor        | integer(int64) | true     | none         | none        |
 
 ### DebugSettingsProf
+
 <!-- backwards compatibility -->
-<a id="schemadebugsettingsprof"></a>
-<a id="schema_DebugSettingsProf"></a>
-<a id="tocSdebugsettingsprof"></a>
-<a id="tocsdebugsettingsprof"></a>
+
+<a id='schemadebugsettingsprof'></a>
+<a id='schema_DebugSettingsProf'></a>
+<a id='tocSdebugsettingsprof'></a>
+<a id='tocsdebugsettingsprof'></a>
 
 ```json
 {
   "block-rate": 1000,
   "mutex-rate": 1000
 }
-
 ```
 
 algod mutex and blocking profiling state.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|block-rate|integer|false|none|The rate of blocking events. The profiler aims to sample an average of one blocking event per rate nanoseconds spent blocked. To turn off profiling entirely, pass rate 0.|
-|mutex-rate|integer|false|none|The rate of mutex events. On average 1/rate events are reported. To turn off profiling entirely, pass rate 0|
-
+| Name       | Type    | Required | Restrictions | Description                                                                                                                                                                |
+| ---------- | ------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| block-rate | integer | false    | none         | The rate of blocking events. The profiler aims to sample an average of one blocking event per rate nanoseconds spent blocked. To turn off profiling entirely, pass rate 0. |
+| mutex-rate | integer | false    | none         | The rate of mutex events. On average 1/rate events are reported. To turn off profiling entirely, pass rate 0                                                               |
 
 ### DryrunRequest
+
 <!-- backwards compatibility -->
-<a id="schemadryrunrequest"></a>
-<a id="schema_DryrunRequest"></a>
-<a id="tocSdryrunrequest"></a>
-<a id="tocsdryrunrequest"></a>
+
+<a id='schemadryrunrequest'></a>
+<a id='schema_DryrunRequest'></a>
+<a id='tocSdryrunrequest'></a>
+<a id='tocsdryrunrequest'></a>
 
 ```json
 {
@@ -13129,34 +12914,32 @@ algod mutex and blocking profiling state.
       "txn-index": 0
     }
   ],
-  "txns": [
-    "string"
-  ]
+  "txns": ["string"]
 }
-
 ```
 
 Request data type for dryrun endpoint. Given the Transactions and simulated ledger state upload, run TEAL scripts and return debugging information.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|accounts|[[Account](#schemaaccount)]|true|none|[Account information at a given round.<br><br>Definition:<br>data/basics/userBalance.go : AccountData<br>]|
-|apps|[[Application](#schemaapplication)]|true|none|[Application index and its parameters]|
-|latest-timestamp|integer(int64)|true|none|LatestTimestamp is available to some TEAL scripts. Defaults to the latest confirmed timestamp this algod is attached to.|
-|protocol-version|string|true|none|ProtocolVersion specifies a specific version string to operate under, otherwise whatever the current protocol of the network this algod is running in.|
-|round|integer|true|none|Round is available to some TEAL scripts. Defaults to the current round on the network this algod is attached to.|
-|sources|[[DryrunSource](#schemadryrunsource)]|true|none|[DryrunSource is TEAL source text that gets uploaded, compiled, and inserted into transactions or application state.]|
-|txns|[string]|true|none|none|
-
+| Name             | Type                                  | Required | Restrictions | Description                                                                                                                                            |
+| ---------------- | ------------------------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| accounts         | [[Account](#schemaaccount)]           | true     | none         | [Account information at a given round.<br><br>Definition:<br>data/basics/userBalance.go : AccountData<br>]                                             |
+| apps             | [[Application](#schemaapplication)]   | true     | none         | [Application index and its parameters]                                                                                                                 |
+| latest-timestamp | integer(int64)                        | true     | none         | LatestTimestamp is available to some TEAL scripts. Defaults to the latest confirmed timestamp this algod is attached to.                               |
+| protocol-version | string                                | true     | none         | ProtocolVersion specifies a specific version string to operate under, otherwise whatever the current protocol of the network this algod is running in. |
+| round            | integer                               | true     | none         | Round is available to some TEAL scripts. Defaults to the current round on the network this algod is attached to.                                       |
+| sources          | [[DryrunSource](#schemadryrunsource)] | true     | none         | [DryrunSource is TEAL source text that gets uploaded, compiled, and inserted into transactions or application state.]                                  |
+| txns             | [string]                              | true     | none         | none                                                                                                                                                   |
 
 ### DryrunSource
+
 <!-- backwards compatibility -->
-<a id="schemadryrunsource"></a>
-<a id="schema_DryrunSource"></a>
-<a id="tocSdryrunsource"></a>
-<a id="tocsdryrunsource"></a>
+
+<a id='schemadryrunsource'></a>
+<a id='schema_DryrunSource'></a>
+<a id='tocSdryrunsource'></a>
+<a id='tocsdryrunsource'></a>
 
 ```json
 {
@@ -13165,27 +12948,27 @@ Request data type for dryrun endpoint. Given the Transactions and simulated ledg
   "source": "string",
   "txn-index": 0
 }
-
 ```
 
 DryrunSource is TEAL source text that gets uploaded, compiled, and inserted into transactions or application state.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|app-index|integer|true|none|none|
-|field-name|string|true|none|FieldName is what kind of sources this is. If lsig then it goes into the transactions[this.TxnIndex].LogicSig. If approv or clearp it goes into the Approval Program or Clear State Program of application[this.AppIndex].|
-|source|string|true|none|none|
-|txn-index|integer|true|none|none|
-
+| Name       | Type    | Required | Restrictions | Description                                                                                                                                                                                                                |
+| ---------- | ------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| app-index  | integer | true     | none         | none                                                                                                                                                                                                                       |
+| field-name | string  | true     | none         | FieldName is what kind of sources this is. If lsig then it goes into the transactions[this.TxnIndex].LogicSig. If approv or clearp it goes into the Approval Program or Clear State Program of application[this.AppIndex]. |
+| source     | string  | true     | none         | none                                                                                                                                                                                                                       |
+| txn-index  | integer | true     | none         | none                                                                                                                                                                                                                       |
 
 ### DryrunState
+
 <!-- backwards compatibility -->
-<a id="schemadryrunstate"></a>
-<a id="schema_DryrunState"></a>
-<a id="tocSdryrunstate"></a>
-<a id="tocsdryrunstate"></a>
+
+<a id='schemadryrunstate'></a>
+<a id='schema_DryrunState'></a>
+<a id='tocSdryrunstate'></a>
+<a id='tocsdryrunstate'></a>
 
 ```json
 {
@@ -13207,34 +12990,32 @@ DryrunSource is TEAL source text that gets uploaded, compiled, and inserted into
     }
   ]
 }
-
 ```
 
 Stores the TEAL eval step data
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|error|string|false|none|Evaluation error if any|
-|line|integer|true|none|Line number|
-|pc|integer|true|none|Program counter|
-|scratch|[[TealValue](#schematealvalue)]|false|none|[Represents a TEAL value.]|
-|stack|[[TealValue](#schematealvalue)]|true|none|[Represents a TEAL value.]|
-
+| Name    | Type                            | Required | Restrictions | Description                |
+| ------- | ------------------------------- | -------- | ------------ | -------------------------- |
+| error   | string                          | false    | none         | Evaluation error if any    |
+| line    | integer                         | true     | none         | Line number                |
+| pc      | integer                         | true     | none         | Program counter            |
+| scratch | [[TealValue](#schematealvalue)] | false    | none         | [Represents a TEAL value.] |
+| stack   | [[TealValue](#schematealvalue)] | true     | none         | [Represents a TEAL value.] |
 
 ### DryrunTxnResult
+
 <!-- backwards compatibility -->
-<a id="schemadryruntxnresult"></a>
-<a id="schema_DryrunTxnResult"></a>
-<a id="tocSdryruntxnresult"></a>
-<a id="tocsdryruntxnresult"></a>
+
+<a id='schemadryruntxnresult'></a>
+<a id='schema_DryrunTxnResult'></a>
+<a id='tocSdryruntxnresult'></a>
+<a id='tocsdryruntxnresult'></a>
 
 ```json
 {
-  "app-call-messages": [
-    "string"
-  ],
+  "app-call-messages": ["string"],
   "app-call-trace": [
     {
       "error": "string",
@@ -13258,9 +13039,7 @@ Stores the TEAL eval step data
   ],
   "budget-added": 0,
   "budget-consumed": 0,
-  "disassembly": [
-    "string"
-  ],
+  "disassembly": ["string"],
   "global-delta": [
     {
       "key": "string",
@@ -13286,12 +13065,8 @@ Stores the TEAL eval step data
       ]
     }
   ],
-  "logic-sig-disassembly": [
-    "string"
-  ],
-  "logic-sig-messages": [
-    "string"
-  ],
+  "logic-sig-disassembly": ["string"],
+  "logic-sig-messages": ["string"],
   "logic-sig-trace": [
     {
       "error": "string",
@@ -13313,63 +13088,61 @@ Stores the TEAL eval step data
       ]
     }
   ],
-  "logs": [
-    "string"
-  ]
+  "logs": ["string"]
 }
-
 ```
 
 DryrunTxnResult contains any LogicSig or ApplicationCall program debug information and state updates from a dryrun.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|app-call-messages|[string]|false|none|none|
-|app-call-trace|[[DryrunState](#schemadryrunstate)]|false|none|[Stores the TEAL eval step data]|
-|budget-added|integer|false|none|Budget added during execution of app call transaction.|
-|budget-consumed|integer|false|none|Budget consumed during execution of app call transaction.|
-|disassembly|[string]|true|none|Disassembled program line by line.|
-|global-delta|[StateDelta](#schemastatedelta)|false|none|Application state delta.|
-|local-deltas|[[AccountStateDelta](#schemaaccountstatedelta)]|false|none|[Application state delta.]|
-|logic-sig-disassembly|[string]|false|none|Disassembled lsig program line by line.|
-|logic-sig-messages|[string]|false|none|none|
-|logic-sig-trace|[[DryrunState](#schemadryrunstate)]|false|none|[Stores the TEAL eval step data]|
-|logs|[string]|false|none|none|
-
+| Name                  | Type                                            | Required | Restrictions | Description                                               |
+| --------------------- | ----------------------------------------------- | -------- | ------------ | --------------------------------------------------------- |
+| app-call-messages     | [string]                                        | false    | none         | none                                                      |
+| app-call-trace        | [[DryrunState](#schemadryrunstate)]             | false    | none         | [Stores the TEAL eval step data]                          |
+| budget-added          | integer                                         | false    | none         | Budget added during execution of app call transaction.    |
+| budget-consumed       | integer                                         | false    | none         | Budget consumed during execution of app call transaction. |
+| disassembly           | [string]                                        | true     | none         | Disassembled program line by line.                        |
+| global-delta          | [StateDelta](#schemastatedelta)                 | false    | none         | Application state delta.                                  |
+| local-deltas          | [[AccountStateDelta](#schemaaccountstatedelta)] | false    | none         | [Application state delta.]                                |
+| logic-sig-disassembly | [string]                                        | false    | none         | Disassembled lsig program line by line.                   |
+| logic-sig-messages    | [string]                                        | false    | none         | none                                                      |
+| logic-sig-trace       | [[DryrunState](#schemadryrunstate)]             | false    | none         | [Stores the TEAL eval step data]                          |
+| logs                  | [string]                                        | false    | none         | none                                                      |
 
 ### ErrorResponse
+
 <!-- backwards compatibility -->
-<a id="schemaerrorresponse"></a>
-<a id="schema_ErrorResponse"></a>
-<a id="tocSerrorresponse"></a>
-<a id="tocserrorresponse"></a>
+
+<a id='schemaerrorresponse'></a>
+<a id='schema_ErrorResponse'></a>
+<a id='tocSerrorresponse'></a>
+<a id='tocserrorresponse'></a>
 
 ```json
 {
   "data": {},
   "message": "string"
 }
-
 ```
 
 An error response with optional data field.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|data|object|false|none|none|
-|message|string|true|none|none|
-
+| Name    | Type   | Required | Restrictions | Description |
+| ------- | ------ | -------- | ------------ | ----------- |
+| data    | object | false    | none         | none        |
+| message | string | true     | none         | none        |
 
 ### EvalDelta
+
 <!-- backwards compatibility -->
-<a id="schemaevaldelta"></a>
-<a id="schema_EvalDelta"></a>
-<a id="tocSevaldelta"></a>
-<a id="tocsevaldelta"></a>
+
+<a id='schemaevaldelta'></a>
+<a id='schema_EvalDelta'></a>
+<a id='tocSevaldelta'></a>
+<a id='tocsevaldelta'></a>
 
 ```json
 {
@@ -13377,26 +13150,26 @@ An error response with optional data field.
   "bytes": "string",
   "uint": 0
 }
-
 ```
 
 Represents a TEAL value delta.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|action|integer|true|none|\[at\] delta action.|
-|bytes|string|false|none|\[bs\] bytes value.|
-|uint|integer|false|none|\[ui\] uint value.|
-
+| Name   | Type    | Required | Restrictions | Description          |
+| ------ | ------- | -------- | ------------ | -------------------- |
+| action | integer | true     | none         | \[at\] delta action. |
+| bytes  | string  | false    | none         | \[bs\] bytes value.  |
+| uint   | integer | false    | none         | \[ui\] uint value.   |
 
 ### EvalDeltaKeyValue
+
 <!-- backwards compatibility -->
-<a id="schemaevaldeltakeyvalue"></a>
-<a id="schema_EvalDeltaKeyValue"></a>
-<a id="tocSevaldeltakeyvalue"></a>
-<a id="tocsevaldeltakeyvalue"></a>
+
+<a id='schemaevaldeltakeyvalue'></a>
+<a id='schema_EvalDeltaKeyValue'></a>
+<a id='tocSevaldeltakeyvalue'></a>
+<a id='tocsevaldeltakeyvalue'></a>
 
 ```json
 {
@@ -13407,96 +13180,94 @@ Represents a TEAL value delta.
     "uint": 0
   }
 }
-
 ```
 
 Key-value pairs for StateDelta.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|key|string|true|none|none|
-|value|[EvalDelta](#schemaevaldelta)|true|none|Represents a TEAL value delta.|
-
+| Name  | Type                          | Required | Restrictions | Description                    |
+| ----- | ----------------------------- | -------- | ------------ | ------------------------------ |
+| key   | string                        | true     | none         | none                           |
+| value | [EvalDelta](#schemaevaldelta) | true     | none         | Represents a TEAL value delta. |
 
 ### KvDelta
+
 <!-- backwards compatibility -->
-<a id="schemakvdelta"></a>
-<a id="schema_KvDelta"></a>
-<a id="tocSkvdelta"></a>
-<a id="tocskvdelta"></a>
+
+<a id='schemakvdelta'></a>
+<a id='schema_KvDelta'></a>
+<a id='tocSkvdelta'></a>
+<a id='tocskvdelta'></a>
 
 ```json
 {
   "key": "string",
   "value": "string"
 }
-
 ```
 
 A single Delta containing the key, the previous value and the current value for a single round.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|key|string(byte)|false|none|The key, base64 encoded.|
-|value|string(byte)|false|none|The new value of the KV store entry, base64 encoded.|
-
+| Name  | Type         | Required | Restrictions | Description                                          |
+| ----- | ------------ | -------- | ------------ | ---------------------------------------------------- |
+| key   | string(byte) | false    | none         | The key, base64 encoded.                             |
+| value | string(byte) | false    | none         | The new value of the KV store entry, base64 encoded. |
 
 ### LedgerStateDelta
+
 <!-- backwards compatibility -->
-<a id="schemaledgerstatedelta"></a>
-<a id="schema_LedgerStateDelta"></a>
-<a id="tocSledgerstatedelta"></a>
-<a id="tocsledgerstatedelta"></a>
+
+<a id='schemaledgerstatedelta'></a>
+<a id='schema_LedgerStateDelta'></a>
+<a id='tocSledgerstatedelta'></a>
+<a id='tocsledgerstatedelta'></a>
 
 ```json
 {}
-
 ```
 
 Ledger StateDelta object
 
 #### Properties
 
-*None*
-
+_None_
 
 ### LedgerStateDeltaForTransactionGroup
+
 <!-- backwards compatibility -->
-<a id="schemaledgerstatedeltafortransactiongroup"></a>
-<a id="schema_LedgerStateDeltaForTransactionGroup"></a>
-<a id="tocSledgerstatedeltafortransactiongroup"></a>
-<a id="tocsledgerstatedeltafortransactiongroup"></a>
+
+<a id='schemaledgerstatedeltafortransactiongroup'></a>
+<a id='schema_LedgerStateDeltaForTransactionGroup'></a>
+<a id='tocSledgerstatedeltafortransactiongroup'></a>
+<a id='tocsledgerstatedeltafortransactiongroup'></a>
 
 ```json
 {
   "Delta": {},
-  "Ids": [
-    "string"
-  ]
+  "Ids": ["string"]
 }
-
 ```
 
 Contains a ledger delta for a single transaction group
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|Delta|[LedgerStateDelta](#schemaledgerstatedelta)|true|none|Ledger StateDelta object|
-|Ids|[string]|true|none|none|
-
+| Name  | Type                                        | Required | Restrictions | Description              |
+| ----- | ------------------------------------------- | -------- | ------------ | ------------------------ |
+| Delta | [LedgerStateDelta](#schemaledgerstatedelta) | true     | none         | Ledger StateDelta object |
+| Ids   | [string]                                    | true     | none         | none                     |
 
 ### LightBlockHeaderProof
+
 <!-- backwards compatibility -->
-<a id="schemalightblockheaderproof"></a>
-<a id="schema_LightBlockHeaderProof"></a>
-<a id="tocSlightblockheaderproof"></a>
-<a id="tocslightblockheaderproof"></a>
+
+<a id='schemalightblockheaderproof'></a>
+<a id='schema_LightBlockHeaderProof'></a>
+<a id='tocSlightblockheaderproof'></a>
+<a id='tocslightblockheaderproof'></a>
 
 ```json
 {
@@ -13504,26 +13275,26 @@ Contains a ledger delta for a single transaction group
   "proof": "string",
   "treedepth": 0
 }
-
 ```
 
 Proof of membership and position of a light block header.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|index|integer|true|none|The index of the light block header in the vector commitment tree|
-|proof|string(byte)|true|none|The encoded proof.|
-|treedepth|integer|true|none|Represents the depth of the tree that is being proven, i.e. the number of edges from a leaf to the root.|
-
+| Name      | Type         | Required | Restrictions | Description                                                                                              |
+| --------- | ------------ | -------- | ------------ | -------------------------------------------------------------------------------------------------------- |
+| index     | integer      | true     | none         | The index of the light block header in the vector commitment tree                                        |
+| proof     | string(byte) | true     | none         | The encoded proof.                                                                                       |
+| treedepth | integer      | true     | none         | Represents the depth of the tree that is being proven, i.e. the number of edges from a leaf to the root. |
 
 ### ParticipationKey
+
 <!-- backwards compatibility -->
-<a id="schemaparticipationkey"></a>
-<a id="schema_ParticipationKey"></a>
-<a id="tocSparticipationkey"></a>
-<a id="tocsparticipationkey"></a>
+
+<a id='schemaparticipationkey'></a>
+<a id='schema_ParticipationKey'></a>
+<a id='tocSparticipationkey'></a>
+<a id='tocsparticipationkey'></a>
 
 ```json
 {
@@ -13543,31 +13314,31 @@ Proof of membership and position of a light block header.
   "last-state-proof": 0,
   "last-vote": 0
 }
-
 ```
 
 Represents a participation key used by the node.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|address|string|true|none|Address the key was generated for.|
-|effective-first-valid|integer|false|none|When registered, this is the first round it may be used.|
-|effective-last-valid|integer|false|none|When registered, this is the last round it may be used.|
-|id|string|true|none|The key's ParticipationID.|
-|key|[AccountParticipation](#schemaaccountparticipation)|true|none|AccountParticipation describes the parameters used by this account in consensus protocol.|
-|last-block-proposal|integer|false|none|Round when this key was last used to propose a block.|
-|last-state-proof|integer|false|none|Round when this key was last used to generate a state proof.|
-|last-vote|integer|false|none|Round when this key was last used to vote.|
-
+| Name                  | Type                                                | Required | Restrictions | Description                                                                               |
+| --------------------- | --------------------------------------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------- |
+| address               | string                                              | true     | none         | Address the key was generated for.                                                        |
+| effective-first-valid | integer                                             | false    | none         | When registered, this is the first round it may be used.                                  |
+| effective-last-valid  | integer                                             | false    | none         | When registered, this is the last round it may be used.                                   |
+| id                    | string                                              | true     | none         | The key's ParticipationID.                                                                |
+| key                   | [AccountParticipation](#schemaaccountparticipation) | true     | none         | AccountParticipation describes the parameters used by this account in consensus protocol. |
+| last-block-proposal   | integer                                             | false    | none         | Round when this key was last used to propose a block.                                     |
+| last-state-proof      | integer                                             | false    | none         | Round when this key was last used to generate a state proof.                              |
+| last-vote             | integer                                             | false    | none         | Round when this key was last used to vote.                                                |
 
 ### PendingTransactionResponse
+
 <!-- backwards compatibility -->
-<a id="schemapendingtransactionresponse"></a>
-<a id="schema_PendingTransactionResponse"></a>
-<a id="tocSpendingtransactionresponse"></a>
-<a id="tocspendingtransactionresponse"></a>
+
+<a id='schemapendingtransactionresponse'></a>
+<a id='schema_PendingTransactionResponse'></a>
+<a id='tocSpendingtransactionresponse'></a>
+<a id='tocspendingtransactionresponse'></a>
 
 ```json
 {
@@ -13621,9 +13392,7 @@ Represents a participation key used by the node.
           ]
         }
       ],
-      "logs": [
-        "string"
-      ],
+      "logs": ["string"],
       "pool-error": "string",
       "receiver-rewards": 0,
       "sender-rewards": 0,
@@ -13645,45 +13414,43 @@ Represents a participation key used by the node.
       ]
     }
   ],
-  "logs": [
-    "string"
-  ],
+  "logs": ["string"],
   "pool-error": "string",
   "receiver-rewards": 0,
   "sender-rewards": 0,
   "txn": {}
 }
-
 ```
 
 Details about a pending transaction. If the transaction was recently confirmed, includes confirmation details like the round and reward details.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|application-index|integer|false|none|The application index if the transaction was found and it created an application.|
-|asset-closing-amount|integer|false|none|The number of the asset's unit that were transferred to the close-to address.|
-|asset-index|integer|false|none|The asset index if the transaction was found and it created an asset.|
-|close-rewards|integer|false|none|Rewards in microalgos applied to the close remainder to account.|
-|closing-amount|integer|false|none|Closing amount for the transaction.|
-|confirmed-round|integer|false|none|The round where this transaction was confirmed, if present.|
-|global-state-delta|[StateDelta](#schemastatedelta)|false|none|Application state delta.|
-|inner-txns|[[PendingTransactionResponse](#schemapendingtransactionresponse)]|false|none|Inner transactions produced by application execution.|
-|local-state-delta|[[AccountStateDelta](#schemaaccountstatedelta)]|false|none|Local state key/value changes for the application being executed by this transaction.|
-|logs|[string]|false|none|Logs for the application being executed by this transaction.|
-|pool-error|string|true|none|Indicates that the transaction was kicked out of this node's transaction pool (and specifies why that happened).  An empty string indicates the transaction wasn't kicked out of this node's txpool due to an error.|
-|receiver-rewards|integer|false|none|Rewards in microalgos applied to the receiver account.|
-|sender-rewards|integer|false|none|Rewards in microalgos applied to the sender account.|
-|txn|object|true|none|The raw signed transaction.|
-
+| Name                 | Type                                                              | Required | Restrictions | Description                                                                                                                                                                                                         |
+| -------------------- | ----------------------------------------------------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| application-index    | integer                                                           | false    | none         | The application index if the transaction was found and it created an application.                                                                                                                                   |
+| asset-closing-amount | integer                                                           | false    | none         | The number of the asset's unit that were transferred to the close-to address.                                                                                                                                       |
+| asset-index          | integer                                                           | false    | none         | The asset index if the transaction was found and it created an asset.                                                                                                                                               |
+| close-rewards        | integer                                                           | false    | none         | Rewards in microalgos applied to the close remainder to account.                                                                                                                                                    |
+| closing-amount       | integer                                                           | false    | none         | Closing amount for the transaction.                                                                                                                                                                                 |
+| confirmed-round      | integer                                                           | false    | none         | The round where this transaction was confirmed, if present.                                                                                                                                                         |
+| global-state-delta   | [StateDelta](#schemastatedelta)                                   | false    | none         | Application state delta.                                                                                                                                                                                            |
+| inner-txns           | [[PendingTransactionResponse](#schemapendingtransactionresponse)] | false    | none         | Inner transactions produced by application execution.                                                                                                                                                               |
+| local-state-delta    | [[AccountStateDelta](#schemaaccountstatedelta)]                   | false    | none         | Local state key/value changes for the application being executed by this transaction.                                                                                                                               |
+| logs                 | [string]                                                          | false    | none         | Logs for the application being executed by this transaction.                                                                                                                                                        |
+| pool-error           | string                                                            | true     | none         | Indicates that the transaction was kicked out of this node's transaction pool (and specifies why that happened). An empty string indicates the transaction wasn't kicked out of this node's txpool due to an error. |
+| receiver-rewards     | integer                                                           | false    | none         | Rewards in microalgos applied to the receiver account.                                                                                                                                                              |
+| sender-rewards       | integer                                                           | false    | none         | Rewards in microalgos applied to the sender account.                                                                                                                                                                |
+| txn                  | object                                                            | true     | none         | The raw signed transaction.                                                                                                                                                                                         |
 
 ### ScratchChange
+
 <!-- backwards compatibility -->
-<a id="schemascratchchange"></a>
-<a id="schema_ScratchChange"></a>
-<a id="tocSscratchchange"></a>
-<a id="tocsscratchchange"></a>
+
+<a id='schemascratchchange'></a>
+<a id='schema_ScratchChange'></a>
+<a id='tocSscratchchange'></a>
+<a id='tocsscratchchange'></a>
 
 ```json
 {
@@ -13694,25 +13461,25 @@ Details about a pending transaction. If the transaction was recently confirmed, 
   },
   "slot": 0
 }
-
 ```
 
 A write operation into a scratch slot.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|new-value|[AvmValue](#schemaavmvalue)|true|none|Represents an AVM value.|
-|slot|integer|true|none|The scratch slot written.|
-
+| Name      | Type                        | Required | Restrictions | Description               |
+| --------- | --------------------------- | -------- | ------------ | ------------------------- |
+| new-value | [AvmValue](#schemaavmvalue) | true     | none         | Represents an AVM value.  |
+| slot      | integer                     | true     | none         | The scratch slot written. |
 
 ### SimulateInitialStates
+
 <!-- backwards compatibility -->
-<a id="schemasimulateinitialstates"></a>
-<a id="schema_SimulateInitialStates"></a>
-<a id="tocSsimulateinitialstates"></a>
-<a id="tocssimulateinitialstates"></a>
+
+<a id='schemasimulateinitialstates'></a>
+<a id='schema_SimulateInitialStates'></a>
+<a id='tocSsimulateinitialstates'></a>
+<a id='tocssimulateinitialstates'></a>
 
 ```json
 {
@@ -13763,24 +13530,24 @@ A write operation into a scratch slot.
     }
   ]
 }
-
 ```
 
 Initial states of resources that were accessed during simulation.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|app-initial-states|[[ApplicationInitialStates](#schemaapplicationinitialstates)]|false|none|The initial states of accessed application before simulation. The order of this array is arbitrary.|
-
+| Name               | Type                                                          | Required | Restrictions | Description                                                                                         |
+| ------------------ | ------------------------------------------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------- |
+| app-initial-states | [[ApplicationInitialStates](#schemaapplicationinitialstates)] | false    | none         | The initial states of accessed application before simulation. The order of this array is arbitrary. |
 
 ### SimulateRequest
+
 <!-- backwards compatibility -->
-<a id="schemasimulaterequest"></a>
-<a id="schema_SimulateRequest"></a>
-<a id="tocSsimulaterequest"></a>
-<a id="tocssimulaterequest"></a>
+
+<a id='schemasimulaterequest'></a>
+<a id='schema_SimulateRequest'></a>
+<a id='tocSsimulaterequest'></a>
+<a id='tocssimulaterequest'></a>
 
 ```json
 {
@@ -13798,62 +13565,58 @@ Initial states of resources that were accessed during simulation.
   "round": 0,
   "txn-groups": [
     {
-      "txns": [
-        "string"
-      ]
+      "txns": ["string"]
     }
   ]
 }
-
 ```
 
 Request type for simulation endpoint.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|allow-empty-signatures|boolean|false|none|Allows transactions without signatures to be simulated as if they had correct signatures.|
-|allow-more-logging|boolean|false|none|Lifts limits on log opcode usage during simulation.|
-|allow-unnamed-resources|boolean|false|none|Allows access to unnamed resources during simulation.|
-|exec-trace-config|[SimulateTraceConfig](#schemasimulatetraceconfig)|false|none|An object that configures simulation execution trace.|
-|extra-opcode-budget|integer|false|none|Applies extra opcode budget during simulation for each transaction group.|
-|fix-signers|boolean|false|none|If true, signers for transactions that are missing signatures will be fixed during evaluation.|
-|round|integer|false|none|If provided, specifies the round preceding the simulation. State changes through this round will be used to run this simulation. Usually only the 4 most recent rounds will be available (controlled by the node config value MaxAcctLookback). If not specified, defaults to the latest available round.|
-|txn-groups|[[SimulateRequestTransactionGroup](#schemasimulaterequesttransactiongroup)]|true|none|The transaction groups to simulate.|
-
+| Name                    | Type                                                                        | Required | Restrictions | Description                                                                                                                                                                                                                                                                                               |
+| ----------------------- | --------------------------------------------------------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| allow-empty-signatures  | boolean                                                                     | false    | none         | Allows transactions without signatures to be simulated as if they had correct signatures.                                                                                                                                                                                                                 |
+| allow-more-logging      | boolean                                                                     | false    | none         | Lifts limits on log opcode usage during simulation.                                                                                                                                                                                                                                                       |
+| allow-unnamed-resources | boolean                                                                     | false    | none         | Allows access to unnamed resources during simulation.                                                                                                                                                                                                                                                     |
+| exec-trace-config       | [SimulateTraceConfig](#schemasimulatetraceconfig)                           | false    | none         | An object that configures simulation execution trace.                                                                                                                                                                                                                                                     |
+| extra-opcode-budget     | integer                                                                     | false    | none         | Applies extra opcode budget during simulation for each transaction group.                                                                                                                                                                                                                                 |
+| fix-signers             | boolean                                                                     | false    | none         | If true, signers for transactions that are missing signatures will be fixed during evaluation.                                                                                                                                                                                                            |
+| round                   | integer                                                                     | false    | none         | If provided, specifies the round preceding the simulation. State changes through this round will be used to run this simulation. Usually only the 4 most recent rounds will be available (controlled by the node config value MaxAcctLookback). If not specified, defaults to the latest available round. |
+| txn-groups              | [[SimulateRequestTransactionGroup](#schemasimulaterequesttransactiongroup)] | true     | none         | The transaction groups to simulate.                                                                                                                                                                                                                                                                       |
 
 ### SimulateRequestTransactionGroup
+
 <!-- backwards compatibility -->
-<a id="schemasimulaterequesttransactiongroup"></a>
-<a id="schema_SimulateRequestTransactionGroup"></a>
-<a id="tocSsimulaterequesttransactiongroup"></a>
-<a id="tocssimulaterequesttransactiongroup"></a>
+
+<a id='schemasimulaterequesttransactiongroup'></a>
+<a id='schema_SimulateRequestTransactionGroup'></a>
+<a id='tocSsimulaterequesttransactiongroup'></a>
+<a id='tocssimulaterequesttransactiongroup'></a>
 
 ```json
 {
-  "txns": [
-    "string"
-  ]
+  "txns": ["string"]
 }
-
 ```
 
 A transaction group to simulate.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|txns|[string]|true|none|An atomic transaction group.|
-
+| Name | Type     | Required | Restrictions | Description                  |
+| ---- | -------- | -------- | ------------ | ---------------------------- |
+| txns | [string] | true     | none         | An atomic transaction group. |
 
 ### SimulateTraceConfig
+
 <!-- backwards compatibility -->
-<a id="schemasimulatetraceconfig"></a>
-<a id="schema_SimulateTraceConfig"></a>
-<a id="tocSsimulatetraceconfig"></a>
-<a id="tocssimulatetraceconfig"></a>
+
+<a id='schemasimulatetraceconfig'></a>
+<a id='schema_SimulateTraceConfig'></a>
+<a id='tocSsimulatetraceconfig'></a>
+<a id='tocssimulatetraceconfig'></a>
 
 ```json
 {
@@ -13862,35 +13625,33 @@ A transaction group to simulate.
   "stack-change": true,
   "state-change": true
 }
-
 ```
 
 An object that configures simulation execution trace.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|enable|boolean|false|none|A boolean option for opting in execution trace features simulation endpoint.|
-|scratch-change|boolean|false|none|A boolean option enabling returning scratch slot changes together with execution trace during simulation.|
-|stack-change|boolean|false|none|A boolean option enabling returning stack changes together with execution trace during simulation.|
-|state-change|boolean|false|none|A boolean option enabling returning application state changes (global, local, and box changes) with the execution trace during simulation.|
-
+| Name           | Type    | Required | Restrictions | Description                                                                                                                                |
+| -------------- | ------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| enable         | boolean | false    | none         | A boolean option for opting in execution trace features simulation endpoint.                                                               |
+| scratch-change | boolean | false    | none         | A boolean option enabling returning scratch slot changes together with execution trace during simulation.                                  |
+| stack-change   | boolean | false    | none         | A boolean option enabling returning stack changes together with execution trace during simulation.                                         |
+| state-change   | boolean | false    | none         | A boolean option enabling returning application state changes (global, local, and box changes) with the execution trace during simulation. |
 
 ### SimulateTransactionGroupResult
+
 <!-- backwards compatibility -->
-<a id="schemasimulatetransactiongroupresult"></a>
-<a id="schema_SimulateTransactionGroupResult"></a>
-<a id="tocSsimulatetransactiongroupresult"></a>
-<a id="tocssimulatetransactiongroupresult"></a>
+
+<a id='schemasimulatetransactiongroupresult'></a>
+<a id='schema_SimulateTransactionGroupResult'></a>
+<a id='tocSsimulatetransactiongroupresult'></a>
+<a id='tocssimulatetransactiongroupresult'></a>
 
 ```json
 {
   "app-budget-added": 0,
   "app-budget-consumed": 0,
-  "failed-at": [
-    0
-  ],
+  "failed-at": [0],
   "failure-message": "string",
   "txn-results": [
     {
@@ -13910,9 +13671,7 @@ An object that configures simulation execution trace.
                 "slot": 0
               }
             ],
-            "spawned-inners": [
-              0
-            ],
+            "spawned-inners": [0],
             "stack-additions": [
               {
                 "bytes": "string",
@@ -13950,9 +13709,7 @@ An object that configures simulation execution trace.
                 "slot": 0
               }
             ],
-            "spawned-inners": [
-              0
-            ],
+            "spawned-inners": [0],
             "stack-additions": [
               {
                 "bytes": "string",
@@ -13978,9 +13735,7 @@ An object that configures simulation execution trace.
         ],
         "clear-state-rollback": true,
         "clear-state-rollback-error": "string",
-        "inner-trace": [
-          {}
-        ],
+        "inner-trace": [{}],
         "logic-sig-hash": "string",
         "logic-sig-trace": [
           {
@@ -13995,9 +13750,7 @@ An object that configures simulation execution trace.
                 "slot": 0
               }
             ],
-            "spawned-inners": [
-              0
-            ],
+            "spawned-inners": [0],
             "stack-additions": [
               {
                 "bytes": "string",
@@ -14041,9 +13794,7 @@ An object that configures simulation execution trace.
             }
           }
         ],
-        "inner-txns": [
-          {}
-        ],
+        "inner-txns": [{}],
         "local-state-delta": [
           {
             "address": "string",
@@ -14059,36 +13810,28 @@ An object that configures simulation execution trace.
             ]
           }
         ],
-        "logs": [
-          "string"
-        ],
+        "logs": ["string"],
         "pool-error": "string",
         "receiver-rewards": 0,
         "sender-rewards": 0,
         "txn": {}
       },
       "unnamed-resources-accessed": {
-        "accounts": [
-          "string"
-        ],
+        "accounts": ["string"],
         "app-locals": [
           {
             "account": "string",
             "app": 0
           }
         ],
-        "apps": [
-          0
-        ],
+        "apps": [0],
         "asset-holdings": [
           {
             "account": "string",
             "asset": 0
           }
         ],
-        "assets": [
-          0
-        ],
+        "assets": [0],
         "boxes": [
           {
             "app": 0,
@@ -14100,27 +13843,21 @@ An object that configures simulation execution trace.
     }
   ],
   "unnamed-resources-accessed": {
-    "accounts": [
-      "string"
-    ],
+    "accounts": ["string"],
     "app-locals": [
       {
         "account": "string",
         "app": 0
       }
     ],
-    "apps": [
-      0
-    ],
+    "apps": [0],
     "asset-holdings": [
       {
         "account": "string",
         "asset": 0
       }
     ],
-    "assets": [
-      0
-    ],
+    "assets": [0],
     "boxes": [
       {
         "app": 0,
@@ -14130,29 +13867,29 @@ An object that configures simulation execution trace.
     "extra-box-refs": 0
   }
 }
-
 ```
 
 Simulation result for an atomic transaction group
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|app-budget-added|integer|false|none|Total budget added during execution of app calls in the transaction group.|
-|app-budget-consumed|integer|false|none|Total budget consumed during execution of app calls in the transaction group.|
-|failed-at|[integer]|false|none|If present, indicates which transaction in this group caused the failure. This array represents the path to the failing transaction. Indexes are zero based, the first element indicates the top-level transaction, and successive elements indicate deeper inner transactions.|
-|failure-message|string|false|none|If present, indicates that the transaction group failed and specifies why that happened|
-|txn-results|[[SimulateTransactionResult](#schemasimulatetransactionresult)]|true|none|Simulation result for individual transactions|
-|unnamed-resources-accessed|[SimulateUnnamedResourcesAccessed](#schemasimulateunnamedresourcesaccessed)|false|none|These are resources that were accessed by this group that would normally have caused failure, but were allowed in simulation. Depending on where this object is in the response, the unnamed resources it contains may or may not qualify for group resource sharing. If this is a field in SimulateTransactionGroupResult, the resources do qualify, but if this is a field in SimulateTransactionResult, they do not qualify. In order to make this group valid for actual submission, resources that qualify for group sharing can be made available by any transaction of the group; otherwise, resources must be placed in the same transaction which accessed them.|
-
+| Name                       | Type                                                                        | Required | Restrictions | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| -------------------------- | --------------------------------------------------------------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| app-budget-added           | integer                                                                     | false    | none         | Total budget added during execution of app calls in the transaction group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| app-budget-consumed        | integer                                                                     | false    | none         | Total budget consumed during execution of app calls in the transaction group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| failed-at                  | [integer]                                                                   | false    | none         | If present, indicates which transaction in this group caused the failure. This array represents the path to the failing transaction. Indexes are zero based, the first element indicates the top-level transaction, and successive elements indicate deeper inner transactions.                                                                                                                                                                                                                                                                                                                                                                                           |
+| failure-message            | string                                                                      | false    | none         | If present, indicates that the transaction group failed and specifies why that happened                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| txn-results                | [[SimulateTransactionResult](#schemasimulatetransactionresult)]             | true     | none         | Simulation result for individual transactions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| unnamed-resources-accessed | [SimulateUnnamedResourcesAccessed](#schemasimulateunnamedresourcesaccessed) | false    | none         | These are resources that were accessed by this group that would normally have caused failure, but were allowed in simulation. Depending on where this object is in the response, the unnamed resources it contains may or may not qualify for group resource sharing. If this is a field in SimulateTransactionGroupResult, the resources do qualify, but if this is a field in SimulateTransactionResult, they do not qualify. In order to make this group valid for actual submission, resources that qualify for group sharing can be made available by any transaction of the group; otherwise, resources must be placed in the same transaction which accessed them. |
 
 ### SimulateTransactionResult
+
 <!-- backwards compatibility -->
-<a id="schemasimulatetransactionresult"></a>
-<a id="schema_SimulateTransactionResult"></a>
-<a id="tocSsimulatetransactionresult"></a>
-<a id="tocssimulatetransactionresult"></a>
+
+<a id='schemasimulatetransactionresult'></a>
+<a id='schema_SimulateTransactionResult'></a>
+<a id='tocSsimulatetransactionresult'></a>
+<a id='tocssimulatetransactionresult'></a>
 
 ```json
 {
@@ -14172,9 +13909,7 @@ Simulation result for an atomic transaction group
             "slot": 0
           }
         ],
-        "spawned-inners": [
-          0
-        ],
+        "spawned-inners": [0],
         "stack-additions": [
           {
             "bytes": "string",
@@ -14212,9 +13947,7 @@ Simulation result for an atomic transaction group
             "slot": 0
           }
         ],
-        "spawned-inners": [
-          0
-        ],
+        "spawned-inners": [0],
         "stack-additions": [
           {
             "bytes": "string",
@@ -14240,9 +13973,7 @@ Simulation result for an atomic transaction group
     ],
     "clear-state-rollback": true,
     "clear-state-rollback-error": "string",
-    "inner-trace": [
-      {}
-    ],
+    "inner-trace": [{}],
     "logic-sig-hash": "string",
     "logic-sig-trace": [
       {
@@ -14257,9 +13988,7 @@ Simulation result for an atomic transaction group
             "slot": 0
           }
         ],
-        "spawned-inners": [
-          0
-        ],
+        "spawned-inners": [0],
         "stack-additions": [
           {
             "bytes": "string",
@@ -14303,9 +14032,7 @@ Simulation result for an atomic transaction group
         }
       }
     ],
-    "inner-txns": [
-      {}
-    ],
+    "inner-txns": [{}],
     "local-state-delta": [
       {
         "address": "string",
@@ -14321,36 +14048,28 @@ Simulation result for an atomic transaction group
         ]
       }
     ],
-    "logs": [
-      "string"
-    ],
+    "logs": ["string"],
     "pool-error": "string",
     "receiver-rewards": 0,
     "sender-rewards": 0,
     "txn": {}
   },
   "unnamed-resources-accessed": {
-    "accounts": [
-      "string"
-    ],
+    "accounts": ["string"],
     "app-locals": [
       {
         "account": "string",
         "app": 0
       }
     ],
-    "apps": [
-      0
-    ],
+    "apps": [0],
     "asset-holdings": [
       {
         "account": "string",
         "asset": 0
       }
     ],
-    "assets": [
-      0
-    ],
+    "assets": [0],
     "boxes": [
       {
         "app": 0,
@@ -14360,53 +14079,47 @@ Simulation result for an atomic transaction group
     "extra-box-refs": 0
   }
 }
-
 ```
 
 Simulation result for an individual transaction
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|app-budget-consumed|integer|false|none|Budget used during execution of an app call transaction. This value includes budged used by inner app calls spawned by this transaction.|
-|exec-trace|[SimulationTransactionExecTrace](#schemasimulationtransactionexectrace)|false|none|The execution trace of calling an app or a logic sig, containing the inner app call trace in a recursive way.|
-|fixed-signer|string|false|none|The account that needed to sign this transaction when no signature was provided and the provided signer was incorrect.|
-|logic-sig-budget-consumed|integer|false|none|Budget used during execution of a logic sig transaction.|
-|txn-result|[PendingTransactionResponse](#schemapendingtransactionresponse)|true|none|Details about a pending transaction. If the transaction was recently confirmed, includes confirmation details like the round and reward details.|
-|unnamed-resources-accessed|[SimulateUnnamedResourcesAccessed](#schemasimulateunnamedresourcesaccessed)|false|none|These are resources that were accessed by this group that would normally have caused failure, but were allowed in simulation. Depending on where this object is in the response, the unnamed resources it contains may or may not qualify for group resource sharing. If this is a field in SimulateTransactionGroupResult, the resources do qualify, but if this is a field in SimulateTransactionResult, they do not qualify. In order to make this group valid for actual submission, resources that qualify for group sharing can be made available by any transaction of the group; otherwise, resources must be placed in the same transaction which accessed them.|
-
+| Name                       | Type                                                                        | Required | Restrictions | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| -------------------------- | --------------------------------------------------------------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| app-budget-consumed        | integer                                                                     | false    | none         | Budget used during execution of an app call transaction. This value includes budged used by inner app calls spawned by this transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| exec-trace                 | [SimulationTransactionExecTrace](#schemasimulationtransactionexectrace)     | false    | none         | The execution trace of calling an app or a logic sig, containing the inner app call trace in a recursive way.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| fixed-signer               | string                                                                      | false    | none         | The account that needed to sign this transaction when no signature was provided and the provided signer was incorrect.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| logic-sig-budget-consumed  | integer                                                                     | false    | none         | Budget used during execution of a logic sig transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| txn-result                 | [PendingTransactionResponse](#schemapendingtransactionresponse)             | true     | none         | Details about a pending transaction. If the transaction was recently confirmed, includes confirmation details like the round and reward details.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| unnamed-resources-accessed | [SimulateUnnamedResourcesAccessed](#schemasimulateunnamedresourcesaccessed) | false    | none         | These are resources that were accessed by this group that would normally have caused failure, but were allowed in simulation. Depending on where this object is in the response, the unnamed resources it contains may or may not qualify for group resource sharing. If this is a field in SimulateTransactionGroupResult, the resources do qualify, but if this is a field in SimulateTransactionResult, they do not qualify. In order to make this group valid for actual submission, resources that qualify for group sharing can be made available by any transaction of the group; otherwise, resources must be placed in the same transaction which accessed them. |
 
 ### SimulateUnnamedResourcesAccessed
+
 <!-- backwards compatibility -->
-<a id="schemasimulateunnamedresourcesaccessed"></a>
-<a id="schema_SimulateUnnamedResourcesAccessed"></a>
-<a id="tocSsimulateunnamedresourcesaccessed"></a>
-<a id="tocssimulateunnamedresourcesaccessed"></a>
+
+<a id='schemasimulateunnamedresourcesaccessed'></a>
+<a id='schema_SimulateUnnamedResourcesAccessed'></a>
+<a id='tocSsimulateunnamedresourcesaccessed'></a>
+<a id='tocssimulateunnamedresourcesaccessed'></a>
 
 ```json
 {
-  "accounts": [
-    "string"
-  ],
+  "accounts": ["string"],
   "app-locals": [
     {
       "account": "string",
       "app": 0
     }
   ],
-  "apps": [
-    0
-  ],
+  "apps": [0],
   "asset-holdings": [
     {
       "account": "string",
       "asset": 0
     }
   ],
-  "assets": [
-    0
-  ],
+  "assets": [0],
   "boxes": [
     {
       "app": 0,
@@ -14415,30 +14128,30 @@ Simulation result for an individual transaction
   ],
   "extra-box-refs": 0
 }
-
 ```
 
 These are resources that were accessed by this group that would normally have caused failure, but were allowed in simulation. Depending on where this object is in the response, the unnamed resources it contains may or may not qualify for group resource sharing. If this is a field in SimulateTransactionGroupResult, the resources do qualify, but if this is a field in SimulateTransactionResult, they do not qualify. In order to make this group valid for actual submission, resources that qualify for group sharing can be made available by any transaction of the group; otherwise, resources must be placed in the same transaction which accessed them.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|accounts|[string]|false|none|The unnamed accounts that were referenced. The order of this array is arbitrary.|
-|app-locals|[[ApplicationLocalReference](#schemaapplicationlocalreference)]|false|none|The unnamed application local states that were referenced. The order of this array is arbitrary.|
-|apps|[integer]|false|none|The unnamed applications that were referenced. The order of this array is arbitrary.|
-|asset-holdings|[[AssetHoldingReference](#schemaassetholdingreference)]|false|none|The unnamed asset holdings that were referenced. The order of this array is arbitrary.|
-|assets|[integer]|false|none|The unnamed assets that were referenced. The order of this array is arbitrary.|
-|boxes|[[BoxReference](#schemaboxreference)]|false|none|The unnamed boxes that were referenced. The order of this array is arbitrary.|
-|extra-box-refs|integer|false|none|The number of extra box references used to increase the IO budget. This is in addition to the references defined in the input transaction group and any referenced to unnamed boxes.|
-
+| Name           | Type                                                            | Required | Restrictions | Description                                                                                                                                                                          |
+| -------------- | --------------------------------------------------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| accounts       | [string]                                                        | false    | none         | The unnamed accounts that were referenced. The order of this array is arbitrary.                                                                                                     |
+| app-locals     | [[ApplicationLocalReference](#schemaapplicationlocalreference)] | false    | none         | The unnamed application local states that were referenced. The order of this array is arbitrary.                                                                                     |
+| apps           | [integer]                                                       | false    | none         | The unnamed applications that were referenced. The order of this array is arbitrary.                                                                                                 |
+| asset-holdings | [[AssetHoldingReference](#schemaassetholdingreference)]         | false    | none         | The unnamed asset holdings that were referenced. The order of this array is arbitrary.                                                                                               |
+| assets         | [integer]                                                       | false    | none         | The unnamed assets that were referenced. The order of this array is arbitrary.                                                                                                       |
+| boxes          | [[BoxReference](#schemaboxreference)]                           | false    | none         | The unnamed boxes that were referenced. The order of this array is arbitrary.                                                                                                        |
+| extra-box-refs | integer                                                         | false    | none         | The number of extra box references used to increase the IO budget. This is in addition to the references defined in the input transaction group and any referenced to unnamed boxes. |
 
 ### SimulationEvalOverrides
+
 <!-- backwards compatibility -->
-<a id="schemasimulationevaloverrides"></a>
-<a id="schema_SimulationEvalOverrides"></a>
-<a id="tocSsimulationevaloverrides"></a>
-<a id="tocssimulationevaloverrides"></a>
+
+<a id='schemasimulationevaloverrides'></a>
+<a id='schema_SimulationEvalOverrides'></a>
+<a id='tocSsimulationevaloverrides'></a>
+<a id='tocssimulationevaloverrides'></a>
 
 ```json
 {
@@ -14449,29 +14162,29 @@ These are resources that were accessed by this group that would normally have ca
   "max-log-calls": 0,
   "max-log-size": 0
 }
-
 ```
 
 The set of parameters and limits override during simulation. If this set of parameters is present, then evaluation parameters may differ from standard evaluation in certain ways.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|allow-empty-signatures|boolean|false|none|If true, transactions without signatures are allowed and simulated as if they were properly signed.|
-|allow-unnamed-resources|boolean|false|none|If true, allows access to unnamed resources during simulation.|
-|extra-opcode-budget|integer|false|none|The extra opcode budget added to each transaction group during simulation|
-|fix-signers|boolean|false|none|If true, signers for transactions that are missing signatures will be fixed during evaluation.|
-|max-log-calls|integer|false|none|The maximum log calls one can make during simulation|
-|max-log-size|integer|false|none|The maximum byte number to log during simulation|
-
+| Name                    | Type    | Required | Restrictions | Description                                                                                         |
+| ----------------------- | ------- | -------- | ------------ | --------------------------------------------------------------------------------------------------- |
+| allow-empty-signatures  | boolean | false    | none         | If true, transactions without signatures are allowed and simulated as if they were properly signed. |
+| allow-unnamed-resources | boolean | false    | none         | If true, allows access to unnamed resources during simulation.                                      |
+| extra-opcode-budget     | integer | false    | none         | The extra opcode budget added to each transaction group during simulation                           |
+| fix-signers             | boolean | false    | none         | If true, signers for transactions that are missing signatures will be fixed during evaluation.      |
+| max-log-calls           | integer | false    | none         | The maximum log calls one can make during simulation                                                |
+| max-log-size            | integer | false    | none         | The maximum byte number to log during simulation                                                    |
 
 ### SimulationOpcodeTraceUnit
+
 <!-- backwards compatibility -->
-<a id="schemasimulationopcodetraceunit"></a>
-<a id="schema_SimulationOpcodeTraceUnit"></a>
-<a id="tocSsimulationopcodetraceunit"></a>
-<a id="tocssimulationopcodetraceunit"></a>
+
+<a id='schemasimulationopcodetraceunit'></a>
+<a id='schema_SimulationOpcodeTraceUnit'></a>
+<a id='tocSsimulationopcodetraceunit'></a>
+<a id='tocssimulationopcodetraceunit'></a>
 
 ```json
 {
@@ -14486,9 +14199,7 @@ The set of parameters and limits override during simulation. If this set of para
       "slot": 0
     }
   ],
-  "spawned-inners": [
-    0
-  ],
+  "spawned-inners": [0],
   "stack-additions": [
     {
       "bytes": "string",
@@ -14511,29 +14222,29 @@ The set of parameters and limits override during simulation. If this set of para
     }
   ]
 }
-
 ```
 
 The set of trace information and effect from evaluating a single opcode.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|pc|integer|true|none|The program counter of the current opcode being evaluated.|
-|scratch-changes|[[ScratchChange](#schemascratchchange)]|false|none|The writes into scratch slots.|
-|spawned-inners|[integer]|false|none|The indexes of the traces for inner transactions spawned by this opcode, if any.|
-|stack-additions|[[AvmValue](#schemaavmvalue)]|false|none|The values added by this opcode to the stack.|
-|stack-pop-count|integer|false|none|The number of deleted stack values by this opcode.|
-|state-changes|[[ApplicationStateOperation](#schemaapplicationstateoperation)]|false|none|The operations against the current application's states.|
-
+| Name            | Type                                                            | Required | Restrictions | Description                                                                      |
+| --------------- | --------------------------------------------------------------- | -------- | ------------ | -------------------------------------------------------------------------------- |
+| pc              | integer                                                         | true     | none         | The program counter of the current opcode being evaluated.                       |
+| scratch-changes | [[ScratchChange](#schemascratchchange)]                         | false    | none         | The writes into scratch slots.                                                   |
+| spawned-inners  | [integer]                                                       | false    | none         | The indexes of the traces for inner transactions spawned by this opcode, if any. |
+| stack-additions | [[AvmValue](#schemaavmvalue)]                                   | false    | none         | The values added by this opcode to the stack.                                    |
+| stack-pop-count | integer                                                         | false    | none         | The number of deleted stack values by this opcode.                               |
+| state-changes   | [[ApplicationStateOperation](#schemaapplicationstateoperation)] | false    | none         | The operations against the current application's states.                         |
 
 ### SimulationTransactionExecTrace
+
 <!-- backwards compatibility -->
-<a id="schemasimulationtransactionexectrace"></a>
-<a id="schema_SimulationTransactionExecTrace"></a>
-<a id="tocSsimulationtransactionexectrace"></a>
-<a id="tocssimulationtransactionexectrace"></a>
+
+<a id='schemasimulationtransactionexectrace'></a>
+<a id='schema_SimulationTransactionExecTrace'></a>
+<a id='tocSsimulationtransactionexectrace'></a>
+<a id='tocssimulationtransactionexectrace'></a>
 
 ```json
 {
@@ -14551,9 +14262,7 @@ The set of trace information and effect from evaluating a single opcode.
           "slot": 0
         }
       ],
-      "spawned-inners": [
-        0
-      ],
+      "spawned-inners": [0],
       "stack-additions": [
         {
           "bytes": "string",
@@ -14591,9 +14300,7 @@ The set of trace information and effect from evaluating a single opcode.
           "slot": 0
         }
       ],
-      "spawned-inners": [
-        0
-      ],
+      "spawned-inners": [0],
       "stack-additions": [
         {
           "bytes": "string",
@@ -14635,9 +14342,7 @@ The set of trace information and effect from evaluating a single opcode.
               "slot": 0
             }
           ],
-          "spawned-inners": [
-            0
-          ],
+          "spawned-inners": [0],
           "stack-additions": [
             {
               "bytes": "string",
@@ -14675,9 +14380,7 @@ The set of trace information and effect from evaluating a single opcode.
               "slot": 0
             }
           ],
-          "spawned-inners": [
-            0
-          ],
+          "spawned-inners": [0],
           "stack-additions": [
             {
               "bytes": "string",
@@ -14718,9 +14421,7 @@ The set of trace information and effect from evaluating a single opcode.
               "slot": 0
             }
           ],
-          "spawned-inners": [
-            0
-          ],
+          "spawned-inners": [0],
           "stack-additions": [
             {
               "bytes": "string",
@@ -14760,9 +14461,7 @@ The set of trace information and effect from evaluating a single opcode.
           "slot": 0
         }
       ],
-      "spawned-inners": [
-        0
-      ],
+      "spawned-inners": [0],
       "stack-additions": [
         {
           "bytes": "string",
@@ -14787,32 +14486,32 @@ The set of trace information and effect from evaluating a single opcode.
     }
   ]
 }
-
 ```
 
 The execution trace of calling an app or a logic sig, containing the inner app call trace in a recursive way.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|approval-program-hash|string(byte)|false|none|SHA512_256 hash digest of the approval program executed in transaction.|
-|approval-program-trace|[[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]|false|none|Program trace that contains a trace of opcode effects in an approval program.|
-|clear-state-program-hash|string(byte)|false|none|SHA512_256 hash digest of the clear state program executed in transaction.|
-|clear-state-program-trace|[[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]|false|none|Program trace that contains a trace of opcode effects in a clear state program.|
-|clear-state-rollback|boolean|false|none|If true, indicates that the clear state program failed and any persistent state changes it produced should be reverted once the program exits.|
-|clear-state-rollback-error|string|false|none|The error message explaining why the clear state program failed. This field will only be populated if clear-state-rollback is true and the failure was due to an execution error.|
-|inner-trace|[[SimulationTransactionExecTrace](#schemasimulationtransactionexectrace)]|false|none|An array of SimulationTransactionExecTrace representing the execution trace of any inner transactions executed.|
-|logic-sig-hash|string(byte)|false|none|SHA512_256 hash digest of the logic sig executed in transaction.|
-|logic-sig-trace|[[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]|false|none|Program trace that contains a trace of opcode effects in a logic sig.|
-
+| Name                       | Type                                                                      | Required | Restrictions | Description                                                                                                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| approval-program-hash      | string(byte)                                                              | false    | none         | SHA512_256 hash digest of the approval program executed in transaction.                                                                                                           |
+| approval-program-trace     | [[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]           | false    | none         | Program trace that contains a trace of opcode effects in an approval program.                                                                                                     |
+| clear-state-program-hash   | string(byte)                                                              | false    | none         | SHA512_256 hash digest of the clear state program executed in transaction.                                                                                                        |
+| clear-state-program-trace  | [[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]           | false    | none         | Program trace that contains a trace of opcode effects in a clear state program.                                                                                                   |
+| clear-state-rollback       | boolean                                                                   | false    | none         | If true, indicates that the clear state program failed and any persistent state changes it produced should be reverted once the program exits.                                    |
+| clear-state-rollback-error | string                                                                    | false    | none         | The error message explaining why the clear state program failed. This field will only be populated if clear-state-rollback is true and the failure was due to an execution error. |
+| inner-trace                | [[SimulationTransactionExecTrace](#schemasimulationtransactionexectrace)] | false    | none         | An array of SimulationTransactionExecTrace representing the execution trace of any inner transactions executed.                                                                   |
+| logic-sig-hash             | string(byte)                                                              | false    | none         | SHA512_256 hash digest of the logic sig executed in transaction.                                                                                                                  |
+| logic-sig-trace            | [[SimulationOpcodeTraceUnit](#schemasimulationopcodetraceunit)]           | false    | none         | Program trace that contains a trace of opcode effects in a logic sig.                                                                                                             |
 
 ### StateDelta
+
 <!-- backwards compatibility -->
-<a id="schemastatedelta"></a>
-<a id="schema_StateDelta"></a>
-<a id="tocSstatedelta"></a>
-<a id="tocsstatedelta"></a>
+
+<a id='schemastatedelta'></a>
+<a id='schema_StateDelta'></a>
+<a id='tocSstatedelta'></a>
+<a id='tocsstatedelta'></a>
 
 ```json
 [
@@ -14825,24 +14524,24 @@ The execution trace of calling an app or a logic sig, containing the inner app c
     }
   }
 ]
-
 ```
 
 Application state delta.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[EvalDeltaKeyValue](#schemaevaldeltakeyvalue)]|false|none|Application state delta.|
-
+| Name        | Type                                            | Required | Restrictions | Description              |
+| ----------- | ----------------------------------------------- | -------- | ------------ | ------------------------ |
+| _anonymous_ | [[EvalDeltaKeyValue](#schemaevaldeltakeyvalue)] | false    | none         | Application state delta. |
 
 ### StateProof
+
 <!-- backwards compatibility -->
-<a id="schemastateproof"></a>
-<a id="schema_StateProof"></a>
-<a id="tocSstateproof"></a>
-<a id="tocsstateproof"></a>
+
+<a id='schemastateproof'></a>
+<a id='schema_StateProof'></a>
+<a id='tocSstateproof'></a>
+<a id='tocsstateproof'></a>
 
 ```json
 {
@@ -14855,25 +14554,25 @@ Application state delta.
   },
   "StateProof": "string"
 }
-
 ```
 
 Represents a state proof and its corresponding message
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|Message|[StateProofMessage](#schemastateproofmessage)|true|none|Represents the message that the state proofs are attesting to.|
-|StateProof|string(byte)|true|none|The encoded StateProof for the message.|
-
+| Name       | Type                                          | Required | Restrictions | Description                                                    |
+| ---------- | --------------------------------------------- | -------- | ------------ | -------------------------------------------------------------- |
+| Message    | [StateProofMessage](#schemastateproofmessage) | true     | none         | Represents the message that the state proofs are attesting to. |
+| StateProof | string(byte)                                  | true     | none         | The encoded StateProof for the message.                        |
 
 ### StateProofMessage
+
 <!-- backwards compatibility -->
-<a id="schemastateproofmessage"></a>
-<a id="schema_StateProofMessage"></a>
-<a id="tocSstateproofmessage"></a>
-<a id="tocsstateproofmessage"></a>
+
+<a id='schemastateproofmessage'></a>
+<a id='schema_StateProofMessage'></a>
+<a id='tocSstateproofmessage'></a>
+<a id='tocsstateproofmessage'></a>
 
 ```json
 {
@@ -14883,28 +14582,28 @@ Represents a state proof and its corresponding message
   "LnProvenWeight": 0,
   "VotersCommitment": "string"
 }
-
 ```
 
 Represents the message that the state proofs are attesting to.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|BlockHeadersCommitment|string(byte)|true|none|The vector commitment root on all light block headers within a state proof interval.|
-|FirstAttestedRound|integer|true|none|The first round the message attests to.|
-|LastAttestedRound|integer|true|none|The last round the message attests to.|
-|LnProvenWeight|integer|true|none|An integer value representing the natural log of the proven weight with 16 bits of precision. This value would be used to verify the next state proof.|
-|VotersCommitment|string(byte)|true|none|The vector commitment root of the top N accounts to sign the next StateProof.|
-
+| Name                   | Type         | Required | Restrictions | Description                                                                                                                                            |
+| ---------------------- | ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| BlockHeadersCommitment | string(byte) | true     | none         | The vector commitment root on all light block headers within a state proof interval.                                                                   |
+| FirstAttestedRound     | integer      | true     | none         | The first round the message attests to.                                                                                                                |
+| LastAttestedRound      | integer      | true     | none         | The last round the message attests to.                                                                                                                 |
+| LnProvenWeight         | integer      | true     | none         | An integer value representing the natural log of the proven weight with 16 bits of precision. This value would be used to verify the next state proof. |
+| VotersCommitment       | string(byte) | true     | none         | The vector commitment root of the top N accounts to sign the next StateProof.                                                                          |
 
 ### TealKeyValue
+
 <!-- backwards compatibility -->
-<a id="schematealkeyvalue"></a>
-<a id="schema_TealKeyValue"></a>
-<a id="tocStealkeyvalue"></a>
-<a id="tocstealkeyvalue"></a>
+
+<a id='schematealkeyvalue'></a>
+<a id='schema_TealKeyValue'></a>
+<a id='tocStealkeyvalue'></a>
+<a id='tocstealkeyvalue'></a>
 
 ```json
 {
@@ -14915,25 +14614,25 @@ Represents the message that the state proofs are attesting to.
     "uint": 0
   }
 }
-
 ```
 
 Represents a key-value pair in an application store.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|key|string|true|none|none|
-|value|[TealValue](#schematealvalue)|true|none|Represents a TEAL value.|
-
+| Name  | Type                          | Required | Restrictions | Description              |
+| ----- | ----------------------------- | -------- | ------------ | ------------------------ |
+| key   | string                        | true     | none         | none                     |
+| value | [TealValue](#schematealvalue) | true     | none         | Represents a TEAL value. |
 
 ### TealKeyValueStore
+
 <!-- backwards compatibility -->
-<a id="schematealkeyvaluestore"></a>
-<a id="schema_TealKeyValueStore"></a>
-<a id="tocStealkeyvaluestore"></a>
-<a id="tocstealkeyvaluestore"></a>
+
+<a id='schematealkeyvaluestore'></a>
+<a id='schema_TealKeyValueStore'></a>
+<a id='tocStealkeyvaluestore'></a>
+<a id='tocstealkeyvaluestore'></a>
 
 ```json
 [
@@ -14946,24 +14645,24 @@ Represents a key-value pair in an application store.
     }
   }
 ]
-
 ```
 
 Represents a key-value store for use in an application.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[TealKeyValue](#schematealkeyvalue)]|false|none|Represents a key-value store for use in an application.|
-
+| Name        | Type                                  | Required | Restrictions | Description                                             |
+| ----------- | ------------------------------------- | -------- | ------------ | ------------------------------------------------------- |
+| _anonymous_ | [[TealKeyValue](#schematealkeyvalue)] | false    | none         | Represents a key-value store for use in an application. |
 
 ### TealValue
+
 <!-- backwards compatibility -->
-<a id="schematealvalue"></a>
-<a id="schema_TealValue"></a>
-<a id="tocStealvalue"></a>
-<a id="tocstealvalue"></a>
+
+<a id='schematealvalue'></a>
+<a id='schema_TealValue'></a>
+<a id='tocStealvalue'></a>
+<a id='tocstealvalue'></a>
 
 ```json
 {
@@ -14971,26 +14670,26 @@ Represents a key-value store for use in an application.
   "type": 0,
   "uint": 0
 }
-
 ```
 
 Represents a TEAL value.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|bytes|string|true|none|\[tb\] bytes value.|
-|type|integer|true|none|\[tt\] value type. Value `1` refers to **bytes**, value `2` refers to **uint**|
-|uint|integer|true|none|\[ui\] uint value.|
-
+| Name  | Type    | Required | Restrictions | Description                                                                    |
+| ----- | ------- | -------- | ------------ | ------------------------------------------------------------------------------ |
+| bytes | string  | true     | none         | \[tb\] bytes value.                                                            |
+| type  | integer | true     | none         | \[tt\] value type. Value `1` refers to **bytes**, value `2` refers to **uint** |
+| uint  | integer | true     | none         | \[ui\] uint value.                                                             |
 
 ### Version
+
 <!-- backwards compatibility -->
-<a id="schemaversion"></a>
-<a id="schema_Version"></a>
-<a id="tocSversion"></a>
-<a id="tocsversion"></a>
+
+<a id='schemaversion'></a>
+<a id='schema_Version'></a>
+<a id='tocSversion'></a>
+<a id='tocsversion'></a>
 
 ```json
 {
@@ -15004,21 +14703,17 @@ Represents a TEAL value.
   },
   "genesis_hash_b64": "string",
   "genesis_id": "string",
-  "versions": [
-    "string"
-  ]
+  "versions": ["string"]
 }
-
 ```
 
 Version contains the current algod version.
 
 #### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|build|[BuildVersion](#schemabuildversion)|true|none|none|
-|genesis_hash_b64|string(byte)|true|none|none|
-|genesis_id|string|true|none|none|
-|versions|[string]|true|none|none|
-
+| Name             | Type                                | Required | Restrictions | Description |
+| ---------------- | ----------------------------------- | -------- | ------------ | ----------- |
+| build            | [BuildVersion](#schemabuildversion) | true     | none         | none        |
+| genesis_hash_b64 | string(byte)                        | true     | none         | none        |
+| genesis_id       | string                              | true     | none         | none        |
+| versions         | [string]                            | true     | none         | none        |

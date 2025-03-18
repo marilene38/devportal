@@ -13,20 +13,32 @@ const execAsync = promisify(exec);
 const apiDocs = [
   {
     name: 'algod',
-    schemaUrl: 'https://raw.githubusercontent.com/algorand/go-algorand/refs/heads/master/daemon/algod/api/algod.oas3.yml',
-    outputFile: path.resolve(process.cwd(), 'src/content/docs/reference/rest-api/algod.md'),
+    schemaUrl:
+      'https://raw.githubusercontent.com/algorand/go-algorand/refs/heads/master/daemon/algod/api/algod.oas3.yml',
+    outputFile: path.resolve(
+      process.cwd(),
+      'src/content/docs/reference/rest-api/algod.md',
+    ),
     pageTitle: 'Algod API',
   },
   {
     name: 'indexer',
-    schemaUrl: 'https://raw.githubusercontent.com/algorand/indexer/refs/heads/main/api/indexer.oas3.yml',
-    outputFile: path.resolve(process.cwd(), 'src/content/docs/reference/rest-api/indexer.md'),
+    schemaUrl:
+      'https://raw.githubusercontent.com/algorand/indexer/refs/heads/main/api/indexer.oas3.yml',
+    outputFile: path.resolve(
+      process.cwd(),
+      'src/content/docs/reference/rest-api/indexer.md',
+    ),
     pageTitle: 'Indexer API',
   },
   {
     name: 'kmd',
-    schemaUrl: 'https://raw.githubusercontent.com/algorand/go-algorand/ad578576ab5f5bfe58a590164903617ecef379e4/daemon/kmd/api/swagger.json',
-    outputFile: path.resolve(process.cwd(), 'src/content/docs/reference/rest-api/kmd.md'),
+    schemaUrl:
+      'https://raw.githubusercontent.com/algorand/go-algorand/ad578576ab5f5bfe58a590164903617ecef379e4/daemon/kmd/api/swagger.json',
+    outputFile: path.resolve(
+      process.cwd(),
+      'src/content/docs/reference/rest-api/kmd.md',
+    ),
     pageTitle: 'KMD API',
   },
 ];
@@ -55,22 +67,26 @@ async function addTitleToMarkdown(filePath: string, title: string) {
   }
 }
 
-import { promises as fs } from 'fs';
-
-async function sortMarkdownFile(filePath) {
+async function sortMarkdownFile(filePath: string) {
   try {
     const content = await fs.readFile(filePath, 'utf-8');
 
     // Split the content by H1 sections (keeping H1 headers)
-    const h1Sections = content.split(/^# /gm).map((section, index) => (index === 0 ? section : `# ${section}`));
+    const h1Sections = content
+      .split(/^# /gm)
+      .map((section, index) => (index === 0 ? section : `# ${section}`));
 
     const sortedH1Sections = h1Sections.map(h1Section => {
       // Split each H1 section into H2 sections
-      const h2Sections = h1Section.split(/^## /gm).map((section, index) => (index === 0 ? section : `## ${section}`));
+      const h2Sections = h1Section
+        .split(/^## /gm)
+        .map((section, index) => (index === 0 ? section : `## ${section}`));
 
       // Sort H3 inside each H2 section
       const sortedH2Sections = h2Sections.map(h2Section => {
-        const h3Sections = h2Section.split(/^### /gm).map((section, index) => (index === 0 ? section : `### ${section}`));
+        const h3Sections = h2Section
+          .split(/^### /gm)
+          .map((section, index) => (index === 0 ? section : `### ${section}`));
 
         // Sort H3 headers but keep the first part intact
         const firstPartH3 = h3Sections.shift();
@@ -107,7 +123,7 @@ async function groupMarkdownSections(filePath: string) {
     let content = await fs.readFile(filePath, 'utf-8');
 
     // Convert all `##` API methods to `###` (nesting them properly)
-    // 
+    //
     content = content.replace(/<h1[^>]*>(.*?)<\/h1>/, '');
     content = content.replace(/^# You can also use wget$/gm, '');
     content = content.replace(/<h1[^>]*>(.*?)<\/h1>/g, '# $1');
@@ -118,7 +134,9 @@ async function groupMarkdownSections(filePath: string) {
     content = content.replace(/^## /gm, '### ');
     content = content.replace(/^# /gm, '## ');
     await fs.writeFile(filePath, content, 'utf-8');
-    console.log(`✅ Grouped multiple <h1> sections as TOC headers in ${filePath}`);
+    console.log(
+      `✅ Grouped multiple <h1> sections as TOC headers in ${filePath}`,
+    );
   } catch (error) {
     console.error(`❌ Error grouping sections in ${filePath}:`, error);
   }
@@ -129,7 +147,10 @@ async function generateDocs() {
     await fs.mkdir(path.dirname(apiDocs[0].outputFile), { recursive: true });
 
     for (const { name, schemaUrl, outputFile, pageTitle } of apiDocs) {
-      const tempSchemaFile = path.join(os.tmpdir(), `${name}-${Date.now()}.yml`);
+      const tempSchemaFile = path.join(
+        os.tmpdir(),
+        `${name}-${Date.now()}.yml`,
+      );
 
       try {
         console.log(`Generating Markdown for ${name}...`);
@@ -139,7 +160,9 @@ async function generateDocs() {
         await fs.writeFile(tempSchemaFile, schemaContent, 'utf-8');
 
         // Run Widdershins with collapsible TOC enabled
-        await execAsync(`npx widdershins --omitHeader ${tempSchemaFile} -o ${outputFile}`);
+        await execAsync(
+          `npx widdershins --omitHeader ${tempSchemaFile} -o ${outputFile}`,
+        );
 
         // Add custom title block
         await addTitleToMarkdown(outputFile, pageTitle);
@@ -151,7 +174,9 @@ async function generateDocs() {
         // Sort the generated Markdown
         // await sortMarkdownFile(outputFile);
         // await sortH3Headers(outputFile);
-        console.log(`✅ Successfully generated, titled, sorted, and grouped ${outputFile}`);
+        console.log(
+          `✅ Successfully generated, titled, sorted, and grouped ${outputFile}`,
+        );
       } catch (err) {
         console.error(`❌ Error generating docs for ${name}:`, err);
       } finally {
@@ -160,7 +185,10 @@ async function generateDocs() {
           await fs.unlink(tempSchemaFile);
           console.log(`🗑️ Deleted temporary file: ${tempSchemaFile}`);
         } catch (cleanupError) {
-          console.error(`⚠️ Error deleting temporary file: ${tempSchemaFile}`, cleanupError);
+          console.error(
+            `⚠️ Error deleting temporary file: ${tempSchemaFile}`,
+            cleanupError,
+          );
         }
       }
     }
