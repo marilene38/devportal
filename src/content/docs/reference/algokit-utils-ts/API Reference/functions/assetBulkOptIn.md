@@ -7,6 +7,8 @@ title: "assetBulkOptIn"
 
 > **assetBulkOptIn**(`optIn`, `algod`): `Promise`\<`Record`\<`number`, `string`\>\>
 
+Defined in: [src/asset.ts:130](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/asset.ts#L130)
+
 :::caution[Deprecated]
 use `algorand.asset.bulkOptIn()` instead
 
@@ -42,7 +44,3 @@ If there is an error during the opt-in process.
 ```ts
 algokit.bulkOptIn({ account: account, assetIds: [12345, 67890] }, algod)
 ```
-
-## Defined in
-
-[src/asset.ts:130](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/asset.ts#L130)

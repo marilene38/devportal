@@ -7,6 +7,8 @@ title: "encodeTransactionNote"
 
 > **encodeTransactionNote**(`note`?): `Uint8Array` \| `undefined`
 
+Defined in: [src/transaction/transaction.ts:48](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/transaction/transaction.ts#L48)
+
 :::caution[Deprecated]
 Convert your data to a `string` or `Uint8Array`, if using ARC-2 use `TransactionComposer.arc2Note`.
 
@@ -33,7 +35,3 @@ the transaction note ready for inclusion in a transaction
   * Uint8Array: passthrough
   * Arc2TransactionNote object: ARC-0002 compatible transaction note
   * Else: The object/value converted into a JSON string representation
-
-## Defined in
-
-[src/transaction/transaction.ts:48](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/transaction/transaction.ts#L48)
