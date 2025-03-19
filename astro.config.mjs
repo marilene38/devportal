@@ -166,28 +166,23 @@ export default defineConfig({
             {
               label: 'Assets',
               collapsed: false,
-              badge: 'WIP',
               items: [
                 {
                   label: 'Overview',
                   link: 'concepts/assets/overview',
-                  badge: 'WIP',
                 },
                 {
                   label: 'Asset Operations',
                   link: 'concepts/assets/asset-operations',
-                  badge: 'WIP',
                 },
-                {
-                  label: 'Assets Metadata',
-                  link: 'concepts/assets/asset-metadata',
-                  badge: 'WIP',
-                },
-                {
-                  label: 'Known Assets',
-                  link: 'concepts/assets/known-assets',
-                  badge: 'WIP',
-                },
+                // {
+                //   label: 'Assets Metadata',
+                //   link: 'concepts/assets/asset-metadata',
+                // },
+                // {
+                //   label: 'Known Assets',
+                //   link: 'concepts/assets/known-assets',
+                // },
               ],
             },
             {

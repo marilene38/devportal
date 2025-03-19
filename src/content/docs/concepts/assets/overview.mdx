@@ -20,32 +20,22 @@ Here are several things to be aware of before getting started with assets.
 
 ## Asset parameters
 
-The type of asset that is created will depend on the parameters that are passed during asset creation and sometimes during asset re-configuration. View the full list of asset parameters in the [Asset Parameters Reference](FUTURELINK).
-{/* TODO ../transactions/transactions#asset-parameters */}
+The type of asset that is created will depend on the parameters that are passed during asset creation and sometimes during asset re-configuration. View the full list of asset parameters in the [Asset Parameters Reference](/concepts/transactions/transactions#asset-parameters).
 
 ### Immutable asset parameters
 
 These eight parameters can _only_ be specified when an asset is created.
 
-# TODO use table
-
-| ** Parameter** | Required | Description |
-| [Creator](FUTURELINK) | _YES_ | |
-| {/* TODO ../transactions/transactions#creator */}| | |
-| [AssetName](FUTURELINK) | _No, but recommended_ | |
-| {/* TODO ../transactions/transactions#assetname */}| | |
-| [UnitName](FUTURELINK) | _No, but recommended_| |
-| {/* TODO ../transactions/transactions#unitname */}| | |
-| [Total](FUTURELINK) | _YES_ | |
-| {/* TODO ../transactions/transactions#total */}| | |
-| [Decimals](FUTURELINK) | _YES_ | |
-| {/* TODO ../transactions/transactions#decimals */}| | |
-| [DefaultFrozen](FUTURELINK) _YES_ | |
-| {/* TODO ../transactions/transactions#defaultfrozen */}| | |
-| [URL](FUTURELINK) | _No_| |
-| {/* TODO ../transactions/transactions#url */}| |
-| [MetaDataHash](FUTURELINK) | (_No_)| |
-| {/* TODO ../transactions/transactions#metadatahash */}| | |
+| **Parameter**                                                            | Required              | Description |
+| ------------------------------------------------------------------------ | --------------------- | ----------- |
+| [Creator](FUTURELINK){/* TODO ../transactions/transactions#creator */}   | _YES_                 |             |
+| [AssetName](/concepts/transactions/transactions#assetname)               | _No, but recommended_ |             |
+| [UnitName](/concepts//ransactions/transactions#unitname)                 | _No, but recommended_ |             |
+| [Total](/concepts/transactions/transactions#total)                       | _YES_                 |             |
+| [Decimals](/concepts/transactions/transactions#decimals)                 | _YES_                 |             |
+| [DefaultFrozen](/concepts/transactions/transactions#defaultfrozen) _YES_ |                       |
+| [URL](FUTURELINK){/* TODO ../transactions/transactions#url */}           | _No_                  |             |
+| [MetaDataHash](/concepts/transactions/transactions#metadatahash)         | (_No_)                |             |
 
 ### Mutable asset parameters
 
@@ -53,23 +43,19 @@ There are four parameters that correspond to addresses that can authorize specif
 
 Here are the four address types.
 
-[**Manager Address**](FUTURELINK)
-{/* TODO ../transactions/transactions#manageraddr */}
+[**Manager Address**](/concepts/transactions/transactions#manageraddr)
 
 The manager account is the only account that can authorize transactions to [re-configure](/concepts/assets/asset-operations#updating-assets) or [destroy](/concepts/assets/asset-operations#deleting-assets) an asset.
 
-[**Reserve Address**](FUTURELINK)
-{/* TODO ../transactions/transactions#reserveaddr */}
+[**Reserve Address**](/concepts/transactions/transactions#reserveaddr)
 
 Specifying a reserve account signifies that non-minted assets will reside in that account instead of the default creator account. Assets transferred from this account are "minted" units of the asset. If you specify a new reserve address, you must make sure the new account has opted into the asset and then issue a transaction to transfer all assets to the new reserve.
 
-[**Freeze Address**](FUTURELINK)
-{/* TODO ../transactions/transactions#freezeaddr */}
+[**Freeze Address**](/concepts/transactions/transactions#freezeaddr)
 
 The freeze account is allowed to freeze or unfreeze the asset holdings for a specific account. When an account is frozen it cannot send or receive the frozen asset. In traditional finance, freezing assets may be performed to restrict liquidation of company stock, to investigate suspected criminal activity or to deny-list certain accounts. If the DefaultFrozen state is set to True, you can use the unfreeze action to authorize certain accounts to trade the asset (such as after passing KYC/AML checks).
 
-[**Clawback Address**](FUTURELINK)
-{/* TODO ../transactions/transactions#clawbackaddr */}
+[**Clawback Address**](/concepts/transactions/transactions#clawbackaddr)
 
 The clawback address represents an account that is allowed to transfer assets from and to any asset holder (assuming they have opted-in). Use this if you need the option to revoke assets from an account (like if they breach certain contractual obligations tied to holding the asset). In traditional finance, this sort of transaction is referred to as a clawback.
 
