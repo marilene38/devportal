@@ -270,10 +270,6 @@ export default defineConfig({
                   link: 'concepts/smart-contracts/opcodes-overview',
                 },
                 {
-                  label: 'Opcodes Overview',
-                  link: 'concepts/smart-contracts/opcodes-overview',
-                },
-                {
                   label: 'Logic Signatures',
                   link: 'concepts/smart-contracts/logic-sigs',
                 },

@@ -36,7 +36,7 @@ async function generateDiagrams() {
           console.log(`Skipping ${file} - SVG is up to date`);
           shouldRegenerate = false;
         }
-      } catch (error) {
+      } catch (_) {
         // If error occurs (likely output file doesn't exist), we should regenerate
         shouldRegenerate = true;
       }
