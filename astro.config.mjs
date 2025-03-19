@@ -46,7 +46,7 @@ export default defineConfig({
             'data-website-id': '6e799942-b20a-4203-8103-93582a2611e1',
             'data-project-name': 'Algorand',
             'data-project-color': '#2CB7BC',
-            'data-project-logo': '/src/assets/images/algorand-logo.png',
+            'data-project-logo': '/algorand-logo.png',
           },
         },
       ],
