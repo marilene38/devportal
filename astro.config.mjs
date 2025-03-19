@@ -2970,13 +2970,132 @@ export default defineConfig({
                         },
                     ],
                 },
-            ],
-        }),
-        icon(),
-        // https://astro-d2.vercel.app/configuration
-        d2({
-            sketch: true,
-
+              ],
+            },
+            {
+              label: 'Algorand Teal',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Opcodes List',
+                  link: 'reference/algorand-teal/opcodes',
+                },
+              ],
+            },
+            {
+              label: 'SDK',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Algorand SDK List',
+                  link: 'reference/sdk/sdk-list',
+                },
+                // {
+                //   label: '.net',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'C#',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'C++',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'Dart',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'GO',
+                //   items: [],
+                // },
+                // {
+                //   label: 'Java',
+                //   items: [],
+                // },
+                // {
+                //   label: 'JS',
+                //   items: [],
+                // },
+                // {
+                //   label: 'PHP',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'Python',
+                //   items: [],
+                // },
+                // {
+                //   label: 'Rust',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'Swift',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'Unity',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+                // {
+                //   label: 'Unreal',
+                //   items: [],
+                //   badge: 'Community',
+                // },
+              ],
+            },
+            {
+              label: 'REST API',
+              collapsed: true,
+              items: [
+                {
+                  label: 'Overview',
+                  link: 'reference/rest-api/overview',
+                },
+                {
+                  label: 'algod',
+                  link: 'reference/rest-api/algod',
+                },
+                {
+                  label: 'indexer',
+                  link: 'reference/rest-api/indexer',
+                },
+                {
+                  label: 'kmd',
+                  link: 'reference/rest-api/kmd',
+                },
+              ],
+            },
+            {
+              label: 'Standards and Practices',
+              collapsed: true,
+              items: [
+                {
+                  label: 'ARCs',
+                  collapsed: true,
+                  autogenerate: {
+                    directory: 'standards/arcs',
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    }),
+    icon(),
+    // https://astro-d2.vercel.app/configuration
+    d2({
+      sketch: true,
             layout: 'dagre',
         }),
     ],

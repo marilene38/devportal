@@ -21,7 +21,7 @@ This page contains a reference for all available opcodes v11.
             <div className="cursor-pointer p-4 items-center font-normal">
             0x{Opcode.toString(16).padStart(2, "0")}
             </div>
-            <div className="flex items-center font-semibold">{Name}</div>
+            <div className="flex items-center font-semibold" id={Name}>{Name}</div>
             <div className="items-center flex font-normal">
             <div>
                 {Array.isArray(Args) && Args.length > 0 ? Args.map((arg, index) => <div key={index}>{arg}</div>) : "-"}
