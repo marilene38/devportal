@@ -36,6 +36,8 @@ await processFile([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            changeFromTo('./capabilities/', '/algokit/utils/typescript/'),
+            changeFromTo('capabilities/', '/algokit/utils/typescript/'),
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/utils/typescript/overview.md'
     },
@@ -61,6 +63,8 @@ await processFile([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            changeFromTo('./capabilities/', '/algokit/utils/python/'),
+            changeFromTo('capabilities/', '/algokit/utils/python/'),
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/utils/python/overview.md'
     },

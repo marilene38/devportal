@@ -14,88 +14,88 @@ If you prefer TypeScript there’s an equivalent [TypeScript utility library](ht
 
 # Contents
 
-- [Account management](capabilities/account)
-  - [`AccountManager`](capabilities/account#accountmanager)
-  - [`TransactionSignerAccountProtocol`](capabilities/account#transactionsigneraccountprotocol)
-  - [Registering a signer](capabilities/account#registering-a-signer)
-  - [Default signer](capabilities/account#default-signer)
-  - [Get a signer](capabilities/account#get-a-signer)
-  - [Accounts](capabilities/account#accounts)
-  - [Rekey account](capabilities/account#rekey-account)
-  - [KMD account management](capabilities/account#kmd-account-management)
-- [Algorand client](capabilities/algorand-client)
-  - [Accessing SDK clients](capabilities/algorand-client#accessing-sdk-clients)
-  - [Accessing manager class instances](capabilities/algorand-client#accessing-manager-class-instances)
-  - [Creating and issuing transactions](capabilities/algorand-client#creating-and-issuing-transactions)
-- [Algo amount handling](capabilities/amount)
-  - [`AlgoAmount`](capabilities/amount#algoamount)
-- [App client and App factory](capabilities/app-client)
-  - [`AppFactory`](capabilities/app-client#appfactory)
-  - [`AppClient`](capabilities/app-client#appclient)
-  - [Dynamically creating clients for a given app spec](capabilities/app-client#dynamically-creating-clients-for-a-given-app-spec)
-  - [Creating and deploying an app](capabilities/app-client#creating-and-deploying-an-app)
-  - [Updating and deleting an app](capabilities/app-client#updating-and-deleting-an-app)
-  - [Calling the app](capabilities/app-client#calling-the-app)
-  - [Funding the app account](capabilities/app-client#funding-the-app-account)
-  - [Reading state](capabilities/app-client#reading-state)
-  - [Handling logic errors and diagnosing errors](capabilities/app-client#handling-logic-errors-and-diagnosing-errors)
-  - [Default arguments](capabilities/app-client#default-arguments)
-- [App deployment](capabilities/app-deploy)
-  - [Smart contract development lifecycle](capabilities/app-deploy#smart-contract-development-lifecycle)
-  - [`AppDeployer`](capabilities/app-deploy#appdeployer)
-  - [Deployment metadata](capabilities/app-deploy#deployment-metadata)
-  - [Lookup deployed apps by name](capabilities/app-deploy#lookup-deployed-apps-by-name)
-  - [Performing a deployment](capabilities/app-deploy#performing-a-deployment)
-- [App management](capabilities/app)
-  - [`AppManager`](capabilities/app#appmanager)
-  - [Calling apps](capabilities/app#calling-apps)
-  - [Accessing state](capabilities/app#accessing-state)
-  - [Getting app information](capabilities/app#getting-app-information)
-  - [Box references](capabilities/app#box-references)
-  - [Common app parameters](capabilities/app#common-app-parameters)
-- [Assets](capabilities/asset)
-  - [`AssetManager`](capabilities/asset#assetmanager)
-  - [Asset Information](capabilities/asset#asset-information)
-  - [Bulk Operations](capabilities/asset#bulk-operations)
-  - [Get Asset Information](capabilities/asset#get-asset-information)
-- [Client management](capabilities/client)
-  - [`ClientManager`](capabilities/client#clientmanager)
-  - [Network configuration](capabilities/client#network-configuration)
-  - [Clients](capabilities/client#clients)
-  - [Automatic retry](capabilities/client#automatic-retry)
-  - [Network information](capabilities/client#network-information)
-- [Debugger](capabilities/debugging)
-  - [Configuration](capabilities/debugging#configuration)
-  - [`AlgoKitLogger`](capabilities/debugging#algokitlogger)
-  - [Debugging Utilities](capabilities/debugging#debugging-utilities)
-- [TestNet Dispenser Client](capabilities/dispenser-client)
-  - [Creating a Dispenser Client](capabilities/dispenser-client#creating-a-dispenser-client)
-  - [Funding an Account](capabilities/dispenser-client#funding-an-account)
-  - [Registering a Refund](capabilities/dispenser-client#registering-a-refund)
-  - [Getting Current Limit](capabilities/dispenser-client#getting-current-limit)
-  - [Error Handling](capabilities/dispenser-client#error-handling)
-- [Testing](capabilities/testing)
-  - [Basic Test Setup](capabilities/testing#basic-test-setup)
-  - [Creating Test Assets](capabilities/testing#creating-test-assets)
-  - [Testing Application Deployments](capabilities/testing#testing-application-deployments)
-  - [Testing Asset Transfers](capabilities/testing#testing-asset-transfers)
-  - [Testing Application Calls](capabilities/testing#testing-application-calls)
-  - [Testing Box Storage](capabilities/testing#testing-box-storage)
-- [Transaction composer](capabilities/transaction-composer)
-  - [Constructing a transaction](capabilities/transaction-composer#constructing-a-transaction)
-  - [Simulating a transaction](capabilities/transaction-composer#simulating-a-transaction)
-- [Transaction management](capabilities/transaction)
-  - [Transaction Results](capabilities/transaction#transaction-results)
-  - [Further reading](capabilities/transaction#further-reading)
-- [Algo transfers (payments)](capabilities/transfer)
-  - [`payment`](capabilities/transfer#payment)
-  - [`ensure_funded`](capabilities/transfer#ensure-funded)
-  - [Dispenser](capabilities/transfer#dispenser)
-- [Typed application clients](capabilities/typed-app-clients)
-  - [Generating an app spec](capabilities/typed-app-clients#generating-an-app-spec)
-  - [Generating a typed client](capabilities/typed-app-clients#generating-a-typed-client)
-  - [Getting a typed client instance](capabilities/typed-app-clients#getting-a-typed-client-instance)
-  - [Client usage](capabilities/typed-app-clients#client-usage)
+- [Account management](/algokit/utils/python/account)
+  - [`AccountManager`](/algokit/utils/python/account#accountmanager)
+  - [`TransactionSignerAccountProtocol`](/algokit/utils/python/account#transactionsigneraccountprotocol)
+  - [Registering a signer](/algokit/utils/python/account#registering-a-signer)
+  - [Default signer](/algokit/utils/python/account#default-signer)
+  - [Get a signer](/algokit/utils/python/account#get-a-signer)
+  - [Accounts](/algokit/utils/python/account#accounts)
+  - [Rekey account](/algokit/utils/python/account#rekey-account)
+  - [KMD account management](/algokit/utils/python/account#kmd-account-management)
+- [Algorand client](/algokit/utils/python/algorand-client)
+  - [Accessing SDK clients](/algokit/utils/python/algorand-client#accessing-sdk-clients)
+  - [Accessing manager class instances](/algokit/utils/python/algorand-client#accessing-manager-class-instances)
+  - [Creating and issuing transactions](/algokit/utils/python/algorand-client#creating-and-issuing-transactions)
+- [Algo amount handling](/algokit/utils/python/amount)
+  - [`AlgoAmount`](/algokit/utils/python/amount#algoamount)
+- [App client and App factory](/algokit/utils/python/app-client)
+  - [`AppFactory`](/algokit/utils/python/app-client#appfactory)
+  - [`AppClient`](/algokit/utils/python/app-client#appclient)
+  - [Dynamically creating clients for a given app spec](/algokit/utils/python/app-client#dynamically-creating-clients-for-a-given-app-spec)
+  - [Creating and deploying an app](/algokit/utils/python/app-client#creating-and-deploying-an-app)
+  - [Updating and deleting an app](/algokit/utils/python/app-client#updating-and-deleting-an-app)
+  - [Calling the app](/algokit/utils/python/app-client#calling-the-app)
+  - [Funding the app account](/algokit/utils/python/app-client#funding-the-app-account)
+  - [Reading state](/algokit/utils/python/app-client#reading-state)
+  - [Handling logic errors and diagnosing errors](/algokit/utils/python/app-client#handling-logic-errors-and-diagnosing-errors)
+  - [Default arguments](/algokit/utils/python/app-client#default-arguments)
+- [App deployment](/algokit/utils/python/app-deploy)
+  - [Smart contract development lifecycle](/algokit/utils/python/app-deploy#smart-contract-development-lifecycle)
+  - [`AppDeployer`](/algokit/utils/python/app-deploy#appdeployer)
+  - [Deployment metadata](/algokit/utils/python/app-deploy#deployment-metadata)
+  - [Lookup deployed apps by name](/algokit/utils/python/app-deploy#lookup-deployed-apps-by-name)
+  - [Performing a deployment](/algokit/utils/python/app-deploy#performing-a-deployment)
+- [App management](/algokit/utils/python/app)
+  - [`AppManager`](/algokit/utils/python/app#appmanager)
+  - [Calling apps](/algokit/utils/python/app#calling-apps)
+  - [Accessing state](/algokit/utils/python/app#accessing-state)
+  - [Getting app information](/algokit/utils/python/app#getting-app-information)
+  - [Box references](/algokit/utils/python/app#box-references)
+  - [Common app parameters](/algokit/utils/python/app#common-app-parameters)
+- [Assets](/algokit/utils/python/asset)
+  - [`AssetManager`](/algokit/utils/python/asset#assetmanager)
+  - [Asset Information](/algokit/utils/python/asset#asset-information)
+  - [Bulk Operations](/algokit/utils/python/asset#bulk-operations)
+  - [Get Asset Information](/algokit/utils/python/asset#get-asset-information)
+- [Client management](/algokit/utils/python/client)
+  - [`ClientManager`](/algokit/utils/python/client#clientmanager)
+  - [Network configuration](/algokit/utils/python/client#network-configuration)
+  - [Clients](/algokit/utils/python/client#clients)
+  - [Automatic retry](/algokit/utils/python/client#automatic-retry)
+  - [Network information](/algokit/utils/python/client#network-information)
+- [Debugger](/algokit/utils/python/debugging)
+  - [Configuration](/algokit/utils/python/debugging#configuration)
+  - [`AlgoKitLogger`](/algokit/utils/python/debugging#algokitlogger)
+  - [Debugging Utilities](/algokit/utils/python/debugging#debugging-utilities)
+- [TestNet Dispenser Client](/algokit/utils/python/dispenser-client)
+  - [Creating a Dispenser Client](/algokit/utils/python/dispenser-client#creating-a-dispenser-client)
+  - [Funding an Account](/algokit/utils/python/dispenser-client#funding-an-account)
+  - [Registering a Refund](/algokit/utils/python/dispenser-client#registering-a-refund)
+  - [Getting Current Limit](/algokit/utils/python/dispenser-client#getting-current-limit)
+  - [Error Handling](/algokit/utils/python/dispenser-client#error-handling)
+- [Testing](/algokit/utils/python/testing)
+  - [Basic Test Setup](/algokit/utils/python/testing#basic-test-setup)
+  - [Creating Test Assets](/algokit/utils/python/testing#creating-test-assets)
+  - [Testing Application Deployments](/algokit/utils/python/testing#testing-application-deployments)
+  - [Testing Asset Transfers](/algokit/utils/python/testing#testing-asset-transfers)
+  - [Testing Application Calls](/algokit/utils/python/testing#testing-application-calls)
+  - [Testing Box Storage](/algokit/utils/python/testing#testing-box-storage)
+- [Transaction composer](/algokit/utils/python/transaction-composer)
+  - [Constructing a transaction](/algokit/utils/python/transaction-composer#constructing-a-transaction)
+  - [Simulating a transaction](/algokit/utils/python/transaction-composer#simulating-a-transaction)
+- [Transaction management](/algokit/utils/python/transaction)
+  - [Transaction Results](/algokit/utils/python/transaction#transaction-results)
+  - [Further reading](/algokit/utils/python/transaction#further-reading)
+- [Algo transfers (payments)](/algokit/utils/python/transfer)
+  - [`payment`](/algokit/utils/python/transfer#payment)
+  - [`ensure_funded`](/algokit/utils/python/transfer#ensure-funded)
+  - [Dispenser](/algokit/utils/python/transfer#dispenser)
+- [Typed application clients](/algokit/utils/python/typed-app-clients)
+  - [Generating an app spec](/algokit/utils/python/typed-app-clients#generating-an-app-spec)
+  - [Generating a typed client](/algokit/utils/python/typed-app-clients#generating-a-typed-client)
+  - [Getting a typed client instance](/algokit/utils/python/typed-app-clients#getting-a-typed-client-instance)
+  - [Client usage](/algokit/utils/python/typed-app-clients#client-usage)
 - [Migration Guide - v3](v3-migration-guide)
   - [Migration Steps](v3-migration-guide#migration-steps)
   - [Breaking Changes](v3-migration-guide#breaking-changes)
@@ -160,7 +160,7 @@ algorand = AlgorandClient.from_config(algod_config=algod_config, indexer_config=
 
 AlgoKit Utils provides a dedicated documentation page on various useful snippets that can be reused for testing with tools like [Pytest](https://docs.pytest.org/en/latest/):
 
-- [Testing](capabilities/testing)
+- [Testing](/algokit/utils/python/testing)
 
 # Types
 
@@ -195,7 +195,7 @@ config.configure(debug=True)
 
 To retrieve the current debug state you can use `debug` property.
 
-This will turn on things like automatic tracing, more verbose logging and [advanced debugging](capabilities/debugging). It’s likely this option will result in extra HTTP calls to algod and it’s worth being careful when it’s turned on.
+This will turn on things like automatic tracing, more verbose logging and [advanced debugging](/algokit/utils/python/debugging). It’s likely this option will result in extra HTTP calls to algod and it’s worth being careful when it’s turned on.
 
 <a id='capabilities'></a>
 
@@ -203,20 +203,20 @@ This will turn on things like automatic tracing, more verbose logging and [advan
 
 The library helps you interact with and develop against the Algorand blockchain with a series of end-to-end capabilities as described below:
 
-- [**AlgorandClient**](capabilities/algorand-client) - The key entrypoint to the AlgoKit Utils functionality
+- [**AlgorandClient**](/algokit/utils/python/algorand-client) - The key entrypoint to the AlgoKit Utils functionality
 - **Core capabilities**
-  - [**Client management**](capabilities/client) - Creation of (auto-retry) algod, indexer and kmd clients against various networks resolved from environment or specified configuration, and creation of other API clients (e.g. TestNet Dispenser API and app clients)
-  - [**Account management**](capabilities/account) - Creation, use, and management of accounts including mnemonic, rekeyed, multisig, transaction signer, idempotent KMD accounts and environment variable injected
-  - [**Algo amount handling**](capabilities/amount) - Reliable, explicit, and terse specification of microAlgo and Algo amounts and safe conversion between them
-  - [**Transaction management**](capabilities/transaction) - Ability to construct, simulate and send transactions with consistent and highly configurable semantics, including configurable control of transaction notes, logging, fees, validity, signing, and sending behaviour
+  - [**Client management**](/algokit/utils/python/client) - Creation of (auto-retry) algod, indexer and kmd clients against various networks resolved from environment or specified configuration, and creation of other API clients (e.g. TestNet Dispenser API and app clients)
+  - [**Account management**](/algokit/utils/python/account) - Creation, use, and management of accounts including mnemonic, rekeyed, multisig, transaction signer, idempotent KMD accounts and environment variable injected
+  - [**Algo amount handling**](/algokit/utils/python/amount) - Reliable, explicit, and terse specification of microAlgo and Algo amounts and safe conversion between them
+  - [**Transaction management**](/algokit/utils/python/transaction) - Ability to construct, simulate and send transactions with consistent and highly configurable semantics, including configurable control of transaction notes, logging, fees, validity, signing, and sending behaviour
 - **Higher-order use cases**
-  - [**Asset management**](capabilities/asset) - Creation, transfer, destroying, opting in and out and managing Algorand Standard Assets
-  - [**Typed application clients**](capabilities/typed-app-clients) - Type-safe application clients that are [generated](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/generate#1-typed-clients) from ARC-56 or ARC-32 application spec files and allow you to intuitively and productively interact with a deployed app, which is the recommended way of interacting with apps and builds on top of the following capabilities:
-    - [**ARC-56 / ARC-32 App client and App factory**](capabilities/app-client) - Builds on top of the App management and App deployment capabilities (below) to provide a high productivity application client that works with ARC-56 and ARC-32 application spec defined smart contracts
-    - [**App management**](capabilities/app) - Creation, updating, deleting, calling (ABI and otherwise) smart contract apps and the metadata associated with them (including state and boxes)
-    - [**App deployment**](capabilities/app-deploy) - Idempotent (safely retryable) deployment of an app, including deploy-time immutability and permanence control and TEAL template substitution
-  - [**Algo transfers (payments)**](capabilities/transfer) - Ability to easily initiate Algo transfers between accounts, including dispenser management and idempotent account funding
-  - [**Automated testing**](capabilities/testing) - Reusable snippets to leverage AlgoKit Utils abstractions in a manner that are useful for when writing tests in tools like [Pytest](https://docs.pytest.org/en/latest/).
+  - [**Asset management**](/algokit/utils/python/asset) - Creation, transfer, destroying, opting in and out and managing Algorand Standard Assets
+  - [**Typed application clients**](/algokit/utils/python/typed-app-clients) - Type-safe application clients that are [generated](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/generate#1-typed-clients) from ARC-56 or ARC-32 application spec files and allow you to intuitively and productively interact with a deployed app, which is the recommended way of interacting with apps and builds on top of the following capabilities:
+    - [**ARC-56 / ARC-32 App client and App factory**](/algokit/utils/python/app-client) - Builds on top of the App management and App deployment capabilities (below) to provide a high productivity application client that works with ARC-56 and ARC-32 application spec defined smart contracts
+    - [**App management**](/algokit/utils/python/app) - Creation, updating, deleting, calling (ABI and otherwise) smart contract apps and the metadata associated with them (including state and boxes)
+    - [**App deployment**](/algokit/utils/python/app-deploy) - Idempotent (safely retryable) deployment of an app, including deploy-time immutability and permanence control and TEAL template substitution
+  - [**Algo transfers (payments)**](/algokit/utils/python/transfer) - Ability to easily initiate Algo transfers between accounts, including dispenser management and idempotent account funding
+  - [**Automated testing**](/algokit/utils/python/testing) - Reusable snippets to leverage AlgoKit Utils abstractions in a manner that are useful for when writing tests in tools like [Pytest](https://docs.pytest.org/en/latest/).
 
 <a id='reference-documentation'></a>
 
