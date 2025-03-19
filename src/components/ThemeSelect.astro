@@ -86,10 +86,7 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
     stroke-width: 2px;
   }
 
-  :global([data-theme='light'])
-    button:is(:hover, :focus-visible)
-    svg
-    :is(.sun) {
+  :global([data-theme='dark']) button:is(:hover, :focus-visible) svg :is(.sun) {
     fill: var(--sl-color-accent-high);
   }
 
@@ -97,43 +94,43 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
     stroke: var(--sl-color-accent-high);
   }
 
-  :global([data-theme='light']) svg .sun {
+  :global([data-theme='dark']) svg .sun {
     transform: scale(1.75) rotate(-20deg);
     stroke-width: 0;
     fill: currentColor;
   }
 
-  :global([data-theme='light']) svg .sun-beams {
+  :global([data-theme='dark']) svg .sun-beams {
     opacity: 0;
   }
 
-  :global([data-theme='light']) svg .moon circle {
+  :global([data-theme='dark']) svg .moon circle {
     transform: translateX(-7px);
   }
 
   @supports (cx: 1) {
-    :global([data-theme='light']) svg .moon circle {
+    :global([data-theme='dark']) svg .moon circle {
       cx: 17;
       transform: translateX(0);
     }
   }
 
-  :global([data-theme='dark']) svg .sun {
+  :global([data-theme='light']) svg .sun {
     transform: none !important;
     stroke-width: 2;
     fill: none;
   }
 
-  :global([data-theme='dark']) svg .sun-beams {
+  :global([data-theme='light']) svg .sun-beams {
     opacity: 1;
   }
 
-  :global([data-theme='dark']) svg .moon circle {
+  :global([data-theme='light']) svg .moon circle {
     transform: translateX(0px);
   }
 
   @supports (cx: 1) {
-    :global([data-theme='dark']) svg .moon circle {
+    :global([data-theme='light']) svg .moon circle {
       cx: 26;
       transform: translateX(0);
     }
@@ -164,7 +161,7 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
       }
     }
 
-    :global([data-theme='light']) svg .sun {
+    :global([data-theme='dark']) svg .sun {
       transform: scale(1.75) rotate(-20deg);
       transition-duration: calc(
         var(--sl-rapide-theme-select-animation-duration) / 2
@@ -172,21 +169,21 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
       transition-timing-function: ease;
     }
 
-    :global([data-theme='light']) svg .sun-beams {
+    :global([data-theme='dark']) svg .sun-beams {
       transform: rotateZ(-25deg);
       transition-duration: calc(
         var(--sl-rapide-theme-select-animation-duration) / 4
       );
     }
 
-    :global([data-theme='light']) svg .moon circle {
+    :global([data-theme='dark']) svg .moon circle {
       transition-delay: calc(
         var(--sl-rapide-theme-select-animation-duration) / 4
       );
       transition-duration: var(--sl-rapide-theme-select-animation-duration);
     }
 
-    :global([data-theme='dark']) svg .sun {
+    :global([data-theme='light']) svg .sun {
       transform: none !important;
       transition-duration: calc(
         var(--sl-rapide-theme-select-animation-duration) / 2
@@ -194,14 +191,14 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
       transition-timing-function: ease;
     }
 
-    :global([data-theme='dark']) svg .sun-beams {
+    :global([data-theme='light']) svg .sun-beams {
       transform: none !important;
       transition-duration: calc(
         var(--sl-rapide-theme-select-animation-duration) / 4
       );
     }
 
-    :global([data-theme='dark']) svg .moon circle {
+    :global([data-theme='light']) svg .moon circle {
       transition-delay: calc(
         var(--sl-rapide-theme-select-animation-duration) / 4
       );
@@ -228,14 +225,14 @@ const isHomepage = Astro.locals.starlightRoute.id === 'index.mdx';
       : 'auto';
   }
 
-  /** Load the user’s preference from `localStorage`. */
+  /** Load the user's preference from `localStorage`. */
   function loadTheme(): Theme {
     return parseTheme(
       typeof localStorage !== 'undefined' && localStorage.getItem(storageKey),
     );
   }
 
-  /** Store the user’s preference in `localStorage`. */
+  /** Store the user's preference in `localStorage`. */
   function storeTheme(theme: Theme): void {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem(
