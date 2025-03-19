@@ -163,26 +163,18 @@ After setting the signer, you can send transactions without having to pass in th
 
 `AlgorandClient` caches network provided transaction values ([suggested parameters](/reference/rest-api/algod/operations/transactionparams)) for you automatically to reduce network traffic. It has a set of default configurations that control this behavior, but you have the ability to override and change the configuration of this behavior:
 
-<li>
-  `algorand.setDefaultValidityWindow(validityWindow)` - Set the default validity window (number of
+- `algorand.setDefaultValidityWindow(validityWindow)` - Set the default validity window (number of
   rounds from the current known round that the transaction will be valid to be accepted for), having
   a smallish value for this is usually ideal to avoid transactions that are valid for a long future
   period and may be submitted even after you think it failed to submit if waiting for a particular
   number of rounds for the transaction to be successfully submitted. The validity window defaults to
   10, except in automated testing where it's set to 1000 when targeting LocalNet.
-</li>
-<li>
-  `algorand.setSuggestedParams(suggestedParams, until?)` - Set the suggested network parameters to
+- `algorand.setSuggestedParams(suggestedParams, until?)` - Set the suggested network parameters to
   use (optionally until the given time)
-</li>
-<li>
-  `algorand.setSuggestedParamsTimeout(timeout)` - Set the timeout that is used to cache the
+- `algorand.setSuggestedParamsTimeout(timeout)` - Set the timeout that is used to cache the
   suggested network parameters (by default 3 seconds)
-</li>
-<li>
-  `algorand.getSuggestedParams()` - Get the current suggested network parameters object, either the
+- `algorand.getSuggestedParams()` - Get the current suggested network parameters object, either the
   cached value, or if the cache has expired a fresh value
-</li>
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
