@@ -7,6 +7,8 @@ title: "getAppLocalState"
 
 > **getAppLocalState**(`appId`, `account`, `algod`): `Promise`\<`AppState`\>
 
+Defined in: [src/app.ts:265](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L265)
+
 :::caution[Deprecated]
 Use `algorand.app.getLocalState` instead.
 
@@ -38,7 +40,3 @@ An algod client instance
 `Promise`\<`AppState`\>
 
 The current local state for the given (app, account) combination
-
-## Defined in
-
-[src/app.ts:265](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L265)

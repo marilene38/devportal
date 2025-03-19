@@ -7,6 +7,8 @@ title: "assetBulkOptOut"
 
 > **assetBulkOptOut**(`optOut`, `algod`): `Promise`\<`Record`\<`number`, `string`\>\>
 
+Defined in: [src/asset.ts:157](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/asset.ts#L157)
+
 :::caution[Deprecated]
 use `algorand.asset.bulkOptOut()` instead
 
@@ -42,7 +44,3 @@ If there is an error during the opt-out process.
 ```ts
 algokit.bulkOptOut({ account: account, assetIds: [12345, 67890] }, algod)
 ```
-
-## Defined in
-
-[src/asset.ts:157](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/asset.ts#L157)

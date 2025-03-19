@@ -7,6 +7,8 @@ title: "getOrCreateKmdWalletAccount"
 
 > **getOrCreateKmdWalletAccount**(`walletAccount`, `algod`, `kmdClient`?): `Promise`\<`Account`\>
 
+Defined in: [src/localnet/get-or-create-kmd-wallet-account.ts:28](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/localnet/get-or-create-kmd-wallet-account.ts#L28)
+
 :::caution[Deprecated]
 use `algorand.account.kmd.getOrCreateWalletAccount(name, fundWith)` or `new KMDAccountManager(clientManager).getOrCreateWalletAccount(name, fundWith)` instead.
 
@@ -52,7 +54,3 @@ A KMD client, if not specified then a default KMD client will be loaded from env
 `Promise`\<`Account`\>
 
 An Algorand account with private key loaded - either one that already existed in the given KMD wallet, or a new one that is funded for you
-
-## Defined in
-
-[src/localnet/get-or-create-kmd-wallet-account.ts:28](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/localnet/get-or-create-kmd-wallet-account.ts#L28)

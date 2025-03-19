@@ -7,6 +7,8 @@ title: "compileTeal"
 
 > **compileTeal**(`tealCode`, `algod`): `Promise`\<`CompiledTeal`\>
 
+Defined in: [src/app.ts:419](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L419)
+
 :::caution[Deprecated]
 Use `algorand.app.compileTeal` instead.
 
@@ -32,7 +34,3 @@ An algod client
 `Promise`\<`CompiledTeal`\>
 
 The information about the compiled file
-
-## Defined in
-
-[src/app.ts:419](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L419)

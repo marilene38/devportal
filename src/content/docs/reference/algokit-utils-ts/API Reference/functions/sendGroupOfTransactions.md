@@ -7,6 +7,8 @@ title: "sendGroupOfTransactions"
 
 > **sendGroupOfTransactions**(`groupSend`, `algod`): `Promise`\<`Omit`\<`SendAtomicTransactionComposerResults`, `"returns"`\>\>
 
+Defined in: [src/transaction/transaction.ts:773](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/transaction/transaction.ts#L773)
+
 :::caution[Deprecated]
 Use `TransactionComposer` (`algorand.newGroup()`) or `AtomicTransactionComposer` to construct and send group transactions instead.
 
@@ -34,7 +36,3 @@ An algod client
 `Promise`\<`Omit`\<`SendAtomicTransactionComposerResults`, `"returns"`\>\>
 
 An object with transaction IDs, transactions, group transaction ID (`groupTransactionId`) if more than 1 transaction sent, and (if `skipWaiting` is `false` or unset) confirmation (`confirmation`)
-
-## Defined in
-
-[src/transaction/transaction.ts:773](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/transaction/transaction.ts#L773)

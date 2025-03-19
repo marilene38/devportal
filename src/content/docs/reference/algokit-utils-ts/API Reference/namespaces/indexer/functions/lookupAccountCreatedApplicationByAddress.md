@@ -7,6 +7,8 @@ title: "lookupAccountCreatedApplicationByAddress"
 
 > **lookupAccountCreatedApplicationByAddress**(`indexer`, `address`, `getAll`, `paginationLimit`?): `Promise`\<`algosdk.indexerModels.Application`[]\>
 
+Defined in: [src/indexer-lookup.ts:38](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/indexer-lookup.ts#L38)
+
 Looks up applications that were created by the given address; will automatically paginate through all data.
 
 ## Parameters
@@ -40,7 +42,3 @@ The number of records to return per paginated request, default 1000
 `Promise`\<`algosdk.indexerModels.Application`[]\>
 
 The list of application results
-
-## Defined in
-
-[src/indexer-lookup.ts:38](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/indexer-lookup.ts#L38)
