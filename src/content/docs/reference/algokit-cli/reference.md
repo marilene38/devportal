@@ -241,6 +241,12 @@ title: AlgoKit CLI Reference Documentation
 
 
 
+
+
+
+
+
+
 # algokit
 
 AlgoKit is your one-stop shop to develop applications on the Algorand blockchain.
@@ -310,6 +316,34 @@ algokit compile python [OPTIONS] [PUYAPY_ARGS]...
 
 
 ### PUYAPY_ARGS
+Optional argument(s)
+
+### ts
+
+Compile Algorand TypeScript contract(s) using the PuyaTs compiler.
+
+```shell
+algokit compile ts [OPTIONS] [PUYATS_ARGS]...
+```
+
+### Arguments
+
+
+### PUYATS_ARGS
+Optional argument(s)
+
+### typescript
+
+Compile Algorand TypeScript contract(s) using the PuyaTs compiler.
+
+```shell
+algokit compile typescript [OPTIONS] [PUYATS_ARGS]...
+```
+
+### Arguments
+
+
+### PUYATS_ARGS
 Optional argument(s)
 
 ## completions
@@ -642,7 +676,7 @@ Name of an official template to use. To choose interactively, run this command w
 
 * **Options**
 
-    tealscript | python | react | fullstack | base
+    tealscript | typescript | python | react | fullstack | base
 
 
 

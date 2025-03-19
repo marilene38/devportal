@@ -495,44 +495,362 @@ export default defineConfig({
                             ],
                         },
                         {
-                            label: 'AlgoKit Utils',
+                            label: "AlgoKit Utils",
                             collapsed: true,
                             items: [
                                 {
-                                    label: 'AlgoKit Utils TypeScript',
-                                    link: '',
+                                    label: "TypeScript",
+                                    items: [
+                                        {
+                                            label: "Overview",
+                                            link: "algokit/utils/typescript/overview",
+                                        },
+                                        {
+                                            label: "Account Management",
+                                            link: "algokit/utils/typescript/account",
+                                        },
+                                        {
+                                            label: "Algorand Client",
+                                            link: "algokit/utils/typescript/algorand-client",
+                                        },
+                                        {
+                                            label: "Amount",
+                                            link: "algokit/utils/typescript/amount",
+                                        },
+                                        {
+                                            label: "App Client",
+                                            link: "algokit/utils/typescript/app-client",
+                                        },
+                                        {
+                                            label: "App Deployment",
+                                            link: "algokit/utils/typescript/app-deploy",
+                                        },
+                                        {
+                                            label: "Asset",
+                                            link: "algokit/utils/typescript/asset",
+                                        },
+                                        {
+                                            label: "Client",
+                                            link: "algokit/utils/typescript/client",
+                                        },
+                                        {
+                                            label: "Debugging",
+                                            link: "algokit/utils/typescript/debugging",
+                                        },
+                                        {
+                                            label: "Dispenser Client",
+                                            link: "algokit/utils/typescript/dispenser-client",
+                                        },
+                                        {
+                                            label: "Event Emitter",
+                                            link: "algokit/utils/typescript/event-emitter",
+                                        },
+                                        {
+                                            label: "Indexer",
+                                            link: "algokit/utils/typescript/indexer",
+                                        },
+                                        {
+                                            label: "Testnet Dispenser Client",
+                                            link: "algokit/utils/typescript/dispenser-client",
+                                        },
+                                        {
+                                            label: "Testing",
+                                            link: "algokit/utils/typescript/testing",
+                                        },
+                                        {
+                                            label: "Transaction Composer",
+                                            link: "algokit/utils/typescript/transaction-composer",
+                                        },
+                                        {
+                                            label: "Transaction",
+                                            link: "algokit/utils/typescript/transaction",
+                                        },
+                                        {
+                                            label: "Transfer",
+                                            link: "algokit/utils/typescript/transfer",
+                                        },
+                                        {
+                                            label: "Typed Clients",
+                                            link: "algokit/utils/typescript/typed-app-clients",
+                                        },
+                                    ],
                                 },
                                 {
-                                    label: 'AlgoKit Utils Python',
-                                    link: '',
+                                    label: "Python",
+                                    items: [
+                                        {
+                                            label: "Overview",
+                                            link: "algokit/utils/python/overview",
+                                        },
+                                        {
+                                            label: "Account Management",
+                                            link: "algokit/utils/python/account",
+                                        },
+                                        {
+                                            label: "Algorand Client",
+                                            link: "algokit/utils/python/algorand-client",
+                                        },
+                                        {
+                                            label: "Algo Amount Handling",
+                                            link: "algokit/utils/python/amount",
+                                        },
+                                        {
+                                            label: "App Client and Factory",
+                                            link: "algokit/utils/python/app-client",
+                                        },
+                                        {
+                                            label: "App Deployment",
+                                            link: "algokit/utils/python/app-deploy",
+                                        },
+                                        {
+                                            label: "App Management",
+                                            link: "algokit/utils/python/app",
+                                        },
+                                        {
+                                            label: "Assets",
+                                            link: "algokit/utils/python/asset",
+                                        },
+                                        {
+                                            label: "Client Management",
+                                            link: "algokit/utils/python/client",
+                                        },
+                                        {
+                                            label: "Debugger",
+                                            link: "algokit/utils/python/debugging",
+                                        },
+                                        {
+                                            label: "Testnet Dispenser Client",
+                                            link: "algokit/utils/python/dispenser-client",
+                                        },
+                                        {
+                                            label: "Testing",
+                                            link: "algokit/utils/python/testing",
+                                        },
+                                        {
+                                            label: "Transaction Composer",
+                                            link: "algokit/utils/python/transaction-composer",
+                                        },
+                                        {
+                                            label: "Transaction Management",
+                                            link: "algokit/utils/python/transaction",
+                                        },
+                                        {
+                                            label: "Algo Transfers (Payments)",
+                                            link: "algokit/utils/python/transfer",
+                                        },
+                                        {
+                                            label: "Typed Application Clients",
+                                            link: "algokit/utils/python/typed-app-clients",
+                                        },
+                                    ]
                                 },
                             ],
                         },
                         {
-                            label: 'Smart Contract Languages',
+                            label: "Smart Contract Languages",
                             collapsed: true,
                             items: [
                                 {
-                                    label: 'Algorand TypeScript',
-                                    link: '',
+                                    label: "Algorand TypeScript",
+                                    items: [
+                                        {
+                                            label: "Overview",
+                                            link: "algokit/languages/typescript/overview",
+                                        },
+                                        {
+                                            label: "Program Structure",
+                                            link: "algokit/languages/typescript/lg-program-structure",
+                                        },
+                                        {
+                                            label: "Basic Types",
+                                            link: "algokit/languages/typescript/lg-types",
+                                        },
+                                        {
+                                            label: "Storage",
+                                            link: "algokit/languages/typescript/lg-storage",
+                                        },
+                                        {
+                                            label: "Ops",
+                                            link: "algokit/languages/typescript/lg-ops",
+                                        },
+                                        {
+                                            label: "Guiding Principles",
+                                            link: "algokit/languages/typescript/lg-guiding-principles",
+                                        },
+                                    ],
                                 },
                                 {
-                                    label: 'Algorand Python',
-                                    link: '',
+                                    label: "Algorand Python",
+                                    items: [
+                                        {
+                                            label: "Overview",
+                                            link: "algokit/languages/python/overview",
+                                        },
+                                        {
+                                            label: "Program Structure",
+                                            link: "algokit/languages/python/lg-structure",
+                                        },
+                                        {
+                                            label: "Types",
+                                            link: "algokit/languages/python/lg-types",
+                                        },
+                                        {
+                                            label: "Control Flow Structures",
+                                            link: "algokit/languages/python/lg-control",
+                                        },
+                                        {
+                                            label: "Module LEvel Constructs",
+                                            link: "algokit/languages/python/lg-constructs",
+                                        },
+                                        {
+                                            label: "Overview",
+                                            link: "algokit/languages/python/lg-modules",
+                                        },
+                                        {
+                                            label: "Python Built-Ins",
+                                            link: "algokit/languages/python/lg-builtins",
+                                        },
+                                        {
+                                            label: "Error Handling and Assertions",
+                                            link: "algokit/languages/python/lg-errors",
+                                        },
+                                        {
+                                            label: "Data Structures",
+                                            link: "algokit/languages/python/lg-structure",
+                                        },
+                                        {
+                                            label: "Storing Data On-Chain",
+                                            link: "algokit/languages/python/lg-storage",
+                                        },
+                                        {
+                                            label: "Logging",
+                                            link: "algokit/languages/python/lg-logs",
+                                        },
+                                        {
+                                            label: "Transactions",
+                                            link: "algokit/languages/python/lg-transactions",
+                                        },
+                                        {
+                                            label: "AVM Operations",
+                                            link: "algokit/languages/python/lg-ops",
+                                        },
+                                        {
+                                            label: "Opcode Budgets",
+                                            link: "algokit/languages/python/lg-opcode-budget",
+                                        },
+                                        {
+                                            label: "ARC-4: Application Binary Interface",
+                                            link: "algokit/languages/python/lg-arc4",
+                                        },
+                                        {
+                                            label: "ARC-28: Structured Event Logging",
+                                            link: "algokit/languages/python/lg-arc28",
+                                        },
+                                        {
+                                            label: "Calling Other Applicaitons",
+                                            link: "algokit/languages/python/lg-calling-apps",
+                                        },
+                                        {
+                                            label: "Compiling to AVM bytecode",
+                                            link: "algokit/languages/python/overview",
+                                        },
+                                        {
+                                            label: "Unsupported Python Features",
+                                            link: "algokit/languages/python/lg-unsupported-python-features",
+                                        },
+                                    ],
                                 },
                             ],
                         },
                         {
-                            label: 'Unit Testing',
+                            label: "Unit Testing",
                             collapsed: true,
                             items: [
                                 {
-                                    label: 'TypeScript Unit Testing ',
-                                    link: '',
+                                    label: "TypeScript Unit Testing ",
+                                    items: [
+                                        {
+                                            label: "Overview",
+                                            link: "algokit/unit-testing/typescript/overview",
+                                        },
+                                        {
+                                            label: "Concepts",
+                                            link: "algokit/unit-testing/typescript/concepts",
+                                        },
+                                        {
+                                            label: "AVM Types",
+                                            link: "algokit/unit-testing/typescript/avm-types",
+                                        },
+                                        {
+                                            label: "ARC4 Types",
+                                            link: "algokit/unit-testing/typescript/arc4-types",
+                                        },
+                                        {
+                                            label: "Transactions",
+                                            link: "algokit/unit-testing/typescript/transactions",
+                                        },
+                                        {
+                                            label: "Smart Contract Testing",
+                                            link: "algokit/unit-testing/typescript/contract-testing",
+                                        },
+                                        {
+                                            label: "Smart Signature Testing",
+                                            link: "algokit/unit-testing/typescript/smart-signature-testing",
+                                        },
+                                        {
+                                            label: "State Management",
+                                            link: "algokit/unit-testing/typescript/state-management",
+                                        },
+                                        {
+                                            label: "AVM Opcodes",
+                                            link: "algokit/unit-testing/typescript/opcodes",
+                                        },
+                                    ],
                                 },
                                 {
-                                    label: 'Python Unit Testing',
-                                    link: '',
+                                    label: "Python Unit Testing",
+                                    items: [
+                                        {
+                                            label: "Overview",
+                                            link: "algokit/unit-testing/python/overview",
+                                        },
+                                        {
+                                            label: "Concepts",
+                                            link: "algokit/unit-testing/python/concepts",
+                                        },
+                                        {
+                                            label: "AVM Types",
+                                            link: "algokit/unit-testing/python/avm-types",
+                                        },
+                                        {
+                                            label: "ARC4 Types",
+                                            link: "algokit/unit-testing/python/arc4-types",
+                                        },
+                                        {
+                                            label: "Transactions",
+                                            link: "algokit/unit-testing/python/transactions",
+                                        },
+                                        {
+                                            label: "Smart Contract Testing",
+                                            link: "algokit/unit-testing/python/contract-testing",
+                                        },
+                                        {
+                                            label: "Smart Signature Testing",
+                                            link: "algokit/unit-testing/python/smart-signature-testing",
+                                        },
+                                        {
+                                            label: "State Management",
+                                            link: "algokit/unit-testing/python/state-management",
+                                        },
+                                        {
+                                            label: "Subroutines",
+                                            link: "algokit/unit-testing/python/subroutines",
+                                        },
+                                        {
+                                            label: "AVM Opcodes",
+                                            link: "algokit/unit-testing/python/opcodes",
+                                        },
+                                    ],
                                 },
                             ],
                         },
@@ -547,18 +865,44 @@ export default defineConfig({
                             ],
                         },
                         {
-                            label: 'Subscriber',
+                            label: "Subscriber",
                             collapsed: true,
                             items: [
                                 {
-                                    label: 'Subscriber TypeScript',
-                                    link: '',
+                                    label: "Subscriber TypeScript",
+                                    items: [
+                                        {
+                                            label: "Overview",
+                                            link: "algokit/subscribes/typescript/overview",
+                                        },
+                                        {
+                                            label: "Subsciber",
+                                            link: "algokit/subscribers/typescript/subscriber",
+                                        },
+                                        {
+                                            label: "Subscriptions",
+                                            link: "algokit/subscribers/typescript/subscriptions",
+                                        },
+                                    ]
                                 },
                                 {
-                                    label: 'Subscriber Python',
-                                    link: '',
-                                },
-                            ],
+                                    label: "Subscriber Python",
+                                    items: [
+                                        {
+                                            label: "Overview",
+                                            link: "algokit/subscribes/python/overview",
+                                        },
+                                        {
+                                            label: "Subsciber",
+                                            link: "algokit/subscribers/python/subscriber",
+                                        },
+                                        {
+                                            label: "Subscriptions",
+                                            link: "algokit/subscribers/python/subscriptions",
+                                        },
+                                    ]
+                                }
+                            ]
                         },
                         {
                             label: 'Testnet Dispenser',
