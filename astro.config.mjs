@@ -1,13 +1,15 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import d2 from 'astro-d2';
 import rehypeExternalLinks from 'rehype-external-links';
 import { resolve } from 'path';
 import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
-import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi';
+import starlightTypeDoc from 'starlight-typedoc';
+import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
+
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: 'static',
@@ -21,53 +23,39 @@ export default defineConfig({
           errorOnRelativeLinks: false,
           exclude: ['**[FUTURELINK]*', '**/reference/**'],
         }),
-        starlightOpenAPI([
-          {
-            base: 'reference/rest-api/algod',
-            label: 'algod',
-            schema:
-              'https://raw.githubusercontent.com/algorand/go-algorand/refs/heads/master/daemon/algod/api/algod.oas3.yml',
-            sidebar: {
-              collapsed: true,
-              operations: { badges: false, labels: 'operationId', sort: 'alphabetical' },
-              tags: { sort: 'alphabetical' },
-            },
-          },
-          {
-            base: 'reference/rest-api/indexer',
-            label: 'indexer',
-            schema:
-              'https://raw.githubusercontent.com/algorand/indexer/refs/heads/main/api/indexer.oas3.yml',
-            sidebar: {
-              collapsed: true,
-              operations: { badges: false, labels: 'operationId', sort: 'alphabetical' },
-              tags: { sort: 'alphabetical' },
-            },
-          },
-          {
-            base: 'reference/rest-api/kmd',
-            label: 'kmd',
-            schema:
-              'https://raw.githubusercontent.com/algorand/go-algorand/ad578576ab5f5bfe58a590164903617ecef379e4/daemon/kmd/api/swagger.json',
-            sidebar: {
-              collapsed: true,
-              operations: { badges: false, labels: 'operationId', sort: 'alphabetical' },
-              tags: { sort: 'alphabetical' },
-            },
-          },
-        ]),
+        starlightTypeDoc({
+          entryPoints: ['./imports/repos/algokit-utils-ts/src/index.ts'],
+          tsconfig: './imports/repos/algokit-utils-ts/tsconfig.json',
+          output: 'reference/algokit-utils-ts/API Reference',
+          exclude: ['**[FUTURELINK]*'],
+        }),
       ],
       head: [
         {
           tag: 'script',
           attrs: {
             defer: true,
-            'data-domain': 'staging.developer.algorand.co',
+            'data-domain': 'staging.dev.algorand.co',
             src: 'https://plausible.io/js/script.hash.outbound-links.tagged-events.js',
+          },
+        },
+        {
+          tag: 'script',
+          attrs: {
+            src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
+            'data-website-id': '6e799942-b20a-4203-8103-93582a2611e1',
+            'data-project-name': 'Algorand',
+            'data-project-color': '#2CB7BC',
+            'data-project-logo': '/algorand-logo.png',
           },
         },
       ],
       components: {
+        Footer: './src/components/Footer.astro',
+        Header: './src/components/Header.astro',
+        Hero: './src/components/Hero.astro',
+        SiteTitle: './src/components/SiteTitle.astro',
+        SocialIcons: './src/components/SocialIcons.astro',
         ThemeProvider: './src/components/CustomThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro',
       },
@@ -79,6 +67,8 @@ export default defineConfig({
       },
       social: {
         github: 'https://github.com/algorandfoundation/devportal',
+        'x.com': 'https://twitter.com/Algorand/',
+        youtube: 'https://www.youtube.com/algorand/',
       },
       favicon: '/favicon.png',
       customCss: ['/src/styles/global.css'],
@@ -88,17 +78,12 @@ export default defineConfig({
           collapsed: false,
           items: [
             {
-              label: 'Blockchain 101',
-              link: 'getting-started/blockchain-101',
-              badge: 'Owner',
-            },
-            {
               label: 'Why Algorand?',
               link: 'getting-started/why-algorand',
             },
             {
-              label: 'Deploy Your First Smart Contract',
-              link: 'getting-started/first-contract-guide',
+              label: 'Tutorial: Your First Smart Contract',
+              link: 'getting-started/algokit-quick-start',
             },
           ],
         },
@@ -180,54 +165,24 @@ export default defineConfig({
             },
             {
               label: 'Assets',
-              collapsed: true,
-              badge: 'WIP',
+              collapsed: false,
               items: [
                 {
                   label: 'Overview',
                   link: 'concepts/assets/overview',
-                  badge: 'WIP',
                 },
                 {
-                  label: 'Creating Assets',
-                  link: 'concepts/assets/create',
-                  badge: 'WIP',
+                  label: 'Asset Operations',
+                  link: 'concepts/assets/asset-operations',
                 },
-                {
-                  label: 'Opting In & Out',
-                  link: 'concepts/assets/opt-in-out',
-                  badge: 'WIP',
-                },
-                {
-                  label: 'Updating Assets',
-                  link: 'concepts/assets/update',
-                  badge: 'WIP',
-                },
-                {
-                  label: 'Transferring Assets',
-                  link: 'concepts/assets/transfer',
-                  badge: 'WIP',
-                },
-                {
-                  label: 'Deleting Assets',
-                  link: 'concepts/assets/delete',
-                  badge: 'WIP',
-                },
-                {
-                  label: 'Clawing Back Assets',
-                  link: 'concepts/assets/clawback',
-                  badge: 'WIP',
-                },
-                {
-                  label: 'Freezing Assets',
-                  link: 'concepts/assets/freeze',
-                  badge: 'WIP',
-                },
-                {
-                  label: 'Known Assets',
-                  link: 'concepts/assets/known-assets',
-                  badge: 'WIP',
-                },
+                // {
+                //   label: 'Assets Metadata',
+                //   link: 'concepts/assets/asset-metadata',
+                // },
+                // {
+                //   label: 'Known Assets',
+                //   link: 'concepts/assets/known-assets',
+                // },
               ],
             },
             {
@@ -237,6 +192,10 @@ export default defineConfig({
                 {
                   label: 'Overview',
                   link: 'concepts/smart-contracts/overview',
+                },
+                {
+                  label: 'Algorand Virtual Machine',
+                  link: 'concepts/smart-contracts/avm',
                 },
                 {
                   label: 'Languages',
@@ -277,6 +236,14 @@ export default defineConfig({
                   link: 'concepts/smart-contracts/resource-usage',
                 },
                 {
+                  label: 'Opcodes Overview',
+                  link: 'concepts/smart-contracts/opcodes-overview',
+                },
+                {
+                  label: 'Logic Signatures',
+                  link: 'concepts/smart-contracts/logic-sigs',
+                },
+                {
                   label: 'Costs & Constraints',
                   link: 'concepts/smart-contracts/costs-constraints',
                 },
@@ -309,6 +276,10 @@ export default defineConfig({
                       link: 'concepts/smart-contracts/storage/encoding-decoding',
                     },
                   ],
+                },
+                {
+                  label: 'Cryptographic Tools',
+                  link: 'concepts/smart-contracts/cryptographic-tools',
                 },
                 {
                   label: 'Development Lifecycle',
@@ -494,12 +465,150 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: 'AlgoKit Utils TypeScript',
-                  link: '',
+                  label: 'TypeScript',
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'algokit/utils/typescript/overview',
+                    },
+                    {
+                      label: 'Account Management',
+                      link: 'algokit/utils/typescript/account',
+                    },
+                    {
+                      label: 'Algorand Client',
+                      link: 'algokit/utils/typescript/algorand-client',
+                    },
+                    {
+                      label: 'Amount',
+                      link: 'algokit/utils/typescript/amount',
+                    },
+                    {
+                      label: 'App Client',
+                      link: 'algokit/utils/typescript/app-client',
+                    },
+                    {
+                      label: 'App Deployment',
+                      link: 'algokit/utils/typescript/app-deploy',
+                    },
+                    {
+                      label: 'Asset',
+                      link: 'algokit/utils/typescript/asset',
+                    },
+                    {
+                      label: 'Client',
+                      link: 'algokit/utils/typescript/client',
+                    },
+                    {
+                      label: 'Debugging',
+                      link: 'algokit/utils/typescript/debugging',
+                    },
+                    {
+                      label: 'Dispenser Client',
+                      link: 'algokit/utils/typescript/dispenser-client',
+                    },
+                    {
+                      label: 'Event Emitter',
+                      link: 'algokit/utils/typescript/event-emitter',
+                    },
+                    {
+                      label: 'Indexer',
+                      link: 'algokit/utils/typescript/indexer',
+                    },
+                    {
+                      label: 'Testnet Dispenser Client',
+                      link: 'algokit/utils/typescript/dispenser-client',
+                    },
+                    {
+                      label: 'Testing',
+                      link: 'algokit/utils/typescript/testing',
+                    },
+                    {
+                      label: 'Transaction Composer',
+                      link: 'algokit/utils/typescript/transaction-composer',
+                    },
+                    {
+                      label: 'Transaction',
+                      link: 'algokit/utils/typescript/transaction',
+                    },
+                    {
+                      label: 'Transfer',
+                      link: 'algokit/utils/typescript/transfer',
+                    },
+                    {
+                      label: 'Typed Clients',
+                      link: 'algokit/utils/typescript/typed-app-clients',
+                    },
+                  ],
                 },
                 {
-                  label: 'AlgoKit Utils Python',
-                  link: '',
+                  label: 'Python',
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'algokit/utils/python/overview',
+                    },
+                    {
+                      label: 'Account Management',
+                      link: 'algokit/utils/python/account',
+                    },
+                    {
+                      label: 'Algorand Client',
+                      link: 'algokit/utils/python/algorand-client',
+                    },
+                    {
+                      label: 'Algo Amount Handling',
+                      link: 'algokit/utils/python/amount',
+                    },
+                    {
+                      label: 'App Client and Factory',
+                      link: 'algokit/utils/python/app-client',
+                    },
+                    {
+                      label: 'App Deployment',
+                      link: 'algokit/utils/python/app-deploy',
+                    },
+                    {
+                      label: 'App Management',
+                      link: 'algokit/utils/python/app',
+                    },
+                    {
+                      label: 'Assets',
+                      link: 'algokit/utils/python/asset',
+                    },
+                    {
+                      label: 'Client Management',
+                      link: 'algokit/utils/python/client',
+                    },
+                    {
+                      label: 'Debugger',
+                      link: 'algokit/utils/python/debugging',
+                    },
+                    {
+                      label: 'Testnet Dispenser Client',
+                      link: 'algokit/utils/python/dispenser-client',
+                    },
+                    {
+                      label: 'Testing',
+                      link: 'algokit/utils/python/testing',
+                    },
+                    {
+                      label: 'Transaction Composer',
+                      link: 'algokit/utils/python/transaction-composer',
+                    },
+                    {
+                      label: 'Transaction Management',
+                      link: 'algokit/utils/python/transaction',
+                    },
+                    {
+                      label: 'Algo Transfers (Payments)',
+                      link: 'algokit/utils/python/transfer',
+                    },
+                    {
+                      label: 'Typed Application Clients',
+                      link: 'algokit/utils/python/typed-app-clients',
+                    },
+                  ],
                 },
               ],
             },
@@ -509,11 +618,113 @@ export default defineConfig({
               items: [
                 {
                   label: 'Algorand TypeScript',
-                  link: '',
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'algokit/languages/typescript/overview',
+                    },
+                    {
+                      label: 'Program Structure',
+                      link: 'algokit/languages/typescript/lg-program-structure',
+                    },
+                    {
+                      label: 'Basic Types',
+                      link: 'algokit/languages/typescript/lg-types',
+                    },
+                    {
+                      label: 'Storage',
+                      link: 'algokit/languages/typescript/lg-storage',
+                    },
+                    {
+                      label: 'Ops',
+                      link: 'algokit/languages/typescript/lg-ops',
+                    },
+                    {
+                      label: 'Guiding Principles',
+                      link: 'algokit/languages/typescript/lg-guiding-principles',
+                    },
+                  ],
                 },
                 {
                   label: 'Algorand Python',
-                  link: '',
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'algokit/languages/python/overview',
+                    },
+                    {
+                      label: 'Program Structure',
+                      link: 'algokit/languages/python/lg-structure',
+                    },
+                    {
+                      label: 'Types',
+                      link: 'algokit/languages/python/lg-types',
+                    },
+                    {
+                      label: 'Control Flow Structures',
+                      link: 'algokit/languages/python/lg-control',
+                    },
+                    {
+                      label: 'Module LEvel Constructs',
+                      link: 'algokit/languages/python/lg-constructs',
+                    },
+                    {
+                      label: 'Overview',
+                      link: 'algokit/languages/python/lg-modules',
+                    },
+                    {
+                      label: 'Python Built-Ins',
+                      link: 'algokit/languages/python/lg-builtins',
+                    },
+                    {
+                      label: 'Error Handling and Assertions',
+                      link: 'algokit/languages/python/lg-errors',
+                    },
+                    {
+                      label: 'Data Structures',
+                      link: 'algokit/languages/python/lg-structure',
+                    },
+                    {
+                      label: 'Storing Data On-Chain',
+                      link: 'algokit/languages/python/lg-storage',
+                    },
+                    {
+                      label: 'Logging',
+                      link: 'algokit/languages/python/lg-logs',
+                    },
+                    {
+                      label: 'Transactions',
+                      link: 'algokit/languages/python/lg-transactions',
+                    },
+                    {
+                      label: 'AVM Operations',
+                      link: 'algokit/languages/python/lg-ops',
+                    },
+                    {
+                      label: 'Opcode Budgets',
+                      link: 'algokit/languages/python/lg-opcode-budget',
+                    },
+                    {
+                      label: 'ARC-4: Application Binary Interface',
+                      link: 'algokit/languages/python/lg-arc4',
+                    },
+                    {
+                      label: 'ARC-28: Structured Event Logging',
+                      link: 'algokit/languages/python/lg-arc28',
+                    },
+                    {
+                      label: 'Calling Other Applicaitons',
+                      link: 'algokit/languages/python/lg-calling-apps',
+                    },
+                    {
+                      label: 'Compiling to AVM bytecode',
+                      link: 'algokit/languages/python/overview',
+                    },
+                    {
+                      label: 'Unsupported Python Features',
+                      link: 'algokit/languages/python/lg-unsupported-python-features',
+                    },
+                  ],
                 },
               ],
             },
@@ -523,11 +734,89 @@ export default defineConfig({
               items: [
                 {
                   label: 'TypeScript Unit Testing ',
-                  link: '',
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'algokit/unit-testing/typescript/overview',
+                    },
+                    {
+                      label: 'Concepts',
+                      link: 'algokit/unit-testing/typescript/concepts',
+                    },
+                    {
+                      label: 'AVM Types',
+                      link: 'algokit/unit-testing/typescript/avm-types',
+                    },
+                    {
+                      label: 'ARC4 Types',
+                      link: 'algokit/unit-testing/typescript/arc4-types',
+                    },
+                    {
+                      label: 'Transactions',
+                      link: 'algokit/unit-testing/typescript/transactions',
+                    },
+                    {
+                      label: 'Smart Contract Testing',
+                      link: 'algokit/unit-testing/typescript/contract-testing',
+                    },
+                    {
+                      label: 'Smart Signature Testing',
+                      link: 'algokit/unit-testing/typescript/smart-signature-testing',
+                    },
+                    {
+                      label: 'State Management',
+                      link: 'algokit/unit-testing/typescript/state-management',
+                    },
+                    {
+                      label: 'AVM Opcodes',
+                      link: 'algokit/unit-testing/typescript/opcodes',
+                    },
+                  ],
                 },
                 {
                   label: 'Python Unit Testing',
-                  link: '',
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'algokit/unit-testing/python/overview',
+                    },
+                    {
+                      label: 'Concepts',
+                      link: 'algokit/unit-testing/python/concepts',
+                    },
+                    {
+                      label: 'AVM Types',
+                      link: 'algokit/unit-testing/python/avm-types',
+                    },
+                    {
+                      label: 'ARC4 Types',
+                      link: 'algokit/unit-testing/python/arc4-types',
+                    },
+                    {
+                      label: 'Transactions',
+                      link: 'algokit/unit-testing/python/transactions',
+                    },
+                    {
+                      label: 'Smart Contract Testing',
+                      link: 'algokit/unit-testing/python/contract-testing',
+                    },
+                    {
+                      label: 'Smart Signature Testing',
+                      link: 'algokit/unit-testing/python/smart-signature-testing',
+                    },
+                    {
+                      label: 'State Management',
+                      link: 'algokit/unit-testing/python/state-management',
+                    },
+                    {
+                      label: 'Subroutines',
+                      link: 'algokit/unit-testing/python/subroutines',
+                    },
+                    {
+                      label: 'AVM Opcodes',
+                      link: 'algokit/unit-testing/python/opcodes',
+                    },
+                  ],
                 },
               ],
             },
@@ -547,11 +836,37 @@ export default defineConfig({
               items: [
                 {
                   label: 'Subscriber TypeScript',
-                  link: '',
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'algokit/subscribes/typescript/overview',
+                    },
+                    {
+                      label: 'Subsciber',
+                      link: 'algokit/subscribers/typescript/subscriber',
+                    },
+                    {
+                      label: 'Subscriptions',
+                      link: 'algokit/subscribers/typescript/subscriptions',
+                    },
+                  ],
                 },
                 {
                   label: 'Subscriber Python',
-                  link: '',
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'algokit/subscribes/python/overview',
+                    },
+                    {
+                      label: 'Subsciber',
+                      link: 'algokit/subscribers/python/subscriber',
+                    },
+                    {
+                      label: 'Subscriptions',
+                      link: 'algokit/subscribers/python/subscriptions',
+                    },
+                  ],
                 },
               ],
             },
@@ -769,7 +1084,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'API Reference',
-                  items:[
+                  items: [
                     {
                       label: 'arc4',
                       items: [
@@ -786,8 +1101,8 @@ export default defineConfig({
                                 {
                                   label: 'StructBase',
                                   link: 'reference/algorand-typescript/api-reference/arc4/-internal-/classes/structbase',
-                                }
-                              ]
+                                },
+                              ],
                             },
                             {
                               label: 'interfaces',
@@ -799,8 +1114,8 @@ export default defineConfig({
                                 {
                                   label: 'IterableIterator',
                                   link: 'reference/algorand-typescript/api-reference/arc4/-internal-/interfaces/iterableiterator',
-                                }
-                              ]
+                                },
+                              ],
                             },
                             {
                               label: 'type-aliases',
@@ -832,91 +1147,91 @@ export default defineConfig({
                                 {
                                   label: 'UintBitSize',
                                   link: 'reference/algorand-typescript/api-reference/arc4/-internal-/type-aliases/uintbitsize',
-                                }
-                              ]
-                            }
-                          ]
+                                },
+                              ],
+                            },
+                          ],
                         },
                         {
                           label: 'classes',
                           items: [
                             {
                               label: 'Address',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/address'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/address',
                             },
                             {
                               label: 'ARC4Encoded',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/arc4encoded'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/arc4encoded',
                             },
                             {
                               label: 'Bool',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/bool'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/bool',
                             },
                             {
                               label: 'Byte',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/byte'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/byte',
                             },
                             {
                               label: 'Contract',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/contract'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/contract',
                             },
                             {
                               label: 'DynamicArray',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/dynamicarray'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/dynamicarray',
                             },
                             {
                               label: 'DynamicBytes',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/DynamicBytes'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/DynamicBytes',
                             },
                             {
                               label: 'StaticArray',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/staticarray'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/staticarray',
                             },
                             {
                               label: 'StaticBytes',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/staticbytes'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/staticbytes',
                             },
                             {
                               label: 'Str',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/str'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/str',
                             },
                             {
                               label: 'Tuple',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/tuple'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/tuple',
                             },
                             {
                               label: 'UFixedNxM',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/ufixednxm'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/ufixednxm',
                             },
                             {
                               label: 'UintN',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn',
                             },
                             {
                               label: 'UintN8',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn8'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn8',
                             },
                             {
                               label: 'UintN16',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn16'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn16',
                             },
                             {
                               label: 'UintN32',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn32'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn32',
                             },
                             {
                               label: 'UintN64',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn64'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn64',
                             },
                             {
                               label: 'UintN128',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn128'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn128',
                             },
                             {
                               label: 'UintN256',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn256'
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/uintn256',
                             },
-                          ]
+                          ],
                         },
                         {
                           label: 'enumerations',
@@ -924,9 +1239,9 @@ export default defineConfig({
                             {
                               label: 'OnCompleteAction',
                               link: 'reference/algorand-typescript/api-reference/arc4/enumerations/oncompleteaction',
-                            }
+                            },
                           ],
-                        }, 
+                        },
                         {
                           label: 'functions',
                           items: [
@@ -982,8 +1297,8 @@ export default defineConfig({
                             {
                               label: 'OnCompleteActionStr',
                               link: 'reference/algorand-typescript/api-reference/arc4/type-aliases/oncompleteactionstr',
-                            }
-                          ]
+                            },
+                          ],
                         },
                         {
                           label: 'variables',
@@ -991,10 +1306,10 @@ export default defineConfig({
                             {
                               label: 'Struct',
                               link: 'reference/algorand-typescript/api-reference/arc4/variables/struct',
-                            }
-                          ]
+                            },
+                          ],
                         },
-                      ]
+                      ],
                     },
                     {
                       label: 'index',
@@ -1073,7 +1388,7 @@ export default defineConfig({
                                   label: 'TransactionBase',
                                   link: 'reference/algorand-typescript/api-reference/index/-internal-/interfaces/transactionbase',
                                 },
-                              ]
+                              ],
                             },
                             {
                               label: 'type-aliases',
@@ -1154,9 +1469,9 @@ export default defineConfig({
                                   label: 'StateTotals',
                                   link: 'reference/algorand-typescript/api-reference/index/-internal-/type-aliases/statetotals',
                                 },
-                              ]
-                            }
-                          ]
+                              ],
+                            },
+                          ],
                         },
                         {
                           label: 'classes',
@@ -1172,8 +1487,8 @@ export default defineConfig({
                             {
                               label: 'MutableArray',
                               link: 'reference/algorand-typescript/api-reference/index/classes/mutablearray',
-                            }
-                          ]
+                            },
+                          ],
                         },
                         {
                           label: 'enumerations',
@@ -1186,7 +1501,7 @@ export default defineConfig({
                               label: 'TransactionType',
                               link: 'reference/algorand-typescript/api-reference/index/enumerations/transactiontype',
                             },
-                          ]
+                          ],
                         },
                         {
                           label: 'functions',
@@ -1279,7 +1594,7 @@ export default defineConfig({
                               label: 'urange',
                               link: 'reference/algorand-typescript/api-reference/index/functions/urange',
                             },
-                          ]
+                          ],
                         },
                         {
                           label: 'interfaces',
@@ -1288,7 +1603,7 @@ export default defineConfig({
                               label: 'BytesBacked',
                               link: 'reference/algorand-typescript/api-reference/index/interfaces/bytesbacked',
                             },
-                          ]
+                          ],
                         },
                         {
                           label: 'namespaces',
@@ -1327,7 +1642,7 @@ export default defineConfig({
                                       label: 'Transaction',
                                       link: 'reference/algorand-typescript/api-reference/index/namespaces/gtxn/functions/transaction',
                                     },
-                                  ]
+                                  ],
                                 },
                                 {
                                   label: 'interfaces',
@@ -1356,19 +1671,18 @@ export default defineConfig({
                                       label: 'PaymentTxn',
                                       link: 'reference/algorand-typescript/api-reference/index/namespaces/gtxn/interfaces/paymenttxn',
                                     },
-                                  ]
+                                  ],
                                 },
                                 {
                                   label: 'type-aliases',
                                   items: [
                                     {
                                       label: 'Transaction',
-                                      link: 'reference/algorand-typescript/api-reference/index/namespaces/gtxn/type-aliases/transaction'
-                                    }
-                                  ]
-                                }
-
-                              ]
+                                      link: 'reference/algorand-typescript/api-reference/index/namespaces/gtxn/type-aliases/transaction',
+                                    },
+                                  ],
+                                },
+                              ],
                             },
                             {
                               label: 'itxn',
@@ -1404,7 +1718,7 @@ export default defineConfig({
                                       label: 'SubmitGroup',
                                       link: 'reference/algorand-typescript/api-reference/index/namespaces/itxn/functions/submitgroup',
                                     },
-                                  ]
+                                  ],
                                 },
                                 {
                                   label: 'interfaces',
@@ -1485,28 +1799,28 @@ export default defineConfig({
                                       label: 'PaymentItxnParams',
                                       link: 'reference/algorand-typescript/api-reference/index/namespaces/itxn/interfaces/paymentitxnparams',
                                     },
-                                  ]
+                                  ],
                                 },
                                 {
                                   label: 'type-aliases',
                                   items: [
                                     {
                                       label: 'InnerTransaction',
-                                      link: 'reference/algorand-typescript/api-reference/index/namespaces/itxn/type-aliases/innertransaction'
+                                      link: 'reference/algorand-typescript/api-reference/index/namespaces/itxn/type-aliases/innertransaction',
                                     },
                                     {
                                       label: 'InnerTxnList',
-                                      link: 'reference/algorand-typescript/api-reference/index/namespaces/itxn/type-aliases/innertxnlist'
+                                      link: 'reference/algorand-typescript/api-reference/index/namespaces/itxn/type-aliases/innertxnlist',
                                     },
                                     {
                                       label: 'TxnFor',
-                                      link: 'reference/algorand-typescript/api-reference/index/namespaces/itxn/type-aliases/txnfor'
-                                    }
-                                  ]
-                                }
+                                      link: 'reference/algorand-typescript/api-reference/index/namespaces/itxn/type-aliases/txnfor',
+                                    },
+                                  ],
+                                },
                               ],
-                            }
-                          ]
+                            },
+                          ],
                         },
                         {
                           label: 'type-aliases',
@@ -1599,9 +1913,9 @@ export default defineConfig({
                               label: 'Uint64Compat',
                               link: 'reference/algorand-typescript/api-reference/index/type-aliases/uint64compat',
                             },
-                          ]
-                        }
-                      ]
+                          ],
+                        },
+                      ],
                     },
                     {
                       label: 'op',
@@ -1611,311 +1925,310 @@ export default defineConfig({
                           items: [
                             {
                               label: 'Base64',
-                              link: 'reference/algorand-typescript/api-reference/op/enumerations/base64'
+                              link: 'reference/algorand-typescript/api-reference/op/enumerations/base64',
                             },
                             {
                               label: 'Ec',
-                              link: 'reference/algorand-typescript/api-reference/op/enumerations/ec'
+                              link: 'reference/algorand-typescript/api-reference/op/enumerations/ec',
                             },
                             {
                               label: 'Ecdsa',
-                              link: 'reference/algorand-typescript/api-reference/op/enumerations/ecdsa'
+                              link: 'reference/algorand-typescript/api-reference/op/enumerations/ecdsa',
                             },
                             {
                               label: 'MimcConfigurations',
-                              link: 'reference/algorand-typescript/api-reference/op/enumerations/mimcconfigurations'
+                              link: 'reference/algorand-typescript/api-reference/op/enumerations/mimcconfigurations',
                             },
                             {
                               label: 'VrfVerify',
-                              link: 'reference/algorand-typescript/api-reference/op/enumerations/vrfverify'
-                            }
-                          ]
+                              link: 'reference/algorand-typescript/api-reference/op/enumerations/vrfverify',
+                            },
+                          ],
                         },
                         {
                           label: 'functions',
                           items: [
                             {
                               label: 'addw',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/addw'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/addw',
                             },
                             {
                               label: 'appOptedIn',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/appoptedin'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/appoptedin',
                             },
                             {
                               label: 'arg',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/arg'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/arg',
                             },
                             {
                               label: 'balance',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/balance'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/balance',
                             },
                             {
                               label: 'base64Decode',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/base64decode'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/base64decode',
                             },
                             {
                               label: 'bitLength',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/bitlength'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/bitlength',
                             },
                             {
                               label: 'bsqrt',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/bsqrt'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/bsqrt',
                             },
                             {
                               label: 'btoi',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/btoi'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/btoi',
                             },
                             {
                               label: 'bzero',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/bzero'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/bzero',
                             },
                             {
                               label: 'concat',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/concat'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/concat',
                             },
                             {
                               label: 'divmodw',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/divmodw'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/divmodw',
                             },
                             {
                               label: 'divw',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/divw'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/divw',
                             },
                             {
                               label: 'ecdsaPkDecompress',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/ecdsapkdecompress'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/ecdsapkdecompress',
                             },
                             {
                               label: 'ecdsaPkRecover',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/ecdsapkrecover'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/ecdsapkrecover',
                             },
                             {
                               label: 'ecdsaVerify',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/ecdsaverify'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/ecdsaverify',
                             },
                             {
                               label: 'ed25519verify',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/ed25519verify'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/ed25519verify',
                             },
                             {
                               label: 'ed25519verifyBare',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/ed25519verifybare'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/ed25519verifybare',
                             },
                             {
                               label: 'exp',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/exp'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/exp',
                             },
                             {
                               label: 'expw',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/expw'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/expw',
                             },
                             {
                               label: 'extract',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/extract'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/extract',
                             },
                             {
                               label: 'extractUint16',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/extractuint16'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/extractuint16',
                             },
                             {
                               label: 'extractUint32',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/extractuint32'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/extractuint32',
                             },
                             {
                               label: 'extractUint64',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/extractuint64'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/extractuint64',
                             },
                             {
                               label: 'falconVerify',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/falconverify'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/falconverify',
                             },
                             {
                               label: 'gaid',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/gaid'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/gaid',
                             },
                             {
                               label: 'getBit',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/getbit'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/getbit',
                             },
                             {
                               label: 'getByte',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/getbyte'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/getbyte',
                             },
                             {
                               label: 'getloadByte',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/getloadbyte'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/getloadbyte',
                             },
                             {
                               label: 'getloadBytes',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/getloadbytes'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/getloadbytes',
                             },
                             {
                               label: 'itob',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/itob'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/itob',
                             },
                             {
                               label: 'keccak256',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/keccak256'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/keccak256',
                             },
                             {
                               label: 'len',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/len'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/len',
                             },
                             {
                               label: 'mimc',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/mimc'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/mimc',
                             },
                             {
                               label: 'minBalance',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/minbalance'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/minbalance',
                             },
                             {
                               label: 'mulw',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/mulw'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/mulw',
                             },
                             {
                               label: 'onlineStake',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/onlinestake'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/onlinestake',
                             },
                             {
                               label: 'replace',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/replace'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/replace',
                             },
                             {
                               label: 'select',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/select'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/select',
                             },
                             {
                               label: 'setBit',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/setbit'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/setbit',
                             },
                             {
                               label: 'setByte',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/setbyte'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/setbyte',
                             },
                             {
                               label: 'sha3_256',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/sha3_256'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/sha3_256',
                             },
                             {
                               label: 'sha256',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/sha256'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/sha256',
                             },
                             {
                               label: 'sha512_256',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/sha512_256'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/sha512_256',
                             },
                             {
                               label: 'shl',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/shl'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/shl',
                             },
                             {
                               label: 'shr',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/shr'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/shr',
                             },
                             {
                               label: 'sqrt',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/sqrt'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/sqrt',
                             },
                             {
                               label: 'substring',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/substring'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/substring',
                             },
                             {
                               label: 'sumhash',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/sumhash'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/sumhash',
                             },
                             {
                               label: 'vrfVerify',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/vrfverify'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/vrfverify',
                             },
                             {
                               label: '',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/'
+                              link: 'reference/algorand-typescript/api-reference/op/functions/',
                             },
-                            
-                          ]
+                          ],
                         },
                         {
                           label: 'variables',
                           items: [
                             {
                               label: 'AcctParams',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/acctparams'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/acctparams',
                             },
                             {
                               label: 'AppGlobal',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/appglobal'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/appglobal',
                             },
                             {
                               label: 'AppLocal',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/applocal'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/applocal',
                             },
                             {
                               label: 'AppParams',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/appparams'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/appparams',
                             },
                             {
                               label: 'AssetHolding',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/assetholding'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/assetholding',
                             },
                             {
                               label: 'AssetParams',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/assetparams'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/assetparams',
                             },
                             {
                               label: 'Block',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/block'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/block',
                             },
                             {
                               label: 'Box',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/box'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/box',
                             },
                             {
                               label: 'EllipticCurve',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/ellipticcurve'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/ellipticcurve',
                             },
                             {
                               label: 'GITxn',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/gitxn'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/gitxn',
                             },
                             {
                               label: 'Global',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/global'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/global',
                             },
                             {
                               label: 'GTxn',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/gtxn'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/gtxn',
                             },
                             {
                               label: 'ITxn',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/itxn'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/itxn',
                             },
                             {
                               label: 'ITxnCreate',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/itxncreate'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/itxncreate',
                             },
                             {
                               label: 'JsonRef',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/jsonref'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/jsonref',
                             },
                             {
                               label: 'Scratch',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/scratch'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/scratch',
                             },
                             {
                               label: 'Txn',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/txn'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/txn',
                             },
                             {
                               label: 'VoterParams',
-                              link: 'reference/algorand-typescript/api-reference/op/variables/voterparams'
+                              link: 'reference/algorand-typescript/api-reference/op/variables/voterparams',
                             },
-                          ]
-                        }
-                      ]
-                    }
+                          ],
+                        },
+                      ],
+                    },
                   ],
                 },
                 {
@@ -2018,7 +2331,7 @@ export default defineConfig({
                           label: 'AlgorandClient',
                           link: 'reference/algokit-utils-ts/api-reference/classes/algorandclient',
                         },
-                      ]
+                      ],
                     },
                     {
                       label: 'enumerations',
@@ -2026,8 +2339,8 @@ export default defineConfig({
                         {
                           label: 'EventType',
                           link: 'reference/algokit-utils-ts/api-reference/enumerations/eventtype',
-                        }
-                      ]
+                        },
+                      ],
                     },
                     {
                       label: 'functions',
@@ -2385,7 +2698,7 @@ export default defineConfig({
                           label: 'TealSourcesDebugEventData',
                           link: 'reference/algokit-utils-ts/api-reference/interfaces/tealsourcesdebugeventdata',
                         },
-                      ]
+                      ],
                     },
                     {
                       label: 'namespaces',
@@ -2420,7 +2733,7 @@ export default defineConfig({
                                   label: 'searchTransactions',
                                   link: 'reference/algokit-utils-ts/api-reference/namespaces/indexer/functions/searchtransactions',
                                 },
-                              ]
+                              ],
                             },
                             {
                               label: 'type-aliases',
@@ -2429,10 +2742,10 @@ export default defineConfig({
                                   label: 'SearchForTransactions',
                                   link: 'reference/algokit-utils-ts/api-reference/namespaces/indexer/type-aliases/searchfortransactions',
                                 },
-                              ]
-                            }
-                          ]
-                        }
+                              ],
+                            },
+                          ],
+                        },
                       ],
                     },
                     {
@@ -2449,8 +2762,8 @@ export default defineConfig({
                         {
                           label: 'NumberConverter',
                           link: 'reference/algokit-utils-ts/api-reference/type-aliases/numberconverter',
-                        }
-                      ]
+                        },
+                      ],
                     },
                     {
                       label: 'variables',
@@ -2495,8 +2808,8 @@ export default defineConfig({
                           label: 'TEAL_SOURCEMAP_EXT',
                           link: 'reference/algokit-utils-ts/api-reference/variables/teal_sourcemap_ext',
                         },
-                      ]
-                    }
+                      ],
+                    },
                   ],
                 },
                 {
@@ -2511,7 +2824,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Opcodes List',
-                  link: 'reference/algorand-teal/opcodes-list'
+                  link: 'reference/algorand-teal/opcodes',
                 },
               ],
             },
@@ -2521,7 +2834,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Algorand SDK List',
-                  link: 'reference/sdk/sdk-list'
+                  link: 'reference/sdk/sdk-list',
                 },
                 // {
                 //   label: '.net',
@@ -2594,7 +2907,18 @@ export default defineConfig({
                   label: 'Overview',
                   link: 'reference/rest-api/overview',
                 },
-                ...openAPISidebarGroups,
+                {
+                  label: 'algod',
+                  link: 'reference/rest-api/algod',
+                },
+                {
+                  label: 'indexer',
+                  link: 'reference/rest-api/indexer',
+                },
+                {
+                  label: 'kmd',
+                  link: 'reference/rest-api/kmd',
+                },
               ],
             },
             {
@@ -2614,9 +2938,6 @@ export default defineConfig({
         },
       ],
     }),
-    tailwind({
-      applyBaseStyles: false,
-    }),
     icon(),
     // https://astro-d2.vercel.app/configuration
     d2({
@@ -2626,8 +2947,10 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    // Rehype plugin that adds target="_blank" and rel="noopener noreferrer" to external links
-    rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }]],
+    rehypePlugins: [
+      [rehypeAstroRelativeMarkdownLinks, { collectionBase: false }],
+      [rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }],
+    ],
   },
   vite: {
     resolve: {
@@ -2637,5 +2960,6 @@ export default defineConfig({
         '@diagrams': resolve('./src/assets/diagrams/svg'),
       },
     },
+    plugins: [tailwindcss()],
   },
 });

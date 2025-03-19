@@ -8,4 +8,8 @@ export default {
   shiki: {
     langs: [JSON.parse(fs.readFileSync('src/utils/teal-syntax.json', 'utf-8'))],
   },
+  styleOverrides: {
+    borderRadius: '0.5rem',
+    borderColor: 'var(--sl-color-gray-3)',
+  },
 };
