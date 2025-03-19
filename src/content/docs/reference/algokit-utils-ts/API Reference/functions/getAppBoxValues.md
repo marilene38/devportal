@@ -7,6 +7,8 @@ title: "getAppBoxValues"
 
 > **getAppBoxValues**(`appId`, `boxNames`, `algod`): `Promise`\<`Uint8Array`[]\>
 
+Defined in: [src/app.ts:300](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L300)
+
 :::caution[Deprecated]
 Use `algorand.app.getBoxValues` instead.
 Returns the value of the given box names for the given app.
@@ -37,7 +39,3 @@ An algod client instance
 `Promise`\<`Uint8Array`[]\>
 
 The current box values as a byte array in the same order as the passed in box names
-
-## Defined in
-
-[src/app.ts:300](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/app.ts#L300)
