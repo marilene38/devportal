@@ -34,9 +34,9 @@ There are two AlgoKit clients available for interacting with the Algorand blockc
 
 The Algorand client is the default entry point for interacting with the Algorand blockchain. This includes:
 
-<li>Crafting and sending [10 different types](/concepts/transactions/types) of transactions</li>
-<li>Accessing `algod`, `indexer`, `kmd` clients</li>
-<li>Setting various configuration parameters</li>
+- Crafting and sending [10 different types](/concepts/transactions/types) of transactions
+  <li>Accessing `algod`, `indexer`, `kmd` clients</li>
+  <li>Setting various configuration parameters</li>
 
 ### Typed Application Client
 
@@ -53,13 +53,13 @@ To use the `AlgorandClient` in your codebase, you can use various methods provid
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/algorand_client.py'
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/algorand-client.ts'
       snippet='INSTANTIATE_ALGORAND_CLIENT'
       lang='ts'
       title='Instantiate Algorand Client'
       frame='none'
-    /> */}
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
@@ -78,13 +78,13 @@ Once you have an `AlgorandClient` instance, you can access the SDK clients for t
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/algorand_client.py'
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/algorand-client.ts'
       snippet='SDK_CLIENTS'
       lang='ts'
       title='SDK Clients'
       frame='none'
-    /> */}
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
@@ -115,13 +115,13 @@ When the Algorand client is not tracking an account's signer, you would normally
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/algorand-client.ts'
       snippet='TXN_WITHOUT_SIGNER_CACHE'
       lang='ts'
       title='Transaction without signer cache'
       frame='none'
-    /> */}
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
@@ -138,13 +138,13 @@ To remove the need to pass in the signer for each transaction, you can cache the
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/algorand-client.ts'
       snippet='SIGNER_CONFIG'
       lang='ts'
       title='Signer configuration'
       frame='none'
-    /> */}
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
@@ -163,28 +163,36 @@ After setting the signer, you can send transactions without having to pass in th
 
 `AlgorandClient` caches network provided transaction values ([suggested parameters](/reference/rest-api/algod/operations/transactionparams)) for you automatically to reduce network traffic. It has a set of default configurations that control this behavior, but you have the ability to override and change the configuration of this behavior:
 
-<li>`algorand.setDefaultValidityWindow(validityWindow)` - Set the default validity window (number of
+<li>
+  `algorand.setDefaultValidityWindow(validityWindow)` - Set the default validity window (number of
   rounds from the current known round that the transaction will be valid to be accepted for), having
   a smallish value for this is usually ideal to avoid transactions that are valid for a long future
   period and may be submitted even after you think it failed to submit if waiting for a particular
   number of rounds for the transaction to be successfully submitted. The validity window defaults to
-  10, except in automated testing where it's set to 1000 when targeting LocalNet.</li>
-<li>`algorand.setSuggestedParams(suggestedParams, until?)` - Set the suggested network parameters to
-  use (optionally until the given time)</li>
-<li>`algorand.setSuggestedParamsTimeout(timeout)` - Set the timeout that is used to cache the
-  suggested network parameters (by default 3 seconds)</li>
-<li>`algorand.getSuggestedParams()` - Get the current suggested network parameters object, either the
-  cached value, or if the cache has expired a fresh value</li>
+  10, except in automated testing where it's set to 1000 when targeting LocalNet.
+</li>
+<li>
+  `algorand.setSuggestedParams(suggestedParams, until?)` - Set the suggested network parameters to
+  use (optionally until the given time)
+</li>
+<li>
+  `algorand.setSuggestedParamsTimeout(timeout)` - Set the timeout that is used to cache the
+  suggested network parameters (by default 3 seconds)
+</li>
+<li>
+  `algorand.getSuggestedParams()` - Get the current suggested network parameters object, either the
+  cached value, or if the cache has expired a fresh value
+</li>
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/algorand-client.ts'
       snippet='SUGGESTED_PARAMS_CONFIG'
       lang='ts'
       title='Suggested params configuration'
       frame='none'
-    /> */}
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
@@ -248,13 +256,13 @@ The approach to obtaining a client instance depends on how many app clients you 
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
-      snippet='APP_DEPLOYED_APP_CLIENT_ID'
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/algorand-client.ts'
+      snippet='GET_APP_CLIENT_WHEN_DEPLOYED'
       lang='ts'
       title='App is deployed. Get app client by app id'
       frame='none'
-    /> */}
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
@@ -271,13 +279,13 @@ The approach to obtaining a client instance depends on how many app clients you 
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/algorand-client.ts'
       snippet='APP_NOT_DEPLOYED_APP_CREATE'
       lang='ts'
       title='App not deployed app create'
       frame='none'
-    /> */}
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
@@ -296,13 +304,13 @@ To call a smart contract method using the application client instance, follow th
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/algorand-client.ts'
       snippet='APP_CLIENT_CALL_METHOD'
       lang='ts'
       title='Call a smart contract method'
       frame='none'
-    /> */}
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
@@ -321,13 +329,13 @@ For a simple example that deploys a contract and calls a `hello` method, see bel
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/algorand-client.ts'
       snippet='FULL_APP_CLIENT_EXAMPLE'
       lang='ts'
       title='Full app client example'
       frame='none'
-    /> */}
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
