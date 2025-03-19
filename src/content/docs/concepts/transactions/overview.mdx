@@ -78,7 +78,7 @@ Atomic transfers enable use cases such as:
 - Group payments - Everyone pays or no one pays.
 - Decentralized exchanges - Trade one asset for another without going through a centralized exchange.
 - Distributed payments - Payments to multiple recipients.
-- [Pooled transaction fees](FUTURELINK:/concepts/transactions/fees) - One transaction pays the fees of others.
+- [Pooled transaction fees](/concepts/transactions/fees#pooled-transaction-fees) - One transaction pays the fees of others.
 - Op Up transactions - Group multiple transactions to cover higher opcode budget
 
 For detailed information about atomic transactions, refer to the Atomic Transaction Groups page:
@@ -105,7 +105,23 @@ For detailed information about the lease field on Algorand, refer to the Lease p
 
 ## Blocks
 
-TODO
+Blocks form the foundation of the Algorand blockchain, as they are the records that contain all network activity. Each block represents a batch of transactions that advances the ledger from one round to the next, updating the state of the blockchain.
+
+Each block contains:
+
+- Essential metadata like round number and timestamps.
+- Transaction data
+- Links to previous blocks in the chain
+
+Blocks are added to the chain through Algorand's [Pure Proof of Stake consensus protocol](/protocol/overview#the-algorand-consensus-protocol), which is Algorand's unique proof of stake consensus protocol that ensures security and instant finality through randomness. 
+
+For detailed information about blocks on Algorand, refer to the Blocks page:
+
+<LinkCard
+  title='Blocks'
+  href='/concepts/transactions/blocks'
+  description='Detailed information about blocks'
+/>
 
 ## URI Scheme
 
@@ -117,4 +133,14 @@ For detailed information about the URI scheme on Algorand, refer to the URI Sche
   title='URI Scheme'
   href='/concepts/transactions/uri-scheme'
   description='Detailed information about the URI scheme'
+/>
+
+## Transaction Reference
+
+For detailed information about the transaction references, refer to the Transaction Reference page:
+
+<LinkCard
+  title='Transaction Reference'
+  href='/concepts/transactions/transactions'
+  description='Detailed information about the transaction reference'
 />
