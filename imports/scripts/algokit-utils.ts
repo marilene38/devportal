@@ -65,6 +65,7 @@ await processFile([
             stripLinkExtensions,
             changeFromTo('./capabilities/', '/algokit/utils/python/'),
             changeFromTo('capabilities/', '/algokit/utils/python/'),
+            changeFromTo('#ensure-funded', '#ensure_funded'),
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/utils/python/overview.md'
     },

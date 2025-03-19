@@ -89,7 +89,7 @@ If you prefer TypeScript there’s an equivalent [TypeScript utility library](ht
   - [Further reading](/algokit/utils/python/transaction#further-reading)
 - [Algo transfers (payments)](/algokit/utils/python/transfer)
   - [`payment`](/algokit/utils/python/transfer#payment)
-  - [`ensure_funded`](/algokit/utils/python/transfer#ensure-funded)
+  - [`ensure_funded`](/algokit/utils/python/transfer#ensure_funded)
   - [Dispenser](/algokit/utils/python/transfer#dispenser)
 - [Typed application clients](/algokit/utils/python/typed-app-clients)
   - [Generating an app spec](/algokit/utils/python/typed-app-clients#generating-an-app-spec)
