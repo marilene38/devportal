@@ -1,4 +1,4 @@
-@layer theme, base, components, utilities,;
+@layer theme, base, components, utilities;
 
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/utilities.css' layer(utilities);
@@ -21,6 +21,8 @@
   --text-7xl: 4.5rem;
   --text-8xl: 6rem;
   --text-9xl: 8rem;
+
+  --breakpoint-home-container: 1354px;
 
   --font-sans: Inter, sans-serif;
   --font-mono: Source Code Pro, monospace;
@@ -223,11 +225,11 @@ html:has(.homepage-hero) {
   }
 
   header {
-    @apply py-4! lg:py-[25px]! px-0! h-auto!;
+    @apply pt-[14px]! pb-[6px]! md:pb-2! md:pt-4! px-0! h-auto!;
 
     @media (width >= 48rem /* 768px */) {
       .social-icons svg {
-        --sl-icon-size: 34px !important;
+        --sl-icon-size: 25px !important;
       }
     }
   }
@@ -241,7 +243,7 @@ html:has(.homepage-hero) {
     background-color: transparent !important;
     padding: unset !important;
 
-    @apply text-algo-lavender-400! dark:text-algo-teal-700! text-[20px]! h-[40px]! md:text-[34px]! md:h-[48px]!;
+    @apply text-algo-lavender-400! dark:text-algo-teal-700! text-[20px]! h-full! md:text-[25px]!;
 
     .sl-hidden {
       display: none !important;
