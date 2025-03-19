@@ -466,7 +466,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'AlgoKit Clients',
-                  link: 'algokit/utils/algokit-utils-clients',
+                  link: 'algokit/utils/algokit-clients',
                 },
                 {
                   label: 'TypeScript',
