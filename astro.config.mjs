@@ -294,7 +294,7 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Build With AlgoKit',
+          label: 'Build with AlgoKit',
           collapsed: false,
           items: [
             {
