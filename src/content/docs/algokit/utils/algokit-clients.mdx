@@ -2,11 +2,18 @@
 title: AlgoKit Clients
 ---
 
-import { Code } from '@astrojs/starlight/components';
-import { Tabs, TabItem } from '@astrojs/starlight/components';
+import {
+  Steps,
+  Aside,
+  Code,
+  Tabs,
+  TabItem,
+  FileTree,
+  LinkCard,
+  BulletList,
+} from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
 import { Image } from 'astro:assets';
-import { LinkCard, BulletList } from '@astrojs/starlight/components';
 
 import networkConfig from '/examples/algokit/ts/algokit-utils-ts-clients-overview-network-config.ts?raw';
 import sdkclients from '/examples/algokit/ts/algokit-utils-ts-clients-overview-sdk-clients.ts?raw';
@@ -22,33 +29,31 @@ import call_method from '/examples/algokit/py/algokit-utils-py-clients-overview-
 
 import artifacts from '@images/algokit-utils-clients-overview-artifacts.png';
 
-The easiest way to interact with the Algorand blockchain and also deployed smart contracts is to use the AlgoKit Utils clients.
-These clients have been designed to expose intuitive methods that are grouped conceptually for ease of exploration through your development environment.
+When building on Algorand, you need reliable ways to communicate with the blockchain--sending transactions, interacting with smart contracts, and accessing blockchain data. AlgoKit Utils Clients provide straightforward, developer-friendly interfaces for these interactions, reducing the complexity typically associated with blockchain development.
+This guide explains how to use these clients to simplify common Algorand development tasks, whether you're sending a basic transaction or deploying complex smart contracts.
 
-## Types of AlgoKit Clients
+AlgoKit offers two main types of clients to interact with the Algorand blockchain:
 
-There are two AlgoKit clients available for interacting with the Algorand blockchain:
+1. **Algorand Client** - A general-purpose client for all Algorand interactions, including:
 
-### Algorand Client
+   - Sending various transaction types (payments, asset transfers, application calls, etc.)
+   - Accessing network services (algod, indexer, kmd)
+   - Configuring connection parameters with sensible defaults
 
-The Algorand client is the default entry point for interacting with the Algorand blockchain. This includes:
+2. **Typed Application Client** - A specialized, auto-generated client for interacting with specific smart contracts:
+   - Provides type-safe interfaces based on contract specifications ([ARC-56](/standards/arcs/arc-0056)/[ARC-32](/standards/arcs/arc-0032))
+   - Enables IntelliSense-driven development experience
+   - Reduces errors through compile-time type checking
 
-- Crafting and sending [10 different types](/concepts/transactions/types) of transactions
-  <li>Accessing `algod`, `indexer`, `kmd` clients</li>
-  <li>Setting various configuration parameters</li>
+Let's explore each client type in detail.
 
-### Typed Application Client
+## Algorand Client: Gateway to the Blockchain
 
-Typed application clients are automatically generated, typed TypeScript or Python deployment and interaction clients for smart contracts that have a defined [ARC-56](/standards/arcs/arc-0056) or [ARC-32](/standards/arcs/arc-0032) application specification so that the development experience is easier with less upskill ramp-up and less deployment errors. These clients give you a type-safe, intellisense-driven experience for calling the smart contract.
+The `AlgorandClient` serves as your primary entry point for all Algorand operations. Think of it as your Swiss Army knife for blockchain interactions.
 
-## AlgorandClient
+### Getting Started with AlgorandClient
 
-The `AlgorandClient` class included in AlgoKit Utils for TypeScript and Python is the default entry point for all Algorand functionalities.
-Use it to craft and send transactions individually or bundled as atomic transaction groups, access REST API clients (`algod`, `indexer`, `kmd`), and quickly set configuration parameters, with sensible defaults.
-
-### Instantiating the AlgorandClient
-
-To use the `AlgorandClient` in your codebase, you can use various methods provided by the class to instantiate the client and configure the network connection:
+You can create an AlgorandClient instance in several ways, depending on your needs:
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
@@ -71,9 +76,9 @@ To use the `AlgorandClient` in your codebase, you can use various methods provid
   </TabItem>
 </Tabs>
 
-### Accessing the REST API clients
+These factory methods make it easy to connect to different Algorand networks without manually configuring connection details.
 
-Once you have an `AlgorandClient` instance, you can access the REST API clients for the various Algorand APIs via the `algorand.client` property:
+Once you have an `AlgorandClient` instance, you can access the REST API clients for the various Algorand APIs via the `AlgorandClient.client` property:
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
@@ -98,19 +103,29 @@ Once you have an `AlgorandClient` instance, you can access the REST API clients 
 
 For more information about the functionalities of the REST API clients, refer to the following pages:
 
-<LinkCard title='algod' href='/reference/rest-api/algod' description='algod API reference' />
-<LinkCard title='Indexer' href='/reference/rest-api/indexer' description='Indexer API reference' />
-<LinkCard title='kmd' href='/reference/rest-api/kmd' description='kmd API reference' />
+<LinkCard
+  title='algod API Reference'
+  href='/reference/rest-api/algod'
+  description='Interact with Algorand nodes, submit transactions, and get blockchain status'
+/>
+<LinkCard
+  title='Indexer API Reference'
+  href='/reference/rest-api/indexer'
+  description='Query historical transactions, account information, and blockchain data'
+/>
+<LinkCard
+  title='kmd API Reference'
+  href='/reference/rest-api/kmd'
+  description='Manage wallets and keys (primarily for development environments)'
+/>
 
-### Understanding Algorand Client Statefulness
+### Understanding AlgorandClient's Stateful Design
 
-The `AlgorandClient` is stateful, meaning that it caches various information that are reused multiple times. This allows the AlgorandClient to avoid redundant requests to the blockchain and to provide a more efficient interface for interacting with the blockchain. This is an important concept to understand before using the AlgorandClient.
+The `AlgorandClient` is "stateful", meaning that it caches various information that are reused multiple times. This allows the `AlgorandClient` to avoid redundant requests to the blockchain and to provide a more efficient interface for interacting with the blockchain. This is an important concept to understand before using the `AlgorandClient`.
 
-#### Account Signers Can Be Cached
+#### Account Signer Caching
 
-The `AlgorandClient` can caches account signers for each account. This means you can sign and send transactions using the Algorand client without having to pass in the signer for each transaction.
-
-When the Algorand client is not tracking an account's signer, you would normally have to pass in the signer for each transaction.
+When sending transactions, you need to sign them with a private key. `AlgorandClient` can cache these signing capabilities, eliminating the need to provide signing information for every transaction, as you can see in the following example:
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
@@ -133,7 +148,7 @@ When the Algorand client is not tracking an account's signer, you would normally
   </TabItem>
 </Tabs>
 
-To remove the need to pass in the signer for each transaction, you can cache the signer for an account using the following methods:
+The same example, but with different approaches to signer caching demonstrated:
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
@@ -156,11 +171,47 @@ To remove the need to pass in the signer for each transaction, you can cache the
   </TabItem>
 </Tabs>
 
-After setting the signer, you can send transactions without having to pass in the signer for each transaction like above.
+This caching mechanism simplifies your code, especially when sending multiple transactions from the same account.
 
-#### Suggested Parameters Are Cached
+#### Suggested Parameter Caching
 
-`AlgorandClient` caches network provided transaction values ([suggested parameters](/reference/rest-api/algod/operations/transactionparams)) for you automatically to reduce network traffic. It has a set of default configurations that control this behavior, but you have the ability to override and change the configuration of this behavior:
+`AlgorandClient` caches network provided transaction values ([suggested parameters](/reference/rest-api/algod#transactionparams)) for you automatically to reduce network traffic. It has a set of default configurations that control this behavior, but you have the ability to override and change the configuration of this behavior.
+
+##### What Are Suggested Parameters?
+
+In Algorand, every transaction requires a set of network-specific parameters that define how the transaction should be processed. These "suggested parameters" include:
+
+- **Fee:** The transaction fee (in microAlgos)
+- **First Valid Round:** The first blockchain round where the transaction can be processed
+- **Last Valid Round:** The last blockchain round where the transaction can be processed (after this, the transaction expires)
+- **Genesis ID:** The identifier for the Algorand network (e.g., "mainnet-v1.0")
+- **Genesis Hash:** The hash of the genesis block for the network
+- **Min Fee:** The minimum fee required by the network
+
+These parameters are called "suggested" because the network provides recommended values, but developers can modify them (for example, to increase the fee during network congestion).
+
+##### Why Cache These Parameters?
+
+Without caching, your application would need to request these parameters from the network before every transaction, which:
+
+- **Increases latency:** Each transaction would require an additional network request
+- **Increases network load:** Both for your application and the Algorand node
+- **Slows down user experience:** Especially when creating multi-transaction groups
+
+Since these parameters only change every few seconds (when new blocks are created), repeatedly requesting them wastes resources.
+
+##### How Parameter Caching Works
+
+The `AlgorandClient` automatically:
+
+1. Requests suggested parameters when needed
+2. Caches them for a configurable time period (default: 3 seconds)
+3. Reuses the cached values for subsequent transactions
+4. Refreshes the cache when it expires
+
+##### Customized Parameter Caching
+
+`AlgorandClient` has a set of default configurations that control this behavior, but you have the ability to override and change the configuration of this behavior:
 
 - `algorand.setDefaultValidityWindow(validityWindow)` - Set the default validity window (number of
   rounds from the current known round that the transaction will be valid to be accepted for), having
@@ -196,22 +247,36 @@ After setting the signer, you can send transactions without having to pass in th
   </TabItem>
 </Tabs>
 
-## Typed Application Client
+<Aside type="tip" title="When to Adjust Parameter Caching">
 
-Typed application clients are automatically generated, typed TypeScript or Python deployment and interaction clients for smart contracts that have a defined `ARC-56` or `ARC-32` application specification so that the development experience is easier with less upskill ramp-up and less deployment errors. These clients give you a type-safe, Intellisense-driven experience for calling the smart contract.
+- **Building time-sensitive applications:** Reduce the validity window for transactions that shouldn't remain pending for long
+- **Developing high-throughput services:** Increase the cache timeout to reduce network requests
+- **Working with congested networks:** Manually set higher fees during peak usage
+- **Testing transaction behavior:** Disable caching to ensure fresh parameters for each test
 
-Typed application clients are the recommended way of interacting with smart contracts. If you don't have/want a typed client, but have an `ARC-56` or `ARC-32` app spec then you can use the non-typed application clients and if you want to call a smart contract you don't have an app spec file for you can use the underlying app management and app deployment functionality to manually construct transactions.
+</Aside>
 
-### Generating the ApplicationClient Class
+By understanding and properly configuring suggested parameter caching, you can optimize your application's performance while ensuring transactions are processed correctly by the Algorand network.
 
-When compiled, all ARC4 smart contracts generate an `arc56.json` or `arc32.json` file depending on what app spec was used. This file contains the smart contract's extended ABI,
-which follows the [ARC-0032](/standards/arcs/arc-0032) standard.
+## Typed App Clients: Smart Contract Interaction Simplified
 
-The relevant smart contract's application client is generated using the ARC56/ARC32 ABI file. There are two different ways to generate an application client for a smart contract:
+While the `AlgorandClient` handles general blockchain interactions, typed app clients provide specialized interfaces for deployed applications. These clients are generated from contract specifications ([ARC-56](/standards/arcs/arc-0056)/[ARC-32](/standards/arcs/arc-0032)) and offer:
 
-#### 1. Using the AlgoKit Build CLI command
+- Type-safe method calls
+- Automatic parameter validation
+- IntelliSense code completion support
 
-When you are using the AlgoKit smart contract template for your project, compiling your ARC4 smart contract written in either TypeScript or Python will automatically generate the TypeScript or Python application client for you depending on what language you chose for contract interaction. Simply run the following command to generate the artifacts including the typed application client:
+:::note
+Typed app clients are the recommended way to interact with smart contracts. However, you have alternatives based on your situation. If you have an _ARC-56_ or _ARC-32_ app specification but prefer not to use typed clients, you can still use non-typed application clients. For smart contracts without any app specification, you'll need to use the underlying app management and deployment functionality to manually construct your transactions.
+:::
+
+### Generating App Clients
+
+The relevant smart contract's app client is generated using the _ARC56/ARC32_ ABI file. There are two different ways to generate an application client for a smart contract:
+
+#### 1. Using the AlgoKit Build CLI Command
+
+When you are using the AlgoKit smart contract template for your project, compiling your _ARC4_ smart contract written in either TypeScript or Python will automatically generate the TypeScript or Python application client for you depending on what language you chose for contract interaction. Simply run the following command to generate the artifacts including the typed application client:
 
 ```shell showLineNumbers=false frame=none
 algokit project run build
@@ -219,14 +284,17 @@ algokit project run build
 
 After running the command, you should see the following artifacts generated in the `artifacts` directory under the `smart_contracts` directory:
 
-<Image src={artifacts} alt='Image of generated artifacts' />
+<FileTree>
+  - hello_world - hello_world_client.py - HelloWorld.approval.puya.map - HelloWorld.approval.teal -
+  HelloWorld.arc56.json - HelloWorld.clear.puya.map - HelloWorld.clear.puya.teal
+</FileTree>
 
-#### 2. Using the AlgoKit Generate CLI command
+#### 2. Using the AlgoKit Generate CLI Command
 
-There is also an AlgoKit CLI command to generate the application client for a smart contract. You can also use it to define custom commands inside of the `.algokit.toml` file in your project directory.
+There is also an AlgoKit CLI command to generate the app client for a smart contract. You can also use it to define custom commands inside of the `.algokit.toml` file in your project directory.
 Note that you can specify what language you want for the application clients with the file extensions `.ts` for TypeScript and `.py` for Python.
 
-```shell showLineNumbers=false frame=terminal
+```shell showLineNumbers=false frame=none
 # To output a single arc32.json to a TypeScript typed app client:
 algokit generate client path/to/arc32.json --output client.ts
 
@@ -237,13 +305,15 @@ algokit generate client smart_contracts/artifacts --output {contract_name}.ts
 algokit generate client smart_contracts/artifacts --output {app_spec_path}/client.py
 ```
 
-### Getting a Typed App Client Instance
+When compiled, all _ARC-4_ smart contracts generate an `arc56.json` or `arc32.json` file depending on what app spec was used. This file contains the smart contract's extended ABI, which follows the _ARC-32_ standard.
+
+### Working with a Typed App Client Object
 
 To get an instance of a typed client you can use an `AlgorandClient` instance or a typed app `Factory` instance.
 
 The approach to obtaining a client instance depends on how many app clients you require for a given app spec and if the app has already been deployed, which is summarised below:
 
-#### App is already deployed
+#### App is Already Deployed
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
@@ -266,7 +336,9 @@ The approach to obtaining a client instance depends on how many app clients you 
   </TabItem>
 </Tabs>
 
-#### App is not deployed
+#### App is not Deployed
+
+For applications that need to work with multiple instances of the same smart contract spec, factories provide a convenient way to manage multiple clients:
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
@@ -314,7 +386,9 @@ To call a smart contract method using the application client instance, follow th
   </TabItem>
 </Tabs>
 
-### Simple Deploy and Call Example
+The typed app client ensures you provide the correct parameters and handles all the underlying transaction construction and submission.
+
+### Example: Deploying and Interacting with a Smart Contract
 
 For a simple example that deploys a contract and calls a `hello` method, see below:
 
@@ -338,3 +412,26 @@ For a simple example that deploys a contract and calls a `hello` method, see bel
     />
   </TabItem>
 </Tabs>
+
+## When to Use Each Client Type
+
+- Use the `AlgorandClient` when you need to:
+
+  - Send basic transactions (payments, asset transfers)
+  - Work with blockchain data in a general way
+  - Interact with contracts you don't have specifications for
+
+- Use Typed App Clients when you need to:
+  - Deploy and interact with specific smart contracts
+  - Benefit from type safety and IntelliSense
+  - Build applications that leverage contract-specific functionality
+
+For most Algorand applications, you'll likely use both: `AlgorandClient` for general blockchain operations and Typed App Clients for smart contract interactions.
+
+## Next Steps
+
+Now that you understand AlgoKit Utils Clients, you're ready to start building on Algorand with confidence. Remember:
+
+- Start with the AlgorandClient for general blockchain interactions
+- Generate Typed Application Clients for your smart contracts
+- Leverage the stateful design of these clients to simplify your code
