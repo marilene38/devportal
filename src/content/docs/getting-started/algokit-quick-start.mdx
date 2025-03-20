@@ -227,87 +227,46 @@ This guide will walk you through using either the **TypeScript** or **Python** s
 
 <Tabs syncKey="lang">
     <TabItem label="TypeScript" icon="seti:typescript">
-    For this guide, we will use the TypeScript smart contract starter template.
+        For this guide, we will use the TypeScript smart contract starter template.
 
-        <Steps>
+            <Steps>
 
-            1. To create a new AlgoKit project you can easily do so by running:
+                1. To create a new AlgoKit project you can easily do so by running:
 
-                ```shell showLineNumbers=false frame=none
-                algokit init
-                ```
+                    ```shell showLineNumbers=false frame=none
+                    algokit init
+                    ```
 
-                This will launch a guided menu system to create a specific project tailored to your needs. You will first
-                be prompted to select the type of project you want to create. For this quick start guide, we will use the TypeScript
-                smart contract template, so select the **Smart Contracts** option.
+                    This will launch a guided menu system to create a specific project tailored to your needs. You will first
+                    be prompted to select the type of project you want to create. For this quick start guide, we will use the TypeScript
+                    smart contract template, so select the **Smart Contracts** option.
 
-                <Image src={algokitInitPy1} alt='AlgoKit Init #1' />
+                    <Image src={algokitInitPy1} alt='AlgoKit Init #1' />
 
-            2. Next, AlgoKit will ask you what programming language you want to use for the smart contract. With AlgoKit 3.0, you can now write
-            Algorand smart contracts with native TypeScript. Let's select **TypeScript** as our smart contract language by pressing enter. <Image src={algokitInitTs1} alt="AlgoKit Init #2" />
+                2. Next, AlgoKit will ask you what programming language you want to use for the smart contract. With AlgoKit 3.0, you can now write
+                Algorand smart contracts with native TypeScript. Let's select **TypeScript** as our smart contract language by pressing enter. <Image src={algokitInitTs1} alt="AlgoKit Init #2" />
 
-            3. Then AlgoKit will ask you for the name of the project. Let's name it **hello-algorand**, but if you want to name it differently, feel free to do so!
-            After writing the name, press enter to continue.<Image src={algokitInitTs2} alt="AlgoKit Init #3" />
+                3. Then AlgoKit will ask you for the name of the project. Let's name it **hello-algorand**, but if you want to name it differently, feel free to do so!
+                After writing the name, press enter to continue.<Image src={algokitInitTs2} alt="AlgoKit Init #3" />
 
-            4. Next you can set the name of the smart contract. We will keep it as it is for now.<Image src={algokitInitTs3} alt="AlgoKit Init #4" />
+                4. Next you can set the name of the smart contract. We will keep it as it is for now.<Image src={algokitInitTs3} alt="AlgoKit Init #4" />
 
-            5. Next, you can select the template preset. The **Starter** preset is for quickly implementing and testing certain features
-            whereas the **Production** preset is for production-ready applications. For this guide, let's select **Starter**.<Image src={algokitInitTs4} alt="AlgoKit Init #5" />
+                5. Next, you can select the template preset. The **Starter** preset is for quickly implementing and testing certain features
+                whereas the **Production** preset is for production-ready applications. For this guide, let's select **Starter**.<Image src={algokitInitTs4} alt="AlgoKit Init #5" />
 
-            6. Next, AlgoKit will ask you if you want to run the `algokit project bootstrap` command to install the necessary dependencies.
-            Say yes by pressing "y" This process can take a few minutes.<Image src={algokitInitTs5} alt="AlgoKit Init #6" />
+                6. Next, AlgoKit will ask you if you want to run the `algokit project bootstrap` command to install the necessary dependencies.
+                Say yes by pressing "y" This process can take a few minutes.<Image src={algokitInitTs5} alt="AlgoKit Init #6" />
 
-            7. Finally, AlgoKit will ask you if you want to initialize a git repository. Let's say yes by pressing "y" so that we can easily
-            push our AlgoKit project to Github.<Image src={algokitInitTs6} alt="AlgoKit Init #7" />
+                7. Finally, AlgoKit will ask you if you want to initialize a git repository. Let's say yes by pressing "y" so that we can easily
+                push our AlgoKit project to Github.<Image src={algokitInitTs6} alt="AlgoKit Init #7" />
 
-            8. Once finished, VS Code should automatically be opened with the initialized project if VS Code is set as your default editor. If not, `cd` into the project directory and open the project in your IDE of choice.
+                8. Once finished, VS Code should automatically be opened with the initialized project if VS Code is set as your default editor. If not, `cd` into the project directory and open the project in your IDE of choice.
 
-            9. This starter app contains one smart contract written in [Algorand TypeScript](/concepts/smart-contracts/languages/typescript) named `HelloWorld` in the `smart_contracts/hello_world/contract.algo.ts` file. The contract has a method called `hello` that takes in a `String` and returns a `String`. <Image src={algokit_v3_contract} alt='AlgoKit Starter Contract' />
-        </Steps>
-
-    ## Run the Demo Application
-
-    Once the starter project is created, you will notice in the `smart_contracts/hello_world` folder a file named `deploy_config.ts` which is a simple example of using AlgoKit to deploy the `HelloWorld` smart contract in `contract.algo.ts` on the Local Algorand blockchain started earlier and then call the `hello` method.
-    <Image src={algokit_v3_deploy} alt='AlgoKit Starter config' />
-
-    Now there are two ways to run the `deploy-config.ts` file to deploy and call the smart contract:
-    <Steps>
-    1. By hitting `F5` it will start LocalNet, build the smart contract, deploy and call the smart contract `contract.algo.ts` by running the `deploy-config.ts` file.
-
-    2. Alternatively, you can run the following commands from the terminal to build the contract and run the `deploy-config.ts` file:
-
-        ```shell showLineNumbers=false frame=none title="Build and Deploy"
-        algokit project run build
-        algokit project deploy
-        ```
-    </Steps>
-
-    The output should look similar to the following:
-
-    ```shell showLineNumbers=false frame=none
-    === Deploying HelloWorld ===
-    Idempotently deploying app "HelloWorld" from creator RQGFSWXL2RKDBO53MN3ZRWCO3CP2HCZ6T4D5DMNJSIXRV76XAEBUJNHOMY using 86 bytes of AVM bytecode and 4 bytes of AVM bytecode
-    App HelloWorld not found in apps created by RQGFSWXL2RKDBO53MN3ZRWCO3CP2HCZ6T4D5DMNJSIXRV76XAEBUJNHOMY; deploying app with version 1.0.
-    App created by RQGFSWXL2RKDBO53MN3ZRWCO3CP2HCZ6T4D5DMNJSIXRV76XAEBUJNHOMY with ID 2225 via transaction PSO2XD77YINZRSNH5X76EN6QZYC2I3P6NITJQCCSDS7IC2PJ4RYA
-    Sending 1000000 µALGO from RQGFSWXL2RKDBO53MN3ZRWCO3CP2HCZ6T4D5DMNJSIXRV76XAEBUJNHOMY to JM7DKIZGR3M4EGZYYR7LXUDX3R7X6QLRV4S2YVLTSDZP73XLX5A6ZDAQLE via transaction T66O4VNOD5CV6RZ75J53PHFMIIX2DCGT2Q3VM7W3W4CJ7DJQK6MA
-    App 2225 called with hello(world) by RQGFSWXL2RKDBO53MN3ZRWCO3CP2HCZ6T4D5DMNJSIXRV76XAEBUJNHOMY via transaction W2ZQYBEAFXDKHWDBBKJ6WC56ASAQ267ZEHYESWYLZP3YT3AACMGQ
-    Called hello on HelloWorld (2225) with name = world, received: Hello, world
-    ```
-
-    The App ID of of the deployed contract and its Algorand address is displayed, followed by the message returned from the smart contract call.
-
-    Additionally, by building the smart contract, AlgoKit generates various artifacts in the `artifacts` folder. These artifacts include:
-    - [Native TEAL smart contract code](/concepts/smart-contracts/languages/teal): `HelloWorld.approval.teal`, `HelloWorld.clear.teal`
-    - [Contract ABI](/concepts/smart-contracts/abi): `HelloWorld.arc56.json`
-    - [Auto-generated typed application client](/algokit/utils/algokit-clients): `HelloWorldClient.ts`
-
-    <Image src={algokit_v3_artifacts} alt='AlgoKit Starter Artifacts' />
-
-    These artifacts can be used by tools like [Lora](https://lora.algokit.io/localnet) and [goal](/algokit/algokit-cli/goal) to deploy your smart contract to various Algorand networks.
-
+                9. This starter app contains one smart contract written in [Algorand TypeScript](/concepts/smart-contracts/languages/typescript) named `HelloWorld` in the `smart_contracts/hello_world/contract.algo.ts` file. The contract has a method called `hello` that takes in a `String` and returns a `String`. <Image src={algokit_v3_contract} alt='AlgoKit Starter Contract' />
+            </Steps>
     </TabItem>
-        <TabItem label="Python" icon="seti:python">
-    For this guide, we will use the Python smart contract starter template.
+    <TabItem label="Python" icon="seti:python">
+        For this guide, we will use the Python smart contract starter template.
 
         <Steps>
 
@@ -348,45 +307,86 @@ This guide will walk you through using either the **TypeScript** or **Python** s
 
             10. This starter app contains one smart contract written in [Algorand Python](/concepts/smart-contracts/languages/python) named `HelloWorld` in the `smart_contracts/hello_world/contract.py` file. The contract has a method called `hello` that takes in a `String` and returns a `String`. <Image src={algokit_v2_contract} alt='AlgoKit Starter Contract' />
         </Steps>
-
-    ## Run the Demo Application
-
-    Once the starter project is created, you will notice in the `smart_contracts/hello_world` folder a file named `deploy_config.py` which is a simple example of using AlgoKit to deploy the `HelloWorld` smart contract in `contract.py` on the Local Algorand blockchain started earlier and then call the `hello` method.
-
-    <Image src={algokit_v2_deploy} alt='AlgoKit Starter config' />
-
-    Now there are two ways to run the `deploy-config.py` file to deploy and call the smart contract:
-    <Steps>
-    1. By hitting `F5` it will start LocalNet, build the smart contract, deploy and call the smart contract `contract.py` by running the `deploy-config.py` file.
-
-    2. Alternatively, you can run the following commands from the terminal to build the contract and run the `deploy-config.py` file:
-
-        ```shell showLineNumbers=false frame=none title="Build and Deploy"
-        algokit project run build
-        algokit project deploy
-        ```
-    </Steps>
-
-    The output should look similar to the following:
-
-    ```shell showLineNumbers=false frame=none
-    Deploying hello_world
-    Called hello on HelloWorld (2225) with name=world, received: Hello, world
-    ```
-
-    The App ID of of the deployed contract is displayed, followed by the message returned from the smart contract call.
-
-    Additionally, by building the smart contract, AlgoKit generates various artifacts in the `artifacts` folder. These artifacts include:
-    - [Native TEAL smart contract code](/concepts/smart-contracts/languages/teal): `HelloWorld.approval.teal`, `HelloWorld.clear.teal`
-    - [Contract ABI](/concepts/smart-contracts/abi): `HelloWorld.arc56.json`
-    - [Auto-generated typed application client](/algokit/utils/algokit-clients): `hello_world_client.py`
-
-    <Image src={algokit_v2_artifacts} alt='AlgoKit Starter Artifacts' />
-
-    These artifacts can be used by tools like [Lora](https://lora.algokit.io/localnet) and [goal](/algokit/algokit-cli/goal) to deploy your smart contract to various Algorand networks.
-
     </TabItem>
+</Tabs>
 
+## Run the Demo Application
+
+<Tabs syncKey="lang">
+    <TabItem label="TypeScript" icon="seti:typescript">
+        Once the starter project is created, you will notice in the `smart_contracts/hello_world` folder a file named `deploy_config.ts` which is a simple example of using AlgoKit to deploy the `HelloWorld` smart contract in `contract.algo.ts` on the Local Algorand blockchain started earlier and then call the `hello` method.
+        <Image src={algokit_v3_deploy} alt='AlgoKit Starter config' />
+
+        Now there are two ways to run the `deploy-config.ts` file to deploy and call the smart contract:
+        <Steps>
+        1. By hitting `F5` it will start LocalNet, build the smart contract, deploy and call the smart contract `contract.algo.ts` by running the `deploy-config.ts` file.
+
+        2. Alternatively, you can run the following commands from the terminal to build the contract and run the `deploy-config.ts` file:
+
+            ```shell showLineNumbers=false frame=none title="Build and Deploy"
+            algokit project run build
+            algokit project deploy
+            ```
+        </Steps>
+
+        The output should look similar to the following:
+
+        ```shell showLineNumbers=false frame=none
+        === Deploying HelloWorld ===
+        Idempotently deploying app "HelloWorld" from creator RQGFSWXL2RKDBO53MN3ZRWCO3CP2HCZ6T4D5DMNJSIXRV76XAEBUJNHOMY using 86 bytes of AVM bytecode and 4 bytes of AVM bytecode
+        App HelloWorld not found in apps created by RQGFSWXL2RKDBO53MN3ZRWCO3CP2HCZ6T4D5DMNJSIXRV76XAEBUJNHOMY; deploying app with version 1.0.
+        App created by RQGFSWXL2RKDBO53MN3ZRWCO3CP2HCZ6T4D5DMNJSIXRV76XAEBUJNHOMY with ID 2225 via transaction PSO2XD77YINZRSNH5X76EN6QZYC2I3P6NITJQCCSDS7IC2PJ4RYA
+        Sending 1000000 µALGO from RQGFSWXL2RKDBO53MN3ZRWCO3CP2HCZ6T4D5DMNJSIXRV76XAEBUJNHOMY to JM7DKIZGR3M4EGZYYR7LXUDX3R7X6QLRV4S2YVLTSDZP73XLX5A6ZDAQLE via transaction T66O4VNOD5CV6RZ75J53PHFMIIX2DCGT2Q3VM7W3W4CJ7DJQK6MA
+        App 2225 called with hello(world) by RQGFSWXL2RKDBO53MN3ZRWCO3CP2HCZ6T4D5DMNJSIXRV76XAEBUJNHOMY via transaction W2ZQYBEAFXDKHWDBBKJ6WC56ASAQ267ZEHYESWYLZP3YT3AACMGQ
+        Called hello on HelloWorld (2225) with name = world, received: Hello, world
+        ```
+
+        The App ID of of the deployed contract and its Algorand address is displayed, followed by the message returned from the smart contract call.
+
+        Additionally, by building the smart contract, AlgoKit generates various artifacts in the `artifacts` folder. These artifacts include:
+        - [Native TEAL smart contract code](/concepts/smart-contracts/languages/teal): `HelloWorld.approval.teal`, `HelloWorld.clear.teal`
+        - [Contract ABI](/concepts/smart-contracts/abi): `HelloWorld.arc56.json`
+        - [Auto-generated typed application client](/algokit/utils/algokit-clients): `HelloWorldClient.ts`
+
+        <Image src={algokit_v3_artifacts} alt='AlgoKit Starter Artifacts' />
+
+        These artifacts can be used by tools like [Lora](https://lora.algokit.io/localnet) and [goal](/algokit/algokit-cli/goal) to deploy your smart contract to various Algorand networks.
+    </TabItem>
+    <TabItem label="Python" icon="seti:python">
+        Once the starter project is created, you will notice in the `smart_contracts/hello_world` folder a file named `deploy_config.py` which is a simple example of using AlgoKit to deploy the `HelloWorld` smart contract in `contract.py` on the Local Algorand blockchain started earlier and then call the `hello` method.
+
+        <Image src={algokit_v2_deploy} alt='AlgoKit Starter config' />
+
+        Now there are two ways to run the `deploy-config.py` file to deploy and call the smart contract:
+        <Steps>
+        1. By hitting `F5` it will start LocalNet, build the smart contract, deploy and call the smart contract `contract.py` by running the `deploy-config.py` file.
+
+        2. Alternatively, you can run the following commands from the terminal to build the contract and run the `deploy-config.py` file:
+
+            ```shell showLineNumbers=false frame=none title="Build and Deploy"
+            algokit project run build
+            algokit project deploy
+            ```
+        </Steps>
+
+        The output should look similar to the following:
+
+        ```shell showLineNumbers=false frame=none
+        Deploying hello_world
+        Called hello on HelloWorld (2225) with name=world, received: Hello, world
+        ```
+
+        The App ID of of the deployed contract is displayed, followed by the message returned from the smart contract call.
+
+        Additionally, by building the smart contract, AlgoKit generates various artifacts in the `artifacts` folder. These artifacts include:
+        - [Native TEAL smart contract code](/concepts/smart-contracts/languages/teal): `HelloWorld.approval.teal`, `HelloWorld.clear.teal`
+        - [Contract ABI](/concepts/smart-contracts/abi): `HelloWorld.arc56.json`
+        - [Auto-generated typed application client](/algokit/utils/algokit-clients): `hello_world_client.py`
+
+        <Image src={algokit_v2_artifacts} alt='AlgoKit Starter Artifacts' />
+
+        These artifacts can be used by tools like [Lora](https://lora.algokit.io/localnet) and [goal](/algokit/algokit-cli/goal) to deploy your smart contract to various Algorand networks.
+    </TabItem>
 </Tabs>
 
 ## Using Lora
