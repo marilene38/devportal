@@ -29,21 +29,21 @@ import call_method from '/examples/algokit/py/algokit-utils-py-clients-overview-
 
 import artifacts from '@images/algokit-utils-clients-overview-artifacts.png';
 
-When building on Algorand, you need reliable ways to communicate with the blockchain--sending transactions, interacting with smart contracts, and accessing blockchain data. AlgoKit Utils Clients provide straightforward, developer-friendly interfaces for these interactions, reducing the complexity typically associated with blockchain development.
+When building on Algorand, you need reliable ways to communicate with the blockchain--sending transactions, interacting with smart contracts, and accessing blockchain data. AlgoKit Utils clients provide straightforward, developer-friendly interfaces for these interactions, reducing the complexity typically associated with blockchain development.
 This guide explains how to use these clients to simplify common Algorand development tasks, whether you're sending a basic transaction or deploying complex smart contracts.
 
 AlgoKit offers two main types of clients to interact with the Algorand blockchain:
 
 1. **Algorand Client** - A general-purpose client for all Algorand interactions, including:
 
-   - Sending various transaction types (payments, asset transfers, application calls, etc.)
-   - Accessing network services (algod, indexer, kmd)
-   - Configuring connection parameters with sensible defaults
+   - Crafting, grouping, and sending transactions through a fluent interface of chained methods
+   - Accessing network services through REST API clients for algod, indexer, and kmd
+   - Configuring connection and transaction parameters with sensible defaults and optional overrides
 
 2. **Typed Application Client** - A specialized, auto-generated client for interacting with specific smart contracts:
-   - Provides type-safe interfaces based on contract specifications ([ARC-56](/standards/arcs/arc-0056)/[ARC-32](/standards/arcs/arc-0032))
-   - Enables IntelliSense-driven development experience
-   - Reduces errors through compile-time type checking
+   - Provides type-safe interfaces generated from [ARC-56](/standards/arcs/arc-0056) or [ARC-32](/standards/arcs/arc-0032) contract specification files
+   - Enables IntelliSense-driven development experience that includes the smart contract methods
+   - Reduces errors through real-time type checking of arguments provided to smart contract methods
 
 Let's explore each client type in detail.
 
