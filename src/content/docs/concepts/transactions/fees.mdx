@@ -1,6 +1,5 @@
 ---
 title: Transaction Fees
-draft: true
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
@@ -33,7 +32,7 @@ Transaction fees in Algorand apply uniformly across all transaction types—paym
 
 ## Suggested Fee
 
-The [algod REST server](/reference/rest-api/overview) provides [suggestedParams](/reference/rest-api/algod/operations/transactionparams#200) that include the `fee` parameter which is the suggested `current fee per byte`. This suggested fee is used to determines transaction costs through this simple formula:
+The [algod REST server](/reference/rest-api/overview) provides [suggestedParams](/reference/rest-api/algod#transactionparams) that include the `fee` parameter which is the suggested `current fee per byte`. This suggested fee is used to determines transaction costs through this simple formula:
 
 ```shell showLineNumbers=false frame=none title="Fee Calculation"
 fee = max(current_fee_per_byte * transaction_size_in_bytes, min_fee)
@@ -50,21 +49,29 @@ This is why standard Algorand transactions cost **0.001 ALGO** or **1000 microAl
 Here is an example of how to get suggested parameters using the Algorand Client.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
-  <TabItem label='Python' icon='seti:python'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
-      snippet='MAX_FEE'
-      lang='py'
-      title='Set a maximum fee limit'
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/transactions/fees.ts'
+      snippet='SUGGESTED_PARAMS'
+      lang='ts'
+      title='Get suggested parameters'
       frame='none'
-    />   */}
+    />
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/transactions/fees.py'
+      snippet='SUGGESTED_PARAMS'
+      lang='py'
+      title='Get suggested parameters'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
 ### Algorand Client Suggested Params Configuration
 
-The [Algorand Client](FUTURELINK:link_to_algorand_client_page) caches suggested parameters provided by the network automatically to reduce network traffic. It has a set of default configurations that control this behavior, but the default configuration can be overridden and changed:
+The [Algorand Client](/algokit/utils/algokit-clients) caches suggested parameters provided by the network automatically to reduce network traffic. It has a set of default configurations that control this behavior, but the default configuration can be overridden and changed:
 
 - `algorand.setDefaultValidityWindow(validityWindow)` - Set the default validity window (number of rounds from the current known round that the transaction will be valid to be accepted for). Having a smallish value for this is usually ideal to avoid transactions that are valid for a long future period and may be submitted even after you think it failed to submit if waiting for a particular number of rounds for the transaction to be successfully submitted. The validity window defaults to 10, except in automated testing where it's set to 1000 when targeting LocalNet.
 - `algorand.setSuggestedParams(suggestedParams, until?)` - Set the suggested network parameters to use (optionally until the given time)
@@ -75,15 +82,24 @@ The [Algorand Client](FUTURELINK:link_to_algorand_client_page) caches suggested 
 When using suggested fees, always set a maximum fee limit. During network congestion, fees become variable and could increase significantly based on network conditions.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    {' '}
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/transactions/fees.ts'
+      snippet='MAX_FEE'
+      lang='ts'
+      title='Set a maximum fee limit'
+      frame='none'
+    />
+  </TabItem>
   <TabItem label='Python' icon='seti:python'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/transactions/fees.py'
       snippet='MAX_FEE'
       lang='py'
       title='Set a maximum fee limit'
       frame='none'
-    />   */}
+    />
   </TabItem>
 </Tabs>
 :::
@@ -102,15 +118,23 @@ If you choose this method, ensure your specified fee meets at least the minimum 
 - Handling non-urgent transactions that can be retried if rejected
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
-  <TabItem label='Python' icon='seti:python'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
-      snippet='MAX_FEE'
-      lang='py'
-      title='Set a maximum fee limit'
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/transactions/fees.ts'
+      snippet='FLAT_FEE'
+      lang='ts'
+      title='Flat fee'
       frame='none'
-    />   */}
+    />
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/transactions/fees.py'
+      snippet='FLAT_FEE'
+      lang='py'
+      title='Flat fee'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -126,15 +150,23 @@ For atomic transactions, the fees set on all transactions in the group are summe
 Below is an example of setting a pooled fee on an atomic group of two transactions. Here transaction B's fee is directly set to be 2x the minimum fee and transaction A's fee is set to zero. This atomic group will successfully execute because the sum of the fees is greater than or equal to the required fee for the group.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
-  <TabItem label='Python' icon='seti:python'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
-      snippet='MAX_FEE'
-      lang='py'
-      title='Set a maximum fee limit'
+  <TabItem label='TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/transactions/fees.ts'
+      snippet='FEE_POOLING'
+      lang='ts'
+      title='Fee pooling'
       frame='none'
-    />   */}
+    />
+  </TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/transactions/fees.py'
+      snippet='FEE_POOLING'
+      lang='py'
+      title='Fee pooling'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -162,27 +194,22 @@ Here is an example of calling a smart contract with an inner transaction and cov
 This is the `payment` contract method that will be called and it has one inner payment transaction.
 
 <Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='TypeScript' icon='seti:typescript'>
     <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
-      snippet='PAYMENT'
-      lang='py'
-      title='Payment Inner Transaction'
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/transactions/fees.ts'
+      snippet='INNER_TXN_FEE'
+      lang='ts'
+      title='Inner transaction fee'
       frame='none'
     />
   </TabItem>
-</Tabs>
-
-<Tabs syncKey='lang'>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
   <TabItem label='Python' icon='seti:python'>
-    {/* <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_transfer.py'      
-      snippet='MAX_FEE'
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/transactions/fees.py'
+      snippet='INNER_TXN_FEE'
       lang='py'
-      title='Set a maximum fee limit'
+      title='Inner transaction fee'
       frame='none'
-    />   */}
+    />
   </TabItem>
 </Tabs>

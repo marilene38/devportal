@@ -7,6 +7,8 @@ title: "getAlgoKmdClient"
 
 > **getAlgoKmdClient**(`config`?): `Kmd`
 
+Defined in: [src/network-client.ts:144](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/network-client.ts#L144)
+
 :::caution[Deprecated]
 Use `ClientManager.getKmdClient(config)` or `ClientManager.getKmdClientFromEnvironment()` instead.
 
@@ -37,7 +39,3 @@ The config if you want to override the default (getting config from process.env)
 ```typescript
  const kmd = getAlgoKmdClient({server: 'http://localhost', port: '4002', token: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'})
 ```
-
-## Defined in
-
-[src/network-client.ts:144](https://github.com/algorandfoundation/algokit-utils-ts/blob/e57e96ab17213653e656688e8d7251c0107554cf/src/network-client.ts#L144)

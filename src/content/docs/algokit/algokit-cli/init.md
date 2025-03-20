@@ -2,7 +2,7 @@
 title: AlgoKit Init
 ---
 
-The `algokit init` [command](cli-reference#init) is used to quickly initialize new projects using official Algorand Templates or community provided templates. It supports a fully guided command line wizard experience, as well as fully scriptable / non-interactive functionality via command options.
+The `algokit init` [command](../cli/index#init) is used to quickly initialize new projects using official Algorand Templates or community provided templates. It supports a fully guided command line wizard experience, as well as fully scriptable / non-interactive functionality via command options.
 
 ## Quick start
 
@@ -22,7 +22,7 @@ $ ~ algokit init
 ? Name of project / directory to create the project in:  my-cool-app
 ```
 
-Once above 2 questions are answered, the `cli` will start instantiating the project and will start asking questions specific to the template you are instantiating. By default official templates such as `python`, `fullstack`, `react`, `python` include a notion of a `preset`. If you want to skip all questions and let the tool preset the answers tailored for a starter project you can pick `Starter`, for a more advanced project that includes unit tests, CI automation and other advanced features, pick `Production`. Lastly, if you prefer to modify the experience and tailor the template to your needs, pick the `Custom` preset.
+Once above 2 questions are answered, the `cli` will start instantiating the project and will start asking questions specific to the template you are instantiating. By default official templates such as `python`, `typescript`, `fullstack`, `react`, `python` include a notion of a `preset`. If you want to skip all questions and let the tool preset the answers tailored for a starter project you can pick `Starter`, for a more advanced project that includes unit tests, CI automation and other advanced features, pick `Production`. Lastly, if you prefer to modify the experience and tailor the template to your needs, pick the `Custom` preset.
 
 If you want to accept the default for each option simply hit [enter] or alternatively to speed things up you can run `algokit init --defaults` and they will be auto-accepted.
 
@@ -38,7 +38,7 @@ For more details on workspaces and standalone projects, refer to the [AlgoKit Pr
 
 ## Bootstrapping
 
-You will also be prompted if you wish to run the [bootstrap](cli-reference#bootstrap) command, this is useful if you plan to immediately begin developing in the new project. If you passed in `--defaults` or `--bootstrap` then it will automatically run bootstrapping unless you passed in `--no-bootstrap`.
+You will also be prompted if you wish to run the [bootstrap](../cli/index#bootstrap) command, this is useful if you plan to immediately begin developing in the new project. If you passed in `--defaults` or `--bootstrap` then it will automatically run bootstrapping unless you passed in `--no-bootstrap`.
 
 ```
 
@@ -75,7 +75,7 @@ After bootstrapping you are also given the opportunity to initialize a git repo,
 
 ## Options
 
-There are a number of options that can be used to provide answers to the template prompts. Some of the options requiring further explanation are detailed below, but consult the CLI reference for all available [options](cli-reference#init).
+There are a number of options that can be used to provide answers to the template prompts. Some of the options requiring further explanation are detailed below, but consult the CLI reference for all available [options](../cli/index#init).
 
 ## Community Templates
 
@@ -121,4 +121,4 @@ As a suggestion, if you wanted to open the project in VS Code you could execute:
 
 ```
 
-For more details about the `AlgoKit init` command, please refer to the [AlgoKit CLI reference documentation](cli-reference#init).
+For more details about the `AlgoKit init` command, please refer to the [AlgoKit CLI reference documentation](../cli/index#init).
