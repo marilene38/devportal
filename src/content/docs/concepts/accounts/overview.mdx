@@ -46,16 +46,15 @@ Every account on Algorand must have a minimum balance of 100,000 microAlgos. If 
 />
 
 #### Account Status
+
 todo - check this once
 The Algorand blockchain uses a decentralized Byzantine Agreement protocol that leverages pure proof of stake (Pure POS). By default, Algorand accounts are set to offline, meaning they do not contribute to the consensus process. An online account participates in Algorand consensus. For an account to go online, it must generate a participation key and send a special key registration transaction. With the addition of staking rewards into the protocol as of v4.0, Algorand consensus participants can set their account as eligible for rewards by including a 2 Algo fee when registering participation keys online. Read more about [Registering an account online](/protocol/registration).
 
 #### Other Attributes
 
-
-
 ### Logic Accounts
 
-Logic accounts are signed by their logic instead of signing with private keys. 
+Logic accounts are signed by their logic instead of signing with private keys.
 
 So when a logic account sends a transaction, the blockchain checks for the logic, if the logic passes the transaction will succeed. These accounts differ in how they authorize spending, but they look like any other account on Algorand.
 
