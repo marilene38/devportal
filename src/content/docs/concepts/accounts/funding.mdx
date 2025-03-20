@@ -6,11 +6,7 @@ import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
 
-To use the Algorand blockchain, accounts need to be funded with ALGO tokens. This guide explains different methods of funding accounts across Algorand's various networks. You can also transfer ALGO tokens from an existing funded account to a new account using the Algorand SDK or through wallet applications.
-
-:::note
-Remember that all Algorand accounts require a minimum balance to be registered in the ledger. The specific method you choose will depend on whether you're working with MainNet, TestNet, or LocalNet.
-:::
+To use the Algorand blockchain, accounts need to be funded with ALGO tokens. This guide explains different methods of funding accounts across Algorand's various networks. You can also transfer ALGO tokens from an existing funded account to a new account using the Algorand SDK or through wallet applications. All Algorand accounts require a minimum balance to be registered in the ledger. The specific method you choose will depend on whether you're working with MainNet, TestNet, or LocalNet.
 
 ## Choosing the Right Funding Method
 
@@ -54,7 +50,7 @@ This utils function retrieves the default LocalNet dispenser account, which is p
 
 ### Environment-Based Dispenser
 
-The below function retrieves a dispenser account configured through environment variables. It allows developers to specify a custom funding account for different environments (e.g., development, testing, staging). The function looks for environment variables containing the dispenser’s private key or mnemonic, making it flexible for dynamic funding configurations across various deployments.
+The below function retrieves a dispenser account configured through environment variables. It allows developers to specify a custom funding account for different environments (e.g., development, testing, staging). The function looks for environment variables containing the dispenser’s private key or mnemonic, making it flexible for dynamic funding configurations across various deployments. The dispenser here is managed by the developer and is not a public dispenser that already exists.
 
 <Tabs syncKey='lang'>
   <TabItem label='Utils (Python)' icon='seti:python'>
