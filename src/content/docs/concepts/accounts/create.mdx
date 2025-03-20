@@ -9,6 +9,8 @@ import { LinkCard } from '@astrojs/starlight/components';
 
 Algorand offers multiple approaches to account creation, in this guide we'll explore the various methods available for creating accounts on the Algorand blockchain. Depending on your requirement, consider [standalone accounts](#standalone), [wallet-derived accounts](#wallet-derived) using [kmd](/nodes/reference/artifacts#kmd), or [multi-signature accounts](/concepts/accounts/multisig) which entails one of the prior methods. This section will explore standalone accounts and wallet-derived accounts in-depth, guiding how to utilize them in `algokit-utils` , `goal`, `algokey`, `SDKs`, and `Pera Wallet`, the reasons you might want to choose one method over another for your application.
 
+Another approach to account creation is using logic signature accounts, which are contract-based accounts that operate using a logic signature instead of a private key. To create an LSig account, you write transaction validation logic and compile it to obtain the corresponding address, and fund it with the required minimum balance.
+
 Accounts participating in transactions are required to maintain a minimum balance of 100,000 micro Algos. Before using a newly created account in transactions, make sure that it has a sufficient balance by transferring at least 100,000 micro Algos to it. An initial transfer of under that amount will fail due to the minimum balance constraint. Refer [funding an account](/concepts/accounts/funding) for more details.
 
 ## Standalone
