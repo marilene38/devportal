@@ -22,9 +22,8 @@ import call_method from '/examples/algokit/py/algokit-utils-py-clients-overview-
 
 import artifacts from '@images/algokit-utils-clients-overview-artifacts.png';
 
-There are various ways to interact with deployed smart contracts and the Algorand blockchain, but the easiest way is to use the user-facing
-clients available through AlgoKit Utils. This page explains these clients and how you can use them to facilitate on-chain activities such as sending
-a transaction, building atomic transfers, calling smart contracts, and more.
+The easiest way to interact with the Algorand blockchain and also deployed smart contracts is to use the AlgoKit Utils clients.
+These clients have been designed to expose intuitive methods that are grouped conceptually for ease of exploration through your development environment.
 
 ## Types of AlgoKit Clients
 
@@ -40,7 +39,7 @@ The Algorand client is the default entry point for interacting with the Algorand
 
 ### Typed Application Client
 
-Typed application clients are automatically generated, typed TypeScript deployment and invocation clients for smart contracts that have a defined [ARC-56](/standards/arcs/arc-0056) or [ARC-32](/standards/arcs/arc-0032) application specification so that the development experience is easier with less upskill ramp-up and less deployment errors. These clients give you a type-safe, intellisense-driven experience for invoking the smart contract.
+Typed application clients are automatically generated, typed TypeScript or Python deployment and interaction clients for smart contracts that have a defined [ARC-56](/standards/arcs/arc-0056) or [ARC-32](/standards/arcs/arc-0032) application specification so that the development experience is easier with less upskill ramp-up and less deployment errors. These clients give you a type-safe, intellisense-driven experience for calling the smart contract.
 
 ## AlgorandClient
 
@@ -199,7 +198,7 @@ After setting the signer, you can send transactions without having to pass in th
 
 ## Typed Application Client
 
-Typed application clients are automatically generated, typed TypeScript / Python deployment and invocation clients for smart contracts that have a defined `ARC-56` or `ARC-32` application specification so that the development experience is easier with less upskill ramp-up and less deployment errors. These clients give you a type-safe, intellisense-driven experience for invoking the smart contract.
+Typed application clients are automatically generated, typed TypeScript or Python deployment and interaction clients for smart contracts that have a defined `ARC-56` or `ARC-32` application specification so that the development experience is easier with less upskill ramp-up and less deployment errors. These clients give you a type-safe, Intellisense-driven experience for calling the smart contract.
 
 Typed application clients are the recommended way of interacting with smart contracts. If you don't have/want a typed client, but have an `ARC-56` or `ARC-32` app spec then you can use the non-typed application clients and if you want to call a smart contract you don't have an app spec file for you can use the underlying app management and app deployment functionality to manually construct transactions.
 
