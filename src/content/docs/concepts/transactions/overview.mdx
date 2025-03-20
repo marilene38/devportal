@@ -7,7 +7,7 @@ import { Code } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
 import { LinkCard } from '@astrojs/starlight/components';
 
-Transactions are cryptographically signed instructions that modify the Algorand blockchain's state. The transaction lifecycle follows these steps: creation, signing with private keys, submission to the Algorand network, selection by block proposers for inclusion in blocks, and execution when the block is validated and added to the blockchain. The most basic transaction type is a payment transaction, which transfers ALGO between accounts.
+Transactions are cryptographically signed instructions that modify the Algorand blockchain's state. The transaction lifecycle follows these steps: creation, signing with private keys, submission to the Algorand network, selection by block proposers for inclusion in blocks, and execution when the block is validated and added to the blockchain. The most basic transaction type is a payment transaction, which transfers Algo between accounts.
 
 ## Transaction Types
 
@@ -22,9 +22,9 @@ There are [eight different transaction types](https://github.com/algorand/go-alg
 - State Proof
 - Heartbeat
 
-These eight transaction types can be configured in specific ways to produce more distinct functional transaction types. For example, both [asset creation](/concepts/transactions/types#create-an-asset) and [asset destruction](/concepts/transactions/types#destroy-an-asset) use the same underlying `AssetConfigTx` type. Distinguishing between these two operations requires examining the specific combination of the `AssetConfigTx` fields and values that determine whether an asset is being created or destroyed.
+These eight transaction types can be configured in specific ways to produce more distinct functional transaction types. For example, both [asset creation](/concepts/transactions/types#create-an-asset) and [asset destruction](/concepts/transactions/types#destroy-an-asset) use the same underlying `AssetConfigTx` type, which allows for the creation or deletion of Algorand Standard Assets (ASAs). Distinguishing between these two operations requires examining the specific combination of the `AssetConfigTx` fields and values that determine whether an asset is being created or destroyed.
 
-Fortunately, the [AlgoKit Utils Libraries](/algokit/algokit-intro#algokit-utils) provide intuitive methods to create these more granular transaction types without having to necessarily worry about the underlying structure. However, if you are signing a pre-made transaction, correctly interpreting the underlying structure is critical.
+Fortunately, the [AlgoKit Utils](/algokit/algokit-intro#algokit-utils) libraries provide intuitive methods to create these more granular transaction types without having to necessarily worry about the underlying structure. However, if you are signing a pre-made transaction, correctly interpreting the underlying structure is critical.
 
 For detailed information about each transaction type, its structure, and how to create and send them using the AlgoKit Utils Library, refer to the Transaction Types page:
 
@@ -36,9 +36,9 @@ For detailed information about each transaction type, its structure, and how to 
 
 ## Transaction Fees
 
-All Algorand transactions need to pay transaction fees to be included in a block and be executed.
+Every transaction on Algorand requires a fee to be included in a block and executed.
 
-The minimum fee for each transaction on Algorand is **1000 microAlgo** or **0.001 Algo** and it is fixed to this amount when the network is not congested.
+When the network is not congested, transactions have a fixed minimum fee of **1000 microAlgo** (**0.001 Algo**).
 
 For detailed information about transaction fees on Algorand, refer to the Transaction Fees page:
 
@@ -50,7 +50,7 @@ For detailed information about transaction fees on Algorand, refer to the Transa
 
 ## Signing Transactions
 
-After constructing a transaction, it must be signed to be authorized for execution and be included in the blockchain. The transaction must be signed by the sender or the [rekey account](/concepts/accounts/rekeying) that has the signing authority. Authorization occurs through the addition of a signature to the transaction object. Specifically, a transaction object, when signed, is wrapped in a `SignedTxn` object that includes the transaction and a type of signature.
+Before a transaction can be included in the blockchain, it must be signed by either the sender or an authorized [rekeyed account](/concepts/accounts/rekeying). The signed transaction is wrapped in a `SignedTxn` object that contains both the original transaction and its signature.
 
 There are three types of signatures:
 
@@ -70,16 +70,16 @@ For detailed information about signing transactions on Algorand, refer to the Si
 
 Algorand's protocol includes a feature called Atomic Transfers, which allows you to group up to 16 transactions for simultaneous execution. These transactions either all succeed or all fail, eliminating the need for complex solutions like [hashed timelock contracts](https://bitcoinwiki.org/wiki/hashed-timelock-contracts) used on other blockchains. Any Algorand transaction type can be included in an atomic group for simultaneous execution.
 
-### Use cases
+### Use Cases
 
 Atomic transfers enable use cases such as:
 
-- Circular trades - Alice pays Bob if and only if Bob pays Claire if and only if Claire pays Alice.
-- Group payments - Everyone pays or no one pays.
-- Decentralized exchanges - Trade one asset for another without going through a centralized exchange.
-- Distributed payments - Payments to multiple recipients.
-- [Pooled transaction fees](/concepts/transactions/fees#pooled-transaction-fees) - One transaction pays the fees of others.
-- Op Up transactions - Group multiple transactions to cover higher opcode budget
+- **Circular Trades** - Alice pays Bob if and only if Bob pays Claire if and only if Claire pays Alice.
+- **Group Payments** - Everyone pays or no one pays.
+- **Decentralized Exchanges** - Trade one asset for another without going through a centralized exchange.
+- **Distributed Payments** - Payments to multiple recipients.
+- **[Pooled Transaction Fees]**(/concepts/transactions/fees#pooled-transaction-fees) - One transaction pays the fees of others.
+- **Op Up Transactions** - Group multiple transactions to cover higher opcode budget
 
 For detailed information about atomic transactions, refer to the Atomic Transaction Groups page:
 
@@ -91,9 +91,9 @@ For detailed information about atomic transactions, refer to the Atomic Transact
 
 ## Leases
 
-The lease field enforces mutual exclusion of transactions. If this field is nonzero in a transaction, then once the transaction is confirmed, it acquires the lease identified by the `(Sender, Lease)` pair of the transaction until the `LastValid` round passes. While this transaction possesses the lease, no other transaction specifying this lease can be executed.
+A lease prevents multiple transactions with the same `(Sender, Lease)` pair from executing during the same validity period. When a transaction with a lease is confirmed, no other transaction using that same lease can be executed until after the `LastValid` round.
 
-A lease is often used in the context of [Algorand Smart Contracts](/concepts/smart-contracts/overview) to prevent replay attacks. Leases can also be used to safeguard against unintended duplicate spending. For example, if I send a transaction to the network and later realize my fee was too low, I could send another transaction with a higher fee, but the same lease value. This would ensure that only one of those transactions ends up getting confirmed during the validity period.
+A lease can be used to prevent replay attacks in [Algorand Smart Contracts](/concepts/smart-contracts/overview) or to safeguard against unintended duplicate spending. For example, if a user sends a transaction to the network and later realizes their fee was too low, they could send another transaction with a higher fee, but the same lease value. This would ensure that only one of those transactions ends up getting confirmed during the validity period.
 
 For detailed information about the lease field on Algorand, refer to the Lease page:
 
@@ -105,7 +105,7 @@ For detailed information about the lease field on Algorand, refer to the Lease p
 
 ## Blocks
 
-Blocks form the foundation of the Algorand blockchain, as they are the records that contain all network activity. Each block represents a batch of transactions that advances the ledger from one round to the next, updating the state of the blockchain.
+Blocks form the foundation of the Algorand blockchain, storing all confirmed transactions and state changes. Each block represents a batch of transactions that advances the ledger from one round to the next, updating the state of the blockchain.
 
 Each block contains:
 
@@ -125,9 +125,9 @@ For detailed information about blocks on Algorand, refer to the Blocks page:
 
 ## URI Scheme
 
-Algorand has a URI specification that represents a standardized way for applications and websites to send requests and information through deeplinks, QR codes, etc. It is heavily based on Bitcoin’s [BIP-0021](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) and should be seen as a derivative of it. The decision to base it on BIP-0021 was made to make it as easy and compatible as possible for any other applications.
+Algorand's URI specification provides a standardized format for deeplinks and QR codes, allowing applications and websites to exchange transaction information. The specification is based on Bitcoin's [BIP-0021](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) to maximize compatibility with existing applications.
 
-For detailed information about the URI scheme on Algorand, refer to the URI Scheme page
+For detailed information about the URI scheme on Algorand, refer to the URI Scheme page:
 
 <LinkCard
   title='URI Scheme'
@@ -137,7 +137,7 @@ For detailed information about the URI scheme on Algorand, refer to the URI Sche
 
 ## Transaction Reference
 
-For detailed information about the transaction references, refer to the Transaction Reference page:
+Learn more on the Transaction Reference page:
 
 <LinkCard
   title='Transaction Reference'
