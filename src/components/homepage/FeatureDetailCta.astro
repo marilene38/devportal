@@ -16,20 +16,20 @@ const featureDetailCtaData = {
 <section class='feature-detail-cta my-10! lg:my-[140px]!'>
   <div
     class:list={[
-      'max-w-(--breakpoint-2xl) lg:flex md:justify-between md:items-center text-algo-navy dark:text-white',
-      'mx-auto! px-4 md:px-9 lg:gap-x-[80px] xl:gap-x-[135px] text-center md:text-left',
+      'max-w-(--breakpoint-home-container) lg:flex md:justify-between md:items-center text-algo-navy dark:text-white',
+      'mx-auto! px-5 md:px-9 lg:gap-x-[42px] xl:gap-x-20 text-center md:text-left',
     ]}
   >
-    <div class='max-w-[805px]'>
+    <div class='lg:min-w-[483px] xl:min-w-[565px]'>
       <div class='font-bold lg:text-2xl lg:leading-none'>
         {featureDetailCtaData.highlight}
       </div>
       <h2
-        class='text-algo-navy! dark:text-white! lg:text-[52px]! mt-[10px]! leading-none!'
+        class='text-algo-navy! dark:text-white! lg:text-4xl! xl:text-[42px]! mt-[10px]! leading-none!'
       >
         {featureDetailCtaData.heading}
       </h2>
-      <div class='mt-[43px]'>
+      <div class='mt-9'>
         <CtaButton
           label={featureDetailCtaData.cta.label}
           url={featureDetailCtaData.cta.url}
@@ -37,7 +37,7 @@ const featureDetailCtaData = {
       </div>
     </div>
     <p
-      class='lg:max-w-[430px] xl:max-w-[700px] font-sans lg:mt-[18px] lg:text-[22px] lg:leading-[1.5]'
+      class='lg:max-w-[580px] xl:max-w-[622px] font-sans lg:mt-[18px] lg:text-[18px] xl:text-[20px] lg:leading-[1.5] mt-0!'
     >
       {featureDetailCtaData.description}
     </p>
