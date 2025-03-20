@@ -45,7 +45,7 @@ Typed application clients are automatically generated, typed TypeScript deployme
 ## AlgorandClient
 
 The `AlgorandClient` class included in AlgoKit Utils for TypeScript and Python is the default entry point for all Algorand functionalities.
-Use it to craft and send transactions individually or bundled as atomic transaction groups, access SDK clients (`algod`, `indexer`, `kmd`), and quickly set configuration parameters, with sensible defaults.
+Use it to craft and send transactions individually or bundled as atomic transaction groups, access REST API clients (`algod`, `indexer`, `kmd`), and quickly set configuration parameters, with sensible defaults.
 
 ### Instantiating the AlgorandClient
 
@@ -72,9 +72,9 @@ To use the `AlgorandClient` in your codebase, you can use various methods provid
   </TabItem>
 </Tabs>
 
-### Accessing the SDK Clients
+### Accessing the REST API clients
 
-Once you have an `AlgorandClient` instance, you can access the SDK clients for the various Algorand APIs via the `algorand.client` property:
+Once you have an `AlgorandClient` instance, you can access the REST API clients for the various Algorand APIs via the `algorand.client` property:
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
@@ -82,7 +82,7 @@ Once you have an `AlgorandClient` instance, you can access the SDK clients for t
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/algorand-client.ts'
       snippet='SDK_CLIENTS'
       lang='ts'
-      title='SDK Clients'
+      title='REST API clients'
       frame='none'
     />
   </TabItem>
@@ -91,13 +91,13 @@ Once you have an `AlgorandClient` instance, you can access the SDK clients for t
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/algorand_client.py'
       snippet='SDK_CLIENTS'
       lang='py'
-      title='SDK Clients'
+      title='REST API clients'
       frame='none'
     />
   </TabItem>
 </Tabs>
 
-For more information about the functionalities of the SDK clients, refer to the following pages:
+For more information about the functionalities of the REST API clients, refer to the following pages:
 
 <LinkCard title='algod' href='/reference/rest-api/algod' description='algod API reference' />
 <LinkCard title='Indexer' href='/reference/rest-api/indexer' description='Indexer API reference' />
