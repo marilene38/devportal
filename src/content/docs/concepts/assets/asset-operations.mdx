@@ -50,7 +50,7 @@ The Algorand Foundation [hosts many standards (ARCs)](https://arc.algorand.found
 
 **Authorized by**: [Asset Manager Account](/concepts/transactions/transactions#manageraddr)
 
-After an asset has been created only the manager, reserve, freeze and clawback accounts can be changed. All other parameters are locked for the life of the asset. If any of these addresses are set to `""` that address will be cleared and can never be reset for the life of the asset. Only the manager account can make configuration changes and must authorize the transaction.
+After an asset has been created only the manager, reserve, freeze and clawback accounts can be changed. All other parameters are locked for the life of the asset. If any of these addresses are set to the empty string `""` that address will be cleared and can never be reset for the life of the asset. Only the manager account can make configuration changes and must authorize the transaction.
 
 <Tabs syncKey='lang'>
   <TabItem label='Python' icon='seti:python'>
