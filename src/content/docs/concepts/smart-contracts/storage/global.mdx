@@ -29,7 +29,16 @@ TEAL provides several opcodes for facilitating reading and writing to state, inc
 Global storage can include between 0 and 64 key/value pairs and a total of 8K of memory to share among them. The amount of global storage is allocated in key/value units and determined at contract creation, which cannot be edited later. The contract creator address is responsible for funding the global storage by an increase to their minimum balance requirement.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/GlobalStorage/contract.algo.ts'
+      snippet='INIT_GLOBAL_STORAGE'
+      lang='ts'
+      title='Init Global State'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/global_storage/contract.py'
       snippet='INIT_GLOBAL_STORAGE'
@@ -56,7 +65,16 @@ These \_ex opcodes allow reading global states from other accounts and smart con
 Branching logic is typically used after calling the \_ex opcodes to handle cases where the value is found or not found.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/GlobalStorage/contract.algo.ts'
+      snippet='READ_GLOBAL_STATE'
+      lang='ts'
+      title='Read Global State'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/global_storage/contract.py'
       snippet='READ_GLOBAL_STATE'
@@ -125,7 +143,16 @@ External smart contracts can be changed per smart contract call (transaction).
 Can only be written by smart contract. To write to global state, use the `app_global_put` opcode.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/GlobalStorage/contract.algo.ts'
+      snippet='WRITE_GLOBAL_STATE'
+      lang='ts'
+      title='Write Global State'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/global_storage/contract.py'
       snippet='WRITE_GLOBAL_STATE'
@@ -147,7 +174,16 @@ to set global storage value for different data types
 Global storage is deleted when the corresponding smart contract is deleted. However, the smart contract can clear the contents of its global storage without affecting the minimum balance requirement.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/GlobalStorage/contract.algo.ts'
+      snippet='DELETE_GLOBAL_STATE'
+      lang='ts'
+      title='Delete Global State'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/global_storage/contract.py'
       snippet='DELETE_GLOBAL_STATE'
