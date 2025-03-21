@@ -4,6 +4,7 @@ title: Resource Usage
 
 import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import RemoteCode from '/src/components/RemoteCode.astro';
 
 import accountAppEx from '/examples/smart-contracts/py/resource-avail-account-app.py?raw';
 import accountAssetEx from '/examples/smart-contracts/py/resource-avail-account-asset.py?raw';
@@ -11,24 +12,6 @@ import accountEx from '/examples/smart-contracts/py/resource-avail-account.py?ra
 import appEx from '/examples/smart-contracts/py/resource-avail-app.py?raw';
 import assetEx from '/examples/smart-contracts/py/resource-avail-asset.py?raw';
 import boxEx from '/examples/smart-contracts/py/resource-avail-box.py?raw';
-
-import accountUtilEx1 from '/examples/smart-contracts/utils-ts/resource-avail-account-1.ts?raw';
-import accountUtilEx2 from '/examples/smart-contracts/utils-ts/resource-avail-account-2.ts?raw';
-import accountUtilEx3 from '/examples/smart-contracts/utils-ts/resource-avail-account-3.ts?raw';
-import accountAppUtilEx1 from '/examples/smart-contracts/utils-ts/resource-avail-account-app-1.ts?raw';
-import accountAppUtilEx2 from '/examples/smart-contracts/utils-ts/resource-avail-account-app-2.ts?raw';
-import accountAppUtilEx3 from '/examples/smart-contracts/utils-ts/resource-avail-account-app-3.ts?raw';
-import accountAssetUtilEx1 from '/examples/smart-contracts/utils-ts/resource-avail-account-asset-1.ts?raw';
-import accountAssetUtilEx2 from '/examples/smart-contracts/utils-ts/resource-avail-account-asset-2.ts?raw';
-import accountAssetUtilEx3 from '/examples/smart-contracts/utils-ts/resource-avail-account-asset-3.ts?raw';
-import appUtilEx1 from '/examples/smart-contracts/utils-ts/resource-avail-app-1.ts?raw';
-import appUtilEx2 from '/examples/smart-contracts/utils-ts/resource-avail-app-2.ts?raw';
-import appUtilEx3 from '/examples/smart-contracts/utils-ts/resource-avail-app-3.ts?raw';
-import assetUtilEx1 from '/examples/smart-contracts/utils-ts/resource-avail-asset-1.ts?raw';
-import assetUtilEx2 from '/examples/smart-contracts/utils-ts/resource-avail-asset-2.ts?raw';
-import assetUtilEx3 from '/examples/smart-contracts/utils-ts/resource-avail-asset-3.ts?raw';
-import boxUtilEx1 from '/examples/smart-contracts/utils-ts/resource-avail-box-1.ts?raw';
-import boxUtilEx2 from '/examples/smart-contracts/utils-ts/resource-avail-box-2.ts?raw';
 
 Algorand smart contracts do not have default access to the entire blockchain ledger. Therefore, when a smart contract method needs to access resources such as accounts, assets (ASA), other applications (smart contracts), or box references, these must be provided through the reference (foreign) array during invocation. This page explains what reference arrays are, why they are necessary, the different ways to provide them, and includes a series of code examples.
 
@@ -125,6 +108,15 @@ Here is a simple smart contract with two methods that read the balance of an acc
 reference to be provided during invocation.
 
 <Tabs syncKey='lang'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/ReferenceAccount/contract.algo.ts'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE'
+      lang='ts'
+      title='Account Reference'
+      frame='none'
+    />
+  </TabItem>
   <TabItem label='Algorand Python' icon='seti:python'>
     <Code code={accountEx} lang='py' frame='none' />
   </TabItem>
@@ -136,24 +128,45 @@ Here are three different ways you can provide the account reference when calling
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountUtilEx2} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/account-reference.ts'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_1'
+      lang='ts'
+      title='Account Reference Method 1'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #2: Using Reference Types
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountUtilEx3} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/account-reference.ts'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_2'
+      lang='ts'
+      title='Account Reference Method 2'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #3: Manually Input
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountUtilEx1} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/account-reference.ts'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_3'
+      lang='ts'
+      title='Account Reference Method 3'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ## Asset reference example
@@ -162,7 +175,16 @@ Here is a simple smart contract with two methods that read the total supply of a
 reference to be provided during invocation.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/ReferenceAsset/contract.algo.ts'
+      snippet='GET_ASSET_REFERENCE_EXAMPLE'
+      lang='ts'
+      title='Asset Reference'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <Code code={assetEx} lang='py' frame='none' />
   </TabItem>
 </Tabs>
@@ -173,24 +195,45 @@ Here are three different ways you can provide the asset reference when calling a
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={assetUtilEx2} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/asset-reference.ts'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_1'
+      lang='ts'
+      title='Asset Reference Method 1'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #2: Using Reference Types
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={assetUtilEx3} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/asset-reference.ts'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_2'
+      lang='ts'
+      title='Asset Reference Method 2'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #3: Manually Input
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={assetUtilEx1} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/asset-reference.ts'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_3'
+      lang='ts'
+      title='Account Reference Method 3'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ## App reference example
@@ -199,8 +242,17 @@ Here is a simple smart contract named `ApplicationReference` with two methods th
 The `ApplicationReference` smart contract requires the `Counter` application reference to be provided during invocation.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
-    <Code code={appEx} lang='py' frame='none' />
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/ReferenceApp/contract.algo.ts'
+      snippet='APP_REFERENCE_EXAMPLE'
+      lang='ts'
+      title='App Reference'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
+    <Code code={accountEx} lang='py' frame='none' />
   </TabItem>
 </Tabs>
 
@@ -210,24 +262,45 @@ Here are three different ways you can provide the app reference when calling a c
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={appUtilEx2} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/app-reference.ts'
+      snippet='APP_REFERENCE_EXAMPLE_METHOD_1'
+      lang='ts'
+      title='App Reference Method 1'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #2: Using Reference Types
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={appUtilEx3} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/app-reference.ts'
+      snippet='APP_REFERENCE_EXAMPLE_METHOD_2'
+      lang='ts'
+      title='App Reference Method 2'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #3: Manually Input
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={appUtilEx1} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/app-reference.ts'
+      snippet='APP_REFERENCE_EXAMPLE_METHOD_2'
+      lang='ts'
+      title='App Reference Method 2'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ## Account + Asset example
@@ -236,8 +309,17 @@ Here is a simple smart contract with two methods that read the balance of an ASA
 reference and the account reference to be provided during invocation.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
-    <Code code={accountAssetEx} lang='py' frame='none' />
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/ReferenceAccountAsset/contract.algo.ts'
+      snippet='REFERENCE_ACCOUNT_ASSET_EXAMPLE'
+      lang='ts'
+      title='Account + Asset Reference'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
+    <Code code={accountEx} lang='py' frame='none' />
   </TabItem>
 </Tabs>
 
@@ -247,24 +329,45 @@ Here are three different ways you can provide both the account reference and the
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountAssetUtilEx2} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/account-asset-reference.ts'
+      snippet='ACCOUNT_ASSET_REFERENCE_EXAMPLE_METHOD_1'
+      lang='ts'
+      title='Account + Asset Reference Method 1'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #2: Using Reference Types
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountAssetUtilEx3} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/account-asset-reference.ts'
+      snippet='ACCOUNT_ASSET_REFERENCE_EXAMPLE_METHOD_2'
+      lang='ts'
+      title='Account + Asset Reference Method 2'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #3: Manually Input
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountAssetUtilEx1} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/account-asset-reference.ts'
+      snippet='ACCOUNT_ASSET_REFERENCE_EXAMPLE_METHOD_3'
+      lang='ts'
+      title='Account + Asset Reference Method 3'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ## Account + Application example
@@ -273,8 +376,17 @@ Here is a simple smart contract named `AccountAndAppReference` with two methods 
 The `AccountAndAppReference` smart contract requires both the `Counter` application reference and the account reference to be provided during invocation.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
-    <Code code={accountAppEx} lang='py' frame='none' />
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/ReferenceAccountApp/contract.algo.ts'
+      snippet='REFERENCE_ACCOUNT_APP_EXAMPLE'
+      lang='ts'
+      title='Account + App Reference'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
+    <Code code={accountEx} lang='py' frame='none' />
   </TabItem>
 </Tabs>
 
@@ -284,24 +396,45 @@ Here are three different ways you can provide both the account reference and the
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountAppUtilEx2} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/account-app-reference.ts'
+      snippet='ACCOUNT_APP_REFERENCE_EXAMPLE_METHOD_1'
+      lang='ts'
+      title='Account + Application Reference Method 1'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #2: Using Reference Types
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountAppUtilEx3} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/account-app-reference.ts'
+      snippet='ACCOUNT_APP_REFERENCE_EXAMPLE_METHOD_2'
+      lang='ts'
+      title='Account + Application Reference Method 2'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #3: Manually Input
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={accountAppUtilEx1} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/account-app-reference.ts'
+      snippet='ACCOUNT_APP_REFERENCE_EXAMPLE_METHOD_3'
+      lang='ts'
+      title='Account + Application Reference Method 3'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ## Application + Box reference example
@@ -311,8 +444,17 @@ Each box uses `box_counter` + `account address` as its key and stores the counte
 This smart contract requires the box reference to be provided during invocation.
 
 <Tabs syncKey='lang'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/ReferenceAppBox/contract.algo.ts'
+      snippet='REFERENCE_APP_BOX_EXAMPLE'
+      lang='ts'
+      title='App + Box Reference'
+      frame='none'
+    />
+  </TabItem>
   <TabItem label='Algorand Python' icon='seti:python'>
-    <Code code={boxEx} lang='py' frame='none' />
+    <Code code={accountEx} lang='py' frame='none' />
   </TabItem>
 </Tabs>
 
@@ -322,14 +464,28 @@ Here are two different ways you can provide the box reference when calling a con
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={boxUtilEx2} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/app-box-reference.ts'
+      snippet='APP_BOX_REFERENCE_EXAMPLE_METHOD_1'
+      lang='ts'
+      title='App + Box Reference Method 1'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>
 
 ### Method #2: Manually Input
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    <Code code={boxUtilEx1} lang='ts' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/app-box-reference.ts'
+      snippet='APP_BOX_REFERENCE_EXAMPLE_METHOD_2'
+      lang='ts'
+      title='App + Box Reference Method 2'
+      frame='none'
+    />
   </TabItem>
+  <TabItem label='Python' icon='seti:python'></TabItem>
 </Tabs>

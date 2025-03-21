@@ -5,8 +5,9 @@ title: Signing transactions
 import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
+import { LinkCard } from '@astrojs/starlight/components';
 
-This section contains instructions and the procedure on how to authorize transactions in the Algorand Network.
+This section explains how to authorize transactions on the Algorand Network. Transaction signing is a fundamental security feature that proves ownership of an account and authorizes specific actions on the blockchain.
 
 Before a transaction is sent to the network, it must first be authorized by the sender.
 
@@ -17,7 +18,13 @@ There are different transactions signatures to be described in the following par
 
 ## Single Signatures
 
-A single signature corresponds to a signature from the private key of an [Algorand public/private key pair](/concepts/accounts/keys-signing).
+A single signature corresponds to a signature from the private key of an Algorand public/private key pair.
+
+<LinkCard
+  title='Keys & Signing'
+  href='/concepts/accounts/keys-signing'
+  description='Learn more about Algorand public/private key pairs and how they are used for signing.'
+/>
 
 This is an example of a transaction signed by an Algorand private key displayed with `goal clerk inspect` command:
 
@@ -90,11 +97,16 @@ Now let's dive into an example where the given account has a signer in it.
 
 ## Multisignatures
 
-When the [sender](/concepts/transactions/transactions#sender) of a transaction is the address of a [multisignature account](/concepts/accounts/overview) then authorization requires a subset of signatures, _equal to or greater than the threshold value_, from the associated private keys of the addresses that multisignature account is composed of. See [Multisignature Accounts](/concepts/accounts/overview) for details on how to configure a multisignature account.
+When a transaction's [sender](/concepts/transactions/transactions#sender) is a [multisignature account](/concepts/accounts/overview), authorization requires signatures from multiple private keys. The number of signatures must be equal to or greater than the account's threshold value.
 
-:::caution
-Upon signing, either the signing agent or the transaction needs to know the composition of the multisignature account, i.e. the ordered addresses, threshold, and version.
-:::
+To sign a multisignature transaction, you need the complete multisignature account details: the list and order of authorized addresses, the threshold value, and the version. This information must be available either in the transaction itself or to the signing agent.
+
+<LinkCard
+  title='Multisignature Accounts'
+  href='/concepts/accounts/overview'
+  description='Learn how to configure and manage multisignature accounts on Algorand.'
+/>
+
 Here is what the same transaction above would look like if sent from a 2/3 multisig account.
 
 ```json
@@ -128,13 +140,13 @@ Here is what the same transaction above would look like if sent from a 2/3 multi
 }
 ```
 
-The difference between this transaction and the one above is the form of its signature component. For multisignature accounts, an [`"msig"`](/concepts/transactions/transactions#msig) struct is added which contains the 3 public addresses (`"pk"`), the threshold value (`"thr"`) and the multisig version `"v"`. This transaction is still unsigned but the addition of the correct `"msig"` struct is confirmation that the transaction is "aware" of the fact that the sender is multisig and will have no trouble accepting sub-signatures from single keys even if the signing agent does not contain information about its multisignature properties.
+The difference between this transaction and the one above is the form of its signature component. For multisignature accounts, an [`"msig"`](/concepts/transactions/transactions#msig) struct is added which contains the 3 public addresses (`"pk"`), the threshold value (`"thr"`) and the multisig version `"v"`. Although this transaction is still unsigned, the addition of the correct `"msig"` struct indicates that the transaction is "aware" of its multisig sender and will accept sub-signatures from single keys even if the signing agent does not contain information about its multisignature properties.
 
-:::note
-Adding the `"msig"` template to make the transaction "aware" of its multisig sender is highly recommended, particularly in cases where the transaction is signed by multiple parties or offline. Without it, the signing agent would need to have its own knowledge of the multisignature account. For example, `goal` can sign a multisig transaction that does not contain an `"msig"` template _if_ the multisig address was created within its wallet. On signing, it will add the `"msig"` template.
-:::
+It is highly recommended to include the `"msig"` template in the transaction. This is especially important when the transaction will be signed by multiple parties or offline. Without the template, the signing agent must already know the multisignature account details. For example, `goal` can only sign a multisig transaction without an `"msig"` template if the multisig address exists in its wallet. In this case, `goal` will add the `"msig"` template during signing.
 
-Sub-signatures can be added to the transaction one at a time, cumulatively, or merged together from multiple transactions. Here is the same transaction above, fully authorized:
+Sub-signatures can be added to the transaction one at a time, cumulatively, or merged together from multiple transactions.
+
+Here is the same transaction above, fully authorized:
 
 ```json
 {
@@ -169,15 +181,11 @@ Sub-signatures can be added to the transaction one at a time, cumulatively, or m
 }
 ```
 
-The two signatures are added underneath their respective addresses. Since 2 meets the threshold, this transaction is now fully authorized and can be sent to the network.
-
-:::note
-Adding more sub-signatures than the threshold requires is unnecessary but perfectly valid.
-:::
+The two signatures are added underneath their respective addresses. Since this meets the required threshold of 2, the transaction is now fully authorized and can be sent to the network. While adding more sub-signatures than the threshold requires is unnecessary, it is perfectly valid.
 
 ### How-To
 
-The following code example contains a demonstration of how to execute a transaction signed by a multisig account.
+The following code example demonstrates how to execute a transaction signed by a multisig account.
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>

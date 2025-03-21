@@ -27,7 +27,16 @@ TEAL (Transaction Execution Approval Language) provides several opcodes for faci
 Local storage is allocated when an account opts into a smart contract by submitting an opt-in transaction. Each account can have between 0 and 16 key-value pairs in local storage, with a total of 2KB memory shared among them. The amount of local storage is determined during smart contract creation and cannot be edited later. The opted-in user account is responsible for funding the local storage by increasing their minimum balance requirement.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/LocalStorage/contract.algo.ts'
+      snippet='INIT_LOCAL_STATE'
+      lang='ts'
+      title='Init Local Storage'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/local_storage/contract.py'
       snippet='INIT_LOCAL_STORAGE'
@@ -53,7 +62,16 @@ The \_ex opcodes allow reading local states from other accounts and smart contra
 Branching logic is typically used after calling the \_ex opcodes to handle cases where the value is found or not found.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/LocalStorage/contract.algo.ts'
+      snippet='READ_LOCAL_STATE'
+      lang='ts'
+      title='Read Local State'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/local_storage/contract.py'
       snippet='READ_LOCAL_STATE'
@@ -116,7 +134,16 @@ To write to local state, use the `app_local_put` opcode. An additional account p
 </Aside>
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/LocalStorage/contract.algo.ts'
+      snippet='WRITE_LOCAL_STATE'
+      lang='ts'
+      title='Write Local State'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/local_storage/contract.py'
       snippet='WRITE_LOCAL_STATE'
@@ -139,7 +166,16 @@ Every smart contract has an ApprovalProgram and a ClearStateProgram. An account 
 An account can request to clear its local state using a closeout transaction or clear its local state for a specific contract using a clearstate transaction, which will always succeed, even after the contract is deleted.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/LocalStorage/contract.algo.ts'
+      snippet='CLEAR_LOCAL_STATE'
+      lang='ts'
+      title='Delete Local State'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/local_storage/contract.py'
       snippet='DELETE_LOCAL_STATE'

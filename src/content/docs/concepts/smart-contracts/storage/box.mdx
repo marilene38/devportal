@@ -105,7 +105,16 @@ The AVM supports two opcodes `box_create` and `box_put` that can be used to crea
 Boxes can be created and deleted, but once created, they cannot be resized. At creation time, boxes are filled with 0 bytes up to their requested size. The box’s contents can be changed, but the size is fixed at that point. If a box needs to be resized, it must first be deleted and then recreated with the new size.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/BoxStorage/contract.algo.ts'
+      snippet='INIT_BOX_STORAGE'
+      lang='ts'
+      title='Init Box Storage'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/box_storage/contract.py'
       snippet='INIT_BOX_STORAGE'
@@ -137,7 +146,16 @@ A box is referenced by including its app ID and box name.
 The AVM provides two opcodes for reading the contents of a box, `box_get` and `box_extract`. The `box_get` opcode takes one parameter,: the key name of the box. It reads the entire contents of a box. The box_get opcode returns two values. The top-of-stack is an integer that has the value of 1 or 0. A value of 1 means that the box was found and read. A value of 0 means that the box was not found. The next stack element contains the bytes read if the box exists; otherwise, it contains an empty byte array. box_get fails if the box length exceeds 4kb.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/BoxStorage/contract.algo.ts'
+      snippet='GET_BOX_STORAGE'
+      lang='ts'
+      title='Get Box Storage'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/box_storage/contract.py'
       snippet='GET_BOX_STORAGE'
@@ -156,6 +174,15 @@ when using either opcode to read the contents of a box, the AVM is limited to re
 :::
 
 <Tabs syncKey='lang'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/BoxStorage/contract.algo.ts'
+      snippet='EXTRACT_BOX_STORAGE'
+      lang='ts'
+      title='Extract Box Reference'
+      frame='none'
+    />
+  </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/box_storage/contract.py'
@@ -178,7 +205,16 @@ As with reading, each box ref in the boxes array allows an app call to write 1kb
 The AVM provides two opcodes, box_put and box_replace, to write data to a box. The box_put opcode is described in the previous section. The box_replace opcode takes three parameters: the key name, the starting location and replacement bytes.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/BoxStorage/contract.algo.ts'
+      snippet='SET_BOX_STORAGE'
+      lang='ts'
+      title='Set Box Storage'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/box_storage/contract.py'
       snippet='SET_BOX_STORAGE'
@@ -201,6 +237,15 @@ The following sections cover the details of manipulating boxes within a smart co
 The AVM offers the `box_len` opcode to retrieve the length of a box and verify its existence. The opcode takes the box key name and returns two unsigned integers (uint64). The top-of-stack is either a 0 or 1, where 1 indicates the box's existence, and 0 indicates it does not exist. The next is the length of the box if it exists; otherwise, it is 0.
 
 <Tabs syncKey='lang'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/BoxStorage/contract.algo.ts'
+      snippet='LENGTH_BOX_STORAGE'
+      lang='ts'
+      title='Length Box Storage'
+      frame='none'
+    />
+  </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/box_storage/contract.py'
@@ -222,6 +267,15 @@ Only the app that created a box can delete it. If an app is deleted, its boxes a
 The AVM offers the `box_del` opcode to delete a box. This opcode takes the box key name. The opcode returns one unsigned integer (uint64) with a value of 0 or 1. A value of 1 indicates the box existed and was deleted. A value of 0 indicates the box did not exist.
 
 <Tabs syncKey='lang'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/BoxStorage/contract.algo.ts'
+      snippet='DELETE_BOX_STORAGE'
+      lang='ts'
+      title='Delete Box Storage'
+      frame='none'
+    />
+  </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/box_storage/contract.py'
@@ -241,6 +295,15 @@ The AVM offers the `box_del` opcode to delete a box. This opcode takes the box k
 Here are some methods that can be used with box reference to splice, replace and extract box
 
 <Tabs syncKey='lang'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/BoxStorage/contract.algo.ts'
+      snippet='OTHER_OPS_BOX'
+      lang='ts'
+      title='Delete Box Storage'
+      frame='none'
+    />
+  </TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/box_storage/contract.py'
@@ -280,7 +343,8 @@ Different functions of the box can be used. The detailed API reference can be fo
 ## Example: Storing struct in box map
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'></TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/struct_in_box/contract.py'
       snippet='EXAMPLE_STRUCT_IN_BOX'

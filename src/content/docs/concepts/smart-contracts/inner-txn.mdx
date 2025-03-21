@@ -20,7 +20,7 @@ The transactions sent by the smart contract (application) account are called _In
 Since application accounts are Algorand accounts, just like any other account, they need Algos to cover transaction fees when sending inner transactions. To fund the application account, any other account in the Algorand network can send Algos to the specified account. For funds to leave the smart contract, the following conditions must be met:
 
 - The logic within the contract must submit an inner transaction.
-- The smart contract’s logic must return true.
+- The smart contract's logic must return true.
 
 A smart contract can issue up to 256 inner transactions with one application call. If any of these transactions fail, the smart contract call will also fail.
 
@@ -53,7 +53,16 @@ To illustrate this concept, let's examine a payment Inner Transaction example th
 ## Payment
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='PAYMENT'
+      lang='ts'
+      title='Payment Inner Transaction'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='PAYMENT'
@@ -62,7 +71,6 @@ To illustrate this concept, let's examine a payment Inner Transaction example th
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ## Asset(ASA) Create
@@ -70,7 +78,16 @@ To illustrate this concept, let's examine a payment Inner Transaction example th
 Assets can be created by a smart contract. Use the following contract code to create an asset with an inner transaction.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='ASSET_CREATE'
+      lang='ts'
+      title='Asset Create Inner Transaction'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='ASSET_CREATE'
@@ -79,7 +96,6 @@ Assets can be created by a smart contract. Use the following contract code to cr
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ## Asset(ASA) Opt In
@@ -87,7 +103,16 @@ Assets can be created by a smart contract. Use the following contract code to cr
 If a smart contract wishes to transfer an asset it holds or needs to opt into an asset, this can be done with an asset transfer inner transaction. If the smart contract created the asset (ASA) via an inner transaction, it does not need to opt into the asset.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='ASSET_OPT_IN'
+      lang='ts'
+      title='Asset Opt-In Inner Transaction'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='ASSET_OPT_IN'
@@ -96,7 +121,6 @@ If a smart contract wishes to transfer an asset it holds or needs to opt into an
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ## Asset(ASA) Transfer
@@ -104,7 +128,16 @@ If a smart contract wishes to transfer an asset it holds or needs to opt into an
 If a smart contract is opted into the asset (ASA), it can transfer the asset with an asset transfer transaction.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='ASSET_TRANSFER'
+      lang='ts'
+      title='Asset Transfer Inner Transaction'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='ASSET_TRANSFER'
@@ -113,7 +146,6 @@ If a smart contract is opted into the asset (ASA), it can transfer the asset wit
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ## Asset(ASA) Freeze
@@ -121,7 +153,16 @@ If a smart contract is opted into the asset (ASA), it can transfer the asset wit
 A smart contract can freeze any asset, where the smart contract is set as the freeze address.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='ASSET_FREEZE'
+      lang='ts'
+      title='Asset Freeze Inner Transaction'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='ASSET_FREEZE'
@@ -130,7 +171,6 @@ A smart contract can freeze any asset, where the smart contract is set as the fr
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ## Asset(ASA) Revoke
@@ -138,7 +178,16 @@ A smart contract can freeze any asset, where the smart contract is set as the fr
 A smart contract can revoke or clawback any asset where the smart contract address is specified as the asset clawback address.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='ASSET_REVOKE'
+      lang='ts'
+      title='Asset Clawback Inner Transaction'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='ASSET_REVOKE'
@@ -147,7 +196,6 @@ A smart contract can revoke or clawback any asset where the smart contract addre
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ## Asset(ASA) Configuration
@@ -155,7 +203,16 @@ A smart contract can revoke or clawback any asset where the smart contract addre
 As with all assets, the mutable addresses can be changed using contract code similar to the code below. Note these these addresses cannot be changed once set to an empty value.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='ASSET_CONFIG'
+      lang='ts'
+      title='Asset Config Inner Transaction'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='ASSET_CONFIG'
@@ -164,7 +221,6 @@ As with all assets, the mutable addresses can be changed using contract code sim
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ## Asset (ASA) Delete
@@ -172,7 +228,16 @@ As with all assets, the mutable addresses can be changed using contract code sim
 Assets managed by the contract can also be deleted. This can be done with the following contract code. Note that the entire supply of the asset must be returned to the contract account before deleting the asset.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='ASSET_DELETE'
+      lang='ts'
+      title='Asset Delete Inner Transaction'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='ASSET_DELETE'
@@ -181,7 +246,6 @@ Assets managed by the contract can also be deleted. This can be done with the fo
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ## Grouped Inner Transactions
@@ -189,7 +253,16 @@ Assets managed by the contract can also be deleted. This can be done with the fo
 A smart contract can make inner transactions consisting of multiple transactions grouped together atomically. The following example groups a payment transaction with a call to another smart contract.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='GROUPED_INNER_TXNS'
+      lang='ts'
+      title='Multiple Inner Transaction Atomically'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='GROUPED_INNER_TXNS'
@@ -198,7 +271,6 @@ A smart contract can make inner transactions consisting of multiple transactions
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ## Contract to Contract Calls
@@ -215,7 +287,16 @@ A smart contract can call other smart contracts using any of the OnComplete type
 ### NoOp Application call
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='NOOP_APP_CALL'
+      lang='ts'
+      title='NoOp App Call Inner Transaction'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='NOOP_APP_CALL'
@@ -224,13 +305,21 @@ A smart contract can call other smart contracts using any of the OnComplete type
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ### Deploy smart contract via inner transaction
 
 <Tabs syncKey='lang'>
-  <TabItem label='Python' icon='seti:python'>
+  <TabItem label='Algorand TypeScript' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/contracts/InnerTransactions/contract.algo.ts'
+      snippet='DEPLOY_APP'
+      lang='ts'
+      title='Deploy App With Inner Transaction'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Algorand Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/inner_transactions/contract.py'
       snippet='DEPLOY_APP'
@@ -239,5 +328,4 @@ A smart contract can call other smart contracts using any of the OnComplete type
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
