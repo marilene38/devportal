@@ -2,7 +2,14 @@
 title: Transaction reference
 ---
 
-Each table below specifies the **field name**, whether it is optional or required, its **type** within the protocol code (note that SDKs input types for these fields may differ), the **codec**, which is the name of the field when viewed within a transaction, and a **description** of the field.
+<style>{`
+  table th:nth-child(4), 
+  table td:nth-child(4) {
+    min-width: 120px;
+  }
+`}</style>
+
+The tables below describe the fields used in Algorand transactions. Each table includes the field name, indicates if the field is required or optional, shows the type used in the protocol code, displays the codec name that appears in transactions, and provides a description of the field's purpose. While the protocol types are shown in these tables, the input types may be different when using SDKs.
 
 ## Common Fields (Header and Type)
 
@@ -179,3 +186,17 @@ Transaction Object Type: `SignedTxn`
 | <a id="msig">Msig</a>       | _required, if no other sig specified_ | crypto.MultisigSig | `"msig"` |                                                                                                                                                                                                                                                                                                        |
 | <a id="lsig">LogicSig</a>   | _required, if no other sig specified_ | LogicSig           | `"lsig"` |                                                                                                                                                                                                                                                                                                        |
 | <a id="txn">Transaction</a> | _required_                            | Transaction        | `"txn"`  | [`PaymentTx`](#payment-transaction), [`KeyRegistrationTx`](#key-registration-transaction), [`AssetConfigTx`](#asset-configuration-transaction), [`AssetTransferTx`](#asset-transfer-transaction), [`AssetFreezeTx`](#asset-freeze-transaction) or [`ApplicationCallTx`](#application-call-transaction) |
+
+## Heartbeat Transaction
+
+Transaction Object Type: `HeartbeatTx`
+
+Includes all fields in [Header](#common-fields-header-and-type) and `"type"` is `"hbt"`.
+
+| Field                                   | Required   | Type          | codec     | Description                                                     |
+| --------------------------------------- | ---------- | ------------- | --------- | --------------------------------------------------------------- |
+| <a id="hbaddress">HbAddress</a>         | _required_ | Address       | `"hbad"`  | The account this transaction is proving onlineness for.         |
+| <a id="hbkeydilution">HbKeyDilution</a> | _required_ | uint64        | `"hbkd"`  | Must match HbAddress account's current KeyDilution.             |
+| <a id="hbproof">HbProof</a>             | _required_ | HbProofFields | `"hbpf"`  | The heartbeat proof fields.                                     |
+| <a id="hbseed">HbSeed</a>               | _required_ | []byte        | `"hbsd"`  | Must be the block seed for this transaction's firstValid block. |
+| <a id="hbvoteid">HbVoteID</a>           | _required_ | []byte        | `"hbvid"` | Must match the HbAddress account's current VoteID.              |
