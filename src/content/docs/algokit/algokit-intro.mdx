@@ -3,7 +3,7 @@ title: Intro to AlgoKit
 description: Overview of AlgoKit SDK and associated utilities and libraries.
 ---
 
-import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Tabs, TabItem, LinkCard, CardGrid } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 
@@ -11,8 +11,6 @@ import helloWorldPython from '/examples/smart-contracts/py/hello-world.py?raw';
 import helloWorldTs from '/examples/smart-contracts/ts/hello-world.algo.ts?raw';
 
 import algokitLogo from '@images/algokit-blue.png';
-
-<Image src={algokitLogo} alt='AlgoKit logo' />
 
 AlgoKit is a comprehensive software development kit designed to streamline and accelerate the process of building decentralized
 applications on the Algorand blockchain. At its core, AlgoKit features a powerful command-line interface (CLI) tool that provides
@@ -58,8 +56,16 @@ Here is the list of commands that you can use with AlgoKit CLI.
 
 To learn more about AlgoKit CLI, refer to the following resources:
 
-- [AlgoKit CLI section](FUTURELINK:algokit-cli)
-- [AlgoKit CLI Github repo](https://github.com/algorandfoundation/algokit-cli)
+<LinkCard
+  title='AlgoKit CLI Documentation'
+  href='/algokit/algokit-cli/overview'
+  description='Learn more about using and configuring AlgoKit CLI'
+/>
+<LinkCard
+  title='AlgoKit CLI Repo'
+  href='https://github.com/algorandfoundation/algokit-cli'
+  description='Explore the codebase and contribute to its development'
+/>
 
 ## Algorand Python
 
@@ -73,8 +79,16 @@ Here is an example of a simple Hello World smart contract written in Algorand Py
 
 To learn more about Algorand Python, refer to the following resources:
 
-- [Algorand Python Documentation](/concepts/smart-contracts/languages/python/)
-- [Algorand Python Github repo](https://github.com/algorandfoundation/puya)
+<LinkCard
+  title='Algorand Python Documentation'
+  href='/concepts/smart-contracts/languages/python/'
+  description='Learn more about the design and implementation of Algorand Python'
+/>
+<LinkCard
+  title='Algorand Python Repo'
+  href='https://github.com/algorandfoundation/puya'
+  description='Explore the codebase and contribute to its development'
+/>
 
 ## Algorand TypeScript
 
@@ -88,8 +102,16 @@ Here is an example of a simple Hello World smart contract written in Algorand Ty
 
 To learn more about Algorand TypeScript, refer to the following resources:
 
-- [Algorand TypeScript Documentation](/concepts/smart-contracts/languages/typescript/)
-- [Algorand TypeScript Github repo](https://github.com/algorandfoundation/puya-ts)
+<LinkCard
+  title='Algorand TypeScript Documentation'
+  href='/concepts/smart-contracts/languages/typescript/'
+  description='Learn more about the design and implementation of Algorand TypeScript'
+/>
+<LinkCard
+  title='Algorand TypeScript Repo'
+  href='https://github.com/algorandfoundation/puya-ts'
+  description='Explore the codebase and contribute to its development'
+/>
 
 ## AlgoKit Utils
 
@@ -117,15 +139,29 @@ The library helps you interact with and develop against the Algorand blockchain 
 
 To learn more about AlgoKit Utils, refer to the following resources:
 
-AlgoKit Utils TypeScript:
+<CardGrid>
+<LinkCard
+  title='Algorand Utils Typescript Documentation'
+  href='/algokit/utils/typescript/overview/'
+  description='Learn more about the design and implementation of Algorand Utils'
+/>
+<LinkCard
+  title='Algorand Utils Typescript Repo'
+  href='https://github.com/algorandfoundation/algokit-utils-ts#algokit-typescript-utilities'
+  description='Explore the codebase and contribute to its development'
+/>
 
-- [AlgoKit Utils TypeScript section](/algokit/utils/typescript/overview/)
-- [AlgoKit Utils TypeScript Github repo](https://github.com/algorandfoundation/algokit-utils-ts#algokit-typescript-utilities)
-
-AlgoKit Utils Python:
-
-- [AlgoKit Utils Python section](/algokit/utils/python/overview/)
-- [AlgoKit Utils Python Github repo](https://github.com/algorandfoundation/algokit-utils-py#readme)
+<LinkCard
+  title='Algorand Utils Python Documentation'
+  href='/algokit/utils/python/overview/'
+  description='Learn more about the design and implementation of Algorand Utils'
+/>
+<LinkCard
+  title='Algorand Utils Python Repo'
+  href='https://github.com/algorandfoundation/algokit-utils-py#readme'
+  description='Explore the codebase and contribute to its development'
+/>
+</CardGrid>
 
 ## AlgoKit LocalNet
 
@@ -135,8 +171,16 @@ AlgoKit LocalNet uses Docker images optimized for a great developer experience. 
 
 To learn more about AlgoKit Localnet, refer to the following resources:
 
-- [AlgoKit Localnet section](FUTURELINK:algokit-localnet)
-- [AlgoKit Localnet Github repository](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/localnet.md)
+<LinkCard
+  title='AlgoKit Localnet Documentation'
+  href='/algokit/algokit-cli/localnet'
+  description='Learn more about using and configuring AlgoKit Localnet'
+/>
+<LinkCard
+  title='AlgoKit Localnet GitHub Repository'
+  href='https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/localnet.md'
+  description='Explore the source code and technical implementation details'
+/>
 
 ## AVM Debugger
 
@@ -144,8 +188,16 @@ The AlgoKit AVM VS Code debugger extension provides a convenient way to debug an
 
 To learn more about the AVM debugger, refer to the following resources:
 
-- [AVM Debugger section](FUTURELINK:algokit-avm-debugger)
-- [AVM Debugger Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AlgorandFoundation.algokit-avm-vscode-debugger)
+<LinkCard
+  title='AVM Debugger Documentation'
+  href='FUTURELINK:algokit-avm-debugger'
+  description='Learn more about using and configuring the AVM Debugger'
+/>
+<LinkCard
+  title='AVM Debugger Extension Repo'
+  href='https://marketplace.visualstudio.com/items?itemName=AlgorandFoundation.algokit-avm-vscode-debugger'
+  description='Explore the AVM Debugger codebase and contribute to its development'
+/>
 
 ## Client Generator
 
@@ -153,15 +205,29 @@ The client generator generates a type-safe smart contract client for the Algoran
 
 To learn more about the client generator, refer to the following resources:
 
-TypeScript Client Generator:
+<CardGrid>
+<LinkCard
+  title='Client Generator TypeScript Documentation'
+  href='FUTURELINK:algokit-client-generator-ts'
+  description='Learn more about the TypeScript client generator for Algorand smart contracts'
+/>
+<LinkCard
+  title='Client Generator TypeScript Repo'
+  href='https://github.com/algorandfoundation/algokit-client-generator-ts'
+  description='Explore the TypeScript client generator codebase and contribute to its development'
+/>
 
-- [Client Generator TypeScript section](FUTURELINK:algokit-client-generator-ts)
-- [Client Generator TypeScript Github repo](https://github.com/algorandfoundation/algokit-client-generator-ts)
-
-Python Client Generator:
-
-- [Client Generator Python section](FUTURELINK:algokit-client-generator-py)
-- [Client Generator Python Github Repository](https://github.com/algorandfoundation/algokit-client-generator-py)
+<LinkCard
+  title='Client Generator Python Documentation'
+  href='FUTURELINK:algokit-client-generator-py'
+  description='Learn more about the Python client generator for Algorand smart contracts'
+/>
+<LinkCard
+  title='Client Generator Python Repo'
+  href='https://github.com/algorandfoundation/algokit-client-generator-py'
+  description='Explore the Python client generator codebase and contribute to its development'
+/>
+</CardGrid>
 
 ## Testnet Dispenser
 
@@ -169,5 +235,13 @@ The AlgoKit TestNet Dispenser API provides functionalities to interact with the 
 
 To learn more about the testnet dispenser, refer to the following resources:
 
-- [Testnet Dispenser section](FUTURELINK:algokit-testnet-dispenser)
-- [Testnet Dispenser Github Documentation](https://github.com/algorandfoundation/algokit/blob/main/docs/testnet_api.md)
+<LinkCard
+  title='Testnet Dispenser Documentation'
+  href='FUTURELINK:algokit-testnet-dispenser'
+  description='Learn more about using and configuring the AlgoKit TestNet Dispenser'
+/>
+<LinkCard
+  title='Testnet Dispenser Repo'
+  href='https://github.com/algorandfoundation/algokit/blob/main/docs/testnet_api.md'
+  description='Explore the technical implementation and contribute to its development'
+/>
