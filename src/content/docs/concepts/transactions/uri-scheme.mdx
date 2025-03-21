@@ -2,13 +2,13 @@
 title: URI Scheme
 ---
 
-This URI specification represents a standardized way for applications and websites to send requests and information through deeplinks, QR codes, etc. It is heavily based on Bitcoin’s [BIP-0021](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) and should be seen as derivative of it. The decision to base it on BIP-0021 was made to make it easy and compatible as possible for any other applications.
+The Algorand URI specification defines a standardized format for applications and websites to encode transaction requests and wallet information in URIs. These URIs can be used in deeplinks, QR codes, and other interfaces. The specification is based on Bitcoin's [BIP-0021](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) to maintain familiarity and compatibility with existing systems.
 
 ## Specifications
 
 ### General format
 
-Algorand URIs follow the general format for URIs as set forth in RFC 3986. The path component consists of an Algorand address, and the query component provides additional payment options.
+Algorand URIs follow the general format for URIs specified in RFC 3986. The path component consists of an Algorand address, and the query component provides additional payment options.
 
 Elements of the query component may contain characters outside the valid range. These must first be encoded according to UTF-8, and then each octet of the corresponding UTF-8 sequence must be percent-encoded as described in RFC 3986.
 
@@ -28,9 +28,9 @@ note            = "note=" *qchar
 otherparam      = qchar *qchar [ "=" *qchar ]
 ```
 
-Here, "qchar" corresponds to valid characters of an RFC 3986 URI query component, excluding the "=" and "&" characters, which this specification takes as separators.
+Here, `qchar` corresponds to valid characters of an RFC 3986 URI query component, excluding the `=` and `&` characters, which this specification takes as separators.
 
-The scheme component ("algorand:") is case-insensitive, and implementations must accept any combination of uppercase and lowercase letters. The rest of the URI is case-sensitive, including the query parameter keys.
+The scheme component `algorand:` is case-insensitive, and implementations must accept any combination of uppercase and lowercase letters. The rest of the URI is case-sensitive, including the query parameter keys.
 
 :::note
 When it comes to generation of an address' QR, many exchanges and wallets encodes the address w/o the scheme component (“algorand:”). This is not a URI so it is OK.
@@ -38,30 +38,33 @@ When it comes to generation of an address' QR, many exchanges and wallets encode
 
 ### Query Keys
 
-- label: Label for that address (e.g. name of receiver)
+- **`label`**: Label for that address (e.g. name of receiver)
 
-- address: Algorand address (if missing, sender address will be used as receiver.)
+- **`address`**: Algorand address (if missing, sender address will be used as receiver.)
 
-- xnote: A URL-encoded notes field value that must not be modifiable by the user when displayed to users.
+- **`xnote`**: A URL-encoded notes field value that must not be modifiable by the user when displayed to users.
 
-- note: A URL-encoded default notes field value that the the user interface may optionally make editable by the user.
+- **`note`**: A URL-encoded default notes field value that the the user interface may optionally make editable by the user.
 
-- amount: microAlgos or smallest unit of asset
+- **`amount`**: microAlgo or smallest unit of asset
 
-- asset: The asset id this request refers to (if Algos, simply omit this parameter)
+- **`asset`**: The asset id this request refers to (if Algo, simply omit this parameter)
 
-- (others): optional, for future extensions
+- **`otherparam`**: optional, for future extensions
 
-### Transfer amount/size
+### Transfer Amount/Size
 
-If an amount is provided, it MUST be specified in basic unit of the asset. For example, if it’s Algos (Algorand native unit), the amount should be specified in microAlgos. All amounts MUST NOT contain commas nor a period (.) Strictly non negative integers.
+If an amount is provided, it MUST be specified in the basic unit of the asset. For example, if it's Algo (Algorand's native token), the amount MUST be specified in microAlgo. All amounts MUST be non-negative integers and MUST NOT contain commas or decimal points.
 
-e.g. for 100 Algos, the amount needs to be 100000000, for 54.1354 Algos the amount needs to be 54135400.
+Examples:
 
-Algorand Clients should display the amount in whole Algos. Where needed, microAlgos can be used as well. In any case, the units shall be clear for the user.
+- 100 Algo = 100000000 microAlgo
+- 54.1354 Algo = 54135400 microAlgo
+
+Algorand clients should display amounts in whole Algo by default. When needed, microAlgo can be shown as well, but the units must always be clearly indicated to the user.
 
 :::note
-This is DIFFERENT than Bitcoin’s BIP-0021
+This behavior differs from Bitcoin's BIP-0021 specification
 :::
 
 ## Appendix
@@ -80,7 +83,7 @@ This section contains several examples
   algorand://TMTAD6N22HCS2LKH7677L2KFLT3PAQWY6M4JFQFXQS32ECBFC23F57RYX4?label=Silvio
   ```
 
-- Request 150.5 Algos from an address
+- Request 150.5 Algo from an address
 
   ```shell showLineNumbers=false frame=none
   algorand://TMTAD6N22HCS2LKH7677L2KFLT3PAQWY6M4JFQFXQS32ECBFC23F57RYX4?amount=150500000
