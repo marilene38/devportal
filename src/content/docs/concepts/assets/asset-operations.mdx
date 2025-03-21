@@ -48,7 +48,7 @@ The Algorand Foundation [hosts many standards (ARCs)](/standards/arcs) associate
 
 ## Updating Assets
 
-**Authorized by**: [Asset Manager Account](/concepts/transactions/transactions#manageraddr)
+**Authorized by**: [Asset Manager Account](/concepts/transactions/reference#manageraddr)
 
 After an asset has been created only the manager, reserve, freeze and clawback accounts can be changed. All other parameters are locked for the life of the asset. If any of these addresses are set to the empty string `""` that address will be cleared and can never be reset for the life of the asset. Only the manager account can make configuration changes and must authorize the transaction.
 
@@ -84,7 +84,7 @@ After an asset has been created only the manager, reserve, freeze and clawback a
 
 ## Deleting Assets
 
-**Authorized by**: [Asset Manager](/concepts/transactions/transactions#manageraddr)
+**Authorized by**: [Asset Manager](/concepts/transactions/reference#manageraddr)
 
 Created assets can be destroyed only by the asset manager account. All of the assets must be owned by the creator of the asset before the asset can be deleted.
 
@@ -220,7 +220,7 @@ The `assetBulkOptOut` function manages the opt-out process for a number of asset
 
 **See also**
 
-- [Structure of an Asset Opt-In Transaction](/concepts/transactions/transactions#asset-optin-transaction)
+- [Structure of an Asset Opt-In Transaction](/concepts/transactions/reference#asset-optin-transaction)
 
 ## Transferring Assets
 
@@ -262,7 +262,7 @@ Assets can be transferred between accounts that have opted-in to receiving the a
 
 ## Clawback Assets
 
-**Authorized by**: [Asset Clawback Address](/concepts/transactions/transactions#clawbackaddr)
+**Authorized by**: [Asset Clawback Address](/concepts/transactions/reference#clawbackaddr)
 
 Revoking an asset for an account removes a specific number of the asset from the revoke target account. Revoking an asset from an account requires specifying an asset sender (the revoke target account) and an asset receiver (the account to transfer the funds back to). The code below illustrates the clawback transaction.
 
@@ -298,7 +298,7 @@ Revoking an asset for an account removes a specific number of the asset from the
 
 ## Freezing Assets
 
-**Authorized by**: [Asset Freeze Address](/concepts/transactions/transactions#freezeaddr)
+**Authorized by**: [Asset Freeze Address](/concepts/transactions/reference#freezeaddr)
 
 Freezing or unfreezing an asset for an account requires a transaction that is signed by the freeze account. The code below illustrates the freeze transaction.
 
