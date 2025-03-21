@@ -13,21 +13,21 @@ In traditional finance, trading assets generally requires a trusted intermediary
 
 On Algorand, atomic transfers are implemented as irreducible batch operations, where a group of [transactions](/concepts/transactions/overview) are submitted as a unit and all transactions in the batch either pass or fail. This also eliminates the need for more complex solutions like [hashed timelock contracts](https://en.bitcoinwiki.org/wiki/Hashed_Timelock_Contracts) that are implemented on other blockchains. An atomic transfer on Algorand is confirmed in the same time like any other transaction. These atomic transactions can contain any type of transactions inside of the group.
 
-## Use cases
+## Use Cases
 
 Atomic transfers enable use cases such as:
 
-- **Circular trades**- Alice pays Bob if and only if Bob pays Claire if and only if Claire pays Alice.
+- **Circular Trades**- Alice pays Bob if and only if Bob pays Claire if and only if Claire pays Alice.
 
-- **Group payments**- Everyone pays or no one pays.
+- **Group Payments**- Everyone pays or no one pays.
 
-- **Decentralized exchanges**- Trade one asset for another without going through a centralized exchange.
+- **Decentralized Exchanges**- Trade one asset for another without going through a centralized exchange.
 
-- **Distributed payments**- Payments to multiple recipients.
+- **Distributed Payments**- Payments to multiple recipients.
 
-- **Pooled transaction fees**- One transaction pays the fees of others.
+- **Pooled Transaction Fees**- One transaction pays the fees of others.
 
-## Process overview
+## Process Overview
 
 To implement an atomic transfer, generate all of the transactions that will be involved in the transfer and then group those transactions together. The result of grouping is that each transaction is assigned the same group ID. Once all transactions contain this group ID, the transactions can be split up and sent to their respective senders to be authorized. A single party can then collect all the authorized transactions and submit them to the network together.
 
@@ -58,11 +58,11 @@ Below you will find how to create and send atomic transaction groups using Algok
   </TabItem>
 </Tabs>
 
-## Step by step (in goal)
+## Step by Step in Goal
 
 The next guide will illustrate how atomic transaction groups can be created following a step by step approach using goal.
 
-### Create transactions
+### Create Transactions
 
 Create two or more (up to 16 total) unsigned transactions of any type. Read about transaction types in the [Transactions Overview](../transactions) section.
 
@@ -80,7 +80,7 @@ At this point, these are just individual transactions. The next critical step is
 
 See [Authorizing Transactions Offline](../transactions/offline_transactions#saving-unsigned-transactions-to-file) to learn how to create and save individual **unsigned** transactions to a file. This method can be used to distribute group transactions for signing.
 
-### Group transactions
+### Group Transactions
 
 The result of this step is what ultimately guarantees that a particular transaction belongs to a group and is not valid if sent alone (even if properly signed). A group-id is calculated by hashing the concatenation of a set of related transactions. The resulting hash is assigned to the [Group](../transactions/transactions#group) field within each transaction. This mechanism allows anyone to recreate all transactions and recalculate the group ID to verify that the contents are as agreed upon by all parties. Ordering of the transaction set must be maintained.
 
@@ -89,7 +89,7 @@ The result of this step is what ultimately guarantees that a particular transact
     $ goal clerk group -i combinedtransactions.tx -o groupedtransactions.tx -d data -w yourwallet
     ```
 
-### Split transactions (Goal only)
+### Split Transactions Goal Only
 
 At this point the transaction set must be split to allow distributing each component transaction to the appropriate wallet for authorization.
 
@@ -103,7 +103,7 @@ At this point the transaction set must be split to allow distributing each compo
     # distribute files for authorization
     ```
 
-### Sign transactions
+### Sign Transactions
 
 With a group ID assigned, each transaction sender must authorize their respective transaction.
 
@@ -118,7 +118,7 @@ With a group ID assigned, each transaction sender must authorize their respectiv
     $ goal clerk sign -i splitfiles-1 -o splitfiles-1.sig -d data -w my_wallet_2
     ```
 
-### Assemble transaction group
+### Assemble Transaction Group
 
 All authorized transactions are now assembled into an array, maintaining the original transaction ordering, which represents the transaction group.
 
@@ -127,7 +127,7 @@ All authorized transactions are now assembled into an array, maintaining the ori
     cat splitfiles-0.sig splitfiles-1.sig > signout.tx
     ```
 
-### Send transaction group
+### Send Transaction Group
 
 The transaction group is now broadcast to the network.
 
