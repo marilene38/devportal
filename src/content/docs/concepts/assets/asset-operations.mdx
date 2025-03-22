@@ -82,7 +82,7 @@ To update an asset's configuration, the current manager account must sign the tr
       frame='none'
     />
   </TabItem>
-  <TabItem label='goal' icon='seti:laptop'>
+  <TabItem label='goal' icon='seti:shell'>
     ```shell showLineNumbers=false frame=none
     goal asset config  --manager <address> --new-reserve <address> --assetid <asset-id> -d data
     ```
@@ -122,7 +122,7 @@ Created assets can be destroyed only by the asset manager account. All of the as
       frame='none'
     />
   </TabItem>
-  <TabItem label='goal' icon='seti:laptop'>
+  <TabItem label='goal' icon='seti:shell'>
     ```shell showLineNumbers=false frame=none
     goal asset destroy --creator <creator-address> --manager <asset-manager-address> --asset <asset-name> -d data 
     ```
@@ -180,7 +180,7 @@ An opt-in transaction is simply an asset transfer with an amount of 0, both to a
       lineNumbers='false'
     />
   </TabItem>
-  <TabItem label='goal' icon='seti:laptop'>
+  <TabItem label='goal' icon='seti:shell'>
     ```shell showLineNumbers=false frame=none
     goal asset send -a 0 --asset <asset-name>  -f <opt-in-account> -t <opt-in-account> --creator <asset-creator>  -d data
     ```
@@ -271,7 +271,7 @@ Assets can be transferred between accounts that have opted-in to receiving the a
         frame='none'
       />  
   </TabItem>
-  <TabItem label='goal' icon='seti:laptop'>
+  <TabItem label='goal' icon='seti:shell'>
     ```shell showLineNumbers=false frame=none
     goal asset send -a <asset-amount> --asset <asset-name> -f <asset-sender> -t <asset-receiver> --creator <asset-creator> -d data
     ```
@@ -311,7 +311,7 @@ Revoking an asset from an account requires specifying an asset sender (the revok
       frame='none'
     />
   </TabItem>
-  <TabItem label='goal' icon='seti:laptop'>
+  <TabItem label='goal' icon='seti:shell'>
     ```shell showLineNumbers=false frame=none
     goal asset send -a <amount-to-revoke> --asset <asset-name> -f <address-of-revoke-target> -t <address-to-send-assets-to> --clawback <clawback-address> --creator <creator-address> -d data
     ```
