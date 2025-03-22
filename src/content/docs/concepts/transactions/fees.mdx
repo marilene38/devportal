@@ -138,7 +138,7 @@ If you choose this method, ensure your specified fee meets at least the minimum 
   </TabItem>
 </Tabs>
 
-## Pooled transaction fees
+## Pooled Transaction Fees
 
 The Algorand protocol supports pooled fees, where one transaction can pay the fees of other transactions within the same [atomic group](/concepts/transactions/atomic-txn-groups).
 
@@ -172,7 +172,7 @@ Below is an example of setting a pooled fee on an atomic group of two transactio
 
 ## Inner Transaction Fees
 
-[Inner transactions](/concepts/smart-contracts/inner-txn) are transactions sent by an [application account](/concepts/smart-contracts/inner-txn). When an account makes an application call transaction to a contract method with one inner transaction, there are two ways to cover the associated inner transaction fee.
+[Inner transactions](/concepts/smart-contracts/inner-txn) are transactions sent by an application account. When an account makes an application call transaction to a contract method with one inner transaction, there are two ways to cover the associated inner transaction fee.
 
 - **App caller pays fees (recommended)**: The account calling the contract method pays for both the application call and the inner transaction fees through fee pooling. This approach is recommended because the inner transaction execution doesn't depend on the application account's ALGO balance.
 - **App account pays fees (not recommended)**: The application account itself pays the inner transaction fee using its own ALGO balance. This approach is discouraged because repeated calls to the method could deplete the application's ALGO balance, eventually resulting in "insufficient balance" errors that prevent the application from functioning.
