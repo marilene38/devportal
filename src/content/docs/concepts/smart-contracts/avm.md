@@ -7,7 +7,7 @@ associated with Algorand transactions. TEAL is an assembly language
 syntax for specifying a program that is ultimately converted to AVM
 bytecode. These programs can be used to check the parameters of the
 transaction and approve the transaction as if by a signature. This use
-is called a _Smart Signature_. Starting with v2, these programs may
+is called a _Logic Signature_. Starting with v2, these programs may
 also execute as _Smart Contracts_, which are often called
 _Applications_. Contract executions are invoked with explicit
 application call transactions.
@@ -87,20 +87,20 @@ denoted vX throughout this document.
 
 Starting from v2, the AVM can run programs in two modes:
 
-1. LogicSig or _stateless_ mode, used to execute Smart Signatures
+1. LogicSig or _stateless_ mode, used to execute Logic Signatures
 2. Application or _stateful_ mode, used to execute Smart Contracts
 
 Differences between modes include:
 
-1. Max program length (consensus parameters LogicSigMaxSize, MaxAppTotalProgramLen & MaxExtraAppProgramPages)
-2. Max program cost (consensus parameters LogicSigMaxCost, MaxAppProgramCost)
-3. Opcode availability. Refer to [opcodes document](opcodes/v11.md) for details.
-4. Some global values, such as LatestTimestamp, are only available in stateful mode.
-5. Only Applications can observe transaction effects, such as Logs or IDs allocated to ASAs or new Applications.
+- Max program length (consensus parameters `LogicSigMaxSize`, `MaxAppTotalProgramLen` & `MaxExtraAppProgramPages`)
+- Max program cost (consensus parameters `LogicSigMaxCost`, `MaxAppProgramCost`)
+- Opcode availability. Refer to [opcodes document](/reference/algorand-teal/opcodes) for details.
+- Some global values, such as `LatestTimestamp`, are only available in stateful mode.
+- Only Applications can observe transaction effects, such as Logs or IDs allocated to ASAs or new Applications.
 
-## Execution Environment for Smart Signatures
+## Execution Environment for Logic Signatures
 
-Smart Signatures execute as part of testing a proposed transaction to
+Logic Signatures execute as part of testing a proposed transaction to
 see if it is valid and authorized to be committed into a block. If an
 authorized program executes and finishes with a single non-zero uint64
 value on the stack then that program has validated the transaction it
@@ -112,7 +112,7 @@ The program has access to data from the transaction it is attached to
 (`global` op). Some "Args" may be attached to a transaction being
 validated by a program. Args are an array of byte strings. A common
 pattern would be to have the key to unlock some contract as an Arg. Be
-aware that Smart Signature Args are recorded on the blockchain and
+aware that Logic Signature Args are recorded on the blockchain and
 publicly visible when the transaction is submitted to the network,
 even before the transaction has been included in a block. These Args
 are _not_ part of the transaction ID nor of the TxGroup hash. They
@@ -128,7 +128,7 @@ of a contract account.
   program returns true the transaction is authorized as if the account
   had signed it. This allows an account to hand out a signed program
   so that other users can carry out delegated actions which are
-  approved by the program. Note that Smart Signature Args are _not_
+  approved by the program. Note that Logic Signature Args are _not_
   signed.
 
 - If the SHA512_256 hash of the program (prefixed by "Program") is
@@ -138,7 +138,7 @@ of a contract account.
   transaction against the contract account is for the program to
   approve it.
 
-The size of a Smart Signature is defined as the length of its bytecode
+The size of a Logic Signature is defined as the length of its bytecode
 plus the length of all its Args. The sum of the sizes of all Smart
 Signatures in a group must not exceed 1000 bytes times the number of
 transactions in the group (1000 bytes is defined in consensus parameter
@@ -151,14 +151,14 @@ actually executed or not). Beginning with v4, the program's cost is
 tracked dynamically while being evaluated. If the program exceeds its
 budget, it fails.
 
-The total program cost of all Smart Signatures in a group must not
+The total program cost of all Logic Signatures in a group must not
 exceed 20,000 (consensus parameter LogicSigMaxCost) times the number
 of transactions in the group.
 
-## Execution Environment for Smart Contracts (Applications)
+## Execution Environment for Smart Contracts
 
-Smart Contracts are executed in ApplicationCall transactions. Like
-Smart Signatures, contracts indicate success by leaving a single
+Smart Contracts are executed in _ApplicationCall_ transactions. Like
+Logic Signatures, contracts indicate success by leaving a single
 non-zero integer on the stack. A failed Smart Contract call to an
 ApprovalProgram is not a valid transaction, thus not written to the
 blockchain. An ApplicationCall with OnComplete set to ClearState
@@ -167,39 +167,39 @@ ApprovalProgram. If the ClearStateProgram fails, application state
 changes are rolled back, but the transaction still succeeds, and the
 Sender's local state for the called application is removed.
 
-Smart Contracts have access to everything a Smart Signature may access
+Smart Contracts have access to everything a Logic Signature may access
 (see previous section), as well as the ability to examine blockchain
 state such as balances and contract state (their own state and the
 state of other contracts). They also have access to some global
-values that are not visible to Smart Signatures because the values
+values that are not visible to Logic Signatures because the values
 change over time. Since smart contracts access changing state, nodes
 must rerun their code to determine if the ApplicationCall transactions
 in their pool would still succeed each time a block is added to the
 blockchain.
 
 Smart contracts have limits on their execution cost (700, consensus
-parameter MaxAppProgramCost). Before v4, this was a static limit on
+parameter `MaxAppProgramCost`). Before v4, this was a static limit on
 the cost of all the instructions in the program. Starting in v4, the cost
 is tracked dynamically during execution and must not exceed
-MaxAppProgramCost. Beginning with v5, programs costs are pooled and
+`MaxAppProgramCost`. Beginning with v5, programs costs are pooled and
 tracked dynamically across app executions in a group. If `n`
 application invocations appear in a group, then the total execution
-cost of all such calls must not exceed `n`\*MaxAppProgramCost. In v6, inner
+cost of all such calls must not exceed `n * MaxAppProgramCost`. In v6, inner
 application calls become possible, and each such call increases the
-pooled budget by MaxAppProgramCost at the time the inner group is submitted
+pooled budget by `MaxAppProgramCost` at the time the inner group is submitted
 with `itxn_submit`.
 
 Executions of the ClearStateProgram are more stringent, in order to
 ensure that applications may be closed out, but that applications also
 are assured a chance to clean up their internal state. At the
 beginning of the execution of a ClearStateProgram, the pooled budget
-available must be MaxAppProgramCost or higher. If it is not, the
+available must be `MaxAppProgramCost` or higher. If it is not, the
 containing transaction group fails without clearing the app's
 state. During the execution of the ClearStateProgram, no more than
-MaxAppProgramCost may be drawn. If further execution is attempted, the
+`MaxAppProgramCost` may be drawn. If further execution is attempted, the
 ClearStateProgram fails, and the app's state _is cleared_.
 
-### Resource availability
+### Resource Availability
 
 Smart contracts have limits on the amount of blockchain state they
 may examine. Opcodes may only access blockchain resources such as
@@ -240,22 +240,22 @@ CurrentApplicationAddress` are _available_.
   resources available to group-level resource sharing. The following
   resources are made available by other transaction types.
 
-  1.  `pay` - `txn.Sender`, `txn.Receiver`, and
-      `txn.CloseRemainderTo` (if set).
+  - `pay` - `txn.Sender`, `txn.Receiver`, and
+    `txn.CloseRemainderTo` (if set).
 
-  1.  `keyreg` - `txn.Sender`
+  - `keyreg` - `txn.Sender`
 
-  1.  `acfg` - `txn.Sender`, `txn.ConfigAsset`, and the
-      `txn.ConfigAsset` holding of `txn.Sender`.
+  - `acfg` - `txn.Sender`, `txn.ConfigAsset`, and the
+    `txn.ConfigAsset` holding of `txn.Sender`.
 
-  1.  `axfer` - `txn.Sender`, `txn.AssetReceiver`, `txn.AssetSender`
-      (if set), `txnAssetCloseTo` (if set), `txn.XferAsset`, and the
-      `txn.XferAsset` holding of each of those accounts.
+  - `axfer` - `txn.Sender`, `txn.AssetReceiver`, `txn.AssetSender`
+    (if set), `txnAssetCloseTo` (if set), `txn.XferAsset`, and the
+    `txn.XferAsset` holding of each of those accounts.
 
-  1.  `afrz` - `txn.Sender`, `txn.FreezeAccount`, `txn.FreezeAsset`,
-      and the `txn.FreezeAsset` holding of `txn.FreezeAccount`. The
-      `txn.FreezeAsset` holding of `txn.Sender` is _not_ made
-      available.
+  - `afrz` - `txn.Sender`, `txn.FreezeAccount`, `txn.FreezeAsset`,
+    and the `txn.FreezeAsset` holding of `txn.FreezeAccount`. The
+    `txn.FreezeAsset` holding of `txn.Sender` is _not_ made
+    available.
 
 - A Box is _available_ to an Approval Program if _any_ transaction in
   the same group contains a box reference (`txn.Boxes`) that denotes
@@ -337,7 +337,7 @@ Most operations work with only one type of argument, uint64 or bytes, and fail i
 
 Many instructions accept values to designate Accounts, Assets, or Applications. Beginning with v4, these values may be given as an _offset_ in the corresponding Txn fields (Txn.Accounts, Txn.ForeignAssets, Txn.ForeignApps) _or_ as the value itself (a byte-array address for Accounts, or a uint64 ID). The values, however, must still be present in the Txn fields. Before v4, most opcodes required the use of an offset, except for reading account local values of assets or applications, which accepted the IDs directly and did not require the ID to be present in the corresponding _Foreign_ array. (Note that beginning with v4, those IDs _are_ required to be present in their corresponding _Foreign_ array.) See individual opcodes for details. In the case of account offsets or application offsets, 0 is specially defined to Txn.Sender or the ID of the current application, respectively.
 
-This summary is supplemented by more detail in the [opcodes document](opcodes/v11.md).
+This summary is supplemented by more detail in the [opcodes document](/reference/algorand-teal/opcodes).
 
 Some operations immediately fail the program.
 A transaction checked by a program that fails is not valid.
@@ -605,7 +605,7 @@ Some of these have immediate data in the byte or bytes after the opcode.
 | 64    | ApprovalProgramPages   | []byte  | v7  | Approval Program as an array of pages                                                       |
 | 66    | ClearStateProgramPages | []byte  | v7  | ClearState Program as an array of pages                                                     |
 
-Additional details in the [opcodes document](opcodes/v11.md#txn) on the `txn` op.
+Additional details in the [opcodes document](/reference/algorand-teal/opcodes#txn) on the `txn` op.
 
 **Global Fields**
 
@@ -935,7 +935,7 @@ Design and implementation limitations to be aware of with various versions.
 - Programs cannot access information in previous blocks. Programs
   cannot access information in other transactions in the current
   block, unless they are a part of the same atomic transaction group.
-- Smart Signatures cannot know exactly what round the current transaction
+- Logic Signatures cannot know exactly what round the current transaction
   will commit in (but it is somewhere in FirstValid through
   LastValid).
 - Programs cannot know exactly what time its transaction is committed.
