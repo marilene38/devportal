@@ -125,6 +125,7 @@ ul.top-level li {
   --sl-text-body-sm: var(--sl-text-xs);
   --sl-text-code: var(--sl-text-sm);
   --sl-text-code-sm: var(--sl-text-xs);
+  --__sl-font: 'Inter', sans-serif;
 }
 
 h1,
@@ -198,7 +199,7 @@ header.header {
   --sl-color-white: #282930;
   --sl-color-gray-1: #24272f;
   --sl-color-gray-2: #353841;
-  --sl-color-gray-3: #c0c2c7;
+  --sl-color-gray-3: #60646e;
   --sl-color-gray-4: #888b96;
   --sl-color-gray-5: #c0c2c7;
   --sl-color-gray-6: #ccd0d3;

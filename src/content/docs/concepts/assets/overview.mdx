@@ -4,59 +4,68 @@ title: Algorand Standard Assets (ASAs)
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
+import { LinkCard } from '@astrojs/starlight/components';
 
 The Algorand protocol supports the creation of on-chain assets that benefit from the same security, compatibility, speed and ease of use as the Algo. The official name for assets on Algorand is **Algorand Standard Assets (ASA)**.
 
-With Algorand Standard Assets you can represent stablecoins, loyalty points, system credits, and in-game points, just to name a few examples. You can also represent single, unique assets like a deed for a house, collectable items, unique parts on a supply chain, etc.
+With Algorand Standard Assets you can represent stablecoins, loyalty points, system credits, and in-game points, among many other digital assets. You can also represent single, unique assets like a deed for a house, collectable items, and unique parts on a supply chain.
 
-# Assets overview
+# Assets Overview
 
-Here are several things to be aware of before getting started with assets.
+There are several things to be aware of before getting started with assets:
 
-- For every asset an account creates or owns, its minimum balance is increased by 0.1 Algos (100,000 microAlgos).
+- For every asset an account creates or owns, its minimum balance is increased by 0.1 Algo or 100,000 microAlgo.
 - This minimum balance requirement will be placed on the original creator as long as the asset has not been destroyed. Transferring the asset does not alleviate the creator's minimum balance requirement.
-- Before a new asset can be transferred to a specific account the receiver must opt-in to receive the asset. This process is described in [Receiving an asset](/concepts/assets/asset-operations#receiving-an-asset).
+- Before a new asset can be transferred to a specific account the receiver must opt-in to receive the asset. This process is described in [Transferring Assets](/concepts/assets/asset-operations#transferring-assets).
 - If any transaction is issued that would violate the minimum balance requirements, the transaction will fail.
 
-## Asset parameters
+## Asset Parameters
 
-The type of asset that is created will depend on the parameters that are passed during asset creation and sometimes during asset re-configuration. View the full list of asset parameters in the [Asset Parameters Reference](/concepts/transactions/transactions#asset-parameters).
+The type of asset that is created will depend on the parameters that are passed during asset creation and sometimes during asset re-configuration.
 
-### Immutable asset parameters
+<LinkCard
+  title='Asset Parameters Reference'
+  href='/concepts/transactions/reference#asset-parameters'
+  description='View the complete list of parameters used in asset creation and configuration'
+/>
+
+### Immutable Asset Parameters
 
 These eight parameters can _only_ be specified when an asset is created.
 
-| **Parameter**                                                            | Required              | Description |
-| ------------------------------------------------------------------------ | --------------------- | ----------- |
-| [Creator](FUTURELINK){/* TODO ../transactions/transactions#creator */}   | _YES_                 |             |
-| [AssetName](/concepts/transactions/transactions#assetname)               | _No, but recommended_ |             |
-| [UnitName](/concepts/transactions/transactions#unitname)                 | _No, but recommended_ |             |
-| [Total](/concepts/transactions/transactions#total)                       | _YES_                 |             |
-| [Decimals](/concepts/transactions/transactions#decimals)                 | _YES_                 |             |
-| [DefaultFrozen](/concepts/transactions/transactions#defaultfrozen) _YES_ |                       |
-| [URL](/concepts/transactions/transactions#url)                           | _No_                  |             |
-| [MetaDataHash](/concepts/transactions/transactions#metadatahash)         | (_No_)                |             |
+When creating an Algorand Standard Asset, the following parameters define its fundamental characteristics. Once set, these values cannot be modified for the lifetime of the asset:
 
-### Mutable asset parameters
+| **Parameter**                                                          | Required              | Description |
+| ---------------------------------------------------------------------- | --------------------- | ----------- |
+| [Creator](FUTURELINK){/* TODO ../transactions/transactions#creator */} | _YES_                 |             |
+| [AssetName](/concepts/transactions/reference#assetname)                | _No, but recommended_ |             |
+| [UnitName](/concepts/transactions/reference#unitname)                  | _No, but recommended_ |             |
+| [Total](/concepts/transactions/reference#total)                        | _YES_                 |             |
+| [Decimals](/concepts/transactions/reference#decimals)                  | _YES_                 |             |
+| [DefaultFrozen](/concepts/transactions/reference#defaultfrozen) _YES_  |                       |
+| [URL](/concepts/transactions/reference#url)                            | _No_                  |             |
+| [MetaDataHash](/concepts/transactions/reference#metadatahash)          | (_No_)                |             |
 
-There are four parameters that correspond to addresses that can authorize specific functionality for an asset. These addresses must be specified on creation but they can also be modified after creation. Alternatively, these addresses can be set as empty strings, which will irrevocably lock the function that they would have had authority over.
+### Mutable Asset Parameters
+
+There are four parameters that correspond to addresses that can authorize specific functionality for an asset. These addresses must be specified during asset creation. If a manager address is specified, that manager can later modify these addresses. However, if any of these addresses, including the manager address, are set to an empty string, that setting becomes irrevocable and can never be modified.
 
 Here are the four address types.
 
-[**Manager Address**](/concepts/transactions/transactions#manageraddr)
+[**Manager Address**](/concepts/transactions/reference#manageraddr)
 
 The manager account is the only account that can authorize transactions to [re-configure](/concepts/assets/asset-operations#updating-assets) or [destroy](/concepts/assets/asset-operations#deleting-assets) an asset.
 
-[**Reserve Address**](/concepts/transactions/transactions#reserveaddr)
+[**Reserve Address**](/concepts/transactions/reference#reserveaddr)
 
-Specifying a reserve account signifies that non-minted assets will reside in that account instead of the default creator account. Assets transferred from this account are "minted" units of the asset. If you specify a new reserve address, you must make sure the new account has opted into the asset and then issue a transaction to transfer all assets to the new reserve.
+Specifying a reserve account signifies that non-minted assets will reside in that account instead of the default creator account. Assets transferred from this account are "minted" units of the asset. If you specify a new reserve address, you must make sure the new account has opted into the asset and then issue a transaction to transfer the remaining assets to the new reserve.
 
-[**Freeze Address**](/concepts/transactions/transactions#freezeaddr)
+[**Freeze Address**](/concepts/transactions/reference#freezeaddr)
 
-The freeze account is allowed to freeze or unfreeze the asset holdings for a specific account. When an account is frozen it cannot send or receive the frozen asset. In traditional finance, freezing assets may be performed to restrict liquidation of company stock, to investigate suspected criminal activity or to deny-list certain accounts. If the DefaultFrozen state is set to True, you can use the unfreeze action to authorize certain accounts to trade the asset (such as after passing KYC/AML checks).
+The freeze account is allowed to freeze or unfreeze the asset holdings for a specific account. When an account is frozen it cannot send or receive the frozen asset. In traditional finance, freezing assets may be performed to restrict liquidation of company stock or to investigate suspected criminal activity. If the `DefaultFrozen` state is set to `true`, you can use the unfreeze action to authorize accounts to trade the asset, for example after completing KYC/AML checks.
 
-[**Clawback Address**](/concepts/transactions/transactions#clawbackaddr)
+[**Clawback Address**](/concepts/transactions/reference#clawbackaddr)
 
-The clawback address represents an account that is allowed to transfer assets from and to any asset holder (assuming they have opted-in). Use this if you need the option to revoke assets from an account (like if they breach certain contractual obligations tied to holding the asset). In traditional finance, this sort of transaction is referred to as a clawback.
+The clawback address represents an account that is allowed to transfer assets from and to any asset holder, provided that they have opted-in. Use this if you need the option to revoke assets from an account when they breach certain contractual obligations tied to holding the asset. In traditional finance, this sort of transaction is referred to as a clawback.
 
-If any of these four addresses is set to the empty string `""` that address will be cleared and can never be reset for the life of the asset. This will also effectively disable the feature of that address. For example setting the freeze address to the empty string `""` will prevent the asset from ever being frozen.
+Setting any of these four addresses to an empty string `""` will permanently clear that address and disable its associated feature. For example, setting the freeze address to an empty string will disable the ability to freeze the asset.
