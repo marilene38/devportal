@@ -8,8 +8,9 @@ import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
 import starlightTypeDoc from 'starlight-typedoc';
 import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
-
 import tailwindcss from '@tailwindcss/vite';
+
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 
 export default defineConfig({
   output: 'static',
@@ -33,12 +34,7 @@ export default defineConfig({
       head: [
         {
           tag: 'script',
-          attrs: {
-            defer: true,
-            'dataset-domain': 'staging.dev.algorand.co',
-            'dataset.api': 'https://plausible.io/api/event',
-            src: 'https://plausible.io/js/script.hash.outbound-links.tagged-events.js',
-          },
+          content: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`,
         },
         {
           tag: 'script',
