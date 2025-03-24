@@ -53,7 +53,8 @@ Every account on Algorand must have a minimum balance of 100,000 microAlgos. If 
 
 ##### Account Status
 
-The Algorand blockchain uses a decentralized Byzantine Agreement protocol that leverages pure proof of stake (Pure POS). By default, Algorand accounts are set to offline, meaning they do not contribute to the consensus process. An online account participates in Algorand consensus. For an account to go online, it must generate a participation key and send a special key registration transaction. With the addition of staking rewards into the protocol as of v4.0, Algorand consensus participants can set their account as eligible for rewards by including a 2 Algo fee when registering participation keys online. Read more about [Registering an account online](/protocol/registration).
+todo - check this once
+The Algorand blockchain uses a decentralized Byzantine Agreement protocol that leverages pure proof of stake (Pure POS). By default, Algorand accounts are set to offline, meaning they do not contribute to the consensus process. An online account participates in Algorand consensus. For an account to go online, it must generate a participation key and send a special key registration transaction. With the addition of staking rewards into the protocol as of v4.0, Algorand consensus participants can set their account as eligible for rewards by including a 2 Algo fee when registering participation keys online. Read more about [Registering an account online](/concepts/protocol/registration).
 
 #### Other Attributes
 
@@ -122,15 +123,18 @@ Application accounts are automatically created for every smart contract (applica
 
 ## Special Accounts
 
-The following accounts carry special meaning on the Algorand blockchain:
+Two accounts carry special meaning on the Algorand blockchain: the **FeeSink** and the **RewardsPool**. The FeeSink is where all transaction fees are sent. The FeeSink can only be spent on the RewardsPool account. The RewardsPool was first used to distribute rewards to balance holding accounts. Currently, this account is not used.
 
-- FeeSink: is where all transaction fees are sent. This account can only be spent on the RewardsPool account. Check the fee sink addresses in [Network](/protocol/networks) section to know more.
+In addition, the ZeroAddress `AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ` is an address that represents a blank byte array. It is used when you leave an address field blank in a transaction.
+Check the fee sink and reward pool addresses in [Network](/concepts/protocol/networks) section to know more.
 
-- RewardsPool: was first used to distribute rewards to balance-holding accounts. Currently, this account is not in use. Check the reward pool addresses in [Network](/protocol/networks) section to know more.
+### Wallets
 
-- Algorand also has ZeroAddress `AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ` which represents a blank byte array and is used when an address field is left blank in a transaction. It is also used in configuring assets and signifies an irretrievable destination—any Algos sent to this address can never be recovered. Additionally, the ZeroAddress cannot opt into Algorand Standard Assets (ASAs) or applications because it cannot sign transactions.
+In the context of Algorand developer tools, wallets refer to wallets generated and managed by the Key Management Daemon process. A wallet stores a collection of keys. kmd stores collections of wallets and allows users to perform operations using the keys stored within these wallets. Every wallet is associated with a master key, represented as a 25-word mnemonic, from which all accounts in that wallet are derived. This allows the wallet owner only to need to remember a single passphrase for all of their accounts. Wallets are stored encrypted on disk.
 
-## HD Wallets
+<LinkCard title='Wallet-derived (kmd)' href='/concepts/accounts/create' />
+
+### HD Wallets
 
 Hierarchical Deterministic wallets, following the ARC-0052 standard, provide an advanced method for key management. HD wallets derive keys deterministically from a single master seed, ensuring consistent addresses across different implementations. Using the Ed25519 algorithm for key generation and signing, they support BIP-44 derivation paths.
 It allows private key and mnemonic-based account generation, enabling deterministic recovery, automated address creation, and compatibility with Algorand’s address formats.

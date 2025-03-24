@@ -9,8 +9,10 @@ import starlightLinksValidator from 'starlight-links-validator';
 import starlightTypeDoc from 'starlight-typedoc';
 import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
 import tailwindcss from '@tailwindcss/vite';
+import starlightLlmsTxt from 'starlight-llms-txt';
 
 export default defineConfig({
+  site: 'https://dev.algorand.co',
   output: 'static',
   viewTransitions: true,
   integrations: [
@@ -28,6 +30,7 @@ export default defineConfig({
           output: 'reference/algokit-utils-ts/API Reference',
           exclude: ['**[FUTURELINK]*'],
         }),
+        starlightLlmsTxt(),
       ],
       head: [
         {
@@ -40,7 +43,12 @@ export default defineConfig({
             src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
             'data-website-id': '6e799942-b20a-4203-8103-93582a2611e1',
             'data-project-name': 'Algorand',
-            'data-project-color': '#2CB7BC',
+            'data-project-color': '#99A1A7',
+            'data-modal-header-bg-color': '#17cac6',
+            'data-font-family': 'Inter',
+            'data-modal-title-color': '#ffffff',
+            'data-modal-title': 'Ask AI',
+            'data-modal-body-bg-color': '#f6f6f6',
             'data-project-logo': '/algorand-logo.png',
           },
         },
@@ -50,7 +58,6 @@ export default defineConfig({
         Header: './src/components/Header.astro',
         Hero: './src/components/Hero.astro',
         SiteTitle: './src/components/SiteTitle.astro',
-        SocialIcons: './src/components/SocialIcons.astro',
         ThemeProvider: './src/components/CustomThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro',
       },
@@ -62,8 +69,8 @@ export default defineConfig({
       },
       social: {
         github: 'https://github.com/algorandfoundation/devportal',
-        'x.com': 'https://twitter.com/Algorand/',
-        youtube: 'https://www.youtube.com/algorand/',
+        'x.com': 'https://x.com/algodevs',
+        youtube: 'https://www.youtube.com/@algodevs',
       },
       favicon: '/favicon.png',
       customCss: ['/src/styles/global.css'],
@@ -72,13 +79,22 @@ export default defineConfig({
           label: 'Getting Started',
           collapsed: false,
           items: [
-            {
-              label: 'Why Algorand?',
-              link: 'getting-started/why-algorand',
-            },
+            { label: 'Introduction', link: '/getting-started/introduction' },
             {
               label: 'Tutorial: Your First Smart Contract',
               link: 'getting-started/algokit-quick-start',
+            },
+            {
+              label: 'AlgoKit Examples Gallery',
+              link: 'https://examples.dev.algorand.co',
+            },
+            {
+              label: 'Interactive AlgoKit Code Tutorials',
+              link: 'https://tutorials.dev.algorand.co',
+            },
+            {
+              label: 'Why Algorand?',
+              link: 'getting-started/why-algorand',
             },
           ],
         },
@@ -160,7 +176,7 @@ export default defineConfig({
             },
             {
               label: 'Assets',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
@@ -286,16 +302,45 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: 'Consensus Protocol',
+              collapsed: false,
+              items: [
+                {
+                  label: 'Overview',
+                  link: 'concepts/protocol/overview',
+                },
+                {
+                  label: 'Participation Key Management',
+                  link: 'concepts/protocol/partkey-management',
+                },
+                {
+                  label: 'Account Registration',
+                  link: 'concepts/protocol/registration',
+                },
+                {
+                  label: 'Staking Rewards',
+                  link: 'concepts/protocol/staking-rewards',
+                },
+                {
+                  label: 'State Proofs',
+                  link: 'concepts/protocol/state-proofs',
+                },
+                {
+                  label: 'Networks',
+                  link: 'concepts/protocol/networks',
+                },
+              ],
+            },
           ],
         },
         {
-          label: 'Build with AlgoKit',
+          label: 'Build With AlgoKit',
           collapsed: false,
           items: [
             {
               label: 'Intro to AlgoKit',
               link: 'algokit/algokit-intro',
-              badge: 'Owner',
             },
             {
               label: 'CLI Tools',
@@ -351,7 +396,7 @@ export default defineConfig({
                   items: [
                     {
                       label: 'Overview',
-                      link: 'algokit/algokit-cli/project/',
+                      link: 'algokit/algokit-cli/project',
                     },
                     {
                       label: 'Bootstrap',
@@ -433,7 +478,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: '',
+                  link: 'algokit/lora/overview',
                 },
               ],
             },
@@ -875,7 +920,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: '',
+                  link: 'algokit/algokit-cli/dispenser', //todo: needs its own page
                 },
               ],
             },
@@ -884,8 +929,12 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: 'Overview',
-                  link: '',
+                  label: 'Typescript',
+                  link: 'algokit/client-generator/typescript',
+                },
+                {
+                  label: 'Python',
+                  link: 'algokit/client-generator/python',
                 },
               ],
             },
@@ -893,7 +942,7 @@ export default defineConfig({
         },
         {
           label: 'Running A Node',
-          collapsed: true,
+          collapsed: false,
           items: [
             {
               label: 'Overview',
@@ -983,51 +1032,6 @@ export default defineConfig({
             },
           ],
         },
-        {
-          label: 'Consensus Protocol',
-          collapsed: true,
-          items: [
-            {
-              label: 'Overview',
-              link: 'protocol/overview',
-            },
-            {
-              label: 'Participation Key Management',
-              link: 'protocol/partkey-management',
-            },
-            {
-              label: 'Account Registration',
-              link: 'protocol/registration',
-            },
-            {
-              label: 'Staking Rewards',
-              link: 'protocol/staking-rewards',
-            },
-            {
-              label: 'State Proofs',
-              link: 'protocol/state-proofs',
-            },
-            {
-              label: 'Networks',
-              link: 'protocol/networks',
-            },
-          ],
-        },
-        // {
-        //   label: 'How-To',
-        //   collapsed: false,
-        //   items: [],
-        // },
-        // {
-        //   label: 'Tutorials',
-        //   collapsed: false,
-        //   items: [
-        //     {
-        //       label: 'Getting Started With AlgoKit',
-        //       link: 'tutorials/getting-started',
-        //     },
-        //   ],
-        // },
         {
           label: 'Reference',
           collapsed: true,
@@ -2827,67 +2831,6 @@ export default defineConfig({
                   label: 'Algorand SDK List',
                   link: 'reference/sdk/sdk-list',
                 },
-                // {
-                //   label: '.net',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'C#',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'C++',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'Dart',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'GO',
-                //   items: [],
-                // },
-                // {
-                //   label: 'Java',
-                //   items: [],
-                // },
-                // {
-                //   label: 'JS',
-                //   items: [],
-                // },
-                // {
-                //   label: 'PHP',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'Python',
-                //   items: [],
-                // },
-                // {
-                //   label: 'Rust',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'Swift',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'Unity',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'Unreal',
-                //   items: [],
-                //   badge: 'Community',
-                // },
               ],
             },
             {
@@ -2933,7 +2876,6 @@ export default defineConfig({
     // https://astro-d2.vercel.app/configuration
     d2({
       sketch: true,
-
       layout: 'dagre',
     }),
   ],
