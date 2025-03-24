@@ -3,6 +3,7 @@ import {
     stripLinkExtensions,
     removeLine,
     changeFromTo,
+    changeFromToRegExp,
 } from './src/transformers';
 import {
     processDirectories,
@@ -20,12 +21,14 @@ await processDirectories([
         transformations: [
             convertH1ToFrontmatter,
             stripLinkExtensions,
+            changeFromTo('../code', './code'),
             removeLine('![App deployment lifecycle](../images/lifecycle.jpg)'),
             removeLine('![App deployment lifecycle](images/lifecycle.jpg)'),
             removeLine('![Smart Contract Development Lifecycle](./lifecycle.jpg)'),
             changeFromTo('[above design](#design)', 'above design'),
             changeFromTo('[box names](#boxname)', 'box names'),
             changeFromTo(' ([both of which are optional](#client-management))', ''),
+            changeFromToRegExp(/\[(.+?)\]\(\.\/code\/.+?\)/g, '$1')
         ],
         dest: scriptLocation + '/../../src/content/docs/algokit/utils/typescript'
     },

@@ -8,7 +8,6 @@ import starlightImageZoom from 'starlight-image-zoom';
 import starlightLinksValidator from 'starlight-links-validator';
 import starlightTypeDoc from 'starlight-typedoc';
 import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
-
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
@@ -33,11 +32,7 @@ export default defineConfig({
       head: [
         {
           tag: 'script',
-          attrs: {
-            defer: true,
-            'data-domain': 'staging.dev.algorand.co',
-            src: 'https://plausible.io/js/script.hash.outbound-links.tagged-events.js',
-          },
+          content: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5T5V43DW');`,
         },
         {
           tag: 'script',
@@ -422,7 +417,7 @@ export default defineConfig({
                     },
                     {
                       label: 'Vanity Address',
-                      link: 'algokit/algokit-cli/tasks/vanity-address',
+                      link: 'algokit/algokit-cli/tasks/vanity_address',
                     },
                     {
                       label: 'Wallet',
@@ -669,8 +664,8 @@ export default defineConfig({
                       link: 'algokit/languages/python/lg-control',
                     },
                     {
-                      label: 'Module LEvel Constructs',
-                      link: 'algokit/languages/python/lg-constructs',
+                      label: 'Module Level Constructs',
+                      link: 'algokit/languages/python/lg-modules',
                     },
                     {
                       label: 'Overview',
@@ -765,7 +760,7 @@ export default defineConfig({
                     },
                     {
                       label: 'Smart Signature Testing',
-                      link: 'algokit/unit-testing/typescript/smart-signature-testing',
+                      link: 'algokit/unit-testing/typescript/signature-testing',
                     },
                     {
                       label: 'State Management',
@@ -806,7 +801,7 @@ export default defineConfig({
                     },
                     {
                       label: 'Smart Signature Testing',
-                      link: 'algokit/unit-testing/python/smart-signature-testing',
+                      link: 'algokit/unit-testing/python/signature-testing',
                     },
                     {
                       label: 'State Management',
@@ -1185,7 +1180,7 @@ export default defineConfig({
                             },
                             {
                               label: 'DynamicBytes',
-                              link: 'reference/algorand-typescript/api-reference/arc4/classes/DynamicBytes',
+                              link: 'reference/algorand-typescript/api-reference/arc4/classes/dynamicbytes',
                             },
                             {
                               label: 'StaticArray',
@@ -1377,8 +1372,8 @@ export default defineConfig({
                                   link: 'reference/algorand-typescript/api-reference/index/-internal-/interfaces/iteratoryieldresult',
                                 },
                                 {
-                                  label: 'KeyRegistration',
-                                  link: 'reference/algorand-typescript/api-reference/index/-internal-/interfaces/keyregistration',
+                                  label: 'KeyRegistrationTxn',
+                                  link: 'reference/algorand-typescript/api-reference/index/-internal-/interfaces/keyregistrationtxn',
                                 },
                                 {
                                   label: 'PaymentTxn',
@@ -1882,8 +1877,8 @@ export default defineConfig({
                               link: 'reference/algorand-typescript/api-reference/index/type-aliases/compiledlogicsig',
                             },
                             {
-                              label: 'CompiledLogicSigOptions',
-                              link: 'reference/algorand-typescript/api-reference/index/type-aliases/compiledlogicsigoptions',
+                              label: 'CompileLogicSigOptions',
+                              link: 'reference/algorand-typescript/api-reference/index/type-aliases/compilelogicsigoptions',
                             },
                             {
                               label: 'GlobalState',
@@ -2061,12 +2056,8 @@ export default defineConfig({
                               link: 'reference/algorand-typescript/api-reference/op/functions/getbyte',
                             },
                             {
-                              label: 'getloadByte',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/getloadbyte',
-                            },
-                            {
-                              label: 'getloadBytes',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/getloadbytes',
+                              label: 'gloadBytes',
+                              link: 'reference/algorand-typescript/api-reference/op/functions/gloadbytes',
                             },
                             {
                               label: 'itob',
@@ -2141,16 +2132,12 @@ export default defineConfig({
                               link: 'reference/algorand-typescript/api-reference/op/functions/substring',
                             },
                             {
-                              label: 'sumhash',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/sumhash',
+                              label: 'sumhash512',
+                              link: 'reference/algorand-typescript/api-reference/op/functions/sumhash512',
                             },
                             {
                               label: 'vrfVerify',
                               link: 'reference/algorand-typescript/api-reference/op/functions/vrfverify',
-                            },
-                            {
-                              label: '',
-                              link: 'reference/algorand-typescript/api-reference/op/functions/',
                             },
                           ],
                         },
@@ -2391,7 +2378,7 @@ export default defineConfig({
                         },
                         {
                           label: 'createApp',
-                          link: 'reference/algokit-utils-ts/api-reference/functions/createApp',
+                          link: 'reference/algokit-utils-ts/api-reference/functions/createapp',
                         },
                         {
                           label: 'createAsset',
@@ -2506,12 +2493,12 @@ export default defineConfig({
                           link: 'reference/algokit-utils-ts/api-reference/functions/getapplocalstate',
                         },
                         {
-                          label: 'getAppOnComlpeteAction',
-                          link: 'reference/algokit-utils-ts/api-reference/functions/getapponcomlpeteaction',
+                          label: 'getAppOnCompleteAction',
+                          link: 'reference/algokit-utils-ts/api-reference/functions/getapponcompleteaction',
                         },
                         {
-                          label: 'getAtomicTransactionComposeTransactions',
-                          link: 'reference/algokit-utils-ts/api-reference/functions/getatomictransactioncomposetransactions',
+                          label: 'getAtomicTransactionComposerTransactions',
+                          link: 'reference/algokit-utils-ts/api-reference/functions/getatomictransactioncomposertransactions',
                         },
                         {
                           label: 'getBoxReference',
@@ -2538,8 +2525,8 @@ export default defineConfig({
                           link: 'reference/algokit-utils-ts/api-reference/functions/getindexerconfigfromenvironment',
                         },
                         {
-                          label: 'getKmdWaletAccount',
-                          link: 'reference/algokit-utils-ts/api-reference/functions/getkmdwaletaccount',
+                          label: 'getKmdWalletAccount',
+                          link: 'reference/algokit-utils-ts/api-reference/functions/getkmdwalletaccount',
                         },
                         {
                           label: 'getLocalNetDispenserAccount',
@@ -2639,7 +2626,7 @@ export default defineConfig({
                         },
                         {
                           label: 'replaceDeployTimeControlParams',
-                          link: 'reference/algokit-utils-ts/api-reference/functions/replaceDeploytimecontrolparams',
+                          link: 'reference/algokit-utils-ts/api-reference/functions/replacedeploytimecontrolparams',
                         },
                         {
                           label: 'sendAtomicTransactionComposer',

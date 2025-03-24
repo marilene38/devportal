@@ -56,12 +56,16 @@ await processFile([
     },
     {
         src: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/project.md',
-        transformations: [changeFromTo('./project/', './')],
-        dest: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/project/overview.md'
+        transformations: [
+            // changeFromTo('./project/', './')
+        ],
+        dest: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/project.md'
     },
     {
         src: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/tasks.md',
-        transformations: [changeFromTo('./tasks/', './')],
-        dest: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/tasks/overview.md'
+        transformations: [
+            // changeFromTo('./tasks/', './')
+        ],
+        dest: scriptLocation + '/../../src/content/docs/algokit/algokit-cli/tasks.md'
     },
 ]);

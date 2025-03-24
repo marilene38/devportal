@@ -64,49 +64,6 @@ If you need a private network for development, consider using
 without running a node, installing Algorand software provides access to essential developer tools
 such as `msgpacktool` and `algokey`, along with other development utilities.
 
-## Hardware Requirements
-
-### Participation Nodes
-
-Participation nodes are actively involved in the Algorand consensus protocol by proposing and voting
-on blocks. They require higher network bandwidth to communicate with other nodes efficiently.
-
-- 8 vCPU
-- 16 GB RAM
-- 100 GB NVMe SSD or equivalent
-- 1 Gbps connection with low latency (< 100ms)
-
-### Non-Participation Nodes
-
-Non-participation nodes maintain a current copy of the blockchain but do not participate in
-consensus, so the hardware requirements are somewhat lower than for participation nodes.
-Non-participating nodes are useful for API endpoints and development environments.
-
-- 8 vCPU
-- 8 GB RAM
-- 100 GB NVMe SSD or equivalent
-- 100Mbps connection with low latency (< 100ms)
-
-### Archival Nodes
-
-Archival nodes store the entire history of the blockchain from genesis, making them valuable for
-applications requiring historical data access. They need significantly more storage than other node
-types.
-
-- 8 vCPU
-- 16 GB RAM
-- Storage:
-  - 3 TB SSD for blocks and catchpoints
-    ([ColdDataDir](https://developer.algorand.org/docs/run-a-node/reference/config/#algod-configuration-settings))
-  - 100 GB NVMe SSD for accounts
-    ([HotDataDir](https://developer.algorand.org/docs/run-a-node/reference/config/#algod-configuration-settings))
-- 5 TB/month egress
-- 1 Gbps connection with low latency (< 100ms)
-
-> **Info**: While directly-attached NVMe SSDs are recommended, AWS EBS gp3 volumes have proven
-> sufficient as of October 2022. Monitor performance closely and be prepared to upgrade if TPS
-> increases significantly.
-
 ## Package Manager Installation
 
 The package manager installs Algorand node software in the standard system locations:

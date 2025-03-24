@@ -18,12 +18,12 @@ All of the indexer functions require you to pass in an indexer SDK client, which
 
 There is a subset of [indexer API calls](https://developer.algorand.org/docs/rest-apis/indexer) that are exposed as easy to use methods with correct typing exposed and automatic pagination for multi item returns.
 
-- [`indexer.lookupTransactionById(transactionId, algorand.client.indexer)`](../code/modules/index#lookuptransactionbyid) - Finds a transaction by ID
-- [`indexer.lookupAccountByAddress(accountAddress, algorand.client.indexer)`](../code/modules/index#lookupaccountbyaddress) - Finds an account by address
-- [`indexer.lookupAccountCreatedApplicationByAddress(algorand.client.indexer, address, getAll?, paginationLimit?)`](../code/modules/index#lookupaccountcreatedapplicationbyaddress) - Finds all applications created for an account
-- [`indexer.lookupAssetHoldings(algorand.client.indexer, assetId, options?, paginationLimit?)`](../code/modules/index#lookupassetholdings) - Finds all asset holdings for the given asset
-- [`indexer.searchTransactions(algorand.client.indexer, searchCriteria, paginationLimit?)`](../code/modules/index#searchtransactions) - Search for transactions with a given set of criteria
-- [`indexer.executePaginatedRequest(extractItems, buildRequest)`](../code/modules/index#executepaginatedrequest) - Execute the given indexer request with automatic pagination
+- `indexer.lookupTransactionById(transactionId, algorand.client.indexer)` - Finds a transaction by ID
+- `indexer.lookupAccountByAddress(accountAddress, algorand.client.indexer)` - Finds an account by address
+- `indexer.lookupAccountCreatedApplicationByAddress(algorand.client.indexer, address, getAll?, paginationLimit?)` - Finds all applications created for an account
+- `indexer.lookupAssetHoldings(algorand.client.indexer, assetId, options?, paginationLimit?)` - Finds all asset holdings for the given asset
+- `indexer.searchTransactions(algorand.client.indexer, searchCriteria, paginationLimit?)` - Search for transactions with a given set of criteria
+- `indexer.executePaginatedRequest(extractItems, buildRequest)` - Execute the given indexer request with automatic pagination
 
 ### Search transactions example
 

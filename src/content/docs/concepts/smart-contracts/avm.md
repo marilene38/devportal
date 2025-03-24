@@ -87,11 +87,11 @@ Starting from v2, the AVM can run programs in two modes:
 
 Differences between modes include:
 
-1. Max program length (consensus parameters LogicSigMaxSize, MaxAppTotalProgramLen & MaxExtraAppProgramPages)
-2. Max program cost (consensus parameters LogicSigMaxCost, MaxAppProgramCost)
-3. Opcode availability. Refer to [Opcodes List](/reference/algorand-teal/opcodes) for details.
-4. Some global values, such as LatestTimestamp, are only available in stateful mode.
-5. Only Applications can observe transaction effects, such as Logs or IDs allocated to Algorand Standard Assets (ASA) or new Applications.
+- Max program length (consensus parameters `LogicSigMaxSize`, `MaxAppTotalProgramLen` & `MaxExtraAppProgramPages`)
+- Max program cost (consensus parameters `LogicSigMaxCost`, `MaxAppProgramCost`)
+- Opcode availability. Refer to [opcodes document](/reference/algorand-teal/opcodes) for details.
+- Some global values, such as `LatestTimestamp`, are only available in stateful mode.
+- Only Applications can observe transaction effects, such as Logs or IDs allocated to ASAs or new Applications.
 
 ## Execution Environment for Logic Signatures
 
@@ -149,9 +149,9 @@ The total program cost of all Logic Signatures in a group must not
 exceed 20,000 (consensus parameter `LogicSigMaxCost`) times the number
 of transactions in the group.
 
-## Execution Environment for Smart Contracts (Applications)
+## Execution Environment for Smart Contracts
 
-Smart Contracts are executed in ApplicationCall transactions. Like
+Smart Contracts are executed in _ApplicationCall_ transactions. Like
 Logic Signatures, contracts indicate success by leaving a single
 non-zero integer on the stack. A failed Smart Contract call to an
 ApprovalProgram is not a valid transaction, thus not written to the
@@ -172,28 +172,28 @@ in their pool would still succeed each time a block is added to the
 blockchain.
 
 Smart contracts have limits on their execution cost (700, consensus
-parameter MaxAppProgramCost). Before v4, this was a static limit on
+parameter `MaxAppProgramCost`). Before v4, this was a static limit on
 the cost of all the instructions in the program. Starting in v4, the cost
 is tracked dynamically during execution and must not exceed
-MaxAppProgramCost. Beginning with v5, programs costs are pooled and
+`MaxAppProgramCost`. Beginning with v5, programs costs are pooled and
 tracked dynamically across app executions in a group. If `n`
 application invocations appear in a group, then the total execution
-cost of all such calls must not exceed `n`\*MaxAppProgramCost. In v6, inner
+cost of all such calls must not exceed `n * MaxAppProgramCost`. In v6, inner
 application calls become possible, and each such call increases the
-pooled budget by MaxAppProgramCost at the time the inner group is submitted
+pooled budget by `MaxAppProgramCost` at the time the inner group is submitted
 with `itxn_submit`.
 
 Executions of the ClearStateProgram are more stringent, in order to
 ensure that applications may be closed out, but that applications are
 also assured a chance to clean up their internal state. At the
 beginning of the execution of a ClearStateProgram, the pooled budget
-available must be MaxAppProgramCost or higher. If it is not, the
+available must be `MaxAppProgramCost` or higher. If it is not, the
 containing transaction group fails without clearing the app's
 state. During the execution of the ClearStateProgram, no more than
-MaxAppProgramCost may be drawn. If further execution is attempted, the
+`MaxAppProgramCost` may be drawn. If further execution is attempted, the
 ClearStateProgram fails, and the app's state _is cleared_.
 
-### Resource availability
+### Resource Availability
 
 Smart contracts have limits on the amount of blockchain state they
 may examine. Opcodes may only access blockchain resources such as
@@ -234,22 +234,22 @@ CurrentApplicationAddress` are _available_.
   resources available to group-level resource sharing. The following
   resources are made available by other transaction types.
 
-  1.  `pay` - `txn.Sender`, `txn.Receiver`, and
-      `txn.CloseRemainderTo` (if set).
+  - `pay` - `txn.Sender`, `txn.Receiver`, and
+    `txn.CloseRemainderTo` (if set).
 
-  1.  `keyreg` - `txn.Sender`
+  - `keyreg` - `txn.Sender`
 
-  1.  `acfg` - `txn.Sender`, `txn.ConfigAsset`, and the
-      `txn.ConfigAsset` holding of `txn.Sender`.
+  - `acfg` - `txn.Sender`, `txn.ConfigAsset`, and the
+    `txn.ConfigAsset` holding of `txn.Sender`.
 
-  1.  `axfer` - `txn.Sender`, `txn.AssetReceiver`, `txn.AssetSender`
-      (if set), `txnAssetCloseTo` (if set), `txn.XferAsset`, and the
-      `txn.XferAsset` holding of each of those accounts.
+  - `axfer` - `txn.Sender`, `txn.AssetReceiver`, `txn.AssetSender`
+    (if set), `txnAssetCloseTo` (if set), `txn.XferAsset`, and the
+    `txn.XferAsset` holding of each of those accounts.
 
-  1.  `afrz` - `txn.Sender`, `txn.FreezeAccount`, `txn.FreezeAsset`,
-      and the `txn.FreezeAsset` holding of `txn.FreezeAccount`. The
-      `txn.FreezeAsset` holding of `txn.Sender` is _not_ made
-      available.
+  - `afrz` - `txn.Sender`, `txn.FreezeAccount`, `txn.FreezeAsset`,
+    and the `txn.FreezeAsset` holding of `txn.FreezeAccount`. The
+    `txn.FreezeAsset` holding of `txn.Sender` is _not_ made
+    available.
 
 - A Box is _available_ to an Approval Program if _any_ transaction in
   the same group contains a box reference (`txn.Boxes`) that denotes
@@ -340,6 +340,8 @@ which accepted the IDs directly and did not require the ID to be present in the 
 (Note that beginning with v4, those IDs _are_ required to be present in their corresponding _Foreign_ array.)
 See individual opcodes for details. In the case of account offsets or application offsets,
 0 is specially defined to Txn.Sender or the ID of the current application, respectively.
+
+This summary is supplemented by more detail in the [opcodes document](/reference/algorand-teal/opcodes).
 
 Some operations immediately fail the program.
 A transaction checked by a program that fails is not valid.
