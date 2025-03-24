@@ -264,7 +264,7 @@ Things to note here:
   methods must be decorated with one of `algopy.arc4.abimethod`, `alogpy.arc4.baremethod`, or
   `algopy.subroutine`. `subroutines` won't be directly callable through the default router.
 
-See the ARC-4 section of this language guide for more info on the above.
+See the [ARC-4 section](lg-arc4) of this language guide for more info on the above.
 
 ## Logic signatures
 
