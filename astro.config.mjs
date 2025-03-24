@@ -58,7 +58,6 @@ export default defineConfig({
         Header: './src/components/Header.astro',
         Hero: './src/components/Hero.astro',
         SiteTitle: './src/components/SiteTitle.astro',
-        SocialIcons: './src/components/SocialIcons.astro',
         ThemeProvider: './src/components/CustomThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro',
       },
@@ -70,7 +69,7 @@ export default defineConfig({
       },
       social: {
         github: 'https://github.com/algorandfoundation/devportal',
-        'x.com': 'https://twitter.com/algodevs',
+        'x.com': 'https://x.com/algodevs',
         youtube: 'https://www.youtube.com/@algodevs',
       },
       favicon: '/favicon.png',
