@@ -71,11 +71,11 @@ Response:
 }
 ```
 
-This response includes the addition of the “spend" field. This is the “auth-addr" within the account object and signifies any transactions from `L42DW7MSHP4PMIAZSDAXYTZVHTE756KGXCJYGFKCET5XHIAWLBYYNSMZQU` must now be authorized by `NFFMZJC6H52JLEAITTJ7OIML3XCJFKIRXYRJLO4WLWIJZB7N6CTWESRAZU` to be confirmed by the network.
+This response includes the addition of the “spend" field. This is the `auth-addr` within the account object and signifies any transactions from `L42DW7MSHP4PMIAZSDAXYTZVHTE756KGXCJYGFKCET5XHIAWLBYYNSMZQU` must now be authorized by `NFFMZJC6H52JLEAITTJ7OIML3XCJFKIRXYRJLO4WLWIJZB7N6CTWESRAZU` to be confirmed by the network.
 
 ## Rekey-to Transaction
 
-A `rekey-to` transaction allows an Algorand account to change its authorized signing keys without altering its public address. A rekey-to transaction is a transaction that includes the `rekey-to` parameter set to a well-formed Algorand address. The existing authorized address must provide authorization for this transaction. As shown in the first example account above, the authorized address is implicitly the `addr` field of this account even though the `auth-addr` field is not explicitly defined. Only the private spending key of this `addr` address may be used to authorize a `rekey-to` transaction.
+A `rekey-to` transaction allows aallows an account holder to change the spending authority of their account without changing the account's public address. A rekey-to transaction enables an account owner to delegate their spending authority to a different private key while maintaining the same public address. This means the original account can transfer its authorization to sign and approve transactions to a new key without creating a new account or changing the account's address. The existing authorized address must provide authorization for this transaction.
 
 The rekey-to transaction workflow is as follows:
 
