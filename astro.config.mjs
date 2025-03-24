@@ -9,8 +9,10 @@ import starlightLinksValidator from 'starlight-links-validator';
 import starlightTypeDoc from 'starlight-typedoc';
 import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
 import tailwindcss from '@tailwindcss/vite';
+import starlightLlmsTxt from 'starlight-llms-txt';
 
 export default defineConfig({
+  site: 'https://dev.algorand.co',
   output: 'static',
   viewTransitions: true,
   integrations: [
@@ -28,6 +30,7 @@ export default defineConfig({
           output: 'reference/algokit-utils-ts/API Reference',
           exclude: ['**[FUTURELINK]*'],
         }),
+        starlightLlmsTxt(),
       ],
       head: [
         {
@@ -40,7 +43,7 @@ export default defineConfig({
             src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
             'data-website-id': '6e799942-b20a-4203-8103-93582a2611e1',
             'data-project-name': 'Algorand',
-            'data-project-color': '#2CB7BC',
+            'data-project-color': '#2d2df1',
             'data-project-logo': '/algorand-logo.png',
           },
         },
@@ -389,7 +392,7 @@ export default defineConfig({
                   items: [
                     {
                       label: 'Overview',
-                      link: 'algokit/algokit-cli/project/',
+                      link: 'algokit/algokit-cli/project',
                     },
                     {
                       label: 'Bootstrap',
@@ -471,7 +474,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: '',
+                  link: 'algokit/lora/overview',
                 },
               ],
             },
@@ -913,7 +916,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: '',
+                  link: 'algokit/algokit-cli/dispenser', //todo: needs its own page
                 },
               ],
             },
@@ -922,8 +925,12 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: 'Overview',
-                  link: '',
+                  label: 'Typescript',
+                  link: 'algokit/client-generator/typescript',
+                },
+                {
+                  label: 'Python',
+                  link: 'algokit/client-generator/python',
                 },
               ],
             },
