@@ -2,9 +2,6 @@
 title: Why Algorand?
 ---
 
-import { Image } from 'astro:assets';
-import imgPos from '@images/basics-pos.png';
-import imgPow from '@images/basics-pow.png';
 import { LinkCard } from '@astrojs/starlight/components';
 
 In this section, we'll explore key factors to consider when choosing a blockchain and evaluate how Algorand excels in each area. By the end, you'll see why Algorand is a top choice for building your application.
@@ -61,11 +58,7 @@ Most blockchains these days fall into the general categories of **Proof-of-Stake
 
 Simply put, a **Proof-of-Stake** blockchain gives users who hold more of the native currency more influence in proposing and validating new blocks, usually through some sort of voting mechanism.
 
-<Image src={imgPos} alt='Proof of Stake Visualization' />
-
 In **Proof-of-Work**, nodes race to solve a challenging cryptographic puzzle and serve up their solution alongside a new block proposal. This is referred to as "mining" and these nodes are called "miners". The winner is rewarded with some of the native currency of the system and their block becomes part of the chain.
-
-<Image src={imgPow} alt='Proof of Work Visualization' />
 
 Since Proof-of-Work success depends on computational power, miners need increasingly powerful hardware to compete. This has sparked significant debates about the high energy consumption and environmental impact.
 
@@ -200,7 +193,9 @@ Algorand has a complete suite of developer tools to make it easy to build on the
 
 1. Instant setup: Start coding in minutes with automated dependency installation and pre-configured project templates, giving you a fully-configured project with AlgoKit.
 2. Complete development tools: Build with ready-made smart contracts, APIs, debugging tools, and testing frameworks. AlgoKit allows you to concentrate on innovation and functionality.
-3. Developer support: Access comprehensive documentation, project templates and examples, AI tools, and an active developer community on [Discord](https://discord.gg/algorand).
+3. Lora the explorer is a powerful web-based application designed to streamline the Algorand local development experience. It acts as both a network explorer and a tool for building and testing your Algorand applications.
+   You can access Lora by visiting [here](https://lora.algokit.io) in your browser or by running `algokit explore` if you have the AlgoKit CLI installed.
+4. Developer support: Access comprehensive documentation in this developer portal, project templates and examples in the [Examples Gallery](https://examples.dev.algorand.co), an active developer community in our [Discord](https://discord.gg/algorand), and AI code support in the developer portal and Discord.
 
 <LinkCard
   title='AlgoKit Quick Start Guide'
@@ -208,23 +203,7 @@ Algorand has a complete suite of developer tools to make it easy to build on the
   description='Start building on Algorand with AlgoKit'
 />
 
-### Lora
-
-AlgoKit Lora is a powerful web-based application designed to streamline the Algorand local development experience. It acts as both a network explorer and a tool for building and testing your Algorand applications.
-
-You can access Lora by visiting [here](https://lora.algokit.io) in your browser or by running `algokit explore` if you have the AlgoKit CLI installed.
-
-### Pera
-
-Pera is a non-custodial and user-friendly wallet for the Algorand blockchain. It offers several key features:
-
-1. Built-in browser for dApps: This allows users to easily interact with decentralized applications on the Algorand network.
-2. Secure storage: As a non-custodial wallet, users have full control over their private keys and assets.
-3. Easy connectivity: Pera supports PeraConnect, enabling seamless integration with various Algorand dApps.
-
-Refer to the [Pera Docs](https://docs.perawallet.app/) for more details.
-
-### Nodekit
+## Nodekit
 
 NodeKit is a terminal user interface (TUI) for managing Algorand nodes, including node creation, configuration, telemtry setup, and participation key management.
 
@@ -233,6 +212,16 @@ NodeKit is a terminal user interface (TUI) for managing Algorand nodes, includin
   href='/nodes/nodekit-quick-start'
   description='Want to run a node? Get started with NodeKit'
 />
+
+## Pera
+
+Pera is a non-custodial and user-friendly wallet for the Algorand blockchain. It offers several key features:
+
+1. Built-in browser for dApps: This allows users to easily interact with decentralized applications on the Algorand network.
+2. Secure storage: As a non-custodial wallet, users have full control over their private keys and assets.
+3. Easy connectivity: Pera supports PeraConnect, enabling seamless integration with various Algorand dApps.
+
+Refer to the [Pera Docs](https://docs.perawallet.app/) for more details.
 
 ## Transparency
 

@@ -62,8 +62,8 @@ export default defineConfig({
       },
       social: {
         github: 'https://github.com/algorandfoundation/devportal',
-        'x.com': 'https://twitter.com/Algorand/',
-        youtube: 'https://www.youtube.com/algorand/',
+        'x.com': 'https://twitter.com/algodevs',
+        youtube: 'https://www.youtube.com/@algodevs',
       },
       favicon: '/favicon.png',
       customCss: ['/src/styles/global.css'],
@@ -72,13 +72,22 @@ export default defineConfig({
           label: 'Getting Started',
           collapsed: false,
           items: [
-            {
-              label: 'Why Algorand?',
-              link: 'getting-started/why-algorand',
-            },
+            { label: 'Introduction', link: '/getting-started/introduction' },
             {
               label: 'Tutorial: Your First Smart Contract',
               link: 'getting-started/algokit-quick-start',
+            },
+            {
+              label: 'AlgoKit Examples Gallery',
+              link: 'https://examples.dev.algorand.co',
+            },
+            {
+              label: 'Interactive AlgoKit Code Tutorials',
+              link: 'https://tutorials.dev.algorand.co',
+            },
+            {
+              label: 'Why Algorand?',
+              link: 'getting-started/why-algorand',
             },
           ],
         },
@@ -160,7 +169,7 @@ export default defineConfig({
             },
             {
               label: 'Assets',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
@@ -295,7 +304,6 @@ export default defineConfig({
             {
               label: 'Intro to AlgoKit',
               link: 'algokit/algokit-intro',
-              badge: 'Owner',
             },
             {
               label: 'CLI Tools',
@@ -893,7 +901,7 @@ export default defineConfig({
         },
         {
           label: 'Running A Node',
-          collapsed: true,
+          collapsed: false,
           items: [
             {
               label: 'Overview',
@@ -985,7 +993,7 @@ export default defineConfig({
         },
         {
           label: 'Consensus Protocol',
-          collapsed: true,
+          collapsed: false,
           items: [
             {
               label: 'Overview',
@@ -1013,21 +1021,6 @@ export default defineConfig({
             },
           ],
         },
-        // {
-        //   label: 'How-To',
-        //   collapsed: false,
-        //   items: [],
-        // },
-        // {
-        //   label: 'Tutorials',
-        //   collapsed: false,
-        //   items: [
-        //     {
-        //       label: 'Getting Started With AlgoKit',
-        //       link: 'tutorials/getting-started',
-        //     },
-        //   ],
-        // },
         {
           label: 'Reference',
           collapsed: true,
@@ -2827,67 +2820,6 @@ export default defineConfig({
                   label: 'Algorand SDK List',
                   link: 'reference/sdk/sdk-list',
                 },
-                // {
-                //   label: '.net',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'C#',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'C++',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'Dart',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'GO',
-                //   items: [],
-                // },
-                // {
-                //   label: 'Java',
-                //   items: [],
-                // },
-                // {
-                //   label: 'JS',
-                //   items: [],
-                // },
-                // {
-                //   label: 'PHP',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'Python',
-                //   items: [],
-                // },
-                // {
-                //   label: 'Rust',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'Swift',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'Unity',
-                //   items: [],
-                //   badge: 'Community',
-                // },
-                // {
-                //   label: 'Unreal',
-                //   items: [],
-                //   badge: 'Community',
-                // },
               ],
             },
             {
@@ -2933,7 +2865,6 @@ export default defineConfig({
     // https://astro-d2.vercel.app/configuration
     d2({
       sketch: true,
-
       layout: 'dagre',
     }),
   ],
