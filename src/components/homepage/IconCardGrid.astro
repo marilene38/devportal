@@ -3,24 +3,29 @@ import IconCard from './IconCard.astro';
 
 const cards = [
   {
-    heading: 'Start with Algokit',
-    description: 'Lorem ipsum dolor sit amet, consectetur.',
+    heading: 'AlgoKit code tutorials',
+    description:
+      'Step-by-step introduction to Algorand through Utils TypeScript.',
     icon: 'square-brackets',
+    url: 'https://tutorials.dev.algorand.co',
   },
   {
-    heading: 'Explore sample apps',
-    description: 'Lorem ipsum dolor sit amet, consectetur.',
+    heading: 'Example gallery',
+    description: 'Explore and launch batteries-included example apps.',
     icon: 'long-right-arrow',
+    url: 'https://examples.dev.algorand.co',
   },
   {
-    heading: 'Run a node',
-    description: 'Lorem ipsum dolor sit amet, consectetur.',
-    icon: 'block',
-  },
-  {
-    heading: 'Connect with developers in discord',
-    description: 'Lorem ipsum dolor sit amet, consectetur.',
+    heading: 'Connect in Discord',
+    description: 'Meet other devs and get code support from the community.',
     icon: 'network',
+    url: 'https://discord.gg/algorand',
+  },
+  {
+    heading: 'Contact the Foundation',
+    description: 'Reach out to the team directly with technical inquiries.',
+    icon: 'block',
+    url: 'https://algorand.co/algorand-foundation/contact',
   },
 ] as const;
 ---
@@ -35,6 +40,7 @@ const cards = [
           heading={card.heading}
           description={card.description}
           icon={card.icon}
+          url={card.url}
         />
       ))
     }
