@@ -433,7 +433,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: '',
+                  link: 'algokit/lora/overview',
                 },
               ],
             },
