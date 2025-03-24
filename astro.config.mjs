@@ -40,7 +40,7 @@ export default defineConfig({
             src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
             'data-website-id': '6e799942-b20a-4203-8103-93582a2611e1',
             'data-project-name': 'Algorand',
-            'data-project-color': '#2CB7BC',
+            'data-project-color': '#2d2df1',
             'data-project-logo': '/algorand-logo.png',
           },
         },
