@@ -33,13 +33,6 @@ The context manager interface exposes four main properties:
 1. `txn`: An instance of `TransactionContext` for creating and managing transaction groups, submitting transactions, and accessing transaction results.
 1. `any`: An instance of `AlgopyValueGenerator` for generating randomized test data.
 
-For detailed method signatures, parameters, and return types, refer to the following API sections:
-
-- [`ContractContext`](../code/subcontexts/contract-context/classes/ContractContext)
-- [`LedgerContext`](../code/subcontexts/ledger-context/classes/LedgerContext)
-- [`TransactionContext`](../code/subcontexts/transaction-context/classes/TransactionContext)
-- [`AvmValueGenerator`, `TxnValueGenerator`, `Arc4ValueGenerator`](../api)
-
 The `any` property provides access to different value generators:
 
 - `AvmValueGenerator`: Base abstractions for AVM types. All methods are available directly on the instance returned from `any`.
@@ -64,5 +57,3 @@ As explained in the [introduction](index), `algorand-typescript-testing` _inject
 2. **Emulated**: Uses `TestExecutionContext` to mimic AVM behavior. For example, `Box.put` on an `Box` within a test context stores data in the test manager, not the real Algorand network, but provides the same interface.
 
 3. **Mockable**: Not implemented, but can be mocked or patched. For example, `op.onlineStake` can be mocked to return specific values or behaviors; otherwise, it raises a `NotImplementedError`. This category covers cases where native or emulated implementation in a unit test context is impractical or overly complex.
-
-For a full list of all public `algorand-typescript` types and their corresponding implementation category, refer to the [Coverage](../coverage) section.

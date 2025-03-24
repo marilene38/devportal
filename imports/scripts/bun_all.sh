@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git submodule foreach git pull origin main
+git submodule foreach 'git checkout main && git pull origin main'
 
 bun ./imports/scripts/algokit-cli.ts
 bun ./imports/scripts/algokit-utils.ts

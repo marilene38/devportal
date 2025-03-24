@@ -4,7 +4,7 @@ title: ARC-28 - Structured event logging
 
 [ARC-28](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0028) provides a methodology for structured logging by Algorand smart contracts. It introduces the concept of Events, where data contained in logs may be categorized and structured.
 
-Each Event is identified by a unique 4-byte identifier derived from its `Event Signature`. The Event Signature is a UTF-8 string comprised of the event's name, followed by the names of the ARC-4 data types contained in the event, all enclosed in parentheses (`EventName(type1,type2,...)`) e.g.:
+Each Event is identified by a unique 4-byte identifier derived from its `Event Signature`. The Event Signature is a UTF-8 string comprised of the event's name, followed by the names of the [ARC-4](./lg-arc4) data types contained in the event, all enclosed in parentheses (`EventName(type1,type2,...)`) e.g.:
 
 ```
 Swapped(uint64,uint64)
@@ -16,7 +16,7 @@ Events are emitting by including them in the [log output](./lg-logs). The metada
 
 To emit an ARC-28 event in Algorand Python you can use the `emit` function, which appears in the `algopy.arc4` namespace for convenience since it heavily uses ARC-4 types and is essentially an extension of the ARC-4 specification. This function takes care of encoding the event payload to conform to the ARC-28 specification and there are 3 overloads:
 
-- An ARC-4 struct, from what the name of the struct will be used as a the event name and the struct parameters will be used as the event fields - `arc4.emit(Swapped(a, b))`
+- An [ARC-4 struct](./lg-arc4), from what the name of the struct will be used as a the event name and the struct parameters will be used as the event fields - `arc4.emit(Swapped(a, b))`
 - An event signature as a [string literal (or module variable)](./lg-types), followed by the values - `arc4.emit("Swapped(uint64,uint64)", a, b)`
 - An event name as a [string literal (or module variable)](./lg-types), followed by the values - `arc4.emit("Swapped", a, b)`
 
