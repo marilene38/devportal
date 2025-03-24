@@ -62,3 +62,11 @@
 	path = imports/repos/algokit-subscriber-py
 	url = https://github.com/algorandfoundation/algokit-subscriber-py.git
 	branch = main
+[submodule "imports/repos/algokit-client-generator-py"]
+	path = imports/repos/algokit-client-generator-py
+	url = https://github.com/algorandfoundation/algokit-client-generator-py.git
+	branch = main
+[submodule "imports/repos/algokit-client-generator-ts"]
+	path = imports/repos/algokit-client-generator-ts
+	url = https://github.com/algorandfoundation/algokit-client-generator-ts.git
+	branch = main

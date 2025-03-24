@@ -877,7 +877,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: '',
+                  link: 'algokit/algokit-cli/dispenser',//todo: needs its own page 
                 },
               ],
             },
@@ -886,8 +886,12 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: 'Overview',
-                  link: '',
+                  label: 'Typescript',
+                  link: 'algokit/client-generator/typescript',
+                },
+                {
+                  label: 'Python',
+                  link: 'algokit/client-generator/python',
                 },
               ],
             },
