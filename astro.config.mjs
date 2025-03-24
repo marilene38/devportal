@@ -35,7 +35,8 @@ export default defineConfig({
           tag: 'script',
           attrs: {
             defer: true,
-            'data-domain': 'staging.dev.algorand.co',
+            'dataset-domain': 'staging.dev.algorand.co',
+            'dataset.api': 'https://plausible.io/api/event',
             src: 'https://plausible.io/js/script.hash.outbound-links.tagged-events.js',
           },
         },
