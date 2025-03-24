@@ -5,41 +5,44 @@ interface Props {
   heading: string;
   description: string;
   icon: 'square-brackets' | 'long-right-arrow' | 'block' | 'network';
+  url: string;
 }
 
-const { heading, description, icon } = Astro.props;
+const { heading, description, icon, url } = Astro.props;
 ---
 
-<div
-  class:list={[
-    'icon-card bg-algo-lavender-300 dark:bg-algo-teal-100 text-white dark:text-algo-navy px-5 py-7 md:px-6 lg:p-[30px] rounded-2xl',
-    'flex flex-col mt-0!',
-  ]}
->
+<a target='_blank' href={url} class='no-underline'>
   <div
     class:list={[
-      'grid place-content-center place-items-center bg-algo-lavender-200 dark:bg-algo-teal-600',
-      'w-[45px] h-[45px] md:w-[50px] md:h-[50px] xl:w-[55px] xl:h-[55px] rounded-[10px] mb-4! ml-auto!',
+      'icon-card bg-algo-lavender-300 dark:bg-algo-teal-100 text-white dark:text-algo-navy px-5 py-7 md:px-6 lg:p-[30px] rounded-2xl',
+      'flex flex-col mt-0!',
     ]}
   >
-    <Icon
-      name={`${icon}-icon`}
+    <div
       class:list={[
-        icon === 'long-right-arrow'
-          ? 'w-[35px] md:w-[40px] xl:w-[45px] transform -rotate-45'
-          : 'w-[45px] md:w-[50px] xl:w-[55px]',
-        'text-white! dark:text-algo-navy!',
+        'grid place-content-center place-items-center bg-algo-lavender-200 dark:bg-algo-teal-600',
+        'w-[45px] h-[45px] md:w-[50px] md:h-[50px] xl:w-[55px] xl:h-[55px] rounded-[10px] mb-4! ml-auto!',
       ]}
-    />
-  </div>
-  <div class='mt-auto!'>
-    <h3
-      class='text-white! dark:text-algo-navy! lg:text-3xl! xl:text-4xl! font-bold leading-none'
     >
-      {heading}
-    </h3>
-    <p class='font-sans lg:text-lg xl:text-xl lg:leading-[1.3]'>
-      {description}
-    </p>
+      <Icon
+        name={`${icon}-icon`}
+        class:list={[
+          icon === 'long-right-arrow'
+            ? 'w-[35px] md:w-[40px] xl:w-[45px] transform -rotate-45'
+            : 'w-[45px] md:w-[50px] xl:w-[55px]',
+          'text-white! dark:text-algo-navy!',
+        ]}
+      />
+    </div>
+    <div class='mt-auto!'>
+      <h3
+        class='text-white! dark:text-algo-navy! lg:text-3xl! xl:text-4xl! font-bold leading-none'
+      >
+        {heading}
+      </h3>
+      <p class='font-sans lg:text-lg xl:text-xl lg:leading-[1.3]'>
+        {description}
+      </p>
+    </div>
   </div>
-</div>
+</a>
