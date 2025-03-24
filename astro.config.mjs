@@ -1,3 +1,4 @@
+import globals from 'globals';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import icon from 'astro-icon';

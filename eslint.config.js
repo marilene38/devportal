@@ -17,6 +17,7 @@ export default [
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
+  ...globals.node,
 
   {
     rules: {
