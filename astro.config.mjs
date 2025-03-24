@@ -9,8 +9,10 @@ import starlightLinksValidator from 'starlight-links-validator';
 import starlightTypeDoc from 'starlight-typedoc';
 import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
 import tailwindcss from '@tailwindcss/vite';
+import starlightLlmsTxt from 'starlight-llms-txt';
 
 export default defineConfig({
+  site: 'https://dev.algorand.co',
   output: 'static',
   viewTransitions: true,
   integrations: [
@@ -28,6 +30,7 @@ export default defineConfig({
           output: 'reference/algokit-utils-ts/API Reference',
           exclude: ['**[FUTURELINK]*'],
         }),
+        starlightLlmsTxt(),
       ],
       head: [
         {
@@ -875,7 +878,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: 'algokit/algokit-cli/dispenser',//todo: needs its own page 
+                  link: 'algokit/algokit-cli/dispenser', //todo: needs its own page
                 },
               ],
             },
