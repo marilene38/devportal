@@ -295,10 +295,40 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              label: 'Consensus Protocol',
+              collapsed: false,
+              items: [
+                {
+                  label: 'Overview',
+                  link: 'concepts/protocol/overview',
+                },
+                {
+                  label: 'Participation Key Management',
+                  link: 'concepts/protocol/partkey-management',
+                },
+                {
+                  label: 'Account Registration',
+                  link: 'concepts/protocol/registration',
+                },
+                {
+                  label: 'Staking Rewards',
+                  link: 'concepts/protocol/staking-rewards',
+                },
+                {
+                  label: 'State Proofs',
+                  link: 'concepts/protocol/state-proofs',
+                },
+                {
+                  label: 'Networks',
+                  link: 'concepts/protocol/networks',
+                },
+              ],
+            },
           ],
         },
         {
-          label: 'Build with AlgoKit',
+          label: 'Build With AlgoKit',
           collapsed: false,
           items: [
             {
@@ -988,36 +1018,6 @@ export default defineConfig({
             {
               label: 'NodeKit Reference',
               link: 'nodes/nodekit-reference/commands',
-            },
-          ],
-        },
-        {
-          label: 'Consensus Protocol',
-          collapsed: false,
-          items: [
-            {
-              label: 'Overview',
-              link: 'protocol/overview',
-            },
-            {
-              label: 'Participation Key Management',
-              link: 'protocol/partkey-management',
-            },
-            {
-              label: 'Account Registration',
-              link: 'protocol/registration',
-            },
-            {
-              label: 'Staking Rewards',
-              link: 'protocol/staking-rewards',
-            },
-            {
-              label: 'State Proofs',
-              link: 'protocol/state-proofs',
-            },
-            {
-              label: 'Networks',
-              link: 'protocol/networks',
             },
           ],
         },
