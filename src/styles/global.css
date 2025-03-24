@@ -125,6 +125,7 @@ ul.top-level li {
   --sl-text-body-sm: var(--sl-text-xs);
   --sl-text-code: var(--sl-text-sm);
   --sl-text-code-sm: var(--sl-text-xs);
+  --__sl-font: 'Inter', sans-serif;
 }
 
 h1,

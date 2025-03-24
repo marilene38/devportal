@@ -86,3 +86,4 @@ jobs:
         run: pnpm run build
         env:
           TSTRUCT_TOKEN: ${{ secrets.TSTRUCT_TOKEN }}
+          PUBLIC_GTM_ID: ${{ secrets.PUBLIC_GTM_ID }}
