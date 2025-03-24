@@ -24,20 +24,63 @@ The table below is a summary of possible node configurations:
 | ❌ No  | ❌ No     | ✅ Yes         | ✅ Normal configuration for a **"participation node"**                                                                                                                                     |
 | ❌ No  | ❌ No     | ❌ No          | ✅ Normal configuration for an **"API node"** used to submit transactions to the blockchain and access current state (current balances, smart contract state, ...) but no historical state |
 
+## Hardware Requirements
+
+### Participation Nodes
+
+Participation nodes are actively involved in the Algorand consensus protocol by proposing and voting
+on blocks. They require higher network bandwidth to communicate with other nodes efficiently.
+
+- 8 vCPU
+- 16 GB RAM
+- 100 GB NVMe SSD or equivalent
+- 1 Gbps connection with low latency (< 100ms)
+
+### Non-Participation Nodes
+
+Non-participation nodes maintain a current copy of the blockchain but do not participate in
+consensus, so the hardware requirements are somewhat lower than for participation nodes.
+Non-participating nodes are useful for API endpoints and development environments.
+
+- 8 vCPU
+- 8 GB RAM
+- 100 GB NVMe SSD or equivalent
+- 100Mbps connection with low latency (< 100ms)
+
+### Archival Nodes
+
+Archival nodes store the entire history of the blockchain from genesis, making them valuable for
+applications requiring historical data access. They need significantly more storage than other node
+types.
+
+- 8 vCPU
+- 16 GB RAM
+- Storage:
+  - 3 TB SSD for blocks and catchpoints
+    ([ColdDataDir](https://developer.algorand.org/docs/run-a-node/reference/config/#algod-configuration-settings))
+  - 100 GB NVMe SSD for accounts
+    ([HotDataDir](https://developer.algorand.org/docs/run-a-node/reference/config/#algod-configuration-settings))
+- 5 TB/month egress
+- 1 Gbps connection with low latency (< 100ms)
+
+> **Info**: While directly-attached NVMe SSDs are recommended, AWS EBS gp3 volumes have proven
+> sufficient as of October 2022. Monitor performance closely and be prepared to upgrade if TPS
+> increases significantly.
+
 ## Which mode do I need?
 
 Here are some common use cases:
 
 - I want to participate in consensus and help secure the Algorand network.
-  - ➥ non-relay non-archival participation node.
+  - Non-relay, non-archival participation node
   - Note: I need to have some Algo for that purpose and I need to monitor my node 24/7 to ensure it is working properly.
 - I want to send transactions and read current state of smart contracts/applications:
-  - ➥ non-relay non-archival non-participation node.
+  - Non-relay, non-archival non-participation node
   - Example: a dApp website that does not use any historical information (past transaction/operation), a website displaying balances of a list of important accounts.
 - I want full access to historical data (blocks, transactions) with advanced querying:
-  - ➥ non-relay archival non-participation node, together with an [**indexer**](/nodes/installation/indexer-installation).
+  - Non-relay, archival non-participation node, together with an [**Indexer**](/nodes/installation/indexer-installation).
 - I want to get state proofs for any block:
-  - ➥ non-relay archival non-participation node.
+  - Non-relay, archival non-participation node
 
 ## Participation Node
 
@@ -55,10 +98,6 @@ The archival property must be set to true to run in archival mode, which will th
 
 :::caution
 Setting a node to run in archival mode on MainNet/TestNet/BetaNet will significantly increase the disk space requirements for the node. For example, in September 2023, a MainNet non-archival node uses around 20GB of storage, while an archival node requires approximately 2TB of storage.
-:::
-
-:::note
-Relay nodes are always set to Archival mode. Non-relay nodes have the option to run in either configuration.
 :::
 
 ## Relay Node
