@@ -7,7 +7,11 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
 import { LinkCard } from '@astrojs/starlight/components';
 
-Algorand offers multiple approaches to account creation, in this guide we'll explore the various methods available for creating accounts on the Algorand blockchain. Depending on your requirement, consider [standalone accounts](#standalone), [wallet-derived accounts](#wallet-derived) using [kmd](/nodes/reference/artifacts#kmd), or [multi-signature accounts](/concepts/accounts/multisig) which entails one of the prior methods. This section will explore standalone accounts and wallet-derived accounts in-depth, guiding how to utilize them in `algokit-utils` , `goal`, `algokey`, `SDKs`, and `Pera Wallet`, the reasons you might want to choose one method over another for your application.
+Algorand offers multiple methods to account creation, in this guide we'll explore the various methods available for creating accounts on the Algorand blockchain.
+
+Depending on your requirement, if you need an account for sending and re [Standalone Accounts](#standalone), [KMD-Managed Accounts](#kmd-managed-accounts) using [kmd](/nodes/reference/artifacts#kmd), or [Multi-signature accounts](/concepts/accounts/multisig) which entails one of the prior methods.
+
+This section will explore standalone accounts and wallet-derived accounts in-depth, guiding how to utilize them in `algokit-utils` , `goal`, `algokey`, `SDKs`, and `Pera Wallet`, the reasons you might want to choose one method over another for your application.
 
 Another approach to account creation is using logic signature accounts, which are contract-based accounts that operate using a logic signature instead of a private key. To create an LSig account, you write transaction validation logic and compile it to obtain the corresponding address, and fund it with the required minimum balance.
 
@@ -15,22 +19,13 @@ Accounts participating in transactions are required to maintain a minimum balanc
 
 ## Standalone
 
-A standalone account is an Algorand address and private key pair that is not stored on disk. The private key is most often in the [25-word mnemonic form](FUTURELINK).
+A standalone account is an Algorand address and private key pair that is not stored on disk. The private key is most often in the [25-word mnemonic form](FUTURELINK). Algorand's mobile wallet uses standalone accounts. Use the 25-word mnemonic to import accounts into the mobile wallet.
 
-### Reasons to use standalone accounts
-
-- Low setup cost: No need to connect to a separate client or hardware; all you need is the 25-word human-readable mnemonic of the relevant account.
-- Supports offline signing: Since private keys are not stored on disk, standalone accounts can be used in [secure offline-signing procedures](FUTURELINK) where hardware constraints may make using kmd more difficult.
-- Widely supported: Standalone account mnemonics are commonly used across various Algorand developer tools and services.
-
-:::note
-Algorand's mobile wallet uses standalone accounts. Use the 25-word mnemonic to import accounts into the mobile wallet.
-:::
-
-### Reasons not to use standalone accounts
-
-- Lack of encrypted storage: If you prefer storing keys securely on disk rather than as a 25-word mnemonic, kmd may be a better choice.
-- Limited direct import/export options: Developers relying on import and export functions may find kmd more suitable, as [Algokit Utils](FUTURELINK) provides import and export capabilities.
+| **When to Use Standalone Accounts**                                                                                                                                                                                   | **When Not to Use Standalone Accounts**                                                                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Low setup cost: No need to connect to a separate client or hardware; all you need is the 25-word human-readable mnemonic of the relevant account.                                                                     | Limited direct import/export options: Developers relying on import and export functions may find kmd more suitable, as [Algokit Utils](FUTURELINK) provides import and export capabilities. |
+| Supports offline signing: Since private keys are not stored on disk, standalone accounts can be used in [secure offline-signing procedures](FUTURELINK) where hardware constraints may make using kmd more difficult. |                                                                                                                                                                                             |
+| Widely supported: Standalone account mnemonics are commonly used across various Algorand developer tools and services.                                                                                                |                                                                                                                                                                                             |
 
 ### How to generate a standalone account
 
@@ -48,9 +43,7 @@ Public key: [ADDRESS]
 
 #### Algokit Utils
 
-AlgoKit Utils simplifies the creation and management of standalone Algorand accounts in both Python and TypeScript by abstracting the complexities of Algorand SDKs, allowing developers to generate new accounts, retrieve existing ones, and manage private keys securely.
-
-By leveraging AlgoKit Utils, developers can programmatically create accounts without depending on external key management systems, making it ideal for lightweight applications, offline signing, and minimal setup scenarios. AlgoKit Utils offers multiple ways to create and manage standalone accounts.
+Developers can programmatically create accounts without depending on external key management systems, making it ideal for lightweight applications, offline signing, and minimal setup scenarios. AlgoKit Utils offers multiple ways to create and manage standalone accounts.
 
 ##### Random Account Generation
 
@@ -102,7 +95,7 @@ Developers can create accounts from an existing 25-word mnemonic phrase, allowin
   </TabItem>
 </Tabs>
 
-:::note
+:::caution
 You can also create an account from environment variables as a standalone account. If it's not LocalNet, the account will be treated as standalone and loaded using mnemonic secret. Ensure the mnemonic is handled securely and not committed to source control.
 :::
 
@@ -111,8 +104,10 @@ You can also create an account from environment variables as a standalone accoun
 Pera Wallet is a popular non-custodial wallet for the Algorand blockchain.
 
 <LinkCard
-  title='How to create a new account on Pera Wallet'
+  title='Create a new account on Pera Wallet'
   href='https://support.perawallet.app/en/article/create-a-new-algorand-account-on-pera-wallet-1ehbj11/'
+  description='Getting started on how to create a New Algorand Account on Pera Wallet'
+
 />
 
 #### Vault Wallet
@@ -125,25 +120,24 @@ The integration is particularly useful for developers and enterprises seeking a 
 More details coming soon
 :::
 
-## Wallet-derived
+## KMD-Managed Accounts
 
 The Key Management Daemon is a process that runs on Algorand nodes, so if you are using a third-party API service this process likely will not be available to you. kmd is the underlying key storage mechanism used with `goal`.
 
-### Reasons to use kmd
+| **When to Use KMD**                                                                                                                                                                                                            | **When Not to Use KMD**                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Single Master Derivation Key – Public/private key pairs are generated from a single master derivation key. You only need to remember the wallet passphrase/mnemonic to regenerate all accounts in the wallet.                  | Resource Intensive – Running `kmd` requires an active process and storing keys on disk. If you lack access to a node or need a lightweight solution, [Standalone Accounts](#standalone) may be a better option. |
+| Enhanced Privacy – There is no way to determine that two addresses originate from the same master derivation key, allowing applications to implement anonymous spending without requiring users to store multiple passphrases. |                                                                                                                                                                                                                 |
 
-- Single Master Derivation Key: Public/private key pairs are generated from a single master derivation key. You only need to remember the single mnemonic that represents this master derivation key i.e. the wallet passphrase/mnemonic to regenerate all of the accounts in that wallet.
-
-- Enhanced Privacy: There is no way for someone else to determine that two addresses are generated from the same master derivation key. This provides a potential avenue for applications to implement anonymous spending for end users without requiring users to store multiple passphrases.
-
-### Reasons not to use kmd
-
-- Resource Intensive: Using kmd requires running a process and storing keys on a disk. If you do not have access to a node or you require a more lightweight solution, [Standalone Accounts](#standalone) may be a better-suited option.
+:::caution
+KMD is not recommended for production.
+:::
 
 ### How to use kmd
 
 #### Start the kmd process
 
-To initiate the kmd process and generate the required `kmd.net` and `kmd.token` files use [`goal kmd`](/nodes/reference/artifacts#goal) or [`kmd`](/nodes/reference/artifacts#kmd) command line utilities.
+To initiate the kmd process and generate the required `kmd.net` and `kmd.token` files use [`goal kmd`](/nodes/reference/artifacts#goal) or [`kmd`](/nodes/reference/artifacts#kmd) command line utilities. To run kmd, you need to have the kmd library installed which comes with the node.
 
 Start kmd using goal with a 3600-second timeout.
 
@@ -196,27 +190,30 @@ Created new account with address [address]
 
 ##### Algokit Utils
 
-- KMD client based Account Creation: We can also use the utils to create a wallet and account with the KMD client.
-  <Tabs syncKey='lang'>
-    <TabItem label='Utils (Python)' icon='seti:python'>
-      <RemoteCode
-        src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/creating_accounts.py'
-        snippet='KMD_ACCOUNT'
-        lang='py'
-        title='Kmd Account'
-        frame='none'
-      />
-    </TabItem>
-    <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
-      <RemoteCode
-        src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/creating-accounts.ts'
-        snippet='KMD_ACCOUNT'
-        lang='ts'
-        title='Kmd Account'
-        frame='none'
-      />
-    </TabItem>
-  </Tabs>
+###### KMD client based Account creation
+
+We can also use the utils to create a wallet and account with the KMD client.
+
+<Tabs syncKey='lang'>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/creating_accounts.py'
+      snippet='KMD_ACCOUNT'
+      lang='py'
+      title='Kmd Account'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/creating-accounts.ts'
+      snippet='KMD_ACCOUNT'
+      lang='ts'
+      title='Kmd Account'
+      frame='none'
+    />
+  </TabItem>
+</Tabs>
 
 Other operations like creating and renaming wallet can also be performed.
 
@@ -241,7 +238,9 @@ Other operations like creating and renaming wallet can also be performed.
   </TabItem>
 </Tabs>
 
-- Environment Variable-Based Account Creation: To create an account using environment variable will load the account from a KMD wallet called name. When running against a local Algorand network, a funded wallet can be automatically created if it doesn’t exist.
+###### Environment Variable-Based Account Creation
+
+To create an account using environment variable will load the account from a KMD wallet called name. When running against a local Algorand network, a funded wallet can be automatically created if it doesn’t exist.
 
 <Tabs syncKey='lang'>
   <TabItem label='Utils (Python)' icon='seti:python'>
@@ -281,9 +280,7 @@ $ goal account new -w <recovered-wallet-name>
 Created new account with address [RECOVERED_ADDRESS]
 ```
 
-:::note
 An offline wallet may not accurately reflect account balances, but the state for those accounts e.g. its balance, online status is safely stored on the blockchain. kmd will repopulate those balances when connected to a node.
-:::
 
 :::caution
 For compatibility with other developer tools, `goal` provides functions to import and export accounts into kmd wallets, however, keep in mind that an imported account can not be recovered/derived from the wallet-level mnemonic. You must always keep track of the account-level mnemonics that you import into kmd wallets.
