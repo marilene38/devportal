@@ -10,7 +10,7 @@ import starlightTypeDoc from 'starlight-typedoc';
 import rehypeAstroRelativeMarkdownLinks from 'astro-rehype-relative-markdown-links';
 import tailwindcss from '@tailwindcss/vite';
 
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
+const GTM_ID = process.env.PUBLIC_GTM_ID;
 
 export default defineConfig({
   output: 'static',
