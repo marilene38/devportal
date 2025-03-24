@@ -353,7 +353,7 @@ export default defineConfig({
                   items: [
                     {
                       label: 'Overview',
-                      link: 'algokit/algokit-cli/project/',
+                      link: 'algokit/algokit-cli/project',
                     },
                     {
                       label: 'Bootstrap',
