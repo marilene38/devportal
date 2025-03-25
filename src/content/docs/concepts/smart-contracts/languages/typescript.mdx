@@ -15,12 +15,12 @@ It maintains the syntax and semantics of TypeScript, so a developer who knows Ty
 5. Modularity: Algorand Typescript supports modular solution components, facilitating efficient parallel development by small, effective teams, reducing architectural complexity, and allowing developers to pick and choose the specific tools and capabilities they want to use based on their needs and what they are comfortable with.
 
 :::note
-To install and start writing Algorand Typescript smart contracts refer to this [page](FUTURELINK: algorand typescript smart contracts)
+To install and start writing Algorand Typescript smart contracts refer to this [page](algokit/concepts/smart-contracts/languages/typescript)
 :::
 
 ## Typescript Implementation for AVM
 
-Algorand Typescript maintains the syntax and semantics of Typescript, supporting a subset of the language that will grow over time. However, due to the restricted nature of the AVM, it will never be a complete implementation. To learn more refer to AVM Docs(FUTURELINK: core-concepts/AVM).
+Algorand Typescript maintains the syntax and semantics of Typescript, supporting a subset of the language that will grow over time. However, due to the restricted nature of the AVM, it will never be a complete implementation. To learn more refer to AVM Docs(concepts/smart-contracts/avm).
 
 Algorand TypeScript is compiled for execution on the AVM by PuyaTs, a TypeScript frontend for the Puya optimizing compiler that ensures the resulting AVM bytecode execution semantics that match the given TypeScript code. PuyaTs produces output directly compatible with AlgoKit-typed clients to simplify deployment and calling.
 
@@ -113,8 +113,6 @@ const invalidPrice = 1.23; // ERROR: Missing type
 // Incorrect: Precision exceeds defined decimal places
 const invalidPrice2: UFixed<64, 2> = 1.234; // ERROR: Precision of 2 decimal places, but 3 provided
 ```
-
-5.c. Math Operations: Refer to FUTURELINK: (as original link is not working in typescript docs for math operations)
 
 ### Limitations
 
