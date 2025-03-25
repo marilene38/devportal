@@ -8,13 +8,12 @@ The specification is defined in [ARC4](/arc-standards/arc-0004).
 
 At a high level, the ABI allows contracts to define an API with rich types and offer an interface description so clients know exactly what the contract is expecting to be passed.
 
-To encode or decode ABI types with the SDKs, see the [ABI encoding and decoding](/concepts/smart-contracts/storage/encoding-decoding) documentation.
-
 ## Data Types
 
 In Algorand ABI (ARC-4), each data type has a precise encoding scheme, ensuring that contracts and client applications can seamlessly exchange information without ambiguity.
 It's crutial to understand how these types - such as integers, strings, arrays, addresses, and more — are structured and its respective representation.
-Keep in mind that the AVM only reads `uint64` and `bytes`, usually the convertion of data types to these main two is handled under the hood by Algorand Python, Algorand Typescript and Algokit Utils.
+
+Keep in mind that the [AVM](/concepts/smart-contracts/avm) only reads `uint64` and `bytes`, usually the convertion of data types to these main two is handled under the hood by [Algorand Python](/concepts/smart-contracts/languages/python), [Algorand Typescript](1/concepts/smart-contracts/languages/typescript) and [Algokit Utils](/algokit/algokit-intro#algokit-utils).
 
 This section describes how ABI types can be represented as byte strings.
 
