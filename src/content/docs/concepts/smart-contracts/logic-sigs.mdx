@@ -4,8 +4,12 @@ description: A guide in my new Starlight docs site.
 ---
 
 import { Code } from '@astrojs/starlight/components';
+import Figure from '/src/components/Figure.astro';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
+import lsigsDiagram1 from '@images/smart-contracts-lsigs-1.png';
+import lsigsDiagram2 from '@images/smart-contracts-lsigs-2.png';
+import lsigsDiagram3 from '@images/smart-contracts-lsigs-3.png';
 
 Logic Signatures (LogicSig), are a feature in Algorand that allows transactions to be authorized using a TEAL program. These signatures are used to sign transactions from either a **_Contract Account_** or a **_Delegated Account_**.
 
@@ -32,7 +36,7 @@ While smart contracts are the preferred solution in most cases, logic signatures
 
 Logic Signatures are structures that contain four parts and are considered valid if one of the following scenarios is true:
 
-Figure: Logic Signature Structure
+<Figure src={lsigsDiagram1} alt='Figure: Logic Signature Structure' />
 
 1. **_Signature (Sig)_**: A valid signature of the program from the account sending the transaction.
 2. **_Multi-Signature (Msig)_**: A valid multi-signature of the program from the multi-sig account sending the transaction.
@@ -57,13 +61,13 @@ Logic signatures have two basic usage scenarios: as a **_contract account_** or 
 
 For each unique compiled logic signature program there exists a single corresponding Algorand address, output by `goal clerk compile`. For more details, refer [here](FUTURELINK). To use a TEAL program as a contract account, send Algos to its address to turn it into an account on Algorand with a balance. Outwardly, this account looks no different from any other Algorand account and anyone can send it Algos or Algorand Standard Assets to increase its balance. The account differs in how it authenticates spends from it, in that the logic determines if the transaction is approved. To spend from a contract account, create a transaction that will evaluate True against the TEAL logic, then add the compiled TEAL code as its logic signature. It is worth noting that anyone can create and submit the transaction that spends from a contract account as long as they have the compiled TEAL contract to add as a logic signature.
 
-Figure: TEAL Contract Account
+<Figure src={lsigsDiagram2} alt='Figure: TEAL Contract Account' />
 
 ### Delegated Approval
 
 Logic signatures can also be used to delegate signature authority, which means that a private key can sign a TEAL program and the resulting output can be used as a signature in transactions on behalf of the account associated with the private key. The owner of the delegated account can share this logic signature, allowing anyone to spend funds from his or her account according to the logic within the TEAL program. For example, if Alice wants to set up a recurring payment with her utility company for up to 200 Algos every 50000 rounds, she creates a TEAL contract that encodes this logic, signs it with her private key, and gives it to the utility company. The utility company uses that logic signature in the transaction they submit every 50000 rounds to collect payment from Alice. The logic signature can be produced from either a single or multi-signature account.
 
-Figure: TEAL Delegated Signature
+<Figure src={lsigsDiagram3} alt='Figure: TEAL Delegated Signature' />
 
 For more information on how to sign using logic signatures refer to [signing using logic signatures](FUTURELINK)
 
