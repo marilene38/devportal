@@ -918,16 +918,6 @@ export default defineConfig({
               ],
             },
             {
-              label: 'Testnet Dispenser',
-              collapsed: true,
-              items: [
-                {
-                  label: 'Overview',
-                  link: 'algokit/algokit-cli/dispenser',
-                },
-              ],
-            },
-            {
               label: 'Client Generators',
               collapsed: true,
               items: [
