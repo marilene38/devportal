@@ -22,7 +22,7 @@ Let's take a look at why you may want to use the _Lease_ field and when you defi
 
 Let's examine a simple example where Alice sends Algo to Bob. This basic transaction is short-lived and typically wouldn't need a lease under normal network conditions.
 
-```bash
+```bash frame=none
 $ goal clerk send –from $ALICE –to $BOB –amount $AMOUNT
 ```
 
@@ -30,7 +30,7 @@ Under normal network conditions, this transaction will be confirmed in the next 
 
 However, now let's assume the network is congested, fees are higher than normal and Alice desires to minimize her fee spend while ensuring only a single payment transaction to Bob is confirmed by the network. Alice may construct a series of transactions to Bob, each defining identical _Lease_, _FirstValid_ and _LastValid_ values but increasing _Fee_ amounts, then broadcast them to the network.
 
-```bash
+```bash frame=none
 # Define transaction fields
 $ LEASE_VALUE=$(echo "Lease value (at most 32-bytes)" | xxd -p | base64)
 $ FIRST_VALID=$(goal node status | grep "Last committed block:" | awk '{ print $4 }')
@@ -48,7 +48,7 @@ Above, Alice defined values to use within her transactions. The `$LEASE_VALUE` m
 
 Alice now broadcasts the initial transaction with `goal clerk rawsend –-filename 1000.stxn` but due to network congestion and high fees, `goal` will continue awaiting confirmation until `$LAST_VALID`. During the validation window Alice may construct additional nearly identical transactions with _only_ higher fees and broadcast each one concurrently.
 
-```bash
+```bash frame=none
 # Redefine ONLY the FEE value
 $ FEE=$(($FEE+1000))
 

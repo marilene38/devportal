@@ -1,5 +1,5 @@
 ---
-title: Funding an account
+title: Funding an Account
 ---
 
 import { Code } from '@astrojs/starlight/components';
@@ -28,20 +28,20 @@ LocalNet provides pre-funded accounts for development and testing. You can use t
 This utils function retrieves the default LocalNet dispenser account, which is pre-funded and can be used to provide ALGOs to other accounts in a local development environment. The LocalNet dispenser is automatically available and is designed for testing purposes, making it easy to create and fund new accounts without external dependencies.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Utils (Python)' icon='seti:python'>
-    <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
-      snippet='LOCALNET_DISPENSER'
-      lang='py'
-      title='LocalNet Dispenser'
-      frame='none'
-    />
-  </TabItem>
   <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
       snippet='LOCALNET_DISPENSER'
       lang='ts'
+      title='LocalNet Dispenser'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='LOCALNET_DISPENSER'
+      lang='py'
       title='LocalNet Dispenser'
       frame='none'
     />
@@ -53,20 +53,20 @@ This utils function retrieves the default LocalNet dispenser account, which is p
 The below function retrieves a dispenser account configured through environment variables. It allows developers to specify a custom funding account for different environments (e.g., development, testing, staging). The function looks for environment variables containing the dispenser’s private key or mnemonic, making it flexible for dynamic funding configurations across various deployments. The dispenser here is managed by the developer and is not a public dispenser that already exists.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Utils (Python)' icon='seti:python'>
-    <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
-      snippet='DISPENSER_ACCOUNT'
-      lang='py'
-      title='Environment Dispenser'
-      frame='none'
-    />
-  </TabItem>
   <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
       snippet='DISPENSER_ACCOUNT'
       lang='ts'
+      title='Environment Dispenser'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='DISPENSER_ACCOUNT'
+      lang='py'
       title='Environment Dispenser'
       frame='none'
     />
@@ -93,20 +93,20 @@ For developers needing programmatic access to TestNet funds, AlgoKit provides ut
 The `ensureFundedFromTestNetDispenserApi` function checks if a specified Algorand account has enough funds on TestNet. If the balance is below the required threshold, it automatically requests additional ALGOs from the TestNet Dispenser API. The dispenser client is initialized using the `ALGOKIT_DISPENSER_ACCESS_TOKEN` environment variable for authentication. This is particularly useful for CI/CD pipelines and automated tests, ensuring accounts remain funded without manual intervention.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Utils (Python)' icon='seti:python'>
-    <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
-      snippet='ENSURE_FUNDED_TESTNET'
-      lang='py'
-      title='Ensure TestNet Funding'
-      frame='none'
-    />
-  </TabItem>
   <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
       snippet='ENSURE_FUNDED_TESTNET'
       lang='ts'
+      title='Ensure TestNet Funding'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='ENSURE_FUNDED_TESTNET'
+      lang='py'
       title='Ensure TestNet Funding'
       frame='none'
     />
@@ -118,20 +118,20 @@ The `ensureFundedFromTestNetDispenserApi` function checks if a specified Algoran
 The below utils function sends a fixed amount of ALGOs (1,000,000 microALGOs = 1 ALGO) to a specified account using the TestNet Dispenser API. Unlike the ensureFundedFromTestNetDispenserApi method, which checks the balance before funding, this function transfers funds immediately. It is useful when you need to top up an account with a specific amount without verifying its current balance.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Utils (Python)' icon='seti:python'>
-    <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
-      snippet='TESTNET_DISPENSER_FUND'
-      lang='py'
-      title='Direct TestNet Funding'
-      frame='none'
-    />
-  </TabItem>
   <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
       snippet='TESTNET_DISPENSER_FUND'
       lang='ts'
+      title='Direct TestNet Funding'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='TESTNET_DISPENSER_FUND'
+      lang='py'
       title='Direct TestNet Funding'
       frame='none'
     />
@@ -159,20 +159,20 @@ AlgoKit provides utility functions to help ensure accounts have sufficient funds
 The below code checks the balance of a specified account and transfers ALGOs from a dispenser if the balance falls below the required threshold (1 ALGO in this example). It ensures the account has enough funds before executing transactions, making it useful for automated scripts that depend on a minimum balance.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Utils (Python)' icon='seti:python'>
-    <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
-      snippet='ENSURE_FUNDED'
-      lang='py'
-      title='Ensure Funded'
-      frame='none'
-    />
-  </TabItem>
   <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
       snippet='ENSURE_FUNDED'
       lang='ts'
+      title='Ensure Funded'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='ENSURE_FUNDED'
+      lang='py'
       title='Ensure Funded'
       frame='none'
     />
@@ -184,20 +184,20 @@ The below code checks the balance of a specified account and transfers ALGOs fro
 This code combines the ensure-funded mechanism with an environment-configured dispenser. It retrieves a dispenser account from environment variables and uses it to top up the target account if its balance is below 1 ALGO. This approach makes the code more flexible and portable by allowing different dispensers to be used across various environments without hardcoding account details.
 
 <Tabs syncKey='lang'>
-  <TabItem label='Utils (Python)' icon='seti:python'>
-    <RemoteCode
-      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
-      snippet='ENSURE_FUNDED_FROM_ENV'
-      lang='py'
-      title='Funding from Environment Variables'
-      frame='none'
-    />
-  </TabItem>
   <TabItem label='Utils (TypeScript)' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/accounts/funding-accounts.ts'
       snippet='ENSURE_FUNDED_FROM_ENV'
       lang='ts'
+      title='Funding from Environment Variables'
+      frame='none'
+    />
+  </TabItem>
+  <TabItem label='Utils (Python)' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/accounts/funding_accounts.py'
+      snippet='ENSURE_FUNDED_FROM_ENV'
+      lang='py'
       title='Funding from Environment Variables'
       frame='none'
     />

@@ -69,77 +69,21 @@ These REST endpoints typically require an API token (X-Algo-API-Token header).
 
 ## Block Fields
 
-- **Round**: The block's round, which matches the round of the state it is transitioning
-  into. The block with round 0 is special in that this block specifies not a
-  transition but rather the entire initial state, which is called the genesis
-  state. This block is correspondingly called the genesis block.
-  The round is stored under msgpack key `rnd`.
-
-- **Genesis Identifier and Genesis Hash**: The block's genesis identifier and hash, which match the
-  genesis identifier and hash of the states it transitions between.
-  The genesis identifier is stored under msgpack key `gen`, and the genesis
-  hash is stored under msgpack key `gh`.
-
-- **Upgrade Vote**: The block's upgrade vote, which results in the new upgrade state. The
-  block also duplicates the upgrade state of the state it transitions into.
-  The msgpack representation of the components of the upgrade vote are described
-  in detail below.
-
-- **Timestamp**: The block's timestamp, which matches the timestamp of the state it
-  transitions into. The timestamp is stored under msgpack key `ts`.
-
-- **Seed**: The block's seed, which matches the seed of the state it transitions into.
-  The seed is stored under msgpack key `seed`.
-
-- **Reward Updates**: The block's reward updates, which results in the new reward state. The
-  block also duplicates the reward state of the state it transitions into.
-  The msgpack representation of the components of the reward updates are described
-  in detail below.
-
-- **Transaction Sequence**: A cryptographic commitment to the block's transaction sequence, described
-  below, stored under msgpack key `txn`.
-
-- **Transaction Sequence Hash**: A cryptographic commitment, using SHA256 hash function, to the block's transaction sequence, described
-  below, stored under msgpack key `txn256`.
-
-- **Previous Hash**: The block's previous hash, which is the cryptographic hash of the previous
-  block in the sequence. (The previous hash of the genesis block is 0.) The
-  previous hash is stored under msgpack key `prev`.
-
-- **Transaction Counter**: The block's transaction counter, which is the total number of transactions
-  issued prior to this block. This count starts from the first block with a
-  protocol version that supported the transaction counter. The counter is
-  stored in msgpack field `tc`.
-
-- **Proposer**: The block's proposer, which is the address of the account that
-  proposed the block. The proposer is stored in msgpack field `prp`.
-
-- **Fees Collected**: The block's fees collected is the sum of all fees paid by transactions in
-  the block and is stored in msgpack field `fc`.
-
-- **Bonus Incentive**: The potential bonus incentive is the amount, in MicroAlgos, that
-  may be paid to the proposer of this block beyond the amount
-  available from fees. It is stored in msgpack field `bi`. It may be
-  set during a consensus upgrade, or else it must be equal to the
-  value from the previous block in most rounds, or be 99% of the
-  previous value (rounded down) if the round of this block is 0
-  modulo 1,000,000.
-
-- **Proposer Payout**: The actual amount that is moved from the
-  $I_f$ to the proposer, and is stored in msgpack field `pp`. If the
-  proposer is not eligible, as described below, the proposer payout
-  must be 0. The proposer payout must not exceed
-
-  - The sum of the bonus incentive and half of the fees
-    collected.
-  - The fee sink balance minus 100,000 microAlgos.
-
-- **Expired Participation Accounts**: The block's expired participation accounts, which contains an
-  optional list of account addresses. These accounts' participation
-  key expire by the end of the current round, with exact rules below.
-  The list is stored in msgpack key `partupdrmv`.
-
-- **Suspended Participation Accounts**: The block's suspended participation accounts, which contains an
-  optional list of account addresses. These accounts are have not
-  recently demonstrated that they available and participating, with
-  exact rules below. The list is stored in msgpack key `partupdabs`.
+| Field                               | Description                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Round                               | The block's round, which matches the round of the state it is transitioning into. The block with round 0 is special in that this block specifies not a transition but rather the entire initial state, which is called the genesis state. This block is correspondingly called the genesis block. The round is stored under msgpack key `rnd`.                                                                 |
+| Genesis Identifier and Genesis Hash | The block's genesis identifier and hash, which match the genesis identifier and hash of the states it transitions between. The genesis identifier is stored under msgpack key `gen`, and the genesis hash is stored under msgpack key `gh`.                                                                                                                                                                    |
+| Upgrade Vote                        | The block's upgrade vote, which results in the new upgrade state. The block also duplicates the upgrade state of the state it transitions into. The msgpack representation of the components of the upgrade vote are described in detail below.                                                                                                                                                                |
+| Timestamp                           | The block's timestamp, which matches the timestamp of the state it transitions into. The timestamp is stored under msgpack key `ts`.                                                                                                                                                                                                                                                                           |
+| Seed                                | The block's seed, which matches the seed of the state it transitions into. The seed is stored under msgpack key `seed`.                                                                                                                                                                                                                                                                                        |
+| Reward Updates                      | The block's reward updates, which results in the new reward state. The block also duplicates the reward state of the state it transitions into. The msgpack representation of the components of the reward updates are described in detail below.                                                                                                                                                              |
+| Transaction Sequence                | A cryptographic commitment to the block's transaction sequence, described below, stored under msgpack key `txn`.                                                                                                                                                                                                                                                                                               |
+| Transaction Sequence Hash           | A cryptographic commitment, using SHA256 hash function, to the block's transaction sequence, described below, stored under msgpack key `txn256`.                                                                                                                                                                                                                                                               |
+| Previous Hash                       | The block's previous hash, which is the cryptographic hash of the previous block in the sequence. (The previous hash of the genesis block is 0.) The previous hash is stored under msgpack key `prev`.                                                                                                                                                                                                         |
+| Transaction Counter                 | The block's transaction counter, which is the total number of transactions issued prior to this block. This count starts from the first block with a protocol version that supported the transaction counter. The counter is stored in msgpack field `tc`.                                                                                                                                                     |
+| Proposer                            | The block's proposer, which is the address of the account that proposed the block. The proposer is stored in msgpack field `prp`.                                                                                                                                                                                                                                                                              |
+| Fees Collected                      | The block's fees collected is the sum of all fees paid by transactions in the block and is stored in msgpack field `fc`.                                                                                                                                                                                                                                                                                       |
+| Bonus Incentive                     | The potential bonus incentive is the amount, in MicroAlgos, that may be paid to the proposer of this block beyond the amount available from fees. It is stored in msgpack field `bi`. It may be set during a consensus upgrade, or else it must be equal to the value from the previous block in most rounds, or be 99% of the previous value (rounded down) if the round of this block is 0 modulo 1,000,000. |
+| Proposer Payout                     | The actual amount that is moved from the $I_f$ to the proposer, and is stored in msgpack field `pp`. If the proposer is not eligible, as described below, the proposer payout must be 0. The proposer payout must not exceed<br/>_ The sum of the bonus incentive and half of the fees collected.<br/>_ The fee sink balance minus 100,000 microAlgos.                                                         |
+| Expired Participation Accounts      | The block's expired participation accounts, which contains an optional list of account addresses. These accounts' participation key expire by the end of the current round, with exact rules below. The list is stored in msgpack key `partupdrmv`.                                                                                                                                                            |
+| Suspended Participation Accounts    | The block's suspended participation accounts, which contains an optional list of account addresses. These accounts are have not recently demonstrated that they available and participating, with exact rules below. The list is stored in msgpack key `partupdabs`.                                                                                                                                           |
