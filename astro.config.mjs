@@ -13,6 +13,8 @@ import starlightLlmsTxt from 'starlight-llms-txt';
 
 export default defineConfig({
   site: 'https://dev.algorand.co',
+  description:
+    'The Algorand Developer Portal is the go-to resource for developers building on Algorand.',
   output: 'static',
   viewTransitions: true,
   integrations: [
