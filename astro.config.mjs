@@ -297,10 +297,10 @@ export default defineConfig({
                   label: 'Development Lifecycle',
                   link: 'concepts/smart-contracts/lifecycle',
                 },
-                {
-                  label: 'Deployment',
-                  link: 'concepts/smart-contracts/deployment',
-                },
+                // {
+                //   label: 'Deployment',
+                //   link: 'concepts/smart-contracts/deployment',
+                // },
               ],
             },
             {
@@ -871,7 +871,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: '',
+                  link: 'algokit/avm-debugger',
                 },
               ],
             },
@@ -921,7 +921,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Overview',
-                  link: 'algokit/algokit-cli/dispenser', //todo: needs its own page
+                  link: 'algokit/algokit-cli/dispenser',
                 },
               ],
             },
