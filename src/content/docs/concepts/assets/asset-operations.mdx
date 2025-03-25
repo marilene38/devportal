@@ -22,7 +22,7 @@ Create assets using either Algokit Utils or `goal`. When using Algokit Utils, su
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-create.ts'      
       snippet='ASSET_CREATE_TRANSACTION'
-      lang='py'
+      lang='ts'
       title='Asset Create Transaction'
 	  frame='none'
     />
@@ -31,7 +31,7 @@ Create assets using either Algokit Utils or `goal`. When using Algokit Utils, su
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_create.py'      
       snippet='ASSET_CREATE_TRANSACTION'
-      lang='py'
+      lang='ts'
       title='Asset Create Transaction'
 	  frame='none'
     />
@@ -68,7 +68,7 @@ To update an asset's configuration, the current manager account must sign the tr
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-update.ts'      
       snippet='ASSET_UPDATE_TRANSACTION'
-      lang='py'
+      lang='ts'
       title='Asset Update Transaction'
       frame='none'
     />
@@ -108,7 +108,7 @@ Created assets can be destroyed only by the asset manager account. All of the as
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-delete.ts'      
       snippet='ASSET_DESTROY_TRANSACTION'
-      lang='py'
+      lang='ts'
       title='Asset Delete Transaction'
       frame='none'
     />
@@ -164,7 +164,7 @@ An opt-in transaction is simply an asset transfer with an amount of 0, both to a
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-optin-optout.ts'      
       snippet='ASSET_OPT_IN_TRANSACTION'
-      lang='py'
+      lang='ts'
       title='Asset Opt-In Transaction'
       frame='none'
       lineNumbers='false'
@@ -193,10 +193,22 @@ The `assetBulkOptIn` function facilitates the opt-in process for an account to m
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    ```typescript todo... ```
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-optin-optout.ts'
+      snippet='ASSET_BULK_OPT_IN_TRANSACTION'
+      lang='ts'
+      title='Asset Bulk Opt-In Transaction'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
-    ``` todo... ```
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_optin_optout.py'
+      snippet='ASSET_BULK_OPT_IN_TRANSACTION'
+      lang='py'
+      title='Asset Bulk Opt-In Transaction'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -209,7 +221,7 @@ An account can opt out of an asset at any time. This means that the account will
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-optin-optout.ts'
       snippet='ASSET_OPT_OUT_TRANSACTION'
-      lang='py'
+      lang='ts'
       title='Asset Opt-Out Transaction'
       frame='none'
     />
@@ -231,10 +243,22 @@ The `assetBulkOptOut` function manages the opt-out process for a number of asset
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
-    ```typescript todo... ```
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-optin-optout.ts'
+      snippet='ASSET_BULK_OPT_OUT_TRANSACTION'
+      lang='ts'
+      title='Asset Bulk Opt-Out Transaction'
+      frame='none'
+    />
   </TabItem>
   <TabItem label='Python' icon='seti:python'>
-    ``` todo... ```
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/assets(ASA)/asset_optin_optout.py'
+      snippet='ASSET_BULK_OPT_OUT_TRANSACTION'
+      lang='py'
+      title='Asset Bulk Opt-Out Transaction'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -257,7 +281,7 @@ Assets can be transferred between accounts that have opted-in to receiving the a
     <RemoteCode
         src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-transfer.ts'      
         snippet='ASSET_TRANSFER_TRANSACTION'
-        lang='py'
+        lang='ts'
         title='Asset Transfer Transaction'
         frame='none'
       />
@@ -297,7 +321,7 @@ Revoking an asset from an account requires specifying an asset sender (the revok
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-clawback.ts'      
       snippet='ASSET_CLAWBACK_TRANSACTION'
-      lang='py'
+      lang='ts'
       title='Asset Clawback Transaction'
       frame='none'
     />
@@ -337,7 +361,7 @@ Freezing or unfreezing an asset for an account requires a transaction that is si
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/assets/asset-freeze.ts'
       snippet='ASSET_FREEZE_TRANSACTION'
-      lang='py'
+      lang='ts'
       title='Asset Freeze Transaction'
       frame='none'
     />
