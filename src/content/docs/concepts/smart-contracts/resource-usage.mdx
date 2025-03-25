@@ -6,13 +6,6 @@ import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
 
-import accountAppEx from '/examples/smart-contracts/py/resource-avail-account-app.py?raw';
-import accountAssetEx from '/examples/smart-contracts/py/resource-avail-account-asset.py?raw';
-import accountEx from '/examples/smart-contracts/py/resource-avail-account.py?raw';
-import appEx from '/examples/smart-contracts/py/resource-avail-app.py?raw';
-import assetEx from '/examples/smart-contracts/py/resource-avail-asset.py?raw';
-import boxEx from '/examples/smart-contracts/py/resource-avail-box.py?raw';
-
 Algorand smart contracts do not have default access to the entire blockchain ledger. Therefore, when a smart contract method needs to access resources such as accounts, assets (ASA), other applications (smart contracts), or box references, these must be provided through the reference array during invocation. This page explains what reference arrays are, why they are necessary, the different ways to provide them, and includes a series of code examples.
 
 ## Resource Availability
