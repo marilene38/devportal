@@ -14,7 +14,10 @@ const featureCtaData = {
 ---
 
 <section
-  class='feature-cta bg-algo-lavender-100 dark:bg-algo-teal-500 bg-[url(/grid-lavender.png)] dark:bg-[url(/grid-white.png)] bg-repeat bg-cover bg-center rounded-[21px] my-10! lg:my-[140px]!'
+  class:list={[
+    'feature-cta relative bg-algo-lavender-100 dark:bg-algo-teal-500 before:bg-[url(/grid-lavender.png)] dark:before:bg-[url(/grid-white.png)]',
+    'before:bg-repeat before:bg-cover before:bg-center before:opacity-40 before:absolute before:inset-0 before:z-[-1] z-0 rounded-[21px] my-10! lg:my-[140px]!',
+  ]}
 >
   <div
     class:list={[
