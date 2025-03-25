@@ -6,13 +6,6 @@ import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
 
-import accountAppEx from '/examples/smart-contracts/py/resource-avail-account-app.py?raw';
-import accountAssetEx from '/examples/smart-contracts/py/resource-avail-account-asset.py?raw';
-import accountEx from '/examples/smart-contracts/py/resource-avail-account.py?raw';
-import appEx from '/examples/smart-contracts/py/resource-avail-app.py?raw';
-import assetEx from '/examples/smart-contracts/py/resource-avail-asset.py?raw';
-import boxEx from '/examples/smart-contracts/py/resource-avail-box.py?raw';
-
 Algorand smart contracts do not have default access to the entire blockchain ledger. Therefore, when a smart contract method needs to access resources such as accounts, assets (ASA), other applications (smart contracts), or box references, these must be provided through the reference array during invocation. This page explains what reference arrays are, why they are necessary, the different ways to provide them, and includes a series of code examples.
 
 ## Resource Availability
@@ -119,7 +112,13 @@ reference to be provided during invocation.
     />
   </TabItem>
   <TabItem label='Algorand Python' icon='seti:python'>
-    <Code code={accountEx} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/reference_account/contract.py'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE'
+      lang='py'
+      title='Account Reference'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -137,7 +136,15 @@ Here are three different ways you can provide the account reference when calling
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/account_reference.py'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_1'
+      lang='py'
+      title='Account Reference Method 1'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ### Method #2: Using Reference Types
@@ -152,7 +159,15 @@ Here are three different ways you can provide the account reference when calling
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/account_reference.py'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_2'
+      lang='py'
+      title='Account Reference Method 2'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ### Method #3: Manually Input
@@ -167,7 +182,15 @@ Here are three different ways you can provide the account reference when calling
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/account_reference.py'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_3'
+      lang='py'
+      title='Account Reference Method 3'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ## Asset Reference Example
@@ -186,7 +209,13 @@ reference to be provided during invocation.
     />
   </TabItem>
   <TabItem label='Algorand Python' icon='seti:python'>
-    <Code code={assetEx} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/reference_asset/contract.py'
+      snippet='GET_ASSET_REFERENCE_EXAMPLE'
+      lang='py'
+      title='Asset Reference'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -204,7 +233,15 @@ Here are three different ways you can provide the asset reference when calling a
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/asset_reference.py'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_1'
+      lang='py'
+      title='Asset Reference Method 1'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ### Method #2: Using Reference Types
@@ -219,7 +256,15 @@ Here are three different ways you can provide the asset reference when calling a
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/asset_reference.py'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_2'
+      lang='py'
+      title='Asset Reference Method 2'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ### Method #3: Manually Input
@@ -234,7 +279,15 @@ Here are three different ways you can provide the asset reference when calling a
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/asset_reference.py'
+      snippet='ACCOUNT_REFERENCE_EXAMPLE_METHOD_3'
+      lang='py'
+      title='Asset Reference Method 3'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ## App Reference Example
@@ -253,7 +306,13 @@ The `ApplicationReference` smart contract requires the `Counter` application ref
     />
   </TabItem>
   <TabItem label='Algorand Python' icon='seti:python'>
-    <Code code={appEx} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/reference_app/contract.py'
+      snippet='APP_REFERENCE_EXAMPLE'
+      lang='py'
+      title='App Reference'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -271,9 +330,16 @@ Here are three different ways you can provide the app reference when calling a c
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/app_reference.py'
+      snippet='APP_REFERENCE_EXAMPLE_METHOD_1'
+      lang='py'
+      title='App Reference Method 1'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
-
 ### Method #2: Using Reference Types
 
 <Tabs syncKey='lang'>
@@ -286,22 +352,37 @@ Here are three different ways you can provide the app reference when calling a c
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/app_reference.py'
+      snippet='APP_REFERENCE_EXAMPLE_METHOD_2'
+      lang='py'
+      title='App Reference Method 2'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
-
 ### Method #3: Manually Input
 
 <Tabs syncKey='lang'>
   <TabItem label='TypeScript' icon='seti:typescript'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/typescript-examples/algokit-utils-ts/references/app-reference.ts'
-      snippet='APP_REFERENCE_EXAMPLE_METHOD_2'
+      snippet='APP_REFERENCE_EXAMPLE_METHOD_3'
       lang='ts'
-      title='App Reference Method 2'
+      title='App Reference Method 3'
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/app_reference.py'
+      snippet='APP_REFERENCE_EXAMPLE_METHOD_3'
+      lang='py'
+      title='App Reference Method 3'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ## Account + Asset Example
@@ -320,7 +401,13 @@ reference and the account reference to be provided during invocation.
     />
   </TabItem>
   <TabItem label='Algorand Python' icon='seti:python'>
-    <Code code={accountAssetEx} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/reference_account_asset/contract.py'
+      snippet='REFERENCE_ACCOUNT_ASSET_EXAMPLE'
+      lang='py'
+      title='Account + Asset Reference'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -338,7 +425,15 @@ Here are three different ways you can provide both the account reference and the
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/account_asset_reference.py'
+      snippet='ACCOUNT_ASSET_REFERENCE_EXAMPLE_METHOD_1'
+      lang='py'
+      title='Account + Asset Reference Method 1'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ### Method #2: Using Reference Types
@@ -353,7 +448,15 @@ Here are three different ways you can provide both the account reference and the
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/account_asset_reference.py'
+      snippet='ACCOUNT_ASSET_REFERENCE_EXAMPLE_METHOD_2'
+      lang='py'
+      title='Account + Asset Reference Method 2'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ### Method #3: Manually Input
@@ -368,7 +471,15 @@ Here are three different ways you can provide both the account reference and the
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/account_asset_reference.py'
+      snippet='ACCOUNT_ASSET_REFERENCE_EXAMPLE_METHOD_3'
+      lang='py'
+      title='Account + Asset Reference Method 3'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ## Account + Application Example
@@ -387,7 +498,13 @@ The `AccountAndAppReference` smart contract requires both the `Counter` applicat
     />
   </TabItem>
   <TabItem label='Algorand Python' icon='seti:python'>
-    <Code code={accountAppEx} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/reference_account_app/contract.py'
+      snippet='REFERENCE_ACCOUNT_APP_EXAMPLE'
+      lang='py'
+      title='Account + App Reference'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -405,9 +522,16 @@ Here are three different ways you can provide both the account reference and the
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/account_app_reference.py'
+      snippet='ACCOUNT_APP_REFERENCE_EXAMPLE_METHOD_1'
+      lang='py'
+      title='Account + Application Reference Method 1'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
-
 ### Method #2: Using Reference Types
 
 <Tabs syncKey='lang'>
@@ -420,9 +544,16 @@ Here are three different ways you can provide both the account reference and the
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/account_app_reference.py'
+      snippet='ACCOUNT_APP_REFERENCE_EXAMPLE_METHOD_2'
+      lang='py'
+      title='Account + Application Reference Method 2'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
-
 ### Method #3: Manually Input
 
 <Tabs syncKey='lang'>
@@ -435,7 +566,15 @@ Here are three different ways you can provide both the account reference and the
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/account_app_reference.py'
+      snippet='ACCOUNT_APP_REFERENCE_EXAMPLE_METHOD_3'
+      lang='py'
+      title='Account + Application Reference Method 3'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ## Application + Box Reference Example
@@ -455,7 +594,13 @@ This smart contract requires the box reference to be provided during invocation.
     />
   </TabItem>
   <TabItem label='Algorand Python' icon='seti:python'>
-    <Code code={boxEx} lang='py' frame='none' />
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/reference_app_box/contract.py'
+      snippet='REFERENCE_APP_BOX_EXAMPLE'
+      lang='py'
+      title='App + Box Reference'
+      frame='none'
+    />
   </TabItem>
 </Tabs>
 
@@ -473,7 +618,15 @@ Here are two different ways you can provide the box reference when calling a con
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/app_box_reference.py'
+      snippet='APP_BOX_REFERENCE_EXAMPLE_METHOD_1'
+      lang='py'
+      title='App + Box Reference Method 1'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
 
 ### Method #2: Manually Input
@@ -488,5 +641,13 @@ Here are two different ways you can provide the box reference when calling a con
       frame='none'
     />
   </TabItem>
-  <TabItem label='Python' icon='seti:python'></TabItem>
+  <TabItem label='Python' icon='seti:python'>
+    <RemoteCode
+      src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/algokit_utils_py_examples/references/app_box_reference.py'
+      snippet='APP_BOX_REFERENCE_EXAMPLE_METHOD_2'
+      lang='py'
+      title='App + Box Reference Method 2'
+      frame='none'
+    />
+  </TabItem>
 </Tabs>
