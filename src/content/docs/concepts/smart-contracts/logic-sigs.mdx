@@ -93,6 +93,7 @@ Logic signatures were historically the only way to write smart contracts on Algo
 The following code checks if the transaction is a self-payment with zero amount and no rekey or close actions. It ensures the transaction happens within a specific round and prevents replay attacks by verifying the genesis hash and lease field.
 
 <Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/self_payment/contract.py'
@@ -102,12 +103,12 @@ The following code checks if the transaction is a self-payment with zero amount 
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 The following logic signature ensures the contract will cover the fee for a prior transaction in a group, which must be an application call to a known app. It confirms the fee for this app call is zero and ensures the conditions are met for the payment to proceed.
 
 <Tabs syncKey='lang'>
+  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
   <TabItem label='Python' icon='seti:python'>
     <RemoteCode
       src='https://raw.githubusercontent.com/algorandfoundation/devportal-code-examples/refs/heads/main/projects/python-examples/smart_contracts/subsidize_app_call/contract.py'
@@ -117,7 +118,6 @@ The following logic signature ensures the contract will cover the fee for a prio
       frame='none'
     />
   </TabItem>
-  <TabItem label='TypeScript' icon='seti:typescript'></TabItem>
 </Tabs>
 
 ## Limitations and Considerations
