@@ -88,10 +88,12 @@ export default defineConfig({
             {
               label: 'AlgoKit Examples Gallery',
               link: 'https://examples.dev.algorand.co',
+              attrs: { target: '_blank', rel: 'noopener' },
             },
             {
               label: 'Interactive AlgoKit Code Tutorials',
               link: 'https://tutorials.dev.algorand.co',
+              attrs: { target: '_blank', rel: 'noopener' },
             },
             {
               label: 'Why Algorand?',
