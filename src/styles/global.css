@@ -251,3 +251,7 @@ html:has(.homepage-hero) {
     }
   }
 }
+
+div.sl-container thead th {
+  border-bottom: solid 1px var(--sl-color-accent-high);
+}

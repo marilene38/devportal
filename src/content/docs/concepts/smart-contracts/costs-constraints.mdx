@@ -3,6 +3,7 @@ title: Costs & Constraints
 ---
 
 import { Image } from 'astro:assets';
+import Figure from '/src/components/Figure.astro';
 import mbr1 from '@images/smart-contract-mbr-1.png';
 import mbr2 from '@images/smart-contract-mbr-1.png';
 import mbr3 from '@images/smart-contract-mbr-1.png';
@@ -20,15 +21,15 @@ The Minimum Balance Requirement (MBR) in Algorand refers to the minimum amount o
 
 For eg. for a basic account the minimum balance requirement is 0.1 Algo
 
-<Image src={mbr1} alt='mbr for basic account #1' />
+<Figure src={mbr1} alt='MBR for Basic Account #1' width='600' />
 
 Now if this account creates an asset like below:
 
-<Image src={mbr2} alt='mbr for basic account #1' />
+<Figure src={mbr2} alt='MBR for Basic Account #2' width='600' />
 
 The min balance of the account increases by 0.1 Algos and now the minimum balance is 0.2 Algos
 
-<Image src={mbr3} alt='mbr for basic account #1' />
+<Figure src={mbr3} alt='MBR for Basic Account #3' width='600' />
 
 ## Program Constraints
 
