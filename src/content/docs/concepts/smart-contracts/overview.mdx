@@ -4,7 +4,7 @@ title: Overview
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
-import { LinkCard } from '@astrojs/starlight/components';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 Algorand Smart Contracts (ASC1) are programs that serve various functions on the blockchain and operate on layer-1. Smart contracts are separated into two main categories: Applications and Logic Signatures.
 The type of contract will determine when and how the logic of the program is evaluated. Smart contracts can be written in either [Typescript](/concepts/smart-contracts/languages/typescript) or [Python](/concepts/smart-contracts/languages/python). These high-level languages are then compiled to [Transaction Execution Approval Language (TEAL)](/concepts/smart-contracts/languages/teal). TEAL is an assembly-like language that is interpreted by the [Algorand Virtual Machine (AVM)](/concepts/smart-contracts/avm) running within an Algorand node.
@@ -79,6 +79,7 @@ Algorand smart contracts are written in standard Python and TypeScript - known a
 
 Understanding these fundamental concepts is essential for developing effective smart contracts on Algorand.
 
+<CardGrid>
 <LinkCard
   title='Algorand Virtual Machine (AVM)'
   description='The runtime environment that executes TEAL code. Understanding AVM versions, opcodes, and constraints is crucial for advanced contract design.'
@@ -102,3 +103,4 @@ Understanding these fundamental concepts is essential for developing effective s
   description='Smart contract logic is limited by features like maximum TEAL program size, global/local state keys, box storage, etc. These constraints keep on-chain execution efficient and stable.'
   href='/concepts/smart-contracts/costs-constraints'
 />
+</CardGrid>
