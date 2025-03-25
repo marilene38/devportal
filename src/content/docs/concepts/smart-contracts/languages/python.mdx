@@ -3,7 +3,9 @@ title: Algorand Python
 description: Introduction to Algorand Python for writing smart contracts
 ---
 
-Algorand Python is a partial implementation of the Python programming language that runs on the Algorand Virtual Machine (AVM). It includes a statically typed framework for the development of Algorand smart contracts and logic signatures, with Pythonic interfaces to underlying AVM functionality.
+import { LinkCard } from '@astrojs/starlight/components';
+
+Algorand Python is a partial implementation of the Python programming language that runs on the Algorand Virtual Machine (AVM). It includes a statically typed framework for the development of Algorand Smart Contracts and Logic Signatures, with Pythonic interfaces to underlying AVM functionality.
 
 Algorand Python is compiled for execution on the AVM by PuyaPy, an optimizing compiler that ensures the resulting AVM bytecode execution semantics match the given Python code. PuyaPy produces output that is directly compatible with AlgoKit typed clients, simplifying the process of deployment and calling. This allows developers to use standard Python tooling in their workflow.
 
@@ -15,13 +17,21 @@ Algorand Python is compiled for execution on the AVM by PuyaPy, an optimizing co
 4. Efficiency: Algorand Python is compiled for execution on the AVM by PuyaPy, an optimizing compiler that ensures the resulting AVM bytecode execution semantics match the given Python code. This makes deployment and calling easy.
 5. Modularity: Algorand Python supports modular and loosely coupled solution components, facilitating efficient parallel development by small, effective teams, reducing architectural complexity, and allowing developers to pick and choose the specific tools and capabilities they want to use based on their needs and what they are comfortable with.
 
-:::note
-To install and start writing Algorand Python smart contracts refer to this [page](/getting-started/algokit-quick-start)
-:::
+<LinkCard
+  title='Getting Started with Algorand Python'
+  description='Learn how to install and start writing Algorand Python smart contracts'
+  href='/getting-started/algokit-quick-start'
+/>
 
 ## Python Implementation for AVM
 
-Algorand Python maintains the syntax and semantics of Python, supporting a subset of the language that will grow over time. However, due to the restricted nature of the AVM, it will never be a complete implementation. For example, `async` and `await` keywords are not supported as they don't make sense in the AVM context. To learn more refer to AVM Docs(/core-concepts/AVM).
+Algorand Python maintains the syntax and semantics of Python, supporting a subset of the language that will grow over time. However, due to the restricted nature of the AVM, it will never be a complete implementation. For example, `async` and `await` keywords are not supported as they don't make sense in the AVM context.
+
+<LinkCard
+  title='AVM Documentation'
+  description='Learn more about the Algorand Virtual Machine (AVM) and its implementation constraints'
+  href='/concepts/smart-contracts/avm'
+/>
 
 This partial implementation allows existing developer tools like IDE syntax highlighting, static type checkers, linters, and auto-formatters to work out of the box. This approach differs from other partial language implementations that add or alter language elements, which require custom tooling support and force developers to learn non-obvious differences from regular Python.
 
@@ -46,16 +56,16 @@ Several features of standard Python are not supported in Algorand Python due to 
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Exception handling (raise, try/except/finally) | Implementing user-defined exceptions would be costly in terms of opcodes. Additionally, AVM errors and exceptions are not catchable and will immediately terminate the program. As a result, supporting exceptions and exception handling offers minimal to no benefit.                                                                                                                                                                                 |
 | Context managers (with statements)             | Redundant without exception handling support                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Asynchronous programming (async/await)         | AVM is not just single-threaded; all operations are effectively “blocking”, rendering asynchronous programming useless.                                                                                                                                                                                                                                                                                                                                 |
-| Closures and lambdas                           | Without the support of function pointers, or other methods of invoking an arbitrary function, it’s impossible to return a function as a closure. Nested functions/lambdas may be supported in the future as a means of repeating common operations within a given function.                                                                                                                                                                             |
-| Global keyword                                 | Module-level values are only allowed to be constants. No rebinding of module constants is allowed. It’s unclear what the meaning here would be since there’s no real arbitrary means of storing a state without associating it with a particular contract. If you need such a thing, look at `gload_bytes` or `gload_uint64` to see if the contracts are within the same transaction. Otherwise `AppGlobal.get_ex_bytes` and `AppGlobal.get_ex_uint64`. |
-| Inheritance (outside of contract classes)      | Contract inheritance is a special case since each concrete contract is compiled separately; true polymorphism isn’t required as all references can be resolved at compile time. Polymorphism is also impossible to support without function pointers, so data classes (such as `arc4.Struct`) don’t currently allow for inheritance.                                                                                                                    |
+| Asynchronous programming (async/await)         | AVM is not just single-threaded; all operations are effectively "blocking", rendering asynchronous programming useless.                                                                                                                                                                                                                                                                                                                                 |
+| Closures and lambdas                           | Without the support of function pointers, or other methods of invoking an arbitrary function, it's impossible to return a function as a closure. Nested functions/lambdas may be supported in the future as a means of repeating common operations within a given function.                                                                                                                                                                             |
+| Global keyword                                 | Module-level values are only allowed to be constants. No rebinding of module constants is allowed. It's unclear what the meaning here would be since there's no real arbitrary means of storing a state without associating it with a particular contract. If you need such a thing, look at `gload_bytes` or `gload_uint64` to see if the contracts are within the same transaction. Otherwise `AppGlobal.get_ex_bytes` and `AppGlobal.get_ex_uint64`. |
+| Inheritance (outside of contract classes)      | Contract inheritance is a special case since each concrete contract is compiled separately; true polymorphism isn't required as all references can be resolved at compile time. Polymorphism is also impossible to support without function pointers, so data classes (such as `arc4.Struct`) don't currently allow for inheritance.                                                                                                                    |
 
 ## Python Primitives
 
 Algorand Python has limitations on standard Python primitives due to the constraints of the Algorand Virtual Machine (AVM).
 
-### Supported primitives:
+### Supported Primitives
 
 - `Bool`: Algorand Python has full support for `bool`.
 - `Tuple`: Python tuples are supported as arguments to subroutines, local variables, return types.
@@ -64,7 +74,7 @@ Algorand Python has limitations on standard Python primitives due to the constra
 
 The `int`, `str`, and `bytes` built-in types are currently only supported as module-level constants or literals. They can be passed as arguments to various Algorand Python methods that support them or when interacting with certain AVM types e.g. adding a number to a `UInt64`.
 
-### Unsupported primitives:
+### Unsupported Primitives
 
 - `Float` is not supported.
 - Nested tuples are not supported.
@@ -77,13 +87,27 @@ The PuyaPy compiler is a multi-stage, optimizing compiler that takes Algorand Py
 
 The PuyaPy compiler is based on the Puya compiler architecture, which allows for multiple frontend languages to leverage the majority of the compiler logic. This makes adding new frontend languages for execution on Algorand relatively easy.
 
-For more details, refer to [Algokit installation page](/algokit/algokit-intro)
+<LinkCard
+  title='AlgoKit Installation Guide'
+  description='Learn more about installing and setting up AlgoKit for Algorand development'
+  href='/algokit/algokit-intro'
+/>
 
 ## Testing and Debugging
 
 The `algorand-python-testing` package allows for efficient unit testing of Algorand Python smart contracts in an offline environment. It emulates key AVM behaviors without requiring a network connection, offering fast and reliable testing capabilities with a familiar Pythonic interface.
 
-For more details, refer to [Algokit Python Test](/algokit/unit-testing/python/overview) and [Algokit Python Debugging](/algokit/utils/python/debugging)
+<LinkCard
+  title='AlgoKit Python Testing'
+  description='Learn how to unit test your Algorand Python smart contracts in an offline environment'
+  href='/algokit/unit-testing/python/overview'
+/>
+
+<LinkCard
+  title='AlgoKit Python Debugging'
+  description='Discover tools and techniques for debugging Algorand Python smart contracts'
+  href='/algokit/utils/python/debugging'
+/>
 
 ## Best Practices
 
@@ -94,4 +118,8 @@ For more details, refer to [Algokit Python Test](/algokit/unit-testing/python/ov
 
 ## Resources for Further Learning
 
-For a comprehensive introduction to writing, compiling, and debugging a smart contract with Algorand Python, refer to the [Algokit Python smart contracts tutorial](/getting-started/algokit-quick-start) for beginners. This tutorial provides step-by-step guidance on getting started with Algorand Python.
+<LinkCard
+  title='Getting Started with Algorand Python'
+  description='A comprehensive tutorial for beginners on writing, compiling, and debugging smart contracts with Algorand Python'
+  href='/getting-started/algokit-quick-start'
+/>

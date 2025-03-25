@@ -5,7 +5,7 @@ title: Algorand Virtual Machine
 The AVM is a bytecode based stack interpreter that executes programs
 associated with Algorand transactions. TEAL is an assembly language
 syntax for specifying a program that is ultimately converted to AVM
-bytecode. These programs can be used to check the parameters of the
+bytecode. These programs can be used to check the parameters of a
 transaction and approve the transaction as if by a signature. This use
 is called a _Logic Signature_. Starting with v2, these programs may
 also execute as _Smart Contracts_, which are often called
@@ -34,20 +34,15 @@ rather than coming from the stack.
 
 The maximum stack depth is 1000. If the stack depth is exceeded or if
 a byte-array element exceeds 4096 bytes, the program fails. If an
-opcode is documented to access a position in the stack that does not
+opcode tries to access a position in the stack that does not
 exist, the operation fails. Most often, this is an attempt to access
-an element below the stack -- the simplest example is an operation
+an element below the stack — the simplest example is an operation
 like `concat` which expects two arguments on the stack. If the stack
-has fewer than two elements, the operation fails. Some operations, like
-`frame_dig` and `proto` could fail because of an attempt to access
-above the current stack.
+has fewer than two elements, the operation fails. Some operations like `frame_dig` which retrieves values from subroutine parameters and `proto` which sets up subroutine stack frames could fail because of an attempt to access above the current stack.
 
 ## Stack Types
 
-While every element of the stack is restricted to the types `uint64` and `bytes`,
-the values of these types may be known to be bounded. The more common bounded types are
-named to provide more semantic information in the documentation. They're also used during
-assembly time to do type checking and to provide more informative error messages.
+While the stack can only store two basic types of values - `uint64` and `bytes` - these values are often bounded, meaning they have specific ranges or limits on what they can contain. For example, a boolean value is just a `uint64` that must be either 0 or 1, and an address must be exactly 32 bytes long. These limited types are named to make the documentation easier to understand and to help catch errors during program creation.
 
 #### Definitions
 
@@ -67,8 +62,8 @@ assembly time to do type checking and to provide more informative error messages
 ## Scratch Space
 
 In addition to the stack there are 256 positions of scratch
-space. Like stack values, scratch locations may be uint64s or
-byte-arrays. Scratch locations are initialized as uint64 zero. Scratch
+space. Like stack values, scratch locations may be `uint64` or
+`bytes`. Scratch locations are initialized as `uint64` zero. Scratch
 space is accessed by the `load(s)` and `store(s)` opcodes which move
 data from or to scratch space, respectively. Application calls may
 inspect the final scratch space of earlier application calls in the
@@ -80,7 +75,7 @@ In order to maintain existing semantics for previously written
 programs, AVM code is versioned. When new opcodes are introduced, or
 behavior is changed, a new version is introduced. Programs carrying
 old versions are executed with their original semantics. In the AVM
-bytecode, the version is an incrementing integer, currently 6, and
+bytecode, the version is an incrementing integer and
 denoted vX throughout this document.
 
 ## Execution Modes
@@ -102,7 +97,7 @@ Differences between modes include:
 
 Logic Signatures execute as part of testing a proposed transaction to
 see if it is valid and authorized to be committed into a block. If an
-authorized program executes and finishes with a single non-zero uint64
+authorized program executes and finishes with a single non-zero `uint64`
 value on the stack then that program has validated the transaction it
 is attached to.
 
@@ -122,17 +117,16 @@ A program can either authorize some delegated action on a normal
 signature-based or multisignature-based account or be wholly in charge
 of a contract account.
 
-- If the account has signed the program (by providing a valid ed25519
+- If the account has signed the program by providing a valid ed25519
   signature or valid multisignature for the authorizer address on the
-  string "Program" concatenated with the program bytecode) then: if the
-  program returns true the transaction is authorized as if the account
-  had signed it. This allows an account to hand out a signed program
+  string "Program" concatenated with the program bytecode, then the transaction is authorized as if the account
+  had signed it, provided that the program returns true. This allows an account to hand out a signed program
   so that other users can carry out delegated actions which are
   approved by the program. Note that Logic Signature Args are _not_
   signed.
 
-- If the SHA512_256 hash of the program (prefixed by "Program") is
-  equal to authorizer address of the transaction sender then this is a
+- If the SHA512_256 hash of the program, prefixed by "Program", is
+  equal to the authorizer address of the transaction sender then this is a
   contract account wholly controlled by the program. No other
   signature is necessary or possible. The only way to execute a
   transaction against the contract account is for the program to
@@ -146,13 +140,13 @@ transactions in the group (1000 bytes is defined in consensus parameter
 
 Each opcode has an associated cost, usually 1, but a few slow operations
 have higher costs. Prior to v4, the program's cost was estimated as the
-static sum of all the opcode costs in the program (whether they were
-actually executed or not). Beginning with v4, the program's cost is
+static sum of all the opcode costs in the program, whether they were
+actually executed or not. Beginning with v4, the program's cost is
 tracked dynamically while being evaluated. If the program exceeds its
 budget, it fails.
 
 The total program cost of all Logic Signatures in a group must not
-exceed 20,000 (consensus parameter LogicSigMaxCost) times the number
+exceed 20,000 (consensus parameter `LogicSigMaxCost`) times the number
 of transactions in the group.
 
 ## Execution Environment for Smart Contracts
@@ -167,8 +161,8 @@ ApprovalProgram. If the ClearStateProgram fails, application state
 changes are rolled back, but the transaction still succeeds, and the
 Sender's local state for the called application is removed.
 
-Smart Contracts have access to everything a Logic Signature may access
-(see previous section), as well as the ability to examine blockchain
+Smart Contracts have access to everything a Logic Signature may access,
+as well as the ability to examine blockchain
 state such as balances and contract state (their own state and the
 state of other contracts). They also have access to some global
 values that are not visible to Logic Signatures because the values
@@ -190,8 +184,8 @@ pooled budget by `MaxAppProgramCost` at the time the inner group is submitted
 with `itxn_submit`.
 
 Executions of the ClearStateProgram are more stringent, in order to
-ensure that applications may be closed out, but that applications also
-are assured a chance to clean up their internal state. At the
+ensure that applications may be closed out, but that applications are
+also assured a chance to clean up their internal state. At the
 beginning of the execution of a ClearStateProgram, the pooled budget
 available must be `MaxAppProgramCost` or higher. If it is not, the
 containing transaction group fails without clearing the app's
@@ -333,15 +327,28 @@ An application transaction must indicate the action to be taken following the ex
 
 ## Operations
 
-Most operations work with only one type of argument, uint64 or bytes, and fail if the wrong type value is on the stack.
+Most operations work with only one type of argument, `uint64` or `bytes`, and fail if the wrong type value is on the stack.
 
-Many instructions accept values to designate Accounts, Assets, or Applications. Beginning with v4, these values may be given as an _offset_ in the corresponding Txn fields (Txn.Accounts, Txn.ForeignAssets, Txn.ForeignApps) _or_ as the value itself (a byte-array address for Accounts, or a uint64 ID). The values, however, must still be present in the Txn fields. Before v4, most opcodes required the use of an offset, except for reading account local values of assets or applications, which accepted the IDs directly and did not require the ID to be present in the corresponding _Foreign_ array. (Note that beginning with v4, those IDs _are_ required to be present in their corresponding _Foreign_ array.) See individual opcodes for details. In the case of account offsets or application offsets, 0 is specially defined to Txn.Sender or the ID of the current application, respectively.
+Many instructions accept values to designate Accounts, Assets, or Applications.
+Beginning with v4, these values may be given as an _offset_ in the corresponding Txn fields
+(Txn.Accounts, Txn.ForeignAssets, Txn.ForeignApps) _or_ as the value itself
+(a byte-array address for Accounts, or a uint64 ID).
+The values, however, must still be present in the Txn fields.
+Before v4, most opcodes required the use of an offset,
+except for reading account local values of assets or applications,
+which accepted the IDs directly and did not require the ID to be present in the corresponding _Foreign_ array.
+(Note that beginning with v4, those IDs _are_ required to be present in their corresponding _Foreign_ array.)
+See individual opcodes for details. In the case of account offsets or application offsets,
+0 is specially defined to Txn.Sender or the ID of the current application, respectively.
 
 This summary is supplemented by more detail in the [opcodes document](/reference/algorand-teal/opcodes).
 
 Some operations immediately fail the program.
 A transaction checked by a program that fails is not valid.
-An account governed by a buggy program might not have a way to get assets back out of it. Code carefully.
+
+:::caution
+If an account is controlled by a program with bugs, there may be no way to recover assets locked in that account.
+:::
 
 In the documentation for each opcode, the stack arguments that are
 popped are referred to alphabetically, beginning with the deepest

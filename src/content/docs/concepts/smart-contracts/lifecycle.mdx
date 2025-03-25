@@ -3,3 +3,112 @@ title: Smart Contract Development Lifecycle
 sidebar:
   label: Development Lifecycle
 ---
+
+This page will walk you through the Algorand smart contract development lifecycle, a comprehensive process that guides developers from initial setup to final deployment on MainNet. By following these steps with AlgoKit, you’ll be able to build robust, secure, and efficient smart contracts in either [Algorand Python](/concepts/smart-contracts/languages/python) or [Algorand TypeScript](/concepts/smart-contracts/languages/typescript).
+
+## Project Initialization
+
+### Environment setup
+
+Before you start coding, it’s crucial to have a reliable development environment. AlgoKit streamlines this process by automatically installing all required dependencies and configuring a local network. Rather than manually setting up nodes or downloading multiple tools, you simply run a few commands and let AlgoKit handle the rest. This approach not only saves time but also reduces setup errors, ensuring you have a consistent environment across different machines and team members.
+
+### Base Project
+
+- Run `algokit init` and choose one of the templates to generate a base project structure.
+
+- This project will include all files needed to start coding immediately, and by using `algokit project bootstrap` you will have all your project dependencies up and running.
+
+### Defining your goals and logic
+
+Before writing any code, take a moment to outline your contract’s objectives, logic and flow. Think about how users will interact with your contract, what data it will store, and any conditions or validations needed.
+Given that AlgoKit abstracts away many low-level details, you can focus purely on your dapp functionality instead of dealing with TEAL code or low level artifacts. This top-down approach helps you stay organized and makes the development experience smoother from the outset.
+
+## Implementation
+
+### Write your Smart Contract logic
+
+Your main task is to implement the business logic behind your application. You can choose between [Algorand Python](/concepts/smart-contracts/languages/python) or [Algorand TypeScript](/concepts/smart-contracts/languages/typescript). With AlgoKit Utils, the compilation and deployment steps are a smooth process. You won’t need to worry about generating TEAL or managing separate files for approval and clear programs. AlgoKit does all of that for you under the hood.
+
+This approach encourages clean, readable code while still harnessing the full power of the Algorand blockchain. It also makes it easier for developers who are familiar with Python or TypeScript to contribute without learning a new, lower-level language.
+
+### Build and generate artifacts
+
+Once your contract logic is ready, you can run:
+
+```bash
+algokit project run build
+```
+
+This command compiles your smart contract into the artifacts required for both testing and deployment. In practical terms, these artifacts are machine-readable files that the network will execute. They’re stored in a well-organized location within your project, keeping everything neat and accessible.
+
+With these artifacts in place, you have all you need for the next phases—testing, auditing, and eventually deploying your contract. The simplicity of this process means you can iterate on your logic quickly without getting bogged down in technical details.
+
+With AlgoKit, you can focus on writing clear, maintainable code. You won’t need to manually define separate contract programs or worry about complexities like approval/clear distinctions.
+
+## Local Testing
+
+### Unit testing
+
+Quality assurance is essential for any application, and smart contracts are no exception. AlgoKit provides built-in support for local testing through tools like algopy-test. These tests run directly against your contract code, allowing you to verify each function’s correctness and spot logical errors early in the development cycle.
+
+Additionally, AlgoKit manages a local development network automatically, meaning you don’t have to spin up Docker containers or manually configure node settings. Each time you update your code, you can re-run your unit tests to catch regressions immediately. This practice leads to more stable code and fewer surprises later on.
+
+### Explore with Lora
+
+While unit tests cover your basic logic, sometimes you need a more visual approach to verify how your contracts behave in an actual blockchain environment. This is where Lora comes in. Lora acts as a localnet explorer that lets you visualize transactions, monitor contract states, and confirm that your application behaves as expected. It’s especially useful for understanding the real flow of funds or data through your contract.
+
+By combining structured tests with a hands-on explorer like Lora, you get a comprehensive understanding of your contract’s performance and reliability in a controlled setting.
+
+## TestNet Testing
+
+Once your contract passes local tests, you can deploy it to the public Algorand TestNet to validate performance in a live environment without risking real ALGO.
+
+- Deployment to TestNet - Use `algokit deploy` pointing to TestNet for a quick and automated setup.
+
+- Exploration and Verification - Check your contract interactions using Lora or another block explorer configured for TestNet.
+
+- Programmatic Interaction - From your own scripts or applications, you can interact with the deployed contract using AlgoKit utils in Python or Typescript. This helps you confirm that transaction flows, and other on-chain behaviors work as intended.
+
+## Audit
+
+Security and correctness are paramount for any on-chain application:
+
+- Internal Reviews
+
+  Encourage your team to review the code, focusing on best practices, clarity, and maintainability. Peer reviews often catch minor issues that automated tests don’t.
+
+- Third-Party Audits
+
+  Professional auditors or community experts bring a fresh perspective and can identify security loopholes or design flaws. Their evaluations might include stress tests, code analysis, and reviews of common pitfalls.
+
+- Common Issues
+
+  Even with thorough testing and reviews, bugs happen. Common problems often involve unexpected edge cases, incorrect assumptions about network behavior, or mismanagement of user permissions. Address these vulnerabilities promptly to avoid costly problems on MainNet. You may get help from the community in discord or the Algorand Forum.
+
+## Deploy to Mainnet
+
+When you’re confident in your contract’s stability, you can deploy to the Algorand MainNet:
+
+- AlgoKit Deploy
+
+  By running `algokit deploy` configured for MainNet you’ll publish your contract to the live Algorand network. AlgoKit automates the inclusion of final parameters, ABI handling and artifacts generation, ensuring that your deployment process is smooth and reliable.
+
+- Alternative Approaches
+
+  While AlgoKit is the recommended solution for most scenarios, you might need a tailored script for advanced use cases. In such cases, you can still leverage AlgoKit utils or integrate other methods to achieve your desired results.
+
+- Verification
+
+  Once deployed, verify that the on-chain details—such as global or local states—match what you expect. This final check confirms everything is set up properly, and no additional initialization calls are needed. Since Algorand’s blockchain is immutable, any mistake here can be costly or permanent, making it essential to double-check configurations.
+
+## Optional Frontend Integration
+
+Not all smart contracts require a user-facing interface, but if you’re building a dApp that users interact with directly, frontend integration becomes an important step:
+
+You can build your UI using any popular web framework—React, Angular, or Vue—and connect to your smart contract with AlgoKit Utils, it includes client methods, making it simple to invoke contract functions, handle user signatures, and respond to on-chain events without manually crafting transaction objects.
+
+:::note
+
+By following this structured development lifecycle—from environment setup and contract implementation to auditing, deployment, and optional frontend integration—you’ll ensure that your Algorand applications are secure, efficient, and ready for real-world usage.
+
+:::

@@ -10,25 +10,19 @@ import rekeySingleMulti from '@images/account-rekey-single-multisig.png';
 import rekeySingleSingle from '@images/account-rekey-single-single.png';
 import rekeyStandardAccount from '@images/accounts-rekey-standard-account.png';
 
-Rekeying is a powerful protocol feature that enables an Algorand account holder to maintain a static public address while dynamically rotating the authoritative private spending key(s). This is accomplished by issuing a transaction with the rekey-to field set the authorized address field within the account object. Future transaction authorization using the account's public address must be provided by the spending key(s) associated with the authorized address, which may be a single key address, MultiSig address, or LogicSig program address. The term “spending key(s)” is used throughout this document to signify that a single key or a set of keys from a MultiSig account may be authorized from a given public address. The address itself cannot distinguish how many spending keys are specifically required.
+Rekeying is a powerful protocol feature that enables an Algorand account holder to maintain a static public address while dynamically rotating the authoritative private spending key(s). This is accomplished by issuing a transaction with the rekey-to field set the authorized address field within the account object. Future transaction authorization using the account's public address must be provided by the spending key(s) associated with the authorized address, which may be a single key address, MultiSig address, or LogicSig program address. Rekeying an account only affects the authorizing address for that account. Note that an account is distinct from an address, so several essential points may not be obvious:
 
-Rekeying an account only affects the authorizing address for that account. Note that an Account is distinct from an address, so several essential points may not be obvious:
-
-1. If an account is closed (balance to 0), the rekey setting is lost (see previous caution).
+1. If an account is closed (balance to 0), the rekey setting is lost.
 2. Rekeys are not recursively resolved. If A is rekeyed to B and B rekeyed to C, B will authorize A's transactions, not C.
 3. Rekeying members of a Multisig does not affect the Multisig authorization since it's composed of Addresses, not accounts. If necessary, the Multisig account would need to be rekeyed.
-
-:::caution
-Using the `--close-to` parameter on any transaction from a rekeyed account will remove the auth-addr field, thus reverting signing authority to the original address. The `--close-to` parameter should be used with caution by keyholder(s) of auth-addr as the effects remove their authority to access this account thereafter.
-:::
 
 The result of a confirmed rekey-to transaction will be the "auth-addr" field of the account object is defined, modified, or removed. Defining or modifying means only the corresponding authorized address's private spending key(s) may authorize future transactions for this public address. Removing the "auth-addr" field is an explicit assignment of the authorized address back to the “addr" field of the account object (observed implicitly because the field is not displayed).
 
 To provide maximum flexibility in key management options, the "auth-addr" may be specified within a rekey-to transaction as a distinct foreign address representing a single key address, MultiSig address, or LogicSig program address. The protocol does not validate control of the required spending key(s) associated with the authorized address defined by `--rekey-to` parameter when the rekey-to transaction is sent. This is by design and affords additional privacy features to the new authorized address. It is incumbent upon the user to ensure proper key management practices and `--rekey-to` assignments.
 
-## Account Review
-
-The [keys and signing](/concepts/accounts/keys-signing) page introduces keys, addresses, and accounts. During initial account generation, a public key and corresponding private spending key are created to derive the Algorand address. This public address is commonly displayed within wallet software and remains static for each account. When you receive Algo or other assets, they will be sent to your public Algorand address. When you send from your account, the transaction must be authorized using the appropriate private spending key(s).
+:::caution
+Using the `--close-to` parameter on any transaction from a rekeyed account will remove the auth-addr field, thus reverting signing authority to the original address. The `--close-to` parameter should be used with caution by keyholder(s) of auth-addr as the effects remove their authority to access this account thereafter.
+:::
 
 ## Authorized Addresses
 
@@ -40,7 +34,7 @@ Conceptually illustrated in the image below, a “standard" account uses its pri
 
 ### Standard Account
 
-Use the following code sample to view a standard account on BetaNet:
+Use the following code sample to view a standard account on localnet:
 
 ```shell showLineNumbers=false frame=none
 goal account dump --address NFFMZJC6H52JLEAITTJ7OIML3XCJFKIRXYRJLO4WLWIJZB7N6CTWESRAZU`
@@ -60,10 +54,10 @@ Notice that the response includes the “add" field, which is the public address
 
 ### Rekeyed Account
 
-Next, modify your command slightly to display results for this rekeyed account:
+Next, modify your command to display results for this rekeyed account `L42DW7MSHP4PMIAZSDAXYTZVHTE756KGXCJYGFKCET5XHIAWLBYYNSMZQU`:
 
 ```shell showLineNumbers=false frame=none
-L42DW7MSHP4PMIAZSDAXYTZVHTE756KGXCJYGFKCET5XHIAWLBYYNSMZQU
+goal account dump --address L42DW7MSHP4PMIAZSDAXYTZVHTE756KGXCJYGFKCET5XHIAWLBYYNSMZQU
 ```
 
 Response:
@@ -77,17 +71,17 @@ Response:
 }
 ```
 
-This response includes the addition of the “spend" field. This is the “auth-addr" within the account object and signifies any transactions from `L42DW7MSHP4PMIAZSDAXYTZVHTE756KGXCJYGFKCET5XHIAWLBYYNSMZQU` must now be authorized by `NFFMZJC6H52JLEAITTJ7OIML3XCJFKIRXYRJLO4WLWIJZB7N6CTWESRAZU` to be confirmed by the network.
+This response includes the addition of the “spend" field. This is the `auth-addr` within the account object and signifies any transactions from `L42DW7MSHP4PMIAZSDAXYTZVHTE756KGXCJYGFKCET5XHIAWLBYYNSMZQU` must now be authorized by `NFFMZJC6H52JLEAITTJ7OIML3XCJFKIRXYRJLO4WLWIJZB7N6CTWESRAZU` to be confirmed by the network.
 
 ## Rekey-to Transaction
 
-A rekey-to transaction is a transaction that includes the `rekey-to` parameter set to a well-formed Algorand address. The existing authorized address must provide authorization for this transaction. As shown in the first example account above, the authorized address is implicitly the “addr” field of this account even though the "auth-addr” field is not explicitly defined. Only the private spending key of this “addr” address may be used to authorize a rekey-to transaction.
+A `rekey-to` transaction allows aallows an account holder to change the spending authority of their account without changing the account's public address. A rekey-to transaction enables an account owner to delegate their spending authority to a different private key while maintaining the same public address. This means the original account can transfer its authorization to sign and approve transactions to a new key without creating a new account or changing the account's address. The existing authorized address must provide authorization for this transaction.
 
 The rekey-to transaction workflow is as follows:
 
-Construct a transaction that specifies an address for the `rekey-to` parameter  
- Add the required signature(s) from the current authorized address  
- Send and confirm the transaction on the network
+- Construct a transaction that specifies an address for the `rekey-to` parameter
+- Add the required signature(s) from the current authorized address
+- Send and confirm the transaction on the network
 
 ### Construct Transaction
 
@@ -109,28 +103,24 @@ rekey.txn[0]
 {
   "txn": {
     "fee": 1000,
-    "fv": 4921687,
-    "gen": "betanet-v1.0",
-    "gh": "mFgazF+2uRS1tMiL9dsj01hJGySEmPN28B/TjjvpVW0=",
-    "lv": 4922687,
-    "note": "bbD6hjNZNdg=",
-    "rcv": "L42DW7MSHP4PMIAZSDAXYTZVHTE756KGXCJYGFKCET5XHIAWLBYYNSMZQU",
-   "rekey": "NFFMZJC6H52JLEAITTJ7OIML3XCJFKIRXYRJLO4WLWIJZB7N6CTWESRAZU",
-   "snd": "L42DW7MSHP4PMIAZSDAXYTZVHTE756KGXCJYGFKCET5XHIAWLBYYNSMZQU",
+    "fv": 13,
+    "gen": "dockernet-v1",
+    "gh": "vcylk8SA+P4FtSqsjC6lPg9SSQ4N4vceuS0YtfwINNs=",
+    "lv": 1013,
+    "note": "nhQgvEgErb0=",
+    "rcv": "AOHTIQTUP5GFSZA2G4HIARTZRGM6P4X2HGPJVHTCRN7VJKR4IWCFZKC25A",
+    "rekey": "ICMJAXIDMRQ3W5T2T3O352NDA2KJQWPFS3G4SR74DJLOL7N46YET2CWHUA",
+    "snd": "AOHTIQTUP5GFSZA2G4HIARTZRGM6P4X2HGPJVHTCRN7VJKR4IWCFZKC25A",
     "type": "pay"
   }
 }
 ```
 
-Construction of the rekey-to transaction includes the `rekey-to` parameter and the value `"NFFMZJC6H52JLEAITTJ7OIML3XCJFKIRXYRJLO4WLWIJZB7N6CTWESRAZU"`. Notice the resulting unsigned transaction output includes the "rekey" field and this value.
+Construction of the rekey-to transaction includes the `rekey-to` parameter and the value `NFFMZJC6H52JLEAITTJ7OIML3XCJFKIRXYRJLO4WLWIJZB7N6CTWESRAZU`. Notice the resulting unsigned transaction output includes the "rekey" field and this value.
 
 ### Add Authorized Signature(s)
 
-Adding the currently authorized signature(s) to a rekey-to transaction is required before sending it to the network for confirmation. The “snd" field provides the address to the account object where the "auth-addr” field is defined.
-
-:::note
-The examples provided below demonstrate the commands in detail and allow you to rekey accounts in various scenarios.
-:::
+Adding the currently authorized signature(s) to a rekey-to transaction is required before sending it to the network for confirmation. The “snd" field provides the address to the account object where the "auth-addr” field is defined. The examples provided below demonstrate the commands in detail and allow you to rekey accounts in various scenarios.
 
 ### Send and Confirm
 
@@ -151,7 +141,7 @@ Below are a series of potential use cases for rekeying various accounts.
 
 ### 1 \- Rekey to Single Address
 
-The first scenario rekeys a single key account with address “A” to a distinct single key account with address "B.” This requires two single key accounts at time t0. The result from time t1 is that transactions for address “A” must be authorized by address "B.”
+The first scenario rekeys a single key account with address `A` to a distinct single key account with address `B`. This requires two single key accounts at time t0. The result from time t1 is that transactions for address `A` must be authorized by address `B`.
 
 <Image src={rekeySingleSingle} alt='Rekey to Single Address' />
 
@@ -164,7 +154,7 @@ ADDR_A="UGAGADYHIUGFGRBEPHXRFI6Z73HUFZ25QP32P5FV4H6B3H3DS2JII5ZF3Q"
 ADDR_B="LOWE5DE25WOXZB643JSNWPE6MGIJNBLRPU2RBAVUNI4ZU22E3N7PHYYHSY"
 ```
 
-View the initial authorized address for Account A using `goal`:
+View the initial authorized address for Account `A` using `goal`:
 
 ```shell showLineNumbers=false frame=none
 goal account dump --address $ADDR_A
@@ -180,11 +170,11 @@ Response:
 }
 ```
 
-The authorized address is defined as the “addr” field displayed here.
+The authorized address is defined as the `addr` field displayed here.
 
 #### Rekey to Single Address
 
-Account A intends to rekey its authorized address to `$ADDR_B,` which is the public address of Account “B”. This can be accomplished in a single `goal` command:
+Account `A` intends to rekey its authorized address to `$ADDR_B,` which is the public address of Account `B`. This can be accomplished in a single `goal` command:
 
 ```shell showLineNumbers=false frame=none
 goal clerk send --from $ADDR_A --to $ADDR_A --amount 0 --rekey-to $ADDR_B
@@ -207,7 +197,7 @@ will now display:
 }
 ```
 
-The populated "spend" field instructs the validation protocol to only approve transactions for this account object when authorized by that address's spending key(s). Validators will ignore all other attempted authorizations, including those from the public address defined in the "addr” field.
+The populated `spend` field instructs the validation protocol to only approve transactions for this account object when authorized by that address's spending key(s). Validators will ignore all other attempted authorizations, including those from the public address defined in the `addr` field.
 
 ##### TEST: Send with Auth A
 
@@ -219,7 +209,7 @@ goal clerk send --from $ADDR_A --to $ADDR_B --amount 100000
 
 #### Send from the Authorized Address
 
-Sending from the authorized address of Account "A" requires:
+Sending from the authorized address of Account `A` requires:
 
 Construct an unsigned transaction from `$ADDR_A`  
  Sign using authorized address `$ADDR_B`  
@@ -235,7 +225,7 @@ goal clerk send --from $ADDR_A --to $ADDR_B --amount 100000 --out send-single.tx
 
 ##### Sign Using Authorized Address
 
-Next, locate the wallet containing the private spending key for Account "B". The `goal clerk sign` command provides the flag `--signer`, which specifies the proper required authorized address `$ADDR_B`. Notice the `infile` flag reads in the unsigned transaction file from above and the `--outfile` flag writes the signed transaction to a separate file.
+Next, locate the wallet containing the private spending key for Account `B`. The `goal clerk sign` command provides the flag `--signer`, which specifies the proper required authorized address `$ADDR_B`. Notice the `infile` flag reads in the unsigned transaction file from above and the `--outfile` flag writes the signed transaction to a separate file.
 
 ```shell showLineNumbers=false frame=none
 goal clerk sign --signer $ADDR_B --infile send-single.txn --outfile send-single.stxn
@@ -249,25 +239,25 @@ Finally, send the the signed transaction file using `goal`:
 goal clerk rawsend --filename send-single.stxn
 ```
 
-This will succeed, sending the 100000 microAlgos from `$ADDR_A` to `$ADDR_B` using the private spending key of Account "B".
+This will succeed, sending the 100000 microAlgos from `$ADDR_A` to `$ADDR_B` using the private spending key of Account `B`.
 
 ### 2 \- Rekey to MultiSig Address
 
-The second scenario rekeys a single key account with public address "A" to a MultiSig address "BC_T1". This scenario reuses both Accounts "A" and "B", adds a third Account "C" and creates a MultiSig Account "BC_T1" comprised of addresses "B" and "C" with a threshold of 1\. The result will be the private spending key for `$ADDR_B` or `$ADDR_C` may authorize transaction from `$ADDR_A`.
+The second scenario rekeys a single key account with public address `A` to a MultiSig address `BC_T1`. This scenario reuses both Accounts `A` and `B`, adds a third Account `C` and creates a MultiSig Account `BC_T1` comprised of addresses `B` and `C` with a threshold of 1\. The result will be the private spending key for `$ADDR_B` or `$ADDR_C` may authorize transaction from `$ADDR_A`.
 
 <Image src={rekeySingleMulti} alt='Rekey to MultiSig Address' />
 
 #### Generate Additional Account
 
-Follow the same procedure as above to generate a third account for use as "C".
+Follow the same procedure as above to generate a third account for use as `C`.
 
 #### Generate a New MultiSig Account
 
-Reference the documentation to generate a MultiSig account. Ensure it uses both `$ADDR_B` and the new `$ADDR_C` with a threshold of 1 (so either “B" or "C” may authorize). Set the resulting account address to the `$ADDR_BC_T1` environment variable for use below.
+Reference the documentation to generate a MultiSig account. Ensure it uses both `$ADDR_B` and the new `$ADDR_C` with a threshold of 1 (so either `B` or `C` may authorize). Set the resulting account address to the `$ADDR_BC_T1` environment variable for use below.
 
 #### Rekey to MultiSig Address
 
-Recall from scenario 1 that Account "A" has already rekeyed to `$ADDR_B`.
+Recall from scenario 1 that Account `A` has already rekeyed to `$ADDR_B`.
 
 #### Construct Unsigned Transaction
 
@@ -290,7 +280,7 @@ goal clerk rawsend --filename rekey-multisig.stxn
 goal account dump --address $ADDR_A
 ```
 
-The rekey transaction will confirm, resulting in the "spend" field update within the account object:
+The rekey transaction will confirm, resulting in the `spend` field update within the account object:
 
 ```shell showLineNumbers=false frame=none
 {
@@ -306,8 +296,8 @@ The rekey transaction will confirm, resulting in the "spend" field update within
 Use the established pattern:
 
 Construct unsigned transaction  
- Sign transaction  
- Confirm transaction
+Sign transaction  
+Confirm transaction
 
 ```shell showLineNumbers=false frame=none
 goal clerk send --from $ADDR_A --to $ADDR_B --amount 100000 --msig-params="1 $ADDR_B $ADDR_C" --out send-multisig-bct1.txn

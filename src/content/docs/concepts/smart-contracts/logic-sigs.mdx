@@ -67,16 +67,6 @@ Figure: TEAL Delegated Signature
 
 For more information on how to sign using logic signatures refer to [signing using logic signatures](FUTURELINK)
 
-Code example:
-
-```py showLineNumbers=false frame=none
-Return Seq(
-    Assert(Txn.Amount() == Int(1)),
-    Assert(Txn.TypeEnum() == TxnType.Payment),
-    Assert(Txn.Receiver() == intended_receiver)
-)
-```
-
 This contract can:
 
 1. CloseRemainderTo vulnerability: The code doesn't check the CloseRemainderTo field. This allows a transaction to drain the account by closing it to another address.
