@@ -2857,17 +2857,18 @@ export default defineConfig({
               ],
             },
             {
-              label: 'Standards and Practices',
+              label: 'ARC Standards',
               collapsed: true,
-              items: [
-                {
-                  label: 'ARCs',
-                  collapsed: true,
-                  autogenerate: {
-                    directory: 'standards/arcs',
-                  },
-                },
-              ],
+              autogenerate: {
+                directory: 'arc-standards',
+              },
+            },
+            {
+              label: 'Additional Resources',
+              collapsed: true,
+              autogenerate: {
+                directory: 'resources',
+              },
             },
           ],
         },
