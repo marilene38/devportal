@@ -3,6 +3,8 @@ title: On-Chain Storage
 description: Data storage primitives in the Algorand Virtual Machine (AVM)
 ---
 
+import { LinkCard } from '@astrojs/starlight/components';
+
 In Algorand, when developing an application, data and values can be persistently saved on the decentralized ledger itself. This storage mechanism is known as on-chain storage.
 
 This storage can be global, local, or box storage.
@@ -15,17 +17,17 @@ The following section describes the main properties of each storage type.
 
 ## Global Storage
 
-Global Storage allows storing values on-chain through an application. This data will be linked to the application, and any user or client will be able to access the data only by interacting with the application.
+Global Storage allows storing values on an application. This data will be linked to the application, and any user or client will be able to access the data only by interacting with the application.
 
 ### Usage example
 
-When creating a voting application, the total number of votes for candidate A and candidate B could be stored in the Global Storage since these values are the total number of votes and are only related to the application, allowing any user or client access.
+For example, in a voting application, the total votes for each candidate could be stored in Global Storage. Since these values represent aggregate data for the entire application, they should be accessible to all users and clients.
 
 ### Storage characteristics
 
 - Global Storage is composed of key/value pairs that are limited to 128 bytes in total per pair.
 - It can store up to 64 key/value pairs.
-- A total of 8Kb of memory can be shared among the key/value pairs.
+- A total of 8Kb of memory can be used among the key/value pairs.
 
 ### Considerations
 
@@ -35,11 +37,15 @@ When storing data in Global Storage, keep in mind that depending on the type and
   100,000*(1+ExtraProgramPages) + (25,000+3,500)*schema.NumUint + (25,000+25,000)*schema.NumByteSlice
 ```
 
-- 100,000 micro Algo base fee for each page requested.
-- 25,000 + 3,500 = 28,500 for each UInt in the Global State schema
-- 25,000 + 25,000 = 50,000 for each byte slice in the Global State schema
+- 100,000 microAlgo base fee for each page requested.
+- 25,000 + 3,500 = 28,500 microAlgo for each UInt in the Global State schema
+- 25,000 + 25,000 = 50,000 microAlgo for each byte slice in the Global State schema
 
-For further details about Global Storage, read the following section: [Global Storage](/concepts/smart-contracts/storage/global/)
+<LinkCard
+  title='Learn more about Global Storage'
+  description='Detailed guide on implementing and managing Global Storage in Algorand smart contracts'
+  href='/concepts/smart-contracts/storage/global/'
+/>
 
 ## Local Storage
 
@@ -47,7 +53,7 @@ Local Storage stores data associated directly with an account that has opted-in 
 
 ### Usage example
 
-Again, when programming a voting application, storing each account’s vote may be necessary, so every user can check the candidate they voted for. This can be achieved by storing a key/value pair in each account’s local storage, this data will only be linked to the specific account that interacted with the smart contract.
+When programming a voting application, storing each account's vote may be necessary, so every user can check the candidate they voted for. This can be achieved by storing a key/value pair in each account's local storage. This data will only be linked to the specific account that interacted with the smart contract.
 
 ### Storage characteristics
 
@@ -69,20 +75,29 @@ When storing data in Local Storage, keep in mind that depending on the type and 
 - 25,000 + 3,500 = 28,500 for each UInt in the Local State schema
 - 25,000 + 25,000 = 50,000 for each byte-slice in the Local State schema
 
-For further details about Local Storage, read the following section: [Local Storage](/concepts/smart-contracts/storage/local/)
+<LinkCard
+  title='Learn more about Local Storage'
+  description='Detailed guide on implementing and managing Local Storage in Algorand smart contracts'
+  href='/concepts/smart-contracts/storage/local/'
+/>
 
 ## Boxes
 
-Box Storage will allow you to store larger amounts of data, associated with the application you’re creating. Every box can store up to 32KB and an application is capable of create as many boxes as it needs.
+Box Storage will allow you to store larger amounts of data, associated with the application you're creating. Every box can store up to 32KB and an application is capable of create as many boxes as it needs.
 
 ### Usage example
 
-For the previous example of the voting dapp, refactoring the application and moving from Global and Local Storage to Boxes is possible. This can be done by creating one Box for storing a struct containing the data stored in the Global State, the total votes per candidate. Also, one box per voter can be created, storing the candidate they voted for and identifying the box using the public address of the account, by doing this, there’s no need for the user to opt-in to the application since Local Storage is not used anymore.
+Let's revisit our voting application example using Box Storage instead of Global and Local Storage. We can store:
+
+- The total vote counts in a single box as a structured data type
+- Each voter's choice in a separate box, using the voter's address as the box name
+
+This approach eliminates the need for opt-in transactions since we're not using Local Storage.
 
 ### Storage characteristics
 
-- Every Box can store up to 32KB among the key(name) of the box and its content (a byte array)
-- An application can create as many boxes as it needs.
+- Each Box can store up to 32KB, split between the box name and its byte array content
+- Applications can create any number of boxes they need
 
 ### Considerations
 
@@ -93,10 +108,14 @@ For the previous example of the voting dapp, refactoring the application and mov
 (2500 per box) + (400 * (box size + key size))
 ```
 
-- For example, if a box is created with the name “BoxA” (a 4 byte long key) and with a size of 1024 bytes, the MBR for the app account increases by 413,700 microAlgo:
+- For example, if a box is created with the name "BoxA", a 4 byte long key, and with a size of 1024 bytes, the MBR for the app account increases by 413,700 microAlgo:
 
 ```shell showLineNumbers=false frame=none
 (2500) + (400 * (1024+4)) = 413,700 microAlgos
 ```
 
-For further details about Local Storage, read the following section: [Box Storage](/concepts/smart-contracts/storage/box/)
+<LinkCard
+  title='Learn more about Box Storage'
+  description='Detailed guide on implementing and managing Box Storage in Algorand smart contracts'
+  href='/concepts/smart-contracts/storage/box/'
+/>
