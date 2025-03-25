@@ -69,6 +69,7 @@ export default defineConfig({
       },
       social: {
         github: 'https://github.com/algorandfoundation/devportal',
+        discord: 'https://discord.gg/algorand',
         'x.com': 'https://x.com/algodevs',
         youtube: 'https://www.youtube.com/@algodevs',
       },
