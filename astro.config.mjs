@@ -2863,14 +2863,14 @@ export default defineConfig({
                 directory: 'arc-standards',
               },
             },
-            {
-              label: 'Additional Resources',
-              collapsed: true,
-              autogenerate: {
-                directory: 'resources',
-              },
-            },
           ],
+        },
+        {
+          label: 'Additional Resources',
+          collapsed: true,
+          autogenerate: {
+            directory: 'resources',
+          },
         },
       ],
     }),
