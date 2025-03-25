@@ -7,24 +7,24 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Code } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
 
-## What is Inner Transaction?
+## What are Inner Transactions?
 
 When a smart contract is deployed to the Algorand blockchain, it is assigned a unique identifier called the App ID. Additionally, every smart contract has an associated unique Algorand account.
 
-We call these accounts _application accounts_, and their unique identifier is a 58-character long public key known as the _application address_. The account allows the smart contract to function as an escrow account, which can hold and manage assets (ASA) and send transactions just like any other Algorand account.
+We call these accounts _application accounts_, and their unique identifier is a 58-character long public key known as the _application address_. The account allows the smart contract to function as an escrow account, which can hold and manage Algorand Standard Assets (ASA) and send transactions just like any other Algorand account.
 
 The transactions sent by the smart contract (application) account are called _Inner Transactions_.
 
 ## Inner Transaction Details
 
-Since application accounts are Algorand accounts, just like any other account, they need Algos to cover transaction fees when sending inner transactions. To fund the application account, any other account in the Algorand network can send Algos to the specified account. For funds to leave the smart contract, the following conditions must be met:
+Since application accounts are Algorand accounts, they need Algo to cover transaction fees when sending inner transactions. To fund the application account, any account in the Algorand network can send Algo to the specified account. For funds to leave the application account, the following conditions must be met:
 
-- The logic within the contract must submit an inner transaction.
+- The logic within the smart contract must submit an inner transaction.
 - The smart contract's logic must return true.
 
 A smart contract can issue up to 256 inner transactions with one application call. If any of these transactions fail, the smart contract call will also fail.
 
-Inner transactions support all the same transaction types as a regular account can make.
+Inner transactions support all the same transaction types that a regular account can make, including:
 
 - Payment
 - Key Registration
@@ -46,11 +46,11 @@ Clear state programs do not support creating inner transactions. However, clear 
 
 By default, fees for Inner Transactions are paid by the application account (NOT the smart contract method caller) and are set automatically to the minimum transaction fee.
 
-However, for many smart contracts (apps), this presents an attack vector in which the application account could be drained through repeated calls to send Inner Transactions that incur fee costs. The recommended pattern is to hard-code Inner Transaction fees to zero. This forces the app call sender to cover those fees through increased fees on the outer transaction through fee pooling. Fee pooling enables the application call to a smart contract method to cover the fees for inner transactions or any other transaction within an atomic transaction group.
-
-To illustrate this concept, let's examine a payment Inner Transaction example that utilizes fee pooling to force the app call sender to cover Inner Transaction fees:
+However, for many smart contracts, this presents an attack vector in which the application account could be drained through repeated calls to send Inner Transactions that incur fee costs. The recommended pattern is to hard-code Inner Transaction fees to zero. This forces the app call sender to cover those fees through increased fees on the outer transaction through fee pooling. Fee pooling enables the application call to a smart contract method to cover the fees for inner transactions or any other transaction within an atomic transaction group.
 
 ## Payment
+
+Smart contracts can send Algo payments to other accounts using payment inner transactions. The following example demonstrates how to create a payment inner transaction while ensuring the app call sender covers the transaction fees through fee pooling.
 
 <Tabs syncKey='lang'>
   <TabItem label='Algorand TypeScript' icon='seti:typescript'>
@@ -73,7 +73,7 @@ To illustrate this concept, let's examine a payment Inner Transaction example th
   </TabItem>
 </Tabs>
 
-## Asset(ASA) Create
+## Asset Create
 
 Assets can be created by a smart contract. Use the following contract code to create an asset with an inner transaction.
 
@@ -98,9 +98,9 @@ Assets can be created by a smart contract. Use the following contract code to cr
   </TabItem>
 </Tabs>
 
-## Asset(ASA) Opt In
+## Asset Opt In
 
-If a smart contract wishes to transfer an asset it holds or needs to opt into an asset, this can be done with an asset transfer inner transaction. If the smart contract created the asset (ASA) via an inner transaction, it does not need to opt into the asset.
+If a smart contract wishes to transfer an asset it holds or needs to opt into an asset, this can be done with an asset transfer inner transaction. If the smart contract created the asset via an inner transaction, it does not need to opt into the asset.
 
 <Tabs syncKey='lang'>
   <TabItem label='Algorand TypeScript' icon='seti:typescript'>
@@ -123,9 +123,9 @@ If a smart contract wishes to transfer an asset it holds or needs to opt into an
   </TabItem>
 </Tabs>
 
-## Asset(ASA) Transfer
+## Asset Transfer
 
-If a smart contract is opted into the asset (ASA), it can transfer the asset with an asset transfer transaction.
+If a smart contract is opted into the asset, it can transfer the asset with an asset transfer transaction.
 
 <Tabs syncKey='lang'>
   <TabItem label='Algorand TypeScript' icon='seti:typescript'>
@@ -148,7 +148,7 @@ If a smart contract is opted into the asset (ASA), it can transfer the asset wit
   </TabItem>
 </Tabs>
 
-## Asset(ASA) Freeze
+## Asset Freeze
 
 A smart contract can freeze any asset, where the smart contract is set as the freeze address.
 
@@ -173,7 +173,7 @@ A smart contract can freeze any asset, where the smart contract is set as the fr
   </TabItem>
 </Tabs>
 
-## Asset(ASA) Revoke
+## Asset Revoke
 
 A smart contract can revoke or clawback any asset where the smart contract address is specified as the asset clawback address.
 
@@ -198,7 +198,7 @@ A smart contract can revoke or clawback any asset where the smart contract addre
   </TabItem>
 </Tabs>
 
-## Asset(ASA) Configuration
+## Asset Configuration
 
 As with all assets, the mutable addresses can be changed using contract code similar to the code below. Note these these addresses cannot be changed once set to an empty value.
 
@@ -223,7 +223,7 @@ As with all assets, the mutable addresses can be changed using contract code sim
   </TabItem>
 </Tabs>
 
-## Asset (ASA) Delete
+## Asset Delete
 
 Assets managed by the contract can also be deleted. This can be done with the following contract code. Note that the entire supply of the asset must be returned to the contract account before deleting the asset.
 
@@ -286,6 +286,8 @@ A smart contract can call other smart contracts using any of the OnComplete type
 
 ### NoOp Application call
 
+A NoOp application call allows a smart contract to invoke another smart contract's logic. This is the most common type of application call used for general-purpose interactions between contracts.
+
 <Tabs syncKey='lang'>
   <TabItem label='Algorand TypeScript' icon='seti:typescript'>
     <RemoteCode
@@ -308,6 +310,8 @@ A smart contract can call other smart contracts using any of the OnComplete type
 </Tabs>
 
 ### Deploy smart contract via inner transaction
+
+Smart contracts can dynamically create and deploy other smart contracts using inner transactions. This powerful feature enables contracts to programmatically spawn new applications on the blockchain.
 
 <Tabs syncKey='lang'>
   <TabItem label='Algorand TypeScript' icon='seti:typescript'>
