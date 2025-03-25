@@ -4,6 +4,8 @@ sidebar:
   label: Development Lifecycle
 ---
 
+import { LinkCard } from '@astrojs/starlight/components';
+
 This page will walk you through the Algorand smart contract development lifecycle, a comprehensive process that guides developers from initial setup to final deployment on MainNet. By following these steps with AlgoKit, you’ll be able to build robust, secure, and efficient smart contracts in either [Algorand Python](/concepts/smart-contracts/languages/python) or [Algorand TypeScript](/concepts/smart-contracts/languages/typescript).
 
 ## Project Initialization
@@ -35,7 +37,7 @@ This approach encourages clean, readable code while still harnessing the full po
 
 Once your contract logic is ready, you can run:
 
-```bash
+```bash frame=none
 algokit project run build
 ```
 
@@ -47,17 +49,34 @@ With AlgoKit, you can focus on writing clear, maintainable code. You won’t nee
 
 ## Local Testing
 
-### Unit testing
+### Unit Testing
 
 Quality assurance is essential for any application, and smart contracts are no exception. AlgoKit provides built-in support for local testing through tools like algopy-test. These tests run directly against your contract code, allowing you to verify each function’s correctness and spot logical errors early in the development cycle.
 
 Additionally, AlgoKit manages a local development network automatically, meaning you don’t have to spin up Docker containers or manually configure node settings. Each time you update your code, you can re-run your unit tests to catch regressions immediately. This practice leads to more stable code and fewer surprises later on.
 
+<LinkCard
+  title='Unit Testing (Typescript)'
+  href='/algokit/unit-testing/typescript/overview'
+  description='Learn more about unit testing for Algorand Typescript'
+/>
+<LinkCard
+  title='Unit Testing (Python)'
+  href='/algokit/unit-testing/python/overview'
+  description='Learn more about unit testing for Algorand Python'
+/>
+
 ### Explore with Lora
 
-While unit tests cover your basic logic, sometimes you need a more visual approach to verify how your contracts behave in an actual blockchain environment. This is where Lora comes in. Lora acts as a localnet explorer that lets you visualize transactions, monitor contract states, and confirm that your application behaves as expected. It’s especially useful for understanding the real flow of funds or data through your contract.
+While unit tests cover your basic logic, sometimes you need a more visual approach to verify how your contracts behave in an actual blockchain environment. This is where [Lora](https://lora.algokit.io) comes in. Lora acts as a localnet explorer that lets you visualize transactions, monitor contract states, and confirm that your application behaves as expected. It’s especially useful for understanding the real flow of funds or data through your contract.
 
 By combining structured tests with a hands-on explorer like Lora, you get a comprehensive understanding of your contract’s performance and reliability in a controlled setting.
+
+<LinkCard
+  title='Lora Overview'
+  href='/algokit/lora/overview'
+  description='Learn more using Lora to accelerate your builds'
+/>
 
 ## TestNet Testing
 

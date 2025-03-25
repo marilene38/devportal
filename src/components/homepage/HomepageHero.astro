@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import LaptopWhite from '@images/laptop-white.png';
-import LaptopLavender from '@images/laptop-lavender.png';
+import LaptopLight from '@images/laptop-light.png';
+import LaptopDark from '@images/laptop-dark.png';
 import CtaButton from './CtaButton.astro';
 
 const heroData = {
@@ -16,38 +16,50 @@ const heroData = {
 ---
 
 <section
-  class='homepage-hero bg-white dark:bg-algo-navy my-8! lg:my-[80px]! w-full min-h-[24rem]! lg:min-h-[38.5rem]!]'
+  class='homepage-hero bg-white dark:bg-algo-navy my-8! lg:my-8! w-full min-h-[24rem]! lg:min-h-[38.5rem]!]'
 >
   <div
     class='max-w-(--breakpoint-home-container) lg:flex lg:flex-row-reverse lg:items-center mx-auto! px-5 md:px-9'
   >
-    <div class='w-full'>
+    <div class='lg:min-w-[64%]'>
       <Image
-        src={LaptopWhite}
-        alt='laptop drawing in white outline'
-        class='hidden! dark:block! mt-0! w-full h-auto'
-      />
-      <Image
-        src={LaptopLavender}
+        src={LaptopLight}
         alt='laptop drawing in lavender outline'
         class='dark:hidden mt-0! w-full h-auto'
       />
+      <Image
+        src={LaptopDark}
+        alt='laptop drawing in lavender outline'
+        class='hidden! dark:block! mt-0! w-full h-auto'
+      />
+      <!-- TODO: replace with video when it is available -->
+      <!-- <video muted autoplay loop class='dark:hidden mt-0! w-full h-auto'>
+        <source src={LaptopLightClip} type='video/mp4' />
+      </video>
+      <video
+        muted
+        autoplay
+        loop
+        class='hidden! dark:block! mt-0! w-full h-auto'
+      >
+        <source src={LaptopDarkClip} type='video/webm' />
+      </video> -->
     </div>
-    <div class='mt-0! max-lg:mt-2! text-center lg:text-left'>
+    <div class='mt-0! max-lg:mt-4! text-center lg:text-left lg:min-w-[36%]'>
       <h1
-        class='font-bold text-5xl lg:text-[88px]! xl:text-[115px]! lg:min-w-[430px] text-algo-navy! dark:text-white!'
+        class='font-bold text-3xl md:text-5xl lg:text-[56px]! xl:text-[76px]! text-algo-navy! dark:text-white!'
       >
         {heroData.heading}
       </h1>
       <p
-        class='text-algo-navy dark:text-white lg:text-[21px] xl:text-[25px] lg:leading-none lg:max-w-[510px] mt-4! lg:mt-[50px]!'
+        class='text-algo-navy dark:text-white lg:text-[20px] xl:text-[22px] lg:leading-none lg:max-w-[510px] mt-4! lg:mt-[40px]!'
       >
         {heroData.description}
       </p>
       <CtaButton
         label={heroData.cta.label}
         url={heroData.cta.url}
-        classList='mt-4! lg:mt-[45px]!'
+        classList='mt-4! lg:mt-[40px]!'
       />
     </div>
   </div>
