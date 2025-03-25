@@ -3,6 +3,7 @@ title: Rekeying accounts
 ---
 
 import { Image } from 'astro:assets';
+import Figure from '/src/components/Figure.astro';
 import { Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import RemoteCode from '/src/components/RemoteCode.astro';
@@ -30,10 +31,7 @@ The balance record of every account includes the `auth-addr` field, which, when 
 
 Conceptually illustrated in the image below, a “standard" account uses its private spending key to authorize from its public address. A “rekeyed" account defines the authorized address that references a distinct "foreign” address and thus requires the private spending key(s) thereof to authorize future transactions.
 
-<figure>
-  <Image src={rekeyStandardAccount} alt='Rekey Standard Account' />
-  <figcaption>Figure: Rekey Standard Account</figcaption>
-</figure>
+<Figure src={rekeyStandardAccount} alt='Figure: Rekeying a Standard Account' />
 
 ### Standard Account
 
@@ -146,10 +144,7 @@ Below are a series of potential use cases for rekeying various accounts.
 
 The first scenario rekeys a single key account with address `A` to a distinct single key account with address `B`. This requires two single key accounts at time t0. The result from time t1 is that transactions for address `A` must be authorized by address `B`.
 
-<figure>
-  <Image src={rekeySingleSingle} alt='Rekey to Single Address' />
-  <figcaption>Figure: Rekeying to a Single Address</figcaption>
-</figure>
+<Figure src={rekeySingleSingle} alt='Figure: Rekeying to a Single Address' />
 
 #### Generate and Fund Accounts
 
@@ -251,10 +246,7 @@ This will succeed, sending the 100000 microAlgos from `$ADDR_A` to `$ADDR_B` usi
 
 The second scenario rekeys a single key account with public address `A` to a MultiSig address `BC_T1`. This scenario reuses both Accounts `A` and `B`, adds a third Account `C` and creates a MultiSig Account `BC_T1` comprised of addresses `B` and `C` with a threshold of 1\. The result will be the private spending key for `$ADDR_B` or `$ADDR_C` may authorize transaction from `$ADDR_A`.
 
-<figure>
-  <Image src={rekeySingleMulti} alt='Rekey to MultiSig Address' />
-  <figcaption>Figure: Rekeying to a Multisig Address</figcaption>
-</figure>
+<Figure src={rekeySingleMulti} alt='Figure: Rekeying to a MultiSig Address' />
 
 #### Generate Additional Account
 
