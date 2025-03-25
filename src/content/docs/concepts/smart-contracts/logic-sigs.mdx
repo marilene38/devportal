@@ -47,7 +47,7 @@ The third case pertains to **_Contract Accounts_**, where the program fully gove
 
 ## Computational Cost
 
-Smart contracts and logic signatures are also limited in opcode cost for optimal performance. This cost is evaluated when a smart contract runs and represents its computational expense. Every opcode executed by the AVM has a numeric value that represents its computational cost. Most opcodes have a computational cost of 1. Some, such as `SHA256` (cost 35) or `ed25519verify` (cost 1900) have substantially larger computational costs. The TEAL Opcodes( FUTURELINK: description ) reference lists the opcode cost for every opcode.
+Smart contracts and logic signatures are also limited in opcode cost for optimal performance. This cost is evaluated when a smart contract runs and represents its computational expense. Every opcode executed by the AVM has a numeric value that represents its computational cost. Most opcodes have a computational cost of 1. Some, such as `SHA256` (cost 35) or `ed25519verify` (cost 1900) have substantially larger computational costs. The [TEAL Opcodes reference](reference/algorand-teal/opcodes) lists the opcode cost for every opcode.
 Logic signatures are limited to 20,000 for total computational cost. In comparison, traditional applications can handle up to **_700 opcode cost per transaction_**, significantly increasing the computational flexibility, allowing for more complex operations per transaction than Algorand’s current limitations.
 
 ## Modes of Use
@@ -59,7 +59,7 @@ Logic signatures have two basic usage scenarios: as a **_contract account_** or 
 
 ### Contract Account
 
-For each unique compiled logic signature program there exists a single corresponding Algorand address, output by `goal clerk compile`. For more details, refer [here](FUTURELINK). To use a TEAL program as a contract account, send Algos to its address to turn it into an account on Algorand with a balance. Outwardly, this account looks no different from any other Algorand account and anyone can send it Algos or Algorand Standard Assets to increase its balance. The account differs in how it authenticates spends from it, in that the logic determines if the transaction is approved. To spend from a contract account, create a transaction that will evaluate True against the TEAL logic, then add the compiled TEAL code as its logic signature. It is worth noting that anyone can create and submit the transaction that spends from a contract account as long as they have the compiled TEAL contract to add as a logic signature.
+For each unique compiled logic signature program there exists a single corresponding Algorand address. To use a TEAL program as a contract account, send Algos to its address to turn it into an account on Algorand with a balance. Outwardly, this account looks no different from any other Algorand account and anyone can send it Algos or Algorand Standard Assets to increase its balance. The account differs in how it authenticates spends from it, in that the logic determines if the transaction is approved. To spend from a contract account, create a transaction that will evaluate True against the TEAL logic, then add the compiled TEAL code as its logic signature. It is worth noting that anyone can create and submit the transaction that spends from a contract account as long as they have the compiled TEAL contract to add as a logic signature.
 
 <Figure src={lsigsDiagram2} alt='Figure: TEAL Contract Account' />
 
@@ -68,8 +68,6 @@ For each unique compiled logic signature program there exists a single correspon
 Logic signatures can also be used to delegate signature authority, which means that a private key can sign a TEAL program and the resulting output can be used as a signature in transactions on behalf of the account associated with the private key. The owner of the delegated account can share this logic signature, allowing anyone to spend funds from his or her account according to the logic within the TEAL program. For example, if Alice wants to set up a recurring payment with her utility company for up to 200 Algos every 50000 rounds, she creates a TEAL contract that encodes this logic, signs it with her private key, and gives it to the utility company. The utility company uses that logic signature in the transaction they submit every 50000 rounds to collect payment from Alice. The logic signature can be produced from either a single or multi-signature account.
 
 <Figure src={lsigsDiagram3} alt='Figure: TEAL Delegated Signature' />
-
-For more information on how to sign using logic signatures refer to [signing using logic signatures](FUTURELINK)
 
 This contract can:
 
