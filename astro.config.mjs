@@ -54,6 +54,27 @@ export default defineConfig({
             'data-project-logo': '/algorand-logo.png',
           },
         },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image',
+            content: '/devportal-og.png',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image:width',
+            content: '1920',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image:height',
+            content: '1080',
+          },
+        },
       ],
       components: {
         Footer: './src/components/Footer.astro',
