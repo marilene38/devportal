@@ -330,7 +330,7 @@ export default defineConfig({
             },
             {
               label: 'Consensus Protocol',
-              collapsed: false,
+              collapsed: true,
               items: [
                 {
                   label: 'Overview',
