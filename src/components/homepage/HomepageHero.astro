@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-// import LaptopLightClip from '@images/laptop-light-clip.webm';
-// import LaptopDarkClip from '@images/laptop-dark-clip.webm';
+import LaptopLightClip from '@images/laptop-light-clip.webm';
+import LaptopDarkClip from '@images/laptop-dark-clip.webm';
 import LaptopLight from '@images/laptop-light.png';
 import LaptopDark from '@images/laptop-dark.png';
 import CtaButton from './CtaButton.astro';
@@ -18,7 +18,7 @@ const heroData = {
 ---
 
 <section
-  class='homepage-hero bg-white dark:bg-algo-navy my-8! lg:my-8! w-full min-h-[24rem]! lg:min-h-[38.5rem]!'
+  class='homepage-hero bg-white dark:bg-algo-navy my-8! lg:my-8! w-full min-h-[24rem]! lg:min-h-[38.5rem]!]'
 >
   <div
     class='max-w-(--breakpoint-home-container) lg:flex lg:flex-row-reverse lg:items-center mx-auto! px-5 md:px-9'
@@ -27,24 +27,29 @@ const heroData = {
       <Image
         src={LaptopLight}
         alt='laptop drawing in lavender outline'
-        class='dark:hidden mt-0! w-full h-auto'
+        class='dark:hidden mt-0! w-full h-auto block md:hidden'
       />
       <Image
         src={LaptopDark}
         alt='laptop drawing in white outline'
-        class='hidden! dark:block! mt-0! w-full h-auto'
+        class='hidden dark:block dark:md:hidden mt-0! w-full h-auto'
       />
-      <!-- <video muted autoplay loop class='dark:hidden mt-0! w-full h-auto'>
+      <video
+        muted
+        autoplay
+        loop
+        class='dark:hidden mt-0! w-full h-auto hidden md:block'
+      >
         <source src={LaptopLightClip} type='video/webm' />
       </video>
       <video
         muted
         autoplay
         loop
-        class='hidden! dark:block! mt-0! w-full h-auto'
+        class='hidden dark:md:block mt-0! w-full h-auto'
       >
         <source src={LaptopDarkClip} type='video/webm' />
-      </video> -->
+      </video>
     </div>
     <div class='mt-0! max-lg:mt-4! text-center lg:text-left lg:min-w-[36%]'>
       <h1
