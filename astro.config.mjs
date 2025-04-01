@@ -40,6 +40,16 @@ export default defineConfig({
               paths: ['reference/**'],
             },
             {
+              label: 'Typescript - Reference',
+              description: 'Algorand Developer Portal - Typescript Reference Docs',
+              paths: ['reference/algorand-typescript/**'],
+            },
+            {
+              label: 'Python - Reference',
+              description: 'Algorand Developer Portal - Python Reference Docs',
+              paths: ['reference/algorand-python/**'],
+            },
+            {
               label: 'Typescript',
               description: 'Algorand Developer Portal - Typescript Docs',
               paths: ['algokit/languages/typescript/**'],
