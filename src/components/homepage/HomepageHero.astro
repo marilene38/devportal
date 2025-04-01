@@ -2,6 +2,10 @@
 // import { Image } from 'astro:assets';
 // import LaptopLight from '@images/laptop-light.png';
 // import LaptopDark from '@images/laptop-dark.png';
+import LaptopLightClipMp4 from '@images/videos/laptop-light-clip.mp4';
+import LaptopDarkClipMp4 from '@images/videos/laptop-dark-clip.mp4';
+import LaptopLightClipWebm from '@images/videos/laptop-light-clip.webm';
+import LaptopDarkClipWebm from '@images/videos/laptop-dark-clip.webm';
 import CtaButton from './CtaButton.astro';
 
 const heroData = {
@@ -14,47 +18,6 @@ const heroData = {
   },
 };
 ---
-
-<script>
-  import LaptopLightClipWebm from '@images/videos/laptop-light-clip.webm';
-  import LaptopDarkClipWebm from '@images/videos/laptop-dark-clip.webm';
-  // @ts-expect-error this exists, but there's an error for some reason
-  import LaptopLightClipMov from '@images/videos/laptop-light-clip.mov';
-  // @ts-expect-error this exists, but there's an error for some reason
-  import LaptopDarkClipMov from '@images/videos/laptop-dark-clip.mov';
-
-  const supportsHEVCAlpha = () => {
-    const navigator = window.navigator;
-    const ua = navigator.userAgent.toLowerCase();
-    const hasMediaCapabilities = !!(
-      navigator.mediaCapabilities && navigator.mediaCapabilities.decodingInfo
-    );
-    const isSafari =
-      ua.indexOf('safari') != -1 &&
-      !(ua.indexOf('chrome') != -1) &&
-      ua.indexOf('version/') != -1;
-
-    return isSafari && hasMediaCapabilities;
-  };
-
-  const videoElLight: HTMLVideoElement | null = document.querySelector(
-    '#homepage-hero-video-light',
-  );
-  if (videoElLight !== null) {
-    videoElLight.src = supportsHEVCAlpha()
-      ? LaptopLightClipMov
-      : LaptopLightClipWebm;
-  }
-
-  const videoElDark: HTMLVideoElement | null = document.querySelector(
-    '#homepage-hero-video-dark',
-  );
-  if (videoElDark !== null) {
-    videoElDark.src = supportsHEVCAlpha()
-      ? LaptopDarkClipMov
-      : LaptopDarkClipWebm;
-  }
-</script>
 
 <section
   class='homepage-hero bg-white dark:bg-algo-navy my-8! lg:my-8! w-full min-h-[24rem]! lg:min-h-[38.5rem]!'
@@ -79,8 +42,9 @@ const heroData = {
         loop
         playsinline
         class='dark:hidden mt-0! w-full h-auto'
-        id='homepage-hero-video-light'
       >
+        <source src={LaptopLightClipMp4} type='video/mp4;codecs=hvc1' />
+        <source src={LaptopLightClipWebm} type='video/webm' />
       </video>
       <video
         muted
@@ -88,8 +52,9 @@ const heroData = {
         loop
         playsinline
         class='hidden! dark:block! mt-0! w-full h-auto'
-        id='homepage-hero-video-dark'
       >
+        <source src={LaptopDarkClipMp4} type='video/mp4;codecs=hvc1' />
+        <source src={LaptopDarkClipWebm} type='video/webm' />
       </video>
     </div>
     <div class='mt-0! max-lg:mt-4! text-center lg:text-left lg:min-w-[36%]'>
